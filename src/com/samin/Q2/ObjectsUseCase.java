@@ -17,5 +17,10 @@ public class ObjectsUseCase {
         // jdk1.7之后提供Objects工具包解决这个问题
         // Objects的equals方法是先判断入参是否为空，然后调用Object的equals方法进行比较
         System.out.println(Objects.equals(a, b));
+        System.out.println("-----------------------");
+        // 判断不为空
+        System.out.println(Objects.nonNull(a));
+        // 判断为空
+        System.out.println(Objects.isNull(a));
     }
 }
