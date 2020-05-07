@@ -10,5 +10,10 @@ public class StringEquals {
         System.out.println(System.identityHashCode("123"));
         System.out.println(System.identityHashCode(abc));
         System.out.println(System.identityHashCode(a));
+        System.out.println("------------------------");
+
+        // System.out.println(a.equals("123"));
+        // String类型变量可能会空指针，所以判断的时候可以用以下方式避免报错
+        System.out.println("123".equals(a));
     }
 }

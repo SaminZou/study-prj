@@ -2,6 +2,11 @@ package com.samin.Q7;
 
 import java.math.BigDecimal;
 
+/**
+ * double和float精度不准确的问题
+ * 使用java.math.BigDecimal解决
+ * 数据库中的浮点数，最好用字符型来存储，方便转换成BigDecimal
+ */
 public class FloatCalcError {
     public static void main(String[] args) {
         float a = 68399.22f;
