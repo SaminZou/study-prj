@@ -1,25 +1,21 @@
 package com.samin.Q13;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class SynchronizedUseCase {
     public static int sums = 0;
 
     // 1. 同步代码块
-    public void method(){
-        synchronized (this){
+    public void method() {
+        synchronized (this) {
             System.out.println("synchoronized 代码块");
         }
     }
 
     public static void main(String[] args) throws Exception {
-
-
-
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 for (int j = 0; j < 5000; j++) {
-                    synchronized (SynchronizedUseCase.class) { // 加锁控制
+                    // 加锁控制
+                    synchronized (SynchronizedUseCase.class) {
                         sums += 1;
                     }
                 }
