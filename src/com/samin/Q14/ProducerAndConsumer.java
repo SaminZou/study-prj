@@ -41,7 +41,6 @@ public class ProducerAndConsumer {
     }
 
     private static class Consumer implements Runnable {
-
         private Queue<Integer> queue;
         private int maxSize;
 
