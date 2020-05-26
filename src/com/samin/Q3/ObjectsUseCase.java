@@ -1,4 +1,4 @@
-package com.samin.Q2;
+package com.samin.Q3;
 
 import java.util.Objects;
 

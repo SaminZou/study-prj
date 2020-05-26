@@ -1,4 +1,4 @@
-package com.samin.Q11;
+package com.samin.Q4;
 
 public class SplitUseCase {
     public static void main(String[] args) {
