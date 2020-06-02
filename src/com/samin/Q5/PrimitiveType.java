@@ -17,7 +17,7 @@ public class PrimitiveType {
 
     public static void main(String[] args) {
         // Byte,Short,Integer,Long,Character,Boolean
-        // 默认创建了数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象
+        // 使用自动拆装箱声明变量，对数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象
         Integer i1 = 100;
         Integer i2 = 100;
         System.out.println(i1 == i2);  // true
