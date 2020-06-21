@@ -70,7 +70,7 @@ public class Q15 {
     }
 
     public static void main(String[] args) {
-        HashMap<String,String> newMap = new HashMap<>();
+        HashMap<String, String> newMap = new HashMap<>();
         System.out.println(newMap);
         Object lock = new Object();
         Queue queue = new Queue();
