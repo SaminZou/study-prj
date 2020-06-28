@@ -8,7 +8,7 @@
 # Q8 lambda表达式
 # Q9 Java正则
 # Q10 Unicode编码注释问题
-# Q11 Arrays.asList() 使用
+# Q11 Arrays类 使用
 # Q12 值传递
 # Q13 并发相关用例
 # Q14 wait/notify 实现的消息队列
@@ -16,4 +16,5 @@
 # Q16 获取键盘输入字符的方式
 # Q17 CountDownLatch 用例
 # Q18 观测CPU 100%运行
-
+# Q19 Comparable 和 Comparator 的区别
+# Q20 容器的遍历方法比较

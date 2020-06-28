@@ -2,7 +2,6 @@ package com.samin.Q11;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,20 +31,5 @@ public class ArraysUseCase {
         // 基本类型也可以实现转换
         int[] myArrays4 = {1, 2, 3};
         List myList5 = Arrays.stream(myArrays4).boxed().collect(Collectors.toList());
-
-        List<String> list = new ArrayList<>(Arrays.asList("a", "B", "c"));
-        for (String ele : list) {
-            if (ele.equals("c")) {
-                list.remove(ele);
-            }
-        }
-        // 应该使用迭代器删除
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            String ele = iterator.next();
-            if (ele.equals("c")) {
-                iterator.remove();
-            }
-        }
     }
 }
