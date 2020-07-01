@@ -1,18 +1,21 @@
 package com.samin.Q6;
 
-public class Singleton {
-    private volatile static Singleton uniqueInstance;
+/**
+ * 懒汉模式
+ */
+public class Singleton2 {
+    private volatile static Singleton2 uniqueInstance;
 
-    private Singleton() {
+    private Singleton2() {
     }
 
-    public static Singleton getUniqueInstance() {
+    public static Singleton2 getUniqueInstance() {
         //先判断对象是否已经实例过，没有实例化过才进入加锁代码
         if (uniqueInstance == null) {
             //类对象加锁
-            synchronized (Singleton.class) {
+            synchronized (Singleton2.class) {
                 if (uniqueInstance == null) {
-                    uniqueInstance = new Singleton();
+                    uniqueInstance = new Singleton2();
                 }
             }
         }
