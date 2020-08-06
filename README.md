@@ -26,3 +26,4 @@
 # Q21 标签，跳出多重循环
 # Q22 List相关
 # Q23 ScheduledThreadPoolExecutor 使用
+# Q24 泛型、Object、？ 的区别
