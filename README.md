@@ -1,7 +1,7 @@
 # 在java使用中，整理的一些问题
 
 > @author *samin* <br>
-> @date *2019-11-12*
+> @date *2019-11-**12*
 
 # Q1 读取中文字符乱码问题
 # Q2 System 类
@@ -27,3 +27,4 @@
 # Q22 List相关
 # Q23 ScheduledThreadPoolExecutor 使用
 # Q24 泛型、Object、？ 的区别
+# Q25 java.util.function
