@@ -2,32 +2,38 @@ package com.samin.Q18;
 
 import java.lang.management.ManagementFactory;
 
+/**
+ * 此模拟程序目的是为了观测多核 CPU 的运行负载情况
+ */
 public class Cpu100Run {
-    // 用于定时关闭程序，不然会一直让CPU 100%运行
-    // 记得家volatile，不然程序会失效，参考JMM的可见性
+    // 记得加 volatile，不然程序会失效，参考JMM的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据）
     public static volatile Boolean switchBool = true;
 
-    public static class ChangeSwitch implements Runnable {
-        @Override
-        public void run() {
-            try {
-                System.out.println("System running ...");
-                System.out.println("You can check the information by top command !");
-                // 保持10秒运行时间
-                Thread.sleep(10000);
-                // 关闭程序
-                switchBool = false;
-                System.out.println("stop ...");
-            } catch (Exception e) {
-            }
+    public static void main(String[] args) {
+        System.out.println("Running at pid:" + ManagementFactory.getRuntimeMXBean().getName());
+
+        // 建议设置不需要超过 `核数+1` ，次模拟基于 CPU密集型任务模型
+        runThread(6);
+
+        // 定时关闭程序
+        new Thread(new ChangeSwitch()).start();
+
+        while (switchBool) {}
+
+        System.out.println("program stop.");
+    }
+
+    private static void runThread(Integer nums) {
+        for (int i = 0; i < nums; i++) {
+            new Thread(new Running100Thread(), "100%Thread").start();
         }
     }
 
-    public static class Running100Thread implements Runnable {
+    private static class Running100Thread implements Runnable {
         @Override
         public void run() {
             System.out.println("thread :" + Thread.currentThread().getName() + " start.");
-            // 死循环，模拟CPU 100%运行
+            // 死循环，模拟 CPU 100%运行
             while (switchBool) {
                 int sum = 1 + 1;
             }
@@ -35,19 +41,21 @@ public class Cpu100Run {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Running at pid:" + ManagementFactory.getRuntimeMXBean().getName());
-
-        // 此行代码执行会让CPU使用率达到200%，得益于多核处理器，也可以复制多个，将会观测到更高的比例
-        new Thread(new Running100Thread(), "100%Thread").start();
-
-        // 定时关闭程序
-        new Thread(new ChangeSwitch()).start();
-
-        // 死循环，模拟CPU 100%运行
-        while (switchBool) {
-            int sum = 1 + 1;
+    // 定时关闭程序，否则模拟程序无法停止自动停止
+    private static class ChangeSwitch implements Runnable {
+        @Override
+        public void run() {
+            try {
+                System.out.println("System running ...");
+                System.out.println(
+                        "You can check the information by top command with -Hp parameter !");
+                // 保持10秒运行时间
+                Thread.sleep(100000);
+                // 关闭程序
+                switchBool = false;
+                System.out.println("stop ...");
+            } catch (Exception ignored) {
+            }
         }
-        System.out.println("program stop.");
     }
 }
