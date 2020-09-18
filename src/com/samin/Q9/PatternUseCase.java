@@ -4,9 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PatternUseCase {
-    /**
-     * 使用java的正则表达式，需要了解Pattern(模式类)和Matcher(匹配器类)
-     */
+    /** 使用java的正则表达式，需要了解Pattern(模式类)和Matcher(匹配器类) */
     public static void main(String[] args) {
         String str = "822085977@!qq.(com)";
         String regEx = "[`~!#$%^&*()+=|{}':;',\\[\\]<>/?~！#￥%……&*（）——+|{}【】‘；：”“’。，、？]";

@@ -4,9 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-/**
- * 使用wait和notifyAll实现的消息队列
- */
+/** 使用wait和notifyAll实现的消息队列 */
 public class ProducerAndConsumer {
     private static class Producer implements Runnable {
 

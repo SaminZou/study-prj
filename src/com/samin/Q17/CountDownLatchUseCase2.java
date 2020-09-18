@@ -37,7 +37,6 @@ public class CountDownLatchUseCase2 {
             this.latch = latch;
         }
 
-
         @Override
         public void run() {
             try {
@@ -56,7 +55,6 @@ public class CountDownLatchUseCase2 {
         Alert(CountDownLatch latch) {
             this.latch = latch;
         }
-
 
         @Override
         public void run() {

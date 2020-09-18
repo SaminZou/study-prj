@@ -30,14 +30,14 @@ public class STPEUseCase {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // Callable 接口任务 需要 FutureTask
-//        Callable<String> task = new CallableWorker(1, 2);
-//        FutureTask<String> ft = new FutureTask<>(task);
-//        new Thread(ft).start();
-//        System.out.println(ft.get());
+        //        Callable<String> task = new CallableWorker(1, 2);
+        //        FutureTask<String> ft = new FutureTask<>(task);
+        //        new Thread(ft).start();
+        //        System.out.println(ft.get());
 
         // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用corePoolSize
-        ExecutorService threadPool = new ThreadPoolExecutor(10, 50, 10,
-                TimeUnit.SECONDS, new LinkedBlockingDeque<>(10));
+        ExecutorService threadPool =
+                new ThreadPoolExecutor(10, 50, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>(10));
 
         System.out.println("-------------------------------------------------------------------");
 

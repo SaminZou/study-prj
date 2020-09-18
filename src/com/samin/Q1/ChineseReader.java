@@ -40,6 +40,5 @@ public class ChineseReader {
         while ((line = br.readLine()) != null) {
             System.out.println(line);
         }
-
     }
 }

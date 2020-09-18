@@ -13,17 +13,18 @@ public class LambdaInfImpl {
         // Lambda 规定接口中只能有一个需要被实现的方法，不是规定接口中只能有一个方法，
         // 但是default修饰的方法不影响
         LambdaInf lambdaInf = (param) -> System.out.println(param);
-//        LambdaInf lambdaInf = System.out::println; // 更简单的表达式
+        //        LambdaInf lambdaInf = System.out::println; // 更简单的表达式
 
         lambdaInf.actionUtils();
         lambdaInf.action("lambda use case ! ");
         System.out.println("-------------------------------");
 
         // 多参数，切有返回值
-        LambdaInf2 lambdaInf2 = (x, y) -> {
-            return Integer.sum(x, y);
-        };
-//        LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
+        LambdaInf2 lambdaInf2 =
+                (x, y) -> {
+                    return Integer.sum(x, y);
+                };
+        //        LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
         System.out.println(lambdaInf2.sum(10, 20));
         System.out.println("-----------------------------");
 
@@ -42,9 +43,10 @@ public class LambdaInfImpl {
         list.add("2e");
         list.add("a");
         // 根据条件删除
-        list.removeIf(ele -> {
-            return ele.equals("a");
-        });
+        list.removeIf(
+                ele -> {
+                    return ele.equals("a");
+                });
         // 排序
         list.sort(Comparator.comparingInt(e -> e.charAt(0)));
         //        list.sort(Comparator.comparingInt(e -> e.charAt(0))); // 更简便的写法

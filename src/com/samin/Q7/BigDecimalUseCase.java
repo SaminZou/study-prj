@@ -31,6 +31,5 @@ public class BigDecimalUseCase {
 
         // 求余 divideAndRemainder
         System.out.println(Arrays.toString(a.divideAndRemainder(b))); // [1 , 1] 第一位为商，第二位为余数
-
     }
 }

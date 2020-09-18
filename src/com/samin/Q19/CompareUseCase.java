@@ -25,10 +25,12 @@ public class CompareUseCase {
         System.out.println("原始列表：" + list);
 
         // 使用Comparator
-        Collections.sort(list, (e1, e2) -> {
-            System.out.println("使用 Comparator 接口实现方法排序");
-            return e1.weight - e2.weight;
-        });
+        Collections.sort(
+                list,
+                (e1, e2) -> {
+                    System.out.println("使用 Comparator 接口实现方法排序");
+                    return e1.weight - e2.weight;
+                });
         System.out.println("Comparator排序后：" + list);
 
         // 使用TreeMap，使用到了Comparable实现的方法

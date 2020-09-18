@@ -1,8 +1,7 @@
 package com.samin.Q6;
 
 public class Singleton3 {
-    private Singleton3() {
-    }
+    private Singleton3() {}
 
     public enum SingletonEnum {
         // 创建一个枚举对象，该对象天生为单例

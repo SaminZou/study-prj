@@ -1,7 +1,5 @@
 package com.samin.Q21;
 
-import com.samin.Q6.Singleton3;
-
 public class LabelUseCase {
     public static void main(String[] args) {
         // 标签名可以随意定义，用于和 break 搭配，跳出多重循环

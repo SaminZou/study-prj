@@ -20,7 +20,7 @@ public class PrimitiveType {
         // 使用自动拆装箱声明变量，对数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象
         Integer i1 = 100;
         Integer i2 = 100;
-        System.out.println(i1 == i2);  // true
+        System.out.println(i1 == i2); // true
         Integer i3 = 400;
         Integer i4 = 400;
         System.out.println(i3 == i4); // false
@@ -60,8 +60,8 @@ public class PrimitiveType {
         String newStr1 = new String("计算机");
         String newStr2 = newStr1.intern();
         String newStr3 = "计算机";
-        System.out.println(newStr1 == newStr2);//false，因为一个是堆内存中的String对象一个是常量池中的String对象，
-        System.out.println(newStr3 == newStr2);//true，因为两个都是常量池中的String对象
+        System.out.println(newStr1 == newStr2); // false，因为一个是堆内存中的String对象一个是常量池中的String对象，
+        System.out.println(newStr3 == newStr2); // true，因为两个都是常量池中的String对象
 
         // String s1 = new String("xyz"); 创建了几个对象？
         // 类加载阶段会放一份到字符串常量池

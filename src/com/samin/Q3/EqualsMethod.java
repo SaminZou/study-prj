@@ -76,9 +76,9 @@ public class EqualsMethod {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             User user = (User) o;
-            return super.age == user.age &&
-                    Objects.equals(super.name, user.name) &&
-                    Objects.equals(super.phone, user.phone);
+            return super.age == user.age
+                    && Objects.equals(super.name, user.name)
+                    && Objects.equals(super.phone, user.phone);
         }
 
         @Override

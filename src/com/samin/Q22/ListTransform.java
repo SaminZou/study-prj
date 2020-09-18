@@ -23,10 +23,10 @@ public class ListTransform {
         // int[] -> Integer[]
         Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
 
-        //Integer[] -> int[]
+        // Integer[] -> int[]
         int[] ints1 = Arrays.stream(integers1).mapToInt(Integer::valueOf).toArray();
 
-        //Integer[] -> List<Integer>
+        // Integer[] -> List<Integer>
         List<Integer> integers2 = new ArrayList<>(Arrays.asList(integers1));
     }
 }

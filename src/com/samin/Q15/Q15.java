@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * 使用wait/notify
- */
+/** 使用wait/notify */
 public class Q15 {
     private static class Queue {
         List<Integer> list;
