@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class NumWays {
+
     public int numWays(int n) {
         int q, p = 0;
         int r = 1;

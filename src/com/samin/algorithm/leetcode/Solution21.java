@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class Solution21 {
+
     public int fib(int N) {
         if (N == 0) {
             return 0;

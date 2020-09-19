@@ -1,8 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class Add {
+
     public int add(int a, int b) {
-        while (b != 0) { // 直到无进位结束算法
+        // 直到无进位结束算法
+        while (b != 0) {
             int tmp = a ^ b; // 无进位的加法运算
             b = (a & b) << 1; // 计算出进位左移一位做下一轮加法
             a = tmp;

@@ -1,7 +1,8 @@
-package com.samin.project.template;
+package com.samin.designpattern.template;
 
 // 密码开锁的单车
 public class CodeBicycle extends AbstractClass {
+
     @Override
     protected void unlock() {
         System.out.println("========" + "密码开锁" + "========");

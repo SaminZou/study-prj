@@ -1,10 +1,11 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class Solution14 {
+
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         // 特殊情况处理
         if (l1 == null && l2 == null) {

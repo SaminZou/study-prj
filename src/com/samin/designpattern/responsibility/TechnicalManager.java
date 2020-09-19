@@ -1,6 +1,7 @@
-package com.samin.project.responsibility;
+package com.samin.designpattern.responsibility;
 
 public class TechnicalManager extends Handler {
+
     public TechnicalManager() {
         super(1);
     }

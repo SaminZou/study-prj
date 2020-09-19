@@ -1,6 +1,6 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

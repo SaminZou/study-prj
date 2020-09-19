@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class Solution12 {
+
     public ListNode getKthFromEnd(ListNode head, int k) {
         if (head == null) { // 特殊情况
             return null;

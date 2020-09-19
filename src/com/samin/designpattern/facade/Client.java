@@ -1,11 +1,10 @@
-package com.samin.project.facade;
+package com.samin.designpattern.facade;
 
-/**
- * 外观模式
- */
+/** 外观模式 */
 public class Client {
+
     public static void main(String[] args) {
-        //实例化组件
+        // 实例化组件
         Light light = new Light();
         Television tv = new Television();
         AirCondition ac = new AirCondition();

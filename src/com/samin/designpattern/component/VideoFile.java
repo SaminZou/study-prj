@@ -1,6 +1,7 @@
-package com.samin.project.component;
+package com.samin.designpattern.component;
 
 public class VideoFile extends File {
+
     public VideoFile(String name) {
         super(name);
     }

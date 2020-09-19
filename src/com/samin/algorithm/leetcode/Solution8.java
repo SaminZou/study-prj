@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class Solution8 {
+
     public String reverseLeftWords(String s, int n) {
         if (s.length() == 0 || n == 0) { // 特殊情况
             return s;

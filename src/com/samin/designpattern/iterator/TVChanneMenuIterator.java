@@ -1,8 +1,9 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 import java.util.List;
 
 public class TVChanneMenuIterator implements Iterator {
+
     List<MenuItem> menuItems;
     int position = 0;
 

@@ -1,6 +1,7 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 public class MulNode extends SymbolNode {
+
     public MulNode(Node left, Node right) {
         super(left, right);
     }

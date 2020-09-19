@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class DefangIPaddr {
+
     public String defangIPaddr(String address) {
         char[] addressChars = address.toCharArray();
         char[] newChars = new char[address.length() + 6];

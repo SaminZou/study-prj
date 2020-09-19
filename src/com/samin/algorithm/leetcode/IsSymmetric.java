@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class IsSymmetric {
+
     public boolean isSymmetric(TreeNode root) {
         return isSymmetric(root, root);
     }
@@ -17,14 +18,12 @@ public class IsSymmetric {
             return false;
         }
 
-        return left.val == right.val &&
-                isSymmetric(left.left, right.right) &&
-                isSymmetric(left.right, right.left);
+        return left.val == right.val
+                && isSymmetric(left.left, right.right)
+                && isSymmetric(left.right, right.left);
     }
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 
     private static class TreeNode {
         int val;

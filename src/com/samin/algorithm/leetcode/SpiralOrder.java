@@ -1,16 +1,15 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class SpiralOrder {
+
     public int[] spiralOrder(int[][] matrix) {
         List<Integer> resultList = new ArrayList<>();
         if (matrix.length == 0) {
-            return resultList.stream().
-                    mapToInt(Integer::intValue).
-                    toArray();
+            return resultList.stream().mapToInt(Integer::intValue).toArray();
         }
 
         int left = 0;
@@ -53,13 +52,11 @@ public class SpiralOrder {
             }
         }
 
-        return resultList.stream().
-                mapToInt(Integer::intValue).
-                toArray();
+        return resultList.stream().mapToInt(Integer::intValue).toArray();
     }
 
     public static void main(String[] args) {
-//        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        //        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
         int[][] matrix = {};
         System.out.println(Arrays.toString(new SpiralOrder().spiralOrder(matrix)));
     }

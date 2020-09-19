@@ -1,11 +1,12 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class GenerateTrees {
+
     public List<TreeNode> generateTrees(int n) {
         if (n == 0) { // 因为是是1开始，所以 '0' 条件为空值
             return new LinkedList<>();
@@ -42,36 +43,36 @@ public class GenerateTrees {
 
         return res;
     }
-//    public List<TreeNode> generateTrees(int n) {
-//        if (n == 0) {
-//            return new LinkedList<>();
-//        }
-//
-//        return generate(1, n);
-//    }
-//
-//    private List<TreeNode> generate(int start, int end) {
-//        List<TreeNode> res = new LinkedList<>();
-//
-//        if (start > end) {
-//            res.add(null);
-//            return res;
-//        }
-//
-//        for (int i = start; i <= end; i++) {
-//            List<TreeNode> leftSide = generate(start, i - 1);
-//            List<TreeNode> rightSide = generate(i + 1, end);
-//
-//            for (TreeNode lEle : leftSide) {
-//                for (TreeNode rEle : rightSide) {
-//                    TreeNode treeNode = new TreeNode(i, lEle, rEle);
-//                    res.add(treeNode);
-//                }
-//            }
-//        }
-//
-//        return res;
-//    }
+    //    public List<TreeNode> generateTrees(int n) {
+    //        if (n == 0) {
+    //            return new LinkedList<>();
+    //        }
+    //
+    //        return generate(1, n);
+    //    }
+    //
+    //    private List<TreeNode> generate(int start, int end) {
+    //        List<TreeNode> res = new LinkedList<>();
+    //
+    //        if (start > end) {
+    //            res.add(null);
+    //            return res;
+    //        }
+    //
+    //        for (int i = start; i <= end; i++) {
+    //            List<TreeNode> leftSide = generate(start, i - 1);
+    //            List<TreeNode> rightSide = generate(i + 1, end);
+    //
+    //            for (TreeNode lEle : leftSide) {
+    //                for (TreeNode rEle : rightSide) {
+    //                    TreeNode treeNode = new TreeNode(i, lEle, rEle);
+    //                    res.add(treeNode);
+    //                }
+    //            }
+    //        }
+    //
+    //        return res;
+    //    }
 
     public static void main(String[] args) {
         List<TreeNode> linkedList = new GenerateTrees().generateTrees(3);

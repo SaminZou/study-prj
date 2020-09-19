@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class LongestCommonPrefix {
+
     public String longestCommonPrefix(String[] strs) {
         // 等于0和1的特殊情况
         if (strs.length == 0) {
@@ -42,14 +43,12 @@ public class LongestCommonPrefix {
     }
 
     public static void main(String[] args) {
-//        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
-//                "flower", "flow", "flight"
-//        }));
-//        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
-//                "dog", "racecar", "car"
-//        }));
-        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
-                "ca", "a"
-        }));
+        //        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
+        //                "flower", "flow", "flight"
+        //        }));
+        //        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
+        //                "dog", "racecar", "car"
+        //        }));
+        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[] {"ca", "a"}));
     }
 }

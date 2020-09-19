@@ -1,4 +1,4 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class CanMakeArithmeticProgression {
     public boolean canMakeArithmeticProgression(int[] arr) {
@@ -9,8 +9,7 @@ public class CanMakeArithmeticProgression {
         quickSort(arr, 0, arr.length - 1);
         int index = arr[1] - arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (i != arr.length - 1
-                    && arr[i + 1] - arr[i] != index) {
+            if (i != arr.length - 1 && arr[i + 1] - arr[i] != index) {
                 return false;
             }
         }
@@ -48,14 +47,14 @@ public class CanMakeArithmeticProgression {
     }
 
     public static void main(String[] args) {
-        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(
-                new int[]{3, 5, 1}
-        ));
-        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(
-                new int[]{5, 3, 1}
-        ));
-        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(
-                new int[]{1, 2, 4}
-        ));
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {3, 5, 1}));
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {5, 3, 1}));
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {1, 2, 4}));
     }
 }

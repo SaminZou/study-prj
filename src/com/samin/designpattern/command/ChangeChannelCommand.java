@@ -1,6 +1,7 @@
-package com.samin.project.command;
+package com.samin.designpattern.command;
 
 public class ChangeChannelCommand implements Command {
+
     private Television tv;
 
     public ChangeChannelCommand() {

@@ -1,10 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.ListNode;
-
-import java.util.List;
+import com.samin.algorithm.base.ListNode;
 
 public class DeleteNode2 {
+
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;

@@ -1,6 +1,7 @@
-package com.samin.project.responsibility;
+package com.samin.designpattern.responsibility;
 
 public class Demand {
+
     private int level;
     private String detail;
 

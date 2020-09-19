@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 
 public class CountBinarySubstrings {
+
     public int countBinarySubstrings(String s) {
         ArrayList<Integer> counts = new ArrayList<>();
 
@@ -19,16 +20,14 @@ public class CountBinarySubstrings {
 
         int res = 0;
         for (int i = 1; i < counts.size(); i++) {
-            res = res + Math.min(counts.get(i-1),counts.get(i));
+            res = res + Math.min(counts.get(i - 1), counts.get(i));
         }
 
         return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(new CountBinarySubstrings()
-                .countBinarySubstrings("00110011"));
-        System.out.println(new CountBinarySubstrings()
-                .countBinarySubstrings("10101"));
+        System.out.println(new CountBinarySubstrings().countBinarySubstrings("00110011"));
+        System.out.println(new CountBinarySubstrings().countBinarySubstrings("10101"));
     }
 }

@@ -1,9 +1,10 @@
-package com.samin.project.responsibility;
+package com.samin.designpattern.responsibility;
 
 /*
-* 责任链模式
-* */
+ * 责任链模式
+ * */
 public class Client {
+
     public static void main(String[] args) {
         Demand demandA = new Demand(1, "加个按钮"); // 请求等级低
         Demand demandB = new Demand(2, "重构代码"); // 请求等级高

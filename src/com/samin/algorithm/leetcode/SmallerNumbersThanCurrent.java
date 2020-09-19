@@ -1,9 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 
 public class SmallerNumbersThanCurrent {
     public int[] smallerNumbersThanCurrent(int[] nums) {
@@ -53,13 +51,20 @@ public class SmallerNumbersThanCurrent {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(
-                new int[]{})));
-        System.out.println(Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(
-                new int[]{8, 1, 2, 2, 3})));
-        System.out.println(Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(
-                new int[]{6, 5, 4, 8})));
-        System.out.println(Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(
-                new int[]{7, 7, 7, 7})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[] {})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {8, 1, 2, 2, 3})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {6, 5, 4, 8})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {7, 7, 7, 7})));
     }
 }

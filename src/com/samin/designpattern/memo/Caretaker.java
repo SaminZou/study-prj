@@ -1,6 +1,7 @@
-package com.samin.project.memo;
+package com.samin.designpattern.memo;
 
 public class Caretaker {
+
     Memento memento;
 
     public Memento getMemento() {

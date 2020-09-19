@@ -1,10 +1,11 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 import java.util.ArrayList;
 
 public class IsSameTree {
+
     public boolean isSameTree(TreeNode p, TreeNode q) {
         ArrayList<Integer> pVals = new ArrayList<>();
         ArrayList<Integer> qVals = new ArrayList<>();
@@ -39,7 +40,7 @@ public class IsSameTree {
         TreeNode t1 = new TreeNode(1);
         TreeNode t2 = new TreeNode(-685);
         TreeNode t3 = new TreeNode(3);
-//        t1.left = t2;
+        //        t1.left = t2;
         t1.right = t3;
 
         TreeNode t4 = new TreeNode(1);

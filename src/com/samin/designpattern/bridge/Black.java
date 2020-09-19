@@ -1,7 +1,8 @@
-package com.samin.project.bridge;
+package com.samin.designpattern.bridge;
 
 public class Black implements Color {
-    public void bepaint(String shape) {
+
+    public void paint(String shape) {
         System.out.println("黑色的" + shape);
     }
 }

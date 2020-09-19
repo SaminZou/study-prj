@@ -1,6 +1,7 @@
-package com.samin.project.state;
+package com.samin.designpattern.state;
 
 public class Client {
+
     public static void main(String[] args) {
         Context context = new Context();
         context.setBaseState(new ClosingState());

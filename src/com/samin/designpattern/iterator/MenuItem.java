@@ -1,6 +1,7 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 public class MenuItem {
+
     private String name;
     private String description;
     private int channe;

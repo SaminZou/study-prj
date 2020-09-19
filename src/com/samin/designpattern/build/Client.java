@@ -1,9 +1,10 @@
-package com.samin.project.build;
+package com.samin.designpattern.build;
 
 /*
-* 建造者模式
-* */
+ * 建造者模式
+ * */
 public class Client {
+
     public static void main(String[] args) {
         // 兰博基尼
         IBuilder builderA = new BuilderA();

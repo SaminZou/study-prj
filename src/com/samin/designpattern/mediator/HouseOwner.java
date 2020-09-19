@@ -1,6 +1,7 @@
-package com.samin.project.mediator;
+package com.samin.designpattern.mediator;
 
 public class HouseOwner extends Person {
+
     HouseOwner(String name, Mediator mediator) {
         super(name, mediator);
     }

@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solution20 {
+
     public String reverseWords(String s) {
         // 特殊情况
         if (null == s || s.length() == 0) {
@@ -35,10 +36,10 @@ public class Solution20 {
     }
 
     public static void main(String[] args) {
-//        System.out.println(new Solution20().reverseWords("the sky is blue."));
-//        System.out.println(new Solution20().reverseWords(" hello world!"));
-//        System.out.println(new Solution20().reverseWords("  hello   world!"));
-//        System.out.println(new Solution20().reverseWords("a good    example"));
+        //        System.out.println(new Solution20().reverseWords("the sky is blue."));
+        //        System.out.println(new Solution20().reverseWords(" hello world!"));
+        //        System.out.println(new Solution20().reverseWords("  hello   world!"));
+        //        System.out.println(new Solution20().reverseWords("a good    example"));
         System.out.println(new Solution20().reverseWords(" "));
     }
 }

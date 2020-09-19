@@ -1,6 +1,7 @@
-package com.samin.project.strategy;
+package com.samin.designpattern.strategy;
 
 public class ConcreteStrategyB implements Strategy {
+
     @Override
     public void algorithmLogic() {
         // 赢

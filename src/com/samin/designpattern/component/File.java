@@ -1,6 +1,7 @@
-package com.samin.project.component;
+package com.samin.designpattern.component;
 
 public abstract class File {
+
     String name;
 
     public File(String name) {

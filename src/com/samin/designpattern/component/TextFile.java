@@ -1,6 +1,7 @@
-package com.samin.project.component;
+package com.samin.designpattern.component;
 
 public class TextFile extends File {
+
     public TextFile(String name) {
         super(name);
     }

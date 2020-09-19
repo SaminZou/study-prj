@@ -1,6 +1,7 @@
-package com.samin.project.command;
+package com.samin.designpattern.command;
 
 public class Television {
+
     public void open() {
         System.out.println("打开电视机......");
     }

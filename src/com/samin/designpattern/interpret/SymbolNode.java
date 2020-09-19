@@ -1,6 +1,7 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 public abstract class SymbolNode implements Node {
+
     protected Node left;
     protected Node right;
 

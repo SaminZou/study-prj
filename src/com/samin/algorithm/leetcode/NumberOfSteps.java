@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class NumberOfSteps {
+
     public int numberOfSteps(int num) {
         int result = 0;
         while (num != 0) {

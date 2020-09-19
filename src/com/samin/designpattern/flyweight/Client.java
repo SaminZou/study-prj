@@ -1,9 +1,8 @@
-package com.samin.project.flyweight;
+package com.samin.designpattern.flyweight;
 
-/**
- * 享元模式
- */
+/** 享元模式 */
 public class Client {
+
     public static void main(String[] args) {
         Shape shape1 = FlyweightFactory.getShape("红色");
         shape1.draw();

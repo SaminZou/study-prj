@@ -1,6 +1,7 @@
-package com.samin.project.proxy2;
+package com.samin.designpattern.proxy2;
 
 public class Agent implements Subject {
+
     private Subject star;
 
     Agent(Subject star) {

@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class Solution16 {
+
     public int majorityElement(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -31,9 +32,9 @@ public class Solution16 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution16()
-                .majorityElement(new int[]{1, 2, 3, 2, 2, 2, 5, 4, 2}));
-        System.out.println(new Solution16()
-                .majorityElement(new int[]{1, 1, 1, 2, 10, 2, 9, 2, 5, 4, 2, 11, 3}));
+        System.out.println(new Solution16().majorityElement(new int[] {1, 2, 3, 2, 2, 2, 5, 4, 2}));
+        System.out.println(
+                new Solution16()
+                        .majorityElement(new int[] {1, 1, 1, 2, 10, 2, 9, 2, 5, 4, 2, 11, 3}));
     }
 }

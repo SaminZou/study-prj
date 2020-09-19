@@ -1,6 +1,7 @@
-package com.samin.project.visitor;
+package com.samin.designpattern.visitor;
 
 public class MedicineA extends Medicine {
+
     public MedicineA(String name, double price) {
         super(name, price);
     }

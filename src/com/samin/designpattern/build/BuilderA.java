@@ -1,6 +1,7 @@
-package com.samin.project.build;
+package com.samin.designpattern.build;
 
 public class BuilderA implements IBuilder {
+
     private Production production = new Production();
 
     @Override

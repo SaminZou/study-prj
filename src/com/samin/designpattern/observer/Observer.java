@@ -1,6 +1,7 @@
-package com.samin.project.observer;
+package com.samin.designpattern.observer;
 
 public interface Observer {
+
     String getName();
 
     /**

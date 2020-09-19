@@ -1,9 +1,8 @@
-package com.samin.project.command;
+package com.samin.designpattern.command;
 
-/**
- * 命令模式
- */
+/** 命令模式 */
 public class Client {
+
     public static void main(String a[]) {
         Command openCommand, closeCommand, changeCommand;
 
@@ -13,12 +12,12 @@ public class Client {
 
         Controller control = new Controller(openCommand, closeCommand, changeCommand);
 
-        control.open();           //打开电视机
-        control.change();         //换频道
+        control.open(); // 打开电视机
+        control.change(); // 换频道
         control.change();
         control.ChannelUndo();
         control.ChannelUndo();
         control.ChannelUndo();
-        control.close();          //关闭电视机
+        control.close(); // 关闭电视机
     }
 }

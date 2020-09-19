@@ -1,11 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
-/**
- * 此题最佳解是中序遍历逆排序
- */
+/** 此题最佳解是中序遍历逆排序 */
 public class KthLargest {
+
     public int kthLargest(TreeNode root, int k) {
         int res = 0;
 
@@ -78,14 +77,14 @@ public class KthLargest {
     }
 
     public static void main(String[] args) {
-//        TreeNode t1 = new TreeNode(1);
-//        TreeNode t2 = new TreeNode(2);
-//        TreeNode t3 = new TreeNode(3);
-//        TreeNode t4 = new TreeNode(4);
-//        t3.left = t1;
-//        t3.right = t4;
-//        t1.right = t2;
-//        System.out.println(new KthLargest().kthLargest(t3, 1));
+        //        TreeNode t1 = new TreeNode(1);
+        //        TreeNode t2 = new TreeNode(2);
+        //        TreeNode t3 = new TreeNode(3);
+        //        TreeNode t4 = new TreeNode(4);
+        //        t3.left = t1;
+        //        t3.right = t4;
+        //        t1.right = t2;
+        //        System.out.println(new KthLargest().kthLargest(t3, 1));
 
         TreeNode t1 = new TreeNode(1);
         TreeNode t2 = new TreeNode(2);

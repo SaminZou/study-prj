@@ -1,8 +1,8 @@
-package com.samin.project.factory;
+package com.samin.designpattern.factory;
 
 /*
-* 工厂模式
-* */
+ * 工厂模式
+ * */
 public class Client {
     public static void main(String[] args) {
         // 生产雪糕

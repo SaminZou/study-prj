@@ -1,15 +1,12 @@
-package com.samin.project.observer;
+package com.samin.designpattern.observer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 参与游戏者
- */
+/** 参与游戏者 */
 public abstract class Subject {
-    /**
-     * 观察者对象的集合
-     */
+
+    /** 观察者对象的集合 */
     private List<Observer> observerList = new ArrayList<>();
 
     /**
@@ -32,9 +29,7 @@ public abstract class Subject {
         System.out.println("删除了观察者：" + observer.getName());
     }
 
-    /**
-     * 通知所有观察者
-     */
+    /** 通知所有观察者 */
     public void notifyObserver() {
         for (Observer observer : observerList) {
             observer.update("停止运动！");

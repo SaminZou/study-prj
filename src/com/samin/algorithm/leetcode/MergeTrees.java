@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 public class MergeTrees {
+
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         if (t1 == null && t2 != null) {
             t1 = new TreeNode(0);

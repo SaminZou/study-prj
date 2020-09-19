@@ -1,6 +1,7 @@
-package com.samin.project.visitor;
+package com.samin.designpattern.visitor;
 
 public abstract class Medicine {
+
     protected String name;
     protected double price;
 

@@ -1,6 +1,6 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Queue;
 
 class Soution2 {
+
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> resultList = new ArrayList<>();
         if (root == null) {

@@ -1,6 +1,7 @@
-package com.samin.project.component;
+package com.samin.designpattern.component;
 
 public class ImagerFile extends File {
+
     public ImagerFile(String name) {
         super(name);
     }

@@ -1,6 +1,7 @@
-package com.samin.project.responsibility;
+package com.samin.designpattern.responsibility;
 
 public abstract class Handler {
+
     private Handler nextHandler;
     private int level;
 

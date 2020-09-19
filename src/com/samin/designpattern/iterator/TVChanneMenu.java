@@ -1,14 +1,13 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TVChanneMenu implements TelevisionMenu {
+
     List<MenuItem> menuItems;
 
-    /**
-     * 构造函数完成初始化
-     */
+    /** 构造函数完成初始化 */
     public TVChanneMenu() {
         menuItems = new ArrayList<MenuItem>();
         addItem(1, "CCTV-1", "This is CCTV-1");
@@ -19,8 +18,8 @@ public class TVChanneMenu implements TelevisionMenu {
     }
 
     /**
-     * @param channe      频道
-     * @param name        名称
+     * @param channe 频道
+     * @param name 名称
      * @param description 描述
      * @return void
      * @desc 将电视频道节目添加菜单集合中

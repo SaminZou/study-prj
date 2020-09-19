@@ -1,6 +1,7 @@
-package com.samin.project.facade;
+package com.samin.designpattern.facade;
 
 public class WatchTvSwtichFacade {
+
     Light light;
     AirCondition ac;
     Television tv;
@@ -14,16 +15,16 @@ public class WatchTvSwtichFacade {
     }
 
     public void on() {
-        light.on();       //首先开灯
-        ac.on();          //然后是打开空调
-        screen.down();    //把银幕降下来
-        tv.on();          //最后是打开电视
+        light.on(); // 首先开灯
+        ac.on(); // 然后是打开空调
+        screen.down(); // 把银幕降下来
+        tv.on(); // 最后是打开电视
     }
 
     public void off() {
-        tv.off();         //首先关闭电视机
-        screen.up();      //银幕升上去
-        ac.off();         //空调关闭
-        light.off();      //最后关灯
+        tv.off(); // 首先关闭电视机
+        screen.up(); // 银幕升上去
+        ac.off(); // 空调关闭
+        light.off(); // 最后关灯
     }
 }

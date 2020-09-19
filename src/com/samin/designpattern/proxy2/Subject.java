@@ -1,7 +1,8 @@
-package com.samin.project.proxy2;
+package com.samin.designpattern.proxy2;
 
 public interface Subject {
-    public void movie();
 
-    public Agent getAgent();
+    void movie();
+
+    Agent getAgent();
 }

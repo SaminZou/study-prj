@@ -1,6 +1,7 @@
-package com.samin.project.prototype;
+package com.samin.designpattern.prototype;
 
 public class AreaDeep implements Cloneable {
+
     // 钞票单位
     private String unit;
 

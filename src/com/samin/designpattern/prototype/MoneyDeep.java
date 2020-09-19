@@ -1,8 +1,9 @@
-package com.samin.project.prototype;
+package com.samin.designpattern.prototype;
 
 import java.io.Serializable;
 
 public class MoneyDeep implements Cloneable, Serializable {
+
     private int faceValue;
 
     private AreaDeep areaDeep;
@@ -31,7 +32,7 @@ public class MoneyDeep implements Cloneable, Serializable {
     @Override
     protected MoneyDeep clone() throws CloneNotSupportedException {
         MoneyDeep cloneMoney = (MoneyDeep) super.clone();
-        cloneMoney.areaDeep = this.areaDeep.clone();  // 增加Area的拷贝
+        cloneMoney.areaDeep = this.areaDeep.clone(); // 增加Area的拷贝
         return cloneMoney;
     }
 }

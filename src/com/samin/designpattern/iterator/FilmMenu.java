@@ -1,13 +1,12 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 public class FilmMenu implements TelevisionMenu {
-    static final int MAX_ITEMS = 5;    //菜单最大长度
+
+    static final int MAX_ITEMS = 5; // 菜单最大长度
     MenuItem[] menuItems;
     int numberOfItems = 0;
 
-    /**
-     * 构造函数完成初始化
-     */
+    /** 构造函数完成初始化 */
     public FilmMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
 
@@ -27,7 +26,7 @@ public class FilmMenu implements TelevisionMenu {
      */
     public void addItem(int channe, String name, String description) {
         MenuItem tvmenuiItem = new MenuItem(channe, name, description);
-        //判断数组是否越界
+        // 判断数组是否越界
         if (numberOfItems > MAX_ITEMS) {
             System.out.println("不好意思，菜单满了....");
         } else {

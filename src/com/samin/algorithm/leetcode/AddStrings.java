@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class AddStrings {
+
     public String addStrings(String num1, String num2) {
         // 双指针、进位、结果存储
         int i = num1.length() - 1;
@@ -18,7 +19,7 @@ public class AddStrings {
 
             // '0' 的ASCII码对应为 48 , 所以 0~9 字符转换为整数应该 -48
             if (i >= 0) {
-//                tmp = tmp + num1Chars[i] - '0';
+                //                tmp = tmp + num1Chars[i] - '0';
                 tmp = tmp + num1Chars[i] - 48;
             }
             if (j >= 0) {

@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 /*
-   最小开始数，保证累加总是大于1
-    */
+最小开始数，保证累加总是大于1
+ */
 class MinStartValue {
+
     /*
     计算累加过程最小数，如果最小数小于1，求其绝对值加上1即为答案
      */
@@ -28,9 +29,9 @@ class MinStartValue {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{-3, 2, -3, 4, 2};
-        int[] nums2 = new int[]{1, 2};
-        int[] nums3 = new int[]{1, -2, -3};
+        int[] nums = new int[] {-3, 2, -3, 4, 2};
+        int[] nums2 = new int[] {1, 2};
+        int[] nums3 = new int[] {1, -2, -3};
         System.out.println(new MinStartValue().minStartValue(nums));
         System.out.println(new MinStartValue().minStartValue(nums2));
         System.out.println(new MinStartValue().minStartValue(nums3));

@@ -1,6 +1,7 @@
-package com.samin.project.proxy2;
+package com.samin.designpattern.proxy2;
 
 public class Star implements Subject {
+
     @Override
     public void movie() {
         System.out.println("I am a star. start working...");

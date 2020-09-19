@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class ToLowerCase {
+
     public String toLowerCase(String str) {
         char[] chars = str.toCharArray();
         for (int i = 0; i < chars.length; i++) {

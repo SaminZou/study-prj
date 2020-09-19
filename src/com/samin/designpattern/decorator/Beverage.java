@@ -1,4 +1,4 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public abstract class Beverage {
     protected String description = "Unknown Beverage";

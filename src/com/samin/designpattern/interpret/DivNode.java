@@ -1,6 +1,7 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 public class DivNode extends SymbolNode {
+
     public DivNode(Node left, Node right) {
         super(left, right);
     }

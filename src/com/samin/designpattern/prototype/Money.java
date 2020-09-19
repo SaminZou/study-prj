@@ -1,6 +1,7 @@
-package com.samin.project.prototype;
+package com.samin.designpattern.prototype;
 
 public class Money implements Cloneable {
+
     private int faceValue;
 
     private Area area;

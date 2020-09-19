@@ -1,6 +1,7 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 public class FilmMenuIterator implements Iterator {
+
     MenuItem[] menuItems;
     int position = 0;
 

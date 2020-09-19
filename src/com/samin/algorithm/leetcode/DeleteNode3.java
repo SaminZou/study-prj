@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.ListNode;
+import com.samin.algorithm.base.ListNode;
 
 public class DeleteNode3 {
+
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;
@@ -16,8 +17,8 @@ public class DeleteNode3 {
         l2.next = l3;
         ListNode l4 = new ListNode(9);
         l3.next = l4;
-//        ListNode l5 = new ListNode(10);
-//        l4.next = l5;
+        //        ListNode l5 = new ListNode(10);
+        //        l4.next = l5;
         new DeleteNode3().deleteNode(l1);
         System.out.println();
     }

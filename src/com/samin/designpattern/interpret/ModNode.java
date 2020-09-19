@@ -1,6 +1,7 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 public class ModNode extends SymbolNode {
+
     public ModNode(Node left, Node right) {
         super(left, right);
     }

@@ -1,6 +1,7 @@
-package com.samin.project.responsibility;
+package com.samin.designpattern.responsibility;
 
 public class Boss extends Handler {
+
     public Boss() {
         super(2);
     }

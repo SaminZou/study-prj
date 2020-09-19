@@ -1,6 +1,7 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public class Mocha extends CondimentDecorator {
+
     Beverage beverage;
 
     public Mocha(Beverage beverage) {

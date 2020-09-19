@@ -1,4 +1,4 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.List;
 和为s的连续正数序列（至少含有两个数）
  */
 public class FindContinuousSequence {
+
     public int[][] findContinuousSequence(int target) {
         List<int[]> resultList = new ArrayList<>();
         int mid = target / 2 + 1;

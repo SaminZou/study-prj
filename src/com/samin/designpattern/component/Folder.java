@@ -1,9 +1,10 @@
-package com.samin.project.component;
+package com.samin.designpattern.component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Folder extends File {
+
     private List<File> files;
 
     public Folder(String name) {
@@ -11,9 +12,7 @@ public class Folder extends File {
         files = new ArrayList<File>();
     }
 
-    /**
-     * 浏览文件夹中的文件
-     */
+    /** 浏览文件夹中的文件 */
     public void display() {
         for (File file : files) {
             file.display();

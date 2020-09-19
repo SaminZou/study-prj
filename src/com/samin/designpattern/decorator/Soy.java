@@ -1,6 +1,7 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public class Soy extends CondimentDecorator {
+
     Beverage beverage;
 
     public Soy(Beverage beverage) {
@@ -17,4 +18,3 @@ public class Soy extends CondimentDecorator {
         return beverage.cost() + 0.10;
     }
 }
-

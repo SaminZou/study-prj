@@ -1,24 +1,25 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.ListNode;
+import com.samin.algorithm.base.ListNode;
 
 public class ReverseList {
-//    public ListNode reverseList(ListNode head) {
-//        if (head == null) {
-//            return null;
-//        }
-//
-//        ListNode pre = null;
-//        while (head != null) {
-//            ListNode temp = head.next;
-//            head.next = pre;
-//
-//            pre = head;
-//            head = temp;
-//        }
-//
-//        return pre;
-//    }
+
+    //    public ListNode reverseList(ListNode head) {
+    //        if (head == null) {
+    //            return null;
+    //        }
+    //
+    //        ListNode pre = null;
+    //        while (head != null) {
+    //            ListNode temp = head.next;
+    //            head.next = pre;
+    //
+    //            pre = head;
+    //            head = temp;
+    //        }
+    //
+    //        return pre;
+    //    }
 
     public ListNode reverseList(ListNode head) {
         ListNode pre = null;

@@ -1,10 +1,10 @@
-package com.samin.project.singleton;
+package com.samin.designpattern.singleton;
 
 public class LazySingleton {
+
     private static LazySingleton singleton = null;
 
-    private LazySingleton() {
-    }
+    private LazySingleton() {}
 
     public static synchronized LazySingleton getSingleton() {
         if (singleton == null) {

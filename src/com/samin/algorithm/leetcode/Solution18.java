@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solution18 {
+
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         if (candies.length == 0) {
             return null;
@@ -27,15 +28,9 @@ public class Solution18 {
     }
 
     public static void main(String[] args) {
-        List<Boolean> result1 = new Solution18().kidsWithCandies(
-                new int[]{2, 3, 5, 1, 3}, 3
-        );
-        List<Boolean> result2 = new Solution18().kidsWithCandies(
-                new int[]{4, 2, 1, 1, 2}, 1
-        );
-        List<Boolean> result3 = new Solution18().kidsWithCandies(
-                new int[]{12, 1, 12}, 10
-        );
+        List<Boolean> result1 = new Solution18().kidsWithCandies(new int[] {2, 3, 5, 1, 3}, 3);
+        List<Boolean> result2 = new Solution18().kidsWithCandies(new int[] {4, 2, 1, 1, 2}, 1);
+        List<Boolean> result3 = new Solution18().kidsWithCandies(new int[] {12, 1, 12}, 10);
         System.out.println();
     }
 }

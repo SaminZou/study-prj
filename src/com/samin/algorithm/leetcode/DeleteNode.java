@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.ListNode;
+import com.samin.algorithm.base.ListNode;
 
 public class DeleteNode {
+
     public ListNode deleteNode(ListNode head, int val) {
         ListNode cur = head;
 
@@ -22,26 +23,26 @@ public class DeleteNode {
         return cur;
     }
 
-//    public ListNode deleteNode(ListNode head, int val) {
-//        ListNode result = head;
-//        ListNode preNode = null;
-//        while (head.val != val) {
-//            preNode = head;
-//            head = head.next;
-//        }
-//
-//        if (preNode != null) {
-//            if (head.next != null) {
-//                preNode.next = head.next;
-//            } else {
-//                preNode.next = null;
-//            }
-//        } else {
-//            result = result.next;
-//        }
-//
-//        return result;
-//    }
+    //    public ListNode deleteNode(ListNode head, int val) {
+    //        ListNode result = head;
+    //        ListNode preNode = null;
+    //        while (head.val != val) {
+    //            preNode = head;
+    //            head = head.next;
+    //        }
+    //
+    //        if (preNode != null) {
+    //            if (head.next != null) {
+    //                preNode.next = head.next;
+    //            } else {
+    //                preNode.next = null;
+    //            }
+    //        } else {
+    //            result = result.next;
+    //        }
+    //
+    //        return result;
+    //    }
 
     public static void main(String[] args) {
         ListNode n1 = new ListNode(-3);
@@ -51,14 +52,14 @@ public class DeleteNode {
         n2.next = n3;
         ListNode result = new DeleteNode().deleteNode(n1, -99);
         System.out.println();
-//        ListNode n1 = new ListNode(4);
-//        ListNode n2 = new ListNode(5);
-//        n1.next = n2;
-//        ListNode n3 = new ListNode(1);
-//        n2.next = n3;
-//        ListNode n4 = new ListNode(9);
-//        n3.next = n4;
-//        ListNode result = new DeleteNode().deleteNode(n1, 1);
-//        System.out.println();
+        //        ListNode n1 = new ListNode(4);
+        //        ListNode n2 = new ListNode(5);
+        //        n1.next = n2;
+        //        ListNode n3 = new ListNode(1);
+        //        n2.next = n3;
+        //        ListNode n4 = new ListNode(9);
+        //        n3.next = n4;
+        //        ListNode result = new DeleteNode().deleteNode(n1, 1);
+        //        System.out.println();
     }
 }

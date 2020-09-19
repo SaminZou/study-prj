@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class HammingDistance {
+
     public int hammingDistance(int x, int y) {
         // 异或计算不同
         int diff = x ^ y;

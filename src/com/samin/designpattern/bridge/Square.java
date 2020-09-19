@@ -1,7 +1,8 @@
-package com.samin.project.bridge;
+package com.samin.designpattern.bridge;
 
-public class Square extends Shape{
+public class Square extends Shape {
+
     public void draw() {
-        color.bepaint("正方形");
+        color.paint("正方形");
     }
 }

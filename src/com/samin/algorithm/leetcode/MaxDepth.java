@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 public class MaxDepth {
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -11,7 +12,5 @@ public class MaxDepth {
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 }

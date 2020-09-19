@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class MinNumber {
+
     public String minNumber(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         StringBuilder sb = new StringBuilder();
@@ -18,13 +19,15 @@ public class MinNumber {
             int tmp;
 
             while (i < j) {
-                while ((String.valueOf(nums[j]) + index).compareTo(
-                        String.valueOf(index) + nums[j]) >= 0 && i < j) {
+                while ((String.valueOf(nums[j]) + index).compareTo(String.valueOf(index) + nums[j])
+                                >= 0
+                        && i < j) {
                     j--;
                 }
 
-                while ((String.valueOf(nums[i]) + index).compareTo(
-                        String.valueOf(index) + nums[i]) <= 0 && i < j) {
+                while ((String.valueOf(nums[i]) + index).compareTo(String.valueOf(index) + nums[i])
+                                <= 0
+                        && i < j) {
                     i++;
                 }
 
@@ -43,7 +46,7 @@ public class MinNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(new MinNumber().minNumber(new int[]{10, 2}));
-        System.out.println(new MinNumber().minNumber(new int[]{3, 30, 34, 5, 9}));
+        System.out.println(new MinNumber().minNumber(new int[] {10, 2}));
+        System.out.println(new MinNumber().minNumber(new int[] {3, 30, 34, 5, 9}));
     }
 }

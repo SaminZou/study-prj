@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class HammingWeight {
+
     public int hammingWeight(int n) {
         int result = 0;
 

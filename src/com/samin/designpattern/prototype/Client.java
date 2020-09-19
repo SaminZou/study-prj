@@ -1,9 +1,10 @@
-package com.samin.project.prototype;
+package com.samin.designpattern.prototype;
 
 /*
-* 原型模式
-* */
+ * 原型模式
+ * */
 public class Client {
+
     public static void main(String[] args) {
         System.out.println("——普通用法");
         Area area = new Area();
@@ -16,12 +17,14 @@ public class Client {
             try {
                 Money cloneMoney = money.clone();
                 cloneMoney.setFaceValue(i * 100);
-                System.out.println("这张是" + cloneMoney.getFaceValue() +  cloneMoney.getArea().getUnit() + "的钞票");
+                System.out.println(
+                        "这张是" + cloneMoney.getFaceValue() + cloneMoney.getArea().getUnit() + "的钞票");
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("==============================================================================");
+        System.out.println(
+                "==============================================================================");
 
         // 浅拷贝
         System.out.println("——浅拷贝");
@@ -30,12 +33,14 @@ public class Client {
             cloneMoney.setFaceValue(200);
             area.setUnit("美元");
 
-            System.out.println("原型实例的面值：" + money.getFaceValue() +money.getArea().getUnit());
-            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getArea().getUnit());
+            System.out.println("原型实例的面值：" + money.getFaceValue() + money.getArea().getUnit());
+            System.out.println(
+                    "拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getArea().getUnit());
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        System.out.println("==============================================================================");
+        System.out.println(
+                "==============================================================================");
 
         // 深拷贝
         System.out.println("——深拷贝");
@@ -49,11 +54,14 @@ public class Client {
             cloneMoney.setFaceValue(200);
             areaDeep.setUnit("美元");
 
-            System.out.println("原型实例的面值：" + moneyDeep.getFaceValue() + moneyDeep.getAreaDeep().getUnit());
-            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getAreaDeep().getUnit());
+            System.out.println(
+                    "原型实例的面值：" + moneyDeep.getFaceValue() + moneyDeep.getAreaDeep().getUnit());
+            System.out.println(
+                    "拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getAreaDeep().getUnit());
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
-        System.out.println("==============================================================================");
+        System.out.println(
+                "==============================================================================");
     }
 }

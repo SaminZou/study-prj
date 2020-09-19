@@ -1,8 +1,9 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.Arrays;
 
 public class SortedSquares {
+
     public int[] sortedSquares(int[] A) {
         for (int i = 0; i < A.length; i++) {
             A[i] = (int) Math.pow(A[i], 2);
@@ -43,7 +44,9 @@ public class SortedSquares {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new SortedSquares().sortedSquares(new int[]{-4, -1, 0, 3, 10})));
-        System.out.println(Arrays.toString(new SortedSquares().sortedSquares(new int[]{-7, -3, 2, 3, 11})));
+        System.out.println(
+                Arrays.toString(new SortedSquares().sortedSquares(new int[] {-4, -1, 0, 3, 10})));
+        System.out.println(
+                Arrays.toString(new SortedSquares().sortedSquares(new int[] {-7, -3, 2, 3, 11})));
     }
 }

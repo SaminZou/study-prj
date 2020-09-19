@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class SumNums {
+
     int res = 0;
 
     // "&&" 与和 "||" 或 有短路效应

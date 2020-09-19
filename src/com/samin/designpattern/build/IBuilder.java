@@ -1,6 +1,7 @@
-package com.samin.project.build;
+package com.samin.designpattern.build;
 
 public interface IBuilder {
+
     // 产品有多少个组件，就有多少个建造方法
     public void buildPart1();
 

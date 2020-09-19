@@ -1,4 +1,4 @@
-package com.samin.project.adapter;
+package com.samin.designpattern.adapter;
 
 public interface Robot {
     void cry();

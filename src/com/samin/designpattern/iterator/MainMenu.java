@@ -1,6 +1,7 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
 public class MainMenu {
+
     TelevisionMenu tvMenu;
     FilmMenu filmMenu;
 

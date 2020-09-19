@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class MyAtoi {
+
     public int myAtoi(String str) {
         int result = 0;
 
@@ -10,8 +11,7 @@ public class MyAtoi {
         if (str.length() != 0) {
             // 判断正负
             boolean isNegNum = false;
-            if (str.charAt(0) == 45 ||
-                    str.charAt(0) == 43) {
+            if (str.charAt(0) == 45 || str.charAt(0) == 43) {
                 if (str.charAt(0) == 45) {
                     isNegNum = true;
                 }

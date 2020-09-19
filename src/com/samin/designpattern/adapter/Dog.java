@@ -1,4 +1,4 @@
-package com.samin.project.adapter;
+package com.samin.designpattern.adapter;
 
 public class Dog {
     public void wang() {

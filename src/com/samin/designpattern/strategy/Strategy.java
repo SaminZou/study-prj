@@ -1,5 +1,6 @@
-package com.samin.project.strategy;
+package com.samin.designpattern.strategy;
 
 public interface Strategy {
-    public void algorithmLogic();
+
+    void algorithmLogic();
 }

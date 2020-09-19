@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution4 {
+
     public int maxDepth(TreeNode root) {
         int result = 0;
 

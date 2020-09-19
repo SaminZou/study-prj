@@ -1,6 +1,7 @@
-package com.samin.project.facade;
+package com.samin.designpattern.facade;
 
 public class AirCondition {
+
     public void on() {
         System.out.println("打开了空调....");
     }

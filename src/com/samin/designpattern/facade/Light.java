@@ -1,6 +1,7 @@
-package com.samin.project.facade;
+package com.samin.designpattern.facade;
 
 public class Light {
+
     public void on() {
         System.out.println("打开了电灯....");
     }

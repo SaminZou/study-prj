@@ -1,6 +1,7 @@
-package com.samin.project.adapter;
+package com.samin.designpattern.adapter;
 
 public class BioRobot implements Robot {
+
     public void cry() {
         System.out.println("仿生机器人叫.....");
     }

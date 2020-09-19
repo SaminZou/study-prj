@@ -1,6 +1,7 @@
-package com.samin.project.build;
+package com.samin.designpattern.build;
 
 public class Production {
+
     private String part1;
     private String part2;
 

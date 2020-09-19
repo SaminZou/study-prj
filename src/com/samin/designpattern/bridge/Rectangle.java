@@ -1,7 +1,8 @@
-package com.samin.project.bridge;
+package com.samin.designpattern.bridge;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
+
     public void draw() {
-        color.bepaint("长方形");
+        color.paint("长方形");
     }
 }

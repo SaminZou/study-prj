@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class Solution13 {
+
     public int[] printNumbers(int n) {
         if (n == 0) { // 特殊情况
-            return new int[]{};
+            return new int[] {};
         }
 
         int max = (int) Math.pow(10, n) - 1; // 计算最大数

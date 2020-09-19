@@ -1,11 +1,7 @@
-package com.samin.leetcode;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+package com.samin.algorithm.leetcode;
 
 public class MinStack {
+
     int[] arrs;
     int index;
     int min;
@@ -56,28 +52,28 @@ public class MinStack {
     }
 
     public static void main(String[] args) {
-//        MinStack minStack = new MinStack();
-//        minStack.push(2);
-//        minStack.push(0);
-//        minStack.push(3);
-//        minStack.push(0);
-//        System.out.println(minStack.min());
-//        minStack.pop();
-//        System.out.println(minStack.min());
-//        minStack.pop();
-//        System.out.println(minStack.min());
-//        minStack.pop();
-//        System.out.println(minStack.min());
+        //        MinStack minStack = new MinStack();
+        //        minStack.push(2);
+        //        minStack.push(0);
+        //        minStack.push(3);
+        //        minStack.push(0);
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
         // 0 0 0 2
 
-//        MinStack minStack = new MinStack();
-//        minStack.push(1);
-//        minStack.push(2);
-//        System.out.println(minStack.top());
-//        System.out.println(minStack.min());
-//        minStack.pop();
-//        System.out.println(minStack.min());
-//        System.out.println(minStack.top());
+        //        MinStack minStack = new MinStack();
+        //        minStack.push(1);
+        //        minStack.push(2);
+        //        System.out.println(minStack.top());
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        System.out.println(minStack.top());
         // 2 1 1 1
 
         MinStack minStack = new MinStack();

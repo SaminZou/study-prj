@@ -1,6 +1,7 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 public class ValueNode implements Node {
+
     private int value;
 
     public ValueNode(int value) {

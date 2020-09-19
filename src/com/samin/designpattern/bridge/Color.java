@@ -1,5 +1,6 @@
-package com.samin.project.bridge;
+package com.samin.designpattern.bridge;
 
 public interface Color {
-    void bepaint(String shape);
+
+    void paint(String shape);
 }

@@ -1,9 +1,8 @@
-package com.samin.project.iterator;
+package com.samin.designpattern.iterator;
 
-/**
- * 迭代器模式
- */
+/** 迭代器模式 */
 public class Client {
+
     public static void main(String[] args) {
         TVChanneMenu tvMenu = new TVChanneMenu();
         FilmMenu filmMenu = new FilmMenu();

@@ -1,8 +1,7 @@
-package com.samin.leetcode;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+package com.samin.algorithm.leetcode;
 
 public class FindMagicIndex {
+
     public int findMagicIndex(int[] nums) {
         int res = -1;
 
@@ -17,17 +16,9 @@ public class FindMagicIndex {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindMagicIndex().findMagicIndex(
-                new int[]{0, 2, 3, 4, 5}
-        ));
-        System.out.println(new FindMagicIndex().findMagicIndex(
-                new int[]{1, 1, 1}
-        ));
-        System.out.println(new FindMagicIndex().findMagicIndex(
-                new int[]{}
-        ));
-        System.out.println(new FindMagicIndex().findMagicIndex(
-                new int[]{6,5,4,1,2,1}
-        ));
+        System.out.println(new FindMagicIndex().findMagicIndex(new int[] {0, 2, 3, 4, 5}));
+        System.out.println(new FindMagicIndex().findMagicIndex(new int[] {1, 1, 1}));
+        System.out.println(new FindMagicIndex().findMagicIndex(new int[] {}));
+        System.out.println(new FindMagicIndex().findMagicIndex(new int[] {6, 5, 4, 1, 2, 1}));
     }
 }

@@ -1,6 +1,7 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public class Decat extends Beverage {
+
     public Decat() {
         description = "Decat";
     }

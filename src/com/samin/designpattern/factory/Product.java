@@ -1,5 +1,6 @@
-package com.samin.project.factory;
+package com.samin.designpattern.factory;
 
 public interface Product {
-    public void product();
+
+    void product();
 }

@@ -1,6 +1,7 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public class Whip extends CondimentDecorator {
+
     Beverage beverage;
 
     public Whip(Beverage beverage) {

@@ -1,6 +1,7 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 public class IntegerBreak {
+
     public int integerBreak(int n) {
         // 小于3不适用公式
         if (n <= 3) {

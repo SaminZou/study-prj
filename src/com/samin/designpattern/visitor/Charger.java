@@ -1,6 +1,7 @@
-package com.samin.project.visitor;
+package com.samin.designpattern.visitor;
 
 public class Charger extends Visitor {
+
     public void visitor(MedicineA a) {
         System.out.println("划价员：" + name + "给普通药" + a.getName() + "划价:" + a.getPrice());
     }

@@ -1,9 +1,8 @@
-package com.samin.project.mediator;
+package com.samin.designpattern.mediator;
 
-/**
- * 中介者模式
- */
+/** 中介者模式 */
 public class Client {
+
     public static void main(String[] args) {
         MediatorStructure a = new MediatorStructure();
         HouseOwner boss = new HouseOwner("samin", a);

@@ -1,9 +1,10 @@
-package com.samin.project.visitor;
+package com.samin.designpattern.visitor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Presciption {
+
     List<Medicine> list = new ArrayList<>();
 
     public void accept(Visitor visitor) {

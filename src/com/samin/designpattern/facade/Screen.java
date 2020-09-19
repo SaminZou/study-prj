@@ -1,6 +1,7 @@
-package com.samin.project.facade;
+package com.samin.designpattern.facade;
 
 public class Screen {
+
     public void up() {
         System.out.println("升起银幕....");
     }

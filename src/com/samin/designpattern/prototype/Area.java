@@ -1,6 +1,7 @@
-package com.samin.project.prototype;
+package com.samin.designpattern.prototype;
 
 public class Area {
+
     // 钞票单位
     private String unit;
 

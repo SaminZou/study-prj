@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 // 对称二叉树(镜像)
 public class Solution3 {
+
     public boolean isSymmetric(TreeNode root) {
         return isSymmetric(root, root);
     }
@@ -15,9 +16,9 @@ public class Solution3 {
         if (node1 == null || node2 == null) {
             return false;
         }
-        return node1.val == node2.val &&
-                isSymmetric(node1.left, node2.right) &&
-                isSymmetric(node1.right, node2.left);
+        return node1.val == node2.val
+                && isSymmetric(node1.left, node2.right)
+                && isSymmetric(node1.right, node2.left);
     }
 
     public static void main(String[] args) {

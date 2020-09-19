@@ -1,6 +1,7 @@
-package com.samin.project.decorator;
+package com.samin.designpattern.decorator;
 
 public class HouseBlend extends Beverage {
+
     public HouseBlend() {
         description = "HouseBlend";
     }

@@ -1,9 +1,10 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution6 {
+
     public int minDepth(TreeNode root) {
         // 特殊情况处理
         if (root == null) {
@@ -20,8 +21,7 @@ public class Solution6 {
                 TreeNode ele = rootQueue.poll();
 
                 // 直接返回的情况
-                if (ele.right == null &&
-                        ele.left == null) {
+                if (ele.right == null && ele.left == null) {
                     isFound = true;
                     break;
                 }

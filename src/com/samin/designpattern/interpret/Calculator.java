@@ -1,8 +1,9 @@
-package com.samin.project.interpret;
+package com.samin.designpattern.interpret;
 
 import java.util.Stack;
 
 public class Calculator {
+
     private String statement;
     private Node node;
 

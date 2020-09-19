@@ -1,23 +1,23 @@
-package com.samin.leetcode;
+package com.samin.algorithm.leetcode;
 
-import com.samin.base.TreeNode;
+import com.samin.algorithm.base.TreeNode;
 
 public class LowestCommonAncestor {
     // 适用二叉搜索树的最近公共祖先遍历
-//    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-//        // 使用迭代法找出最近公共节点
-//        while (root != null) {
-//            if (p.val < root.val && q.val < root.val) { // 在左子树的情况
-//                root = root.left;
-//            } else if (p.val > root.val && q.val > root.val) { // 在右子树的情况
-//                root = root.right;
-//            } else {
-//                return root;
-//            }
-//        }
-//
-//        return root;
-//    }
+    //    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    //        // 使用迭代法找出最近公共节点
+    //        while (root != null) {
+    //            if (p.val < root.val && q.val < root.val) { // 在左子树的情况
+    //                root = root.left;
+    //            } else if (p.val > root.val && q.val > root.val) { // 在右子树的情况
+    //                root = root.right;
+    //            } else {
+    //                return root;
+    //            }
+    //        }
+    //
+    //        return root;
+    //    }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
