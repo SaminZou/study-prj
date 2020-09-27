@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/** hashCode() 和 equals() 的区别 */
 public class EqualsMethod {
+
     public static void main(String[] args) {
         // 存放在两个地址的实例，假设在业务上，这两个对象需要是相等的
         User user1 = new User();
