@@ -2,6 +2,7 @@ package com.samin.coding.Q22;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,9 @@ public class ListTransform {
         // List<Integer> -> int[]
         int[] ints = list.stream().mapToInt(Integer::valueOf).toArray();
         System.out.println(ints.length);
+
+        // natural order
+        list.sort(Comparator.naturalOrder());
 
         // List<Integer> -> Integer[]
         Integer[] integers1 = list.toArray(new Integer[0]);
