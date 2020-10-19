@@ -36,3 +36,4 @@
 ## Q24 泛型、Object、？ 的区别
 ## Q25 java.util.function
 ## Q26 SimpleDateFormat 线程不安全
+## Q27 生成随机数的方式
