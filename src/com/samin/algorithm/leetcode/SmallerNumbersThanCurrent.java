@@ -3,16 +3,20 @@ package com.samin.algorithm.leetcode;
 import java.util.Arrays;
 import java.util.HashMap;
 
+// 有多少小于当前数字的数字
 public class SmallerNumbersThanCurrent {
+
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] temp = Arrays.copyOf(nums, nums.length);
         quickSort(nums, 0, nums.length - 1);
 
+        // 计算每个元素的排序即得出小于它所有数字的数目
         HashMap<Integer, Integer> numsSeqMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             numsSeqMap.putIfAbsent(nums[i], i);
         }
 
+        // 计算结果
         for (int i = 0; i < temp.length; i++) {
             temp[i] = numsSeqMap.get(temp[i]);
         }
