@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution12 {
+public class GetKthFromEnd {
 
     public ListNode getKthFromEnd(ListNode head, int k) {
         if (head == null) { // 特殊情况
@@ -36,7 +36,7 @@ public class Solution12 {
         l3.next = l4;
         ListNode l5 = new ListNode(5);
         l4.next = l5;
-        ListNode result = new Solution12().getKthFromEnd(l1, 2);
+        ListNode result = new GetKthFromEnd().getKthFromEnd(l1, 2);
         System.out.println(result);
     }
 

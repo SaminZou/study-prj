@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution8 {
+public class ReverseLeftWords {
 
     public String reverseLeftWords(String s, int n) {
         if (s.length() == 0 || n == 0) { // 特殊情况
@@ -16,6 +16,6 @@ public class Solution8 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution8().reverseLeftWords("", 0));
+        System.out.println(new ReverseLeftWords().reverseLeftWords("", 0));
     }
 }

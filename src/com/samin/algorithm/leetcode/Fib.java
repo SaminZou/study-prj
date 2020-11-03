@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution21 {
+public class Fib {
 
     public int fib(int N) {
         if (N == 0) {
@@ -23,8 +23,8 @@ public class Solution21 {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Solution21().fib(2));
-        System.out.println(new Solution21().fib(3));
-        System.out.println(new Solution21().fib(4));
+        System.out.println(new Fib().fib(2));
+        System.out.println(new Fib().fib(3));
+        System.out.println(new Fib().fib(4));
     }
 }

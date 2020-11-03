@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution22 {
+public class Exchange {
 
     /*
     解法1
@@ -49,7 +49,7 @@ public class Solution22 {
     }
 
     public static void main(String[] args) {
-        int[] result = new Solution22().exchange(new int[] {1});
+        int[] result = new Exchange().exchange(new int[] {1});
         for (int ele : result) {
             System.out.print(ele + " ");
         }

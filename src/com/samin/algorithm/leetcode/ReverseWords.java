@@ -3,7 +3,7 @@ package com.samin.algorithm.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution20 {
+public class ReverseWords {
 
     public String reverseWords(String s) {
         // 特殊情况
@@ -40,6 +40,6 @@ public class Solution20 {
         //        System.out.println(new Solution20().reverseWords(" hello world!"));
         //        System.out.println(new Solution20().reverseWords("  hello   world!"));
         //        System.out.println(new Solution20().reverseWords("a good    example"));
-        System.out.println(new Solution20().reverseWords(" "));
+        System.out.println(new ReverseWords().reverseWords(" "));
     }
 }

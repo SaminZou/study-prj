@@ -1,5 +1,6 @@
 package com.samin.algorithm.leetcode;
 
+// 对称二叉树(镜像)
 public class IsSymmetric {
 
     public boolean isSymmetric(TreeNode root) {

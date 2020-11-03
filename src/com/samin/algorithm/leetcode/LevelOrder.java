@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class Soution2 {
+class LevelOrder {
 
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> resultList = new ArrayList<>();
@@ -47,6 +47,6 @@ class Soution2 {
         t1.right = t3;
         t3.left = t4;
         t3.right = t5;
-        System.out.println(new Soution2().levelOrder(t1));
+        System.out.println(new LevelOrder().levelOrder(t1));
     }
 }

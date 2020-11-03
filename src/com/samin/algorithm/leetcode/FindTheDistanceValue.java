@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution10 {
+public class FindTheDistanceValue {
 
     public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
         int nums = arr1.length;
@@ -29,6 +29,6 @@ public class Solution10 {
         int[] arr1 = new int[] {2, 1, 100, 3};
         int[] arr2 = new int[] {-5, -2, 10, -3, 7};
         int d = 6;
-        System.out.println(new Solution10().findTheDistanceValue(arr1, arr2, d));
+        System.out.println(new FindTheDistanceValue().findTheDistanceValue(arr1, arr2, d));
     }
 }

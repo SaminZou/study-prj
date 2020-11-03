@@ -3,7 +3,7 @@ package com.samin.algorithm.leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution6 {
+public class MinDepth {
 
     public int minDepth(TreeNode root) {
         // 特殊情况处理
@@ -60,7 +60,7 @@ public class Solution6 {
         t3.left = t4;
         t3.right = t5;
         t4.left = t8;
-        System.out.println(new Solution6().minDepth(t1));
+        System.out.println(new MinDepth().minDepth(t1));
     }
 
     private static class TreeNode {

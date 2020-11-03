@@ -2,7 +2,7 @@ package com.samin.algorithm.leetcode;
 
 import com.samin.algorithm.base.ListNode;
 
-public class Solution19 {
+public class GetIntersectionNode {
 
     //    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
     //        if (headA == null || headB == null) {
@@ -70,7 +70,7 @@ public class Solution19 {
         ListNode listB2 = new ListNode(5);
         listB1.next = listB2;
 
-        ListNode result = new Solution19().getIntersectionNode(listA1, listB1);
+        ListNode result = new GetIntersectionNode().getIntersectionNode(listA1, listB1);
         System.out.println(result);
 
         //        ListNode listA1 = new ListNode(0);

@@ -1,6 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-public class Solution13 {
+public class PrintNumbers {
 
     public int[] printNumbers(int n) {
         if (n == 0) { // 特殊情况
@@ -17,7 +17,7 @@ public class Solution13 {
     }
 
     public static void main(String[] args) {
-        int[] result = new Solution13().printNumbers(2);
+        int[] result = new PrintNumbers().printNumbers(2);
         System.out.println(result.length);
     }
 }
