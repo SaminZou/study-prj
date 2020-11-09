@@ -4,6 +4,10 @@
 >
 > Date 2019-11-12
 
+![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
+![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
+![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
+
 # com.samin.algorithm 算法刷题记录
 
 # com.samin.designpattern 设计模式
