@@ -1,6 +1,6 @@
-# Java学习中，基本功学习以及一些疑难杂症的记录
+# Java学习笔记
 
-> Author: samin
+> Author Samin
 >
 > Date 2019-11-12
 
