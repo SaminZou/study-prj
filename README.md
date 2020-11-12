@@ -41,3 +41,4 @@
 ## Q25 java.util.function
 ## Q26 SimpleDateFormat 线程不安全
 ## Q27 生成随机数的方式
+## Q28 获取项目相关路径
