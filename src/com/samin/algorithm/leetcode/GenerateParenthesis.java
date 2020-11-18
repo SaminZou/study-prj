@@ -6,26 +6,6 @@ import java.util.List;
 /** 有效括号生成 */
 public class GenerateParenthesis {
 
-    /** 没有考虑合法性的情况，穷举所有 */
-    public List<String> generateParenthesis2(int n) {
-        List<String> res = new ArrayList<>();
-
-        generate2(0, 2 * n, "");
-
-        return res;
-    }
-
-    public void generate2(int n, int max, String s) {
-        if (n >= max) {
-            System.out.println(s);
-            return;
-        }
-
-        generate2(n + 1, max, s + "(");
-        generate2(n + 1, max, s + ")");
-    }
-
-    /** 真正解题过程 左括号条件 <= n 右括号条件 <= 左括号 */
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
 
@@ -35,6 +15,7 @@ public class GenerateParenthesis {
     }
 
     public void generate(int left, int right, int max, String s, List<String> res) {
+        // 左括号条件 == max 右括号条件 == 左括号
         if (left == max && right == left) {
             res.add(s);
             return;
@@ -49,7 +30,32 @@ public class GenerateParenthesis {
         }
     }
 
+    public List<String> generateParenthesis2(int n) {
+        List<String> res = new ArrayList<>();
+
+        generate2(0, 2 * n, "", res);
+
+        return res;
+    }
+
+    public void generate2(int n, int max, String s, List<String> res) {
+        // 没有考虑合法性的情况，穷举所有
+        if (n >= max) {
+            res.add(s);
+            return;
+        }
+
+        generate2(n + 1, max, s + "(", res);
+        generate2(n + 1, max, s + ")", res);
+    }
+
     public static void main(String[] args) {
+        // 打印 3 对括号的所有有效组合
         System.out.println(new GenerateParenthesis().generateParenthesis(3));
+
+        System.out.println("---------------------------------------");
+
+        // 打印 3 对括号的所有组合
+        System.out.println(new GenerateParenthesis().generateParenthesis2(3));
     }
 }

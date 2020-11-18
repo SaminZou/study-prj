@@ -1,4 +1,4 @@
-package com.samin.designpattern.build;
+package com.samin.designpattern.build.style1;
 
 public class Production {
 
@@ -6,6 +6,7 @@ public class Production {
     private String part2;
 
     public String getPart1() {
+        System.out.println("part1: " + part1);
         return part1;
     }
 
@@ -14,6 +15,7 @@ public class Production {
     }
 
     public String getPart2() {
+        System.out.println("part2: " + part2);
         return part2;
     }
 
