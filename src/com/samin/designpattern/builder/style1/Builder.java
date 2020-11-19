@@ -1,4 +1,4 @@
-package com.samin.designpattern.build.style1;
+package com.samin.designpattern.builder.style1;
 
 public interface Builder {
 

@@ -1,4 +1,4 @@
-package com.samin.designpattern.proxy;
+package com.samin.designpattern.proxy.style1;
 
 public interface Subject {
 

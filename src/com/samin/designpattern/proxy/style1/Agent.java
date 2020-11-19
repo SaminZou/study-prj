@@ -1,10 +1,10 @@
-package com.samin.designpattern.proxy;
+package com.samin.designpattern.proxy.style1;
 
 public class Agent implements Subject {
 
     private Subject star;
 
-    Agent(Subject star) {
+    public Agent(Subject star) {
         this.star = star;
     }
 

@@ -1,4 +1,4 @@
-package com.samin.designpattern.build.style2;
+package com.samin.designpattern.builder.style2;
 
 public class ProductionObj {
 

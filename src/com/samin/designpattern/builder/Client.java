@@ -1,7 +1,7 @@
-package com.samin.designpattern.build;
+package com.samin.designpattern.builder;
 
-import com.samin.designpattern.build.style1.*;
-import com.samin.designpattern.build.style2.ProductionObj;
+import com.samin.designpattern.builder.style1.*;
+import com.samin.designpattern.builder.style2.ProductionObj;
 
 /*
  * 建造者模式

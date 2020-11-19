@@ -1,10 +1,10 @@
-package com.samin.designpattern.proxy2;
+package com.samin.designpattern.proxy.style2;
 
-public class Agent implements Subject {
+public class Agent2 implements Subject2 {
 
-    private Subject star;
+    private Subject2 star;
 
-    Agent(Subject star) {
+    Agent2(Subject2 star) {
         this.star = star;
     }
 
@@ -15,7 +15,7 @@ public class Agent implements Subject {
     }
 
     @Override
-    public Agent getAgent() {
+    public Agent2 getAgent() {
         return this;
     }
 }
