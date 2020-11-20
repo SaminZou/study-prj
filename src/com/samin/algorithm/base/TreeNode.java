@@ -1,5 +1,6 @@
 package com.samin.algorithm.base;
 
+/** 树节点 */
 public class TreeNode {
 
     public int val;

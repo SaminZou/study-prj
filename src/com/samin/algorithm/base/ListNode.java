@@ -1,5 +1,6 @@
 package com.samin.algorithm.base;
 
+/** 链表节点 */
 public class ListNode {
 
     public int val;

@@ -1,8 +1,6 @@
 package com.samin.algorithm.leetcode;
 
-/*
-最小开始数，保证累加总是大于1
- */
+/** 最小开始数，保证累加总是大于1 */
 class MinStartValue {
 
     /*

@@ -3,7 +3,6 @@ package com.samin.designpattern.decorator;
 /** 装饰器模式 */
 public class Client {
 
-    /** @param args */
     public static void main(String[] args) {
         Beverage beverage = new Espresso();
         System.out.println(beverage.getDescription() + " $" + beverage.cost());

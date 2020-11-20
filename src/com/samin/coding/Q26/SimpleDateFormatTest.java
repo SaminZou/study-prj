@@ -46,7 +46,6 @@ public class SimpleDateFormatTest {
         ThreadPoolExecutor poolExecutor =
                 new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(100));
 
-        // 两种错误：1.数据冲突，导致时间错误；2.引发 java.lang.NumberFormatException 错误
         for (int i = 0; i < 100; i++) {
             poolExecutor.execute(
                     () -> {

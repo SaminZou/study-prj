@@ -7,7 +7,7 @@ public class DogAdapter implements Robot {
         this.dog = dog;
     }
 
-    /** 实现接口中的方法，只需要在相应的方法间进行转换即可完成。 */
+    // 实现接口中的方法，只需要在相应的方法间进行转换即可完成
     public void cry() {
         System.out.println("机器人模拟狗叫...");
         dog.wang();

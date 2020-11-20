@@ -5,9 +5,7 @@ import com.samin.algorithm.base.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * 使用DFS和BFS计算二叉树的最大深度
- */
+/** 使用DFS和BFS计算二叉树的最大深度 */
 public class MaxDepth {
 
     public int maxDepth(TreeNode root) {

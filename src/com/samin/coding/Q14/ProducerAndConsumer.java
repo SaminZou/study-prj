@@ -6,10 +6,15 @@ import java.util.Random;
 
 /** 使用wait和notifyAll实现的消息队列 */
 public class ProducerAndConsumer {
-    private static class Producer implements Runnable {
 
-        private Queue<Integer> queue;
-        private int maxSize;
+    // 控制程序执行时间，单位毫秒
+    private static final Integer RUNTIME = 100;
+    private static Boolean IS_RUNNING = true;
+
+    // 生产者
+    private static class Producer implements Runnable {
+        private final Queue<Integer> queue;
+        private final int maxSize;
 
         public Producer(Queue<Integer> queue, int maxSize) {
             this.queue = queue;
@@ -18,8 +23,9 @@ public class ProducerAndConsumer {
 
         @Override
         public void run() {
-            while (true) {
+            while (IS_RUNNING) {
                 synchronized (queue) {
+                    // 满了之后会进行等待
                     while (queue.size() == maxSize) {
                         try {
                             System.out.println("Queue is Full");
@@ -30,7 +36,7 @@ public class ProducerAndConsumer {
                     }
                     Random random = new Random();
                     int i = random.nextInt();
-                    System.out.println("Produce " + i);
+                    System.out.println("Produce work: " + i);
                     queue.add(i);
                     queue.notifyAll();
                 }
@@ -38,19 +44,19 @@ public class ProducerAndConsumer {
         }
     }
 
+    // 消费者
     private static class Consumer implements Runnable {
-        private Queue<Integer> queue;
-        private int maxSize;
+        private final Queue<Integer> queue;
 
-        public Consumer(Queue<Integer> queue, int maxSize) {
+        public Consumer(Queue<Integer> queue) {
             this.queue = queue;
-            this.maxSize = maxSize;
         }
 
         @Override
         public void run() {
-            while (true) {
+            while (IS_RUNNING) {
                 synchronized (queue) {
+                    // 队列空的时候进行等待
                     while (queue.isEmpty()) {
                         System.out.println("Queue is Empty");
                         try {
@@ -60,21 +66,22 @@ public class ProducerAndConsumer {
                         }
                     }
                     int v = queue.remove();
-                    System.out.println("Consume " + v);
+                    System.out.println("Consume work: " + v);
                     queue.notifyAll();
                 }
             }
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Queue<Integer> queue = new LinkedList<>();
-        int maxSize = 10;
-        Producer p = new Producer(queue, maxSize);
-        Consumer c = new Consumer(queue, maxSize);
-        Thread pT = new Thread(p);
-        Thread pC = new Thread(c);
-        pT.start();
-        pC.start();
+        // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计
+        int maxSize = 5;
+
+        new Thread(new Producer(queue, maxSize)).start();
+        new Thread(new Consumer(queue)).start();
+
+        Thread.sleep(RUNTIME);
+        IS_RUNNING = false;
     }
 }

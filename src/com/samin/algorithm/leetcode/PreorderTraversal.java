@@ -3,7 +3,6 @@ package com.samin.algorithm.leetcode;
 import com.samin.algorithm.base.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /** 二叉树的前序遍历 */

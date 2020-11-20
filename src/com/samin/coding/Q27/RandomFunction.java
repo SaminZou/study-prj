@@ -24,7 +24,6 @@ public class RandomFunction {
         }
 
         /*
-         *
          * (int)(Math.random()*n) 生成大于等于0小于n的随机数。
          * (int)(Math.randon()*n)+m 生成大于等于m小于m+n的之间的随机数。
          * (int)(Math.random()*(n-m)+m) 生成从m到n范围内的数，包含m不包含n

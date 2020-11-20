@@ -1,7 +1,7 @@
 package com.samin.designpattern.state;
 
 /** 没有使用状态模式 */
-public class NOState {
+public class NoState {
 
     public static final int CLOSING_STATE = 0;
     public static final int FAULT_STATE = 1;
@@ -11,7 +11,7 @@ public class NOState {
 
     private static int state;
 
-    /* 模拟电梯的运行方法 */
+    // 模拟电梯的运行方法
     public void run() {
         switch (state) {
             case CLOSING_STATE:
@@ -39,7 +39,7 @@ public class NOState {
         }
     }
 
-    /** 模拟电梯的停止方法 */
+    // 模拟电梯的停止方法
     public void stop() {
         switch (state) {
             case CLOSING_STATE:
@@ -67,7 +67,7 @@ public class NOState {
         }
     }
 
-    /** 模拟电梯的开门方法 */
+    // 模拟电梯的开门方法
     public void open() {
         switch (state) {
             case CLOSING_STATE:
@@ -95,7 +95,7 @@ public class NOState {
         }
     }
 
-    /** 模拟电梯的关门方法 */
+    // 模拟电梯的关门方法
     public void close() {
         switch (state) {
             case CLOSING_STATE:

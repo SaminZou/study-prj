@@ -1,8 +1,6 @@
 package com.samin.designpattern.observer;
 
-/*
- * 观察者模式
- * */
+/** 观察者模式 */
 public class Client {
 
     public static void main(String[] args) {

@@ -5,24 +5,19 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
-/*
-CountDownLatch是JDK提供的一个同步工具，
-它可以让一个或多个线程等待，一直等到其他线程中执行完成一组操作
-
-常用方法：
-CountDown：当调用CountDown方法时，计数器会被减1
-Await：当调用Await方法时，如果计数器大于0时，线程会被阻塞，一直到计数器被CountDown方法减到0时，线程才会继续执行
-
-调用CountDown的线程可以继续执行，不需要等待计数器被减到0
-调用Await方法的线程需要等待
+/**
+ * CountDownLatch是JDK提供的一个同步工具， 它可以让一个或多个线程等待，一直等到其他线程中执行完成一组操作
+ *
+ * <p>常用方法： CountDown：当调用CountDown方法时，计数器会被减1
+ * Await：当调用Await方法时，如果计数器大于0时，线程会被阻塞，一直到计数器被CountDown方法减到0时，线程才会继续执行
+ *
+ * <p>调用CountDown的线程可以继续执行，不需要等待计数器被减到0 调用Await方法的线程需要等待
+ *
+ * <p>以下用例模拟场景，等客人齐了上菜
  */
 public class CountDownLatchUseCase {
-    /*
-    模拟场景，等客人齐了上菜
-     */
-    /*
-    顾客类
-     */
+
+    // 顾客类
     private static class Customer implements Runnable {
         private CountDownLatch latch;
         private String name;
@@ -48,9 +43,7 @@ public class CountDownLatchUseCase {
         }
     }
 
-    /*
-    服务员类
-     */
+    // 服务员类
     private static class Waitress implements Runnable {
         private CountDownLatch latch;
         private String name;

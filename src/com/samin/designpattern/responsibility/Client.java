@@ -1,8 +1,6 @@
 package com.samin.designpattern.responsibility;
 
-/*
- * 责任链模式
- */
+/** 责任链模式 */
 public class Client {
 
     public static void main(String[] args) {

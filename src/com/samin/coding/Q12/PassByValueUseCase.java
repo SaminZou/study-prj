@@ -1,33 +1,43 @@
 package com.samin.coding.Q12;
 
+// Java 里面其实只有值传递，包括对象
+// 对象严格意义上来说是`按共享传递`，按共享传递是值传递的特例
+// 可以通过下面的例子来理解这个事情
 public class PassByValueUseCase {
+
     private static class User {
         String name;
     }
 
+    public static void setUserName(User user) {
+        user.name = "has change";
+    }
+
+    public static void setUser(User user) {
+        user = new User();
+        user.name = "has change";
+    }
+
     public static void main(String[] args) {
-        // 对象入参修改属性，值发生改变，入参内存地址一直一样
+        // 此处不演示值传递，只为让大家了解到为什么对象的形参也是值传递
         User user = new User();
-        user.name = "test";
-        System.out.println(System.identityHashCode(user));
-        PassByValueUseCase.test(user);
-        System.out.println(System.identityHashCode(user));
-        System.out.println("------------------------------------");
+        user.name = "original string";
+        System.out.println("call function before: " + user.name);
 
-        // 基本类型入参，值未发生改变，入参内存地址不一样，说明是拷贝了一份使用
-        int a = 1;
-        System.out.println(System.identityHashCode(a));
-        PassByValueUseCase.test(a);
-        System.out.println(System.identityHashCode(a));
-    }
+        // 首先看第一个方法调用，相信很容易理解，然后让大家的感觉是引用传递
+        setUserName(user);
+        System.out.println("call function after: " + user.name);
 
-    public static void test(User user) {
-        user.name = "samin";
-        System.out.println(System.identityHashCode(user));
-    }
+        System.out.println("--------------------------------------");
 
-    public static void test(int b) {
-        b = 3;
-        System.out.println(System.identityHashCode(b));
+        User user2 = new User();
+        user2.name = "original string";
+        System.out.println("call function before: " + user2.name);
+        // 看第二个实例调用第二个方法，如果还是引用传递的话，user2的值应该会变，实际上并没有
+        System.out.println("call function after: " + user2.name);
+
+        // 总结，值传递的本质为实参进入方法后是否复制了副本给形参，原始类型和String类型很明显是复制了副本
+        // 对于对象而言，其实也复制了一个副本，只不过是指向了同一个地址，修改副本指向地址内容，当然实参也会变化，但是修改副本的地址，实参不变
+        // 对象的传递其实是 `按共享传递`，本质是特殊的值传递
     }
 }

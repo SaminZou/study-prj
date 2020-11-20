@@ -26,28 +26,18 @@ public class Role {
         this.magicPoint = magicPoint;
     }
 
-    /**
-     * @return void
-     * @desc 展示角色当前状态
-     */
+    // 展示角色当前状态
     public void display() {
         System.out.println("用户当前状态:");
         System.out.println("血量:" + getBloodFlow() + ";蓝量:" + getMagicPoint());
     }
 
-    /**
-     * @return Memento
-     * @desc 保持存档、当前状态
-     */
+    // 保持存档、当前状态
     public Memento saveMemento() {
         return new Memento(getBloodFlow(), getMagicPoint());
     }
 
-    /**
-     * @param memento
-     * @return void
-     * @desc 恢复存档
-     */
+    // 恢复存档
     public void restoreMemento(Memento memento) {
         this.bloodFlow = memento.getBloodFlow();
         this.magicPoint = memento.getMagicPoint();

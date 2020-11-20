@@ -2,7 +2,7 @@ package com.samin.coding.Q2;
 
 import java.util.Arrays;
 
-public class SystemClassUseCase {
+public class SystemUseCase {
 
     public static void main(String[] args) {
 

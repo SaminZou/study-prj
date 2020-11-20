@@ -1,11 +1,11 @@
-package com.samin.coding.Q3;
+package com.samin.coding.Q2;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** hashCode() 和 equals() 的区别 */
-public class EqualsMethod {
+/** equals() 和 hashCode() 的区别 */
+public class EqualsAndHashCodeUseCase {
 
     public static void main(String[] args) {
         // 存放在两个地址的实例，假设在业务上，这两个对象需要是相等的

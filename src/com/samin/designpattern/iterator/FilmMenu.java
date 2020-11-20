@@ -6,7 +6,7 @@ public class FilmMenu implements TelevisionMenu {
     MenuItem[] menuItems;
     int numberOfItems = 0;
 
-    /** 构造函数完成初始化 */
+    // 构造函数完成初始化
     public FilmMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
 
@@ -17,13 +17,7 @@ public class FilmMenu implements TelevisionMenu {
         addItem(5, "肖申克的救赎", "自由，幸福，离你有多远");
     }
 
-    /**
-     * @param channe
-     * @param name
-     * @param description
-     * @return void
-     * @desc 将电影解决添加到菜单项中
-     */
+    // 将电影解决添加到菜单项中
     public void addItem(int channe, String name, String description) {
         MenuItem tvmenuiItem = new MenuItem(channe, name, description);
         // 判断数组是否越界

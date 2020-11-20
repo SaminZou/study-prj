@@ -1,4 +1,4 @@
-package com.samin.coding.Q18;
+package com.samin.coding.Q4;
 
 import java.lang.management.ManagementFactory;
 

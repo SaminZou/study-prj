@@ -1,8 +1,6 @@
 package com.samin.designpattern.prototype;
 
-/*
- * 原型模式
- * */
+/** 原型模式 */
 public class Client {
 
     public static void main(String[] args) {
