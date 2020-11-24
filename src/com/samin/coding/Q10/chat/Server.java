@@ -1,4 +1,4 @@
-package com.samin.coding.Q10.simple;
+package com.samin.coding.Q10.chat;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -10,20 +10,7 @@ import java.net.Socket;
 public class Server {
 
     public static void main(String[] args) throws Exception {
-        Server.simpleServerRun();
         Server.serverRun();
-    }
-
-    // 只读服务器
-    public static void simpleServerRun() throws Exception {
-        ServerSocket ss = new ServerSocket(8081);
-
-        // establishes connection
-        Socket s = ss.accept();
-        DataInputStream dis = new DataInputStream(s.getInputStream());
-        String str = dis.readUTF();
-        System.out.println("message= " + str);
-        ss.close();
     }
 
     // 简单双工聊天，开启后服务端等待客户端
