@@ -10,39 +10,6 @@ public class Rob {
     private int oddPrice = 0;
     private int evenPrice = 0;
 
-    public int rob(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-
-        boolean isOdd = true;
-        while (queue.size() != 0) {
-            for (int i = queue.size(); i > 0; i--) {
-                TreeNode tmp = queue.poll();
-
-                if (isOdd) {
-                    oddPrice = oddPrice + tmp.val;
-                } else {
-                    evenPrice = evenPrice + tmp.val;
-                }
-
-                if (tmp.left != null) {
-                    queue.add(tmp.left);
-                }
-                if (tmp.right != null) {
-                    queue.add(tmp.right);
-                }
-            }
-
-            isOdd = !isOdd;
-        }
-
-        return Math.max(oddPrice, evenPrice);
-    }
-
     public static void main(String[] args) {
         //        TreeNode t1 = new TreeNode(3);
         //        TreeNode t2 = new TreeNode(2);
@@ -75,5 +42,38 @@ public class Rob {
         t3.left = t4;
 
         System.out.println(new Rob().rob(t1));
+    }
+
+    public int rob(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        boolean isOdd = true;
+        while (queue.size() != 0) {
+            for (int i = queue.size(); i > 0; i--) {
+                TreeNode tmp = queue.poll();
+
+                if (isOdd) {
+                    oddPrice = oddPrice + tmp.val;
+                } else {
+                    evenPrice = evenPrice + tmp.val;
+                }
+
+                if (tmp.left != null) {
+                    queue.add(tmp.left);
+                }
+                if (tmp.right != null) {
+                    queue.add(tmp.right);
+                }
+            }
+
+            isOdd = !isOdd;
+        }
+
+        return Math.max(oddPrice, evenPrice);
     }
 }

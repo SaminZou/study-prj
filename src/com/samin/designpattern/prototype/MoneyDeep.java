@@ -8,17 +8,17 @@ public class MoneyDeep implements Cloneable, Serializable {
 
     private AreaDeep areaDeep;
 
+    public MoneyDeep(int faceValue, AreaDeep areaDeep) {
+        this.faceValue = faceValue;
+        this.areaDeep = areaDeep;
+    }
+
     public int getFaceValue() {
         return faceValue;
     }
 
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
-    }
-
-    public MoneyDeep(int faceValue, AreaDeep areaDeep) {
-        this.faceValue = faceValue;
-        this.areaDeep = areaDeep;
     }
 
     public AreaDeep getAreaDeep() {

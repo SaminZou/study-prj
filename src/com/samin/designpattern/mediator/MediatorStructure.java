@@ -25,6 +25,7 @@ public class MediatorStructure extends Mediator {
         this.tenant.add(tenant);
     }
 
+    @Override
     public void constact(String message, Person person) {
         if (person instanceof HouseOwner) { // 如果是房主，则租房者获得信息
             for (Tenant tenant : tenant) {

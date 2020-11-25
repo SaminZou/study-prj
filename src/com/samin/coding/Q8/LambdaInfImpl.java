@@ -45,7 +45,7 @@ public class LambdaInfImpl {
         // 根据条件删除
         list.removeIf(
                 ele -> {
-                    return ele.equals("a");
+                    return "a".equals(ele);
                 });
         // 排序
         list.sort(Comparator.comparingInt(e -> e.charAt(0)));

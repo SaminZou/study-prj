@@ -7,7 +7,7 @@ public class HandlerObj1 implements Handler {
         if ("".equals(request.getContent())) {
             return false;
         } else {
-            request.setContent(request.getContent()+" pass 1,");
+            request.setContent(request.getContent() + " pass 1,");
             return true;
         }
     }

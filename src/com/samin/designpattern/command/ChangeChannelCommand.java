@@ -8,6 +8,7 @@ public class ChangeChannelCommand implements Command {
         tv = new Television();
     }
 
+    @Override
     public void execute(int i) {
         tv.changeChannel(i);
     }

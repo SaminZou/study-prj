@@ -6,6 +6,7 @@ public class MedicineB extends Medicine {
         super(name, price);
     }
 
+    @Override
     public void accept(Visitor visitor) {
         visitor.visitor(this);
     }

@@ -13,6 +13,7 @@ public class CodeBicycle extends AbstractClass {
         System.out.println(getClass().getSimpleName() + "骑起来很拉风");
     }
 
+    @Override
     protected void isNeedUnlock(boolean isNeedUnlock) {
         this.isNeedUnlock = isNeedUnlock;
     }

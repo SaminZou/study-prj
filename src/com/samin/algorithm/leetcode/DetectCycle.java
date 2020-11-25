@@ -7,20 +7,6 @@ import java.util.Set;
 
 public class DetectCycle {
 
-    public ListNode detectCycle(ListNode head) {
-        Set<ListNode> tmp = new HashSet<>();
-
-        while (head != null) {
-            if (!tmp.add(head)) {
-                return head;
-            }
-
-            head = head.next;
-        }
-
-        return null;
-    }
-
     public static void main(String[] args) {
         //        ListNode l1 = new ListNode(1);
         //        System.out.println(new DetectCycle().detectCycle(l1));
@@ -42,5 +28,19 @@ public class DetectCycle {
         //        System.out.println(new DetectCycle().detectCycle(l1));
 
         System.out.println(new DetectCycle().detectCycle(null));
+    }
+
+    public ListNode detectCycle(ListNode head) {
+        Set<ListNode> tmp = new HashSet<>();
+
+        while (head != null) {
+            if (!tmp.add(head)) {
+                return head;
+            }
+
+            head = head.next;
+        }
+
+        return null;
     }
 }

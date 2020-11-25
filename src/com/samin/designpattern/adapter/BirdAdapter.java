@@ -7,10 +7,12 @@ public class BirdAdapter implements Robot {
         this.bird = bird;
     }
 
+    @Override
     public void cry() {
         bird.jiji();
     }
 
+    @Override
     public void move() {
         bird.fly();
     }

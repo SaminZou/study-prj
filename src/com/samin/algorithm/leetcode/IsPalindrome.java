@@ -2,6 +2,10 @@ package com.samin.algorithm.leetcode;
 
 public class IsPalindrome {
 
+    public static void main(String[] args) {
+        System.out.println(new IsPalindrome().isPalindrome2(32123));
+    }
+
     /*
     全转
      */
@@ -67,9 +71,5 @@ public class IsPalindrome {
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new IsPalindrome().isPalindrome2(32123));
     }
 }

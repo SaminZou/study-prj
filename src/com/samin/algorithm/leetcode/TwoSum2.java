@@ -18,6 +18,12 @@ public class TwoSum2 {
     //        return new int[0];
     //    }
 
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(new TwoSum2().twoSum(new int[] {2, 7, 11, 15}, 9)));
+        System.out.println(
+                Arrays.toString(new TwoSum2().twoSum(new int[] {10, 26, 30, 31, 47, 60}, 40)));
+    }
+
     public int[] twoSum(int[] numbers, int target) {
         int i = 0;
         int j = numbers.length - 1;
@@ -37,11 +43,5 @@ public class TwoSum2 {
         }
 
         return new int[] {};
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new TwoSum2().twoSum(new int[] {2, 7, 11, 15}, 9)));
-        System.out.println(
-                Arrays.toString(new TwoSum2().twoSum(new int[] {10, 26, 30, 31, 47, 60}, 40)));
     }
 }

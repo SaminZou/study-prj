@@ -3,6 +3,20 @@ package com.samin.algorithm.leetcode;
 // 检查两个字符串数组是否相等
 public class ArrayStringsAreEqual {
 
+    public static void main(String[] args) {
+        // true false true
+        System.out.println(
+                new ArrayStringsAreEqual()
+                        .arrayStringsAreEqual(new String[] {"ab", "c"}, new String[] {"a", "bc"}));
+        System.out.println(
+                new ArrayStringsAreEqual()
+                        .arrayStringsAreEqual(new String[] {"a", "cb"}, new String[] {"ab", "c"}));
+        System.out.println(
+                new ArrayStringsAreEqual()
+                        .arrayStringsAreEqual(
+                                new String[] {"abc", "d", "defg"}, new String[] {"abcddefg"}));
+    }
+
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
         StringBuilder s1 = new StringBuilder();
         StringBuilder s2 = new StringBuilder();
@@ -16,19 +30,5 @@ public class ArrayStringsAreEqual {
         }
 
         return s1.toString().equals(s2.toString());
-    }
-
-    public static void main(String[] args) {
-        // true false true
-        System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(new String[] {"ab", "c"}, new String[] {"a", "bc"}));
-        System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(new String[] {"a", "cb"}, new String[] {"ab", "c"}));
-        System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(
-                                new String[] {"abc", "d", "defg"}, new String[] {"abcddefg"}));
     }
 }

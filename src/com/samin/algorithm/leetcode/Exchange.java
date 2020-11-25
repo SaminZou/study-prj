@@ -22,6 +22,13 @@ public class Exchange {
     //        return oddList.stream().mapToInt(e -> e).toArray();
     //    }
 
+    public static void main(String[] args) {
+        int[] result = new Exchange().exchange(new int[] {1});
+        for (int ele : result) {
+            System.out.print(ele + " ");
+        }
+    }
+
     /*
     双指针解法
      */
@@ -46,12 +53,5 @@ public class Exchange {
         }
 
         return nums;
-    }
-
-    public static void main(String[] args) {
-        int[] result = new Exchange().exchange(new int[] {1});
-        for (int ele : result) {
-            System.out.print(ele + " ");
-        }
     }
 }

@@ -10,24 +10,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TPEUseCase {
     static AtomicInteger atomicInteger = new AtomicInteger(1);
 
-    // 模拟计算50个计算任务
-    private static class CallableWorker implements Callable<String> {
-        private final Integer x;
-        private final Integer y;
-
-        public CallableWorker(Integer x, Integer y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public String call() throws Exception {
-            Thread.sleep(new Random().nextInt(5) * 100);
-            int seq = atomicInteger.getAndAdd(1);
-            return "seq:" + seq + " ,x:" + x + " ,y:" + y + " ,sum:" + (x + y);
-        }
-    }
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         // Callable 接口任务 需要 FutureTask，本方式和普通的代码执行方式一样，不能体现出线程异步方式
         Callable<String> task = new CallableWorker(1, 2);
@@ -37,7 +19,13 @@ public class TPEUseCase {
 
         // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用corePoolSize
         ExecutorService threadPool =
-                new ThreadPoolExecutor(10, 50, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>(10));
+                new ThreadPoolExecutor(
+                        10,
+                        50,
+                        10,
+                        TimeUnit.SECONDS,
+                        new LinkedBlockingDeque<>(10),
+                        (ThreadFactory) Thread::new);
 
         System.out.println("-------------------------------------------------------------------");
 
@@ -62,5 +50,23 @@ public class TPEUseCase {
         }
 
         threadPool.shutdown();
+    }
+
+    // 模拟计算50个计算任务
+    private static class CallableWorker implements Callable<String> {
+        private final Integer x;
+        private final Integer y;
+
+        public CallableWorker(Integer x, Integer y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public String call() throws Exception {
+            Thread.sleep(new Random().nextInt(5) * 100);
+            int seq = atomicInteger.getAndAdd(1);
+            return "seq:" + seq + " ,x:" + x + " ,y:" + y + " ,sum:" + (x + y);
+        }
     }
 }

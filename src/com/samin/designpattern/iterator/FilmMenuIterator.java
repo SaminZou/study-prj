@@ -9,6 +9,7 @@ public class FilmMenuIterator implements Iterator {
         this.menuItems = menuItems;
     }
 
+    @Override
     public boolean hasNext() {
         if (position > menuItems.length - 1 || menuItems[position] == null) {
             return false;
@@ -16,6 +17,7 @@ public class FilmMenuIterator implements Iterator {
         return true;
     }
 
+    @Override
     public Object next() {
         MenuItem menuItem = menuItems[position];
         position++;

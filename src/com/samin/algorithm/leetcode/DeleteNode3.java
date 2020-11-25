@@ -4,11 +4,6 @@ import com.samin.algorithm.base.ListNode;
 
 public class DeleteNode3 {
 
-    public void deleteNode(ListNode node) {
-        node.val = node.next.val;
-        node.next = node.next.next;
-    }
-
     public static void main(String[] args) {
         ListNode l1 = new ListNode(4);
         ListNode l2 = new ListNode(5);
@@ -21,5 +16,10 @@ public class DeleteNode3 {
         //        l4.next = l5;
         new DeleteNode3().deleteNode(l1);
         System.out.println();
+    }
+
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }

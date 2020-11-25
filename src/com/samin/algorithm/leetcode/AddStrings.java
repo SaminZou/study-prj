@@ -2,6 +2,12 @@ package com.samin.algorithm.leetcode;
 
 public class AddStrings {
 
+    public static void main(String[] args) {
+        System.out.println(new AddStrings().addStrings("11", "0"));
+        System.out.println(new AddStrings().addStrings("0", "0"));
+        System.out.println(new AddStrings().addStrings("999", "111"));
+    }
+
     public String addStrings(String num1, String num2) {
         // 双指针、进位、结果存储
         int i = num1.length() - 1;
@@ -49,11 +55,5 @@ public class AddStrings {
         }
 
         return sb.reverse().toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new AddStrings().addStrings("11", "0"));
-        System.out.println(new AddStrings().addStrings("0", "0"));
-        System.out.println(new AddStrings().addStrings("999", "111"));
     }
 }

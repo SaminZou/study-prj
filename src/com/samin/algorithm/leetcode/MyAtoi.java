@@ -2,6 +2,25 @@ package com.samin.algorithm.leetcode;
 
 public class MyAtoi {
 
+    public static void main(String[] args) {
+        System.out.println(new MyAtoi().myAtoi("42"));
+        System.out.println(new MyAtoi().myAtoi("-42"));
+        System.out.println(new MyAtoi().myAtoi("4193 with words"));
+        System.out.println(new MyAtoi().myAtoi("words and 987"));
+        System.out.println(new MyAtoi().myAtoi("-91283472332"));
+        System.out.println(new MyAtoi().myAtoi("91283472332"));
+        System.out.println(new MyAtoi().myAtoi(" "));
+        System.out.println(new MyAtoi().myAtoi("+1"));
+        System.out.println(new MyAtoi().myAtoi("+"));
+        System.out.println(new MyAtoi().myAtoi("-"));
+        System.out.println(new MyAtoi().myAtoi("20000000000000000000"));
+        System.out.println(new MyAtoi().myAtoi("2147483648"));
+        System.out.println(new MyAtoi().myAtoi("2147483646"));
+        System.out.println(new MyAtoi().myAtoi("  0000000000012345678"));
+        System.out.println(new MyAtoi().myAtoi("+-2"));
+        System.out.println(new MyAtoi().myAtoi("2147483800"));
+    }
+
     public int myAtoi(String str) {
         int result = 0;
 
@@ -72,24 +91,5 @@ public class MyAtoi {
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new MyAtoi().myAtoi("42"));
-        System.out.println(new MyAtoi().myAtoi("-42"));
-        System.out.println(new MyAtoi().myAtoi("4193 with words"));
-        System.out.println(new MyAtoi().myAtoi("words and 987"));
-        System.out.println(new MyAtoi().myAtoi("-91283472332"));
-        System.out.println(new MyAtoi().myAtoi("91283472332"));
-        System.out.println(new MyAtoi().myAtoi(" "));
-        System.out.println(new MyAtoi().myAtoi("+1"));
-        System.out.println(new MyAtoi().myAtoi("+"));
-        System.out.println(new MyAtoi().myAtoi("-"));
-        System.out.println(new MyAtoi().myAtoi("20000000000000000000"));
-        System.out.println(new MyAtoi().myAtoi("2147483648"));
-        System.out.println(new MyAtoi().myAtoi("2147483646"));
-        System.out.println(new MyAtoi().myAtoi("  0000000000012345678"));
-        System.out.println(new MyAtoi().myAtoi("+-2"));
-        System.out.println(new MyAtoi().myAtoi("2147483800"));
     }
 }

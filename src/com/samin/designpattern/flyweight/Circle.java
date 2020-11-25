@@ -8,6 +8,7 @@ public class Circle extends Shape {
         this.color = color;
     }
 
+    @Override
     public void draw() {
         System.out.println("画了一个" + color + "的圆形");
     }

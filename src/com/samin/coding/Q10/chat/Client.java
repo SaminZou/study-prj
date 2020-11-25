@@ -20,7 +20,7 @@ public class Client {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String str = "", str2 = "";
-        while (!str.equals("stop")) {
+        while (!"stop".equals(str)) {
             str = br.readLine();
             dout.writeUTF(str);
             dout.flush();

@@ -9,6 +9,16 @@ public class GetMinimumDifference {
 
     List<Integer> arrList = new ArrayList<>();
 
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(3);
+        TreeNode t3 = new TreeNode(2);
+        t1.right = t2;
+        t2.left = t3;
+
+        System.out.println(new GetMinimumDifference().getMinimumDifference(t1));
+    }
+
     public int getMinimumDifference(TreeNode root) {
         // 获取中序遍历结果，递增
         getMid(root);
@@ -61,15 +71,5 @@ public class GetMinimumDifference {
             quickSort(arrs, left, i - 1);
             quickSort(arrs, i + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t2 = new TreeNode(3);
-        TreeNode t3 = new TreeNode(2);
-        t1.right = t2;
-        t2.left = t3;
-
-        System.out.println(new GetMinimumDifference().getMinimumDifference(t1));
     }
 }

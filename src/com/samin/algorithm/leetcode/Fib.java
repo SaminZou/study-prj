@@ -2,6 +2,12 @@ package com.samin.algorithm.leetcode;
 
 public class Fib {
 
+    public static void main(String[] args) {
+        System.out.println(new Fib().fib(2));
+        System.out.println(new Fib().fib(3));
+        System.out.println(new Fib().fib(4));
+    }
+
     public int fib(int N) {
         if (N == 0) {
             return 0;
@@ -20,11 +26,5 @@ public class Fib {
         }
 
         return arr[N];
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new Fib().fib(2));
-        System.out.println(new Fib().fib(3));
-        System.out.println(new Fib().fib(4));
     }
 }

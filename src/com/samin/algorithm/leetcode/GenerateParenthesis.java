@@ -6,6 +6,16 @@ import java.util.List;
 /** 有效括号生成 */
 public class GenerateParenthesis {
 
+    public static void main(String[] args) {
+        // 打印 3 对括号的所有有效组合
+        System.out.println(new GenerateParenthesis().generateParenthesis(3));
+
+        System.out.println("---------------------------------------");
+
+        // 打印 3 对括号的所有组合
+        System.out.println(new GenerateParenthesis().generateParenthesis2(3));
+    }
+
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
 
@@ -47,15 +57,5 @@ public class GenerateParenthesis {
 
         generate2(n + 1, max, s + "(", res);
         generate2(n + 1, max, s + ")", res);
-    }
-
-    public static void main(String[] args) {
-        // 打印 3 对括号的所有有效组合
-        System.out.println(new GenerateParenthesis().generateParenthesis(3));
-
-        System.out.println("---------------------------------------");
-
-        // 打印 3 对括号的所有组合
-        System.out.println(new GenerateParenthesis().generateParenthesis2(3));
     }
 }

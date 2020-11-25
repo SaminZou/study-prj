@@ -1,7 +1,7 @@
 package com.samin.coding.Q2;
 
 public class StringUseCase {
-    private static final String abc = "123"; // 常量
+    private static final String ABC = "123"; // 常量
 
     public static void main(String[] args) {
         // ---------------------------- 字符串初始化后在常量池 -------------------------------
@@ -9,7 +9,7 @@ public class StringUseCase {
 
         // 以下打印的内存地址都相同
         System.out.println(System.identityHashCode("123"));
-        System.out.println(System.identityHashCode(abc));
+        System.out.println(System.identityHashCode(ABC));
         System.out.println(System.identityHashCode(a));
         System.out.println("------------------------");
 

@@ -5,6 +5,11 @@ import com.samin.algorithm.base.TreeNode;
 // 最小高度树
 public class SortedArrayToBST {
 
+    public static void main(String[] args) {
+        TreeNode res = new SortedArrayToBST().sortedArrayToBST(new int[] {-10, -3, 0, 5, 9});
+        System.out.println();
+    }
+
     public TreeNode sortedArrayToBST(int[] nums) {
         return pro(nums, 0, nums.length - 1);
     }
@@ -20,10 +25,5 @@ public class SortedArrayToBST {
         treeNode.right = pro(nums, mid + 1, right);
 
         return treeNode;
-    }
-
-    public static void main(String[] args) {
-        TreeNode res = new SortedArrayToBST().sortedArrayToBST(new int[] {-10, -3, 0, 5, 9});
-        System.out.println();
     }
 }

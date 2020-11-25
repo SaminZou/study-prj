@@ -5,6 +5,14 @@ import java.util.List;
 
 /** 使用wait/notify */
 public class WaitAndNotifyUseCase {
+    public static void main(String[] args) {
+        Queue queue = new Queue();
+        Thread threadA = new Thread(new ThreadA(queue), "Thread A");
+        Thread threadB = new Thread(new ThreadB(queue), "Thread B");
+        threadA.start();
+        threadB.start();
+    }
+
     private static class Queue {
         List<Integer> list;
         int nums = 1;
@@ -61,13 +69,5 @@ public class WaitAndNotifyUseCase {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Queue queue = new Queue();
-        Thread threadA = new Thread(new ThreadA(queue), "Thread A");
-        Thread threadB = new Thread(new ThreadB(queue), "Thread B");
-        threadA.start();
-        threadB.start();
     }
 }

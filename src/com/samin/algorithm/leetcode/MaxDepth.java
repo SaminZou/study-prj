@@ -8,6 +8,8 @@ import java.util.Queue;
 /** 使用DFS和BFS计算二叉树的最大深度 */
 public class MaxDepth {
 
+    public static void main(String[] args) {}
+
     public int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -40,6 +42,4 @@ public class MaxDepth {
 
         return result;
     }
-
-    public static void main(String[] args) {}
 }

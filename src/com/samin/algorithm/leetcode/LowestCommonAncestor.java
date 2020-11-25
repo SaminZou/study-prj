@@ -19,6 +19,28 @@ public class LowestCommonAncestor {
     //        return root;
     //    }
 
+    public static void main(String[] args) {
+        TreeNode t0 = new TreeNode(0);
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(2);
+        TreeNode t3 = new TreeNode(3);
+        TreeNode t4 = new TreeNode(4);
+        TreeNode t5 = new TreeNode(5);
+        TreeNode t6 = new TreeNode(6);
+        TreeNode t7 = new TreeNode(7);
+        TreeNode t8 = new TreeNode(8);
+        t3.left = t5;
+        t3.right = t1;
+        t5.left = t6;
+        t5.right = t2;
+        t2.left = t7;
+        t2.right = t4;
+        t1.left = t0;
+        t1.right = t8;
+        TreeNode res = new LowestCommonAncestor().lowestCommonAncestor(t3, t4, t5);
+        System.out.println(res.val);
+    }
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null || root == p || root == q) {
             return root;
@@ -45,27 +67,5 @@ public class LowestCommonAncestor {
         // 4. left != null && right != null
         // 说明在 root 的两边，结果即为 root
         return root;
-    }
-
-    public static void main(String[] args) {
-        TreeNode t0 = new TreeNode(0);
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t2 = new TreeNode(2);
-        TreeNode t3 = new TreeNode(3);
-        TreeNode t4 = new TreeNode(4);
-        TreeNode t5 = new TreeNode(5);
-        TreeNode t6 = new TreeNode(6);
-        TreeNode t7 = new TreeNode(7);
-        TreeNode t8 = new TreeNode(8);
-        t3.left = t5;
-        t3.right = t1;
-        t5.left = t6;
-        t5.right = t2;
-        t2.left = t7;
-        t2.right = t4;
-        t1.left = t0;
-        t1.right = t8;
-        TreeNode res = new LowestCommonAncestor().lowestCommonAncestor(t3, t4, t5);
-        System.out.println(res.val);
     }
 }

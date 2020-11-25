@@ -17,6 +17,17 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchUseCase {
 
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(3);
+
+        new Thread(new Customer(latch, "张三")).start();
+        new Thread(new Customer(latch, "李四")).start();
+        new Thread(new Customer(latch, "王五")).start();
+
+        Thread.sleep(100);
+        new Thread(new Waitress(latch, "♥小芳♥")).start();
+    }
+
     // 顾客类
     private static class Customer implements Runnable {
         private CountDownLatch latch;
@@ -64,16 +75,5 @@ public class CountDownLatchUseCase {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(3);
-
-        new Thread(new Customer(latch, "张三")).start();
-        new Thread(new Customer(latch, "李四")).start();
-        new Thread(new Customer(latch, "王五")).start();
-
-        Thread.sleep(100);
-        new Thread(new Waitress(latch, "♥小芳♥")).start();
     }
 }

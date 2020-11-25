@@ -4,24 +4,6 @@ import com.samin.algorithm.base.TreeNode;
 
 public class IsBalanced {
 
-    public boolean isBalanced(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-
-        return Math.abs(dept(root.left) - dept(root.right)) <= 1
-                && isBalanced(root.left)
-                && isBalanced(root.right);
-    }
-
-    public int dept(TreeNode node) {
-        if (node == null) {
-            return 0;
-        }
-
-        return Math.max(dept(node.left), dept(node.right)) + 1;
-    }
-
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(3);
         TreeNode t2 = new TreeNode(9);
@@ -49,5 +31,23 @@ public class IsBalanced {
         //        t4.right = t7;
         //
         //        System.out.println(new IsBalanced().isBalanced(t1));
+    }
+
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+
+        return Math.abs(dept(root.left) - dept(root.right)) <= 1
+                && isBalanced(root.left)
+                && isBalanced(root.right);
+    }
+
+    public int dept(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        return Math.max(dept(node.left), dept(node.right)) + 1;
     }
 }

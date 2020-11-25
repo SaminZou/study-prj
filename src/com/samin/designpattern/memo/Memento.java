@@ -5,6 +5,11 @@ public class Memento {
     private int bloodFlow;
     private int magicPoint;
 
+    public Memento(int bloodFlow, int magicPoint) {
+        this.bloodFlow = bloodFlow;
+        this.magicPoint = magicPoint;
+    }
+
     public int getBloodFlow() {
         return bloodFlow;
     }
@@ -18,11 +23,6 @@ public class Memento {
     }
 
     public void setMagicPoint(int magicPoint) {
-        this.magicPoint = magicPoint;
-    }
-
-    public Memento(int bloodFlow, int magicPoint) {
-        this.bloodFlow = bloodFlow;
         this.magicPoint = magicPoint;
     }
 }

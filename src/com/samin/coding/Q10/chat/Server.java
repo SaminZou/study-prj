@@ -22,7 +22,7 @@ public class Server {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String str = "", str2 = "";
-        while (!str.equals("stop")) {
+        while (!"stop".equals(str)) {
             str = din.readUTF();
             System.out.println("client says: " + str);
             str2 = br.readLine();

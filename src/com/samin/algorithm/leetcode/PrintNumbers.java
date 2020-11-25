@@ -2,6 +2,11 @@ package com.samin.algorithm.leetcode;
 
 public class PrintNumbers {
 
+    public static void main(String[] args) {
+        int[] result = new PrintNumbers().printNumbers(2);
+        System.out.println(result.length);
+    }
+
     public int[] printNumbers(int n) {
         if (n == 0) { // 特殊情况
             return new int[] {};
@@ -14,10 +19,5 @@ public class PrintNumbers {
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] result = new PrintNumbers().printNumbers(2);
-        System.out.println(result.length);
     }
 }

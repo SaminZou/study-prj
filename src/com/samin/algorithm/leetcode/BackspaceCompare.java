@@ -4,6 +4,26 @@ import java.util.Stack;
 
 public class BackspaceCompare {
 
+    public static void main(String[] args) {
+        // true
+        System.out.println(new BackspaceCompare().backspaceCompare("ab#c", "ad#c"));
+
+        // true
+        System.out.println(new BackspaceCompare().backspaceCompare("ab##", "c#d#"));
+
+        // true
+        System.out.println(new BackspaceCompare().backspaceCompare("a##c", "#a#c"));
+
+        // false
+        System.out.println(new BackspaceCompare().backspaceCompare("a#c", "b"));
+
+        // true
+        System.out.println(new BackspaceCompare().backspaceCompare("y#fo##f", "y#f#o##f"));
+
+        // false
+        System.out.println(new BackspaceCompare().backspaceCompare("abcd", "bbcd"));
+    }
+
     public boolean backspaceCompare(String S, String T) {
         // 声明两个栈
         Stack<Character> sStack = new Stack<>();
@@ -39,31 +59,11 @@ public class BackspaceCompare {
         // 判断字符的具体内容
         int length = sStack.size();
         for (int i = 0; i < length; i++) {
-            if (sStack.pop() != tStack.pop()) {
+            if (!sStack.pop().equals(tStack.pop())) {
                 return false;
             }
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        // true
-        System.out.println(new BackspaceCompare().backspaceCompare("ab#c", "ad#c"));
-
-        // true
-        System.out.println(new BackspaceCompare().backspaceCompare("ab##", "c#d#"));
-
-        // true
-        System.out.println(new BackspaceCompare().backspaceCompare("a##c", "#a#c"));
-
-        // false
-        System.out.println(new BackspaceCompare().backspaceCompare("a#c", "b"));
-
-        // true
-        System.out.println(new BackspaceCompare().backspaceCompare("y#fo##f", "y#f#o##f"));
-
-        // false
-        System.out.println(new BackspaceCompare().backspaceCompare("abcd", "bbcd"));
     }
 }

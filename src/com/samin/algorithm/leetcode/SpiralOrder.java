@@ -6,6 +6,12 @@ import java.util.List;
 
 public class SpiralOrder {
 
+    public static void main(String[] args) {
+        //        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        int[][] matrix = {};
+        System.out.println(Arrays.toString(new SpiralOrder().spiralOrder(matrix)));
+    }
+
     public int[] spiralOrder(int[][] matrix) {
         List<Integer> resultList = new ArrayList<>();
         if (matrix.length == 0) {
@@ -53,11 +59,5 @@ public class SpiralOrder {
         }
 
         return resultList.stream().mapToInt(Integer::intValue).toArray();
-    }
-
-    public static void main(String[] args) {
-        //        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-        int[][] matrix = {};
-        System.out.println(Arrays.toString(new SpiralOrder().spiralOrder(matrix)));
     }
 }

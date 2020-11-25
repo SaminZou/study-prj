@@ -12,6 +12,42 @@ public class MinStack {
         min = -1;
     }
 
+    public static void main(String[] args) {
+        //        MinStack minStack = new MinStack();
+        //        minStack.push(2);
+        //        minStack.push(0);
+        //        minStack.push(3);
+        //        minStack.push(0);
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        // 0 0 0 2
+
+        //        MinStack minStack = new MinStack();
+        //        minStack.push(1);
+        //        minStack.push(2);
+        //        System.out.println(minStack.top());
+        //        System.out.println(minStack.min());
+        //        minStack.pop();
+        //        System.out.println(minStack.min());
+        //        System.out.println(minStack.top());
+        // 2 1 1 1
+
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.min());
+        minStack.pop();
+        System.out.println(minStack.top());
+        System.out.println(minStack.min());
+        // -3 0 -2
+    }
+
     public void push(int x) {
         index += 1;
         arrs[index] = x;
@@ -49,41 +85,5 @@ public class MinStack {
 
     public int min() {
         return min;
-    }
-
-    public static void main(String[] args) {
-        //        MinStack minStack = new MinStack();
-        //        minStack.push(2);
-        //        minStack.push(0);
-        //        minStack.push(3);
-        //        minStack.push(0);
-        //        System.out.println(minStack.min());
-        //        minStack.pop();
-        //        System.out.println(minStack.min());
-        //        minStack.pop();
-        //        System.out.println(minStack.min());
-        //        minStack.pop();
-        //        System.out.println(minStack.min());
-        // 0 0 0 2
-
-        //        MinStack minStack = new MinStack();
-        //        minStack.push(1);
-        //        minStack.push(2);
-        //        System.out.println(minStack.top());
-        //        System.out.println(minStack.min());
-        //        minStack.pop();
-        //        System.out.println(minStack.min());
-        //        System.out.println(minStack.top());
-        // 2 1 1 1
-
-        MinStack minStack = new MinStack();
-        minStack.push(-2);
-        minStack.push(0);
-        minStack.push(-3);
-        System.out.println(minStack.min());
-        minStack.pop();
-        System.out.println(minStack.top());
-        System.out.println(minStack.min());
-        // -3 0 -2
     }
 }

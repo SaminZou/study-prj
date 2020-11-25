@@ -4,25 +4,6 @@ import com.samin.algorithm.base.TreeNode;
 
 public class MergeTrees {
 
-    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 != null) {
-            t1 = new TreeNode(0);
-            t1.val = t1.val + t2.val;
-        } else if (t1 != null && t2 != null) {
-            t1.val = t1.val + t2.val;
-        }
-
-        if (t2 != null && t2.left != null) {
-            t1.left = mergeTrees(t1.left, t2.left);
-        }
-
-        if (t2 != null && t2.right != null) {
-            t1.right = mergeTrees(t1.right, t2.right);
-        }
-
-        return t1;
-    }
-
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(1);
         TreeNode t2 = new TreeNode(2);
@@ -44,5 +25,24 @@ public class MergeTrees {
 
         TreeNode res = new MergeTrees().mergeTrees(null, null);
         System.out.println(res);
+    }
+
+    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        if (t1 == null && t2 != null) {
+            t1 = new TreeNode(0);
+            t1.val = t1.val + t2.val;
+        } else if (t1 != null && t2 != null) {
+            t1.val = t1.val + t2.val;
+        }
+
+        if (t2 != null && t2.left != null) {
+            t1.left = mergeTrees(t1.left, t2.left);
+        }
+
+        if (t2 != null && t2.right != null) {
+            t1.right = mergeTrees(t1.right, t2.right);
+        }
+
+        return t1;
     }
 }

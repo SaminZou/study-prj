@@ -5,6 +5,14 @@ import java.util.Map;
 
 public class MajorityElement {
 
+    public static void main(String[] args) {
+        System.out.println(
+                new MajorityElement().majorityElement(new int[] {1, 2, 3, 2, 2, 2, 5, 4, 2}));
+        System.out.println(
+                new MajorityElement()
+                        .majorityElement(new int[] {1, 1, 1, 2, 10, 2, 9, 2, 5, 4, 2, 11, 3}));
+    }
+
     public int majorityElement(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -29,13 +37,5 @@ public class MajorityElement {
         }
 
         return temp > nums.length / 2 ? result : 0;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                new MajorityElement().majorityElement(new int[] {1, 2, 3, 2, 2, 2, 5, 4, 2}));
-        System.out.println(
-                new MajorityElement()
-                        .majorityElement(new int[] {1, 1, 1, 2, 10, 2, 9, 2, 5, 4, 2, 11, 3}));
     }
 }

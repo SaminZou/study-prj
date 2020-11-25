@@ -2,17 +2,6 @@ package com.samin.algorithm.leetcode;
 
 public class MirrorTree {
 
-    public TreeNode mirrorTree(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-
-        TreeNode temp = root.left;
-        root.left = mirrorTree(root.right);
-        root.right = mirrorTree(temp);
-        return root;
-    }
-
     public static void main(String[] args) {
         TreeNode t1 = new TreeNode(4);
         TreeNode t2 = new TreeNode(2);
@@ -29,6 +18,17 @@ public class MirrorTree {
         t3.right = t7;
         TreeNode result = new MirrorTree().mirrorTree(t1);
         System.out.println();
+    }
+
+    public TreeNode mirrorTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode temp = root.left;
+        root.left = mirrorTree(root.right);
+        root.right = mirrorTree(temp);
+        return root;
     }
 
     private static class TreeNode {

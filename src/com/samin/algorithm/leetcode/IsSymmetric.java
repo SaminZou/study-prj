@@ -3,6 +3,8 @@ package com.samin.algorithm.leetcode;
 // 对称二叉树(镜像)
 public class IsSymmetric {
 
+    public static void main(String[] args) {}
+
     public boolean isSymmetric(TreeNode root) {
         return isSymmetric(root, root);
     }
@@ -23,8 +25,6 @@ public class IsSymmetric {
                 && isSymmetric(left.left, right.right)
                 && isSymmetric(left.right, right.left);
     }
-
-    public static void main(String[] args) {}
 
     private static class TreeNode {
         int val;

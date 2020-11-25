@@ -18,11 +18,13 @@ public class TVChanneMenu implements TelevisionMenu {
     }
 
     // 将电视频道节目添加菜单集合中
+    @Override
     public void addItem(int channe, String name, String description) {
         MenuItem tvMenuItem = new MenuItem(channe, name, description);
         menuItems.add(tvMenuItem);
     }
 
+    @Override
     public Iterator createIrerator() {
         return new TVChanneMenuIterator(menuItems);
     }

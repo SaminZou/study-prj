@@ -63,33 +63,6 @@ public class ThreeSum {
     //        return resultList;
     //    }
 
-    public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> resultList = new ArrayList<>();
-        Set<Integer> set = new HashSet<>();
-        Integer[] eles;
-        for (int i = 0; i < nums.length - 2; i++) {
-            HashMap<Integer, Integer[]> temp = new HashMap<>();
-            for (int j = i + 1; j < nums.length; j++) {
-                if (temp.containsKey(nums[j])) {
-                    eles = new Integer[3];
-                    System.arraycopy(temp.get(nums[j]), 0, eles, 1, 2);
-                    eles[0] = nums[j];
-                    int hashCode = Arrays.hashCode(eles);
-                    if (!set.contains(hashCode)) {
-                        resultList.add(Arrays.asList(eles));
-                    }
-                    set.add(hashCode);
-                } else {
-                    Integer target = -nums[i] - nums[j];
-                    temp.put(target, new Integer[] {nums[i], nums[j]});
-                }
-            }
-        }
-
-        return resultList;
-    }
-
     public static void main(String[] args) {
         Long start = System.currentTimeMillis();
         List<List<Integer>> result = new ThreeSum().threeSum(new int[] {-1, 0, 1, 2, -1, -4});
@@ -352,5 +325,32 @@ public class ThreeSum {
         // -32754, -39902, 22451, -79095, -23904, 78409, -7418, 77916
         //        });
         System.out.println("耗时：" + (System.currentTimeMillis() - start) / 1000 + "秒");
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> resultList = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+        Integer[] eles;
+        for (int i = 0; i < nums.length - 2; i++) {
+            HashMap<Integer, Integer[]> temp = new HashMap<>();
+            for (int j = i + 1; j < nums.length; j++) {
+                if (temp.containsKey(nums[j])) {
+                    eles = new Integer[3];
+                    System.arraycopy(temp.get(nums[j]), 0, eles, 1, 2);
+                    eles[0] = nums[j];
+                    int hashCode = Arrays.hashCode(eles);
+                    if (!set.contains(hashCode)) {
+                        resultList.add(Arrays.asList(eles));
+                    }
+                    set.add(hashCode);
+                } else {
+                    Integer target = -nums[i] - nums[j];
+                    temp.put(target, new Integer[] {nums[i], nums[j]});
+                }
+            }
+        }
+
+        return resultList;
     }
 }

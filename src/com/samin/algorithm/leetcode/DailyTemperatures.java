@@ -3,6 +3,14 @@ package com.samin.algorithm.leetcode;
 import java.util.Arrays;
 
 public class DailyTemperatures {
+    public static void main(String[] args) {
+        int[] result =
+                new DailyTemperatures()
+                        .dailyTemperatures(new int[] {73, 74, 75, 71, 69, 72, 76, 73});
+
+        System.out.println(Arrays.toString(result));
+    }
+
     public int[] dailyTemperatures(int[] T) {
         int[] result = new int[T.length];
         for (int i = 0; i < T.length; i++) {
@@ -19,13 +27,5 @@ public class DailyTemperatures {
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] result =
-                new DailyTemperatures()
-                        .dailyTemperatures(new int[] {73, 74, 75, 71, 69, 72, 76, 73});
-
-        System.out.println(Arrays.toString(result));
     }
 }

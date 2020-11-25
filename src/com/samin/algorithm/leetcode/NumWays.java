@@ -2,6 +2,12 @@ package com.samin.algorithm.leetcode;
 
 public class NumWays {
 
+    public static void main(String[] args) {
+        System.out.println(new NumWays().numWays(2));
+        System.out.println(new NumWays().numWays(7));
+        System.out.println(new NumWays().numWays(46));
+    }
+
     public int numWays(int n) {
         int q, p = 0;
         int r = 1;
@@ -13,11 +19,5 @@ public class NumWays {
         }
 
         return r;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new NumWays().numWays(2));
-        System.out.println(new NumWays().numWays(7));
-        System.out.println(new NumWays().numWays(46));
     }
 }

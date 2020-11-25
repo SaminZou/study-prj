@@ -5,6 +5,26 @@ import java.util.Queue;
 
 public class MinDepth {
 
+    public static void main(String[] args) {
+        TreeNode t1 = new TreeNode(3);
+        TreeNode t2 = new TreeNode(9);
+        TreeNode t3 = new TreeNode(20);
+        TreeNode t4 = new TreeNode(15);
+        TreeNode t5 = new TreeNode(7);
+
+        TreeNode t6 = new TreeNode(1);
+        TreeNode t7 = new TreeNode(2);
+        TreeNode t8 = new TreeNode(3);
+        t2.left = t6;
+        t2.right = t7;
+        t1.left = t2;
+        t1.right = t3;
+        t3.left = t4;
+        t3.right = t5;
+        t4.left = t8;
+        System.out.println(new MinDepth().minDepth(t1));
+    }
+
     public int minDepth(TreeNode root) {
         // 特殊情况处理
         if (root == null) {
@@ -41,26 +61,6 @@ public class MinDepth {
         }
 
         return depth;
-    }
-
-    public static void main(String[] args) {
-        TreeNode t1 = new TreeNode(3);
-        TreeNode t2 = new TreeNode(9);
-        TreeNode t3 = new TreeNode(20);
-        TreeNode t4 = new TreeNode(15);
-        TreeNode t5 = new TreeNode(7);
-
-        TreeNode t6 = new TreeNode(1);
-        TreeNode t7 = new TreeNode(2);
-        TreeNode t8 = new TreeNode(3);
-        t2.left = t6;
-        t2.right = t7;
-        t1.left = t2;
-        t1.right = t3;
-        t3.left = t4;
-        t3.right = t5;
-        t4.left = t8;
-        System.out.println(new MinDepth().minDepth(t1));
     }
 
     private static class TreeNode {

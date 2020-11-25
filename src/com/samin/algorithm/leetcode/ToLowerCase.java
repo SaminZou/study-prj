@@ -2,6 +2,13 @@ package com.samin.algorithm.leetcode;
 
 public class ToLowerCase {
 
+    public static void main(String[] args) {
+        System.out.println(new ToLowerCase().toLowerCase("Hello"));
+        System.out.println(new ToLowerCase().toLowerCase("here"));
+        System.out.println(new ToLowerCase().toLowerCase("LOVELY"));
+        System.out.println(new ToLowerCase().toLowerCase("al&phaBET"));
+    }
+
     public String toLowerCase(String str) {
         char[] chars = str.toCharArray();
         for (int i = 0; i < chars.length; i++) {
@@ -10,12 +17,5 @@ public class ToLowerCase {
             }
         }
         return new String(chars);
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new ToLowerCase().toLowerCase("Hello"));
-        System.out.println(new ToLowerCase().toLowerCase("here"));
-        System.out.println(new ToLowerCase().toLowerCase("LOVELY"));
-        System.out.println(new ToLowerCase().toLowerCase("al&phaBET"));
     }
 }

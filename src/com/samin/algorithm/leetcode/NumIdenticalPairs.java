@@ -9,6 +9,12 @@ package com.samin.algorithm.leetcode;
  */
 public class NumIdenticalPairs {
 
+    public static void main(String[] args) {
+        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 2, 3, 1, 1, 3}));
+        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 1, 1, 1}));
+        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 2, 3}));
+    }
+
     public int numIdenticalPairs(int[] nums) {
         int sum = 0;
 
@@ -21,11 +27,5 @@ public class NumIdenticalPairs {
         }
 
         return sum;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 2, 3, 1, 1, 3}));
-        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 1, 1, 1}));
-        System.out.println(new NumIdenticalPairs().numIdenticalPairs(new int[] {1, 2, 3}));
     }
 }

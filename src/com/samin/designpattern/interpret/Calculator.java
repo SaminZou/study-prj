@@ -14,17 +14,17 @@ public class Calculator {
         String[] statementArr = statement.split(" ");
 
         for (int i = 0; i < statementArr.length; i++) {
-            if (statementArr[i].equalsIgnoreCase("*")) {
+            if ("*".equalsIgnoreCase(statementArr[i])) {
                 left = (Node) stack.pop();
                 int val = Integer.parseInt(statementArr[++i]);
                 right = new ValueNode(val);
                 stack.push(new MulNode(left, right));
-            } else if (statementArr[i].equalsIgnoreCase("/")) {
+            } else if ("/".equalsIgnoreCase(statementArr[i])) {
                 left = (Node) stack.pop();
                 int val = Integer.parseInt(statementArr[++i]);
                 right = new ValueNode(val);
                 stack.push(new DivNode(left, right));
-            } else if (statementArr[i].equalsIgnoreCase("%")) {
+            } else if ("%".equalsIgnoreCase(statementArr[i])) {
                 left = (Node) stack.pop();
                 int val = Integer.parseInt(statementArr[++i]);
                 right = new ValueNode(val);

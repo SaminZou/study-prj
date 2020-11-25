@@ -18,6 +18,7 @@ public class FilmMenu implements TelevisionMenu {
     }
 
     // 将电影解决添加到菜单项中
+    @Override
     public void addItem(int channe, String name, String description) {
         MenuItem tvmenuiItem = new MenuItem(channe, name, description);
         // 判断数组是否越界
@@ -29,6 +30,7 @@ public class FilmMenu implements TelevisionMenu {
         }
     }
 
+    @Override
     public Iterator createIrerator() {
         return new FilmMenuIterator(menuItems);
     }

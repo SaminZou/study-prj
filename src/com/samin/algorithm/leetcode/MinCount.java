@@ -3,6 +3,11 @@ package com.samin.algorithm.leetcode;
 /** 拿硬币 */
 public class MinCount {
 
+    public static void main(String[] args) {
+        System.out.println(new MinCount().minCount(new int[] {4, 2, 1}));
+        System.out.println(new MinCount().minCount(new int[] {2, 3, 10}));
+    }
+
     public int minCount(int[] coins) {
         int res = 0;
 
@@ -19,10 +24,5 @@ public class MinCount {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new MinCount().minCount(new int[] {4, 2, 1}));
-        System.out.println(new MinCount().minCount(new int[] {2, 3, 10}));
     }
 }

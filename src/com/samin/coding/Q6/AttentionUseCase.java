@@ -49,11 +49,11 @@ public class AttentionUseCase {
         list.add(3);
         int length = list.size();
         // 为了能跑完全部代码，注释了以下代码段，学习的时候可以去掉注释观测到抛错
-//        for (int j = 0; j < length; j++) {
-//            if (list.get(j) >= 0) {
-//                list.remove(j);
-//            }
-//        }
+        //        for (int j = 0; j < length; j++) {
+        //            if (list.get(j) >= 0) {
+        //                list.remove(j);
+        //            }
+        //        }
 
         // 修改为迭代器遍历即可
 
@@ -78,7 +78,7 @@ public class AttentionUseCase {
 
         // 如果不小心把 += 写成了 =+ 结果会让你傻眼
         int temp = 1;
-        temp =+ 2;
+        temp = +2;
         System.out.println(temp);
     }
 }

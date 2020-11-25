@@ -2,6 +2,10 @@ package com.samin.algorithm.leetcode;
 
 public class HammingDistance {
 
+    public static void main(String[] args) {
+        System.out.println(new HammingDistance().hammingDistance(1, 4));
+    }
+
     public int hammingDistance(int x, int y) {
         // 异或计算不同
         int diff = x ^ y;
@@ -14,9 +18,5 @@ public class HammingDistance {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new HammingDistance().hammingDistance(1, 4));
     }
 }

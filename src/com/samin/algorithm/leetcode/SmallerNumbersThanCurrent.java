@@ -6,6 +6,24 @@ import java.util.HashMap;
 // 有多少小于当前数字的数字
 public class SmallerNumbersThanCurrent {
 
+    public static void main(String[] args) {
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[] {})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {8, 1, 2, 2, 3})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {6, 5, 4, 8})));
+        System.out.println(
+                Arrays.toString(
+                        new SmallerNumbersThanCurrent()
+                                .smallerNumbersThanCurrent(new int[] {7, 7, 7, 7})));
+    }
+
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] temp = Arrays.copyOf(nums, nums.length);
         quickSort(nums, 0, nums.length - 1);
@@ -52,23 +70,5 @@ public class SmallerNumbersThanCurrent {
             quickSort(nums, left, i - 1);
             quickSort(nums, i + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[] {})));
-        System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {8, 1, 2, 2, 3})));
-        System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {6, 5, 4, 8})));
-        System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {7, 7, 7, 7})));
     }
 }

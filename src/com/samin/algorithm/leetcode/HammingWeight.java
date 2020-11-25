@@ -2,6 +2,15 @@ package com.samin.algorithm.leetcode;
 
 public class HammingWeight {
 
+    public static void main(String[] args) {
+        System.out.println(new HammingWeight().hammingWeight(1));
+        System.out.println(new HammingWeight().hammingWeight(13));
+        System.out.println(new HammingWeight().hammingWeight(128));
+
+        System.out.println(new HammingWeight().hammingWeight2(13));
+        System.out.println(new HammingWeight().hammingWeight2(128));
+    }
+
     public int hammingWeight(int n) {
         int result = 0;
 
@@ -24,14 +33,5 @@ public class HammingWeight {
         }
 
         return nums;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new HammingWeight().hammingWeight(1));
-        System.out.println(new HammingWeight().hammingWeight(13));
-        System.out.println(new HammingWeight().hammingWeight(128));
-
-        System.out.println(new HammingWeight().hammingWeight2(13));
-        System.out.println(new HammingWeight().hammingWeight2(128));
     }
 }

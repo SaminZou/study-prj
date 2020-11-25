@@ -56,6 +56,27 @@ public class ProductionObj {
         this.e = e;
     }
 
+    @Override
+    public String toString() {
+        return "Production{"
+                + "a='"
+                + a
+                + '\''
+                + ", b='"
+                + b
+                + '\''
+                + ", c='"
+                + c
+                + '\''
+                + ", d='"
+                + d
+                + '\''
+                + ", e='"
+                + e
+                + '\''
+                + '}';
+    }
+
     public static class Builder {
         private String a;
         private String b = "b";
@@ -86,26 +107,5 @@ public class ProductionObj {
         public ProductionObj build() {
             return new ProductionObj(this);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "Production{"
-                + "a='"
-                + a
-                + '\''
-                + ", b='"
-                + b
-                + '\''
-                + ", c='"
-                + c
-                + '\''
-                + ", d='"
-                + d
-                + '\''
-                + ", e='"
-                + e
-                + '\''
-                + '}';
     }
 }

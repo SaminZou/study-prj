@@ -8,29 +8,6 @@ import java.util.List;
 // 二进制链表转整数
 public class GetDecimalValue {
 
-    public int getDecimalValue(ListNode head) {
-        int res = 0;
-
-        List<Integer> list = new ArrayList<>();
-        // 加入到队列
-        while (head != null) {
-            list.add(head.val);
-            head = head.next;
-        }
-
-        int index = 0;
-        // 遍历求和
-        for (int i = list.size() - 1; i >= 0; i--) {
-            // 左移
-            if (list.get(i) == 1) {
-                res += 1 << index;
-            }
-            index += 1;
-        }
-
-        return res;
-    }
-
     public static void main(String[] args) {
         // 5 0 1 18880 0
         ListNode l1 = new ListNode(1);
@@ -81,5 +58,28 @@ public class GetDecimalValue {
         ListNode l22 = new ListNode(0);
         l21.next = l22;
         System.out.println(new GetDecimalValue().getDecimalValue(l21));
+    }
+
+    public int getDecimalValue(ListNode head) {
+        int res = 0;
+
+        List<Integer> list = new ArrayList<>();
+        // 加入到队列
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+
+        int index = 0;
+        // 遍历求和
+        for (int i = list.size() - 1; i >= 0; i--) {
+            // 左移
+            if (list.get(i) == 1) {
+                res += 1 << index;
+            }
+            index += 1;
+        }
+
+        return res;
     }
 }

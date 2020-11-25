@@ -2,23 +2,6 @@ package com.samin.algorithm.leetcode;
 
 public class GetLastMoment2 {
 
-    public int getLastMoment(int n, int[] left, int[] right) {
-        int result = 0;
-        if (left.length > 0) {
-            for (int i = 0; i < left.length; i++) {
-                result = Math.max(result, left[i]);
-            }
-        }
-
-        if (right.length > 0) {
-            for (int i = 0; i < right.length; i++) {
-                result = Math.max(result, n - right[i]);
-            }
-        }
-
-        return result;
-    }
-
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
 
@@ -103,5 +86,22 @@ public class GetLastMoment2 {
                                 new int[] {}));
 
         System.out.println("时间:" + (System.currentTimeMillis() - start));
+    }
+
+    public int getLastMoment(int n, int[] left, int[] right) {
+        int result = 0;
+        if (left.length > 0) {
+            for (int i = 0; i < left.length; i++) {
+                result = Math.max(result, left[i]);
+            }
+        }
+
+        if (right.length > 0) {
+            for (int i = 0; i < right.length; i++) {
+                result = Math.max(result, n - right[i]);
+            }
+        }
+
+        return result;
     }
 }

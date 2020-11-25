@@ -12,6 +12,20 @@ public class CQueue {
         actionTemp = new Stack<>();
     }
 
+    public static void main(String[] args) {
+        //        CQueue cQueue = new CQueue();
+        //        cQueue.appendTail(3);
+        //        System.out.println(cQueue.deleteHead());
+        //        System.out.println(cQueue.deleteHead());
+
+        CQueue cQueue = new CQueue();
+        System.out.println(cQueue.deleteHead());
+        cQueue.appendTail(5);
+        cQueue.appendTail(2);
+        System.out.println(cQueue.deleteHead());
+        System.out.println(cQueue.deleteHead());
+    }
+
     public void appendTail(int value) {
         datas.push(value);
     }
@@ -31,19 +45,5 @@ public class CQueue {
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        //        CQueue cQueue = new CQueue();
-        //        cQueue.appendTail(3);
-        //        System.out.println(cQueue.deleteHead());
-        //        System.out.println(cQueue.deleteHead());
-
-        CQueue cQueue = new CQueue();
-        System.out.println(cQueue.deleteHead());
-        cQueue.appendTail(5);
-        cQueue.appendTail(2);
-        System.out.println(cQueue.deleteHead());
-        System.out.println(cQueue.deleteHead());
     }
 }

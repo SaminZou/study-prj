@@ -10,7 +10,7 @@ public class IteratorUseCase {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("a", "B", "c"));
         for (String ele : list) {
-            if (ele.equals("c")) {
+            if ("c".equals(ele)) {
                 list.remove(ele);
             }
         }
@@ -18,7 +18,7 @@ public class IteratorUseCase {
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
             String ele = iterator.next();
-            if (ele.equals("c")) {
+            if ("c".equals(ele)) {
                 iterator.remove();
             }
         }

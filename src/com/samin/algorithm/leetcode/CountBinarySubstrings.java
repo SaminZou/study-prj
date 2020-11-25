@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class CountBinarySubstrings {
 
+    public static void main(String[] args) {
+        System.out.println(new CountBinarySubstrings().countBinarySubstrings("00110011"));
+        System.out.println(new CountBinarySubstrings().countBinarySubstrings("10101"));
+    }
+
     public int countBinarySubstrings(String s) {
         ArrayList<Integer> counts = new ArrayList<>();
 
@@ -24,10 +29,5 @@ public class CountBinarySubstrings {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new CountBinarySubstrings().countBinarySubstrings("00110011"));
-        System.out.println(new CountBinarySubstrings().countBinarySubstrings("10101"));
     }
 }

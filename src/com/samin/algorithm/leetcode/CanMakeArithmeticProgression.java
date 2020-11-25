@@ -1,6 +1,18 @@
 package com.samin.algorithm.leetcode;
 
 public class CanMakeArithmeticProgression {
+    public static void main(String[] args) {
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {3, 5, 1}));
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {5, 3, 1}));
+        System.out.println(
+                new CanMakeArithmeticProgression()
+                        .canMakeArithmeticProgression(new int[] {1, 2, 4}));
+    }
+
     public boolean canMakeArithmeticProgression(int[] arr) {
         if (arr.length == 2) {
             return true;
@@ -44,17 +56,5 @@ public class CanMakeArithmeticProgression {
             quickSort(arr, left, i - 1);
             quickSort(arr, i + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {3, 5, 1}));
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {5, 3, 1}));
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {1, 2, 4}));
     }
 }

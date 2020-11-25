@@ -8,6 +8,7 @@ public class OpenTvCommand implements Command {
         tv = new Television();
     }
 
+    @Override
     public void execute(int i) {
         tv.open();
     }

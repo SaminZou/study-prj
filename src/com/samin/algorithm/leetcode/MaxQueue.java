@@ -13,6 +13,26 @@ public class MaxQueue {
         max = -1;
     }
 
+    public static void main(String[] args) {
+        //        MaxQueue maxQueue = new MaxQueue();
+        //        maxQueue.push_back(1);
+        //        maxQueue.push_back(2);
+        //        System.out.println(maxQueue.max_value());
+        //        System.out.println(maxQueue.pop_front());
+        //        System.out.println(maxQueue.max_value());
+
+        //        MaxQueue maxQueue = new MaxQueue();
+        //        System.out.println(maxQueue.pop_front());
+        //        System.out.println(maxQueue.max_value());
+
+        MaxQueue maxQueue = new MaxQueue();
+        maxQueue.push_back(46);
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+        System.out.println(maxQueue.max_value());
+        System.out.println(maxQueue.pop_front());
+    }
+
     public int max_value() {
         return max;
     }
@@ -35,25 +55,5 @@ public class MaxQueue {
         }
 
         return ele;
-    }
-
-    public static void main(String[] args) {
-        //        MaxQueue maxQueue = new MaxQueue();
-        //        maxQueue.push_back(1);
-        //        maxQueue.push_back(2);
-        //        System.out.println(maxQueue.max_value());
-        //        System.out.println(maxQueue.pop_front());
-        //        System.out.println(maxQueue.max_value());
-
-        //        MaxQueue maxQueue = new MaxQueue();
-        //        System.out.println(maxQueue.pop_front());
-        //        System.out.println(maxQueue.max_value());
-
-        MaxQueue maxQueue = new MaxQueue();
-        maxQueue.push_back(46);
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
-        System.out.println(maxQueue.max_value());
-        System.out.println(maxQueue.pop_front());
     }
 }

@@ -2,6 +2,10 @@ package com.samin.algorithm.leetcode;
 
 public class ArrayPairSum {
 
+    public static void main(String[] args) {
+        System.out.println(new ArrayPairSum().arrayPairSum(new int[] {1, 4, 3, 2}));
+    }
+
     public int arrayPairSum(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
 
@@ -41,9 +45,5 @@ public class ArrayPairSum {
             quickSort(arr, left, i - 1);
             quickSort(arr, i + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new ArrayPairSum().arrayPairSum(new int[] {1, 4, 3, 2}));
     }
 }

@@ -11,6 +11,18 @@ public class ProducerAndConsumer {
     private static final Integer RUNTIME = 100;
     private static Boolean IS_RUNNING = true;
 
+    public static void main(String[] args) throws InterruptedException {
+        Queue<Integer> queue = new LinkedList<>();
+        // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计
+        int maxSize = 5;
+
+        new Thread(new Producer(queue, maxSize)).start();
+        new Thread(new Consumer(queue)).start();
+
+        Thread.sleep(RUNTIME);
+        IS_RUNNING = false;
+    }
+
     // 生产者
     private static class Producer implements Runnable {
         private final Queue<Integer> queue;
@@ -71,17 +83,5 @@ public class ProducerAndConsumer {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) throws InterruptedException {
-        Queue<Integer> queue = new LinkedList<>();
-        // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计
-        int maxSize = 5;
-
-        new Thread(new Producer(queue, maxSize)).start();
-        new Thread(new Consumer(queue)).start();
-
-        Thread.sleep(RUNTIME);
-        IS_RUNNING = false;
     }
 }

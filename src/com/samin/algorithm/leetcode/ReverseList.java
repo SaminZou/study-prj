@@ -21,20 +21,6 @@ public class ReverseList {
     //        return pre;
     //    }
 
-    public ListNode reverseList(ListNode head) {
-        ListNode pre = null;
-        while (head != null) {
-            ListNode temp = head.next;
-
-            head.next = pre;
-            pre = head;
-
-            head = temp;
-        }
-
-        return pre;
-    }
-
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(2);
@@ -47,5 +33,19 @@ public class ReverseList {
         l4.next = l5;
         ListNode nl = new ReverseList().reverseList(l1);
         System.out.println(nl);
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        while (head != null) {
+            ListNode temp = head.next;
+
+            head.next = pre;
+            pre = head;
+
+            head = temp;
+        }
+
+        return pre;
     }
 }

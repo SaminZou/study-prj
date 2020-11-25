@@ -6,17 +6,17 @@ public class Money implements Cloneable {
 
     private Area area;
 
+    public Money(int faceValue, Area area) {
+        this.faceValue = faceValue;
+        this.area = area;
+    }
+
     public int getFaceValue() {
         return faceValue;
     }
 
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
-    }
-
-    public Money(int faceValue, Area area) {
-        this.faceValue = faceValue;
-        this.area = area;
     }
 
     public Area getArea() {

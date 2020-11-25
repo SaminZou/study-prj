@@ -3,13 +3,6 @@ package com.samin.coding.Q13;
 public class SynchronizedUseCase {
     public static int sums = 0;
 
-    // 1. 同步代码块
-    public void method() {
-        synchronized (this) {
-            System.out.println("synchoronized 代码块");
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         for (int i = 0; i < 5; i++) {
             new Thread(
@@ -28,5 +21,12 @@ public class SynchronizedUseCase {
 
         System.out.println("sums: " + sums);
         System.out.println("---------------------------------------");
+    }
+
+    // 1. 同步代码块
+    public void method() {
+        synchronized (this) {
+            System.out.println("synchoronized 代码块");
+        }
     }
 }

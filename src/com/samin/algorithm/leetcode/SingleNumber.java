@@ -4,6 +4,11 @@ import java.util.HashMap;
 
 public class SingleNumber {
 
+    public static void main(String[] args) {
+        System.out.println(new SingleNumber().singleNumber(new int[] {3, 4, 3, 3}));
+        System.out.println(new SingleNumber().singleNumber(new int[] {9, 1, 7, 9, 7, 9, 7}));
+    }
+
     public int singleNumber(int[] nums) {
         if (nums.length == 0) {
             return 0;
@@ -25,10 +30,5 @@ public class SingleNumber {
         }
 
         return 0;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new SingleNumber().singleNumber(new int[] {3, 4, 3, 3}));
-        System.out.println(new SingleNumber().singleNumber(new int[] {9, 1, 7, 9, 7, 9, 7}));
     }
 }

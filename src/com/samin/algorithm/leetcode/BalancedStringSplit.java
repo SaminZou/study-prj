@@ -5,6 +5,13 @@ import java.util.Stack;
 // 分割平衡字符串
 public class BalancedStringSplit {
 
+    public static void main(String[] args) {
+        // 4 3 1
+        System.out.println(new BalancedStringSplit().balancedStringSplit("RLRRLLRLRL"));
+        System.out.println(new BalancedStringSplit().balancedStringSplit("RLLLLRRRLR"));
+        System.out.println(new BalancedStringSplit().balancedStringSplit("LLLLRRRR"));
+    }
+
     public int balancedStringSplit(String s) {
         int res = 0;
 
@@ -28,12 +35,5 @@ public class BalancedStringSplit {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        // 4 3 1
-        System.out.println(new BalancedStringSplit().balancedStringSplit("RLRRLLRLRL"));
-        System.out.println(new BalancedStringSplit().balancedStringSplit("RLLLLRRRLR"));
-        System.out.println(new BalancedStringSplit().balancedStringSplit("LLLLRRRR"));
     }
 }

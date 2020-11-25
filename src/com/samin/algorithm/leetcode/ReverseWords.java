@@ -5,6 +5,14 @@ import java.util.List;
 
 public class ReverseWords {
 
+    public static void main(String[] args) {
+        //        System.out.println(new Solution20().reverseWords("the sky is blue."));
+        //        System.out.println(new Solution20().reverseWords(" hello world!"));
+        //        System.out.println(new Solution20().reverseWords("  hello   world!"));
+        //        System.out.println(new Solution20().reverseWords("a good    example"));
+        System.out.println(new ReverseWords().reverseWords(" "));
+    }
+
     public String reverseWords(String s) {
         // 特殊情况
         if (null == s || s.length() == 0) {
@@ -33,13 +41,5 @@ public class ReverseWords {
         }
 
         return sb.toString().substring(0, sb.toString().length() - 1);
-    }
-
-    public static void main(String[] args) {
-        //        System.out.println(new Solution20().reverseWords("the sky is blue."));
-        //        System.out.println(new Solution20().reverseWords(" hello world!"));
-        //        System.out.println(new Solution20().reverseWords("  hello   world!"));
-        //        System.out.println(new Solution20().reverseWords("a good    example"));
-        System.out.println(new ReverseWords().reverseWords(" "));
     }
 }

@@ -2,6 +2,12 @@ package com.samin.algorithm.leetcode;
 
 public class Add {
 
+    public static void main(String[] args) {
+        System.out.println(new Add().add(2147483647, 2147483647));
+        System.out.println(new Add().add(2, -10));
+        System.out.println(new Add().add(888, 22));
+    }
+
     public int add(int a, int b) {
         // 直到无进位结束算法
         while (b != 0) {
@@ -11,11 +17,5 @@ public class Add {
         }
 
         return a;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new Add().add(2147483647, 2147483647));
-        System.out.println(new Add().add(2, -10));
-        System.out.println(new Add().add(888, 22));
     }
 }

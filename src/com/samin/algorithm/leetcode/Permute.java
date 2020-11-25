@@ -10,6 +10,10 @@ public class Permute {
 
     List<List<Integer>> res = new ArrayList<>();
 
+    public static void main(String[] args) {
+        System.out.println(new Permute().permute(new int[] {1, 2, 3}));
+    }
+
     public List<List<Integer>> permute(int[] nums) {
         perm(nums, 0, nums.length - 1);
 
@@ -32,9 +36,5 @@ public class Permute {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new Permute().permute(new int[] {1, 2, 3}));
     }
 }

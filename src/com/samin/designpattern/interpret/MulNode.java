@@ -6,6 +6,7 @@ public class MulNode extends SymbolNode {
         super(left, right);
     }
 
+    @Override
     public int interpret() {
         return left.interpret() * right.interpret();
     }

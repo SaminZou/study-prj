@@ -5,10 +5,6 @@ package com.samin.coding.Q12;
 // 可以通过下面的例子来理解这个事情
 public class PassByValueUseCase {
 
-    private static class User {
-        String name;
-    }
-
     public static void setUserName(User user) {
         user.name = "has change";
     }
@@ -39,5 +35,9 @@ public class PassByValueUseCase {
         // 总结，值传递的本质为实参进入方法后是否复制了副本给形参，原始类型和String类型很明显是复制了副本
         // 对于对象而言，其实也复制了一个副本，只不过是指向了同一个地址，修改副本指向地址内容，当然实参也会变化，但是修改副本的地址，实参不变
         // 对象的传递其实是 `按共享传递`，本质是特殊的值传递
+    }
+
+    private static class User {
+        String name;
     }
 }

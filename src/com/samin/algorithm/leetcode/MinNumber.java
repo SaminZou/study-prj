@@ -2,6 +2,11 @@ package com.samin.algorithm.leetcode;
 
 public class MinNumber {
 
+    public static void main(String[] args) {
+        System.out.println(new MinNumber().minNumber(new int[] {10, 2}));
+        System.out.println(new MinNumber().minNumber(new int[] {3, 30, 34, 5, 9}));
+    }
+
     public String minNumber(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         StringBuilder sb = new StringBuilder();
@@ -43,10 +48,5 @@ public class MinNumber {
             quickSort(nums, left, i - 1);
             quickSort(nums, i + 1, right);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new MinNumber().minNumber(new int[] {10, 2}));
-        System.out.println(new MinNumber().minNumber(new int[] {3, 30, 34, 5, 9}));
     }
 }

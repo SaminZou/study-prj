@@ -53,6 +53,29 @@ public class CanFormArray {
     //        pieces[j] = temp;
     //    }
 
+    public static void main(String[] args) {
+        // true true false true false
+        System.out.println(
+                new CanFormArray().canFormArray(new int[] {85}, new int[][] {new int[] {85}}));
+        System.out.println(
+                new CanFormArray()
+                        .canFormArray(
+                                new int[] {15, 88}, new int[][] {new int[] {88}, new int[] {15}}));
+        System.out.println(
+                new CanFormArray()
+                        .canFormArray(
+                                new int[] {49, 18, 16}, new int[][] {new int[] {16, 18, 49}}));
+        System.out.println(
+                new CanFormArray()
+                        .canFormArray(
+                                new int[] {91, 4, 64, 78},
+                                new int[][] {new int[] {78}, new int[] {4, 64}, new int[] {91}}));
+        System.out.println(
+                new CanFormArray()
+                        .canFormArray(
+                                new int[] {1, 3, 5, 7}, new int[][] {new int[] {2, 4, 6, 8}}));
+    }
+
     public boolean canFormArray(int[] arr, int[][] pieces) {
         // 以 pieces 每个子数组的第一个元素为 key 存储到 map 里面
         Map<Integer, int[]> temp = new HashMap<>();
@@ -82,28 +105,5 @@ public class CanFormArray {
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        // true true false true false
-        System.out.println(
-                new CanFormArray().canFormArray(new int[] {85}, new int[][] {new int[] {85}}));
-        System.out.println(
-                new CanFormArray()
-                        .canFormArray(
-                                new int[] {15, 88}, new int[][] {new int[] {88}, new int[] {15}}));
-        System.out.println(
-                new CanFormArray()
-                        .canFormArray(
-                                new int[] {49, 18, 16}, new int[][] {new int[] {16, 18, 49}}));
-        System.out.println(
-                new CanFormArray()
-                        .canFormArray(
-                                new int[] {91, 4, 64, 78},
-                                new int[][] {new int[] {78}, new int[] {4, 64}, new int[] {91}}));
-        System.out.println(
-                new CanFormArray()
-                        .canFormArray(
-                                new int[] {1, 3, 5, 7}, new int[][] {new int[] {2, 4, 6, 8}}));
     }
 }

@@ -2,6 +2,10 @@ package com.samin.algorithm.leetcode;
 
 public class ReverseLeftWords {
 
+    public static void main(String[] args) {
+        System.out.println(new ReverseLeftWords().reverseLeftWords("", 0));
+    }
+
     public String reverseLeftWords(String s, int n) {
         if (s.length() == 0 || n == 0) { // 特殊情况
             return s;
@@ -13,9 +17,5 @@ public class ReverseLeftWords {
         }
 
         return s.substring(n) + new String(chars); // 返回拼接结果
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new ReverseLeftWords().reverseLeftWords("", 0));
     }
 }

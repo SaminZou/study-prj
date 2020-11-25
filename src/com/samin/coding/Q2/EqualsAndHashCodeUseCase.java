@@ -75,8 +75,12 @@ public class EqualsAndHashCodeUseCase {
         @Override
         public boolean equals(Object o) {
             System.out.println("调用了equals方法");
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             User user = (User) o;
             return super.age == user.age
                     && Objects.equals(super.name, user.name)

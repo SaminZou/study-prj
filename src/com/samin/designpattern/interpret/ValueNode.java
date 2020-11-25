@@ -8,6 +8,7 @@ public class ValueNode implements Node {
         this.value = value;
     }
 
+    @Override
     public int interpret() {
         return this.value;
     }

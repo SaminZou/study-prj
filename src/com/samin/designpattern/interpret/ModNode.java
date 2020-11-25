@@ -6,6 +6,7 @@ public class ModNode extends SymbolNode {
         super(left, right);
     }
 
+    @Override
     public int interpret() {
         return super.left.interpret() % super.right.interpret();
     }

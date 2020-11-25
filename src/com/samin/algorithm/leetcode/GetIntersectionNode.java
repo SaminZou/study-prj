@@ -31,34 +31,6 @@ public class GetIntersectionNode {
     //        return null;
     //    }
 
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) {
-            return null;
-        }
-
-        // 计算长度
-        int aLength = 0;
-        int bLength = 0;
-        for (ListNode temp = headA; temp != null; temp = temp.next, aLength++) {}
-        for (ListNode temp = headB; temp != null; temp = temp.next, bLength++) {}
-
-        // 调整较长链表的长度
-        ListNode longOne = aLength > bLength ? headA : headB;
-        int diff = aLength - bLength > 0 ? aLength - bLength : -(aLength - bLength);
-        while (diff > 0) {
-            longOne = longOne.next;
-            diff--;
-        }
-
-        ListNode temp = aLength > bLength ? headB : headA; // 较短的链表
-        while (longOne != temp) {
-            longOne = longOne.next;
-            temp = temp.next;
-        }
-
-        return longOne; // 任意返回longOne或者temp为答案
-    }
-
     public static void main(String[] args) {
         ListNode listA1 = new ListNode(2);
         ListNode listA2 = new ListNode(6);
@@ -108,5 +80,33 @@ public class GetIntersectionNode {
         //
         //        ListNode result = new Solution19().getIntersectionNode(listA1, listB1);
         //        System.out.println(result);
+    }
+
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+
+        // 计算长度
+        int aLength = 0;
+        int bLength = 0;
+        for (ListNode temp = headA; temp != null; temp = temp.next, aLength++) {}
+        for (ListNode temp = headB; temp != null; temp = temp.next, bLength++) {}
+
+        // 调整较长链表的长度
+        ListNode longOne = aLength > bLength ? headA : headB;
+        int diff = aLength - bLength > 0 ? aLength - bLength : -(aLength - bLength);
+        while (diff > 0) {
+            longOne = longOne.next;
+            diff--;
+        }
+
+        ListNode temp = aLength > bLength ? headB : headA; // 较短的链表
+        while (longOne != temp) {
+            longOne = longOne.next;
+            temp = temp.next;
+        }
+
+        return longOne; // 任意返回longOne或者temp为答案
     }
 }

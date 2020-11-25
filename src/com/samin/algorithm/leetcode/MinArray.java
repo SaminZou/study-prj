@@ -2,6 +2,11 @@ package com.samin.algorithm.leetcode;
 
 public class MinArray {
 
+    public static void main(String[] args) {
+        System.out.println(new MinArray().minArray(new int[] {3, 4, 5, 1, 2}));
+        System.out.println(new MinArray().minArray(new int[] {2, 2, 2, 0, 1}));
+    }
+
     public int minArray(int[] numbers) {
         if (numbers.length == 0) {
             return 0;
@@ -15,10 +20,5 @@ public class MinArray {
         }
 
         return index;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new MinArray().minArray(new int[] {3, 4, 5, 1, 2}));
-        System.out.println(new MinArray().minArray(new int[] {2, 2, 2, 0, 1}));
     }
 }

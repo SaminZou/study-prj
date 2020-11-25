@@ -11,6 +11,7 @@ public class TVChanneMenuIterator implements Iterator {
         this.menuItems = menuItems;
     }
 
+    @Override
     public boolean hasNext() {
         if (position > menuItems.size() - 1 || menuItems.get(position) == null) {
             return false;
@@ -19,6 +20,7 @@ public class TVChanneMenuIterator implements Iterator {
         }
     }
 
+    @Override
     public Object next() {
         MenuItem menuItem = menuItems.get(position);
         position++;

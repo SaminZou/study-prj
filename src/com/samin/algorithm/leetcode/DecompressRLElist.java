@@ -6,6 +6,13 @@ import java.util.List;
 
 public class DecompressRLElist {
 
+    public static void main(String[] args) {
+        System.out.println(
+                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 2, 3, 4})));
+        System.out.println(
+                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 1, 2, 3})));
+    }
+
     public int[] decompressRLElist(int[] nums) {
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < nums.length; i = i + 2) {
@@ -14,12 +21,5 @@ public class DecompressRLElist {
             }
         }
         return res.stream().mapToInt(Integer::valueOf).toArray();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(
-                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 2, 3, 4})));
-        System.out.println(
-                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 1, 2, 3})));
     }
 }

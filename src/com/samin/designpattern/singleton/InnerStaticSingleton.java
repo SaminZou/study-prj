@@ -6,10 +6,10 @@ public class InnerStaticSingleton {
     private InnerStaticSingleton() {}
 
     public static InnerStaticSingleton getSingleton() {
-        return Inner.instance;
+        return Inner.INSTANCE;
     }
 
     private static class Inner {
-        private static final InnerStaticSingleton instance = new InnerStaticSingleton();
+        private static final InnerStaticSingleton INSTANCE = new InnerStaticSingleton();
     }
 }

@@ -6,6 +6,12 @@ import java.util.List;
 /** 和为s的连续正数序列（至少含有两个数） */
 public class FindContinuousSequence {
 
+    public static void main(String[] args) {
+        int[][] result1 = new FindContinuousSequence().findContinuousSequence(1);
+        int[][] result2 = new FindContinuousSequence().findContinuousSequence(15);
+        System.out.println();
+    }
+
     public int[][] findContinuousSequence(int target) {
         List<int[]> resultList = new ArrayList<>();
         int mid = target / 2 + 1;
@@ -28,11 +34,5 @@ public class FindContinuousSequence {
         }
 
         return resultList.toArray(new int[0][]);
-    }
-
-    public static void main(String[] args) {
-        int[][] result1 = new FindContinuousSequence().findContinuousSequence(1);
-        int[][] result2 = new FindContinuousSequence().findContinuousSequence(15);
-        System.out.println();
     }
 }

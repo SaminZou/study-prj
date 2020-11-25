@@ -19,6 +19,15 @@ public class ParkingSystem {
         this.small = small;
     }
 
+    public static void main(String[] args) {
+        // true true false false
+        ParkingSystem ps = new ParkingSystem(1, 1, 0);
+        System.out.println(ps.addCar(1));
+        System.out.println(ps.addCar(2));
+        System.out.println(ps.addCar(3));
+        System.out.println(ps.addCar(1));
+    }
+
     public boolean addCar(int carType) {
         switch (carType) {
             case 1:
@@ -45,14 +54,5 @@ public class ParkingSystem {
             default:
                 return false;
         }
-    }
-
-    public static void main(String[] args) {
-        // true true false false
-        ParkingSystem ps = new ParkingSystem(1, 1, 0);
-        System.out.println(ps.addCar(1));
-        System.out.println(ps.addCar(2));
-        System.out.println(ps.addCar(3));
-        System.out.println(ps.addCar(1));
     }
 }

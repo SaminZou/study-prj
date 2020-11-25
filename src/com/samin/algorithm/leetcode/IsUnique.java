@@ -2,6 +2,17 @@ package com.samin.algorithm.leetcode;
 
 public class IsUnique {
 
+    public static void main(String[] args) {
+        // false
+        System.out.println(new IsUnique().isUnique("leetcode"));
+
+        // true
+        System.out.println(new IsUnique().isUnique("abc"));
+
+        // true
+        System.out.println(new IsUnique().isUnique("a"));
+    }
+
     public boolean isUnique(String astr) {
         if (astr.length() == 1) {
             return true;
@@ -17,16 +28,5 @@ public class IsUnique {
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-        // false
-        System.out.println(new IsUnique().isUnique("leetcode"));
-
-        // true
-        System.out.println(new IsUnique().isUnique("abc"));
-
-        // true
-        System.out.println(new IsUnique().isUnique("a"));
     }
 }
