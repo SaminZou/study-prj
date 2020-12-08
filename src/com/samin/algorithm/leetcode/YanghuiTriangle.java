@@ -3,6 +3,7 @@ package com.samin.algorithm.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+// 杨辉三角
 public class YanghuiTriangle {
 
     public List<List<Integer>> generate(int numRows) {
