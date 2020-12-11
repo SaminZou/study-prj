@@ -3,6 +3,7 @@ package com.samin.coding.Q12;
 // Java 里面其实只有值传递，包括对象
 // 对象严格意义上来说是`按共享传递`，按共享传递是值传递的特例
 // 可以通过下面的例子来理解这个事情
+// 本 demo 不演示值传递，目的是让大家清楚为什么说对象传递也是值传递
 public class PassByValueUseCase {
 
     public static void setUserName(User user) {
@@ -15,7 +16,6 @@ public class PassByValueUseCase {
     }
 
     public static void main(String[] args) {
-        // 此处不演示值传递，只为让大家了解到为什么对象的形参也是值传递
         User user = new User();
         user.name = "original string";
         System.out.println("call function before: " + user.name);
