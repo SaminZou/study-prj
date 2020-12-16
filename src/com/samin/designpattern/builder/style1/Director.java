@@ -8,7 +8,9 @@ public class Director {
         this.builder = builder;
     }
 
-    // 统一构造对象实例化方法
+    /**
+     * 统一构造对象实例化方法
+     */
     public Production construct() {
         builder.buildPart1();
         builder.buildPart2();
