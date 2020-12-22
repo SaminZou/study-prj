@@ -2,7 +2,12 @@ package com.samin.coding.Q11;
 
 import com.samin.coding.Q11.demo.User;
 
-// 模拟 ORM
+/**
+ * 模拟 ORM
+ *
+ * @author samin
+ * @date 2020-12-22
+ */
 public class AnnotationUseCase {
 
     public static void main(String[] args) throws Exception {
