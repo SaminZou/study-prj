@@ -1,5 +1,7 @@
 package com.samin.algorithm.leetcode;
 
+import com.samin.algorithm.base.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -61,15 +63,5 @@ public class MinDepth {
         }
 
         return depth;
-    }
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

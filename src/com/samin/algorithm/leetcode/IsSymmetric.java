@@ -1,5 +1,7 @@
 package com.samin.algorithm.leetcode;
 
+import com.samin.algorithm.base.TreeNode;
+
 // 对称二叉树(镜像)
 public class IsSymmetric {
 
@@ -24,15 +26,5 @@ public class IsSymmetric {
         return left.val == right.val
                 && isSymmetric(left.left, right.right)
                 && isSymmetric(left.right, right.left);
-    }
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

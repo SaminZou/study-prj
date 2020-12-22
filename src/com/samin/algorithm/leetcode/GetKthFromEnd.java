@@ -1,5 +1,7 @@
 package com.samin.algorithm.leetcode;
 
+import com.samin.algorithm.base.ListNode;
+
 public class GetKthFromEnd {
 
     public static void main(String[] args) {
@@ -38,14 +40,5 @@ public class GetKthFromEnd {
         }
 
         return null;
-    }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

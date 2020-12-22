@@ -1,5 +1,7 @@
 package com.samin.algorithm.leetcode;
 
+import com.samin.algorithm.base.TreeNode;
+
 public class MirrorTree {
 
     public static void main(String[] args) {
@@ -29,15 +31,5 @@ public class MirrorTree {
         root.left = mirrorTree(root.right);
         root.right = mirrorTree(temp);
         return root;
-    }
-
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }
