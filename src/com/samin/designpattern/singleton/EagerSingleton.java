@@ -4,7 +4,7 @@ package com.samin.designpattern.singleton;
 public class EagerSingleton {
 
     // 利用静态变量来记录Singleton的唯一实例，确保线程安全
-    private static EagerSingleton singleton = new EagerSingleton();
+    private static final EagerSingleton singleton = new EagerSingleton();
 
     // 私有化，只有Singleton类内才可以调用构造器
     private EagerSingleton() {}

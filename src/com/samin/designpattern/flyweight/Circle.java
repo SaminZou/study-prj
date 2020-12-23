@@ -2,7 +2,7 @@ package com.samin.designpattern.flyweight;
 
 public class Circle extends Shape {
 
-    private String color;
+    private final String color;
 
     public Circle(String color) {
         this.color = color;

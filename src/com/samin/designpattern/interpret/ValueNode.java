@@ -2,7 +2,7 @@ package com.samin.designpattern.interpret;
 
 public class ValueNode implements Node {
 
-    private int value;
+    private final int value;
 
     public ValueNode(int value) {
         this.value = value;

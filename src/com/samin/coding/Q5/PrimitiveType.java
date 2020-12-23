@@ -57,7 +57,7 @@ public class PrimitiveType {
         // String.intern() 是一个 Native 方法，
         // 如果运行时常量池中已经包含一个等于此 String 对象内容的字符串，则返回常量池中该字符串的引用；
         // 如果没有，则在常量池中创建与此 String 内容相同的字符串，并返回常量池中创建的字符串的引用。
-        String newStr1 = new String("计算机");
+        String newStr1 = "计算机";
         String newStr2 = newStr1.intern();
         String newStr3 = "计算机";
         System.out.println(newStr1 == newStr2); // false，因为一个是堆内存中的String对象一个是常量池中的String对象，

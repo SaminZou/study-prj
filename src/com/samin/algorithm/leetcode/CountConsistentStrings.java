@@ -3,24 +3,6 @@ package com.samin.algorithm.leetcode;
 // 统计一致字符串的数目
 public class CountConsistentStrings {
 
-    public int countConsistentStrings(String allowed, String[] words) {
-        int res = 0;
-
-        for (String word : words) {
-            for (int i = 0; i < word.toCharArray().length; i++) {
-                if (!allowed.contains(String.valueOf(word.toCharArray()[i]))) {
-                    break;
-                }
-
-                if (i == word.toCharArray().length - 1) {
-                    res += 1;
-                }
-            }
-        }
-
-        return res;
-    }
-
     public static void main(String[] args) {
         // 2
         System.out.println(
@@ -40,5 +22,23 @@ public class CountConsistentStrings {
                         .countConsistentStrings(
                                 "cad",
                                 new String[] {"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"}));
+    }
+
+    public int countConsistentStrings(String allowed, String[] words) {
+        int res = 0;
+
+        for (String word : words) {
+            for (int i = 0; i < word.toCharArray().length; i++) {
+                if (!allowed.contains(String.valueOf(word.toCharArray()[i]))) {
+                    break;
+                }
+
+                if (i == word.toCharArray().length - 1) {
+                    res += 1;
+                }
+            }
+        }
+
+        return res;
     }
 }

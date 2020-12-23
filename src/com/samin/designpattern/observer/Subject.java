@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Subject {
 
     // 观察者对象的集合
-    private List<Observer> observerList = new ArrayList<>();
+    private final List<Observer> observerList = new ArrayList<>();
 
     // 登记观察者
     public void attach(Observer observer) {

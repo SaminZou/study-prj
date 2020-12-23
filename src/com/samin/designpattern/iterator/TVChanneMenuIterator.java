@@ -13,11 +13,7 @@ public class TVChanneMenuIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (position > menuItems.size() - 1 || menuItems.get(position) == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return position <= menuItems.size() - 1 && menuItems.get(position) != null;
     }
 
     @Override

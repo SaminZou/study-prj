@@ -3,6 +3,13 @@ package com.samin.algorithm.leetcode;
 // 比赛中的配对次数
 public class NumberOfMatches {
 
+    public static void main(String[] args) {
+        // 6
+        System.out.println(new NumberOfMatches().numberOfMatches(7));
+        // 13
+        System.out.println(new NumberOfMatches().numberOfMatches(14));
+    }
+
     public int numberOfMatches(int n) {
         int res = 0;
 
@@ -17,12 +24,5 @@ public class NumberOfMatches {
         }
 
         return res;
-    }
-
-    public static void main(String[] args) {
-        // 6
-        System.out.println(new NumberOfMatches().numberOfMatches(7));
-        // 13
-        System.out.println(new NumberOfMatches().numberOfMatches(14));
     }
 }

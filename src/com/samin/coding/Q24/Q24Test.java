@@ -1,6 +1,7 @@
 package com.samin.coding.Q24;
 
 public class Q24Test {
+
     public static void main(String[] args) {
         // 分别为泛型、Object、？ 方式的 BeanFacotry 获取Bean
         // 泛型 和 Object 的声明区别
@@ -18,6 +19,8 @@ public class Q24Test {
 
         BeanFactory3<Foo> beanFactory3 = new BeanFactory3<>();
         Foo foo3 = beanFactory3.getBean(tmp);
+        // 以下语句报错，因为 Foo2 没有继承 Foo
+        // BeanFactory3<Foo2> beanFactory4 = new BeanFactory3<>();
 
         System.out.println("tmp : " + System.identityHashCode(tmp));
         System.out.println("foo : " + System.identityHashCode(foo));

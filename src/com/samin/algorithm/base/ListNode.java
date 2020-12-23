@@ -42,6 +42,6 @@ public class ListNode {
             head = head.next;
         }
 
-        System.out.println("");
+        System.out.println();
     }
 }

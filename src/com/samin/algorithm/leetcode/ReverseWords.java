@@ -40,6 +40,6 @@ public class ReverseWords {
             sb.append(" ");
         }
 
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.substring(0, sb.toString().length() - 1);
     }
 }

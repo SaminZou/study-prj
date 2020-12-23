@@ -4,9 +4,9 @@ public class Controller {
 
     public int nowChannel = 0; // 当前频道
     public int priorChannel; // 前一个频道，用于执行返回操作
-    private Command openTVCommand;
-    private Command closeTVCommand;
-    private Command changeChannelCommand;
+    private final Command openTVCommand;
+    private final Command closeTVCommand;
+    private final Command changeChannelCommand;
 
     public Controller(Command openTvCommand, Command closeTvCommand, Command changeChannelCommand) {
         this.openTVCommand = openTvCommand;

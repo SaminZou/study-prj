@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class BaseMapper {
 
-    private Map<String, User> database = new HashMap<>();
+    private final Map<String, User> database = new HashMap<>();
 
     private String tableName;
     private List<ColumnNode> columnDetails;

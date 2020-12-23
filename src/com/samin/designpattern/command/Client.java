@@ -3,7 +3,7 @@ package com.samin.designpattern.command;
 /** 命令模式 */
 public class Client {
 
-    public static void main(String a[]) {
+    public static void main(String[] a) {
         Command openCommand, closeCommand, changeCommand;
 
         openCommand = new OpenTvCommand();

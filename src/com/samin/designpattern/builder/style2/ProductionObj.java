@@ -78,10 +78,10 @@ public class ProductionObj {
     }
 
     public static class Builder {
-        private String a;
+        private final String a;
         private String b = "b";
         private String c = "c";
-        private String d;
+        private final String d;
         private String e = "d";
 
         public Builder(String a, String d) {

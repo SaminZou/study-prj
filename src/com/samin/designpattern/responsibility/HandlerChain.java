@@ -5,7 +5,7 @@ import java.util.List;
 
 public class HandlerChain {
 
-    private List<Handler> handlers = new ArrayList<>();
+    private final List<Handler> handlers = new ArrayList<>();
 
     public void addHandler(Handler handler) {
         this.handlers.add(handler);

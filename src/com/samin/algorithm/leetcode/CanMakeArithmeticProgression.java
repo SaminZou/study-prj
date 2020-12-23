@@ -1,6 +1,7 @@
 package com.samin.algorithm.leetcode;
 
 public class CanMakeArithmeticProgression {
+
     public static void main(String[] args) {
         System.out.println(
                 new CanMakeArithmeticProgression()
@@ -29,7 +30,7 @@ public class CanMakeArithmeticProgression {
         return true;
     }
 
-    private void quickSort(int arr[], int left, int right) {
+    private void quickSort(int[] arr, int left, int right) {
         if (left < right) {
             int i = left;
             int j = right;

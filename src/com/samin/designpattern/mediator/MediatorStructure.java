@@ -6,8 +6,8 @@ import java.util.List;
 public class MediatorStructure extends Mediator {
 
     // 首先中介结构必须知道所有房主和租房者的信息
-    private List<HouseOwner> houseOwner = new ArrayList<>();
-    private List<Tenant> tenant = new ArrayList<>();
+    private final List<HouseOwner> houseOwner = new ArrayList<>();
+    private final List<Tenant> tenant = new ArrayList<>();
 
     public List<HouseOwner> getHouseOwner() {
         return houseOwner;

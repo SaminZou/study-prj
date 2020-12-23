@@ -3,6 +3,15 @@ package com.samin.algorithm.leetcode;
 // 设计 Goal 解析器
 public class GoalInterpret {
 
+    public static void main(String[] args) {
+        // "Goal"
+        System.out.println(new GoalInterpret().interpret("G()(al)"));
+        // "Gooooal"
+        System.out.println(new GoalInterpret().interpret("G()()()()(al)"));
+        // "alGalooG"
+        System.out.println(new GoalInterpret().interpret("(al)G(al)()()G"));
+    }
+
     public String interpret(String command) {
         StringBuilder sb = new StringBuilder();
 
@@ -26,14 +35,5 @@ public class GoalInterpret {
         }
 
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        // "Goal"
-        System.out.println(new GoalInterpret().interpret("G()(al)"));
-        // "Gooooal"
-        System.out.println(new GoalInterpret().interpret("G()()()()(al)"));
-        // "alGalooG"
-        System.out.println(new GoalInterpret().interpret("(al)G(al)()()G"));
     }
 }

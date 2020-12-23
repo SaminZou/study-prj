@@ -2,7 +2,7 @@ package com.samin.designpattern.proxy.style2;
 
 public class Agent2 implements Subject2 {
 
-    private Subject2 star;
+    private final Subject2 star;
 
     Agent2(Subject2 star) {
         this.star = star;

@@ -5,7 +5,7 @@ import java.util.Objects;
 public class ObjectsUseCase {
     public static void main(String[] args) {
         String a = null;
-        String b = new String("123");
+        String b = "123";
         // 这个会报空指针
         //        System.out.println(a.equals(b));
 

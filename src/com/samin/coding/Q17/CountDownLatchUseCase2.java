@@ -33,7 +33,7 @@ public class CountDownLatchUseCase2 {
 
     private static class User implements Runnable {
         CountDownLatch latch;
-        private String userName;
+        private final String userName;
 
         User(CountDownLatch latch, String name) {
             this.latch = latch;

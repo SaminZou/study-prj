@@ -30,8 +30,8 @@ public class CountDownLatchUseCase {
 
     // 顾客类
     private static class Customer implements Runnable {
-        private CountDownLatch latch;
-        private String name;
+        private final CountDownLatch latch;
+        private final String name;
 
         public Customer(CountDownLatch latch, String name) {
             this.latch = latch;
@@ -56,8 +56,8 @@ public class CountDownLatchUseCase {
 
     // 服务员类
     private static class Waitress implements Runnable {
-        private CountDownLatch latch;
-        private String name;
+        private final CountDownLatch latch;
+        private final String name;
 
         public Waitress(CountDownLatch latch, String name) {
             this.latch = latch;

@@ -11,10 +11,7 @@ public class FilmMenuIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (position > menuItems.length - 1 || menuItems[position] == null) {
-            return false;
-        }
-        return true;
+        return position <= menuItems.length - 1 && menuItems[position] != null;
     }
 
     @Override

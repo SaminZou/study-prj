@@ -2,7 +2,7 @@ package com.samin.designpattern.strategy;
 
 public class Context {
 
-    private Strategy strategy;
+    private final Strategy strategy;
 
     // 传进的是一个具体的策略实例
     public Context(Strategy strategy) {

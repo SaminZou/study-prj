@@ -2,7 +2,7 @@ package com.samin.designpattern.command;
 
 public class OpenTvCommand implements Command {
 
-    private Television tv;
+    private final Television tv;
 
     public OpenTvCommand() {
         tv = new Television();

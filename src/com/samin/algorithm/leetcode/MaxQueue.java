@@ -5,7 +5,7 @@ import java.util.Queue;
 
 public class MaxQueue {
 
-    private Queue<Integer> queue;
+    private final Queue<Integer> queue;
     private Integer max;
 
     public MaxQueue() {

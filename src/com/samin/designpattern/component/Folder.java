@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Folder extends File {
 
-    private List<File> files;
+    private final List<File> files;
 
     public Folder(String name) {
         super(name);
