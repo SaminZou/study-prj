@@ -8,7 +8,13 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
-# com.samin.algorithm 算法刷题记录
+# com.samin.leetcode 
+
+## algorithms 算法刷题记录
+
+## database 数据库刷题记录
+
+统一使用 MySQL 语法
 
 # com.samin.designpattern 设计模式（24种）
 
