@@ -5,20 +5,34 @@ import com.samin.leetcode.algorithms.base.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/** 使用DFS和BFS计算二叉树的最大深度 */
+/**
+ * 二叉树的深度
+ *
+ * @author samin
+ */
 public class MaxDepth {
 
-    public static void main(String[] args) {}
-
-    public int maxDepth(TreeNode root) {
+    /**
+     * 广度优先搜索
+     *
+     * @param root 根节点
+     * @return 深度
+     */
+    public int maxDepthByDFS(TreeNode root) {
         if (root == null) {
             return 0;
         }
 
-        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+        return Math.max(maxDepthByDFS(root.left), maxDepthByDFS(root.right)) + 1;
     }
 
-    public int maxDepth2(TreeNode root) {
+    /**
+     * 深度优先搜索
+     *
+     * @param root 根节点
+     * @return 深度
+     */
+    public int maxDepthByBFS(TreeNode root) {
         int result = 0;
 
         if (root == null) {
