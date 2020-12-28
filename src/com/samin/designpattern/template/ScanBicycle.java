@@ -15,6 +15,6 @@ public class ScanBicycle extends AbstractClass {
 
     @Override
     protected void isNeedUnlock(boolean isNeedUnlock) {
-        this.isNeedUnlock = isNeedUnlock;
+        this.isLock = isNeedUnlock;
     }
 }

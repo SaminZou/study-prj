@@ -5,6 +5,7 @@ import java.util.List;
 
 public class AttentionUseCase {
 
+    @SuppressWarnings("all")
     public static void main(String[] args) {
         // 以下代码是正常的，java支持用花括号修饰代码块
         {
@@ -70,17 +71,6 @@ public class AttentionUseCase {
         System.out.println("transform to int :" + (int) symbol);
 
         System.out.println("-------------------------------------------------");
-
-        // Integer 有一个静态内部类 IntegerCache 会对 -128~127 之间的数字进行缓存
-        // 如果进行如下编码，第二个的比对结果和预期是不一致的
-        Integer a = 100;
-        Integer b = 100;
-        Integer c = 200;
-        Integer d = 200;
-        System.out.println(a == b);
-        System.out.println(c == d);
-        // 解决方案非常简单，只要严格遵守对象是通过 equals 方法进行对比即可
-        System.out.println(c.equals(d));
 
         // 如果不小心把 += 写成了 =+ 结果会让你傻眼
         int temp = 1;
