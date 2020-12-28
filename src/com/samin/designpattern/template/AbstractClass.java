@@ -10,8 +10,8 @@ public abstract class AbstractClass {
     protected abstract void ride();
 
     // 钩子方法，子类可实现
-    protected void isNeedUnlock(boolean isNeedUnlock) {
-        this.isLock = isNeedUnlock;
+    protected void isNeedUnlock(boolean isLock) {
+        this.isLock = isLock;
     }
 
     // 模板方法，负责调度基本方法，子类不可实现
