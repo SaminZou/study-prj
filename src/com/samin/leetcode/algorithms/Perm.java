@@ -2,7 +2,12 @@ package com.samin.leetcode.algorithms;
 
 import java.util.Arrays;
 
-// 全排列
+/**
+ * 全排列
+ *
+ * @author samin
+ * @date 2020-12-29
+ */
 public class Perm {
 
     public static void main(String[] args) {
