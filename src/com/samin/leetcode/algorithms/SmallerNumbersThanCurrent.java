@@ -1,9 +1,16 @@
 package com.samin.leetcode.algorithms;
 
+import com.samin.leetcode.algorithms.base.util.QuickSort;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
-// 有多少小于当前数字的数字
+/**
+ * 有多少小于当前数字的数字
+ *
+ * @author samin
+ * @date 2021-01-03
+ */
 public class SmallerNumbersThanCurrent {
 
     public static void main(String[] args) {
@@ -26,7 +33,7 @@ public class SmallerNumbersThanCurrent {
 
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] temp = Arrays.copyOf(nums, nums.length);
-        quickSort(nums, 0, nums.length - 1);
+        QuickSort.action(nums, 0, nums.length - 1);
 
         // 计算每个元素的排序即得出小于它所有数字的数目
         HashMap<Integer, Integer> numsSeqMap = new HashMap<>();
@@ -40,35 +47,5 @@ public class SmallerNumbersThanCurrent {
         }
 
         return temp;
-    }
-
-    private void quickSort(int[] nums, int left, int right) {
-        if (left < right) {
-            int i = left;
-            int j = right;
-            int index = nums[left];
-            int temp;
-
-            while (i < j) {
-                while (nums[j] >= index && i < j) {
-                    j--;
-                }
-
-                while (nums[i] <= index && i < j) {
-                    i++;
-                }
-
-                if (i < j) {
-                    temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                }
-            }
-
-            nums[left] = nums[i];
-            nums[i] = index;
-            quickSort(nums, left, i - 1);
-            quickSort(nums, i + 1, right);
-        }
     }
 }

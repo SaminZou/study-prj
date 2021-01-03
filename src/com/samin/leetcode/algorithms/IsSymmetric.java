@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
 
 // 对称二叉树(镜像)
 public class IsSymmetric {

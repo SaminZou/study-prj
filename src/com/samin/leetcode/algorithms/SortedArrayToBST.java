@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
 
 // 最小高度树
 public class SortedArrayToBST {

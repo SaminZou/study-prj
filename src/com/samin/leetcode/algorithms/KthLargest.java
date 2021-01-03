@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
 
 /** 此题最佳解是中序遍历逆排序 */
 public class KthLargest {

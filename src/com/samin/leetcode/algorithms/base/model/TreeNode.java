@@ -1,6 +1,11 @@
-package com.samin.leetcode.algorithms.base;
+package com.samin.leetcode.algorithms.base.model;
 
-/** 树节点 */
+/**
+ * 树节点
+ *
+ * @author samin
+ * @date 2021-01-03
+ */
 public class TreeNode {
 
     public int val;

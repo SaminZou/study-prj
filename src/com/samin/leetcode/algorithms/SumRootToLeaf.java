@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
 
 /**
  * 从根到叶的二进制数之和

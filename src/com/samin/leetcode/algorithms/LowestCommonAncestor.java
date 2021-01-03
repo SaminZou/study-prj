@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
 
 public class LowestCommonAncestor {
     // 适用二叉搜索树的最近公共祖先遍历

@@ -1,6 +1,6 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.ListNode;
+import com.samin.leetcode.algorithms.base.model.ListNode;
 
 public class DeleteNode3 {
 

@@ -1,5 +1,11 @@
 package com.samin.leetcode.algorithms;
 
+/**
+ * 字符串相加
+ *
+ * @author samin
+ * @date 2021-01-03
+ */
 public class AddStrings {
 
     public static void main(String[] args) {

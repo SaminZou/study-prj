@@ -1,5 +1,13 @@
 package com.samin.leetcode.algorithms;
 
+import com.samin.leetcode.algorithms.base.util.QuickSort;
+
+/**
+ * 数组拆分 I
+ *
+ * @author samin
+ * @date 2021-01-03
+ */
 public class ArrayPairSum {
 
     public static void main(String[] args) {
@@ -7,7 +15,7 @@ public class ArrayPairSum {
     }
 
     public int arrayPairSum(int[] nums) {
-        quickSort(nums, 0, nums.length - 1);
+        QuickSort.action(nums, 0, nums.length - 1);
 
         int res = 0;
         for (int i = 0; i < nums.length; i = i + 2) {
@@ -15,35 +23,5 @@ public class ArrayPairSum {
         }
 
         return res;
-    }
-
-    private void quickSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int i = left;
-            int j = right;
-            int index = arr[left];
-            int tmp;
-
-            while (i < j) {
-                while (arr[j] >= index && i < j) {
-                    j--;
-                }
-
-                while (arr[i] <= index && i < j) {
-                    i++;
-                }
-
-                if (i < j) {
-                    tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                }
-            }
-
-            arr[left] = arr[i];
-            arr[i] = index;
-            quickSort(arr, left, i - 1);
-            quickSort(arr, i + 1, right);
-        }
     }
 }

@@ -1,5 +1,7 @@
 package com.samin.leetcode.algorithms;
 
+import com.samin.leetcode.algorithms.base.util.QuickSort;
+
 /** 最好的方式，使用桶排序 */
 public class CanBeEqual {
     public static void main(String[] args) {
@@ -13,8 +15,8 @@ public class CanBeEqual {
     }
 
     public boolean canBeEqual(int[] target, int[] arr) {
-        quickSort(target, 0, target.length - 1);
-        quickSort(arr, 0, target.length - 1);
+        QuickSort.action(target, 0, target.length - 1);
+        QuickSort.action(arr, 0, target.length - 1);
 
         for (int i = 0; i < target.length; i++) {
             if (target[i] != arr[i]) {
@@ -23,35 +25,5 @@ public class CanBeEqual {
         }
 
         return true;
-    }
-
-    private void quickSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int i = left;
-            int j = right;
-            int index = arr[left];
-            int tmp;
-
-            while (i < j) {
-                while (arr[j] >= index && i < j) {
-                    j--;
-                }
-
-                while (arr[i] <= index && i < j) {
-                    i++;
-                }
-
-                if (i < j) {
-                    tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                }
-            }
-
-            arr[left] = arr[i];
-            arr[i] = index;
-            quickSort(arr, left, i - 1);
-            quickSort(arr, i + 1, right);
-        }
     }
 }

@@ -1,6 +1,11 @@
-package com.samin.leetcode.algorithms.base;
+package com.samin.leetcode.algorithms.base.model;
 
-/** 链表节点 */
+/**
+ * 链表节点
+ *
+ * @author samin
+ * @date 2021-01-03
+ */
 public class ListNode {
 
     public int val;

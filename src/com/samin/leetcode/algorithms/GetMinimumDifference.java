@@ -1,6 +1,7 @@
 package com.samin.leetcode.algorithms;
 
-import com.samin.leetcode.algorithms.base.TreeNode;
+import com.samin.leetcode.algorithms.base.model.TreeNode;
+import com.samin.leetcode.algorithms.base.util.QuickSort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public class GetMinimumDifference {
         }
 
         // 排序输出结果
-        quickSort(arrs, 0, arrs.length - 1);
+        QuickSort.action(arrs, 0, arrs.length - 1);
 
         return arrs[0];
     }
@@ -40,36 +41,6 @@ public class GetMinimumDifference {
             getMid(root.left);
             arrList.add(root.val);
             getMid(root.right);
-        }
-    }
-
-    public void quickSort(int[] arrs, int left, int right) {
-        if (left < right) {
-            int i = left;
-            int j = right;
-            int index = arrs[left];
-            int tmp;
-
-            while (i < j) {
-                while (index <= arrs[j] && i < j) {
-                    j--;
-                }
-
-                while (index >= arrs[i] && i < j) {
-                    i++;
-                }
-
-                if (i < j) {
-                    tmp = arrs[i];
-                    arrs[i] = arrs[j];
-                    arrs[j] = tmp;
-                }
-            }
-
-            arrs[left] = arrs[i];
-            arrs[i] = index;
-            quickSort(arrs, left, i - 1);
-            quickSort(arrs, i + 1, right);
         }
     }
 }
