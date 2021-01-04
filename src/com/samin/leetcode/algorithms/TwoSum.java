@@ -2,6 +2,12 @@ package com.samin.leetcode.algorithms;
 
 import java.util.HashMap;
 
+/**
+ * 两数之和
+ *
+ * @author samin
+ * @date 2021-01-04
+ */
 public class TwoSum {
 
     public static void main(String[] args) {
@@ -23,6 +29,34 @@ public class TwoSum {
                 // return new int[]{cpMap.get(cp), i};
             }
             cpMap.put(nums[i], i);
+        }
+
+        return new int[] {};
+    }
+
+    /**
+     * 自己的解法
+     *
+     * @param numbers 数组
+     * @param target 目标数
+     * @return 结果
+     */
+    public int[] twoSum2(int[] numbers, int target) {
+        int i = 0;
+        int j = numbers.length - 1;
+
+        while (i < j) {
+            if (numbers[i] + numbers[j] > target) {
+                j--;
+            }
+
+            if (numbers[i] + numbers[j] < target) {
+                i++;
+            }
+
+            if (numbers[i] + numbers[j] == target) {
+                return new int[] {i + 1, j + 1};
+            }
         }
 
         return new int[] {};
