@@ -13,7 +13,7 @@
 # leetcode 📘
 
 力扣刷题记录 
-📎[力扣中国官网](https://leetcode-cn.com/)
+📎 [力扣中国官网](https://leetcode-cn.com/)
 
 ## algorithms 算法刷题记录
 
