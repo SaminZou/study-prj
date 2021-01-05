@@ -1,9 +1,16 @@
-package visitor;
+package behavioural.visitor;
 
-/** 访问者模式 双分派技术：第一次确定操作者，第二次根据药物执行任务 */
+/**
+ * 访问者模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {
+        // 双分派技术：第一次确定操作者，第二次根据药物执行任务
+
         Medicine a = new MedicineA("板蓝根", 11.0);
         Medicine b = new MedicineA("感康", 14.3);
         Medicine c = new MedicineB("安眠药", 100.5);

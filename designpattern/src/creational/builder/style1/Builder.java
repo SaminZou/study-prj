@@ -1,4 +1,4 @@
-package builder.style1;
+package creational.builder.style1;
 
 public interface Builder {
 
@@ -7,6 +7,6 @@ public interface Builder {
 
     void buildPart2();
 
-    /** builder 模式一般通用返回实例化方法名 */
+    /** creational.builder 模式一般通用返回实例化方法名 */
     Production build();
 }

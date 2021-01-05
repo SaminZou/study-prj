@@ -1,9 +1,13 @@
-package factory;
+package creational.factory;
 
-/*
+/**
  * 工厂模式
- * */
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
+
     public static void main(String[] args) {
         // 生产雪糕
         Factory iceCreamFactory = new IceCreamFactory();

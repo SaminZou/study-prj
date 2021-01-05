@@ -1,6 +1,11 @@
-package behavioural.memo;
+package behavioural.memento;
 
-/** 备忘录模式 */
+/**
+ * 备忘录模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

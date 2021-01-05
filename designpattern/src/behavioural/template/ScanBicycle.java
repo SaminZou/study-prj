@@ -1,4 +1,4 @@
-package template;
+package behavioural.template;
 
 // 扫码开锁的单车
 public class ScanBicycle extends AbstractClass {

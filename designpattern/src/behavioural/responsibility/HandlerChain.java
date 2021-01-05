@@ -1,4 +1,4 @@
-package responsibility;
+package behavioural.responsibility;
 
 import java.util.ArrayList;
 import java.util.List;

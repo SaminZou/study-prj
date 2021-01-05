@@ -1,4 +1,4 @@
-package state;
+package behavioural.state;
 
 /** 没有使用状态模式 */
 public class NoState {
@@ -16,23 +16,23 @@ public class NoState {
         switch (state) {
             case CLOSING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case FAULT_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case OPENING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case RUNNING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case STOPPING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             default:
                 break;
@@ -44,23 +44,23 @@ public class NoState {
         switch (state) {
             case CLOSING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case FAULT_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case OPENING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case RUNNING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case STOPPING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             default:
                 break;
@@ -72,23 +72,23 @@ public class NoState {
         switch (state) {
             case CLOSING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case FAULT_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case OPENING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case RUNNING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case STOPPING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             default:
                 break;
@@ -100,23 +100,23 @@ public class NoState {
         switch (state) {
             case CLOSING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case FAULT_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case OPENING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case RUNNING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             case STOPPING_STATE:
                 //              执行具体的方法
-                //              state = XXXX;
+                //              behavioural.state = XXXX;
                 break;
             default:
                 break;

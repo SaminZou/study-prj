@@ -1,6 +1,11 @@
-package command;
+package behavioural.command;
 
-/** 命令模式 */
+/**
+ * 命令模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] a) {
@@ -12,12 +17,15 @@ public class Client {
 
         Controller control = new Controller(openCommand, closeCommand, changeCommand);
 
-        control.open(); // 打开电视机
-        control.change(); // 换频道
+        // 打开电视机
+        control.open();
+        // 换频道
+        control.change();
         control.change();
         control.ChannelUndo();
         control.ChannelUndo();
         control.ChannelUndo();
-        control.close(); // 关闭电视机
+        // 关闭电视机
+        control.close();
     }
 }

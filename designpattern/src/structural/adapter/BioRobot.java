@@ -1,4 +1,4 @@
-package adapter;
+package structural.adapter;
 
 public class BioRobot implements Robot {
 

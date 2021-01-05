@@ -1,12 +1,17 @@
-package proxy;
+package structural.proxy;
 
-import proxy.style1.Agent;
-import proxy.style1.Star;
-import proxy.style1.Subject;
-import proxy.style2.Star2;
-import proxy.style2.Subject2;
+import structural.proxy.style1.Agent;
+import structural.proxy.style1.Star;
+import structural.proxy.style1.Subject;
+import structural.proxy.style2.Star2;
+import structural.proxy.style2.Subject2;
 
-/** 代理模式 */
+/**
+ * 代理模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

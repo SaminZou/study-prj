@@ -46,7 +46,7 @@ public class Cpu100Run {
             try {
                 System.out.println("System running ...");
                 System.out.println(
-                        "You can check the information by top command with -Hp parameter !");
+                        "You can check the information by top behavioural.command with -Hp parameter !");
                 // 保持10秒运行时间
                 Thread.sleep(100000);
                 // 关闭程序

@@ -1,4 +1,4 @@
-package visitor;
+package behavioural.visitor;
 
 import java.util.ArrayList;
 import java.util.List;

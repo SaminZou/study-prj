@@ -1,4 +1,4 @@
-package prototype;
+package creational.prototype;
 
 public class AreaDeep implements Cloneable {
 

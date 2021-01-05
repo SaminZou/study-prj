@@ -1,4 +1,4 @@
-package mediator;
+package behavioural.mediator;
 
 public abstract class Person {
 

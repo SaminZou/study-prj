@@ -1,10 +1,9 @@
-package interpret;
+package behavioural.interpreter;
 
 import java.util.Stack;
 
 public class Calculator {
 
-    private String statement;
     private Node node;
 
     public void build(String statement) {

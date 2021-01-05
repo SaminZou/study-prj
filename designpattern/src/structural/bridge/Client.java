@@ -1,4 +1,4 @@
-package bridge;
+package structural.bridge;
 
 /**
  * 桥接模式

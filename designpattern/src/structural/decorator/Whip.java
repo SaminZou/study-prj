@@ -1,4 +1,4 @@
-package decorator;
+package structural.decorator;
 
 public class Whip extends CondimentDecorator {
 

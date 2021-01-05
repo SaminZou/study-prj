@@ -1,4 +1,4 @@
-package prototype;
+package creational.prototype;
 
 import java.io.Serializable;
 

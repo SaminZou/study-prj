@@ -1,6 +1,11 @@
-package interpret;
+package behavioural.interpreter;
 
-/** 解释器模式 */
+/**
+ * 解释器模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

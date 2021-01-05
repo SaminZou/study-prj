@@ -1,4 +1,4 @@
-package state;
+package behavioural.state;
 
 public abstract class BaseState {
 

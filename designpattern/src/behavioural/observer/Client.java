@@ -1,6 +1,11 @@
-package observer;
+package behavioural.observer;
 
-/** 观察者模式 */
+/**
+ * 观察者模式（发布订阅模式）
+ *
+ * @author smain
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

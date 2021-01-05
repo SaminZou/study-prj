@@ -1,4 +1,4 @@
-package behavioural.memo;
+package behavioural.memento;
 
 public class Caretaker {
 

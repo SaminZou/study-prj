@@ -1,6 +1,11 @@
-package prototype;
+package creational.prototype;
 
-/** 原型模式 */
+/**
+ * 原型模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

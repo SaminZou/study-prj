@@ -1,4 +1,4 @@
-package adapter;
+package structural.adapter;
 
 /**
  * 适配器模式

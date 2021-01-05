@@ -1,4 +1,4 @@
-package builder.style2;
+package creational.builder.style2;
 
 public class ProductionObj {
 

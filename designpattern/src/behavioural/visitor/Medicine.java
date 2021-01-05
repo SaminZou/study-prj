@@ -1,4 +1,4 @@
-package visitor;
+package behavioural.visitor;
 
 public abstract class Medicine {
 

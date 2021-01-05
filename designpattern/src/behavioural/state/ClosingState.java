@@ -1,4 +1,4 @@
-package state;
+package behavioural.state;
 
 /** 模拟电梯关闭状态 */
 public class ClosingState extends BaseState {

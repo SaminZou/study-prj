@@ -1,4 +1,4 @@
-package adapter;
+package structural.adapter;
 
 public class DogAdapter implements Robot {
     Dog dog;

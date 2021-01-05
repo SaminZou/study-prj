@@ -1,4 +1,4 @@
-package decorator;
+package structural.decorator;
 
 public class Espresso extends Beverage {
 

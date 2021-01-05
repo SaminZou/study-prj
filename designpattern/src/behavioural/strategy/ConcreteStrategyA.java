@@ -1,4 +1,4 @@
-package strategy;
+package behavioural.strategy;
 
 public class ConcreteStrategyA implements Strategy {
 

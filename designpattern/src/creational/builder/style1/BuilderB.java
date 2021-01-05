@@ -1,4 +1,4 @@
-package builder.style1;
+package creational.builder.style1;
 
 public class BuilderB implements Builder {
 

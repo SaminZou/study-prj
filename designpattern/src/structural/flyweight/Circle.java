@@ -1,4 +1,4 @@
-package flyweight;
+package structural.flyweight;
 
 public class Circle extends Shape {
 

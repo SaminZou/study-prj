@@ -1,6 +1,11 @@
-package facade;
+package structural.facade;
 
-/** 外观模式 */
+/**
+ * 外观模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

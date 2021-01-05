@@ -1,6 +1,11 @@
-package decorator;
+package structural.decorator;
 
-/** 装饰器模式 */
+/**
+ * 装饰器模式
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class Client {
 
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package builder;
+package creational.builder;
 
-import builder.style1.*;
-import builder.style2.ProductionObj;
+import creational.builder.style1.*;
+import creational.builder.style2.ProductionObj;
 
 /**
  * 建造者模式 Builder 接口或抽象类，非必选 ConcreateBuilder 具体的建造者，可以有多个 Product 普通的类，具体要被实例化的对象 Director

@@ -1,4 +1,4 @@
-package template;
+package behavioural.template;
 
 // 密码开锁的单车
 public class CodeBicycle extends AbstractClass {

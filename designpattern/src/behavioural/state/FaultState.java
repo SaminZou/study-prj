@@ -1,4 +1,4 @@
-package state;
+package behavioural.state;
 
 /** 模拟故障状态,四个方法都不可用 */
 public class FaultState extends BaseState {

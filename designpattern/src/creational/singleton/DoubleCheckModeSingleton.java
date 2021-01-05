@@ -1,9 +1,14 @@
-package singleton;
+package creational.singleton;
 
-// 双重校验锁（DCL，double-checked locking）
+/**
+ * 双重校验锁 DCL double-checked locking
+ *
+ * @author samin
+ * @date 2021-01-05
+ */
 public class DoubleCheckModeSingleton {
 
-    // 需要加上 volatile，才能确保 DCL 万无一失
+    /** 需要加上 volatile，才能确保 DCL 万无一失 */
     private static volatile DoubleCheckModeSingleton singleton = null;
 
     private DoubleCheckModeSingleton() {}

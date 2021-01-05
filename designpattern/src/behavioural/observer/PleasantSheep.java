@@ -1,4 +1,4 @@
-package observer;
+package behavioural.observer;
 
 public class PleasantSheep implements Observer {
 

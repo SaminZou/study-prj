@@ -1,4 +1,4 @@
-package bridge;
+package structural.bridge;
 
 public class Gray implements Color {
 

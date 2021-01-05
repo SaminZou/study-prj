@@ -1,4 +1,4 @@
-package proxy.style1;
+package structural.proxy.style1;
 
 public interface Subject {
 

@@ -1,4 +1,4 @@
-package facade;
+package structural.facade;
 
 public class Light {
 

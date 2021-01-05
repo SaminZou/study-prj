@@ -1,4 +1,4 @@
-package mediator;
+package behavioural.mediator;
 
 public class HouseOwner extends Person {
 

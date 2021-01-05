@@ -1,4 +1,4 @@
-package command;
+package behavioural.command;
 
 public class OpenTvCommand implements Command {
 

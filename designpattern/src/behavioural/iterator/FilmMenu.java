@@ -1,4 +1,4 @@
-package iterator;
+package behavioural.iterator;
 
 public class FilmMenu implements TelevisionMenu {
 

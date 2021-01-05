@@ -1,4 +1,4 @@
-package component;
+package structural.composite;
 
 public class VideoFile extends File {
 

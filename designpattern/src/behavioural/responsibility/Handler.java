@@ -1,4 +1,4 @@
-package responsibility;
+package behavioural.responsibility;
 
 public interface Handler {
 

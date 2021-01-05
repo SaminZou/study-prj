@@ -1,4 +1,4 @@
-package proxy.style2;
+package structural.proxy.style2;
 
 public class Agent2 implements Subject2 {
 
