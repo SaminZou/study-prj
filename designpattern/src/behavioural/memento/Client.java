@@ -1,4 +1,4 @@
-package memo;
+package behavioural.memo;
 
 /** 备忘录模式 */
 public class Client {
