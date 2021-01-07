@@ -23,15 +23,22 @@ public class CalPoints {
             return sum;
         }
 
+        int index = 1;
         List<String> list = new ArrayList<>();
         list.add(ops[0]);
-        list.add(ops[1]);
-        for (int i = 2; i < ops.length; i++) {
+        // 判断第二个字符是否是数字
+        if (!"D".equals(ops[1]) && !"C".equals(ops[1])) {
+            list.add(ops[1]);
+            index += 1;
+        }
+
+        // 遍历计算结果
+        for (int i = index; i < ops.length; i++) {
             if ("+".equals(ops[i])) {
                 list.add(
                         String.valueOf(
                                 Integer.parseInt(list.get(list.size() - 1))
-                                        + Integer.parseInt(list.get(list.size() - 1))));
+                                        + Integer.parseInt(list.get(list.size() - 2))));
 
                 continue;
             }
@@ -56,5 +63,17 @@ public class CalPoints {
         }
 
         return sum;
+    }
+
+    public static void main(String[] args) {
+        // 30
+        System.out.println(new CalPoints().calPoints(new String[] {"5", "2", "C", "D", "+"}));
+        // 27
+        System.out.println(
+                new CalPoints().calPoints(new String[] {"5", "-2", "4", "C", "D", "9", "+", "+"}));
+        // 1
+        System.out.println(new CalPoints().calPoints(new String[] {"1"}));
+        // 15
+        System.out.println(new CalPoints().calPoints(new String[] {"1", "D", "D", "D"}));
     }
 }
