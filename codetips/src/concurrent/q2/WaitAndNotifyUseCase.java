@@ -3,8 +3,14 @@ package concurrent.q2;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 使用wait/notify */
+/**
+ * 使用wait/notify
+ *
+ * @author samin
+ * @date 2021-01-08
+ */
 public class WaitAndNotifyUseCase {
+
     public static void main(String[] args) {
         Queue queue = new Queue();
         Thread threadA = new Thread(new ThreadA(queue), "Thread A");
@@ -28,7 +34,7 @@ public class WaitAndNotifyUseCase {
         }
     }
 
-    // 等待信号后执行
+    /** 等待信号后执行 */
     private static class ThreadA implements Runnable {
         final Queue queue;
 
@@ -51,7 +57,7 @@ public class WaitAndNotifyUseCase {
         }
     }
 
-    // 执行方法，注意是执行完整个方法，不管耗时多久，不管 `notify()` 方法在 `synchronized` 哪一步，都是等待线程执行完毕才发送信号
+    /** 执行方法，注意是执行完整个方法，不管耗时多久，不管 `notify()` 方法在 `synchronized` 哪一步，都是等待线程执行完毕才发送信号 */
     private static class ThreadB implements Runnable {
         final Queue queue;
 

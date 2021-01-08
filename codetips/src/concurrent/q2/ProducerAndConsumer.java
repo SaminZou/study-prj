@@ -3,27 +3,48 @@ package concurrent.q2;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
-/** 使用wait和notifyAll实现的消息队列 */
+/**
+ * 使用 wait 和 notifyAll 实现的消息队列
+ *
+ * @author samin
+ * @date 2021-01-08
+ */
 public class ProducerAndConsumer {
 
-    // 控制程序执行时间，单位毫秒
+    /** 控制程序执行时间，单位毫秒 */
     private static final Integer RUNTIME = 100;
+
     private static Boolean IS_RUNNING = true;
 
     public static void main(String[] args) throws InterruptedException {
+        ThreadPoolExecutor poolExecutor =
+                new ThreadPoolExecutor(
+                        5,
+                        10,
+                        10,
+                        TimeUnit.MINUTES,
+                        new LinkedBlockingQueue<>(10),
+                        (ThreadFactory) Thread::new);
+
         Queue<Integer> queue = new LinkedList<>();
         // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计
         int maxSize = 5;
 
-        new Thread(new Producer(queue, maxSize)).start();
-        new Thread(new Consumer(queue)).start();
+        poolExecutor.execute(new Producer(queue, maxSize));
+        poolExecutor.execute(new Consumer(queue));
 
         Thread.sleep(RUNTIME);
         IS_RUNNING = false;
+
+        poolExecutor.shutdown();
     }
 
-    // 生产者
+    /** 生产者 */
     private static class Producer implements Runnable {
         private final Queue<Integer> queue;
         private final int maxSize;
@@ -56,7 +77,7 @@ public class ProducerAndConsumer {
         }
     }
 
-    // 消费者
+    /** 消费者 */
     private static class Consumer implements Runnable {
         private final Queue<Integer> queue;
 

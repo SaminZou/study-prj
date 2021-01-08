@@ -14,6 +14,9 @@ import java.util.concurrent.CountDownLatch;
  * <p>调用CountDown的线程可以继续执行，不需要等待计数器被减到0 调用Await方法的线程需要等待
  *
  * <p>以下用例模拟场景，等客人齐了上菜
+ *
+ * @author samin
+ * @date 2021-01-08
  */
 public class CountDownLatchUseCase {
 
@@ -28,7 +31,7 @@ public class CountDownLatchUseCase {
         new Thread(new Waitress(latch, "♥小芳♥")).start();
     }
 
-    // 顾客类
+    /** 顾客类 */
     private static class Customer implements Runnable {
         private final CountDownLatch latch;
         private final String name;
@@ -54,7 +57,7 @@ public class CountDownLatchUseCase {
         }
     }
 
-    // 服务员类
+    /** 服务员类 */
     private static class Waitress implements Runnable {
         private final CountDownLatch latch;
         private final String name;

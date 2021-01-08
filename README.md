@@ -12,8 +12,7 @@
 
 # leetcode 📘
 
-力扣刷题记录 
-📎 [力扣中国官网](https://leetcode-cn.com/)
+力扣刷题记录 📎 [力扣中国官网](https://leetcode-cn.com/)
 
 ## algorithms 算法刷题记录
 
@@ -88,11 +87,11 @@
 - q1 原生工具类用法
 
     - System 类
-    
+
     - Object 类
-    
+
     - String 类
-    
+
     - Arrays 类
 
 - q2 原始类型
@@ -131,7 +130,7 @@
 
 ## concurrent 并发
 
-- q1 并发相关用例
+- q1 Atomic类 / SimpleDateFormat / Synchronized / ThreadLocal
 
 - q2 wait/notify 用法 & 实现的消息队列
 
@@ -139,7 +138,7 @@
 
 - q4 ScheduledThreadPoolExecutor 用法
 
-- q5 SimpleDateFormat 线程不安全
+- q5 ReentrantLock 用法
 
 ## puzzle 疑难杂症
 

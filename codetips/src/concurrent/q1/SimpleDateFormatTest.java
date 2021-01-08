@@ -1,4 +1,4 @@
-package concurrent.q5;
+package concurrent.q1;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +8,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/** SimpleDateFormat 是线程不安全的 */
+/**
+ * SimpleDateFormat 是线程不安全的
+ *
+ * @author samin
+ * @date 2021-01-08
+ */
 public class SimpleDateFormatTest {
 
     public static void main(String[] args) {

@@ -7,7 +7,14 @@ import java.util.Random;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * 线程池及 Future 用例
+ *
+ * @author samin
+ * @date 2021-01-08
+ */
 public class TPEUseCase {
+
     static AtomicInteger atomicInteger = new AtomicInteger(1);
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {

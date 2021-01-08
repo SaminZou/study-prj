@@ -6,7 +6,14 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 代码优化
+ *
+ * @author samin
+ * @date 2021-01-08
+ */
 public class CountDownLatchUseCase2 {
+
     public static void main(String[] args) {
         System.out.println("广播体操现在开始... 集合");
 
