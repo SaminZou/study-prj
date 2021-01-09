@@ -152,6 +152,6 @@
 
 # doc 文档 📙
 
-## sele-made_interview_questions 
+## self-made_interview_questions 
 
 自己想的一些面试题，如有雷同，不好意思，那也是没看过自己想的
