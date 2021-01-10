@@ -3,8 +3,16 @@ package basic.q4;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-// lambda表达式是jdk1.8之后才有的新特性
+/**
+ * 演示主方法
+ *
+ * <p>lambda表达式是jdk1.8之后才有的新特性
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class LambdaInfImpl {
+
     public LambdaInfImpl() {
         System.out.println("实例化LambdaInfImpl...");
     }

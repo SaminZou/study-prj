@@ -3,7 +3,9 @@ package basic.q7;
 import basic.q7.demo.User;
 
 /**
- * 模拟 ORM
+ * 演示主方法
+ *
+ * <p>模拟 ORM 操作
  *
  * @author samin
  * @date 2020-12-22

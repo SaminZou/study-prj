@@ -7,6 +7,12 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 服务器端
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class Server {
 
     public static void main(String[] args) throws Exception {

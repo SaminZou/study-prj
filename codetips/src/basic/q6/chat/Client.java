@@ -6,6 +6,12 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+/**
+ * 客户端
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class Client {
 
     public static void main(String[] args) throws Exception {

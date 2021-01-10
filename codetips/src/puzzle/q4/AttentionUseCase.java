@@ -3,6 +3,12 @@ package puzzle.q4;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 一些疑难杂症
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class AttentionUseCase {
 
     @SuppressWarnings("all")

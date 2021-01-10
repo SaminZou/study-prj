@@ -3,9 +3,16 @@ package basic.q5;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 正则表达式
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class PatternUseCase {
-    // 使用java的正则表达式，需要了解Pattern(模式类)和Matcher(匹配器类)
+
     public static void main(String[] args) {
+        // Pattern(模式类) 和 Matcher(匹配器类)
         String str = "822085977@!qq.(com)";
         String regEx = "[`~!#$%^&*()+=|{}':;',\\[\\]<>/?~！#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
         // 编译正则表达式

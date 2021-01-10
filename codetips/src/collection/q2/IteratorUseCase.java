@@ -2,11 +2,15 @@ package collection.q2;
 
 import java.util.*;
 
+/**
+ * 迭代器入门
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class IteratorUseCase {
 
-    /*
-    迭代器的工作是用于遍历集合
-     */
+    /** 迭代器的工作是用于遍历集合 */
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("a", "B", "c"));
         for (String ele : list) {

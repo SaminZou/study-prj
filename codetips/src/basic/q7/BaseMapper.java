@@ -10,6 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 基础操作方法
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class BaseMapper {
 
     private final Map<String, User> database = new HashMap<>();

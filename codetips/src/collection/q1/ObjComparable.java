@@ -1,6 +1,13 @@
 package collection.q1;
 
+/**
+ * 对象实现排序方式
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class ObjComparable implements Comparable<ObjComparable> {
+
     Integer weight;
 
     public ObjComparable(Integer weight) {

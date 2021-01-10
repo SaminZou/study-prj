@@ -5,11 +5,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * 集合排序方法
+ *
+ * <p>Comparator 配合Collection.sort()使用
+ *
+ * <p>Comparable 实现后才能使TreeMap等带排序功能的类生效
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class CompareUseCase {
-    /*
-    Comparator 配合Collection.sort()使用
-    Comparable 实现后才能使TreeMap等带排序功能的类生效
-     */
+
     public static void main(String[] args) {
         List<ObjComparable> list = new ArrayList<>();
         ObjComparable o1 = new ObjComparable(1);

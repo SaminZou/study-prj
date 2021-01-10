@@ -3,6 +3,12 @@ package puzzle.q1;
 import java.io.*;
 import java.util.Objects;
 
+/**
+ * 认知 IO 和字符串的关系
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class ChineseReader {
 
     public static void main(String[] args) throws Exception {
@@ -24,11 +30,10 @@ public class ChineseReader {
         System.out.println("----------------------------------------------------");
         System.out.println();
 
-        /*
-         * 本解决方案还是有问题，不同编码的中文所占字节数不一样
-         */
+        // 本解决方案还是有问题，不同编码的中文所占字节数不一样
         InputStream inputStream2 = new FileInputStream(file);
         System.out.println("方式2：一个UTF-8占3个字节，修改每次3字节读取，即可完整读出每个中文文字");
+
         // 一个UTF-8占3个字节，以下代码段可以输出完整循环输出结果
         int length = 3;
         byte[] b = new byte[length];

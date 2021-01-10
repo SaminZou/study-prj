@@ -3,7 +3,14 @@ package basic.q3;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
+/**
+ * BigDecimal 类用例
+ *
+ * @author samin
+ * @date 2020-12-31
+ */
 public class BigDecimalUseCase {
+
     public static void main(String[] args) {
         BigDecimal a = new BigDecimal(3);
         BigDecimal b = new BigDecimal(2);

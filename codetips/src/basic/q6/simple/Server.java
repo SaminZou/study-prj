@@ -4,14 +4,20 @@ import java.io.DataInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 服务器端
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class Server {
 
     public static void main(String[] args) throws Exception {
         Server.simpleServerRun();
     }
 
-    // 只读服务器
     public static void simpleServerRun() throws Exception {
+        // 只读服务器
         ServerSocket ss = new ServerSocket(8081);
 
         // establishes connection

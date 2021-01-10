@@ -1,8 +1,10 @@
 package basic.q2;
 
-/*
- * 原生类型的坑
- * 基本类型的包装类不都实现了常量池
+/**
+ * 原生类型的坑 基本类型的包装类不都实现了常量池
+ *
+ * @author samin
+ * @date 2021-01-10
  */
 public class PrimitiveType {
     public static final String STRING1;

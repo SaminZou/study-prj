@@ -2,6 +2,12 @@ package basic.q12;
 
 import java.util.function.Function;
 
+/**
+ * Java8 Function类的使用
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class FunctionUseCase {
 
     public static void main(String[] args) {

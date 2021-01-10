@@ -2,6 +2,12 @@ package basic.q1;
 
 import java.util.Arrays;
 
+/**
+ * System 类用例
+ *
+ * @author samin
+ * @date 2020-12-31
+ */
 public class SystemUseCase {
 
     public static void main(String[] args) {

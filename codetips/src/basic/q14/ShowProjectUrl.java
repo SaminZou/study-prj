@@ -3,6 +3,12 @@ package basic.q14;
 import java.io.File;
 import java.net.URL;
 
+/**
+ * Java 路径相关
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class ShowProjectUrl {
 
     public static <T> void showUrl(Class<T> t) throws Exception {

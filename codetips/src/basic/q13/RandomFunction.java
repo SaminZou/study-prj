@@ -2,6 +2,12 @@ package basic.q13;
 
 import java.util.Random;
 
+/**
+ * 获取随机数
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class RandomFunction {
 
     public static void main(String[] args) {

@@ -4,7 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** equals() 和 hashCode() 的区别 */
+/**
+ * equals() 和 hashCode() 的区别
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class EqualsAndHashCodeUseCase {
 
     public static void main(String[] args) {

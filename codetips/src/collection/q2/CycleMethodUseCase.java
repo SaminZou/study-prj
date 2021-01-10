@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * 遍历方式及性能测试
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class CycleMethodUseCase {
+
     public static void main(String[] args) {
         // 列表的循环
         ArrayList<Integer> list = new ArrayList<>();
@@ -12,7 +19,7 @@ public class CycleMethodUseCase {
             list.add(i);
         }
 
-        Long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         for (int i = 0; i < 1000000; i++) {
             Integer temp = list.get(i);
         }

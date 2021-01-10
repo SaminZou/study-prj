@@ -3,7 +3,9 @@ package basic.q3;
 import java.math.BigDecimal;
 
 /**
- * double和float精度不准确的问题 使用java.math.BigDecimal解决
+ * 数字精度问题
+ *
+ * <p>使用java.math.BigDecimal解决
  *
  * @author samin
  * @date 2020-12-31

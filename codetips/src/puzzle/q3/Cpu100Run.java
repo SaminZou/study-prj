@@ -2,7 +2,12 @@ package puzzle.q3;
 
 import java.lang.management.ManagementFactory;
 
-/** 此模拟程序目的是为了观测多核 CPU 的运行负载情况 */
+/**
+ * 此模拟程序目的是为了观测多核 CPU 的运行负载情况
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class Cpu100Run {
     // 记得加 volatile，不然程序会失效，参考JMM的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据）
     public static volatile Boolean switchBool = true;

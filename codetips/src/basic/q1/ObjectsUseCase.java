@@ -2,7 +2,15 @@ package basic.q1;
 
 import java.util.Objects;
 
+/**
+ * Object 类用例
+ *
+ *
+ * @author samin
+ * @date 2020-12-31
+ */
 public class ObjectsUseCase {
+
     public static void main(String[] args) {
         String a = null;
         String b = "123";

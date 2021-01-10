@@ -1,6 +1,13 @@
-package basic.q10;
+package puzzle.q5;
 
+/**
+ * 标签，跳出多重循环
+ *
+ * @author samin
+ * @date 2021-01-10
+ */
 public class LabelUseCase {
+
     public static void main(String[] args) {
         // 标签名可以随意定义，用于和 break 搭配，跳出多重循环
         stop:

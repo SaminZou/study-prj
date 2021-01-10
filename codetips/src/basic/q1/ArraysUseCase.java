@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Arrays.asList()将数组转换为集合后，底层其实还是数组，无法使用add/remove/clear方法 体现的是适配器模式，只是转换接口，后台的数据仍是数组
+ * Arrays.asList()将数组转换为集合后，底层其实还是数组，无法使用add/remove/clear方法
+ *
+ * <p>体现的是适配器模式，只是转换接口，后台的数据仍是数组
  *
  * @author samin
  * @date 2020-12-31
