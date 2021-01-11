@@ -3,6 +3,12 @@ package algorithms;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 两个数组的交集
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Intersection {
 
     public static void main(String[] args) {

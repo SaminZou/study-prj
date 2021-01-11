@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 解压缩编码列表
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class DecompressRLElist {
 
     public static void main(String[] args) {

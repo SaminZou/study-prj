@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.ListNode;
 
+/**
+ * 删除链表中的节点
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class DeleteNode {
 
     public static void main(String[] args) {
@@ -23,32 +29,12 @@ public class DeleteNode {
         //        System.out.println();
     }
 
-    //    public ListNode deleteNode(ListNode head, int val) {
-    //        ListNode result = head;
-    //        ListNode preNode = null;
-    //        while (head.val != val) {
-    //            preNode = head;
-    //            head = head.next;
-    //        }
-    //
-    //        if (preNode != null) {
-    //            if (head.next != null) {
-    //                preNode.next = head.next;
-    //            } else {
-    //                preNode.next = null;
-    //            }
-    //        } else {
-    //            result = result.next;
-    //        }
-    //
-    //        return result;
-    //    }
-
     public ListNode deleteNode(ListNode head, int val) {
         ListNode cur = head;
 
         while (head != null) {
-            if (head.next.val == val && head.next.next == null) { // 最后一个节点的处理
+            // 最后一个节点的处理
+            if (head.next.val == val && head.next.next == null) {
                 head.next = null;
                 head = null;
             } else if (head.val == val) {
@@ -61,5 +47,10 @@ public class DeleteNode {
         }
 
         return cur;
+    }
+
+    public void deleteNode2(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
     }
 }

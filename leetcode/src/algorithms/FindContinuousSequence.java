@@ -3,7 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 和为s的连续正数序列（至少含有两个数） */
+/**
+ * 和为s的连续正数序列
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FindContinuousSequence {
 
     public static void main(String[] args) {

@@ -1,6 +1,11 @@
 package algorithms;
 
-// 重新排列字符串
+/**
+ * 重新排列字符串
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class RestoreString {
 
     public static void main(String[] args) {

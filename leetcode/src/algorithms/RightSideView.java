@@ -6,7 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 二叉树的右视图
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class RightSideView {
+
     private final List<TreeNode> res = new ArrayList<>();
 
     public static void main(String[] args) {

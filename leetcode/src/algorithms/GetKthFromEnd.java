@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.ListNode;
 
+/**
+ * 链表中倒数第k个节点
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetKthFromEnd {
 
     public static void main(String[] args) {
@@ -19,18 +25,21 @@ public class GetKthFromEnd {
     }
 
     public ListNode getKthFromEnd(ListNode head, int k) {
-        if (head == null) { // 特殊情况
+        // 特殊情况
+        if (head == null) {
             return null;
         }
 
         ListNode temp = head;
         int index = 0;
-        while (temp != null) { // 计算长度
+        // 计算长度
+        while (temp != null) {
             index += 1;
             temp = temp.next;
         }
 
-        while (head != null) { // 遍历比较位置
+        // 遍历比较位置
+        while (head != null) {
             if (index == k) {
                 return head;
             }

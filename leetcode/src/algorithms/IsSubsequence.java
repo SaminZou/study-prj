@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 判断子序列
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsSubsequence {
 
     public static void main(String[] args) {

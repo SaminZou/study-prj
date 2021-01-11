@@ -1,11 +1,16 @@
 package algorithms;
 
 /**
- * Your ParkingSystem object will be instantiated and called as such:
+ * 设计停车系统
+ *
+ * <p>Your ParkingSystem object will be instantiated and called as such:
  *
  * <p>ParkingSystem obj = new ParkingSystem(big, medium, small);
  *
  * <p>boolean param_1 = obj.addCar(carType);
+ *
+ * @author samin
+ * @date 2021-01-11
  */
 public class ParkingSystem {
 

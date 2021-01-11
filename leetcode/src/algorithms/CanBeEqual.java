@@ -2,8 +2,16 @@ package algorithms;
 
 import algorithms.base.util.QuickSort;
 
-/** 最好的方式，使用桶排序 */
+/**
+ * 通过翻转子数组使两个数组相等
+ *
+ * <p>最好的方式，使用桶排序
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CanBeEqual {
+
     public static void main(String[] args) {
         System.out.println(
                 new CanBeEqual().canBeEqual(new int[] {1, 2, 3, 4}, new int[] {2, 4, 1, 3}));

@@ -1,6 +1,11 @@
 package algorithms;
 
-// 在既定时间做作业的学生人数
+/**
+ * 在既定时间做作业的学生人数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class BusyStudent {
 
     public static void main(String[] args) {

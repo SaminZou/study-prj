@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 圆圈中最后剩下的数字
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class LastRemaining {
 
     public static void main(String[] args) {

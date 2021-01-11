@@ -1,6 +1,11 @@
 package algorithms;
 
-// 设计 Goal 解析器
+/**
+ * 设计 Goal 解析器
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GoalInterpret {
 
     public static void main(String[] args) {

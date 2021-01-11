@@ -2,7 +2,12 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
-// 对称二叉树(镜像)
+/**
+ * 对称二叉树(镜像)
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsSymmetric {
 
     public static void main(String[] args) {}

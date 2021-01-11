@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.Arrays;
 
+/**
+ * 一维数组的动态和
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class RunningSum {
 
     public static void main(String[] args) {

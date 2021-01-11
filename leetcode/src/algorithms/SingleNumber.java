@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.HashMap;
 
+/**
+ * 数组中数字出现的次数 II
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SingleNumber {
 
     public static void main(String[] args) {

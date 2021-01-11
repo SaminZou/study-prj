@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 整数拆分
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IntegerBreak {
 
     public int integerBreak(int n) {

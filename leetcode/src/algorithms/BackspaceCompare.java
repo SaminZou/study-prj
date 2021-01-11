@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.Stack;
 
+/**
+ * 比较含退格的字符串
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class BackspaceCompare {
 
     public static void main(String[] args) {

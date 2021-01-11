@@ -2,7 +2,12 @@ package algorithms;
 
 import java.util.Stack;
 
-// 有效括号的最大嵌套深度
+/**
+ * 括号的最大嵌套深度
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ValidParenthesesDepth {
 
     public static void main(String[] args) {

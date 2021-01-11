@@ -5,7 +5,14 @@ import algorithms.base.model.ListNode;
 import java.util.HashSet;
 import java.util.Set;
 
-// 给定一个链表，判断链表中是否有环。
+/**
+ * 环形链表
+ *
+ * <p>给定一个链表，判断链表中是否有环。
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class HasCycle {
 
     public static void main(String[] args) {

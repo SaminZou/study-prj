@@ -1,6 +1,11 @@
 package algorithms;
 
-// 有效的山脉数组
+/**
+ * 有效的山脉数组
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ValidMountainArray {
 
     public static void main(String[] args) {

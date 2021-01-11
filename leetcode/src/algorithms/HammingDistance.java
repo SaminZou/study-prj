@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 汉明距离
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class HammingDistance {
 
     public static void main(String[] args) {

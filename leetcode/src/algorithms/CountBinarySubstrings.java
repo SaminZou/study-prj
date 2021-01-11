@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.ArrayList;
 
+/**
+ * 计数二进制子串
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CountBinarySubstrings {
 
     public static void main(String[] args) {

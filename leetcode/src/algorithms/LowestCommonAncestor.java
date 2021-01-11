@@ -2,13 +2,19 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
+/**
+ * 二叉搜索树的最近公共祖先
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class LowestCommonAncestor {
     // 适用二叉搜索树的最近公共祖先遍历
     //    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     //        // 使用迭代法找出最近公共节点
     //        while (root != null) {
     //            if (p.val < root.val && q.val < root.val) { // 在左子树的情况
-    //                root = root.left;
+    //                root = root.left;minCostToMoveChips
     //            } else if (p.val > root.val && q.val > root.val) { // 在右子树的情况
     //                root = root.right;
     //            } else {

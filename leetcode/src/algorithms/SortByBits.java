@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.*;
 
+/**
+ * 根据数字二进制下 1 的数目排序
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SortByBits {
 
     public static void main(String[] args) {

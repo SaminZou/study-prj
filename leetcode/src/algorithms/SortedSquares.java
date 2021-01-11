@@ -4,6 +4,12 @@ import algorithms.base.util.QuickSort;
 
 import java.util.Arrays;
 
+/**
+ * 有序数组的平方
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SortedSquares {
 
     public static void main(String[] args) {

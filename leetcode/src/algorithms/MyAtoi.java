@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 字符串转换整数 (atoi)
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MyAtoi {
 
     public static void main(String[] args) {

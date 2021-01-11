@@ -1,6 +1,11 @@
 package algorithms;
 
-// 比赛中的配对次数
+/**
+ * 比赛中的配对次数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class NumberOfMatches {
 
     public static void main(String[] args) {

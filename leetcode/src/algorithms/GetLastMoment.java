@@ -3,6 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * 所有蚂蚁掉下来前的最后一刻
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetLastMoment {
 
     public static void main(String[] args) {

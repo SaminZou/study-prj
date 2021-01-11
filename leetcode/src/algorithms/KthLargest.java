@@ -2,7 +2,14 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
-/** 此题最佳解是中序遍历逆排序 */
+/**
+ * 二叉搜索树的第k大节点
+ *
+ * <p>此题最佳解是中序遍历逆排序
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class KthLargest {
 
     public static void main(String[] args) {

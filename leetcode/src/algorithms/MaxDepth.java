@@ -6,9 +6,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 二叉树的深度
+ * 二叉树的最大深度 / 二叉树的深度
  *
  * @author samin
+ * @date 2021-01-11
  */
 public class MaxDepth {
 

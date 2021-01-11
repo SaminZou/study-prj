@@ -3,7 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-// N叉树的后序遍历
+/**
+ * N叉树的后序遍历
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Postorder {
 
     public List<Integer> postorder(Node root) {

@@ -5,7 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** 查找常用字符 */
+/**
+ * 查找常用字符
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CommonChars {
 
     public static void main(String[] args) {

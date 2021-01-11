@@ -2,7 +2,12 @@ package algorithms;
 
 import java.util.Stack;
 
-// 分割平衡字符串
+/**
+ * 分割平衡字符串
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class BalancedStringSplit {
 
     public static void main(String[] args) {

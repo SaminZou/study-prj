@@ -2,7 +2,12 @@ package algorithms;
 
 import java.util.Arrays;
 
-// 按既定顺序创建目标数组
+/**
+ * 按既定顺序创建目标数组
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CreateTargetArray {
 
     public static void main(String[] args) {

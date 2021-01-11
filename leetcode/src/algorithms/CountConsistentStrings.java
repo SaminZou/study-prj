@@ -1,6 +1,11 @@
 package algorithms;
 
-// 统计一致字符串的数目
+/**
+ * 统计一致字符串的数目
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CountConsistentStrings {
 
     public static void main(String[] args) {

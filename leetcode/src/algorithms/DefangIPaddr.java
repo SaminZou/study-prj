@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * IP 地址无效化
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class DefangIPaddr {
 
     public static void main(String[] args) {

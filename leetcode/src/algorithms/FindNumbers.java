@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 统计位数为偶数的数字
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FindNumbers {
 
     //    public int findNumbers(int[] nums) {

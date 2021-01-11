@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
+/**
+ * 二叉树的镜像
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MirrorTree {
 
     public static void main(String[] args) {

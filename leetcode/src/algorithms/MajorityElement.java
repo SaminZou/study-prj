@@ -3,6 +3,12 @@ package algorithms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 数组中出现次数超过一半的数字 / 多数元素
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MajorityElement {
 
     public static void main(String[] args) {

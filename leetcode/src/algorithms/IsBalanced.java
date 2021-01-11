@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
+/**
+ * 平衡二叉树
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsBalanced {
 
     public static void main(String[] args) {

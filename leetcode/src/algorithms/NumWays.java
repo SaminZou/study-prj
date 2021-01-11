@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 青蛙跳台阶问题
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class NumWays {
 
     public static void main(String[] args) {

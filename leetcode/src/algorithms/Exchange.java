@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 调整数组顺序使奇数位于偶数前面
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Exchange {
 
     /*

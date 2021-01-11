@@ -3,6 +3,12 @@ package algorithms;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 队列的最大值
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MaxQueue {
 
     private final Queue<Integer> queue;

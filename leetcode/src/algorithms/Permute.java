@@ -5,7 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// 全排列
+/**
+ * 全排列
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Permute {
 
     List<List<Integer>> res = new ArrayList<>();

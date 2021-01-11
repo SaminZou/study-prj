@@ -5,6 +5,12 @@ import algorithms.base.model.ListNode;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 环形链表 II
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class DetectCycle {
 
     public static void main(String[] args) {

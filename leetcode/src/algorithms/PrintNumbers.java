@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 打印从1到最大的n位数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class PrintNumbers {
 
     public static void main(String[] args) {
@@ -8,13 +14,16 @@ public class PrintNumbers {
     }
 
     public int[] printNumbers(int n) {
-        if (n == 0) { // 特殊情况
+        // 特殊情况
+        if (n == 0) {
             return new int[] {};
         }
 
-        int max = (int) Math.pow(10, n) - 1; // 计算最大数
+        // 计算最大数
+        int max = (int) Math.pow(10, n) - 1;
         int[] result = new int[max];
-        for (int i = 0; i < max; i++) { // 遍历加载数据
+        // 遍历加载数据
+        for (int i = 0; i < max; i++) {
             result[i] = i + 1;
         }
 

@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 魔术索引
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FindMagicIndex {
 
     public static void main(String[] args) {

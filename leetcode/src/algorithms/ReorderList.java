@@ -5,6 +5,12 @@ import algorithms.base.model.ListNode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 重排链表
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ReorderList {
 
     public static void main(String[] args) {

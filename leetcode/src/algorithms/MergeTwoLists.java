@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * 合并两个排序的链表
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MergeTwoLists {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

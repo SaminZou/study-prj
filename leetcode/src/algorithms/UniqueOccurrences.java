@@ -3,6 +3,12 @@ package algorithms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 独一无二的出现次数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class UniqueOccurrences {
 
     public static void main(String[] args) {

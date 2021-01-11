@@ -3,7 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 有效括号生成 */
+/**
+ * 括号生成 / 有效的括号
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GenerateParenthesis {
 
     public static void main(String[] args) {

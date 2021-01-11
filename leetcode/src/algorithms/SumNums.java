@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 求1+2+…+n
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SumNums {
 
     int res = 0;

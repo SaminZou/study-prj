@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.util.QuickSort;
 
+/**
+ * 判断能否形成等差数列
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CanMakeArithmeticProgression {
 
     public static void main(String[] args) {

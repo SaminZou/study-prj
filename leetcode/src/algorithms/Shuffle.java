@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.Arrays;
 
+/**
+ * 重新排列数组
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Shuffle {
 
     public static void main(String[] args) {

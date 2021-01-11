@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 两个数组间的距离值
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FindTheDistanceValue {
 
     public static void main(String[] args) {

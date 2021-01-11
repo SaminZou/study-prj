@@ -3,7 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-// 杨辉三角
+/**
+ * 杨辉三角
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class YanghuiTriangle {
 
     public List<List<Integer>> generate(int numRows) {

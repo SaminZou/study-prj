@@ -5,6 +5,12 @@ import algorithms.base.model.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 二叉树的后序遍历
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class PostorderTraversal {
 
     public static void main(String[] args) {}

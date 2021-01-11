@@ -1,6 +1,11 @@
 package algorithms;
 
-// 最富有客户的资产总量
+/**
+ * 最富有客户的资产总量
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MaximumWealth {
 
     public static void main(String[] args) {

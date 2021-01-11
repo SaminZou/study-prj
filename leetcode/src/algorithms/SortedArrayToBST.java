@@ -2,7 +2,12 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 
-// 最小高度树
+/**
+ * 最小高度树
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SortedArrayToBST {
 
     public static void main(String[] args) {

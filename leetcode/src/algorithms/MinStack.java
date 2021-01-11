@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 包含min函数的栈
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MinStack {
 
     int[] arrs;

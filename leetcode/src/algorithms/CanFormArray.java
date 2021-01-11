@@ -3,7 +3,12 @@ package algorithms;
 import java.util.HashMap;
 import java.util.Map;
 
-// 能否连接形成数组
+/**
+ * 能否连接形成数组
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class CanFormArray {
 
     // 时间太长

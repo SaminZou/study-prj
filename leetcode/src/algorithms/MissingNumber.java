@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 0～n-1中缺失的数字
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MissingNumber {
 
     public static void main(String[] args) {

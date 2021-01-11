@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.util.QuickSort;
 
+/**
+ * 最小的k个数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetLeastNumbers {
 
     public int[] getLeastNumbers(int[] arr, int k) {

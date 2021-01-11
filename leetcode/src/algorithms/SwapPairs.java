@@ -5,6 +5,12 @@ import algorithms.base.model.ListNode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 两两交换链表中的节点
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SwapPairs {
 
     List<Integer> list = new ArrayList<>();

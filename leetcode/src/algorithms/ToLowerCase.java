@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 转换成小写字母
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ToLowerCase {
 
     public static void main(String[] args) {

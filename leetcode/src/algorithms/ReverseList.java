@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.ListNode;
 
+/**
+ * 反转链表
+ * 
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ReverseList {
 
     //    public ListNode reverseList(ListNode head) {

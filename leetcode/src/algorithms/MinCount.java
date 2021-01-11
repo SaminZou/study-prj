@@ -1,6 +1,11 @@
 package algorithms;
 
-/** 拿硬币 */
+/**
+ * 拿硬币
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MinCount {
 
     public static void main(String[] args) {

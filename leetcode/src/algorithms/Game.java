@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 猜数字
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Game {
 
     public static void main(String[] args) {

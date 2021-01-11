@@ -5,6 +5,12 @@ import algorithms.base.model.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树的最小深度
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MinDepth {
 
     public static void main(String[] args) {

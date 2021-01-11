@@ -2,6 +2,12 @@ package algorithms;
 
 import algorithms.base.model.ListNode;
 
+/**
+ * 相交链表
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetIntersectionNode {
 
     //    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

@@ -6,6 +6,12 @@ import algorithms.base.util.QuickSort;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 二叉搜索树的最小绝对差
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetMinimumDifference {
 
     List<Integer> arrList = new ArrayList<>();

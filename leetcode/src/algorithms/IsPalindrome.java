@@ -1,14 +1,18 @@
 package algorithms;
 
+/**
+ * 回文数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsPalindrome {
 
     public static void main(String[] args) {
         System.out.println(new IsPalindrome().isPalindrome2(32123));
     }
 
-    /*
-    全转
-     */
+    /** 全转 */
     public boolean isPalindrome(int x) {
         if (x < 0 || (x != 0 && x % 10 == 0)) {
             return false;
@@ -24,9 +28,7 @@ public class IsPalindrome {
         return temp == paramX;
     }
 
-    /*
-    优化，半转即可
-     */
+    /** 优化，半转即可 */
     public boolean isPalindrome2(int x) {
         if (x < 0 || (x != 0 && x % 10 == 0)) {
             return false;
@@ -42,9 +44,7 @@ public class IsPalindrome {
         return temp == x || temp / 10 == x;
     }
 
-    /*
-    自己的解法
-     */
+    /** 自己的解法 */
     public boolean isPalindrome3(int x) {
         if (x < 0) {
             return false;
@@ -54,10 +54,12 @@ public class IsPalindrome {
 
         int leftIndex;
         int rightIndex;
-        if (intStrs.length % 2 == 1) { // 奇数位
+        // 奇数位
+        if (intStrs.length % 2 == 1) {
             rightIndex = (intStrs.length - 1) / 2 + 1;
             leftIndex = rightIndex - 2;
-        } else { // 偶数位
+            // 偶数位
+        } else {
             rightIndex = (intStrs.length) / 2;
             leftIndex = rightIndex - 1;
         }

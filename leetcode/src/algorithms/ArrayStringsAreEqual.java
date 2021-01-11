@@ -1,6 +1,11 @@
 package algorithms;
 
-// 检查两个字符串数组是否相等
+/**
+ * 检查两个字符串数组是否相等
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class ArrayStringsAreEqual {
 
     public static void main(String[] args) {

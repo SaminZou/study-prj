@@ -5,6 +5,12 @@ import algorithms.base.model.TreeNode;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 不同的二叉搜索树 II
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GenerateTrees {
 
     public static void main(String[] args) {
@@ -13,7 +19,8 @@ public class GenerateTrees {
     }
 
     public List<TreeNode> generateTrees(int n) {
-        if (n == 0) { // 因为是是1开始，所以 '0' 条件为空值
+        // 因为是是1开始，所以 '0' 条件为空值
+        if (n == 0) {
             return new LinkedList<>();
         }
 

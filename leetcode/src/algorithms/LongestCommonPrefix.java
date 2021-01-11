@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 最长公共前缀
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {

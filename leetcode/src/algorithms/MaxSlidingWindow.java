@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.Arrays;
 
+/**
+ * 滑动窗口的最大值
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MaxSlidingWindow {
 
     public static void main(String[] args) {

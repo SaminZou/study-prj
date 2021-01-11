@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 将数字变成 0 的操作次数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class NumberOfSteps {
 
     public static void main(String[] args) {

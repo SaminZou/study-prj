@@ -3,6 +3,12 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 拥有最多糖果的孩子
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class KidsWithCandies {
 
     public static void main(String[] args) {

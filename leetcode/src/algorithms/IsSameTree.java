@@ -4,6 +4,12 @@ import algorithms.base.model.TreeNode;
 
 import java.util.ArrayList;
 
+/**
+ * 相同的树
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsSameTree {
 
     public static void main(String[] args) {

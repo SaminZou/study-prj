@@ -1,6 +1,11 @@
 package algorithms;
 
-// 速算机器人
+/**
+ * 速算机器人
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FastCalculateRobot {
 
     public int calculate(String s) {

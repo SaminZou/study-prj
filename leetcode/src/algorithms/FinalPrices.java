@@ -2,6 +2,12 @@ package algorithms;
 
 import java.util.Arrays;
 
+/**
+ * 商品折扣后的最终价格
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class FinalPrices {
 
     public static void main(String[] args) {

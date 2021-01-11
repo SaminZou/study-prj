@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 斐波那契数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class Fib {
 
     public static void main(String[] args) {

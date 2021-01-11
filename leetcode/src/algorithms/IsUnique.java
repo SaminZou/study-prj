@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 判定字符是否唯一
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsUnique {
 
     public static void main(String[] args) {

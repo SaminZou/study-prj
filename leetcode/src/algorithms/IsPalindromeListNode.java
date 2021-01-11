@@ -4,6 +4,12 @@ import algorithms.base.model.ListNode;
 
 import java.util.ArrayList;
 
+/**
+ * 回文链表
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class IsPalindromeListNode {
 
     public static void main(String[] args) {

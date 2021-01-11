@@ -5,7 +5,12 @@ import algorithms.base.model.ListNode;
 import java.util.ArrayList;
 import java.util.List;
 
-// 二进制链表转整数
+/**
+ * 二进制链表转整数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class GetDecimalValue {
 
     public static void main(String[] args) {

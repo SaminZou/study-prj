@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 二进制中1的个数 / 位1的个数
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class HammingWeight {
 
     public static void main(String[] args) {

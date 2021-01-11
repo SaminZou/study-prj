@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 所有奇数长度子数组的和
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class SumOddLengthSubarrays {
 
     int res = 0;

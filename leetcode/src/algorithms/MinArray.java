@@ -1,5 +1,11 @@
 package algorithms;
 
+/**
+ * 旋转数组的最小数字
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class MinArray {
 
     public static void main(String[] args) {

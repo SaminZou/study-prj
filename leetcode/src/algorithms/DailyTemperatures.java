@@ -2,7 +2,14 @@ package algorithms;
 
 import java.util.Arrays;
 
+/**
+ * 每日温度
+ *
+ * @author samin
+ * @date 2021-01-11
+ */
 public class DailyTemperatures {
+
     public static void main(String[] args) {
         int[] result =
                 new DailyTemperatures()
