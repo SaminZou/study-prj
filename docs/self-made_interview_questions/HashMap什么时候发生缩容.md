@@ -1,3 +1,9 @@
+```properties
+title: HashMap 什么时候发生缩容
+author: samin
+date: 2021-01-11 
+```
+
 # 重要
 
 首先要知道 Java 的HashMap 是没有缩容的，只会无限增长
