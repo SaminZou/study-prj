@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * 环形链表 II
+ * 环形链表 II / 环路检测
  *
  * @author samin
  * @date 2021-01-11
