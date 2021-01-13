@@ -3,6 +3,8 @@
 > Author **Samin**
 >
 > Date **2019-11-12**
+> 
+> Desc **分享一下自己如何收集整理分类知识点，旨在帮助开发者们学会整理自己的知识库**
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
@@ -154,9 +156,9 @@
 
 # docs 文档 📙
 
-## knowledge_base
+## knowledge_points
 
-知识库
+知识点
 
 ## self-made_interview_questions 
 
