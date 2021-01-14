@@ -3,7 +3,7 @@
 > Author **Samin**
 >
 > Date **2019-11-12**
-> 
+>
 > Desc **分享一下自己如何收集整理分类知识点，旨在帮助开发者们学会整理自己的知识库**
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
@@ -112,7 +112,7 @@
 
 - q9 获取键盘输入字符的方式
 
-- q10 
+- q10 Java8 时间类
 
 - q11 泛型、Object、？ 的区别
 
@@ -160,7 +160,7 @@
 
 知识点
 
-## self-made_interview_questions 
+## self-made_interview_questions
 
 自己想的一些面试题，如有雷同，不好意思，那也是没看过自己想的
 
