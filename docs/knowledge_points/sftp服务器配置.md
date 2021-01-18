@@ -1,3 +1,9 @@
+```properties
+title: sftp 服务器配置
+author: samin
+date: 2021-01-16
+```
+
 # 通过用户组控制
 新增用户，禁止ssh登录，hmoe路径不创建目录
 ``
