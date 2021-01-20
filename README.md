@@ -54,7 +54,7 @@
 
 ## creational 创建型模式（5种）
 
-- creational.factory 工厂模式
+- factory 工厂模式
 
 - 抽象工厂模式
 
