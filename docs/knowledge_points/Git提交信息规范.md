@@ -12,9 +12,11 @@ record changelog to show the history of git .
 
 commit message = Header(Required) + Body(Option) + Footer(Option)
 
+```
 <type>: <subject>
 <body>
 <footer>
+```
 
 ## Allow <type> values
 
