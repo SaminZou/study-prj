@@ -164,7 +164,7 @@
 
 自己想的一些面试题，如有雷同，不好意思，那也是没看过自己想的
 
-# pics 技术图集 🗃
+# 技术图集 🗃
 
 https://github.com/SaminZou/pic-repo
 
