@@ -59,7 +59,7 @@ public class TPEUseCase {
         threadPool.shutdown();
     }
 
-    // 模拟计算50个计算任务
+    /** 模拟计算50个计算任务 */
     private static class CallableWorker implements Callable<String> {
         private final Integer x;
         private final Integer y;

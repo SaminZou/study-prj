@@ -19,7 +19,7 @@ public class Server {
         Server.serverRun();
     }
 
-    // 简单双工聊天，开启后服务端等待客户端
+    /** 简单双工聊天，开启后服务端等待客户端 */
     public static void serverRun() throws Exception {
         ServerSocket ss = new ServerSocket(8081);
         Socket s = ss.accept();

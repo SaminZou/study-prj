@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
  * @date 2020-12-31
  */
 public class ArraysUseCase {
+
     public static void main(String[] args) {
         // Arrays.asList()是泛型方法，传入的对象必须是对象数组，基础类型返回的不是 list
         int[] myArray = {1, 2, 3};

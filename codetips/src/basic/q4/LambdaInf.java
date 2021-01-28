@@ -12,6 +12,7 @@ package basic.q4;
  */
 @FunctionalInterface
 public interface LambdaInf {
+
     void action(String words);
 
     default void actionUtils() {

@@ -5,13 +5,13 @@ import java.util.StringJoiner;
 /**
  * String 类用例
  *
- *
  * @author samin
  * @date 2020-12-31
  */
 public class StringUseCase {
 
-    private static final String ABC = "123"; // 常量
+    /** 常量 */
+    private static final String ABC = "123";
 
     public static void main(String[] args) {
         // ---------------------------- JDK8 学会使用StringJoiner -------------------------------

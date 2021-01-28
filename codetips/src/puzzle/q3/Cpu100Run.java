@@ -9,7 +9,8 @@ import java.lang.management.ManagementFactory;
  * @date 2021-01-10
  */
 public class Cpu100Run {
-    // 记得加 volatile，不然程序会失效，参考JMM的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据）
+
+    /** 记得加 volatile，不然程序会失效，参考JMM的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据） */
     public static volatile Boolean switchBool = true;
 
     public static void main(String[] args) {
@@ -44,7 +45,7 @@ public class Cpu100Run {
         }
     }
 
-    // 定时关闭程序，否则模拟程序无法停止自动停止
+    /** 定时关闭程序，否则模拟程序无法停止自动停止 */
     private static class ChangeSwitch implements Runnable {
         @Override
         public void run() {
