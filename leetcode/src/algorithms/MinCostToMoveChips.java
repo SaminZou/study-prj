@@ -8,8 +8,26 @@ package algorithms;
  */
 public class MinCostToMoveChips {
 
-    // TODO https://leetcode-cn.com/problems/minimum-cost-to-move-chips-to-the-same-position/
     public int minCostToMoveChips(int[] position) {
-        return 0;
+        if (position.length == 0) {
+            return 0;
+        }
+
+        int oddNums = 0;
+        int evenNums = 0;
+
+        for (int ele : position) {
+            if (ele % 2 == 0) {
+                oddNums += 1;
+            } else {
+                evenNums += 1;
+            }
+        }
+
+        if (oddNums > evenNums) {
+            return evenNums;
+        } else {
+            return oddNums;
+        }
     }
 }
