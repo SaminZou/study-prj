@@ -24,11 +24,11 @@ public class Client {
 
         // 使用工厂方法模式，解决简单工厂模式很多 if else 的问题
         // 生产雪糕
-        ProductFactory iceCreamFactory = new IceCreamProductFactory();
+        IProductFactory iceCreamFactory = new IceCreamFactory();
         Product iceCream = iceCreamFactory.factory();
         iceCream.product();
         // 生产披萨
-        ProductFactory pizzaFactory = new PizzaProductFactory();
+        IProductFactory pizzaFactory = new PizzaFactory();
         Product pizza = pizzaFactory.factory();
         pizza.product();
     }

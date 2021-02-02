@@ -1,18 +1,18 @@
 package creational.factory;
 
-import creational.factory.base.IceCream;
+import creational.factory.base.Pizza;
 import creational.factory.base.Product;
 
 /**
- * 冰淇淋工厂
+ * 披萨工厂
  *
  * @author samin
  * @date 2021-01-21
  */
-public class IceCreamProductFactory implements ProductFactory {
+public class PizzaFactory implements IProductFactory {
 
     @Override
     public Product factory() {
-        return new IceCream();
+        return new Pizza();
     }
 }
