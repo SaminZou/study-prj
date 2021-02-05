@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "cz": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-emoji"
+    }
+  },
+  "dependencies": {
+    "commitizen": "latest",
+    "cz-conventional-emoji": "latest"
+  }
+}
