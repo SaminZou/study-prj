@@ -120,6 +120,20 @@ https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 }
 ```
 
+## vim
+
+\# 修改 vim ，添加一些通用配置
+
+\$ vim ~/.vimrc
+
+```
+syntax on
+set number
+set cindent
+set tabstop=4
+set shiftwidth=4
+```
+
 ## ZSH
 
 \# 安装字体集合，`注意这几行是在 powershell 里面执行`
@@ -158,20 +172,6 @@ ZSH_THEME="agnoster"
 
 ```shell
 prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
-```
-
-## vim
-
-\# 修改 vim ，添加一些通用配置
-
-\$ vim ~/.vimrc
-
-```
-syntax on
-set number
-set cindent
-set tabstop=4
-set shiftwidth=4
 ```
 
 # 遇到的一些问题
