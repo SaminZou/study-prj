@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: Linux添加sudo管理用户
 author: samin
 date: 2021-02-07

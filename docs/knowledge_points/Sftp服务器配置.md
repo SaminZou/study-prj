@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: sftp 服务器配置
 author: samin
 date: 2021-01-16

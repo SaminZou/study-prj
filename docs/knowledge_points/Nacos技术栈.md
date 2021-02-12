@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: Nacos 技术栈
 author: samin
 date: 2021-01-27

@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: Git 标签
 author: samin
 date: 2021-01-21

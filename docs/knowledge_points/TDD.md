@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: TDD
 author: samin
 date: 2021-01-24

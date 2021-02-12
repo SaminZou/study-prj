@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: 软件开发定律
 author: samin
 date: 2020-02-07

@@ -1,3 +1,9 @@
+```yaml
+title: MySQL与PostgreSQL比较
+author: samin
+date: 2021-02-11
+```
+
 # 背景
 
 PostgreSQL是针对事务型企业应用的严肃、功能完善的数据库，支持强ACID特性和很多数据完整性检查。MySQL更加灵活，提供了更多选项来针对不同的任务进行裁剪。

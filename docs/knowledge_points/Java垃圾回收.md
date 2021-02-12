@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: JVM垃圾回收机制及其实现原理
 author: samin
 date: 2021-01-11 
