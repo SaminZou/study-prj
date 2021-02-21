@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: ICMP 协议的端口是多少
 author: samin
 date: 2021-01-14

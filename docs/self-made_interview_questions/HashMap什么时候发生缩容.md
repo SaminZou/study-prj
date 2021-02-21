@@ -1,4 +1,4 @@
-```properties
+```yaml
 title: HashMap 什么时候发生缩容
 author: samin
 date: 2021-01-11 
