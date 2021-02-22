@@ -32,6 +32,11 @@ public class DateTimeUseCase {
         return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
+    /** LocalDateTime to OffsetDateTime */
+    public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
+        return OffsetDateTime.of(ldt, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
+    }
+
     /** 计算时间差 */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
         return Duration.between(a, b).getSeconds();
