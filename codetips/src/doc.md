@@ -38,6 +38,8 @@
 
 - q15 final 关键字用例
 
+- q16 Optional 类用例
+
 # collection 容器
 
 - q1 Comparable 和 Comparator 的区别
