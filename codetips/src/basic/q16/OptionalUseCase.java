@@ -6,4 +6,7 @@ package basic.q16;
  * @author samin
  * @date 2021-03-07
  */
-public class OptionalUseCase {}
+public class OptionalUseCase {
+
+
+}

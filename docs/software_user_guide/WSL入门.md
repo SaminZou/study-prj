@@ -1,5 +1,5 @@
 ```yaml
-title:TDD
+title:WSL入门
 author:samin
 date:2021-02-06
 ```
@@ -136,6 +136,8 @@ set shiftwidth=4
 
 ## ZSH
 
+### 字体优化
+
 \# 安装字体集合，`注意这几行是在 powershell 里面执行`
 
 \$ git clone https://github.com/powerline/fonts.git
@@ -148,7 +150,7 @@ set shiftwidth=4
 
 \$ .\install.ps1
 
-\# 安装 zhs
+### 安装 zhs
 
 \$ sudo apt update
 
@@ -172,6 +174,23 @@ ZSH_THEME="agnoster"
 
 ```shell
 prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
+```
+
+### 安装插件
+
+\# 自动补全
+
+\$ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+\# 语法高亮
+
+\$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+\# 修改 ~/.zshrc 中的 plugins
+
+```properties
+# 用空格分隔控件
+plugins=( [plugins...] zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
 # 遇到的一些问题
