@@ -8,5 +8,7 @@ package basic.q16;
  */
 public class OptionalUseCase {
 
-
+    public static void main(String[] args) {
+        
+    }
 }
