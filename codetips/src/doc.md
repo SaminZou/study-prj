@@ -40,6 +40,8 @@
 
 - q16 Optional 类用例
 
+- q17 枚举类 + switch 的正确用法
+
 # collection 容器
 
 - q1 Comparable 和 Comparator 的区别
