@@ -1,13 +1,16 @@
 package basic.q6.chat;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.Socket;
 
 /**
  * 客户端
+ *
+ * <p>注意 ❗❗❗
+ *
+ * <p>Client 和 Server 跑起来以后，需要 Client 先发信息，然后 Server 给 Client 发送
+ *
+ * <p>直到 Client 先发送 "stop" ，Server 再随意回复一句话，即结束对话
  *
  * @author samin
  * @date 2021-01-10
@@ -18,8 +21,8 @@ public class Client {
         Client.clientRun();
     }
 
-    // 简单双工聊天，开启后客户端先发送信息
-    public static void clientRun() throws Exception {
+    /** 简单双工聊天，开启后客户端先发送信息 */
+    public static void clientRun() throws IOException {
         Socket s = new Socket("127.0.0.1", 8081);
         DataInputStream din = new DataInputStream(s.getInputStream());
         DataOutputStream dout = new DataOutputStream(s.getOutputStream());
