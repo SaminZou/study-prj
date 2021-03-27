@@ -6,7 +6,7 @@ import java.util.Optional;
 /**
  * Optional用例
  *
- * <p>get() 获取 value，如果是 null 则报 NoSuchElementException
+ * <p>get() 获取 value，如果是 null 则报 NoSuchElementException，使用之前一定要先调用 isPresent() 判断是否为空
  *
  * <p>isPresent() 判断 value 是否存在
  *
