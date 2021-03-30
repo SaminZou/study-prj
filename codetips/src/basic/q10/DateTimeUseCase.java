@@ -12,32 +12,44 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeUseCase {
 
-    /** 时区偏移值 */
+    /**
+     * 时区偏移值
+     */
     public static final String OFFSET_ID = "+8";
 
-    /** LocalDate to LocalDateTime */
+    /**
+     * LocalDate to LocalDateTime
+     */
     public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
         return LocalDateTime.of(date, LocalTime.MIDNIGHT);
     }
 
-    /** 获取当前时间 */
+    /**
+     * 获取当前时间
+     */
     public static LocalDateTime getNowDateTime() {
         return LocalDateTime.now();
     }
 
-    /** 字符串转时间 */
+    /**
+     * 字符串转时间
+     */
     public static OffsetDateTime strToOffsetDateTime(String text) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parseTime = LocalDateTime.parse(text, df);
         return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /** LocalDateTime to OffsetDateTime */
+    /**
+     * LocalDateTime to OffsetDateTime
+     */
     public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
         return OffsetDateTime.of(ldt, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /** 计算时间差 */
+    /**
+     * 计算时间差！谨记大的时间在后面，否则结果为负数
+     */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
         return Duration.between(a, b).getSeconds();
     }
