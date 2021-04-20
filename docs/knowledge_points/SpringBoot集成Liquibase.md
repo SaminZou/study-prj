@@ -159,6 +159,8 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 </databaseChangeLog>
 ```
 
+> 内部的 changeset 无法保证执行顺序，所以推荐每个 xml 只执行一个 sql 在入口文件处 通过 <include /> 标签控制执行顺序
+
 ## 开启项目，数据库中会新增两张控制表
 
 - databasechangelog
