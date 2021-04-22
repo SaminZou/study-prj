@@ -150,7 +150,7 @@ set shiftwidth=4
 
 \$ .\install.ps1
 
-### 安装 zhs
+### 安装 zsh + oh-my-zsh
 
 \$ sudo apt update
 

@@ -83,4 +83,6 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 下载地址：https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64
 
-解压后的所有文件合并至 git 的安装目录
+将解压后的所有文件合并至 git 的安装目录
+
+配置好 zsh 后，可以继续安装 oh-my-zsh
