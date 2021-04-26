@@ -93,7 +93,7 @@ Maven 包管理工具
 <dependency>
    <groupId>org.liquibase</groupId>
    <artifactId>liquibase-core</artifactId>
-   <version>2.4.5</version>
+   <version>3.10.3</version>
 </dependency>
 ```
 
