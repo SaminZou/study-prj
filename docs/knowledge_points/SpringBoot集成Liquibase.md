@@ -192,4 +192,3 @@ generateChangeLog
 ## 用数据库工具生成 sql 文件
 
 建议使用这种方式，因为 generateChangeLog 命令不支持存储过程、函数、触发器
-
