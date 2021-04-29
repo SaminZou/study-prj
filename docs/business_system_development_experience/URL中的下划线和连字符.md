@@ -1,6 +1,6 @@
 ```yaml
 title: URL中的下划线和连字符
-author: samin_zou
+author: samin
 date: 2021-04-06
 ```
 

@@ -1,6 +1,6 @@
 ```yaml
 title: 数据库中布尔类型VS自定义状态位
-author: samin_zou
+author: samin
 date: 2021-03-08
 ```
 

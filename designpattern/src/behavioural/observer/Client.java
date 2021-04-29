@@ -3,7 +3,7 @@ package behavioural.observer;
 /**
  * 观察者模式（发布订阅模式）
  *
- * @author smain
+ * @author samin
  * @date 2021-01-05
  */
 public class Client {

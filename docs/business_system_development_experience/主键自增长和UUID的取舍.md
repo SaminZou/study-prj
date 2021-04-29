@@ -1,6 +1,6 @@
 ```yaml
 title: 主键自增长和UUID的取舍
-author: samin_zou
+author: samin_saminzou
 date: 2021-03-14
 ```
 

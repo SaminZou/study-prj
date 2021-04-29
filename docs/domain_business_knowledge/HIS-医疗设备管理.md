@@ -1,6 +1,6 @@
 ```yaml
 title: 医疗设备管理
-author: samin_zou
+author: samin
 date: 2021-03-28
 ```
 

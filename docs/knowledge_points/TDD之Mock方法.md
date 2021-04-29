@@ -1,6 +1,6 @@
 ```yaml
 title: TDD之Mock方法
-author: samin_zou
+author: samin
 date: 2021-03-23
 ```
 
