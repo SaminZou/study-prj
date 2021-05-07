@@ -1,5 +1,6 @@
 ```yaml
 title: HashMap 什么时候发生缩容
+type: self-made_interview_questions
 author: samin
 date: 2021-01-11 
 ```

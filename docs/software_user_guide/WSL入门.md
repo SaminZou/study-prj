@@ -1,7 +1,7 @@
 ```yaml
-title:WSL入门
-author:samin
-date:2021-02-06
+title: WSL入门
+author: samin
+date: 2021-02-06
 ```
 
 # WSL是什么

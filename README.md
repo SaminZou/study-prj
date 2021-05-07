@@ -106,9 +106,9 @@
 
 知识点
 
-## self-made_interview_questions
+## original_technical_article ✏
 
-自己想的一些面试题，如有雷同，不好意思，那也是没看过自己想的
+原创技术文章 ❗
 
 ## software_user_guide
 

@@ -1,5 +1,6 @@
 ```yaml
 title: ICMP 协议的端口是多少
+type: self-made_interview_questions
 author: samin
 date: 2021-01-14
 ```
