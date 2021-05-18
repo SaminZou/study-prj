@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * List、数组的转换
+ * List和数组的转换
  *
  * @author samin
  * @date 2021-01-10
  */
-public class ListTransform {
+public class ListAndArrayUseCase {
 
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
