@@ -67,5 +67,9 @@ public class StringUseCase {
         for (String ele : str3.split("@|&")) {
             System.out.println(ele);
         }
+
+        // 优雅拼接有定制化格式的字符串
+        String formatStr = String.format("%s现在的价格是： %d$", "比特币", 44000);
+        System.out.println(formatStr);
     }
 }
