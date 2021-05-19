@@ -54,6 +54,10 @@ public class DateTimeUseCase {
         return Duration.between(a, b).getSeconds();
     }
 
+    public static long timeDiff2(OffsetDateTime a, OffsetDateTime b) {
+        return a.until(b,ChronoUnit.HOURS);
+    }
+
     public static void main(String[] args) {
         Long timestamp = Clock.systemDefaultZone().millis();
         System.out.println("替代 System.currentTimeMillis 的 Clock 获取当前的时间戳：" + timestamp);
@@ -76,9 +80,10 @@ public class DateTimeUseCase {
 
         // 计算时间差
         OffsetDateTime aTime = strToOffsetDateTime("2020-02-28 00:00:00");
-        OffsetDateTime bTime = strToOffsetDateTime("2020-03-01 00:00:00");
+        OffsetDateTime bTime = strToOffsetDateTime("2020-03-01 01:00:00");
         // 显示小时
-        System.out.println("时间差：" + timeDiff(aTime, bTime) / 60 / 60);
+        System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
+        System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
         System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
