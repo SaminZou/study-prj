@@ -12,50 +12,38 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeUseCase {
 
-    /**
-     * 时区偏移值
-     */
+    /** 时区偏移值 */
     public static final String OFFSET_ID = "+8";
 
-    /**
-     * LocalDate to LocalDateTime
-     */
+    /** LocalDate to LocalDateTime */
     public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
         return LocalDateTime.of(date, LocalTime.MIDNIGHT);
     }
 
-    /**
-     * 获取当前时间
-     */
+    /** 获取当前时间 */
     public static LocalDateTime getNowDateTime() {
         return LocalDateTime.now();
     }
 
-    /**
-     * 字符串转时间
-     */
+    /** 字符串转时间 */
     public static OffsetDateTime strToOffsetDateTime(String text) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parseTime = LocalDateTime.parse(text, df);
         return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /**
-     * LocalDateTime to OffsetDateTime
-     */
+    /** LocalDateTime to OffsetDateTime */
     public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
         return OffsetDateTime.of(ldt, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /**
-     * 计算时间差！谨记大的时间在后面，否则结果为负数
-     */
+    /** 计算时间差！谨记大的时间在后面，否则结果为负数 */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
         return Duration.between(a, b).getSeconds();
     }
 
     public static long timeDiff2(OffsetDateTime a, OffsetDateTime b) {
-        return a.until(b,ChronoUnit.HOURS);
+        return a.until(b, ChronoUnit.HOURS);
     }
 
     public static void main(String[] args) {
@@ -78,16 +66,22 @@ public class DateTimeUseCase {
         System.out.printf(
                 "当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
-        // 计算时间差
         OffsetDateTime aTime = strToOffsetDateTime("2020-02-28 00:00:00");
         OffsetDateTime bTime = strToOffsetDateTime("2020-03-01 01:00:00");
-        // 显示小时
+        // 计算时间差
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
+        System.out.println("时间差（天）："+Period.between(aTime.toLocalDate(),bTime.toLocalDate()).getDays());
+        System.out.println("时间差（月）："+Period.between(aTime.toLocalDate(),bTime.toLocalDate()).getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
         System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
         // 检查是否闰年
         System.out.println("aTime 是否闰年：" + aTime.toLocalDate().isLeapYear());
+
+        // 今天是周几
+        System.out.println("今天是当月的第几天" + LocalDateTime.now().getDayOfWeek().getValue());
+        // 今天是当月的第几天
+        System.out.println(LocalDateTime.now().getDayOfMonth());
     }
 }
