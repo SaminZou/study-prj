@@ -118,5 +118,12 @@
 
 https://github.com/SaminZou/pic-repo
 
+# 致谢
+
+感恩 JetBrains 对本项目的支持
+
+[![JetBrains](jetbrains.png)](https://www.jetbrains.com)
+
+
 
 > 仅供个人学习使用，如有侵权相关问题，请速速联系，立删。
