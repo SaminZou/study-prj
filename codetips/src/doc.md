@@ -40,7 +40,7 @@
 
 - q16 Optional 类用例
 
-- q17 枚举类 + switch 的正确用法
+- q17 枚举类用例
 
 # collection 容器
 
