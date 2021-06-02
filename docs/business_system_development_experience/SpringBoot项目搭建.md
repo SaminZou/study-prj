@@ -50,7 +50,7 @@ date: 2021-06-01
 
 使用 Maven 标准的文件结构即可
 
-通用包：common / configuration / exception / loggin / utils
+通用包：common / configuration / exception / log / utils
 
 # 自动化测试
 
@@ -67,6 +67,24 @@ date: 2021-06-01
 - API 测试
 
     src/apiTest/java
+
+# Web 框架
+
+- SpringMVC
+
+- JFinal
+
+# IOC 框架
+
+Spring
+
+# 数据库操作框架
+
+- Spring Data JPA
+
+- Hibernate
+
+- Mybatis-Plus
 
 # 日志处理
 
@@ -142,7 +160,6 @@ date: 2021-06-01
 解决跨域问题。一般也可以不配置，通过部署手段解决。
 
 # 常用工具包
-
 
 - Guava
   
