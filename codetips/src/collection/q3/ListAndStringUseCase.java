@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * List和字符串之间的转换
  *
- * @author zouxuanmin
+ * @author samin
  * @date 2021-05-18
  */
 public class ListAndStringUseCase {
