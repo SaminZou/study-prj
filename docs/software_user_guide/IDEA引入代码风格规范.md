@@ -1,6 +1,6 @@
 ```yaml
-title: IDEA
-author: zouxuanmin
+title: IDEA引入代码风格规范
+author: samin
 date: 2021-06-04
 ```
 
