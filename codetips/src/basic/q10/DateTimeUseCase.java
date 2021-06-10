@@ -1,6 +1,15 @@
 package basic.q10;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.MonthDay;
+import java.time.OffsetDateTime;
+import java.time.Period;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -12,32 +21,109 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeUseCase {
 
-    /** 时区偏移值 */
+    /**
+     * 时区偏移值
+     */
     public static final String OFFSET_ID = "+8";
 
-    /** LocalDate to LocalDateTime */
-    public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
-        return LocalDateTime.of(date, LocalTime.MIDNIGHT);
+
+    /**
+     * 获取当前时间
+     */
+    public static LocalTime getNowTime() {
+        return LocalTime.now();
     }
 
-    /** 获取当前时间 */
+    public static LocalDate getNowDate() {
+        return LocalDate.now();
+    }
+
     public static LocalDateTime getNowDateTime() {
         return LocalDateTime.now();
     }
 
-    /** 字符串转时间 */
+    public static void showDetailTime() {
+        LocalDate date = LocalDate.now();
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int day = date.getDayOfMonth();
+
+        System.out.format("Year : %d  Month : %d  day : %d %n", year, month, day);
+    }
+
+    /**
+     * 周期性时间的处理类 MonthDay
+     */
+    public static void showCycleTime() {
+        LocalDate date = LocalDate.of(2021, 5, 12);
+        MonthDay today = MonthDay.from(date);
+
+        MonthDay monthDay = MonthDay.of(5, 12);
+
+        if (today.equals(monthDay)) {
+            System.out.println("汶川大地震纪念日");
+        }
+    }
+
+    /**
+     * 时间运算
+     */
+    public static void showTimeOperate() {
+        // 增加小时数
+        System.out.println("两小时以后：" + LocalDateTime.now().plusHours(2));
+        // 增加一周
+        System.out.println("一周以后：" + LocalDate.now().plus(1, ChronoUnit.WEEKS));
+        // 一年前
+        System.out.println("一年前：" + LocalDate.now().minus(1, ChronoUnit.YEARS));
+
+        LocalDate date = LocalDate.of(2020, 2, 29);
+        System.out.println(date.plus(1, ChronoUnit.YEARS));
+        System.out.println(date.minus(1, ChronoUnit.YEARS));
+    }
+
+    /**
+     * Clock 用来代替 System.currentTimeInMillis() 和 TimeZone.getDefault()
+     */
+    public static void showTimestamp() {
+        // 根据系统时间返回当前时间并设置为UTC
+        System.out.println(Clock.systemUTC());
+        System.out.println(Clock.systemUTC().millis());
+
+        // 根据系统时钟区域返回时间
+        System.out.println(Clock.systemDefaultZone());
+        System.out.println(Clock.systemDefaultZone().millis());
+    }
+
+    public static void showTimestamp2() {
+        System.out.println(Instant.now().toEpochMilli());
+    }
+
+    /**
+     * LocalDate to LocalDateTime
+     */
+    public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
+        return LocalDateTime.of(date, LocalTime.MIDNIGHT);
+    }
+
+    /**
+     * 字符串转时间
+     */
     public static OffsetDateTime strToOffsetDateTime(String text) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parseTime = LocalDateTime.parse(text, df);
         return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /** LocalDateTime to OffsetDateTime */
+    /**
+     * LocalDateTime to OffsetDateTime
+     */
     public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
         return OffsetDateTime.of(ldt, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
-    /** 计算时间差！谨记大的时间在后面，否则结果为负数 */
+    /**
+     * 计算时间差！谨记大的时间在后面，否则结果为负数
+     */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
         return Duration.between(a, b).getSeconds();
     }
@@ -47,15 +133,11 @@ public class DateTimeUseCase {
     }
 
     public static void main(String[] args) {
-        Long timestamp = Clock.systemDefaultZone().millis();
-        System.out.println("替代 System.currentTimeMillis 的 Clock 获取当前的时间戳：" + timestamp);
-
-        // 增加小时数
-        LocalDateTime.now().plusHours(2);
-        // 增加一周
-        LocalDate.now().plus(1, ChronoUnit.WEEKS);
-        // 一年前
-        LocalDate.now().minus(1, ChronoUnit.YEARS);
+        DateTimeUseCase.showDetailTime();
+        DateTimeUseCase.showCycleTime();
+        DateTimeUseCase.showTimeOperate();
+        DateTimeUseCase.showTimestamp();
+        DateTimeUseCase.showTimestamp2();
 
         // 类型转换
         LocalDateTime dateTime = localDateToLocalDateTime(LocalDate.now());
@@ -71,8 +153,10 @@ public class DateTimeUseCase {
         // 计算时间差
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
-        System.out.println("时间差（天）："+Period.between(aTime.toLocalDate(),bTime.toLocalDate()).getDays());
-        System.out.println("时间差（月）："+Period.between(aTime.toLocalDate(),bTime.toLocalDate()).getMonths());
+        System.out.println(
+                "时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
+        System.out.println(
+                "时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
         System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
