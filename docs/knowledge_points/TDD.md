@@ -25,3 +25,4 @@ Tests are nothing but requirement conditions that we need to test to fulfill the
 # 特点
 
 In TDD, you achieve 100% coverage test. Every single line of code is tested, unlike traditional testing.
+
