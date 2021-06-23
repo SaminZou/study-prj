@@ -26,7 +26,6 @@ public class DateTimeUseCase {
      */
     public static final String OFFSET_ID = "+8";
 
-
     /**
      * 获取当前时间
      */
