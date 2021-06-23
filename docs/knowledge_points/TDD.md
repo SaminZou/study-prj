@@ -4,27 +4,59 @@ author: samin
 date: 2021-01-24
 ```
 
-# 说明
+# 基本概念
 
-Test-Driven Development 测试驱动
+- 测试驱动开发（Test Driven Development）是一种软件开发过程，是 XP 的核心实践
 
-# 入门
+- 将需求转换为测试用例
 
-The simple concept（概念） of TDD is to write and correct the failed tests before writing new code (before development).
+- 先写测试用例，再进行业务代码的开发
 
-Tests are nothing but requirement conditions that we need to test to fulfill them.
+- 不断重构，反复通过测试用例进行软件迭代升级
 
-# 优势
+- 通过测试用例追踪软件生命周期
 
-- 以单元测试的通过为标准，并且通过不断重构让代码简单、无bug
+> 完整的需求文档为传统开发模式的软件背书，被拆解的测试用例集合为 TDD 开发模式的软件背书。
+>
+> 重构和TDD是敏捷方法的核心构成要素，脱离了TDD的敏捷是危险的，没有用例保障的重构一旦启动，就像一匹脱缰的野马，而单元测试和TDD则是缚住野马的缰绳。
 
-- 给我们重构的信心（give us the confidence to refactor）；没有单元测试的代码，大家敢随便修改
+# 开发流程
 
-- 好的单元测试就是文档 （documenting expected behavior）；几个实用的例子比文档让人感兴趣的多
+**红灯、绿灯 、重构** 流程是TDD的基石，分别代表的意思是 **编写单元测试**、**编写可以成功通过单元测试的业务代码**、**重构代码**。
 
-# 特点
+![](https://lh3.googleusercontent.com/pw/ACtC-3fUXUhBDRlNKsrtz3EqjHm-wxqyVXeh9djQjzw9U1OVQENyEpNw0p77SpckPYVRXvJ0u8ZEA7k3_nj7M65XO8eyftCww5VfOr3P8AfHCf4fs8QtiN1QiVDbS9rmX0eoIHX7BLUZfsB8rs8Yqp9vmDjx=w792-h820-no?authuser=0)
 
-In TDD, you achieve 100% coverage test. Every single line of code is tested, unlike traditional testing.
+在开始编程之前，每次只考虑一个需求，把这个需求拆分成尽量小的测试用例集合。首先编写一个无法通过的单元测试，然后用简单的、容易书写并且快速的方式（坏味道）编写可以让这个单元测试通过的业务代码，最后通过重构改进代码。不断重复这个过程，直到成功实现所有需求。
+
+流程整理如下：
+
+1. 阅读理解新特性或者 Bug 修改单，拆解为测试用例（Use Case，简称 UC）集合
+
+2. 根据UC，编写单元测试
+
+3. 实现满足要求的代码， 运行并通过所有单元测试，如果不通过，重复此步骤直至所有单元测试通过
+
+4. 在可以通过单元测试的前提下重构代码
+
+5. 重复以上步骤
+
+# TDD 的样子
+
+1. 根据拆分的最小粒度测试用例，编写一个一定可能报错的单元测试
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3foqlsZMdaIk6PesiiaP5z58bn49zCFvJZ97ixAjWX7DJJxJKvAlUf1N4MoDnQMxfPaAhZMlXpTNaTudTGBXMN1q1S9sL_t0rH_UeEZK2kW9ucQAoaiKCowvWmUPBa-Gsr5rpgEI4PGvql47ScxvzRC=w1257-h636-no?authuser=0)
+
+2. 快速编写可以符合单元测试的代码集合
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3fQOrHl6H2gqsqzY2x0UNFFUefWJxFtXcyFsM4eTKdMWIlKMwLRgX_0iebNy3flrOZTDViibAdXwDLbQn3owhWqoW8XoDlDx-BMybLQrwEGfTC4yOg4UWHfBe6fLC-U20hr_ghBytCErRqZe_nxZ5Qn=w1767-h716-no?authuser=0)
+
+3. 重构你的代码
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3cI5yIkIJiRYhrUoMDX6yHHx_KkkAwGMScx0CsHx2YFl8tPFLxRni9JQbdnqiY0g1TQshmyfZdoELGDRFGvfc8kovzrHcTiIt_C7UYGWqNPn-vMw3JpgzsioTAV5csLzm9JH620lx-ndjC8WQGGTbc6=w746-h664-no?authuser=0)
+
+# TDD 的落地方式
+
+相信大家一听到 TDD，就会下意识的想到单元测试，并且把 TDD 和编写单元测试画上等号，这就像提到微服务，大家容易和”不就是restful接口“和”把项目拆分“挂钩一样。单元测试只是落地 TDD 的一种方式，也可以替换为 Postman + Newman 编写单元测试的方式，甚至可以编写一个个的 bash 脚本去检测自己编写的代码，单元测试是最容易落地 TDD 的方式，所以一般落地 TDD 都会采用编写单元测试的方式。
 
 # TDD / UTDD / ATDD / BDD
 
@@ -38,53 +70,126 @@ In TDD, you achieve 100% coverage test. Every single line of code is tested, unl
 
 - BDD（ Behavior Driven development ）**行为驱动开发**
 
-在落地 ATDD 的过程中，慢慢衍生出来和 TDD 方向一致且更具价值的产物。要求每个故事必须有一个通过 GWT 格式编写的行为测试。
+在落地 ATDD 的过程中，慢慢衍生出来和 TDD 方向一致且更具价值的产物。要求每个故事必须有一个通过 GWT 格式（ Given 哪个场景，When 哪个方法， Then 预期结果 ）编写的行为测试。
 
-|区别项|TDD|BDD|
-|:---:|:---:|:---:|
-|参与者|开发和测试|开发和客户|
-|用例目的|方法的正确性|行为与结果的对比|
-|解决问题|解决开发和测试脱节|解决开发和需求脱节|
-|测试类型|白盒测试|黑盒测试|
-|输入文档|通过需求文档拆分的测试用例|使用 GWT 格式编写的行为用例|
-|安全感|中|高|
-|执行速度|快|慢|
+> ATDD 和 BDD 都需要遵守BCDE原则，保障交付质量。
 
-**BDD帮助开发人员设计(design)软件，TDD帮助开发人员测试(test)软件**
+    Border：边界测试
+    Correct：正确的输入，正确的预期输出
+    Design：按照需求和设计文档编写测试逻辑
+    Error：错误输入，预期输出
 
-> 区分这些概念不是为了对号入座自己使用的具体开发过程，这样反而画地为牢，限制了团队的开发灵活度，应该结合项目落地实践，灵活的去编写更有价值的单元测试，而不必纠结自己用的是 TDD 还是 BDD。
+# TDD vs BDD
 
-# 容易混淆的 Test Doubles
+|  区别项  |            TDD             |             BDD             |
+| :------: | :------------------------: | :-------------------------: |
+|  参与者  |         开发和测试         |         开发和客户          |
+| 用例目的 |        方法的正确性        |      行为与结果的对比       |
+| 解决问题 |     解决开发和测试脱节     |     解决开发和需求脱节      |
+| 测试类型 |          白盒测试          |          黑盒测试           |
+| 输入文档 | 通过需求文档拆分的测试用例 | 使用 GWT 格式编写的行为用例 |
+|   成本   |             低             |             高              |
+|  安全感  |             中             |             高              |
+| 执行速度 |             快             |             慢              |
 
-TDD 是为了保证自身项目的代码质量，而不是致力于项目的整体运行情况，所以对涉及 DB、IO、WEB、API、Library 等操作的方法，采用 Mock 来消除这方面的影响。
+![](https://lh3.googleusercontent.com/pw/ACtC-3efTnSbnGSxjNU8Hn_cv2QRNwHin7Iuy-wNs0mm48tVMbuJLn_98TTh9IDGM5EYUJaYxsmJb5C6Yiz4HnJVcQK8xGX1yojjtcdOAwMapla3DulF9pDypTXg-zpj4qXmnaQT1dr0exibsq126pMjRKmq=w560-h300-no?authuser=0)
 
-同时 TDD 倡导尽可能快的测试速度，尽量不影响整体的构建速度，所以网络通信和其他项目的依赖调用造成的延迟会极大的拖垮项目的构建速度。
 
-临时创建，为了正常进行单元测试的方式，谨记每种类型的目的不一样
+通过测试金字塔可以形象的了解到 TDD 和 BDD 针对的测试层次是不一样的，所以说**BDD帮助开发人员设计(design)软件，TDD帮助开发人员测试(test)软件**。区分这些概念不是为了对号入座自己使用的具体开发过程，这样反而画地为牢，限制了团队的开发灵活度，应该结合项目落地实践，灵活的去编写更有价值的单元测试，而不必纠结自己用的是 TDD 还是 BDD，在凌云平台的实际落地中，也有 BDD 的影子。
+
+# Test Doubles 是什么
+
+TDD 是为了保证自身项目的代码质量，而不是致力于项目的整体运行情况，所以对涉及 **数据库连接操作、IO读写、API调用、第三方包调用** 等操作的方法，采用 `Test Doubles` 来消除这方面的影响。
+
+所以出现了一些被临时创建的特殊实例，来消除对单元测试的影响，让单元测试以高效且不被环境因素影响，这些特殊实例集合就是 `Test Doubles`。
+
+> TDD 倡导每个单元测试用例是尽可能快运行结束，并且不受环境因素影响，保证调试效率。
+
+# Test Doubles 分类
 
 - Dummy
 
-实例划一个空对象
+通常为了调用某个入参方法，需要实例化一个对象，如果对入参值没有特别说明，我们可以构建一个空对象，一般称这个空对象为 Dummy Object。
 
 - Fake
 
-按照预期实例化对象
+如果对实例化的对象我们需要按照预期进行一些赋值操作，那么这个对象成为 Fake Object。
 
 - Mock
 
-模拟实例化对象
+涉及数据库连接操作、IO读写、API调用、第三方包调用等需要用到，测试对象需要单独编写一个 Mock 方法才能够生明出一个既能够被调用又不能进行实际运行的特殊实例。
 
 - Stub
 
-是 Mock 的延申，对模拟实例化对象的方法进行预期结果定义
+是 Mock 类型的延申，对模拟实例化对象的方法进行预期结果定义。
 
 - Spy
 
-Spy 和 Mock 的区别是 Spy 操作的是实例化**真实**对象，Stub **部分**方法的返回值
+Spy 和 Mock 类似，但是区别在意 Spy 是实例化**真实**的对象，同时对**部分**方法进行预期结果定义。
 
 - Selenium
 
 仿真器，比如模拟一个 Tomcat 容易启动一个 WEB 项目来运行单元测试进行测试。
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3cpvxvKaZBjlvr1bT8zr3QM-MBIDKqjmcyeRDTmlAl6LMDO-ZMkyxD48DsBA34mUwKRdRmKFHViUf00CCIP9wtBJSYQjGUgAaE44fZoo-kwqdKBnkNDmfF7NRBZ2pQKZk6xlYUX2z_ofytMmRYAdCiy=w858-h551-no?authuser=0)
+
+# Mock vs Stub
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3e5zFg7r31_OzEqUCqIgGQcU66BQiytkytbQrZ4AhcU15Ns0cW0Ub01YjI9JKWo_zZnakLb4Tg0opDb-_CZ0VAHfdbCGYHC9Tt4f0ReGMOEX2uFhfwEsbOeCVJw2p9nUr8GemDEkbfVNINeR46J6F8F=w921-h831-no?authuser=0)
+
+# Mock vs Spy
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3dDv-M5nrU222kEYTr8EH7T5AtMNe3mRS0p2JXKhNvvK21Y1ZQwNg7dG1VEKckhkl7pG1LLV2LxVpAyJYn1_7UV5sPyguWa7Xve47ylxiW7Q9puI46XJKnOKf8BYZ8enNPRdaqt6dgEwSTZD5IQmqZW=w862-h595-no?authuser=0)
+
+# TDD 落地技术栈
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3diuKBo2BjuPetC4HVSx6qrU7uqx2BbfU5fmH-mr_DskMF4Cq1NQEUOwpBUE0UKDxj3LX5XNhByOvfmJ8QjbUl54SAMEKXJQykbsnsDi6uI5xK2y8kibtwz9bzEH8YKQrwW-RixVrvTVgpOSXg0twfd=w1357-h348-no?authuser=0)
+
+# 服务端使用到的技术栈
+
+- JUnit5
+  支撑单元测试运行
+
+- spring-boot-starter-test
+
+- Mockito / PowerMock
+
+  PowerMock 是加强版的 mock 框架，对静态方法、私有方法等的 mock 能力
+
+- Jacoco
+  解决覆盖率统计的问题
+
+- Maven Surefire（ SurefireTest Reporting ）
+
+[comment]: <> (- Jenkins + JUnit Plugin + Jacoco Plugin)
+
+# 基于 TDD 的开发规范
+
+1. 单元测试必须 100% 覆盖所有业务 service 类方法
+
+2. 测试覆盖率达到 90% 以上
+
+3. 每个单元测试应该保持在毫秒级
+
+   善用 mock 技巧，让单元测试运行更高效
+
+4. 区别于 BDD，尽可能模拟多的用例
+
+5. 配置，过滤比较薄的抽象层（即实现相对简单），如 controller、const、dao、entity 等
+
+6. 业务逻辑只能在 service 层编写，不能在不进行单元测试的代码中进行编写
+
+7. code revicew 的时候，优先走查单元测试
+
+> 通过这些开发规范深度落实 TDD，让开发人员更有信心地进行重构和整洁代码，提高了代码的正确性，可以及时发现代码设计问题。SOLID、DRY、LOD 这些晦涩难懂的规则，其实已经体现在大家的代码中。
+
+# 引入 TDD 后开发工时预估
+
+引入单元测试后，工时预估发生了变化，大概包含了以下五类时间。
+
+	详细设计 + 编写测试用例及评审 + 编写单元测试 + 编写业务代码 + 多端联调
+
+比起之前的开发模式，增加了测试用例拆解和单元测试的编写，但是这个时间可以换来的效益远大于投入。
 
 # 如何写好单元测试
 
@@ -211,6 +316,34 @@ LOD：最小依赖。
 - 单元测试即文档，开发人员之间交接需求的时候，往往看单元测试比读需求文档更容易理解；网上优秀的开源项目，都会有完整的单元测试，所以大家阅读这类开源项目的时候，往往看单元测试比看文档多
   
 - 由于 CI/CD 需求中含有自动化测试的环节，自动化测试包含了白盒和黑盒测试，在0到1的过程中引入了 TDD，帮我们阶段性的完成了白盒自动化测试。
+
+# 总结
+
+![](https://lh3.googleusercontent.com/pw/ACtC-3eWg0yA25FYB5OLWmDFURN2YdB6XRdNcl9pHjnLnG3XRhqzIdflyaHoh7aVUvKqc-BCBhWJIl3k1RXlDdiw_R71trw3pu59fO0lk8Z6cX90QGTSMydEJfAlYNVMYZa2PLOvo3QDgC1WJgjbxkn_O9GM=w1120-h857-no?authuser=0)
+
+- 避免了代码难以测试、难以修改、难以阅读的窘况，每个方法的职责更清晰内聚
+
+- 先写测试可以帮助我们去思考需求，在根据需求拆分成测试用例的阶段，可以对需求的落地进行比较深入的思考。提前澄清需求细节，避免代码写到一半反复和产品确认需求
+
+- 由于需求量庞大，很多需求文档的细节不明确，在编写单元测试的时候，会帮战产品反向去完善需求文档
+
+- 促进开发人员思考，在编写单元测试的时候会对需求落地思考得更全面
+
+- 对于定时任务、消息队列、SDK方法，提供了更便捷的调试方式
+
+- 提升了冒烟效率，**持续性**地减少回归bug
+
+- 协同开发接手另一个人员开发的模块，当需要在此模块逻辑添加新特性同时保持输出不变的时候，更能体会到单元测试的重要性
+
+- 由于在开发的时候，做了单元测试，在做集成测试的时候就会更从容，加快接口的调试速度
+
+- 单元测试即文档，开发人员之间交接需求的时候，往往看单元测试比读需求文档更容易理解；网上优秀的开源项目，都会有完整的单元测试，所以大家阅读这类开源项目的时候，往往看单元测试比看文档多
+
+- 由于 CI/CD 需求中含有自动化测试的环节，自动化测试包含了白盒和黑盒测试，在0到1的过程中引入了 TDD，帮我们阶段性的完成了白盒自动化测试。
+
+TDD 并不是为了让开发人员完全承接测试工作，如多端业务集成测试、编码问题、时区问题、不同 JVM 版本兼容问题等，还是需要通过测试工程师在实际的运行环境中进行集成测试。
+
+有可靠的单元测试集合为项目背书，可以让开发人员的操作更安全，并且在重构的时候更有信心不会对系统的造成致命的破坏。开发养成编写习惯后，对于原先要编写单元测试再开发业务代码的工作量不会再觉得浪费时间或者是麻烦，反而会高度依赖单元测试，编写的代码往可测试（方法复用、方法长度、抛错、日志记录等）方向发展，代码质量提高。更从容的面对迎接需求变化，更乐于改善代码的设计。
 
 相关优秀文章：
 https://mp.weixin.qq.com/s/TjJ31yWTMwr4szz1JqtKcQ
