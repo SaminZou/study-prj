@@ -3,7 +3,7 @@ package algorithms;
 import algorithms.base.model.TreeNode;
 
 /**
- * 最小高度树
+ * 最小高度树 同 将有序数组转换为二叉搜索树
  *
  * @author samin
  * @date 2021-01-11
@@ -11,7 +11,7 @@ import algorithms.base.model.TreeNode;
 public class SortedArrayToBST {
 
     public static void main(String[] args) {
-        TreeNode res = new SortedArrayToBST().sortedArrayToBST(new int[] {-10, -3, 0, 5, 9});
+        TreeNode res = new SortedArrayToBST().sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
         System.out.println();
     }
 
@@ -24,7 +24,7 @@ public class SortedArrayToBST {
             return null;
         }
 
-        int mid = (right - left + 1) / 2 + left;
+        int mid = (right + left) / 2;
         TreeNode treeNode = new TreeNode(nums[mid]);
         treeNode.left = pro(nums, left, mid - 1);
         treeNode.right = pro(nums, mid + 1, right);
