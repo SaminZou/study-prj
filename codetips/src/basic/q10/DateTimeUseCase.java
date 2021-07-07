@@ -37,6 +37,24 @@ public class DateTimeUseCase {
         return LocalDate.now();
     }
 
+    public static String formatTimeBySecond(long secondTime) {
+        String result;
+
+        long days = secondTime / (60 * 60 * 24);
+        long hours = (secondTime % (60 * 60 * 24)) / (60 * 60);
+        long minutes = (secondTime % (60 * 60)) / 60;
+
+        if (days > 0) {
+            result = days + "天" + hours + "小时" + minutes + "分钟";
+        } else if (hours > 0) {
+            result = hours + "小时" + minutes + "分钟";
+        } else {
+            result = minutes + "分钟";
+        }
+
+        return result;
+    }
+
     public static LocalDateTime getNowDateTime() {
         return LocalDateTime.now();
     }
@@ -166,5 +184,8 @@ public class DateTimeUseCase {
         System.out.println("今天是当月的第几天" + LocalDateTime.now().getDayOfWeek().getValue());
         // 今天是当月的第几天
         System.out.println(LocalDateTime.now().getDayOfMonth());
+
+        // 格式化的时间差
+        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
     }
 }
