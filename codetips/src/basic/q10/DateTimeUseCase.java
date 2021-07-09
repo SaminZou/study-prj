@@ -42,7 +42,7 @@ public class DateTimeUseCase {
 
         long days = secondTime / (60 * 60 * 24);
         long hours = (secondTime % (60 * 60 * 24)) / (60 * 60);
-        long minutes = (secondTime % (60 * 60)) / 60;
+        long minutes = (int) Math.ceil((secondTime % (60D * 60D)) / 60D);
 
         if (days > 0) {
             result = days + "天" + hours + "小时" + minutes + "分钟";
@@ -165,8 +165,10 @@ public class DateTimeUseCase {
         System.out.printf(
                 "当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
-        OffsetDateTime aTime = strToOffsetDateTime("2020-02-28 00:00:00");
-        OffsetDateTime bTime = strToOffsetDateTime("2020-03-01 01:00:00");
+        OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
+        OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
         // 计算时间差
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
@@ -187,5 +189,6 @@ public class DateTimeUseCase {
 
         // 格式化的时间差
         System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
+        System.out.println(formatTimeBySecond(aTime1.until(bTime1, ChronoUnit.SECONDS)));
     }
 }
