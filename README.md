@@ -64,6 +64,10 @@
 
 软技能（非技术技能）
 
+## system_architect
+
+系统架构分析师
+
 # 技术图集 🗃
 
 https://github.com/SaminZou/pic-repo
