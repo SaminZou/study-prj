@@ -136,7 +136,7 @@ set shiftwidth=4
 
 ## ZSH
 
-### 字体优化
+### 字体优化( Windows 环境)
 
 \# 安装字体集合，`注意这几行是在 powershell 里面执行`
 
@@ -152,31 +152,51 @@ set shiftwidth=4
 
 ### 安装 zsh + oh-my-zsh
 
-\$ sudo apt update
-
-\$ sudo apt install git zsh -y
+> Linux 环境安装 zsh
+> 
+> $ sudo apt update
+>
+> $ sudo apt install git zsh -y
 
 \# 安装 oh-my-zsh
 
 \$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-\# 编辑 `~/.zshrc` ，主题设置为 `agnoster`
+### zsh 设置
+
+\# 编辑 `~/.zshrc`
 
 ```properties
-ZSH_THEME="agnoster"
+# 主题配置， `ys`、`agnoster` 比较常用
+ZSH_THEME="ys"
+
+# 取消自动更新
+DISABLE_UPDATE_PROMPT=true
 ```
 
-\# 美化 `agnoster` 主题文件
+#### agnoster 主题配置
+
+\# 美化 `agnoster` 主题，让显示的文字更短
 
 \$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
-修改第 92 行为：
+修改 `prompt_context()`：
 
 ```shell
-prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
+prompt_context() {
+  prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
+}
 ```
 
-### 安装插件
+> TIPS: Shell 命令行每行显示的信息术语为 "prompt"
+> 
+> 运行完
+> 
+> $ source ~/.zshrc
+> 
+> 使配置生效
+
+### 安装插件（可选）
 
 \# 自动补全
 
@@ -191,6 +211,24 @@ prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
 ```properties
 # 用空格分隔控件
 plugins=( [plugins...] zsh-autosuggestions zsh-syntax-highlighting)
+```
+
+### Windows 修改 git bash 的默认指令集为 zsh（可选）
+
+修改 ~/.bash_profile 没有则新增
+
+```shell
+# 如果添加了 .bashrc 文件，可以每次触发
+source ~/.bashrc
+```
+
+修改 ~/.bashrc 没有则新增
+
+```shell
+# 修改 zsh 为默认shell
+if [ -t 1 ]; then
+exec zsh
+fi
 ```
 
 # 遇到的一些问题

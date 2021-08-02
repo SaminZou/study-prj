@@ -53,7 +53,7 @@ CursorType=block
 CursorBlinks=yes
 ```
 
-# 去掉冗长的"用户@主机"
+# 去掉冗长的"用户@主机"（使用 oh-my-zsh 不需要配置）
 
 \# 一般都没这个文件，没有就新增
 
@@ -68,15 +68,6 @@ parse_git_branch() {
 # export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 # Or hide User @ Name (still with git branch name)
 export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
-
-# 如果添加了 .bashrc 文件，可以每次触发
-# source ~/.bashrc
-
-# 修改 zsh 为默认shell
-# Launch zsh
-# if [ -t 1 ]; then
-# exec zsh
-# fi
 ```
 
 # Windows 安装 ZSH
@@ -85,4 +76,4 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 
 将解压后的所有文件合并至 git 的安装目录
 
-配置好 zsh 后，可以继续安装 oh-my-zsh
+配置好 zsh 后，可以继续安装[oh-my-zsh](WSL入门.md)
