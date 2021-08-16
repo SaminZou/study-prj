@@ -10,10 +10,20 @@ import java.util.StringJoiner;
  */
 public class StringUseCase {
 
-    /** 常量 */
+    /**
+     * 常量
+     */
     private static final String ABC = "123";
 
     public static void main(String[] args) {
+        // ------------------- StringBuilder
+        StringBuilder sb = new StringBuilder();
+        sb.append("hello ");
+        sb.append("world");
+        sb.insert(0, "always ");
+        System.out.println(sb);
+        System.out.println("------------------------");
+
         // ---------------------------- JDK8 学会使用StringJoiner -------------------------------
         // 更方便的加入分隔符
         StringJoiner sj = new StringJoiner(" ");
