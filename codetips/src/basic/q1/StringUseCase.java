@@ -20,7 +20,8 @@ public class StringUseCase {
         StringBuilder sb = new StringBuilder();
         sb.append("hello ");
         sb.append("world");
-        sb.insert(0, "always ");
+        sb.insert(0, " ");
+        sb.insert(0, "always");
         System.out.println(sb);
         System.out.println("------------------------");
 
