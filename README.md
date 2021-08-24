@@ -4,7 +4,7 @@
 >
 > Date **2019-11-12**
 >
-> Desc **分析自己如何整理分类Java学习中的知识点，为开发者提供一些灵感**
+> Desc **分享自己如何整理分类Java学习中的知识点，为开发者提供一些灵感**
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
