@@ -1,4 +1,4 @@
-package concurrent.q5;
+package concurrent.q1;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
