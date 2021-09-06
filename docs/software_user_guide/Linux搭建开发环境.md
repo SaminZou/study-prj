@@ -1,12 +1,13 @@
 ```yaml
-title: Linux搭建Java环境 
+title: Linux搭建开发环境 
 author: samin
 date: 2021-05-14
 ```
 
 # 解压包
 
-\$ tar -C /usr/local -xzvf xxx.gz
+\# 一般来说，都是网上下载 Linux 用的压缩包
+\$ tar -C /usr/local -xzvf xxx.tar.gz
 
 如Go为例：
 
@@ -36,6 +37,16 @@ export PATH=$PATH:$GOPATH/bin
 ```
 \# 退出vi编辑器，使环境变量设置立即生效  
 \$ source /etc/profile
+
+> 如果使用的是 zsh，修改的是 .zshrc 文件
+
+# 验证
+
+\$ go version
+
+\$ java -version
+
+\$ node -v
 
 # Tips
 
