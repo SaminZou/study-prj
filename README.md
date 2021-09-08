@@ -1,6 +1,8 @@
 # Java学习笔记 🚀
 
----
+![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
+![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
+![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
 分享自己如何总结归纳学习中的知识栈，为开发者提供一些灵感
 
@@ -12,25 +14,23 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 >
 > Date **2019-11-12**
 
-![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
-![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
-![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
-
 [TOC]
 
-# 致谢 💗
+# 致谢 Acknowledgment 💗
 
 [![JetBrains](jetbrains.png)](https://www.jetbrains.com)
 
-Thanks JetBrains for supporting this project
+# LeetCode 📘
 
-# leetcode 📘
+力扣刷题记录
 
-力扣刷题记录 📎 [力扣中国官网](https://leetcode-cn.com/)
+## Algorithms
 
-## algorithms 算法刷题记录
+算法刷题记录
 
-## database 数据库刷题记录
+## Database
+
+数据库刷题记录
 
 使用 MySQL 语法
 
@@ -42,15 +42,21 @@ Thanks JetBrains for supporting this project
 
 编码中需要注意的地方，以及遇到的一些坑
 
-## basic 基础
+## basic
 
-## collection 容器
+基础
 
-## concurrent 并发
+## collection
 
-## puzzle 疑难杂症
+容器
 
-# docs 文档 📙
+## concurrent
+
+并发
+
+## puzzle
+
+疑难杂症
 
 ## domain_business_knowledge
 
@@ -64,13 +70,13 @@ Thanks JetBrains for supporting this project
 
 知识点
 
-## original_technical_article ✏
+## original_technical_article
 
-原创技术文章 ❗
+原创技术文章
 
 ## software_user_guide
 
-一些程序的使用指南
+常用软件使用指南
 
 ## soft_skill
 
@@ -85,3 +91,7 @@ Thanks JetBrains for supporting this project
 https://github.com/SaminZou/pic-repo
 
 > 仅供个人学习使用，如有侵权相关问题，请速速联系，立删。
+
+# License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
