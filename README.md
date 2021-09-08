@@ -6,6 +6,8 @@
 
 Share how I summarize and summarize the knowledge stack in learning, and provide some inspiration for developers
 
+**Learn how to learn**
+
 > Author **Samin**
 >
 > Date **2019-11-12**
