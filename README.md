@@ -1,16 +1,26 @@
 # Java学习笔记 🚀
 
+---
+
+分享自己如何总结归纳学习中的知识栈，为开发者提供一些灵感
+
+Share how I summarize and summarize the knowledge stack in learning, and provide some inspiration for developers
+
 > Author **Samin**
 >
 > Date **2019-11-12**
->
-> Desc **分享自己如何整理分类Java学习中的知识点，为开发者提供一些灵感**
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
 [TOC]
+
+# 致谢 💗
+
+[![JetBrains](jetbrains.png)](https://www.jetbrains.com)
+
+Thanks JetBrains for supporting this project
 
 # leetcode 📘
 
@@ -71,13 +81,5 @@
 # 技术图集 🗃
 
 https://github.com/SaminZou/pic-repo
-
-# 致谢 ❤
-
-感恩 JetBrains 对本项目的支持
-
-[![JetBrains](jetbrains.png)](https://www.jetbrains.com)
-
-
 
 > 仅供个人学习使用，如有侵权相关问题，请速速联系，立删。
