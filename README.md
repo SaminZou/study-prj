@@ -14,8 +14,6 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 >
 > Date **2019-11-12**
 
-[TOC]
-
 # 致谢 Acknowledgment 💗
 
 [![JetBrains](jetbrains.png)](https://www.jetbrains.com)
