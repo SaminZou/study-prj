@@ -1,75 +1,96 @@
 ```yaml
-title: MySQL优化
+title: MySQL索引
 author: samin
 date: 2021-09-09 
 ```
 
-# 学习使用 EXPLAIN
-
-决定查询开销的主要因素是查询是否正确使用索引。EXPLAIN 命令可以告诉您查询是否使用索引(通常是因为索引是如何在数据库中创建的，或者查询本身是如何设计的)。这就是为什么学会使用 EXPLAIN 是如此重要。  
-ps:查询表中的总记录数也可以用这句。
-
-语法：
+# 索引分类
+1. 普通索引
 ```sql
-explain select * from `test`;   
--- 更多信息
-explain format=json select * from `test`; 
+CREATE TABLE `table` (
+   `id` int(11) NOT NULL AUTO_INCREMENT ,
+   `title` char(255) CHARACTER NOT NULL ,
+   `content` text CHARACTER NULL ,
+   `time` int(10) NULL DEFAULT NULL ,
+   PRIMARY KEY (`id`),
+   INDEX index_name (title) USING BTREE
+)
 ```
 
-# 学习使用 DESCRIBE
+2. 唯一索引  
+   与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。
+```sql
+CREATE TABLE `table` (
+   `id` int(11) NOT NULL AUTO_INCREMENT ,
+   `title` char(255) CHARACTER NOT NULL ,
+   `content` text CHARACTER NULL ,
+   `time` int(10) NULL DEFAULT NULL ,
+   UNIQUE indexName (title(length))
+);
+```
 
-MySQL有一个很方便的语句DESCRIBE，它可以输出表结构的信息，比如字段名，数据类型等等。  
-语法：DESCRIBE table_name;
+3. 主键索引
+```sql
+CREATE TABLE `table` (
+   `id` int(11) NOT NULL AUTO_INCREMENT ,
+   `title` char(255) NOT NULL ,
+   PRIMARY KEY (`id`)
+);
+```
 
-# 创建正确的索引
+4. 组合索引   
+   只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用。使用组合索引时遵循最左前缀集合
+```sql
+ALTER TABLE `table` ADD INDEX name_city_age (name,city,age);
+```  
 
-索引通过减少查询必须扫描的数据库中的数据量来提高查询效率。MySQL中的索引用于加速数据库中的访问，并帮助执行数据库约束(如 UNIQUE和FOREIGN KEY )。  
-索引良好的数据库不仅运行得更快，而且即使缺少一个索引也会使数据库慢如蜗牛。使用EXPLAIN(如前所述)查找缺少的索引并添加它们。但是要小心：不要添加你不需要的索引！不必要的索引会降低数据库的速度。
+5. 全文索引  
+   主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合match against操作使用，而不是一般的where语句加like。它可以在create table，alter table ，create index使用，不过目前只有char、varchar，text 列上可以创建全文索引。值得一提的是，在数据量较大时候，现将数据放入一个没有全局索引的表中，然后再用CREATE index创建fulltext索引，要比先为一张表建立fulltext然后再将数据写入的速度快很多。
+```sql
+CREATE TABLE `table` (
+   `id` int(11) NOT NULL AUTO_INCREMENT ,
+   `title` char(255) CHARACTER NOT NULL ,
+   `content` text CHARACTER NULL ,
+   `time` int(10) NULL DEFAULT NULL ,
+   PRIMARY KEY (`id`),
+   FULLTEXT (content)
+);
+```
 
-What Operations can BTREE Index  do ?  
-•Find all rows with KEY=5 (point lookup)  
-•Find all rows with KEY>5 (open range)  
-•Find all rows with 5<KEY<10 (closed range)  
-•NOT find all rows with last digit of the KEY is Zero  
-like的后模糊查询可以用索引优化，但是前模糊查询无法被优化。
 
-#拒绝使用默认设置
+# 索引方式
 
-三个MySQL性能优化设置：  
-**innodb_ buffer_ pool_size**:缓冲池用于存放缓存数据和索引。在设置InnoDB缓冲池大小时，需要确保不要设置得太大，否则会导致交换。  
-**innodb_ log_ file_ size**：这是单个InnoDB日志文件的大小。默认情况下，InnoDB使用两个值，这样您就可以将这个数字加倍，从而获得InnoDB用于确保事务持久的循环重做日志空间的大小。这也优化了将更改应用到数据库。设置innodb_ log_ file_ size是一个权衡的问题。分配的重做空间越大，对于写密集型工作负载而言，性能就越好，但是如果系统断电或出现其他问题，崩溃恢复的时间就越长。  
-**MAX_ Connections**：大型应用程序连接数通常需高于默认值。不同于其它变量，如果没有正确设置它，就不会有性能问题(本身)。相反，如果连接的数量不足以满足您的应用程序的需要，那么您的应用程序将无法连接到数据库。所以正确处理这个变量很重要。
+MySQL目前主要有以下几种索引方式：FULLTEXT，HASH，BTREE，RTREE
 
-# 将数据库保存在内存中
+1. FULLTEXT  
+   目前只有MyISAM引擎支持
 
-如果数据库在内存中，则可以完全消除READ。写总是需要发生的，不管你有多少内存可用。将工作数据（最频繁访问的数据）集存入内存中。
+2. HASH
 
-# 缓存数据
+3. BTREE  
+   - **Innodb里**，有两种形态：一是primary key形态，其leaf node里存放的是数据，而且不仅存放了索引键的数据，还存放了其他字段的数据。二是secondary index，其leaf node和普通的BTREE差不多，只是还存放了指向主键的信息
 
-如果你的服务器默认情况下没有使用MySQL查询缓存，那么你应该开启缓存。开启缓存意味着MySQL 会把所有的语句和语句执行的结果保存下来，如果随后有一条与缓存中完全相同的语句需要执行，那么MySQL 就会返回缓存的结果。缓存不会过时，因为MySQL 会在表数据更新后刷新缓存。
+   - **MyISAM里**，主键和其他的并没有太大区别。不过和Innodb不太一样的地方是在MyISAM里，leaf node里存放的不是主键的信息，而是指向数据文件里的对应数据行的信息
 
-# 使用SSD存储
+4. RTREE  
+   RTREE在MySQL很少使用，仅支持geometry数据类型，支持该类型的存储引擎只有MyISAM、BDb、InnoDb、NDb、Archive几种。
 
-对于数据库服务器，您应该使用为服务器工作负载设计的SSD，这种SSD会对数据起到保护作用(例如，在断电期间)。避免使用为台式计算机和笔记本电脑设计的商用SSD。
+# 数据引擎
 
-通过NVMe或Intel OpTan技术连接的SSD可提供最佳性能。即使作为SAN、NAS或cloud block设备远程连接，与旋转磁盘相比，SSD仍然具有更优越的性能。
+- MyISAM：默认的MySQL插件式存储引擎，它是在Web、数据仓储和其他应用环境下最常使用的存储引擎之一。注意，通过更改STORAGE_ENGINE配置变量，能够方便地更改MySQL服务器的默认存储引擎。
 
-# 横向扩展
+- InnoDB：用于事务处理应用程序，具有众多特性，包括ACID事务支持。(提供行级锁)
 
-即使是高性能的服务器也有其局限性。有两种扩展方式：up和out。纵向扩展意味着购买更多的硬件。这可能很昂贵，而且硬件很快就会过时。横向扩展以处理更多的负载有几个好处：
+- BDB：可替代InnoDB的事务引擎，支持COMMIT、ROLLBACK和其他事务特性。
 
-1. 可以利用较小且成本较低的系统。
-2. 通过横向扩展，进行线性扩展更快更容易。
-3. 因为数据库分布在多台物理机器上，所以数据库不会受到单个硬件故障点的影响。
+- Memory：将所有数据保存在RAM中，在需要快速查找引用和其他类似数据的环境下，可提供极快的访问。
 
-虽然横向扩展是有好处的，但也有一定的局限性。扩展需要复制，例如基本的MySQL复制或Percona XtraDB Cluster，以实现数据同步。但是作为回报，可以获得额外的性能和高可用性。如果您需要更大的扩展，请使用MySQL分片。
+- Merge：允许MySQL DBA或开发人员将一系列等同的MyISAM表以逻辑方式组合在一起，并作为1个对象引用它们。对于诸如数据仓储等VLDB环境十分适合。
 
-# 可观测性
+- Archive：为大量很少引用的历史、归档、或安全审计信息的存储和检索提供了完美的解决方案。
 
-设计最好的系统时要考虑到可观察性-MySQL也不例外.。
+- Federated：能够将多个分离的MySQL服务器链接起来，从多个物理服务器创建一个逻辑数据库。十分适合于分布式环境或数据集市环境。
 
-一旦您启动、运行并正确调整了MySQL环境，就不能仅仅设置而不进行管理。数据库环境会受到系统或工作负载更改的影响。准备好应对诸如流量高峰、应用程序错误和MySQL故障等意外。这些事情能够而且将会发生。
+- Cluster/NDB：MySQL的簇式数据库引擎，尤其适合于具有高性能查找要求的应用程序，这类查找需求还要求具有最高的正常工作时间和可用性。
 
-当发生问题时，你需要迅速而有效地解决它们。这样做的唯一方法是设置某种监视解决方案并对其进行适当的初始化。这使您能够在数据库环境在生产中运行时看到它正在发生的情况，并在出现问题时分析服务器数据。理想情况下，系统允许您在问题发生之前或在问题发展到用户可以看到其影响之前进行预防。
-
-监控工具有诸如MySQL Enterprise Monitor、Monyog和 Percona Monitoring and Management (PMM)，后者具有免费和开源的额外优势。这些工具为监视和故障排除提供了很好的可操作性。
+- Other：其他存储引擎包括CSV（引用由逗号隔开的用作数据库表的文件），Blackhole（用于临时禁止对数据库的应用程序输入），以及Example引擎（可为快速创建定制的插件式存储引擎提供帮助）。
