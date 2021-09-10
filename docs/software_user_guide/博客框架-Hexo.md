@@ -1,5 +1,5 @@
 ```yaml
-title: 博客框架Hexo
+title: 博客框架-Hexo
 author: samin
 date: 2021-09-09 
 ```
