@@ -1,5 +1,5 @@
 ```yaml
-title: HIS-价值 
+title: HIS的价值
 author: samin
 date: 2021-03-24
 ```
