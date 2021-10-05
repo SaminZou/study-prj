@@ -29,15 +29,18 @@ $ 跳至行首
 
 ```shell
 syntax on
+set nocompatible
+set backspace=indent,eol,start
 set number
 set cindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set backspace=2
 :set mouse=a
 ```
+
+> ~/.vimrc文件是vim的配置文件，在每次vim编辑任何文件的时候都会自动读取并设置相关的信息，所以不需要进行 source
 
 # 列操作
 
