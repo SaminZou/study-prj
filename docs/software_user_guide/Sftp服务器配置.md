@@ -4,6 +4,16 @@ author: samin
 date: 2021-01-16
 ```
 
+# SSH 服务
+
+```shell
+# 确认服务器安装了 openssh server
+$ /etc/init.d/ssh status
+
+# 修改 sshd.config，去掉 Port 注释，重启服务
+$ sudo /etc/init.d/ssh restart
+```
+
 # 通过用户组控制
 
 新增用户，禁止ssh登录，hmoe路径不创建目录
@@ -128,11 +138,17 @@ $ cat /etc/group
 查看sftp服务的日志
 
 ```shell
-$ vi /etc/ssh/sshd_config # 在Subsystem下面增加 LogLevel INFO
-$vi /etc/rsyslog.conf # 在最后增加
+# 在Subsystem下面增加 LogLevel INFO
+$ vi /etc/ssh/sshd_config
+
+# 在最后增加
+$vi /etc/rsyslog.conf
 auth,authpriv.*,local5.* /var/log/sftp.log
+
 $ systemctl restart rsyslog.service
+
 $ systemctl restart sshd.service
+
 $ tail -f /var/log/sftp.log
 ```
 
