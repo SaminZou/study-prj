@@ -165,11 +165,17 @@ public class DateTimeUseCase {
         System.out.printf(
                 "当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
+        // 修改时间
+        OffsetDateTime alterTime = OffsetDateTime.now();
+        alterTime = alterTime.withYear(2021).withMonth(10).withDayOfMonth(1).withHour(16).withMinute(0).withSecond(0);
+        System.out.println("修改后的时间为(2021-10-01 16：00：00): " +
+                alterTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        // 计算时间差
         OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
         OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
-        // 计算时间差
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
         System.out.println(
