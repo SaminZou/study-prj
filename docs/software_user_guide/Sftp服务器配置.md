@@ -7,10 +7,10 @@ date: 2021-01-16
 # SSH 服务
 
 ```shell
-# 确认服务器安装了 openssh server
+# 查看 openssh server 的运行状态
 $ /etc/init.d/ssh status
 
-# 修改 sshd.config，去掉 Port 注释，重启服务
+# 修改 sshd.config，去掉 Port 注释（默认不可访问，需要开放端口），重启服务
 $ sudo /etc/init.d/ssh restart
 ```
 
