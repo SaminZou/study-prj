@@ -128,10 +128,15 @@ https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 
 ```
 syntax on
+set nocompatible
+set backspace=indent,eol,start
 set number
 set cindent
 set tabstop=4
 set shiftwidth=4
+set expandtab
+set smartindent
+:set mouse=a
 ```
 
 ## ZSH

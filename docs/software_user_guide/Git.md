@@ -181,6 +181,6 @@ $ vim ~/.gitconfig
     quotepath=false
     autocrlf=input
     editor=vim
- [credential]
+[credential]
     helper=store
 ```
