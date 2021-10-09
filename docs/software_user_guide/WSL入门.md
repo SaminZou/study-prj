@@ -158,6 +158,12 @@ set shiftwidth=4
 >
 > $ sudo apt install git zsh -y
 
+> Windows 环境安装 zsh
+>
+> 下载地址：https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64
+
+> 将解压后的所有文件合并至 git 的安装目录
+
 \# 安装 oh-my-zsh
 
 \$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
