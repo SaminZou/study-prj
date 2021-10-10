@@ -116,11 +116,15 @@ $ git push -f
 
 $ git gc --prune=now
 
-# 统计
+# 提交信息
 
 \# 统计提交次数和作者
 
 $ git log | grep "^Author: " | awk '{print $2}' | sort | uniq -c | sort -k1,1nr
+
+\# 每次修改的文件列表, 及文件修改的统计
+
+$ git log --stat
 
 # 修改已经提交的邮箱作者信息
 
@@ -145,6 +149,12 @@ export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
 fi
 ' --tag-name-filter cat -- --branches --tags
 ```
+
+# cherry-pick
+
+\# 复制任何分支的 commit 到当前分支，指令只需要一个或多个 commit_id 参数即可
+
+$ git cherry-pick <commit_id1> <commit_id2>
 
 # 项目配置和全局配置
 
