@@ -82,3 +82,80 @@ log 之后不需要再进行 throw
 
 - 日志要多详细呢？脑洞一下，如果你的核心程序哪一步出错了，通过日志可以定位到，那就可以啦
 
+# 使用统一的记录对象
+
+## 参数
+
+- traceId: 调用链id（如果应用中已经使用了统一调用链监控方案，且能根据调用链id查询接口情况的，可以不用在代码里手动加入traceId。如果应用还没接入调用链系统，建议加一下traceId，尤其是针对聚合服务，需要调用中台各种微服务接口的）
+
+- eventName: 事件名称,一般就是业务方法名称
+
+- userId: C端用户id
+
+- msg: 结果消息
+
+- costTime: 接口响应时间
+
+- request: 接口请求入参
+
+- response: 接口返回值
+
+- others: 其他业务参数
+
+## 注意
+
+1. 一般使用构造器方式，链式方法方便调用
+
+2. request 和 response 放在同一个类里面，方便排查，使用两个类还要额外的关联以及在加载的时候费时
+
+## 示例
+
+```java
+@Jacksonized
+@Getter
+@ToString
+@Setter
+@SuperBuilder
+public class LogRecord {
+
+    /**
+     * 调用链id
+     */
+    private Long traceId;
+    
+    /**
+     * 事件名称，方法名
+     */
+    private String eventName;
+
+    /**
+     * C端用户id
+     */
+    private Long userId;
+
+    /**
+     * 结果消息
+     */
+    private String msg;
+
+    /**
+     * 接口响应时间
+     */
+    private String costTime;
+
+    /**
+     * 接口请求入参
+     */
+    private String request;
+
+    /**
+     * 接口返回值
+     */
+    private String response;
+
+    /**
+     * 其他业务参数
+     */
+    private String others;
+}
+```
