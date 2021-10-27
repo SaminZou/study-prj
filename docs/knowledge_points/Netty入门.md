@@ -26,6 +26,20 @@ date: 2021-10-25
 > HTTP服务器之所以称为HTTP服务器，是因为编码解码协议是HTTP协议，如果协议是Redis协议，那它就成了Redis服务器，如果协议是WebSocket，那它就成了WebSocket服务器
 > 使用Netty你就可以定制编解码协议，实现自己的特定协议的服务器
 
+## 本质
+
+JBoss做的一个Jar包
+
+## 目的
+
+快速开发高性能、高可靠性的网络服务器和客户端程序
+
+## 优点
+
+提供异步的、事件驱动的网络应用程序框架和工具
+
+> 从最开始的 java.net + java.io 发展到 java.nio 再到现在的 netty 框架
+
 # NIO 是什么
 
 NIO的全称是NoneBlocking IO，非阻塞IO，区别与BIO，BIO的全称是Blocking IO，阻塞IO
@@ -36,7 +50,28 @@ NIO的全称是NoneBlocking IO，非阻塞IO，区别与BIO，BIO的全称是Blo
 2. Read是阻塞的，只有请求消息来了，Read才能返回，子线程才能继续处理
 3. Write是阻塞的，只有客户端把消息收了，Write才能返回，子线程才能继续读取下一个请求
 
-> 所以传统的多线程服务器是BlockingIO模式的，从头到尾所有的线程都是阻塞的。这些线程就干等在哪里，占用了操作系统的调度资源，什么事也不干，是浪费。那么NIO是怎么做到非阻塞的呢。它用的是事件机制。它可以用一个线程把Accept，读写操作，请求处理的逻辑全干了。如果什么事都没得做，它也不会死循环，它会将线程休眠起来，直到下一个事件来了再继续干活，这样的一个线程称之为NIO线程
+> 所以传统的多线程服务器是BlockingIO模式的，从头到尾所有的线程都是阻塞的。这些线程就干等在哪里，占用了操作系统的调度资源，什么事也不干，是浪费
+> 那么NIO是怎么做到非阻塞的呢。它用的是事件机制。它可以用一个线程把Accept，读写操作，请求处理的逻辑全干了
+> 如果什么事都没得做，它也不会死循环，它会将线程休眠起来，直到下一个事件来了再继续干活，这样的一个线程称之为NIO线程
+> NIO流程如以下伪代码：
+
+```
+while true {
+    events = takeEvents(fds)  // 获取事件，如果没有事件，线程就休眠
+    for event in events {
+        if event.isAcceptable {
+            doAccept() // 新链接来了
+        } elif event.isReadable {
+            request = doRead() // 读消息
+            if request.isComplete() {
+                doProcess()
+            }
+        } elif event.isWriteable {
+            doWrite()  // 写消息
+        }
+    }
+}
+```
 
 ## Netty 和 NIO 的关系
 
