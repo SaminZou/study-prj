@@ -132,6 +132,14 @@ public class DateTimeUseCase {
     }
 
     /**
+     * LocalDateTime to String
+     */
+    public static String localDateTimeToString(LocalDateTime ldt) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return ldt.format(df);
+    }
+
+    /**
      * LocalDateTime to OffsetDateTime
      */
     public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
@@ -196,5 +204,8 @@ public class DateTimeUseCase {
         // 格式化的时间差
         System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
         System.out.println(formatTimeBySecond(aTime1.until(bTime1, ChronoUnit.SECONDS)));
+
+        // 现在的时间
+        System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
     }
 }
