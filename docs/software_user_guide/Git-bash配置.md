@@ -53,9 +53,9 @@ CursorType=block
 CursorBlinks=yes
 ```
 
-# 去掉冗长的"用户@主机"（使用 oh-my-zsh 不需要配置）
+# 去掉冗长的"用户@主机"（ 使用 oh-my-zsh 不需要配置 ）
 
-\# 一般都没这个文件，没有就新增
+\# 没有则新增
 
 \$ vim ~/.bash_profile
 
