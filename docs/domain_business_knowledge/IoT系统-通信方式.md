@@ -33,3 +33,13 @@ date: 2021-11-14
 # 通信数据协议
 
 ## Mqtt
+
+### Server 端
+
+- RabbitMQ 插件实现
+
+- Mosquitto 支持 Tcp、WebSocket 方式对接
+
+- ActiveMQ / ActiveMQ Apollo
+
+- EMQ X
