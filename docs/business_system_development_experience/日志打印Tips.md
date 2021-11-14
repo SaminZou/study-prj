@@ -169,3 +169,15 @@ public class LogRecord {
     private String others;
 }
 ```
+
+# 日志系统的搭建
+
+- 日志收集
+
+- 日志分析
+
+- 通过日志发出告警信息
+
+- 日志搜索
+
+- 日志监控
