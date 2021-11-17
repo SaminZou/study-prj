@@ -94,6 +94,8 @@ ping
 
 netstat
 
+nslookup
+
 # 文本处理
 
 ## 查看
