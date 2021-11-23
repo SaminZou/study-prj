@@ -65,6 +65,8 @@ ChrootDirectory %h/das/sftp-data #用chroot将指定用户的根目录
 # ForceCommand internal-sftp #指定sftp命令
 # X11Forwarding no #这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
 AllowTcpForwarding no
+# 保持 TCP 连接
+TCPKeepAlive yes
 ```
 
 配置ssh（用户组）
