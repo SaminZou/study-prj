@@ -19,16 +19,16 @@ date: 2021-05-14
 \$ sudo vi /etc/profile
 
 ```shell
-# java env    
+# Java env    
 export JAVA_HOME=/usr/local/jdk    
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$PATH:$JAVA_HOME/bin
 
-# maven env
+# Maven env
 export MAVEN_HOME=/usr/local/maven
 export PATH=$PATH:$MAVEN_HOME/bin
 
-# go env
+# Go env
 export GOROOT=/usr/local/go
 export GOPATH=/home/bruce/goProject
 export GOBIN=$GOPATH/bin
