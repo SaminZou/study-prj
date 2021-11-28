@@ -1,24 +1,83 @@
 ```yaml
-title: IDEA引入代码风格规范
+title: Idea 使用技巧
 author: samin
-date: 2021-06-04
+date: 2021-11-28
 ```
 
-# 使用工具
+# Idea 配置文件导入导出
 
-Intellij-IDEA
+导出：File -> Manage IDE Settings -> Import Settings
 
-# 说明
+导入：File -> Manage IDE Settings -> Export Settings
+
+# 注释模板
+
+## 类模板
+
+Settings -> Editor -> File and Code Templates -> Files -> Class(Interface、Enum)
+
+```java
+// 常用类模板1
+
+/**
+ * @author samin
+ * @date ${YEAR}年${MONTH}月${DAY}日 ${TIME}
+ */
+
+// 常用类模板2
+
+/**
+ * <p>Title: ${NAME}</p>
+ *
+ * <p>Description: ${DESCRIPTION}</p>
+ *
+ * <p>Copyright: Copyright (c) ${USER} 2018</p>
+ *
+ * <p>Company: DAS</p>
+ *
+ * @author ${USER}
+ * @version 1.0
+ * @date ${YEAR}-${MONTH}-${DAY} ${TIME}
+ */
+public class ${NAME} {
+}
+```
+
+## Live Templates
+
+```java
+/**
+ *
+ * <p> $CLASSNAME$ </p>
+ *
+ * @author $USER$
+ * @version 1.0
+ * @date $DATE$ $TIME$
+ */
+
+variables:
+CLASSNAME：className()
+USER：user()
+DATE：date()
+TIME：time()
+
+如果需要特定类的时间格式 如: yyyy-MM-dd 可以使用以下配置
+DATE：groovyScript("new java.text.SimpleDateFormat(\"yyyy-MM-dd\").format(new java.util.Date())")
+```
+
+# 代码风格配置
+
+## 说明
 
 CodeStyle.xml（文末贴出）是使用 google java code style 修改了缩进修改而成
 
-# 配置
+## 配置
 
 1. File -> Settings -> Editor -> Code Style -> Import Scheme
 2. 选择 CodeStyle.xml 确认，导入后选择此方案即可
 3. 在编码完毕以后，使用组合键 `Ctrl + Shift +L` （windows系统）触发代码格式化
 
-# 值得注意的参数
+## 值得注意的参数
 
 |参数|说明|默认值|
 |:---:|:---:|:---:|
@@ -26,13 +85,13 @@ CodeStyle.xml（文末贴出）是使用 google java code style 修改了缩进�
 |TAB_SIZE|Tab长度|2 个空格|
 |RIGHT_MARGIN|设置Line-Wrapping，即每行长度限制|100|
 
-# CodeStyle.xml
+## CodeStyle.xml
 
 根据喜好微调
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<code_scheme name="MEGVII_STYLE">
+<code_scheme name="MY_STYLE">
     <option name="OTHER_INDENT_OPTIONS">
         <value>
             <option name="INDENT_SIZE" value="4"/>
