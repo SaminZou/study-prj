@@ -6,7 +6,8 @@ date: 2021-10-29
 
 # Build
 
-$ docker build -t myimage:1.0
+\# 在当前路径根据 Dockerfile 文件进行镜像构件
+$ docker build -t myimage:1.0 .
 
 $ docker image ls / docker images
 
