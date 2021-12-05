@@ -126,6 +126,25 @@ $ git log | grep "^Author: " | awk '{print $2}' | sort | uniq -c | sort -k1,1nr
 
 $ git log --stat
 
+\# 每次修改的文件列表, 显示状态
+
+$ git log --name-status
+
+\# 每次修改的文件列表
+
+$ git log --name-only
+
+\# 每次修改的文件列表
+
+$ git whatchanged
+
+\# 每次修改的文件列表, 及文件修改的统计
+
+git whatchanged --stat
+
+\# 显示本次文件修改内容
+git status -s
+
 # 修改已经提交的邮箱作者信息
 
 ```shell
