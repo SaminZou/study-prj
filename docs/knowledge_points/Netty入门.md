@@ -47,7 +47,9 @@ NIO的全称是NoneBlocking IO，非阻塞IO，区别与BIO，BIO的全称是Blo
 > NIO: Non-blocking I/O，在Java领域，也称为New I/O
 
 1. Accept是阻塞的，只有新连接来了，Accept才会返回，主线程才能继
+
 2. Read是阻塞的，只有请求消息来了，Read才能返回，子线程才能继续处理
+
 3. Write是阻塞的，只有客户端把消息收了，Write才能返回，子线程才能继续读取下一个请求
 
 > 所以传统的多线程服务器是BlockingIO模式的，从头到尾所有的线程都是阻塞的。这些线程就干等在哪里，占用了操作系统的调度资源，什么事也不干，是浪费
