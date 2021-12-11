@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 /**
  * Java8 stream 操作
+ * <p>
+ * Stream将要处理的元素集合看作一种流，在流的过程中，借助 Stream API对流中的元素进行操作，比如：筛选、排序、聚合等。
  *
  * @author samin
  * @date 2021-12-09
@@ -32,6 +34,15 @@ public class Java8StreamUseCase {
         System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar)).collect(Collectors.toList()));
         System.out.println(
                 list.stream().sorted(Comparator.comparing(Obj::getBar).reversed()).collect(Collectors.toList()));
+
+        // stream和parallelStream的简单区分： stream是顺序流，由主线程按顺序对流执行操作，而parallelStream是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。
+        System.out.println(list.stream().parallel().filter(e -> e.getBar() > 2).collect(Collectors.toList()));
+
+        // 获取 bar 最大的元素
+        System.out.println(list.stream().max(Comparator.comparingInt(Obj::getBar)).get());
+
+        // 大于 6 的元素集合
+        System.out.println(list.stream().filter(e -> e.getBar() > 2).count());
     }
 
     private static class Obj {
