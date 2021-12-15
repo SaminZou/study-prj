@@ -23,34 +23,70 @@ date: 2021-11-23
 
 以下命令都可以创建用户：
 
-\$ CREATE ROLE samin PASSWORD '123';
-\$ CREATE USER samin PASSWORD '123';
+\$ CREATE ROLE samin PASSWORD '123';
+\$ CREATE USER samin PASSWORD '123';
 
 区别：角色是没有登录权限的用户，需要加上 LOGIN：
 
-\$ CREATE ROLE samin PASSWORD '123' LOGIN;
+\$ CREATE ROLE samin PASSWORD '123' LOGIN;
 
 > CREATE ROLE 和 CREATE USER 的唯一区别是创建的用户是否用登录权限
 
 # 基本命令行使用
 
-ubuntu环境下新建用户和数据库：
+## ubuntu环境下新建用户和数据库
+
 \# 进入客户端
+
 \$ psql -U <dbUserName> -d <dbName> -h 127.0.0.1 -p 5432
+
 \# 创建用户设置密码
-\$ create user tech with password 'techdata';
+
+\$ create user tech with password 'techdata';
+
 \# 创建数据库
-\$ create database techdata owner tech;
+
+\$ create database techdata owner tech;
+
 \# 赋权限
-\$ grant all privileges on database techdata to tech;
+
+\$ grant all privileges on database techdata to tech;
+
 \# 增加用户权限
-\$ alter user tech createdb createrole;
+
+\$ alter user tech createdb createrole;
+
 \# 删除数据库
-\$ drop database techdata;
+
+\$ drop database techdata;
+
 \# 删除用户
+
 \$ drop user tech;
+
 \# 退出shell
+
 \$ \q
+
+## 创建只读用户
+
+\# 创建账号
+
+\$ CREATE USER readonlyuser WITH ENCRYPTED PASSWORD '123456';
+
+\# 更新用户默认为只读事务
+
+\$ alter user readonlyuser set default_transaction_read_only=on;
+
+\# 所有库的 public 的 USAGE 权限给到只读用户
+
+\$ GRANT USAGE ON SCHEMA public to readonlyuser;
+
+\# 授予select权限
+
+\$ grant select on all tables in schema public to readonlyuser;
+
+> 要进入到具体数据库操作在哪个db环境下执行就授予那个db的权限
 
 # 主从服务器配置
 
@@ -61,26 +97,26 @@ $ create role dascp login replication encrypted password 'dascp'
 \# 修改主服务器pg_hba.conf文件，重启
 
 ```properties
-host   all all  172.17.0.10/32   trust   #运行70服务器连接到本机
-host replication dascp 172.17.0.10/32   md5   #运行guoxm用户在70上复制本机数据
+host   all all  172.17.0.10/32   trust   #运行70服务器连接到本机
+host replication dascp 172.17.0.10/32   md5   #运行guoxm用户在70上复制本机数据
 ```
 
 \# 配置主服务器postgresql.conf文件，重启
 
 ```properties
 synchronous_standby_names = '*'
-listen_addresses = '*'   #监听所有ip
-archive_mode = on   #开启归档模式
-archive_command = 'cp %p /var/lib/postgresql/10/main/%f'   #归档命令
-wal_level = hot_standby    #热备模式
-max_wal_senders = 1   #最多有1个流复制连接
-wal_sender_timeout = 60s    #流复制超时时间
-max_connections = 100   #最大连接时间，必须要小于从库的配置
+listen_addresses = '*'   #监听所有ip
+archive_mode = on   #开启归档模式
+archive_command = 'cp %p /var/lib/postgresql/10/main/%f'   #归档命令
+wal_level = hot_standby    #热备模式
+max_wal_senders = 1   #最多有1个流复制连接
+wal_sender_timeout = 60s    #流复制超时时间
+max_connections = 100   #最大连接时间，必须要小于从库的配置
 ```
 
 \# 登录从服务器，测试是否能连同主服务器
 
-\$ psql -h 192.168.100.70  -U  postgres
+\$ psql -h 192.168.100.70  -U  postgres
 
 \# 清空从服务器的main文件夹
 
@@ -93,7 +129,7 @@ max_connections = 100   #最大连接时间，必须要小于从库的配置
 \# 编辑recovery.conf用于从库恢复从主库获取的数据，保存在从数据库的main文件夹中
 
 ```properties
-standby_mode = on   #表示该节点是从库
+standby_mode = on   #表示该节点是从库
 primary_conninfo = 'host=172.17.0.10 post=5432 user=dascp password=dascp' #从机信息和连接用户
 recovery_target_timelint = 'latest' #说明恢复到最新状态
 ```
@@ -101,11 +137,11 @@ recovery_target_timelint = 'latest' #说明恢复到最新状态
 \# 编辑从数据库的postgresql.conf文件，重启
 
 ```properties
-wal_level = hot_standby    #热备模式
-max_connections = 300   #最大连接时间，必须要小于从库的配置
+wal_level = hot_standby    #热备模式
+max_connections = 300   #最大连接时间，必须要小于从库的配置
 hot_standby = on #说明这台机器不仅用于数据归档，还可以用于数据查询
 max_standby_streaming_delay = 30s #流备份的最大延迟时间
-wal_receiver_status_interval = 10s  #向主机汇报本机状态的间隔时间
+wal_receiver_status_interval = 10s  #向主机汇报本机状态的间隔时间
 hot_standby_feedback = on #r出现错误复制，向主机反馈
 ```
 
@@ -118,7 +154,7 @@ hot_standby_feedback = on #r出现错误复制，向主机反馈
 
 - 备份恢复：
   \$ pg_dump -h 172.168.10.249 -U daship -d daship> /root/backup20190703.bak
-  \$ psql -h localhost -U daship -d daship< /root/backup20190703.bak
+  \$ psql -h localhost -U daship -d daship< /root/backup20190703.bak
 
 - 备份的时候排除某些表
   \$ pg_dump -h 172.168.10.249 -U daship -d daship
@@ -168,18 +204,18 @@ age numeric CHECK (age > 0)
 ## 计算平均时间
 ```sql
 SELECT AVG
-    ( cost_time )
+    ( cost_time )
 FROM
-    (
-    SELECT
-        pu.response_time - de.delivery_time cost_time
-    FROM
-        das_delivery de
-        LEFT JOIN das_push pu ON de.delivery_id = pu.delivery_id
-    WHERE
-        de.delivery_time BETWEEN '2019-09-17 00:00:00'
-    AND '2019-09-17 23:59:59'
-    ) temp_result;
+    (
+    SELECT
+        pu.response_time - de.delivery_time cost_time
+    FROM
+        das_delivery de
+        LEFT JOIN das_push pu ON de.delivery_id = pu.delivery_id
+    WHERE
+        de.delivery_time BETWEEN '2019-09-17 00:00:00'
+    AND '2019-09-17 23:59:59'
+    ) temp_result;
 ```
 
 ## 修改表
@@ -249,13 +285,13 @@ TRUNCATE TABLE table;
 
 -- 列出所有模式
 
-\$ select schemaname from pg_tables where schemaname not like 'pg%' and schemaname   != 'information_schema' group by schemaname;
+\$ select schemaname from pg_tables where schemaname not like 'pg%' and schemaname   != 'information_schema' group by schemaname;
 
 -- 列出表名
 \$ select tablename from pg_tables;
 
 -- 列出无模式隔离的所有表
-\$ select tablename from pg_tables where schemaname='public';
+\$ select tablename from pg_tables where schemaname='public';
 
 -- 列出所有数据库
 
@@ -263,7 +299,7 @@ TRUNCATE TABLE table;
 
 -- 查看数据库时区
 
-\$ show timezone;
+\$ show timezone;
 
 -- 清空 public 模式，重建
 
@@ -274,7 +310,7 @@ CREATE SCHEMA public;
 
 -- 查看执行计划
 
-\$ EXPLAIN ANALYZE [SQL]
+\$ EXPLAIN ANALYZE [SQL]
 
 ## 连接池数量计算公式
 
