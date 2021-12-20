@@ -24,9 +24,10 @@ date: 2021-11-23
 以下命令都可以创建用户：
 
 \$ CREATE ROLE samin PASSWORD '123';
+
 \$ CREATE USER samin PASSWORD '123';
 
-区别：角色是没有登录权限的用户，需要加上 LOGIN：
+> 区别：角色是没有登录权限的用户，需要加上 LOGIN
 
 \$ CREATE ROLE samin PASSWORD '123' LOGIN;
 
@@ -97,21 +98,21 @@ $ create role dascp login replication encrypted password 'dascp'
 \# 修改主服务器pg_hba.conf文件，重启
 
 ```properties
-host   all all  172.17.0.10/32   trust   #运行70服务器连接到本机
-host replication dascp 172.17.0.10/32   md5   #运行guoxm用户在70上复制本机数据
+host   all all  172.17.0.10/32   trust   # 运行70服务器连接到本机
+host replication dascp 172.17.0.10/32   md5   # 运行guoxm用户在70上复制本机数据
 ```
 
 \# 配置主服务器postgresql.conf文件，重启
 
 ```properties
 synchronous_standby_names = '*'
-listen_addresses = '*'   #监听所有ip
-archive_mode = on   #开启归档模式
-archive_command = 'cp %p /var/lib/postgresql/10/main/%f'   #归档命令
-wal_level = hot_standby    #热备模式
-max_wal_senders = 1   #最多有1个流复制连接
-wal_sender_timeout = 60s    #流复制超时时间
-max_connections = 100   #最大连接时间，必须要小于从库的配置
+listen_addresses = '*'   # 监听所有ip
+archive_mode = on   # 开启归档模式
+archive_command = 'cp %p /var/lib/postgresql/10/main/%f'   # 归档命令
+wal_level = hot_standby    # 热备模式
+max_wal_senders = 1   # 最多有1个流复制连接
+wal_sender_timeout = 60s    # 流复制超时时间
+max_connections = 100   # 最大连接时间，必须要小于从库的配置
 ```
 
 \# 登录从服务器，测试是否能连同主服务器
