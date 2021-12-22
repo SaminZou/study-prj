@@ -154,7 +154,7 @@ G1（Garbage First）重新定义了堆空间，打破了原有的分代模型�
 G1 具备如下特点：
 * 并行与并发：G1 能充分利用多 CPU、多核环境下的硬件优势，使用多个 CPU 来缩短 Stop-the-world 停顿的时间，部分其他收集器原来需要停顿 Java 线程执行的 GC 操作，G1 收集器仍然可以通过并发的方式让 Java 程序继续运行。
 * 分代收集：打破了原有的分代模型，将堆划分为一个个区域。
-* 空间整合：与 CMS 的“标记-清除”算法不同，G1 从整体来看是基于“标记-整理”算法实现的收集器，从局部（两个 Region 之间）上来看是基于“复制”算法实现的。但无论如何，这两种算法都意味着 G1 运作期间不会产生内存空间碎片，收集后能提供规整的可用内存。这种特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一次 GC。
+* 空间整合：与 CMS 的“标记-清除”算法不同，G1 从整体来看是基于 "标记-整理" 算法实现的收集器，从局部（两个 Region 之间）上来看是基于 "标记-复制" 算法实现的。但无论如何，这两种算法都意味着 G1 运作期间不会产生内存空间碎片，收集后能提供规整的可用内存。这种特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一次 GC。
 * 可预测的停顿：这是 G1 相对于 CMS 的一个优势，降低停顿时间是 G1 和 CMS 共同的关注点。
   在 G1 之前的其他收集器进行收集的范围都是整个新生代或者老年代，而 G1 不再是这样。在堆的结构设计时，G1 打破了以往将收集范围固定在新生代或老年代的模式，G1 将堆分成许多相同大小的区域单元，每个单元称为 Region，Region 是一块地址连续的内存空间
 
@@ -175,6 +175,12 @@ G1 收集器之所以能建立可预测的停顿时间模型，是因为它可�
 * Young GC：在分配一般对象（非巨型对象）时，当所有 Eden 区域使用达到最大阀值并且无法申请足够内存时，会触发一次 YoungGC。每次 Young GC 会回收所有 Eden 以及 Survivor 区，并且将存活对象复制到 Old 区以及另一部分的 Survivor 区。
 * Mixed GC：当越来越多的对象晋升到老年代时，为了避免堆内存被耗尽，虚拟机会触发一个混合的垃圾收集器，即 Mixed GC，该算法并不是一个 Old GC，除了回收整个新生代，还会回收一部分的老年代，这里需要注意：是一部分老年代，而不是全部老年代，可以选择哪些 Old 区域进行收集，从而可以对垃圾回收的耗时时间进行控制。G1 没有 Full GC概念，需要 Full GC 时，调用 Serial Old GC 进行全堆扫描。
 
+## G1 VS CMS
+
+1. 堆的设计思想  
+2. G1 不会产生空间碎片
+3. G1 卡表维护比 CMS 复杂
+
 ## 复习重点
 
 - 搞清楚每个垃圾收集器作用年代，以及使用的垃圾回收算法
@@ -185,3 +191,42 @@ G1 收集器之所以能建立可预测的停顿时间模型，是因为它可�
 $ java -XX:+PrintCommandLineFlags -version
 
 JDK 8 默认打开了UseParallelGC参数，因此使用了Parallel Scavenge + Serial Old的收集器组合进行内存回收
+
+# 解决 OOM & FullGC
+
+## 解决 OOM
+
+1. 打印日志
+2. 获取 dump 文件 ( how to )  
+
+```properties
+-XX:+PrintGCDetails
+-XX:+UseConcMarkSweepGC
+-Xmx20m
+-Xms20m
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:+HeapDumpBeforeFullGC
+-XX:+HeapDumpAfterFullGC
+-XX:HeapDumpPath=D:\JavaDumpPath\gc
+```
+
+3. MAT 分析
+4. 修改验证
+
+# Java 项目启动必备参数
+
+-Xms1000M -Xmx1800M -Xmn350M -Xss300K -XX:+DisableExplicitGC -XX:SurvivorRatio=4 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:LargePageSizeInBytes=128M -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintHeapAtGC
+
+-Xmx1800M：设置JVM最大可用内存为1800M  
+-Xms1000m：设置JVM初始化内存为1000m。此值可以设置与-Xmx相同，以避免每次垃圾回收完成后JVM重新分配内存。  
+-Xmn350M：设置年轻代大小为350M。整个JVM内存大小=年轻代大小 + 年老代大小 + 持久代大小。持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。此值对系统性能影响较大，Sun官方推荐配置为整个堆的3/8。  
+-Xss300K：设置每个线程的堆栈大小。JDK5.0以后每个线程堆栈大小为1M，以前每个线程堆栈大小为256K。更具应用的线程所需内存大小进行调整。在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的，不能无限生成，经验值在3000~5000左右。
+
+# GC 排查经验小结
+
+- FullGC一天超过一次肯定就不正常了
+- 发现FullGC频繁的时候优先调查内存泄漏问题
+- 内存泄漏解决后，jvm可以调优的空间就比较少了，作为学习还可以，否则不要投入太多的时间
+- 如果发现CPU持续偏高，排除代码问题后可以找运维咨询下阿里云客服，这次调查过程中就发现CPU 100%是由于服务器问题导致的，进行服务器迁移后就正常了。
+- 数据查询的时候也是算作服务器的入口流量的，如果访问业务没有这么大量，而且没有攻击的问题的话可以往数据库方面调查
+- 有必要时常关注服务器的GC，可以及早发现问题
