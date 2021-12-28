@@ -75,3 +75,25 @@ set smartindent
 
 - 粘贴
   p
+
+# 替换
+
+测试文本：
+
+```text
+test 123 ddd
+test 123 ddd
+test 123 ddd
+test 123 ddd
+```
+
+:%s/ddd/456/g
+
+修改后文本
+
+```text
+test 123 456
+test 123 456
+test 123 456
+test 123 456
+```
