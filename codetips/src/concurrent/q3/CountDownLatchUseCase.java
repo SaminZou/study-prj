@@ -27,10 +27,11 @@ public class CountDownLatchUseCase {
         new Thread(new Customer("李四")).start();
         new Thread(new Customer("王五")).start();
 
+        System.out.println("主线程会被卡断");
         // 阻塞主线程
         latch.await();
 
-        new Thread(new Waitress("♥小芳♥")).start();
+        new Thread(new Waitress("服务员")).start();
     }
 
     /**

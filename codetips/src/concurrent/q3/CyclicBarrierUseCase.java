@@ -17,12 +17,14 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierUseCase {
 
-    private static final CyclicBarrier latch = new CyclicBarrier(3);
+    private static final CyclicBarrier latch = new CyclicBarrier(3, new Waitress("服务员"));
 
     public static void main(String[] args) throws InterruptedException {
         new Thread(new CyclicBarrierUseCase.Customer("张三")).start();
         new Thread(new CyclicBarrierUseCase.Customer("李四")).start();
         new Thread(new CyclicBarrierUseCase.Customer("王五")).start();
+
+        System.out.println("主线程不会卡断");
     }
 
     /**
@@ -46,7 +48,28 @@ public class CyclicBarrierUseCase {
                 Thread.sleep((long) (random.nextDouble() * 3000) + 1000);
                 System.out.println(sdf.format(new Date()) + " " + name + "到了饭店");
                 latch.await(); // 执行完成
-                System.out.println(sdf.format(new Date()) + " " + "开始上菜");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 服务员类
+     */
+    private static class Waitress implements Runnable {
+
+        private final String name;
+
+        public Waitress(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
+                System.out.println(sdf.format(new Date()) + " " + name + "开始上菜");
             } catch (Exception e) {
                 e.printStackTrace();
             }

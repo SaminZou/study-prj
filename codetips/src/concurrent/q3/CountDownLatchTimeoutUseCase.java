@@ -7,12 +7,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 代码优化
+ * CountDownLatch await() 方法 timeout 参数使用实例
  *
  * @author samin
  * @date 2021-01-08
  */
-public class CountDownLatchUseCase2 {
+public class CountDownLatchTimeoutUseCase {
 
     public static void main(String[] args) {
         System.out.println("广播体操现在开始... 集合");
@@ -34,11 +34,12 @@ public class CountDownLatchUseCase2 {
             new Thread(ele).start();
         }
 
+        new Thread(new Remind(latch)).start();
         new Thread(new Alert(latch)).start();
-        new Thread(new Mp3(latch)).start();
     }
 
     private static class User implements Runnable {
+
         CountDownLatch latch;
         private final String userName;
 
@@ -56,34 +57,39 @@ public class CountDownLatchUseCase2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             System.out.println(userName + " 已到操场...");
             latch.countDown();
         }
     }
 
-    private static class Mp3 implements Runnable {
+    private static class Alert implements Runnable {
+
         CountDownLatch latch;
 
-        Mp3(CountDownLatch latch) {
+        Alert(CountDownLatch latch) {
             this.latch = latch;
         }
 
         @Override
         public void run() {
             try {
+                // 为了防止部分线程可能出现故障导致主线程永久卡断，一般会设置一个超时时间
                 latch.await(3, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             System.out.println("广播体操现在开始...");
             System.out.println("以下同学迟到 ...");
         }
     }
 
-    private static class Alert implements Runnable {
+    private static class Remind implements Runnable {
+
         CountDownLatch latch;
 
-        Alert(CountDownLatch latch) {
+        Remind(CountDownLatch latch) {
             this.latch = latch;
         }
 
@@ -94,6 +100,7 @@ public class CountDownLatchUseCase2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             System.out.println("集合真正完毕...");
         }
     }

@@ -56,7 +56,7 @@
 
 - q2 wait/notify 用法 & 实现的消息队列
 
-- q3 CountDownLatch 用法
+- q3 CountDownLatch 和 CyclicBarrier 的区别
 
 - q4 ScheduledThreadPoolExecutor 用法
 
