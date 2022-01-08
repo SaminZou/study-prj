@@ -776,24 +776,29 @@ USE（Utilization，Saturation，Errors） 定位性能瓶颈的方法论，包�
 
 # Java相关指令
 
-- jstack jstack是JDK工具命令，它是一种线程堆栈分析工具，最常用的功能就是使用 jstack pid 命令查看线程的堆栈信息，也经常用来排除死锁情况。
+- jstack jstack是JDK工具命令，它是一种线程堆栈分析工具，最常用的功能就是使用 jstack pid 命令查看线程的堆栈信息，也经常用来排除死锁情况
+
 - jstat 它可以检测Java程序运行的实时情况，包括堆内存信息和垃圾回收信息，我们常常用来查看程序垃圾回收情况。常用的命令是jstat -gc pid。信息字段说明如下：
-- S0C：年轻代中 To Survivor 的容量（单位 KB）
-- S1C：年轻代中 From Survivor 的容量（单位 KB）
-- S0U：年轻代中 To Survivor 目前已使用空间（单位 KB）
-- S1U：年轻代中 From Survivor 目前已使用空间（单位 KB）
-- EC：年轻代中 Eden 的容量（单位 KB）
-- EU：年轻代中 Eden 目前已使用空间（单位 KB）
-- OC：老年代的容量（单位 KB）
-- OU：老年代目前已使用空间（单位 KB）
-- MC：元空间的容量（单位 KB）
-- MU：元空间目前已使用空间（单位 KB）
-- YGC：从应用程序启动到采样时年轻代中 gc 次数
-- YGCT：从应用程序启动到采样时年轻代中 gc 所用时间 (s)
-- FGC：从应用程序启动到采样时 老年代（Full Gc）gc 次数
-- FGCT：从应用程序启动到采样时 老年代代（Full Gc）gc 所用时间 (s)
-- GCT：从应用程序启动到采样时 gc 用的总时间 (s)
-- jmap命令 可以查看堆内存的初始化信息以及堆内存的使用情况，还可以生成dump文件来进行详细分析。查看堆内存情况命令 $ jmap -heap pid
+
+  - S0C：年轻代中 To Survivor 的容量（单位 KB）
+  - S1C：年轻代中 From Survivor 的容量（单位 KB）
+  - S0U：年轻代中 To Survivor 目前已使用空间（单位 KB）
+  - S1U：年轻代中 From Survivor 目前已使用空间（单位 KB）
+  - EC：年轻代中 Eden 的容量（单位 KB）
+  - EU：年轻代中 Eden 目前已使用空间（单位 KB）
+  - OC：老年代的容量（单位 KB）
+  - OU：老年代目前已使用空间（单位 KB）
+  - MC：元空间的容量（单位 KB）
+  - MU：元空间目前已使用空间（单位 KB）
+  - YGC：从应用程序启动到采样时年轻代中 gc 次数
+  - YGCT：从应用程序启动到采样时年轻代中 gc 所用时间 (s)
+  - FGC：从应用程序启动到采样时 老年代（Full Gc）gc 次数
+  - FGCT：从应用程序启动到采样时 老年代代（Full Gc）gc 所用时间 (s)
+  - GCT：从应用程序启动到采样时 gc 用的总时间 (s)
+
+- jmap命令 可以查看堆内存的初始化信息以及堆内存的使用情况，还可以生成dump文件来进行详细分析。查看堆内存情况命令
+
+  $ jmap -heap pid
 
 ## 进程相关
 
