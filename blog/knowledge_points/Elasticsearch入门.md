@@ -20,4 +20,12 @@ ES 的搜索方式
 
 ## 联合查询
 
+# es 核心概念 vs. db 核心概念
+
+| es        | db    |
+|:----------|:------|
+| index     | 数据库   |
+| type      | 数据表   |
+| docuemnt  | 一行数据  |
+
 > 参考: https://mp.weixin.qq.com/s/vwTrRSfgJ-7bWQUJWhfaHQ
