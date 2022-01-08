@@ -18,15 +18,15 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 
 [![JetBrains](jetbrains.png)](https://www.jetbrains.com)
 
-# LeetCode 📘
+# leetcode 📘
 
 力扣刷题记录
 
-## Algorithms
+## algorithms
 
 算法刷题记录
 
-## Database
+## database
 
 数据库刷题记录
 
@@ -56,13 +56,15 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 
 疑难杂症
 
-## domain_business_knowledge
+## template
 
-领域业务知识
+模板代码
 
-## business_system_development_experience
+# blog
 
-业务系统开发经验之谈
+## business_knowledge
+
+业务知识
 
 ## knowledge_points
 
@@ -78,11 +80,7 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 
 ## soft_skill
 
-软技能（非技术技能）
-
-## system_architect
-
-系统架构分析师
+软技能（非技术）
 
 # 技术图集 🗃
 
