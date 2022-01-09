@@ -18,10 +18,11 @@ public class TPEUseCase {
     static AtomicInteger atomicInteger = new AtomicInteger(1);
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        // Callable 接口任务 需要 FutureTask，本方式和普通的代码执行方式一样，不能体现出线程异步方式
+        // 这种使用是无意义的
         Callable<String> task = new CallableWorker(1, 2);
         FutureTask<String> ft = new FutureTask<>(task);
         new Thread(ft).start();
+        // 阻塞
         System.out.println(ft.get());
 
         // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用corePoolSize
@@ -59,7 +60,7 @@ public class TPEUseCase {
         threadPool.shutdown();
     }
 
-    /** 模拟计算50个计算任务 */
+    /** 模拟计算 50 个计算任务 */
     private static class CallableWorker implements Callable<String> {
         private final Integer x;
         private final Integer y;
