@@ -1,5 +1,5 @@
 ```yaml
-title: 分布式id生成器 
+title: 分布式ID 
 author: samin
 date: 2021-03-04
 ```
