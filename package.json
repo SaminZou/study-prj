@@ -8,7 +8,7 @@
     }
   },
   "dependencies": {
-    "commitizen": "latest",
+    "commitizen": "^4.2.4",
     "cz-conventional-emoji": "latest"
   }
 }
