@@ -8,13 +8,13 @@ date: 2021-10-01
 
 \# Linux 环境安装 zsh
 
-\$  sudo apt update
+$  sudo apt update
 
-\$  sudo apt install -y git zsh 
+$  sudo apt install -y git zsh 
 
 \# 安装 oh-my-zsh
 
-\$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # zsh 设置
 
@@ -31,11 +31,11 @@ DISABLE_UPDATE_PROMPT=true
 
 \# 自动补全
 
-\$ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 \# 语法高亮
 
-\$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 \# 修改 ~/.zshrc 中的 plugins
 

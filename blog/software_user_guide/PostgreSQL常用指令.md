@@ -23,13 +23,13 @@ date: 2021-11-23
 
 以下命令都可以创建用户：
 
-\$ CREATE ROLE samin PASSWORD '123';
+$ CREATE ROLE samin PASSWORD '123';
 
-\$ CREATE USER samin PASSWORD '123';
+$ CREATE USER samin PASSWORD '123';
 
 > 区别：角色是没有登录权限的用户，需要加上 LOGIN
 
-\$ CREATE ROLE samin PASSWORD '123' LOGIN;
+$ CREATE ROLE samin PASSWORD '123' LOGIN;
 
 > CREATE ROLE 和 CREATE USER 的唯一区别是创建的用户是否用登录权限
 
@@ -39,53 +39,53 @@ date: 2021-11-23
 
 \# 进入客户端
 
-\$ psql -U <dbUserName> -d <dbName> -h 127.0.0.1 -p 5432
+$ psql -U <dbUserName> -d <dbName> -h 127.0.0.1 -p 5432
 
 \# 创建用户设置密码
 
-\$ create user tech with password 'techdata';
+$ create user tech with password 'techdata';
 
 \# 创建数据库
 
-\$ create database techdata owner tech;
+$ create database techdata owner tech;
 
 \# 赋权限
 
-\$ grant all privileges on database techdata to tech;
+$ grant all privileges on database techdata to tech;
 
 \# 增加用户权限
 
-\$ alter user tech createdb createrole;
+$ alter user tech createdb createrole;
 
 \# 删除数据库
 
-\$ drop database techdata;
+$ drop database techdata;
 
 \# 删除用户
 
-\$ drop user tech;
+$ drop user tech;
 
 \# 退出shell
 
-\$ \q
+$ \q
 
 ## 创建只读用户
 
 \# 创建账号
 
-\$ CREATE USER readonlyuser WITH ENCRYPTED PASSWORD '123456';
+$ CREATE USER readonlyuser WITH ENCRYPTED PASSWORD '123456';
 
 \# 更新用户默认为只读事务
 
-\$ alter user readonlyuser set default_transaction_read_only=on;
+$ alter user readonlyuser set default_transaction_read_only=on;
 
 \# 所有库的 public 的 USAGE 权限给到只读用户
 
-\$ GRANT USAGE ON SCHEMA public to readonlyuser;
+$ GRANT USAGE ON SCHEMA public to readonlyuser;
 
 \# 授予select权限
 
-\$ grant select on all tables in schema public to readonlyuser;
+$ grant select on all tables in schema public to readonlyuser;
 
 > 要进入到具体数据库操作在哪个db环境下执行就授予那个db的权限
 
@@ -117,15 +117,15 @@ max_connections = 100   # 最大连接时间，必须要小于从库的配置
 
 \# 登录从服务器，测试是否能连同主服务器
 
-\$ psql -h 192.168.100.70  -U  postgres
+$ psql -h 192.168.100.70  -U  postgres
 
 \# 清空从服务器的main文件夹
 
-\$ sudo rm -rf 10/main/*
+$ sudo rm -rf 10/main/*
 
 \# 开始基础备份，从主服务器上同步数据
 
-\$ pg_basebackup -F p --progress -D 10/main/ -h 172.17.0.10 -p 5432 -U dascp --password
+$ pg_basebackup -F p --progress -D 10/main/ -h 172.17.0.10 -p 5432 -U dascp --password
 
 \# 编辑recovery.conf用于从库恢复从主库获取的数据，保存在从数据库的main文件夹中
 
@@ -147,18 +147,18 @@ hot_standby_feedback = on #r出现错误复制，向主机反馈
 ```
 
 \# 验证是否能够异步同步数据库信息，登录主数据库查看是否有记录
-\$ select client_addr,sync_state from pg_stat_replication;
+$ select client_addr,sync_state from pg_stat_replication;
 
 # 一些TIPS
 
 - postgresql本身是大小写不敏感的，如果要设置大写字段，在建表的时候带双引号，可是这样增加开发难度，需要把语句里面字段都加引号，所以应该尽量避免双引号
 
 - 备份恢复：
-  \$ pg_dump -h 172.168.10.249 -U daship -d daship> /root/backup20190703.bak
-  \$ psql -h localhost -U daship -d daship< /root/backup20190703.bak
+  $ pg_dump -h 172.168.10.249 -U daship -d daship> /root/backup20190703.bak
+  $ psql -h localhost -U daship -d daship< /root/backup20190703.bak
 
 - 备份的时候排除某些表
-  \$ pg_dump -h 172.168.10.249 -U daship -d daship
+  $ pg_dump -h 172.168.10.249 -U daship -d daship
   --exclude-table=cms_contents,cms_contents_id_seq > /root/backup20190703.bak
 
 - 永久修改时区
@@ -260,47 +260,49 @@ TRUNCATE TABLE table;
 
 -- 支持最大连接
 
-\$ show max_connections;
+$ show max_connections;
 
 -- 为管理员保留连接数
 
-\$ show superuser_reserved_connections;
+$ show superuser_reserved_connections;
 -- 把数据库中的所有的空闲会话全部kill掉
 
-\$ select pg_terminate_backend(pid) from pg_stat_activity where pid<>pg_backend_pid() and state='idle';
+$ select pg_terminate_backend(pid) from pg_stat_activity where pid<>pg_backend_pid() and state='idle';
 
 -- 查看当前连接情况
 
-\$ select datname,pid,application_name,state from pg_stat_activity;
+$ select datname,pid,application_name,state from pg_stat_activity;
 
 -- 查看当前连接数
 
-\$ select count(1) from pg_stat_activity;
+$ select count(1) from pg_stat_activity;
 -- 查看数据库剩余连接数
 
-\$ select max_conn-now_conn as resi_conn from (select setting::int8 as max_conn,(select count(*) from pg_stat_activity) as now_conn from pg_settings where name = 'max_connections') t;
+$ select max_conn-now_conn as resi_conn from (select setting::int8 as max_conn,(select count(*) from pg_stat_activity) as now_conn from pg_settings where name = 'max_connections') t;
 
 -- 修改最大连接数（需要重启） shell指令
 
-\$ alter system set max_connections= 300;
+$ alter system set max_connections= 300;
 
 -- 列出所有模式
 
-\$ select schemaname from pg_tables where schemaname not like 'pg%' and schemaname   != 'information_schema' group by schemaname;
+$ select schemaname from pg_tables where schemaname not like 'pg%' and schemaname   != 'information_schema' group by schemaname;
 
 -- 列出表名
-\$ select tablename from pg_tables;
+
+$ select tablename from pg_tables;
 
 -- 列出无模式隔离的所有表
-\$ select tablename from pg_tables where schemaname='public';
+
+$ select tablename from pg_tables where schemaname='public';
 
 -- 列出所有数据库
 
-\$ select datname from pg_database;
+$ select datname from pg_database;
 
 -- 查看数据库时区
 
-\$ show timezone;
+$ show timezone;
 
 -- 清空 public 模式，重建
 
@@ -311,7 +313,7 @@ CREATE SCHEMA public;
 
 -- 查看执行计划
 
-\$ EXPLAIN ANALYZE [SQL]
+$ EXPLAIN ANALYZE [SQL]
 
 ## 连接池数量计算公式
 

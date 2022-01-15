@@ -7,16 +7,18 @@ date: 2021-05-14
 # 解压包
 
 \# 一般来说，都是网上下载 Linux 用的压缩包
-\$ tar -C /usr/local -xzvf xxx.tar.gz
+
+$ tar -C /usr/local -xzvf xxx.tar.gz
 
 如Go为例：
 
-\$ tar -C /usr/local -xzvf go1.13.1.linux-amd64.tar.gz
+$ tar -C /usr/local -xzvf go1.13.1.linux-amd64.tar.gz
 
 # 配置环境变量
 
 \#编辑文本加入（文末插入）  如果使用了 zsh，则编辑 ~/.zshrc 文件
-\$ sudo vi /etc/profile
+
+$ sudo vi /etc/profile
 
 ```shell
 # Java env    
@@ -36,17 +38,18 @@ export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
 ```
 \# 退出vi编辑器，使环境变量设置立即生效  
-\$ source /etc/profile
+
+$ source /etc/profile
 
 > 如果使用的是 zsh，修改的是 .zshrc 文件
 
 # 验证
 
-\$ go version
+$ go version
 
-\$ java -version
+$ java -version
 
-\$ node -v
+$ node -v
 
 # Tips
 

@@ -112,7 +112,7 @@ $ sudo usermod -aG docker $USER
 
 \# 查看容器挂载详情
 
-\$ docker inspect <container_name> | grep Mounts -A 20
+$ docker inspect <container_name> | grep Mounts -A 20
 
 # 导入与导出
 

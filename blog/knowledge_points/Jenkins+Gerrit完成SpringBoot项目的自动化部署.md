@@ -214,9 +214,9 @@ $ git checkout config
        value = +1 Verified
 ```
 
-\$ git add . && git commit -m 'update config'
+$ git add . && git commit -m 'update config'
 
-\$ git push origin HEAD:refs/meta/config
+$ git push origin HEAD:refs/meta/config
 
 ### 1.3.2 知识点
 

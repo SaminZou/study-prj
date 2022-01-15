@@ -12,7 +12,7 @@ git bash 是针对windows环境开发的一套交互软件，以下配置都是�
 
 ## 配置文件
 
-\$ vim ~/.minttyrc
+$ vim ~/.minttyrc
 
 ## 用例
 
@@ -57,7 +57,7 @@ CursorBlinks=yes
 
 \# 没有则新增
 
-\$ vim ~/.bash_profile
+$ vim ~/.bash_profile
 
 ```shell
 # 修改显示

@@ -126,11 +126,11 @@ $ git commit
 
 ## 执行项目初始化
 
-\$ npm install
+$ npm install
 
 ## 使用提交脚本即可触发
 
-\$ npm run cz
+$ npm run cz
 
 # 其他相关插件
 

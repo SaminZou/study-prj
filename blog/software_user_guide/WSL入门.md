@@ -124,7 +124,7 @@ https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 
 \# 修改 vim ，添加一些通用配置
 
-\$ vim ~/.vimrc
+$ vim ~/.vimrc
 
 ```
 syntax on
@@ -145,15 +145,15 @@ set smartindent
 
 \# 安装字体集合，`注意这几行是在 powershell 里面执行`
 
-\$ git clone https://github.com/powerline/fonts.git
+$ git clone https://github.com/powerline/fonts.git
 
-\$ cd fonts
+$ cd fonts
 
 \# 打开可以执行 `.ps1` 的权限，选择 `y`
 
-\$ set-executionpolicy remotesigned
+$ set-executionpolicy remotesigned
 
-\$ .\install.ps1
+$ .\install.ps1
 
 ### 安装 zsh + oh-my-zsh
 
@@ -171,7 +171,7 @@ set smartindent
 
 \# 安装 oh-my-zsh
 
-\$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ### zsh 设置
 
@@ -189,7 +189,7 @@ DISABLE_UPDATE_PROMPT=true
 
 \# 美化 `agnoster` 主题，让显示的文字更短
 
-\$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
+$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
 
 修改 `prompt_context()`：
 
@@ -211,11 +211,11 @@ prompt_context() {
 
 \# 自动补全
 
-\$ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+$ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 \# 语法高亮
 
-\$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 \# 修改 ~/.zshrc 中的 plugins
 
@@ -248,4 +248,4 @@ fi
 
 \# 检查 `/etc/resolv.conf` 文件，去掉内网解析服务器，然后直接重新尝试 ping 命令
 
-\$ vim /etc/resolv.conf
+$ vim /etc/resolv.conf
