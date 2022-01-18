@@ -1,5 +1,5 @@
 ```yaml
-title: MySQL与PostgreSQL比较
+title: MySQL 与 PostgreSQL 比较
 author: samin
 date: 2021-02-11
 ```
