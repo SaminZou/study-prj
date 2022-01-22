@@ -1,5 +1,5 @@
 ```yaml
-title: Vim基础操作 
+title: Vim 基础操作 
 author: samin
 date: 2021-08-28
 ```

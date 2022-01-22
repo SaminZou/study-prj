@@ -1,5 +1,5 @@
 ```yaml
-title: WSL入门
+title: WSL 入门
 author: samin
 date: 2021-02-06
 ```

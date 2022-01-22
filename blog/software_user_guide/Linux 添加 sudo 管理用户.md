@@ -1,5 +1,5 @@
 ```yaml
-title: Linux添加sudo管理用户
+title: Linux 添加 sudo 管理用户
 author: samin
 date: 2021-02-07
 ```
