@@ -221,7 +221,7 @@ FROM
 
 ## 修改表
 
-ALTER TABLE用来添加，删除或修改现有表中的列，也可以用来添加和删除现有表上的各种制约因素
+ALTER TABLE 用来添加，删除或修改现有表中的列，也可以用来添加和删除现有表上的各种制约因素
 
 ```sql
 -- 现有表中添加一个新的列
@@ -258,6 +258,7 @@ DROP TABLE table;
 TRUNCATE TABLE table;
 ```
 
+```sql
 -- 支持最大连接
 
 $ show max_connections;
@@ -308,6 +309,13 @@ $ show timezone;
 
 DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
+
+-- 查看下一个自增主键
+SELECT NEXTVAL('message_config_id_seq');
+
+-- 重置自增主键，一般 truncate 一个有自增主键的表会导致这个问题
+SELECT SETVAL('message_config_id_seq', MAX(id)) FROM message_config;
+```
 
 # 性能优化
 
