@@ -1,5 +1,5 @@
 ```yaml
-title: Go Module入门
+title: Go Module 入门
 author: samin
 date: 2021-09-07
 ```
