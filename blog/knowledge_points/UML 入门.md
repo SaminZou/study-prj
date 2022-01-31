@@ -1,5 +1,5 @@
 ```yaml
-title: UML入门
+title: UML 入门
 author: samin
 date: 2021-01-26
 ```

@@ -1,5 +1,5 @@
 ```yaml
-title: 分布式ID 
+title: 分布式 ID 
 author: samin
 date: 2021-03-04
 ```

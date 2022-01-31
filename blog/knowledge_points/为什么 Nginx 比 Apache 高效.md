@@ -1,5 +1,5 @@
 ```yaml
-title: 为什么Nginx比Apache高效 
+title: 为什么 Nginx 比 Apache 高效 
 author: samin
 date: 2021-09-19
 ```
@@ -18,7 +18,7 @@ Nginx才短短几年，就拿下了Web服务器大壁江山，众所周知，Ngi
 
 为什么Nginx在处理高并发方面要优于httpd，我们先从两种web服务器的工作原理以及工作模式说起。
 
-# Apache三种工作模式
+# Apache 三种工作模式
 
 我们都知道Apache有三种工作模块，分别为：prefork、worker、event。
 

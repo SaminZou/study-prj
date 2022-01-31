@@ -1,5 +1,5 @@
 ```yaml
-title: SpringBoot集成Liquibase 
+title: SpringBoot 集成 Liquibase 
 author: samin
 date: 2021-04-20
 ```

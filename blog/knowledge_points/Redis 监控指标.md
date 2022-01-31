@@ -1,5 +1,5 @@
 ```yaml
-title: Redis监控指标
+title: Redis 监控指标
 author: samin
 date: 2021-07-05
 ```

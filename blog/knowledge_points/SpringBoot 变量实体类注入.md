@@ -1,5 +1,5 @@
 ```yaml
-title: SpringBoot变量实体类注入
+title: SpringBoot 变量实体类注入
 author: samin
 date: 2021-10-15
 ```
