@@ -1,5 +1,5 @@
 ```yaml
-title: 网络调试指令ping、telnet、tracert的区别 
+title: 网络调试指令 ping、telnet、tracert 的区别 
 author: samin
 date: 2021-05-12
 ```

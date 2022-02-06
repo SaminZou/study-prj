@@ -1,5 +1,5 @@
 ```yaml
-title: Git-bash配置 
+title: Git Bash 配置 
 author: samin
 date: 2021-03-11
 ```

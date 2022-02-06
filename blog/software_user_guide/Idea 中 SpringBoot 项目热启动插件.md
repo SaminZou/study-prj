@@ -1,5 +1,5 @@
 ```yaml
-title: Idea中Springboot项目热启动插件
+title: Idea 中 SpringBoot 项目热启动插件
 author: samin
 date: 2021-12-12
 ```

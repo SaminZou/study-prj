@@ -1,5 +1,5 @@
 ```yaml
-title: Linux搭建开发环境 
+title: Linux 搭建开发环境 
 author: samin
 date: 2021-05-14
 ```
