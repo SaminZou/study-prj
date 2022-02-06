@@ -5,6 +5,7 @@ date: 2021-09-09
 ```
 
 # 索引分类
+
 1. 普通索引
 ```sql
 CREATE TABLE `table` (
