@@ -48,6 +48,14 @@ $ docker system df
 
 $ docker container prune
 
+\# 打印所有没有运行实例的 images
+
+$ sudo docker images --quiet
+
+\# 删除所有没有运行实例的 images
+
+$ sudo docker rmi --force $(sudo docker images --quiet)
+
 \# 删除虚悬镜像
 
 $ docker image prune 
@@ -190,27 +198,25 @@ $ netstat -ano | grep 2375
 http://192.168.123.67:5000/v2/_catalog
 http://192.168.123.67:5000/v2/sso-prj/sso/tags/list
 
-# Tips
+# docker-compose
 
-## docker-compose
-
-### 启动yml实例
+## 启动 yml 实例
 
 $ sudo docker-compose up -d
 
-### 打印运行实例
+## 打印运行实例
 
 $ sudo docker-compose ps
 
-### 停止yml实例
+## 停止 yml 实例
 
 $ sudo docker-compose stop <container_id>
 
-### 删除yml实例（需要先停止）
+## 删除 yml 实例（需要先停止）
 
 $ sudo docker-compose rm <container_id>
 
-## docker 容器镜像瘦身
+# docker 容器镜像瘦身
 
 COPY、ADD、RUN指令执行会增加层，层的概念和git相似，会占用空间，所以执行这些命令尽量使用 && 连接 
 
