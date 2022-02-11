@@ -44,17 +44,19 @@ $ docker logs --tail 100 web
 
 $ docker system df 
 
-\# 删除过期容器
+\# 删除状态为 Exited 容器
 
 $ docker container prune
 
-\# 删除过期镜像
+\# 删除虚悬镜像
 
 $ docker image prune 
 
+> 虚悬镜像是没有作用的，占用内存空间，虚悬镜像怎么来呢？一般是我们下载镜像，依赖一些中间镜像，然后我们删除了下载的镜像，但是只是删除了上层镜像，依赖的镜像没有删除。这样没有依赖的中间镜像就成了虚悬镜像，是可以删除的
+
 \# 查看容器端口映射情况
 
-$ docker prot <container_name>
+$ docker port <container_name>
 
 \# docker和本机之间的文件传输，可以反过来传输
 
@@ -211,3 +213,20 @@ $ sudo docker-compose rm <container_id>
 ## docker 容器镜像瘦身
 
 COPY、ADD、RUN指令执行会增加层，层的概念和git相似，会占用空间，所以执行这些命令尽量使用 && 连接 
+
+# 导入与导出
+
+- 若是只想备份images，使用save、load即可
+
+- 若是在启动容器后，容器内容有变化，需要备份，则使用export、import
+
+## 实践
+
+```shell
+# 打包镜像
+$ docker sava -o nginx.tar nginx:latest
+# 恢复镜像
+$ docker load -i nginx.tar
+# 批量打包所有镜像
+$ docker save $(docker images | grep -v REPOSITORY | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o all.tar
+```
