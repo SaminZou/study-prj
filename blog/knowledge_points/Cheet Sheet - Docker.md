@@ -40,9 +40,13 @@ $ docker logs --tail 100 web
 
 # More
 
-\# 查看镜像、容器的占用空间
+\# * 查看镜像、容器的占用空间
 
 $ docker system df 
+
+\# 删除过期容器
+
+$ docker container prune
 
 \# 删除过期镜像
 
