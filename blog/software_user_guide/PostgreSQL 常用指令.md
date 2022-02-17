@@ -149,6 +149,17 @@ hot_standby_feedback = on #r出现错误复制，向主机反馈
 \# 验证是否能够异步同步数据库信息，登录主数据库查看是否有记录
 $ select client_addr,sync_state from pg_stat_replication;
 
+# psql 导入 pg_dump 导出的文件
+
+\# 说明
+--file : 备份文件所在路径
+--username : 数据库用户名
+--host : 数据库ip
+--port : 数据库端口
+
+\# jinyu 数据库导入指令，最后一个参数为数据库名称
+$ psql --file=/home/test/jinyu-test-20220217 --username=postgres --host=127.0.0.1 --port=5432 jinyu
+
 # 一些TIPS
 
 - postgresql本身是大小写不敏感的，如果要设置大写字段，在建表的时候带双引号，可是这样增加开发难度，需要把语句里面字段都加引号，所以应该尽量避免双引号
@@ -159,7 +170,7 @@ $ select client_addr,sync_state from pg_stat_replication;
 
 - 备份的时候排除某些表
   $ pg_dump -h 172.168.10.249 -U daship -d daship
-  --exclude-table=cms_contents,cms_contents_id_seq > /root/backup20190703.bak
+  --exclude-table=cms_contents --exclude-table=cms_contents_id_seq > /root/backup20190703.bak
 
 - 永久修改时区
   修改 `postgresql.conf` ，重启服务器
