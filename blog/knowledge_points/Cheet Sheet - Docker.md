@@ -44,6 +44,10 @@ $ docker logs --tail 100 web
 
 $ docker system df 
 
+\# 删除没有被引用的挂载
+
+$ docker volume prune
+
 \# 删除状态为 Exited 容器
 
 $ docker container prune
