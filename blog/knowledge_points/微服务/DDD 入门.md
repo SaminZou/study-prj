@@ -260,9 +260,9 @@ MVC 模式本质上和 DDD 有冲突，MVC 模式的设计理念是把由行为�
 
 对于 MVC 模式的补充，面向对象量化落地
 
-Data 对象数据
-Context 对象场景
-Interactions 交互
+- Data 对象数据
+- Context 对象场景
+- Interactions 交互
 
 契合 DDD 落地
 
