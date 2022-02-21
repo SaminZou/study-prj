@@ -16,6 +16,6 @@ public interface LambdaInf {
     void action(String words);
 
     default void actionUtils() {
-        System.out.println("此方法不影响lambda表达式的使用");
+        System.out.println("此方法不影响 Lambda 表达式的使用");
     }
 }

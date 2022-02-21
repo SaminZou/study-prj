@@ -3,7 +3,7 @@ package basic.q12;
 import java.util.function.Function;
 
 /**
- * Java8 Function类的使用
+ * Java8 Function 接口的使用
  *
  * @author samin
  * @date 2021-01-10

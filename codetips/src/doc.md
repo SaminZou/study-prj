@@ -30,7 +30,7 @@
 
 - q11 泛型、Object、？ 的区别
 
-- q12 java.util.function 用法
+- q12 java.util.function 用法（Consumer / Supplier / Predicate / Function）
 
 - q13 生成随机数的方式
 

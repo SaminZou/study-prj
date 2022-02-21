@@ -37,6 +37,9 @@ $ git add .
 \# 提交修改
 $ git commit -m ""
 
+\# add 和 commit 操作二合一
+$ git commit -am ""
+
 \# 查看缓存区内容
 $ git status
 
