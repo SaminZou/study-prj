@@ -51,6 +51,11 @@ date: 2021-09-27
 
 - Stream API
 
+  - 流水线
+  - 自动并行
+
+> stream 流并没有原生 for 写法快，只是让程序更好理解罢了，具体的分析可以查阅 stream 的实现原理（ 实际应用也不用担心 stream 方式性能，并不比 for 慢多少 ）
+
 - Optional
 
 - Date Time API（如LocalDate）
