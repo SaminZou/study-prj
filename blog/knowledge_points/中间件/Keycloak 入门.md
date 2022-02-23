@@ -6,6 +6,33 @@ date: 2022-02-22
 
 # Keycloak 是什么
 
+# 支持访问控制机制
+
+- Attribute-based access control (ABAC)
+- Role-based access control (RBAC)
+- User-based access control (UBAC)
+- Context-based access control (CBAC)
+- Rule-based access control
+- Time-based access control
+
+# 授权处理流程
+
+## 资源管理（Resource Management）
+
+create resource server -> create resource -> create and associate scope
+
+资源服务、资源、范围关系：
+
+资源服务包含资源，资源包含范围
+
+## 权限和策略管理（Permission and Policy Management）
+
+策略是用来定义满足哪些条件才可以访问资源，策略本身不与资源关联，要想策略起作用就需要在相应资源配置权限，将资源及策略进行关联
+
+## 策略执行（Policy Enforcement）
+
+策略执行需要在资源服务内集成一个Policy Enforcement Point（PEP，资源执行点），以便与Keycloak服务进行通信获取相关的权限信息等，从而决定哪些资源可以被访问
+
 # 国际化配置
 
 选择 "Master" 领域，领域配置 -> 主题 -> 开启国际化 -> 默认语言 "zh-CN" -> 退出登录清除缓存重新登录
