@@ -33,6 +33,47 @@ create resource server -> create resource -> create and associate scope
 
 策略执行需要在资源服务内集成一个Policy Enforcement Point（PEP，资源执行点），以便与Keycloak服务进行通信获取相关的权限信息等，从而决定哪些资源可以被访问
 
+# 开发方式
+
+1. 新建域
+2. 新建角色
+3. 新建用户
+4. 绑定用户角色
+5. 新建客户端
+6. 配置客户端，打开授权
+7. 授权面板（设置、资源、授权范围、策略、权限、评估、导出设置）
+
+## 设置
+
+- Policy Enforcement Mode：指定授权服务器接受到请求时策略如何执行
+
+  - Enforcing：当资源没有配置关联的策略时，请求默认被拒绝访问，这也是默认的选项
+  - Permissive：当资源没有配置关联的策略时，请求允许访问
+  - Disabled：禁用所有资源的所有访问策略
+  
+- Decision Strategy：表示权限最终是如何计算的策略，以决定相应的资源是否能获得授权
+
+  - Affirmative ：至少一个权限计算做出正向决定
+  - Unanimous：所有的权限计算都要做出正向决定
+
+## 资源
+
+录入 api 粒度的数据，注意 scope 的配置
+
+## 授权范围
+
+## 策略
+
+Policies下主要配置哪些策略，配置的策略用来在权限设置中与资源进行关联，Keycloak本身支持很多策略，详细的策略说明可参考官方文档，使用最常使用的基于角色(Role Based)的策略
+
+## 权限
+
+Permission 下就是用来配置资源、策略如何进行关联，并且在有多个策略关联时采用何种策略（Decision Strategy）最终决定资源是否能被授权，Decision Strategy的配置项与上文 Settings 下的意义相同
+
+## 评估
+
+模拟请求配置情况
+
 # 国际化配置
 
 选择 "Master" 领域，领域配置 -> 主题 -> 开启国际化 -> 默认语言 "zh-CN" -> 退出登录清除缓存重新登录
