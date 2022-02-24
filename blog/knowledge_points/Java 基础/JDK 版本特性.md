@@ -90,3 +90,8 @@ date: 2021-09-27
 
 - 引入HttpClient，不需要通过maven添加HttpClient
 
+# JDK17
+
+record 关键字，一定程度上替代了 Lombok 工具包
+
+permits 指定允许哪些类实现接口
