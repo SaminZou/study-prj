@@ -8,12 +8,12 @@ date: 2022-02-22
 
 # 支持访问控制机制
 
-- Attribute-based access control (ABAC)
-- Role-based access control (RBAC)
-- User-based access control (UBAC)
-- Context-based access control (CBAC)
-- Rule-based access control
-- Time-based access control
+- Attribute-based access control (ABAC) 基于属性
+- Role-based access control (RBAC) 基于角色
+- User-based access control (UBAC) 基于用户
+- Context-based access control (CBAC) 基于上下文
+- Rule-based access control 基于规则
+- Time-based access control 基于时间
 
 # 授权处理流程
 
