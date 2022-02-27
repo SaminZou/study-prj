@@ -44,6 +44,9 @@ OpenID Connect 是在OAuth2.0 协议基础上增加了身份验证层 （identit
 > 区分应用场景和用法
 
 - 授权码模式（authorization code）
+
+![](https://raw.githubusercontent.com/SaminZou/pic-repo/master/BlogPicture/oauth2授权码方式.png)
+
 - 简化模式（implicit）
 - 密码模式（resource owner password credentials）
 - 客户端模式（client credentials）
