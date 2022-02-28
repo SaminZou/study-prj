@@ -1,5 +1,5 @@
 ```yaml
-title: Git
+title: Git 入门
 author: samin
 date: 2021-10-02
 ```
@@ -60,6 +60,18 @@ $ git stash pop
 - 空目录无法add，如果想add一个空目录，在它下面touch一个.gitignore文件
 
 # 配置
+
+使用 `git config` 可以配置 Git 的环境变量，这些变量可以存放在以下三个不同的地方：
+
+- /etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 `--system` 选项，读写的就是这个文件
+
+- ~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 `--global` 选项，读写的就是这个文件
+
+- .git/config（当前项目）文件：这里的配置仅仅针对当前项目有效
+
+> 每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖/etc/gitconfig 中的同名变量
+
+## 常用指令
 
 -- 取消git的文件权限改变造成的filemode变化
 
