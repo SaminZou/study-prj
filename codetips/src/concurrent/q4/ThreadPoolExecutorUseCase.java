@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author samin
  * @date 2021-01-08
  */
-public class TPEUseCase {
+public class ThreadPoolExecutorUseCase {
 
     static AtomicInteger atomicInteger = new AtomicInteger(1);
 
@@ -25,7 +25,7 @@ public class TPEUseCase {
         // 阻塞
         System.out.println(ft.get());
 
-        // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用corePoolSize
+        // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用 corePoolSize
         ExecutorService threadPool =
                 new ThreadPoolExecutor(
                         10,
