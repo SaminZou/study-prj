@@ -26,11 +26,11 @@
 
 - q9 获取键盘输入字符的方式
 
-- q10 Java8 时间类
+- q10 JDK 版本特性
 
 - q11 泛型、Object、？ 的区别
 
-- q12 java.util.function 用法（Consumer / Supplier / Predicate / Function）
+- q12 
 
 - q13 生成随机数的方式
 
@@ -54,7 +54,7 @@
 
 - q1 Atomic类 / SimpleDateFormat / Synchronized / ThreadLocal / ReentrantLock 用法
 
-- q2 wait/notify 用法 & 实现的消息队列
+- q2 wait / notify 用法 & 实现的消息队列
 
 - q3 CountDownLatch 和 CyclicBarrier 的区别
 
@@ -66,7 +66,7 @@
 
 - q2 Unicode编码注释问题
 
-- q3 观测CPU 100%运行
+- q3 观测 CPU 100% 运行
 
 - q4 容易出错的语法点
 
