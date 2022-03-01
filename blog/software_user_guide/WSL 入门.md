@@ -166,8 +166,7 @@ $ .\install.ps1
 > Windows 环境安装 zsh
 >
 > 下载地址：https://packages.msys2.org/package/zsh?repo=msys&variant=x86_64
-
-> 将解压后的所有文件合并至 git 的安装目录
+> 将解压后的所有文件合并至 git 的安装目录（默认安装目录是 C:\Program Files\Git ）
 
 \# 安装 oh-my-zsh
 
@@ -184,28 +183,6 @@ ZSH_THEME="ys"
 # 取消自动更新
 DISABLE_UPDATE_PROMPT=true
 ```
-
-#### agnoster 主题配置
-
-\# 美化 `agnoster` 主题，让显示的文字更短
-
-$ vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
-
-修改 `prompt_context()`：
-
-```shell
-prompt_context() {
-  prompt_segment green black "%(!.%{%F{yellow}%}.)%n"
-}
-```
-
-> TIPS: Shell 命令行每行显示的信息术语为 "prompt"
-> 
-> 运行完
-> 
-> $ source ~/.zshrc
-> 
-> 使配置生效
 
 ### 安装插件（可选）
 

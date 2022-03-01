@@ -17,40 +17,22 @@ $ vim ~/.minttyrc
 ## 用例
 
 ```properties
-BoldAsFont=yes
-FontHeight=20
-Scrollbar=none
-Term=xterm-256color
-BoldAsColour=yes
-Black=7,54,66
-Red=220,50,47
-Green=133,153,0
-Yellow=181,137,0
-Blue=38,139,210
-Magenta=211,54,130
-Cyan=42,161,152
-White=238,232,213
-BoldBlack=0,43,54
-BoldRed=203,75,22
-BoldGreen=88,110,117
-BoldYellow=101,123,131
-BoldBlue=131,148,150
-BoldMagenta=108,113,196
-BoldCyan=147,161,161
-BoldWhite=253,246,227
-ForegroundColour=192,192,192
-BackgroundColour=0,43,54
-CursorColour=133,153,0
-Columns=80
-Rows=25
-
-BoldAsFont=-1
-Locale=zh_CN
-Charset=UTF-8
+# 字体
+# 字体
 Font=Consolas
-Transparency=off
-CursorType=block
-CursorBlinks=yes
+# 字体大小
+FontHeight=16
+# 背景色
+BackgroundColour=0,0,0
+BoldAsFont=no
+# 本地化
+Locale=zh_CN
+# 编码
+Charset=UTF-8
+# 长
+Columns=120
+# 宽
+Rows=30
 ```
 
 # 去掉冗长的"用户@主机"（ 使用 oh-my-zsh 不需要配置 ）
