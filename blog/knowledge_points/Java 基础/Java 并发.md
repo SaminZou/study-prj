@@ -94,14 +94,14 @@ Linux 相比与其他操作系统（包括其他类 Unix 系统）有很多的�
 
 ### 如何避免线程死锁
 
-1. 破坏互斥条件 ：这个条件我们没有办法破坏，因为我们用锁本来就是想让他们互斥的（临界资源需要互斥访问）。
-2. 破坏请求与保持条件 ：一次性申请所有的资源。
-3. 破坏不剥夺条件 ：占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源。
-4. 破坏循环等待条件 ：靠按序申请资源来预防。按某一顺序申请资源，释放资源则反序释放。破坏循环等待条件。
+1. 破坏互斥条件 ：这个条件我们没有办法破坏，因为我们用锁本来就是想让他们互斥的（临界资源需要互斥访问）。
+2. 破坏请求与保持条件 ：一次性申请所有的资源。
+3. 破坏不剥夺条件 ：占用部分资源的线程进一步申请其他资源时，如果申请不到，可以主动释放它占有的资源。
+4. 破坏循环等待条件 ：靠按序申请资源来预防。按某一顺序申请资源，释放资源则反序释放。破坏循环等待条件。
 
 ## sleep()和wait()方法区别和共同点
 
-- 两者最主要的区别在于：sleep 方法没有释放锁，而 wait 方法释放了锁 。
+- 两者最主要的区别在于：sleep 方法没有释放锁，而 wait 方法释放了锁 。
 - 两者都可以暂停线程的执行。
 - Wait 通常被用于线程间交互/通信，sleep 通常被用于暂停执行。
 - wait() 方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的 notify() 或者 notifyAll() 方法，或者可以使用 wait(long timeout)超时后线程会自动苏醒。sleep() 方法执行完成后，线程会自动苏醒。
@@ -323,41 +323,41 @@ ThreadLocalMap中使用的key为弱引用，value是强引用。所以ThreadLoca
 ### 执行execute()方法和submit()方法的区别是什么呢？
 
 - execute()方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功与否；
-- submit()方法用于提交需要返回值的任务。线程池会返回一个 Future 类型的对象，通过这个 Future 对象可以判断任务是否执行成功，Future的get()方法会阻塞当前线程直到任务完成，使用 get（long timeout，TimeUnit unit）方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完。
+- submit()方法用于提交需要返回值的任务。线程池会返回一个 Future 类型的对象，通过这个 Future 对象可以判断任务是否执行成功，Future的get()方法会阻塞当前线程直到任务完成，使用 get（long timeout，TimeUnit unit）方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完。
 
 
 ### shutdown()和shutdownNow()的区别
 
-- shutdown（） :关闭线程池，线程池的状态变为 SHUTDOWN。线程池不再接受新任务了，但是队列里的任务得执行完毕。
+- shutdown（） :关闭线程池，线程池的状态变为 SHUTDOWN。线程池不再接受新任务了，但是队列里的任务得执行完毕。
 
-- shutdownNow（） :关闭线程池，线程的状态变为 STOP。线程池会终止当前正在运行的任务，并停止处理排队的任务并返回正在等待执行的 List。
+- shutdownNow（） :关闭线程池，线程的状态变为 STOP。线程池会终止当前正在运行的任务，并停止处理排队的任务并返回正在等待执行的 List。
 
 ### isTerminated()和isShutdown()的区别
 
-- isShutDown 当调用 shutdown() 方法后返回为 true。
+- isShutDown 当调用 shutdown() 方法后返回为 true。
 
-- isTerminated 当调用 shutdown() 方法后，并且所有提交的任务完成后返回为 true
+- isTerminated 当调用 shutdown() 方法后，并且所有提交的任务完成后返回为 true
 
 ### 如何创建线程池
 
 尽量避免使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险
 
 > Executors 返回线程池对象的弊端如下：
-> - FixedThreadPool 和 SingleThreadExecutor ： 允许请求的队列长度为 Integer.MAX_VALUE ，可能堆积大量的请求，从而导致OOM。
-> - CachedThreadPool 和 ScheduledThreadPool ： 允许创建的线程数量为 Integer.MAX_VALUE ，可能会创建大量线程，从而导致OOM。
+> - FixedThreadPool 和 SingleThreadExecutor ： 允许请求的队列长度为 Integer.MAX_VALUE ，可能堆积大量的请求，从而导致OOM。
+> - CachedThreadPool 和 ScheduledThreadPool ： 允许创建的线程数量为 Integer.MAX_VALUE ，可能会创建大量线程，从而导致OOM。
 
 - 通过 ThreadPoolExecutor 构造方法实现
 - 通过 Executor 框架的工具类 Executors 来实现 可以创建三种类型的ThreadPoolExecutor
 
-    - FixedThreadPool ： 该方法返回一个固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。
-    - SingleThreadExecutor： 方法返回一个只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。
-    - CachedThreadPool： 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。
+    - FixedThreadPool ： 该方法返回一个固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。
+    - SingleThreadExecutor： 方法返回一个只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。
+    - CachedThreadPool： 该方法返回一个可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。
 
 ### ThreadPoolExecutor 类分析
 
-ThreadPoolExecutor 类中提供的四个构造方法。我们来看最长的那个，其余三个都是在这个构造方法的基础上产生（其他几个构造方法说白点都是给定某些默认参数的构造方法比如默认制定拒绝策略是什么）
+ThreadPoolExecutor 类中提供的四个构造方法。我们来看最长的那个，其余三个都是在这个构造方法的基础上产生（其他几个构造方法说白点都是给定某些默认参数的构造方法比如默认制定拒绝策略是什么）
 
-```
+```java
 /**
  * 用给定的初始参数创建一个新的ThreadPoolExecutor。
  */
@@ -415,7 +415,7 @@ public ThreadPoolExecutor(int corePoolSize,
 
 ### 一个简单的线程池Demo: Runnable+ThreadPoolExecutor
 
-```
+```java
 import java.util.Date;
 
 /**
@@ -451,7 +451,7 @@ public class MyRunnable implements Runnable {
 }
 ```
 
-```
+```java
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -509,20 +509,20 @@ public class ThreadPoolExecutorDemo {
 - 当线程池中的线程数达到 `corePoolSize` 后，新任务将在无界队列中等待，因此线程池中的线程数不会超过 `corePoolSize`；
 - 由于使用无界队列时 `maximumPoolSize` 将是一个无效参数，因为不可能存在任务队列满的情况。所以，通过创建 `FixedThreadPool` 的源码可以看出创建的 `FixedThreadPool` 的 `corePoolSize` 和 `maximumPoolSize` 被设置为同一个值。
 - 由于 1 和 2，使用无界队列时 `keepAliveTime` 将是一个无效参数；
-- 运行中的 `FixedThreadPool`（未执行 shutdown()或 shutdownNow()）不会拒绝任务，在任务比较多的时候会导致 OOM（内存溢出）。
+- 运行中的 `FixedThreadPool`（未执行 shutdown() 或 shutdownNow() ）不会拒绝任务，在任务比较多的时候会导致 OOM（内存溢出）。
 
 #### SingleThreadExecutor
 
-`SingleThreadExecutor` 是只有一个线程的线程池，`corePoolSize` 和 `maximumPoolSize` 都被设置为 1.其他参数和 `FixedThreadPool` 相同
+`SingleThreadExecutor` 是只有一个线程的线程池，`corePoolSize` 和 `maximumPoolSize` 都被设置为 1.其他参数和 `FixedThreadPool` 相同
 
 - 如果当前运行的线程数少于 `corePoolSize`，则创建一个新的线程执行任务；
 - 当前线程池中有一个运行的线程后，将任务加入 `LinkedBlockingQueue`；
 - 线程执行完当前的任务后，会在循环中反复从 `LinkedBlockingQueue` 中获取任务来执行；
-- `SingleThreadExecutor` 使用无界队列 `LinkedBlockingQueue` 作为线程池的工作队列（队列的容量为 `Intger.MAX_VALUE`）。`SingleThreadExecutor` 使用无界队列作为线程池的工作队列会对线程池带来的影响与 `FixedThreadPool` 相同。说简单点就是可能会导致 OOM
+- `SingleThreadExecutor` 使用无界队列 `LinkedBlockingQueue` 作为线程池的工作队列（队列的容量为 `Intger.MAX_VALUE`）。`SingleThreadExecutor` 使用无界队列作为线程池的工作队列会对线程池带来的影响与 `FixedThreadPool` 相同。说简单点就是可能会导致 OOM
 
 #### CachedThreadPool
 
-`CachedThreadPool` 的 `corePoolSize` 被设置为空（0），`maximumPoolSize` 被设置为 `Integer.MAX.VALUE`，即它是无界的，这也就意味着如果主线程提交任务的速度高于 `maximumPool` 中线程处理任务的速度时，`CachedThreadPool` 会不断创建新的线程。极端情况下，这样会导致耗尽 cpu 和内存资源
+`CachedThreadPool` 的 `corePoolSize` 被设置为空（0），`maximumPoolSize` 被设置为 `Integer.MAX.VALUE`，即它是无界的，这也就意味着如果主线程提交任务的速度高于 `maximumPool` 中线程处理任务的速度时，`CachedThreadPool` 会不断创建新的线程。极端情况下，这样会导致耗尽 cpu 和内存资源
 
 - 创建的线程数量为 `Integer.MAX_VALUE` ，可能会创建大量线程，从而导致 OOM
 
@@ -575,7 +575,7 @@ CPU 密集型简单理解就是利用 CPU 计算能力的任务比如你在内�
 
 这里 Atomic 是指一个操作是不可中断的。即使是在多个线程一起执行的时候，一个操作一旦开始，就不会被其他线程干扰。
 
-所谓原子类说简单点就是具有原子/原子操作特征的类。并发包 java.util.concurrent 的原子类都存放在java.util.concurrent.atomic下
+所谓原子类说简单点就是具有原子/原子操作特征的类。并发包 java.util.concurrent 的原子类都存放在java.util.concurrent.atomic下
 
 ### JUC 包中的原子类是哪4类?
 
@@ -605,7 +605,7 @@ CPU 密集型简单理解就是利用 CPU 计算能力的任务比如你在内�
 
 ### AtomicInteger 类常用方法
 
-```
+```java
 public final int get()  // 获取当前的值
 public final int getAndSet(int newValue) // 获取当前的值，并设置新的值
 public final int getAndIncrement() // 获取当前的值，并自增
@@ -642,11 +642,14 @@ AQS核心思想是，如果被请求的共享资源空闲，则将当前请求�
 >CLH(Craig,Landin,and Hagersten)队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS是将每条请求共享资源的线程封装成一个CLH锁队列的一个结点（Node）来实现锁的分配。
 
 - AQS使用一个int成员变量来表示同步状态，通过内置的FIFO队列来完成获取资源线程的排队工作。AQS使用CAS对该同步状态进行原子操作实现对其值的修改。
-```
+
+```java
 private volatile int state;//共享变量，使用volatile修饰保证线程可见性
 ```
+
 - 状态信息通过protected类型的getState，setState，compareAndSetState进行操作
-```
+
+```java
 //返回同步状态的当前值 
 protected final int getState() { 
         return state; 
@@ -690,7 +693,7 @@ AQS使用了模板方法模式，自定义同步器时需要重写下面几个AQ
 - tryAcquireShared(int) // 共享方式。尝试获取资源。负数表示失败；0表示成功，但没有剩余可用资源；正数表示成功，且有剩余资源。
 - tryReleaseShared(int) // 共享方式。尝试释放资源，成功则返回true，失败则返回false。
 
-默认情况下，每个方法都抛出 UnsupportedOperationException。 这些方法的实现必须是内部线程安全的，并且通常应该简短而不是阻塞。AQS类中的其他方法都是final ，所以无法被其他类使用，只有这几个方法可以被其他类使用。
+默认情况下，每个方法都抛出 UnsupportedOperationException。 这些方法的实现必须是内部线程安全的，并且通常应该简短而不是阻塞。AQS类中的其他方法都是final ，所以无法被其他类使用，只有这几个方法可以被其他类使用。
 
 以ReentrantLock为例，state初始化为0，表示未锁定状态。A线程lock()时，会调用tryAcquire()独占该锁并将state+1。此后，其他线程再tryAcquire()时就会失败，直到A线程unlock()到state=0（即释放锁）为止，其它线程才有机会获取该锁。当然，释放锁之前，A线程自己是可以重复获取此锁的（state会累加），这就是可重入的概念。但要注意，获取多少次就要释放多么次，这样才能保证state是能回到零态的。
 

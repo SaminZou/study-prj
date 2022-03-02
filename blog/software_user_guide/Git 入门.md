@@ -127,6 +127,10 @@ $ git rebase -i HEAD~n
 
 $ git push -f
 
+# 合并分支
+
+进入 rebase 模式后，把需要合并的 commit_id 前的操作由 pick 改为 s，即触发往前一个 commit_id 合并
+
 # 垃圾回收
 
 $ git gc --prune=now
