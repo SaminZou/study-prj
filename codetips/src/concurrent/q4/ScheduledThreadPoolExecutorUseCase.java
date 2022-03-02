@@ -8,4 +8,7 @@ package concurrent.q4;
  */
 public class ScheduledThreadPoolExecutorUseCase {
 
+    public static void main(String[] args) {
+
+    }
 }
