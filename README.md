@@ -62,25 +62,15 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 
 # blog
 
-## business_knowledge
+## 业务知识
 
-业务知识
+## 原创技术文章
 
-## knowledge_points
+## 常用软件使用指南
 
-知识点
+## 知识栈
 
-## original_technical_article
-
-原创技术文章
-
-## software_user_guide
-
-常用软件使用指南
-
-## soft_skill
-
-软技能（非技术）
+## 软技能（非技术）
 
 # 技术图集 🗃
 
