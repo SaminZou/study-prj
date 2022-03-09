@@ -31,8 +31,8 @@ public class StringUseCase {
         sj.add("hello");
         sj.add("world");
         sj.add("!");
-        System.out.println("create by StringJoiner:" + sj.toString());
-        // String也有静态方法可以直接支持字符串拼接，效果同上
+        System.out.println("create by StringJoiner:" + sj);
+        // String 也有静态方法可以直接支持字符串拼接，效果同上
         String res = String.join(" ", "hello", "world", "!");
         System.out.println("create by string.join(): " + res);
         // 可以加头加尾
@@ -41,7 +41,7 @@ public class StringUseCase {
         sj.add("local");
         sj.add("jdk");
         sj.add("bin");
-        System.out.println("create by StringJoiner:" + sj.toString());
+        System.out.println("create by StringJoiner:" + sj);
         System.out.println("------------------------");
         // String.join() 方法使用了 StringJoiner ，StringJoiner 的值使用了 StringBuilder ， 所以拼接效率也很高
 
