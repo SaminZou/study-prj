@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.stack;
 
 /**
  * 三合一

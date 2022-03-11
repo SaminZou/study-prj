@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.array;
 
 import algorithms.base.util.QuickSort;
 

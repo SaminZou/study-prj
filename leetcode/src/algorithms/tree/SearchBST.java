@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.tree;
 
 import algorithms.base.model.TreeNode;
 
