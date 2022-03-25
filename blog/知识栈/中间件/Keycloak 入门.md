@@ -25,6 +25,14 @@ Clients: 客户端，需要接入Keycloak并被Keycloak保护的应用和服务
 
 Realms: 领域，领域管理着一批用户、证书、角色、组等，一个用户只能属于并且能登陆到一个域，域之间是互相独立隔离的， 一个域只能管理它下面所属的用户
 
+# 客户端类型（Access Type）
+
+- confidential：适用于服务端应用，且需要浏览器登录以及需要通过密钥获取access token的场景。典型的使用场景就是`服务端渲染的web系统`
+
+- public：适用于客户端应用，且需要浏览器登录的场景。典型的使用场景就是`前端web系统`，包括采用vue、react实现的前端项目等
+
+- bearer-only：适用于服务端应用，不需要浏览器登录，只允许使用bearer token请求的场景。典型的使用场景就是 `restful api`
+
 # 授权处理流程
 
 ## 资源管理（Resource Management）
