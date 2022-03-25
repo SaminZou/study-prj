@@ -15,6 +15,16 @@ date: 2022-02-22
 - Rule-based access control 基于规则
 - Time-based access control 基于时间
 
+# 重要概念
+
+Users: 用户，使用并需要登录系统的对象
+
+Roles: 角色，用来对用户的权限进行管理
+
+Clients: 客户端，需要接入Keycloak并被Keycloak保护的应用和服务
+
+Realms: 领域，领域管理着一批用户、证书、角色、组等，一个用户只能属于并且能登陆到一个域，域之间是互相独立隔离的， 一个域只能管理它下面所属的用户
+
 # 授权处理流程
 
 ## 资源管理（Resource Management）
