@@ -1,5 +1,5 @@
 ```yaml
-title: Docker Build处理文件太大问题
+title: dockerignore
 author: samin
 date: 2021-12-28
 ```

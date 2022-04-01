@@ -27,6 +27,8 @@ $ docker run --name web -p 5000:80 alpine:3.9
 
 $ docker stop web
 
+$ docker stop $(docker ps -aq)
+
 $ docker kill web
 
 $ docker network ls
