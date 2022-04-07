@@ -21,3 +21,18 @@ k3s 默认使用 containerd 控制容器，对应的指令为 crictr
 
 # 查看运行容器
 $ sudo kubectl get deployments -n <namespaces>
+
+# 强制删除 pods
+$ sudo kubectl -n <namespace-name> delete pod <pod-name> --force --grace-period=0
+
+# 查看 deployment
+sudo kubectl -n <namespace-name> get deployment
+
+# 删除 deployment
+sudo kubectl -n <namespace-name> delete deployment <pod-name>
+
+# 查看 node 的标签
+$ sudo kubectl get node --show-labels
+
+# 查看 kubelet 的日志
+$ journalctl -u kubelet -f
