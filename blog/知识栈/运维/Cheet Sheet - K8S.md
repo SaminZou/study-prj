@@ -4,9 +4,8 @@ author: samin
 date: 2021-10-29
 ```
 
-# 获取所有命名空间
+# 获取所有命名空间下面的所有 pod 以下两句指令效果一样
 $ sudo kubectl get pods --all-namespaces
-# 等同以下指令
 $ sudo kubectl get pods -A
 
 # 查看 pv
