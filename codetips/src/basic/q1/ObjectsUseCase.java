@@ -25,9 +25,9 @@ public class ObjectsUseCase {
         if ("123".equals(a)) {}
 
         /**
-         * jdk1.7之后提供Objects工具包解决这个问题
+         * JDK1.7之后提供 Objects 工具包解决这个问题
          *
-         * <p>Objects的equals方法是先判断入参是否为空，然后调用 Object 的equals方法进行比较
+         * <p>Objects 的 equals() 方法是先判断入参是否为空，然后调用 Object 的 equals() 方法进行比较
          *
          * <p>原因在于 a.equals(b) 这种写法，当 a 为 null 值时，会报错
          */
