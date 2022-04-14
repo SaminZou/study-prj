@@ -7,6 +7,7 @@ package basic.q2;
  * @date 2021-01-10
  */
 public class PrimitiveType {
+
     public static final String STRING1;
     public static final String STRING2;
     public static final String STRING3 = "a";
@@ -70,5 +71,9 @@ public class PrimitiveType {
         // String s1 = new String("xyz"); 创建了几个对象？
         // 类加载阶段会放一份到字符串常量池
         // 实际执行时，会复制一份到heap堆中指向s1
+
+        // 以下是 false，可看 Long 的 equals 源码
+        Long longNum = -1L;
+        System.out.println(longNum.equals(-1));
     }
 }
