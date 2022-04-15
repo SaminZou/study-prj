@@ -147,6 +147,14 @@ public class DateTimeUseCase {
     }
 
     /**
+     * OffsetDateTime to String
+     */
+    public static String offsetDateTimeToString(OffsetDateTime odt) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return odt.toLocalDateTime().format(df);
+    }
+
+    /**
      * 计算时间差！谨记大的时间在后面，否则结果为负数
      */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
@@ -170,14 +178,13 @@ public class DateTimeUseCase {
 
         // 打印当前日期
         LocalDateTime now = getNowDateTime();
-        System.out.printf(
-                "当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
+        System.out.printf("当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
         // 修改时间
         OffsetDateTime alterTime = OffsetDateTime.now();
         alterTime = alterTime.withYear(2021).withMonth(10).withDayOfMonth(1).withHour(16).withMinute(0).withSecond(0);
-        System.out.println("修改后的时间为(2021-10-01 16：00：00): " +
-                alterTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         // 计算时间差
         OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
@@ -186,10 +193,8 @@ public class DateTimeUseCase {
         OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
-        System.out.println(
-                "时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
-        System.out.println(
-                "时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
+        System.out.println("时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
+        System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
         System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
