@@ -52,7 +52,7 @@
 
 # concurrent 并发
 
-- q1 Atomic类 / SimpleDateFormat / Synchronized / ThreadLocal / ReentrantLock 用法
+- q1 Atomic类 / SimpleDateFormat / Synchronized / ThreadLocal / ReentrantLock / volatile 用法
 
 - q2 wait / notify 用法 & 实现的消息队列
 
