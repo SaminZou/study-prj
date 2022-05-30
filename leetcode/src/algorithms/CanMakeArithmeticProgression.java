@@ -27,7 +27,7 @@ public class CanMakeArithmeticProgression {
             return true;
         }
 
-        QuickSort.action(arr, 0, arr.length - 1);
+        QuickSort.quickSort(arr, 0, arr.length - 1);
         int index = arr[1] - arr[0];
         for (int i = 1; i < arr.length; i++) {
             if (i != arr.length - 1 && arr[i + 1] - arr[i] != index) {

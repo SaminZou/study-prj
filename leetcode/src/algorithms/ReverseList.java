@@ -1,4 +1,4 @@
-package algorithms.linkedlist;
+package algorithms;
 
 import algorithms.base.model.ListNode;
 

@@ -1,4 +1,4 @@
-package algorithms.tree;
+package algorithms;
 
 /**
  * 可用于无限级分类

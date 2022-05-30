@@ -1,4 +1,4 @@
-package algorithms.array;
+package algorithms;
 
 import algorithms.base.util.QuickSort;
 
@@ -11,11 +11,11 @@ import algorithms.base.util.QuickSort;
 public class ArrayPairSum {
 
     public static void main(String[] args) {
-        System.out.println(new ArrayPairSum().arrayPairSum(new int[] {1, 4, 3, 2}));
+        System.out.println(new ArrayPairSum().arrayPairSum(new int[]{1, 4, 3, 2}));
     }
 
     public int arrayPairSum(int[] nums) {
-        QuickSort.action(nums, 0, nums.length - 1);
+        QuickSort.quickSort(nums, 0, nums.length - 1);
 
         int res = 0;
         for (int i = 0; i < nums.length; i = i + 2) {

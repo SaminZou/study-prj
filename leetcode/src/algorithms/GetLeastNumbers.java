@@ -11,7 +11,7 @@ import algorithms.base.util.QuickSort;
 public class GetLeastNumbers {
 
     public int[] getLeastNumbers(int[] arr, int k) {
-        QuickSort.action(arr, 0, arr.length - 1);
+        QuickSort.quickSort(arr, 0, arr.length - 1);
 
         int[] result = new int[k];
 
