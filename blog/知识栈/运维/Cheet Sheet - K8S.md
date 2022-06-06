@@ -4,6 +4,9 @@ author: samin
 date: 2021-10-29
 ```
 
+# 根据 yaml 文件创建 K8S 资源
+$ kubectl apply -f nodeport.yaml
+
 # 获取所有命名空间下面的所有 pod 以下两句指令效果一样
 $ sudo kubectl get pods --all-namespaces
 $ sudo kubectl get pods -A
@@ -36,3 +39,9 @@ $ sudo kubectl get node --show-labels
 
 # 查看 kubelet 的日志
 $ journalctl -u kubelet -f
+
+# 获取 servie 信息
+$ sudo kubectl get svc -n <namespaces>
+
+# 获取 NodePort 信息
+$ kubectl get svc --all-namespaces | grep NodePort
