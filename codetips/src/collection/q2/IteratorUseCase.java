@@ -18,6 +18,7 @@ public class IteratorUseCase {
                 list.remove(ele);
             }
         }
+
         // 应该使用迭代器删除
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
