@@ -42,13 +42,13 @@ $ go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 ### Linux 环境变量 
 
-$ export GOPROXY=https://mirrors.aliyun.com/goproxy/
+$ export GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 
 ### GoLand
 
 Settings -> Go -> Go Modules -> Environment 
 
-添加：GOPROXY=https://mirrors.aliyun.com/goproxy/
+添加：GOPROXY=https://mirrors.aliyun.com/goproxy/,direct
 
 ## GO111MODULE
 
