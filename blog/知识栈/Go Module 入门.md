@@ -55,4 +55,3 @@ Settings -> Go -> Go Modules -> Environment
 \# Go 一定要修改的修改的参数，GO111MODULE 是为了抛弃 GOPATH 全面拥抱 Go Module 新特性
 
 $ go env -w GO111MODULE=on
-
