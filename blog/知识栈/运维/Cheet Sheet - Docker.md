@@ -42,6 +42,14 @@ $ docker logs --tail 100 web
 
 # More
 
+\# 官方建议操作，把非 root 操作用户加入到 docker 用户组
+
+$ sudo usermod -aG docker ${USER}
+
+\# 查看 docker 的基本信息
+
+$ docker info
+
 \# * 查看镜像、容器的占用空间
 
 $ docker system df 
