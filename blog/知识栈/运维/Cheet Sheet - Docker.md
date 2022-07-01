@@ -118,6 +118,8 @@ $ docker rmi $(docker images | awk '{print $3}' |tail -n +2)
 
 $ docker inspect <container_name>
 
+| RootFS 可以查看分层信息，Docker 会检查是否有重复的层，如果本地已经存在就不会重复下载，如果层被其他镜像共享就不会删除，这样就可以节约磁盘和网络成本
+
 \# 有容器日志
 
 $ cat /var/lib/docker/containers/<container_id>/<container_id>.log-json.log
@@ -167,6 +169,10 @@ $ docker load -i nginx.tar
 \# 导出所有镜像
 
 $ docker save $(docker images | grep -v REPOSITORY | awk 'BEGIN{OFS=":";ORS=" "}{print $1,$2}') -o all.tar
+
+\# 回放镜像的构建过程
+
+$ docker history <image_name/image_id>
 
 ## 容器
 
