@@ -52,7 +52,7 @@ $ docker info
 
 \# * 查看镜像、容器的占用空间
 
-$ docker system df 
+$ docker system df
 
 \# 删除没有被引用的挂载
 
@@ -72,7 +72,7 @@ $ sudo docker rmi --force $(sudo docker images --quiet)
 
 \# 删除虚悬镜像
 
-$ docker image prune 
+$ docker image prune
 
 \# 瘦身
 
@@ -209,11 +209,13 @@ $ netstat -ano | grep 2375
 # registry2
 
 查看私有仓库列表api: /v2/_catalog
+
 查看镜像版本号api: /v2/<name>/tags/list
 
 ## 例子
 
 http://192.168.123.67:5000/v2/_catalog
+
 http://192.168.123.67:5000/v2/sso-prj/sso/tags/list
 
 # docker-compose
