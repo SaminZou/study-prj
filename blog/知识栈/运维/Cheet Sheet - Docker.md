@@ -25,6 +25,19 @@ $ docker push myrepo/myimage:2.0
 
 $ docker run --name web -p 5000:80 alpine:3.9
 
+$ docker run -d --rm redis
+
+```shell
+# 比如本机上只有 Python 2.7，但想用 Python 3 开发，如果同时安装 Python 2 和 Python 3 很容易就会把系统搞乱
+# 可以采用 docker 开发 Python 3 的应用
+
+$ docker pull python:alpine
+
+# --rm 参数表示容器结束后自动删除删除
+$ docker run -it --rm -v ${PWD}:/tmp python:alpine sh
+
+```
+
 $ docker stop web
 
 $ docker stop $(docker ps -aq)
@@ -36,6 +49,7 @@ $ docker network ls
 $ docker container ls / docker ps
 
 \# Delete all running and stopped containers
+
 $ docker rm -f $(docker ps -aq)
 
 $ docker logs --tail 100 web
