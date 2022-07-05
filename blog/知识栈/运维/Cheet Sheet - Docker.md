@@ -162,6 +162,10 @@ $ sudo usermod -aG docker $USER
 
 $ docker inspect <container_name> | grep Mounts -A 20
 
+\# 查看容器的 IP 地址
+
+$ docker inspect <container_name> |grep IPAddress
+
 # 导入与导出
 
 ## 镜像
