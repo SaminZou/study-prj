@@ -52,7 +52,7 @@ $ sudo kubectl get node --show-labels
 
 $ journalctl -u kubelet -f
 
-\# 获取 servie 信息
+\# 获取 service 信息
 
 $ sudo kubectl get svc -n <namespaces>
 
