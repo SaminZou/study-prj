@@ -28,6 +28,7 @@ Go 官方提供的静态检查工具
 
 社区中比较常见的目录结构划分：
 
+```text
 ├── LICENSE.md
 ├── Makefile
 ├── README.md
@@ -50,6 +51,7 @@ Go 官方提供的静态检查工具
 ├── vendor
 ├── web
 └── website
+```
 
 # 模块拆分
 
@@ -67,12 +69,12 @@ Go 语言在拆分模块时就使用了完全不同的思路，虽然 MVC 架构
 
 对于一个比较常见的博客系统，使用 Go 语言的项目会按照不同的职责将其纵向拆分成 post、user、comment 三个模块，每一个模块都对外提供相应的功能，post 模块中就包含相关的模型和视图定义以及用于处理 API 请求的控制器
  
-```
-blog  
+```text
+blog
 ├── comment  
-├── post  
+├── post
 │   ├── handler.go  
-│   └── post.go  
+│   └── post.go
 └── user
 ``` 
  
