@@ -16,7 +16,7 @@ $ sudo /etc/init.d/ssh restart
 
 # 通过用户组控制
 
-新增用户，禁止ssh登录，hmoe路径不创建目录
+新增用户，禁止 ssh 登录，hmoe 路径不创建目录
 
 ```shell
 $ useradd -s /sbin/nologin -M samin -g sftpusers
