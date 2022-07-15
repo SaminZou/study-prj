@@ -6,7 +6,7 @@ date: 2021-09-23
 
 # 选择正确的日志级别
 
-常见的日志级别有5种，分别是error、warn、info、debug、trace
+常见的日志级别有5种，分别是 error、warn、info、debug、trace
 
 - error 错误日志，指比较严重的错误，对正常业务有影响，需要运维配置监控的
 
