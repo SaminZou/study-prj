@@ -60,4 +60,8 @@ $ sudo kubectl get svc -n <namespaces>
 
 $ kubectl get svc --all-namespaces | grep NodePort
 
+\# 获取 configmaps 的配置内容( Pod 只能使用同一个命名空间的 ConfigMap )
+
+$ kubectl describe cm dmp-config -n <namespace_name>
+
 [K8S 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
