@@ -1,12 +1,16 @@
 ```yaml
-title: Cheet Sheet - K8S
+title: Cheet Sheet - K8s
 author: samin
 date: 2021-10-29
 ```
 
-\# 根据 yaml 文件创建 K8S 资源
+\# 根据 yaml 文件创建 K8s 资源
 
 $ kubectl apply -f nodeport.yaml
+
+\# 更新重启 K8s 资源
+
+$ kubectl replace --force -f nodeport.yaml
 
 \# 获取所有命名空间下面的所有 pod 以下两句指令效果一样
 
@@ -64,4 +68,4 @@ $ kubectl get svc --all-namespaces | grep NodePort
 
 $ kubectl describe cm dmp-config -n <namespace_name>
 
-[K8S 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+[K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
