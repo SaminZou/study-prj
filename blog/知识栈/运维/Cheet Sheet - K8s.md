@@ -68,4 +68,12 @@ $ kubectl get svc --all-namespaces | grep NodePort
 
 $ kubectl describe cm dmp-config -n <namespace_name>
 
+\# 获取当前默认操作命名空间
+
+$ kubectl config current-context
+
+\# 修改当前命名空间
+
+$ kubectl config set -context--current --namespace=<namespace_name>
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
