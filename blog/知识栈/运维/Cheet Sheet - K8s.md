@@ -12,11 +12,19 @@ $ kubectl apply -f nodeport.yaml
 
 $ kubectl replace --force -f nodeport.yaml
 
+\# 重启 deployment
+
+$ kubectl rollout restart deployment -n <namespace> <deployment-name>
+
 \# 获取所有命名空间下面的所有 pod 以下两句指令效果一样
 
 $ sudo kubectl get pods --all-namespaces
 
 $ sudo kubectl get pods -A
+
+\# -owide 获取更多详情
+
+$ sudo kubectl get pods -A -owide
 
 \# 查看 pv
 
@@ -75,5 +83,9 @@ $ kubectl config current-context
 \# 修改当前命名空间
 
 $ kubectl config set -context--current --namespace=<namespace_name>
+
+\# 实时查看 pod 的 logs 日志
+
+kubectl logs -f <pods_name>
 
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
