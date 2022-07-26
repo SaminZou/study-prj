@@ -86,6 +86,10 @@ $ kubectl config set -context--current --namespace=<namespace_name>
 
 \# 实时查看 pod 的 logs 日志
 
-$ kubectl logs -f <pods_name>
+$ kubectl logs -f <pods_name> -n <namespace_name>
+
+\# 修改 deployment
+
+sudo kubectl edit deployment <deployment_name> -n <namespace_name>
 
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
