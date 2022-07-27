@@ -1,7 +1,7 @@
 ```yaml
-title: Nacos 技术栈
+title: Nacos 入门
 author: samin
-date: 2021-01-27
+date: 2022-07-26
 ```
 
 # 服务发现和服务健康检测
@@ -29,3 +29,5 @@ date: 2021-01-27
 # 动态 DNS 服务
 
 # 服务及数据管理
+
+[Nacos 实现原理](https://gaudy-feels-700.notion.site/Nacos-ec270b805d644ea1a08fcc27704bf2e6)
