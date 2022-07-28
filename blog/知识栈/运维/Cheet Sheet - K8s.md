@@ -90,6 +90,6 @@ $ kubectl logs -f <pods_name> -n <namespace_name>
 
 \# 修改 deployment
 
-sudo kubectl edit deployment <deployment_name> -n <namespace_name>
+$ sudo kubectl edit deployment <deployment_name> -n <namespace_name>
 
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
