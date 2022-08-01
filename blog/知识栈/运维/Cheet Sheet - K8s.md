@@ -92,4 +92,20 @@ $ kubectl logs -f <pods_name> -n <namespace_name>
 
 $ sudo kubectl edit deployment <deployment_name> -n <namespace_name>
 
+\# 查看当前节点的运行情况
+
+$ kubectl cluster-info
+
+\# 查看当前节点的运行情况详情
+
+$ kubectl cluster-info dump
+
+\# 暂停 deployment
+
+$ kubectl rollout pause deployment <deployment_name> -n <namespace_name>
+
+\# 恢复 deployment
+
+$ kubectl rollout resume deployment <deployment_name> -n <namespace_name>
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
