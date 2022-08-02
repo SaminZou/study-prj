@@ -64,6 +64,10 @@ $ sudo kubectl get node --show-labels
 
 $ journalctl -u kubelet -f
 
+\# 查看 k3s 的日志
+
+$ journalctl -u k3s -f
+
 \# 获取 service 信息
 
 $ sudo kubectl get svc -n <namespaces>

@@ -92,6 +92,10 @@ $ docker image prune
 
 $ docker system prune
 
+\# 彻底瘦身
+
+$ docker system prune --all --force --volumes
+
 > 虚悬镜像是没有作用的，占用内存空间，虚悬镜像怎么来呢？一般是我们下载镜像，依赖一些中间镜像，然后我们删除了下载的镜像，但是只是删除了上层镜像，依赖的镜像没有删除。这样没有依赖的中间镜像就成了虚悬镜像，是可以删除的
 
 \# 查看容器端口映射情况
@@ -229,6 +233,10 @@ $ sudo systemctl restart docker
 $ netstat -ano | grep 2375
 
 \# 访问http://ip:2375/version 验证
+
+# overlay2 目录迁移
+
+[](https://blog.csdn.net/zfw_666666/article/details/124314741)
 
 # registry2
 
