@@ -154,7 +154,7 @@ $ docker exec -d e34b bash -c "pg_dump -h 127.0.0.1 -U daship daship> /var/lib/p
 
 $ docker exec -i minio bash -c "echo hello world"
 
-# 不需要敲sudo的方法，创建一个docker组
+# 不需要敲 sudo 的方法，创建一个 docker 组
 
 $ sudo groupadd docker
 
