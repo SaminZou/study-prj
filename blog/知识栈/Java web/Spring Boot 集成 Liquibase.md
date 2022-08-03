@@ -84,8 +84,9 @@ liquibase-maven-plugin
 
 ## 先决条件
 
-SpringBoot 项目  
-Maven 包管理工具
+- SpringBoot 项目  
+
+- Maven 包管理工具
 
 ## 添加包引用
 
