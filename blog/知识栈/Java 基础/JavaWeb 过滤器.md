@@ -14,7 +14,7 @@ date: 2021-10-20
 
 2. @WebFilter（不是Spring的注解） 和 @Bean 注解
 
-3. FilterRegisterBean（基于springboot） 和 Filter（Servlet） （推荐使用）
+3. FilterRegisterBean（基于 SpringBoot） 和 Filter（Servlet） （推荐使用）
 
 FilterRegisterBean 通过实现 ServletContextInitializer 来打通 SpringBoot 和 Servlet 的关联
 
