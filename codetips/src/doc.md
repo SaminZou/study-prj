@@ -48,7 +48,7 @@
 
 - q2 容器的遍历方法比较
 
-- q3 List相关
+- q3 List 相关
 
 # concurrent 并发
 
@@ -64,7 +64,7 @@
 
 - q1 读取中文字符乱码问题
 
-- q2 Unicode编码注释问题
+- q2 Unicode 编码注释问题
 
 - q3 观测 CPU 100% 运行
 
