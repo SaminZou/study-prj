@@ -23,4 +23,3 @@ FilterRegisterBean 通过实现 ServletContextInitializer 来打通 SpringBoot �
 > 责任链模式
 
 FilterChain 中的 FilterConfig 数组维护所有Filter
-
