@@ -75,9 +75,3 @@ Java Web Demo
 # 6 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
-
-# 鸣谢 Acknowledgment 💗
-
-感谢 JetBrains 提供的开源 License:
-
-[![JetBrains](jetbrains.png)](https://www.jetbrains.com)
