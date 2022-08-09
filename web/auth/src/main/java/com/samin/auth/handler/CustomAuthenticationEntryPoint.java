@@ -20,7 +20,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        response.getWriter().print("{\"msg\":\"登录令牌非法\"}");
+        response.getWriter().print("{\"msg\":\"" + authException.getMessage() + "\"}");
         response.getWriter().flush();
     }
 }

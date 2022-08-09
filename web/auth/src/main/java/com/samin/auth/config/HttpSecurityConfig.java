@@ -53,7 +53,7 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().access("@permissionService.access()");
 
         http.exceptionHandling()
-                // 认证入口
+                // 认证抛错（AuthenticationProvider authentication 方法报错）
                 .authenticationEntryPoint(customAuthenticationEntryPoint)
                 // 鉴权拦截器
                 .accessDeniedHandler(customAccessDeniedHandler);
@@ -61,6 +61,7 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
+        // 不做认证授权的地址
         web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**").antMatchers("/login").antMatchers("/logout");
     }
 

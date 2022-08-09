@@ -23,6 +23,7 @@ public class LoginService {
         CustomUserDetails dmpUserDetails = (CustomUserDetails) authenticate.getPrincipal();
         log.info("登录成功：{}", dmpUserDetails);
 
+
         return new HashMap<>(1) {
             {
                 put("msg", "登录成功");

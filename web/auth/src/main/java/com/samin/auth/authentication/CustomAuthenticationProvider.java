@@ -1,7 +1,6 @@
 package com.samin.auth.authentication;
 
 import com.samin.auth.service.CustomUserDetailsService;
-import java.util.Objects;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationProvider;
