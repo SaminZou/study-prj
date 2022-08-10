@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9000
+
+# 开启所有监听
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# 持久化日志到本地，在 admin-server 上可以看到日志文件
+logging:
+  file:
+    path: logs
+    name: admin-client.log
