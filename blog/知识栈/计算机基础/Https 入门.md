@@ -10,6 +10,10 @@ date: 2021-12-29
 
 系统或浏览器预设了很多 CA 根证书（Trusted CA Root Certificate）
 
+## 证书后缀
+
+.pem / .crt
+
 ## 结构
 
 用户信息 / 用户公钥 / CA 签名
@@ -30,9 +34,9 @@ date: 2021-12-29
 
 # 过程
 
-![https传输过程](https://raw.githubusercontent.com/SaminZou/pic-repo/master/Network/https传输过程-simple.png)
+![https 传输过程](https://raw.githubusercontent.com/SaminZou/pic-repo/master/Network/https传输过程-simple.png)
 
-1. 客户端发起Https请求，连接到服务器的443端口
+1. 客户端发起 Https 请求，连接到服务器的443端口
 
 2. 服务器必须要有一套数字证书（证书内容有公钥、证书颁发机构、失效日期等）
 
