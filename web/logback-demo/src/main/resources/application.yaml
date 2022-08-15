@@ -1,0 +1,4 @@
+# 优先级高于 logback.xml
+logging:
+  level:
+    root: debug

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE-LOG" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy-MM-dd' 'HH:mm:ss.sss}] [%C] [%t] [%L] [%-5p] %m%n</pattern>
+        </layout>
+    </appender>
+
+    <root level="warn">
+        <appender-ref ref="CONSOLE-LOG"/>
+    </root>
+</configuration>
