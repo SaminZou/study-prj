@@ -15,5 +15,8 @@ public class TestController {
         log.info("info...");
         log.warn("warn...");
         log.error("error...");
+
+        log.error("error: {}", "something wrong");
+        log.error("error: {}", "something wrong", new NullPointerException());
     }
 }
