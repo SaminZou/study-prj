@@ -170,6 +170,14 @@ $ docker inspect <container_name> | grep Mounts -A 20
 
 $ docker inspect <container_name> |grep IPAddress
 
+\# 查看 docker 容器的运行情况
+
+$ docker stats
+
+\# 查看 docker 容器当前运行情况
+
+$ docker stats --no-stream
+
 # 导入与导出
 
 ## 镜像
