@@ -10,7 +10,7 @@ public class TestService {
     private Integer times = 0;
 
     public void setTimes() {
-        log.info("times count 1 ... now is: {}", times);
         times += 1;
+        log.info("times count 1 ... now is: {}", times);
     }
 }
