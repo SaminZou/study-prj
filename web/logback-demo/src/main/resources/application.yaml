@@ -1,4 +1,8 @@
+spring:
+  profiles:
+    active: dev
+
 # 优先级高于 logback.xml
-logging:
-  level:
-    root: debug
+#logging:
+#  level:
+#    root: info
