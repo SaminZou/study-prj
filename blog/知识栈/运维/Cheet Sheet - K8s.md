@@ -112,4 +112,22 @@ $ kubectl rollout pause deployment <deployment_name> -n <namespace_name>
 
 $ kubectl rollout resume deployment <deployment_name> -n <namespace_name>
 
+\# 进入容器运行指令
+
+$ kubectl exec --stdin --tty shell-demo -- /bin/bash
+
+\# 查看持久化路径的方式
+
+$ kubectl describe pods hello-demo -n ns
+$ kubectl get pvc hello-pvc-demo -n ns -oyaml
+$ kubectl get pv hello-pv-demo -n ns -oyaml
+
+\# 找密码配置的方式
+
+$ kubectl get sts -n infra
+$ kubectl describe sts -n infra rabbitmqcluster-server
+$ kubectl edit cm -n infra rabbitmqcluster-server-conf
+$ kubectl edit secret -n infra rabbitmqcluster-default-user
+$ kubectl get  secret -n infra rabbitmqcluster-default-user -oyaml
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
