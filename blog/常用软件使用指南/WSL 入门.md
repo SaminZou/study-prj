@@ -141,19 +141,19 @@ set smartindent
 
 ## ZSH
 
-### 字体优化( Windows 环境)
+~~### 字体优化( Windows 环境)~~
 
-\# 安装字体集合，`注意这几行是在 powershell 里面执行`
+~~\# 安装字体集合，`注意这几行是在 powershell 里面执行`~~
 
-$ git clone https://github.com/powerline/fonts.git
+~~$ git clone https://github.com/powerline/fonts.git~~
 
-$ cd fonts
+~~$ cd fonts~~
 
-\# 打开可以执行 `.ps1` 的权限，选择 `y`
+~~\# 打开可以执行 `.ps1` 的权限，选择 `y`~~
 
-$ set-executionpolicy remotesigned
+~~$ set-executionpolicy remotesigned~~
 
-$ .\install.ps1
+~~$ .\install.ps1~~
 
 ### 安装 zsh + oh-my-zsh
 
@@ -215,7 +215,7 @@ source ~/.bashrc
 ```shell
 # 修改 zsh 为默认shell
 if [ -t 1 ]; then
-exec zsh
+  exec zsh
 fi
 ```
 
