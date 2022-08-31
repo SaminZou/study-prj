@@ -1,7 +1,6 @@
 package algorithms;
 
 import algorithms.base.model.ListNode;
-
 import java.util.ArrayList;
 
 /**

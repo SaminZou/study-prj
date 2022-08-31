@@ -11,9 +11,13 @@ import creational.abstractfactory.base.McDonaldProduct;
  */
 public interface IProductFactory {
 
-    /** 创建 KFC 产品 */
+    /**
+     * 创建 KFC 产品
+     */
     KFCProduct createKFCProduct();
 
-    /** 创建麦当劳产品 */
+    /**
+     * 创建麦当劳产品
+     */
     McDonaldProduct createMcDonaldProduct();
 }

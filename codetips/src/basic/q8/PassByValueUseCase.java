@@ -46,6 +46,7 @@ public class PassByValueUseCase {
     }
 
     private static class User {
+
         String name;
     }
 }

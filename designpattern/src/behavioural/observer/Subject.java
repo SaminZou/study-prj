@@ -3,7 +3,9 @@ package behavioural.observer;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 参与游戏者 */
+/**
+ * 参与游戏者
+ */
 public abstract class Subject {
 
     // 观察者对象的集合

@@ -13,7 +13,7 @@ public class StrStr {
     }
 
     public static void main(String[] args) {
-        System.out.println(new StrStr().strStr("hello","ll"));
-        System.out.println(new StrStr().strStr("hello",""));
+        System.out.println(new StrStr().strStr("hello", "ll"));
+        System.out.println(new StrStr().strStr("hello", ""));
     }
 }

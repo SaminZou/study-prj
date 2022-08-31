@@ -8,6 +8,8 @@ package creational.abstractfactory.base;
  */
 public interface McDonaldProduct {
 
-    /** 产品介绍 */
+    /**
+     * 产品介绍
+     */
     void product();
 }

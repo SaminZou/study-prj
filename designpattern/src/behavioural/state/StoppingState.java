@@ -1,6 +1,8 @@
 package behavioural.state;
 
-/** 模拟电梯停止状态 */
+/**
+ * 模拟电梯停止状态
+ */
 public class StoppingState extends BaseState {
 
     // 模拟电梯的运行方法

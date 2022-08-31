@@ -44,9 +44,7 @@ public class IsBalanced {
             return true;
         }
 
-        return Math.abs(dept(root.left) - dept(root.right)) <= 1
-                && isBalanced(root.left)
-                && isBalanced(root.right);
+        return Math.abs(dept(root.left) - dept(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
     }
 
     public int dept(TreeNode node) {

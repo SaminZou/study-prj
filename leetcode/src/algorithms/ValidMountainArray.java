@@ -10,12 +10,11 @@ public class ValidMountainArray {
 
     public static void main(String[] args) {
         // false false true true
-        System.out.println(new ValidMountainArray().validMountainArray(new int[] {2, 1}));
-        System.out.println(new ValidMountainArray().validMountainArray(new int[] {3, 5, 5}));
-        System.out.println(new ValidMountainArray().validMountainArray(new int[] {0, 3, 2, 1}));
-        System.out.println(
-                new ValidMountainArray().validMountainArray(new int[] {0, 1, 2, 4, 2, 1}));
-        System.out.println(new ValidMountainArray().validMountainArray(new int[] {5, 4, 3, 2, 1}));
+        System.out.println(new ValidMountainArray().validMountainArray(new int[]{2, 1}));
+        System.out.println(new ValidMountainArray().validMountainArray(new int[]{3, 5, 5}));
+        System.out.println(new ValidMountainArray().validMountainArray(new int[]{0, 3, 2, 1}));
+        System.out.println(new ValidMountainArray().validMountainArray(new int[]{0, 1, 2, 4, 2, 1}));
+        System.out.println(new ValidMountainArray().validMountainArray(new int[]{5, 4, 3, 2, 1}));
     }
 
     public boolean validMountainArray(int[] A) {

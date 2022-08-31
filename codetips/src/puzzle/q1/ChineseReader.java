@@ -1,6 +1,10 @@
 package puzzle.q1;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Objects;
 
 /**
@@ -13,10 +17,7 @@ public class ChineseReader {
 
     public static void main(String[] args) throws Exception {
         // 获取文件相对路径
-        String uri =
-                Objects.requireNonNull(
-                                Thread.currentThread().getContextClassLoader().getResource("./"))
-                        .getPath();
+        String uri = Objects.requireNonNull(Thread.currentThread().getContextClassLoader().getResource("./")).getPath();
         File file = new File(uri + "/puzzle/q1/chinese.txt");
 
         InputStream inputStream = new FileInputStream(file);

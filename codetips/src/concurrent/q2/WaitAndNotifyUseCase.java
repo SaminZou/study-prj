@@ -20,6 +20,7 @@ public class WaitAndNotifyUseCase {
     }
 
     private static class Queue {
+
         List<Integer> list;
         int nums = 1;
 
@@ -34,8 +35,11 @@ public class WaitAndNotifyUseCase {
         }
     }
 
-    /** 等待信号后执行 */
+    /**
+     * 等待信号后执行
+     */
     private static class ThreadA implements Runnable {
+
         final Queue queue;
 
         ThreadA(Queue queue) {
@@ -45,8 +49,7 @@ public class WaitAndNotifyUseCase {
         @Override
         public void run() {
             synchronized (queue) {
-                System.out.println(
-                        Thread.currentThread().getName() + " is running , wait for lock");
+                System.out.println(Thread.currentThread().getName() + " is running , wait for lock");
                 try {
                     queue.wait();
                 } catch (InterruptedException e) {
@@ -57,8 +60,11 @@ public class WaitAndNotifyUseCase {
         }
     }
 
-    /** 执行方法，注意是执行完整个方法，不管耗时多久，不管 `notify()` 方法在 `synchronized` 哪一步，都是等待线程执行完毕才发送信号 */
+    /**
+     * 执行方法，注意是执行完整个方法，不管耗时多久，不管 `notify()` 方法在 `synchronized` 哪一步，都是等待线程执行完毕才发送信号
+     */
     private static class ThreadB implements Runnable {
+
         final Queue queue;
 
         ThreadB(Queue queue) {

@@ -1,6 +1,11 @@
 package collection.q2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 迭代器入门
@@ -10,7 +15,9 @@ import java.util.*;
  */
 public class IteratorUseCase {
 
-    /** 迭代器的工作是用于遍历集合 */
+    /**
+     * 迭代器的工作是用于遍历集合
+     */
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("a", "B", "c"));
         for (String ele : list) {

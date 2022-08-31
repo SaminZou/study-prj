@@ -14,20 +14,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class AtomicUseCase {
 
-    /** 使用了原子类型 */
+    /**
+     * 使用了原子类型
+     */
     public static AtomicInteger sumsAtomicInteger = new AtomicInteger(0);
-    /** 没有使用原子类型 */
+    /**
+     * 没有使用原子类型
+     */
     public static Integer sumsInteger = 0;
 
     public static void main(String[] args) throws Exception {
-        ThreadPoolExecutor poolExecutor =
-                new ThreadPoolExecutor(
-                        5,
-                        10,
-                        10,
-                        TimeUnit.MINUTES,
-                        new LinkedBlockingQueue<>(10),
-                        r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
 
         for (int i = 0; i < 10; i++) {
             poolExecutor.execute(new AtomicMockThread());

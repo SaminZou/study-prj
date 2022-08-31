@@ -10,5 +10,6 @@ public enum SingletonEnum {
     // 创建一个枚举对象，该对象天生为单例
     INSTANCE;
 
-    public void whateverMethod() {}
+    public void whateverMethod() {
+    }
 }

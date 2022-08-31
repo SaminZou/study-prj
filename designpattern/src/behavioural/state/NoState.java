@@ -1,6 +1,8 @@
 package behavioural.state;
 
-/** 没有使用状态模式 */
+/**
+ * 没有使用状态模式
+ */
 public class NoState {
 
     public static final int CLOSING_STATE = 0;

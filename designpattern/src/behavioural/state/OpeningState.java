@@ -1,6 +1,8 @@
 package behavioural.state;
 
-/** 模拟电梯打开状态 */
+/**
+ * 模拟电梯打开状态
+ */
 public class OpeningState extends BaseState {
 
     // 模拟电梯的运行方法
@@ -11,7 +13,8 @@ public class OpeningState extends BaseState {
 
     // 模拟电梯的停止方法
     @Override
-    public void stop() {}
+    public void stop() {
+    }
 
     // 模拟电梯的开门方法
     @Override

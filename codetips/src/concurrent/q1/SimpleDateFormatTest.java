@@ -26,8 +26,7 @@ public class SimpleDateFormatTest {
     private static void showTheError() {
         // 复用同一个 SimpleDateFormat
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES,
-                new LinkedBlockingQueue<>(100),
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(100),
                 r -> new Thread(r, "show-the-error-thread-" + new Random().nextInt(999)));
 
         // 两种错误：1.数据冲突，导致时间错误；2.引发 java.lang.NumberFormatException 错误
@@ -37,8 +36,8 @@ public class SimpleDateFormatTest {
                 try {
                     Date parseDate = simpleDateFormat.parse(dateNowFirstFormatStr);
                     String dateNowAgainFormatStr = simpleDateFormat.format(parseDate);
-                    System.out.println(Thread.currentThread().getName() + ":" + dateNowFirstFormatStr.equals(
-                            dateNowAgainFormatStr));
+                    System.out.println(
+                            Thread.currentThread().getName() + ":" + dateNowFirstFormatStr.equals(dateNowAgainFormatStr));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -49,8 +48,7 @@ public class SimpleDateFormatTest {
 
     private static void showTheFixed() {
         ThreadLocal<SimpleDateFormat> map = ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES,
-                new LinkedBlockingQueue<>(100),
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(100),
                 r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
 
         for (int i = 0; i < 100; i++) {
@@ -59,8 +57,8 @@ public class SimpleDateFormatTest {
                 try {
                     Date parseDate = map.get().parse(dateNowFirstFormatStr);
                     String dateNowAgainFormatStr = map.get().format(parseDate);
-                    System.out.println(Thread.currentThread().getName() + ":" + dateNowFirstFormatStr.equals(
-                            dateNowAgainFormatStr));
+                    System.out.println(
+                            Thread.currentThread().getName() + ":" + dateNowFirstFormatStr.equals(dateNowAgainFormatStr));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }

@@ -37,14 +37,14 @@ public class IsMonotonic {
 
     public static void main(String[] args) {
         // true
-        System.out.println(new IsMonotonic().isMonotonic(new int[] {1, 2, 2, 3}));
+        System.out.println(new IsMonotonic().isMonotonic(new int[]{1, 2, 2, 3}));
         // true
-        System.out.println(new IsMonotonic().isMonotonic(new int[] {6, 5, 4, 4}));
+        System.out.println(new IsMonotonic().isMonotonic(new int[]{6, 5, 4, 4}));
         // false
-        System.out.println(new IsMonotonic().isMonotonic(new int[] {1, 3, 2}));
+        System.out.println(new IsMonotonic().isMonotonic(new int[]{1, 3, 2}));
         // true
-        System.out.println(new IsMonotonic().isMonotonic(new int[] {1, 2, 4, 5}));
+        System.out.println(new IsMonotonic().isMonotonic(new int[]{1, 2, 4, 5}));
         // true
-        System.out.println(new IsMonotonic().isMonotonic(new int[] {1, 1, 1}));
+        System.out.println(new IsMonotonic().isMonotonic(new int[]{1, 1, 1}));
     }
 }

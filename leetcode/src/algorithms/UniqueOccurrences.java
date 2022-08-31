@@ -13,13 +13,11 @@ public class UniqueOccurrences {
 
     public static void main(String[] args) {
         // true false true
-        System.out.println(new UniqueOccurrences().uniqueOccurrences(new int[] {1, 2, 2, 1, 1, 3}));
+        System.out.println(new UniqueOccurrences().uniqueOccurrences(new int[]{1, 2, 2, 1, 1, 3}));
 
-        System.out.println(new UniqueOccurrences().uniqueOccurrences(new int[] {1, 2}));
+        System.out.println(new UniqueOccurrences().uniqueOccurrences(new int[]{1, 2}));
 
-        System.out.println(
-                new UniqueOccurrences()
-                        .uniqueOccurrences(new int[] {-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}));
+        System.out.println(new UniqueOccurrences().uniqueOccurrences(new int[]{-3, 0, 1, -3, 1, 1, 1, -3, 10, 0}));
     }
 
     public boolean uniqueOccurrences(int[] arr) {

@@ -1,6 +1,7 @@
 package structural.adapter;
 
 public class DogAdapter implements Robot {
+
     Dog dog;
 
     public DogAdapter(Dog dog) { // 取得要适配的对象的引用

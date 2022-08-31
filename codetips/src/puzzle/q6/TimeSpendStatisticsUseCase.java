@@ -8,7 +8,9 @@ package puzzle.q6;
  */
 public class TimeSpendStatisticsUseCase {
 
-    /** 1. 时间差统计 */
+    /**
+     * 1. 时间差统计
+     */
     public static long diff1(long startTimestamp, long endTimestamp) {
         return endTimestamp - startTimestamp;
     }

@@ -1,6 +1,7 @@
 package behavioural.responsibility;
 
 public class Request {
+
     private String content;
 
     public Request(String content) {

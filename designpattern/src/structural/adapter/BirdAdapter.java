@@ -1,6 +1,7 @@
 package structural.adapter;
 
 public class BirdAdapter implements Robot {
+
     Bird bird;
 
     public BirdAdapter(Bird bird) {

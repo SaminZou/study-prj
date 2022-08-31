@@ -12,12 +12,16 @@ import java.util.List;
  */
 public class ListAndStringUseCase {
 
-    /** string to list */
+    /**
+     * string to list
+     */
     public static List<String> stringToList(String text) {
         return Arrays.asList(text.split(","));
     }
 
-    /** list to string */
+    /**
+     * list to string
+     */
     public static String listToString(List<String> list) {
         return list.toString().replace("[", "").replace("]", "");
     }

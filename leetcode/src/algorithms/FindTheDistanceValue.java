@@ -17,8 +17,8 @@ public class FindTheDistanceValue {
         //        int[] arr2 = new int[]{-4, -3, 6, 10, 20, 30};
         //        int d = 3;
 
-        int[] arr1 = new int[] {2, 1, 100, 3};
-        int[] arr2 = new int[] {-5, -2, 10, -3, 7};
+        int[] arr1 = new int[]{2, 1, 100, 3};
+        int[] arr2 = new int[]{-5, -2, 10, -3, 7};
         int d = 6;
         System.out.println(new FindTheDistanceValue().findTheDistanceValue(arr1, arr2, d));
     }

@@ -8,13 +8,15 @@ package creational.singleton;
  */
 public class InnerStaticSingleton {
 
-    private InnerStaticSingleton() {}
+    private InnerStaticSingleton() {
+    }
 
     public static InnerStaticSingleton getSingleton() {
         return Inner.INSTANCE;
     }
 
     private static class Inner {
+
         private static final InnerStaticSingleton INSTANCE = new InnerStaticSingleton();
     }
 }

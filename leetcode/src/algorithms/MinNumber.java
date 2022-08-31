@@ -11,8 +11,8 @@ import algorithms.base.util.QuickSort;
 public class MinNumber {
 
     public static void main(String[] args) {
-        System.out.println(new MinNumber().minNumber(new int[] {10, 2}));
-        System.out.println(new MinNumber().minNumber(new int[] {3, 30, 34, 5, 9}));
+        System.out.println(new MinNumber().minNumber(new int[]{10, 2}));
+        System.out.println(new MinNumber().minNumber(new int[]{3, 30, 34, 5, 9}));
     }
 
     public String minNumber(int[] nums) {

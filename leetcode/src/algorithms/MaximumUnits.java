@@ -42,11 +42,10 @@ public class MaximumUnits {
     }
 
     public static void main(String[] args) {
-        int[][] a = new int[][] {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
-        int[][] b =
-                new int[][] {
-                    {2, 1}, {4, 4}, {3, 1}, {4, 1}, {2, 4}, {3, 4}, {1, 3}, {4, 3}, {5, 3}, {5, 3}
-                };
+        int[][] a = new int[][]{{5, 10}, {2, 5}, {4, 7}, {3, 9}};
+        int[][] b = new int[][]{
+                {2, 1}, {4, 4}, {3, 1}, {4, 1}, {2, 4}, {3, 4}, {1, 3}, {4, 3}, {5, 3}, {5, 3}
+        };
         System.out.println(new MaximumUnits().maximumUnits(a, 10));
         System.out.println(new MaximumUnits().maximumUnits(b, 13));
     }

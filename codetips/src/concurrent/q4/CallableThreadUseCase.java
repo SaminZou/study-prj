@@ -4,7 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -26,14 +34,8 @@ public class CallableThreadUseCase {
         System.out.println(ft.get());
 
         // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用 corePoolSize
-        ExecutorService threadPool =
-                new ThreadPoolExecutor(
-                        10,
-                        50,
-                        10,
-                        TimeUnit.SECONDS,
-                        new LinkedBlockingDeque<>(10),
-                        (ThreadFactory) Thread::new);
+        ExecutorService threadPool = new ThreadPoolExecutor(10, 50, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>(10),
+                (ThreadFactory) Thread::new);
 
         System.out.println("-------------------------------------------------------------------");
 
@@ -60,8 +62,11 @@ public class CallableThreadUseCase {
         threadPool.shutdown();
     }
 
-    /** 模拟计算 50 个计算任务 */
+    /**
+     * 模拟计算 50 个计算任务
+     */
     private static class CallableWorker implements Callable<String> {
+
         private final Integer x;
         private final Integer y;
 

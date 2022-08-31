@@ -1,7 +1,6 @@
 package algorithms;
 
 import algorithms.base.util.QuickSort;
-
 import java.util.Arrays;
 
 /**
@@ -13,10 +12,8 @@ import java.util.Arrays;
 public class SortedSquares {
 
     public static void main(String[] args) {
-        System.out.println(
-                Arrays.toString(new SortedSquares().sortedSquares(new int[] {-4, -1, 0, 3, 10})));
-        System.out.println(
-                Arrays.toString(new SortedSquares().sortedSquares(new int[] {-7, -3, 2, 3, 11})));
+        System.out.println(Arrays.toString(new SortedSquares().sortedSquares(new int[]{-4, -1, 0, 3, 10})));
+        System.out.println(Arrays.toString(new SortedSquares().sortedSquares(new int[]{-7, -3, 2, 3, 11})));
     }
 
     public int[] sortedSquares(int[] A) {

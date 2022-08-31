@@ -13,10 +13,8 @@ import java.util.List;
 public class DecompressRLElist {
 
     public static void main(String[] args) {
-        System.out.println(
-                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 2, 3, 4})));
-        System.out.println(
-                Arrays.toString(new DecompressRLElist().decompressRLElist(new int[] {1, 1, 2, 3})));
+        System.out.println(Arrays.toString(new DecompressRLElist().decompressRLElist(new int[]{1, 2, 3, 4})));
+        System.out.println(Arrays.toString(new DecompressRLElist().decompressRLElist(new int[]{1, 1, 2, 3})));
     }
 
     public int[] decompressRLElist(int[] nums) {

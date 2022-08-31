@@ -10,7 +10,8 @@ public class LazySingleton {
 
     private static LazySingleton singleton = null;
 
-    private LazySingleton() {}
+    private LazySingleton() {
+    }
 
     public static LazySingleton getSingleton() {
         if (singleton == null) {

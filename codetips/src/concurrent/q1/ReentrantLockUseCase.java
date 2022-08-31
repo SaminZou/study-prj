@@ -29,47 +29,39 @@ public class ReentrantLockUseCase {
     public static int sumsWithoutLock = 0;
 
     public static void main(String[] args) throws Exception {
-        ThreadPoolExecutor poolExecutor =
-                new ThreadPoolExecutor(
-                        5,
-                        10,
-                        10,
-                        TimeUnit.MINUTES,
-                        new LinkedBlockingQueue<>(10),
-                        (ThreadFactory) Thread::new);
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                (ThreadFactory) Thread::new);
 
         // 未加锁
         for (int i = 0; i < 5; i++) {
-            poolExecutor.execute(
-                    () -> {
-                        for (int j = 0; j < 5000; j++) {
-                            sumsWithoutLock += 1;
-                        }
-                    });
+            poolExecutor.execute(() -> {
+                for (int j = 0; j < 5000; j++) {
+                    sumsWithoutLock += 1;
+                }
+            });
         }
 
         // 加锁
         for (int i = 0; i < 5; i++) {
-            poolExecutor.execute(
-                    () -> {
-                        final Lock lock = new ReentrantLock();
-                        for (int j = 0; j < 5000; j++) {
-                            // lock
-                            lock.lock();
+            poolExecutor.execute(() -> {
+                final Lock lock = new ReentrantLock();
+                for (int j = 0; j < 5000; j++) {
+                    // lock
+                    lock.lock();
+                    try {
+                        // 在尝试获取锁的时候，最多等待1秒。如果1秒后仍未获取到锁，tryLock()返回false，程序就可以做一些额外处理，而不是无限等待下去。
+                        if (lock.tryLock(1, TimeUnit.SECONDS)) {
                             try {
-                                // 在尝试获取锁的时候，最多等待1秒。如果1秒后仍未获取到锁，tryLock()返回false，程序就可以做一些额外处理，而不是无限等待下去。
-                                if (lock.tryLock(1, TimeUnit.SECONDS)) {
-                                    try {
-                                        sumsWithLock += 1;
-                                    } finally {
-                                        lock.unlock();
-                                    }
-                                }
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
+                                sumsWithLock += 1;
+                            } finally {
+                                lock.unlock();
                             }
                         }
-                    });
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         // 等待全部线程执行完毕，结果观测才是有意义的，睡眠 5 秒待结果处理完成

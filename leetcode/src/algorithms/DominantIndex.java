@@ -28,11 +28,11 @@ public class DominantIndex {
 
     public static void main(String[] args) {
         // 1
-        System.out.println(new DominantIndex().dominantIndex(new int[] {3, 6, 1, 0}));
+        System.out.println(new DominantIndex().dominantIndex(new int[]{3, 6, 1, 0}));
         // -1
-        System.out.println(new DominantIndex().dominantIndex(new int[] {1, 2, 3, 4}));
+        System.out.println(new DominantIndex().dominantIndex(new int[]{1, 2, 3, 4}));
         // 3
 
-        System.out.println(new DominantIndex().dominantIndex(new int[] {0, 0, 0, 1}));
+        System.out.println(new DominantIndex().dominantIndex(new int[]{0, 0, 0, 1}));
     }
 }

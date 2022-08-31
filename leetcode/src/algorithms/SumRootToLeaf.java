@@ -10,7 +10,9 @@ import algorithms.base.model.TreeNode;
  */
 public class SumRootToLeaf {
 
-    /** 存储最终结果 */
+    /**
+     * 存储最终结果
+     */
     int ans;
 
     public int sumRootToLeaf(TreeNode root) {

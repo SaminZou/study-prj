@@ -28,10 +28,9 @@ public class LambdaInfImpl {
         System.out.println("-------------------------------");
 
         // 多参数，切有返回值
-        LambdaInf2 lambdaInf2 =
-                (x, y) -> {
-                    return Integer.sum(x, y);
-                };
+        LambdaInf2 lambdaInf2 = (x, y) -> {
+            return Integer.sum(x, y);
+        };
         //        LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
         System.out.println(lambdaInf2.sum(10, 20));
         System.out.println("-----------------------------");
@@ -51,10 +50,9 @@ public class LambdaInfImpl {
         list.add("2e");
         list.add("a");
         // 根据条件删除
-        list.removeIf(
-                ele -> {
-                    return "a".equals(ele);
-                });
+        list.removeIf(ele -> {
+            return "a".equals(ele);
+        });
         // 排序
         list.sort(Comparator.comparingInt(e -> e.charAt(0)));
         //        list.sort(Comparator.comparingInt(e -> e.charAt(0))); // 更简便的写法

@@ -1,7 +1,6 @@
 package algorithms;
 
 import algorithms.base.model.ListNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,15 +13,15 @@ import java.util.List;
 public class ReorderList {
 
     public static void main(String[] args) {
-        ListNode l1 = ListNode.listNodeGenerator(new int[] {1, 2, 3, 4});
+        ListNode l1 = ListNode.listNodeGenerator(new int[]{1, 2, 3, 4});
         new ReorderList().reorderList(l1);
         ListNode.listNodePrinter(l1);
 
-        ListNode l2 = ListNode.listNodeGenerator(new int[] {1, 2, 3, 4, 5});
+        ListNode l2 = ListNode.listNodeGenerator(new int[]{1, 2, 3, 4, 5});
         new ReorderList().reorderList(l2);
         ListNode.listNodePrinter(l2);
 
-        ListNode l3 = ListNode.listNodeGenerator(new int[] {});
+        ListNode l3 = ListNode.listNodeGenerator(new int[]{});
         new ReorderList().reorderList(l3);
         ListNode.listNodePrinter(l3);
     }

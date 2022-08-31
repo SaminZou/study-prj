@@ -58,26 +58,12 @@ public class ProductionObj {
 
     @Override
     public String toString() {
-        return "Production{"
-                + "a='"
-                + a
-                + '\''
-                + ", b='"
-                + b
-                + '\''
-                + ", c='"
-                + c
-                + '\''
-                + ", d='"
-                + d
-                + '\''
-                + ", e='"
-                + e
-                + '\''
-                + '}';
+        return "Production{" + "a='" + a + '\'' + ", b='" + b + '\'' + ", c='" + c + '\'' + ", d='" + d + '\'' + ", e='" + e
+                + '\'' + '}';
     }
 
     public static class Builder {
+
         private final String a;
         private String b = "b";
         private String c = "c";

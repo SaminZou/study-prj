@@ -11,15 +11,11 @@ public class ArrayStringsAreEqual {
     public static void main(String[] args) {
         // true false true
         System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(new String[] {"ab", "c"}, new String[] {"a", "bc"}));
+                new ArrayStringsAreEqual().arrayStringsAreEqual(new String[]{"ab", "c"}, new String[]{"a", "bc"}));
         System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(new String[] {"a", "cb"}, new String[] {"ab", "c"}));
+                new ArrayStringsAreEqual().arrayStringsAreEqual(new String[]{"a", "cb"}, new String[]{"ab", "c"}));
         System.out.println(
-                new ArrayStringsAreEqual()
-                        .arrayStringsAreEqual(
-                                new String[] {"abc", "d", "defg"}, new String[] {"abcddefg"}));
+                new ArrayStringsAreEqual().arrayStringsAreEqual(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}));
     }
 
     public boolean arrayStringsAreEqual(String[] word1, String[] word2) {

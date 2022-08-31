@@ -11,15 +11,9 @@ import algorithms.base.util.QuickSort;
 public class CanMakeArithmeticProgression {
 
     public static void main(String[] args) {
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {3, 5, 1}));
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {5, 3, 1}));
-        System.out.println(
-                new CanMakeArithmeticProgression()
-                        .canMakeArithmeticProgression(new int[] {1, 2, 4}));
+        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(new int[]{3, 5, 1}));
+        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(new int[]{5, 3, 1}));
+        System.out.println(new CanMakeArithmeticProgression().canMakeArithmeticProgression(new int[]{1, 2, 4}));
     }
 
     public boolean canMakeArithmeticProgression(int[] arr) {

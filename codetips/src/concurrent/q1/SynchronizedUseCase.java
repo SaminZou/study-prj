@@ -19,36 +19,28 @@ public class SynchronizedUseCase {
     public static int sumsWithoutLock = 0;
 
     public static void main(String[] args) throws Exception {
-        ThreadPoolExecutor poolExecutor =
-                new ThreadPoolExecutor(
-                        5,
-                        10,
-                        10,
-                        TimeUnit.MINUTES,
-                        new LinkedBlockingQueue<>(10),
-                        (ThreadFactory) Thread::new);
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                (ThreadFactory) Thread::new);
 
         // 未加锁
         for (int i = 0; i < 5; i++) {
-            poolExecutor.execute(
-                    () -> {
-                        for (int j = 0; j < 5000; j++) {
-                            sumsWithoutLock += 1;
-                        }
-                    });
+            poolExecutor.execute(() -> {
+                for (int j = 0; j < 5000; j++) {
+                    sumsWithoutLock += 1;
+                }
+            });
         }
 
         // 加锁
         for (int i = 0; i < 5; i++) {
-            poolExecutor.execute(
-                    () -> {
-                        for (int j = 0; j < 5000; j++) {
-                            // lock
-                            synchronized (SynchronizedUseCase.class) {
-                                sumsWithLock += 1;
-                            }
-                        }
-                    });
+            poolExecutor.execute(() -> {
+                for (int j = 0; j < 5000; j++) {
+                    // lock
+                    synchronized (SynchronizedUseCase.class) {
+                        sumsWithLock += 1;
+                    }
+                }
+            });
         }
 
         // 等待全部线程执行完毕，结果观测才是有意义的，睡眠 5 秒待结果处理完成

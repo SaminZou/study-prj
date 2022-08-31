@@ -14,20 +14,12 @@ import java.util.Map;
 public class CommonChars {
 
     public static void main(String[] args) {
-        String[] A = new String[] {"bella", "label", "roller"};
-        String[] B = new String[] {"cool", "lock", "cook"};
-        String[] C = new String[] {"abc", "def", "wer"};
-        String[] D =
-                new String[] {
-                    "acabcddd",
-                    "bcbdbcbd",
-                    "baddbadb",
-                    "cbdddcac",
-                    "aacbcccd",
-                    "ccccddda",
-                    "cababaab",
-                    "addcaccd"
-                };
+        String[] A = new String[]{"bella", "label", "roller"};
+        String[] B = new String[]{"cool", "lock", "cook"};
+        String[] C = new String[]{"abc", "def", "wer"};
+        String[] D = new String[]{
+                "acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"
+        };
 
         //        System.out.println(new CommonChars().commonChars(A));
         //        System.out.println(new CommonChars().commonChars(B));

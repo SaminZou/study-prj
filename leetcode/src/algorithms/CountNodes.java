@@ -12,7 +12,9 @@ public class CountNodes {
 
     int res = 0;
 
-    /** 利用前中后序遍历都可以完成统计 */
+    /**
+     * 利用前中后序遍历都可以完成统计
+     */
     public int countNodes(TreeNode root) {
         if (root == null) {
             return 0;

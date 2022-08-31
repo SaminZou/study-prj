@@ -2,7 +2,6 @@ package algorithms;
 
 import algorithms.base.model.TreeNode;
 import algorithms.base.util.QuickSort;
-
 import java.util.ArrayList;
 import java.util.List;
 

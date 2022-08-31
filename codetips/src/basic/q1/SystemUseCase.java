@@ -14,7 +14,7 @@ public class SystemUseCase {
         // Arrays.copyOf() 底层调用的就是 System.arraycopy()
 
         // 模拟从arr1复制从2开头的3个数字到arr2;
-        int[] arr1 = new int[] {1, 2, 3, 4, 5};
+        int[] arr1 = new int[]{1, 2, 3, 4, 5};
         int[] arr2 = new int[3];
         // 入参分别是源数组，源数组开头，目的数组，目的数组开头，复制长度
         System.arraycopy(arr1, 1, arr2, 0, 3);

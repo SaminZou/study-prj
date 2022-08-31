@@ -47,6 +47,7 @@ public class EqualsAndHashCodeUseCase {
     }
 
     private static class User {
+
         private String name;
         private int age;
         private String phone;
@@ -77,6 +78,7 @@ public class EqualsAndHashCodeUseCase {
     }
 
     private static class UserPro extends User {
+
         @Override
         public boolean equals(Object o) {
             System.out.println("调用了equals方法");
@@ -87,9 +89,7 @@ public class EqualsAndHashCodeUseCase {
                 return false;
             }
             User user = (User) o;
-            return super.age == user.age
-                    && Objects.equals(super.name, user.name)
-                    && Objects.equals(super.phone, user.phone);
+            return super.age == user.age && Objects.equals(super.name, user.name) && Objects.equals(super.phone, user.phone);
         }
 
         @Override

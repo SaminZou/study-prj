@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class Perm {
 
     public static void main(String[] args) {
-        int[] arr = new int[] {1, 2, 3, 4};
+        int[] arr = new int[]{1, 2, 3, 4};
         new Perm().perm(arr, 0, arr.length - 1);
     }
 

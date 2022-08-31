@@ -1,7 +1,6 @@
 package collection.q1;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -19,11 +18,11 @@ public class CompareUseCase {
 
     public static void main(String[] args) {
         List<SortObj> list = new ArrayList<>();
-        SortObj o1 = new SortObj(1);
-        SortObj o2 = new SortObj(2);
-        SortObj o3 = new SortObj(3);
-        SortObj o4 = new SortObj(4);
-        SortObj o5 = new SortObj(5);
+        SortObj o1 = new SortObj(3);
+        SortObj o2 = new SortObj(4);
+        SortObj o3 = new SortObj(5);
+        SortObj o4 = new SortObj(1);
+        SortObj o5 = new SortObj(2);
         list.add(o1);
         list.add(o2);
         list.add(o3);
@@ -31,17 +30,16 @@ public class CompareUseCase {
         list.add(o5);
         System.out.println("原始列表：" + list);
 
-        // 使用Comparator
-        Collections.sort(
-                list,
-                (e1, e2) -> {
-                    System.out.println("使用 Comparator 接口实现方法排序");
-                    return e1.weight - e2.weight;
-                });
-        System.out.println("Comparator排序后：" + list);
+        // 使用 Comparator
+        list.sort((e1, e2) -> {
+            System.out.println("使用 Comparator 接口实现方法排序");
+            // 升序
+            return e1.weight - e2.weight;
+        });
+        System.out.println("Comparator 排序后：" + list);
 
         // 使用TreeMap，使用到了Comparable实现的方法
-        TreeMap<SortObj, Integer> treeMap = new TreeMap();
+        TreeMap<SortObj, Integer> treeMap = new TreeMap<>();
         treeMap.put(o1, 1);
         treeMap.put(o2, 2);
         treeMap.put(o3, 3);

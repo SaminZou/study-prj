@@ -12,23 +12,23 @@ import java.util.TreeSet;
 public class DeleteDuplicates {
 
     public static void main(String[] args) {
-//        ListNode l1 = new ListNode(1);
-//        ListNode l2 = new ListNode(1);
-//        ListNode l3 = new ListNode(2);
-//        l1.next = l2;
-//        l2.next = l3;
-//        ListNode.listNodePrinter(new DeleteDuplicates().deleteDuplicates(l1));
-//
-//        ListNode ll1 = new ListNode(1);
-//        ListNode ll2 = new ListNode(1);
-//        ListNode ll3 = new ListNode(2);
-//        ListNode ll4 = new ListNode(3);
-//        ListNode ll5 = new ListNode(3);
-//        ll1.next = ll2;
-//        ll2.next = ll3;
-//        ll3.next = ll4;
-//        ll4.next = ll5;
-//        ListNode.listNodePrinter(new DeleteDuplicates().deleteDuplicates(ll1));
+        //        ListNode l1 = new ListNode(1);
+        //        ListNode l2 = new ListNode(1);
+        //        ListNode l3 = new ListNode(2);
+        //        l1.next = l2;
+        //        l2.next = l3;
+        //        ListNode.listNodePrinter(new DeleteDuplicates().deleteDuplicates(l1));
+        //
+        //        ListNode ll1 = new ListNode(1);
+        //        ListNode ll2 = new ListNode(1);
+        //        ListNode ll3 = new ListNode(2);
+        //        ListNode ll4 = new ListNode(3);
+        //        ListNode ll5 = new ListNode(3);
+        //        ll1.next = ll2;
+        //        ll2.next = ll3;
+        //        ll3.next = ll4;
+        //        ll4.next = ll5;
+        //        ListNode.listNodePrinter(new DeleteDuplicates().deleteDuplicates(ll1));
 
         ListNode ln1 = new ListNode(-3);
         ListNode ln2 = new ListNode(-1);

@@ -16,20 +16,16 @@ import java.util.concurrent.TimeUnit;
  */
 public class ProducerAndConsumer {
 
-    /** 控制程序执行时间，单位毫秒 */
+    /**
+     * 控制程序执行时间，单位毫秒
+     */
     private static final Integer RUNTIME = 100;
 
     private static Boolean IS_RUNNING = true;
 
     public static void main(String[] args) throws InterruptedException {
-        ThreadPoolExecutor poolExecutor =
-                new ThreadPoolExecutor(
-                        5,
-                        10,
-                        10,
-                        TimeUnit.MINUTES,
-                        new LinkedBlockingQueue<>(10),
-                        (ThreadFactory) Thread::new);
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                (ThreadFactory) Thread::new);
 
         Queue<Integer> queue = new LinkedList<>();
         // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计
@@ -44,8 +40,11 @@ public class ProducerAndConsumer {
         poolExecutor.shutdown();
     }
 
-    /** 生产者 */
+    /**
+     * 生产者
+     */
     private static class Producer implements Runnable {
+
         private final Queue<Integer> queue;
         private final int maxSize;
 
@@ -77,8 +76,11 @@ public class ProducerAndConsumer {
         }
     }
 
-    /** 消费者 */
+    /**
+     * 消费者
+     */
     private static class Consumer implements Runnable {
+
         private final Queue<Integer> queue;
 
         public Consumer(Queue<Integer> queue) {

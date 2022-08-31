@@ -1,7 +1,6 @@
 package algorithms;
 
 import algorithms.base.util.QuickSort;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -14,21 +13,13 @@ import java.util.HashMap;
 public class SmallerNumbersThanCurrent {
 
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[]{})));
         System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[] {})));
+                Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[]{8, 1, 2, 2, 3})));
         System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {8, 1, 2, 2, 3})));
+                Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[]{6, 5, 4, 8})));
         System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {6, 5, 4, 8})));
-        System.out.println(
-                Arrays.toString(
-                        new SmallerNumbersThanCurrent()
-                                .smallerNumbersThanCurrent(new int[] {7, 7, 7, 7})));
+                Arrays.toString(new SmallerNumbersThanCurrent().smallerNumbersThanCurrent(new int[]{7, 7, 7, 7})));
     }
 
     public int[] smallerNumbersThanCurrent(int[] nums) {

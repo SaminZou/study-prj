@@ -10,7 +10,8 @@ import algorithms.base.model.TreeNode;
  */
 public class IsSymmetric {
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+    }
 
     public boolean isSymmetric(TreeNode root) {
         return isSymmetric(root, root);
@@ -28,8 +29,6 @@ public class IsSymmetric {
             return false;
         }
 
-        return left.val == right.val
-                && isSymmetric(left.left, right.right)
-                && isSymmetric(left.right, right.left);
+        return left.val == right.val && isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
     }
 }

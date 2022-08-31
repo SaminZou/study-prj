@@ -24,9 +24,9 @@ public class FindNumbers {
     //    }
 
     public static void main(String[] args) {
-        System.out.println(new FindNumbers().findNumbers(new int[] {}));
-        System.out.println(new FindNumbers().findNumbers(new int[] {12, 345, 2, 6, 7896}));
-        System.out.println(new FindNumbers().findNumbers(new int[] {555, 901, 482, 1771}));
+        System.out.println(new FindNumbers().findNumbers(new int[]{}));
+        System.out.println(new FindNumbers().findNumbers(new int[]{12, 345, 2, 6, 7896}));
+        System.out.println(new FindNumbers().findNumbers(new int[]{555, 901, 482, 1771}));
     }
 
     public int findNumbers(int[] nums) {

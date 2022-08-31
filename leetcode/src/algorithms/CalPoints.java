@@ -35,10 +35,8 @@ public class CalPoints {
         // 遍历计算结果
         for (int i = index; i < ops.length; i++) {
             if ("+".equals(ops[i])) {
-                list.add(
-                        String.valueOf(
-                                Integer.parseInt(list.get(list.size() - 1))
-                                        + Integer.parseInt(list.get(list.size() - 2))));
+                list.add(String.valueOf(
+                        Integer.parseInt(list.get(list.size() - 1)) + Integer.parseInt(list.get(list.size() - 2))));
 
                 continue;
             }
@@ -67,13 +65,12 @@ public class CalPoints {
 
     public static void main(String[] args) {
         // 30
-        System.out.println(new CalPoints().calPoints(new String[] {"5", "2", "C", "D", "+"}));
+        System.out.println(new CalPoints().calPoints(new String[]{"5", "2", "C", "D", "+"}));
         // 27
-        System.out.println(
-                new CalPoints().calPoints(new String[] {"5", "-2", "4", "C", "D", "9", "+", "+"}));
+        System.out.println(new CalPoints().calPoints(new String[]{"5", "-2", "4", "C", "D", "9", "+", "+"}));
         // 1
-        System.out.println(new CalPoints().calPoints(new String[] {"1"}));
+        System.out.println(new CalPoints().calPoints(new String[]{"1"}));
         // 15
-        System.out.println(new CalPoints().calPoints(new String[] {"1", "D", "D", "D"}));
+        System.out.println(new CalPoints().calPoints(new String[]{"1", "D", "D", "D"}));
     }
 }

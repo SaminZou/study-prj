@@ -8,6 +8,8 @@ package creational.factory.base;
  */
 public interface Product {
 
-    /** 产品介绍 */
+    /**
+     * 产品介绍
+     */
     void product();
 }

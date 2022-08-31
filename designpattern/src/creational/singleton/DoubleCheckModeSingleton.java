@@ -8,10 +8,13 @@ package creational.singleton;
  */
 public class DoubleCheckModeSingleton {
 
-    /** 需要加上 volatile，才能确保 DCL 万无一失 */
+    /**
+     * 需要加上 volatile，才能确保 DCL 万无一失
+     */
     private static volatile DoubleCheckModeSingleton singleton = null;
 
-    private DoubleCheckModeSingleton() {}
+    private DoubleCheckModeSingleton() {
+    }
 
     public static DoubleCheckModeSingleton getInstance() {
         if (singleton == null) {

@@ -8,7 +8,9 @@ package basic.q15;
  */
 public class FinalUseCase {
 
-    /** 类变量可以直接赋值、static 块中赋值 */
+    /**
+     * 类变量可以直接赋值、static 块中赋值
+     */
     private static final int FINAL_DEFINED_VARIABLE_A = 0;
 
     private static final int FINAL_DEFINED_VARIABLE_B;
@@ -17,7 +19,9 @@ public class FinalUseCase {
         FINAL_DEFINED_VARIABLE_B = 10;
     }
 
-    /** 成员变量可以直接声明、在代码块中赋值、在构造器中赋值 */
+    /**
+     * 成员变量可以直接声明、在代码块中赋值、在构造器中赋值
+     */
     private final int FINAL_DEFINED_VARIABLE_C = 100;
 
     private final int FINAL_DEFINED_VARIABLE_D;
@@ -44,15 +48,19 @@ public class FinalUseCase {
     }
 
     public static class FinalParentClass {
-        public final void test() {}
 
-        public final void test(String a) {}
+        public final void test() {
+        }
+
+        public final void test(String a) {
+        }
     }
 
     public static class FinalSubClass extends FinalParentClass {
         // 报错
         // public final void test(String a) {}
 
-        public final void test(String a, String b) {}
+        public final void test(String a, String b) {
+        }
     }
 }

@@ -29,7 +29,7 @@ public class Exchange {
     //    }
 
     public static void main(String[] args) {
-        int[] result = new Exchange().exchange(new int[] {1});
+        int[] result = new Exchange().exchange(new int[]{1});
         for (int ele : result) {
             System.out.print(ele + " ");
         }

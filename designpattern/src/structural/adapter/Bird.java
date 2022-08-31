@@ -1,6 +1,7 @@
 package structural.adapter;
 
 public class Bird {
+
     public void jiji() {
         System.out.println("唧唧..........");
     }

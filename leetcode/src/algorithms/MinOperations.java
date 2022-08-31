@@ -26,17 +26,12 @@ public class MinOperations {
 
     public static void main(String[] args) {
         // 2
-        System.out.println(
-                new MinOperations()
-                        .minOperations(new String[] {"d1/", "d2/", "../", "d21/", "./"}));
+        System.out.println(new MinOperations().minOperations(new String[]{"d1/", "d2/", "../", "d21/", "./"}));
 
         // 3
-        System.out.println(
-                new MinOperations()
-                        .minOperations(new String[] {"d1/", "d2/", "./", "d3/", "../", "d31/"}));
+        System.out.println(new MinOperations().minOperations(new String[]{"d1/", "d2/", "./", "d3/", "../", "d31/"}));
 
         // 0
-        System.out.println(
-                new MinOperations().minOperations(new String[] {"d1/", "../", "../", "../"}));
+        System.out.println(new MinOperations().minOperations(new String[]{"d1/", "../", "../", "../"}));
     }
 }

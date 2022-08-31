@@ -8,24 +8,38 @@ package algorithms;
  */
 public class TripleInOne {
 
-    /** 存储栈的数组 */
+    /**
+     * 存储栈的数组
+     */
     private final int[][] tripleStack;
-    /** 栈长度 */
+    /**
+     * 栈长度
+     */
     private final int stackSize;
-    /** 栈1的指针 */
+    /**
+     * 栈1的指针
+     */
     private int index0 = -1;
-    /** 栈2的指针 */
+    /**
+     * 栈2的指针
+     */
     private int index1 = -1;
-    /** 栈的指针 */
+    /**
+     * 栈的指针
+     */
     private int index2 = -1;
 
-    /** 初始化方法，一定要执行 */
+    /**
+     * 初始化方法，一定要执行
+     */
     public TripleInOne(int stackSize) {
         this.stackSize = stackSize;
         this.tripleStack = new int[3][stackSize];
     }
 
-    /** 入栈 */
+    /**
+     * 入栈
+     */
     public void push(int stackNum, int value) {
         switch (stackNum) {
             case 0:
@@ -47,7 +61,9 @@ public class TripleInOne {
         }
     }
 
-    /** 出栈 */
+    /**
+     * 出栈
+     */
     public int pop(int stackNum) {
         switch (stackNum) {
             case 0:
@@ -71,7 +87,9 @@ public class TripleInOne {
         return -1;
     }
 
-    /** 查看栈顶元素 */
+    /**
+     * 查看栈顶元素
+     */
     public int peek(int stackNum) {
         switch (stackNum) {
             case 0:
@@ -95,7 +113,9 @@ public class TripleInOne {
         return -1;
     }
 
-    /** 是否为空栈 */
+    /**
+     * 是否为空栈
+     */
     public boolean isEmpty(int stackNum) {
         switch (stackNum) {
             case 0:

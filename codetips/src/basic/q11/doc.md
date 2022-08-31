@@ -17,14 +17,14 @@ Java 的泛型实际上是由编译器实现的，将泛型类型转换为 Objec
 # 语法
 
 - 一个类型
-    < 占位符 >
-  
+  < 占位符 >
+
 - 多个类型
-    < 占位符，占位符>
-  
+  < 占位符，占位符>
+
 - 类型限定
-    < 占位符 extends 占位符 >
-  
+  < 占位符 extends 占位符 >
+
 > 需要对泛型进行限制的时候可以使用 ? ，使用 `<? extends ParentClass>` 语法，表明泛型的对象必须是集成 `ParentClass` 父类
 
 # 泛型 vs Object
@@ -60,4 +60,5 @@ Generics generics = genericsList.get(0);
 
 ## 具体含义
 
-Java 的泛型代码在编译时，由编译器进行类型检查，之后会将其泛型类型擦除掉，只保存原生类型，如 Generics<Long> 被擦除后是 Generics，我们常用的 List<String> 被擦除后只剩下 List。
+Java 的泛型代码在编译时，由编译器进行类型检查，之后会将其泛型类型擦除掉，只保存原生类型，如 Generics<Long> 被擦除后是
+Generics，我们常用的 List<String> 被擦除后只剩下 List。

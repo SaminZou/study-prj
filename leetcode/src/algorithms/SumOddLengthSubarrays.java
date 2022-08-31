@@ -12,15 +12,13 @@ public class SumOddLengthSubarrays {
 
     public static void main(String[] args) {
         // 58
-        System.out.println(
-                new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[] {1, 4, 2, 5, 3}));
+        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[]{1, 4, 2, 5, 3}));
         // 3
-        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[] {1, 2}));
+        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[]{1, 2}));
         // 66
-        System.out.println(
-                new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[] {10, 11, 12}));
+        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[]{10, 11, 12}));
         // 12
-        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[] {1, 2, 3}));
+        System.out.println(new SumOddLengthSubarrays().sumOddLengthSubarrays(new int[]{1, 2, 3}));
     }
 
     public int sumOddLengthSubarrays(int[] arr) {

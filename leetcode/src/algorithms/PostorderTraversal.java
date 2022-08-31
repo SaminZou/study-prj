@@ -1,7 +1,6 @@
 package algorithms;
 
 import algorithms.base.model.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,8 @@ import java.util.List;
  */
 public class PostorderTraversal {
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+    }
 
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();

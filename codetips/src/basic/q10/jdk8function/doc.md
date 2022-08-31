@@ -18,7 +18,6 @@ Predicate 接口是一个谓词型接口，类似于 bool 类型的判断的接�
 
 Function 接口是一个功能型接口，它的一个作用就是转换作用，将输入数据转换成另一种形式的输出数据
 
-
 # 使用 java.util.function 可以帮助理解 stream 中的 peek 和 map
 
 peek 传入的是一个 Consumer 实现类，可以做一些输出，外部处理等

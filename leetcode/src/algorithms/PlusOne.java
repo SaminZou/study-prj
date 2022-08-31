@@ -43,7 +43,7 @@ public class PlusOne {
             }
 
             if (i == 0) {
-                if (digits.length ==1){
+                if (digits.length == 1) {
                     digits[i] = digits[i] + 1;
                 }
 

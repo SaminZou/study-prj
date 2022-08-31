@@ -1,6 +1,7 @@
 package structural.adapter;
 
 public class Dog {
+
     public void wang() {
         System.out.println("小狗叫：汪汪.....");
     }

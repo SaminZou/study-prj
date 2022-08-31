@@ -22,7 +22,8 @@ public class ObjectsUseCase {
         }
 
         // 或者使用常量或者确定值来解决报空指针的问题
-        if ("123".equals(a)) {}
+        if ("123".equals(a)) {
+        }
 
         /**
          * JDK1.7之后提供 Objects 工具包解决这个问题

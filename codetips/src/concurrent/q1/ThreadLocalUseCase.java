@@ -15,19 +15,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadLocalUseCase implements Runnable {
 
-    /** SimpleDateFormat 不是线程安全的，所以每个线程都要有自己独立的副本 */
-    private static final ThreadLocal<SimpleDateFormat> FORMATTER =
-            ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyyMMdd HHmm"));
+    /**
+     * SimpleDateFormat 不是线程安全的，所以每个线程都要有自己独立的副本
+     */
+    private static final ThreadLocal<SimpleDateFormat> FORMATTER = ThreadLocal.withInitial(
+            () -> new SimpleDateFormat("yyyyMMdd HHmm"));
 
     public static void main(String[] args) throws InterruptedException {
-        ThreadPoolExecutor poolExecutor =
-                new ThreadPoolExecutor(
-                        5,
-                        10,
-                        10,
-                        TimeUnit.MINUTES,
-                        new LinkedBlockingQueue<>(10),
-                        (ThreadFactory) Thread::new);
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                (ThreadFactory) Thread::new);
 
         ThreadLocalUseCase obj = new ThreadLocalUseCase();
         for (int i = 0; i < 10; i++) {
@@ -37,14 +33,13 @@ public class ThreadLocalUseCase implements Runnable {
         poolExecutor.shutdown();
     }
 
-    /** 每个线程都会修改formatter，不影响其他线程 */
+    /**
+     * 每个线程都会修改formatter，不影响其他线程
+     */
     @Override
     public void run() {
         System.out.println(
-                "Thread Name= "
-                        + Thread.currentThread().getName()
-                        + " default Formatter = "
-                        + FORMATTER.get().toPattern());
+                "Thread Name= " + Thread.currentThread().getName() + " default Formatter = " + FORMATTER.get().toPattern());
         try {
             Thread.sleep(new Random().nextInt(1000));
         } catch (InterruptedException e) {
@@ -54,10 +49,7 @@ public class ThreadLocalUseCase implements Runnable {
         FORMATTER.set(new SimpleDateFormat());
 
         System.out.println(
-                "Thread Name= "
-                        + Thread.currentThread().getName()
-                        + " formatter = "
-                        + FORMATTER.get().toPattern());
+                "Thread Name= " + Thread.currentThread().getName() + " formatter = " + FORMATTER.get().toPattern());
         FORMATTER.remove(); // 避免内存泄露
     }
 }

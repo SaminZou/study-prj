@@ -1,6 +1,10 @@
 package basic.q6.chat;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,7 +20,9 @@ public class Server {
         Server.serverRun();
     }
 
-    /** 简单双工聊天，开启后服务端等待客户端 */
+    /**
+     * 简单双工聊天，开启后服务端等待客户端
+     */
     public static void serverRun() throws IOException {
         ServerSocket ss = new ServerSocket(8081);
         Socket s = ss.accept();

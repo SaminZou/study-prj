@@ -11,14 +11,13 @@ import java.util.Arrays;
 public class MaxSlidingWindow {
 
     public static void main(String[] args) {
-        int[] result =
-                new MaxSlidingWindow().maxSlidingWindow(new int[] {1, 3, -1, -3, 5, 3, 6, 7}, 4);
+        int[] result = new MaxSlidingWindow().maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 4);
         System.out.println(Arrays.toString(result));
     }
 
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums.length == 0) {
-            return new int[] {};
+            return new int[]{};
         }
 
         int[] result = new int[nums.length - k + 1];

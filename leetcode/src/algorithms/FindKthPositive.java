@@ -37,9 +37,9 @@ public class FindKthPositive {
 
     public static void main(String[] args) {
         // 9
-        System.out.println(new FindKthPositive().findKthPositive(new int[] {2, 3, 4, 7, 11}, 5));
+        System.out.println(new FindKthPositive().findKthPositive(new int[]{2, 3, 4, 7, 11}, 5));
 
         // 6
-        System.out.println(new FindKthPositive().findKthPositive(new int[] {1, 2, 3, 4}, 2));
+        System.out.println(new FindKthPositive().findKthPositive(new int[]{1, 2, 3, 4}, 2));
     }
 }

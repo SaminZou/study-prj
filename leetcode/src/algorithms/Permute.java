@@ -16,7 +16,7 @@ public class Permute {
     List<List<Integer>> res = new ArrayList<>();
 
     public static void main(String[] args) {
-        System.out.println(new Permute().permute(new int[] {1, 2, 3}));
+        System.out.println(new Permute().permute(new int[]{1, 2, 3}));
     }
 
     public List<List<Integer>> permute(int[] nums) {

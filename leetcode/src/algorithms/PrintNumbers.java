@@ -16,7 +16,7 @@ public class PrintNumbers {
     public int[] printNumbers(int n) {
         // 特殊情况
         if (n == 0) {
-            return new int[] {};
+            return new int[]{};
         }
 
         // 计算最大数

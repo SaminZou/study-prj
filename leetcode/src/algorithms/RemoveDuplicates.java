@@ -13,7 +13,7 @@ package algorithms;
 public class RemoveDuplicates {
 
     public static void main(String[] args) {
-        System.out.println(new RemoveDuplicates().removeDuplicates(new int[] {1, 1, 2}));
+        System.out.println(new RemoveDuplicates().removeDuplicates(new int[]{1, 1, 2}));
     }
 
     public int removeDuplicates(int[] nums) {

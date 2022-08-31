@@ -96,8 +96,10 @@ public class GetIntersectionNode {
         // 计算长度
         int aLength = 0;
         int bLength = 0;
-        for (ListNode temp = headA; temp != null; temp = temp.next, aLength++) {}
-        for (ListNode temp = headB; temp != null; temp = temp.next, bLength++) {}
+        for (ListNode temp = headA; temp != null; temp = temp.next, aLength++) {
+        }
+        for (ListNode temp = headB; temp != null; temp = temp.next, bLength++) {
+        }
 
         // 调整较长链表的长度
         ListNode longOne = aLength > bLength ? headA : headB;

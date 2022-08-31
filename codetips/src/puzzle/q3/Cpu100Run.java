@@ -74,8 +74,7 @@ public class Cpu100Run {
         public void run() {
             try {
                 System.out.println("System running ...");
-                System.out.println(
-                        "You can check the information by top behavioural.command with -Hp parameter !");
+                System.out.println("You can check the information by top behavioural.command with -Hp parameter !");
 
                 Thread.sleep(PROGRAM_RUNNING_TIME);
 

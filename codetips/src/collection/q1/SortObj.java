@@ -22,8 +22,6 @@ public class SortObj implements Comparable<SortObj> {
 
     @Override
     public String toString() {
-        return "SortObj{" +
-                "weight=" + weight +
-                '}' + "\n";
+        return "SortObj{" + "weight=" + weight + '}' + "\n";
     }
 }

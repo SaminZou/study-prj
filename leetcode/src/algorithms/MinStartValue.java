@@ -11,15 +11,17 @@ package algorithms;
 class MinStartValue {
 
     public static void main(String[] args) {
-        int[] nums = new int[] {-3, 2, -3, 4, 2};
-        int[] nums2 = new int[] {1, 2};
-        int[] nums3 = new int[] {1, -2, -3};
+        int[] nums = new int[]{-3, 2, -3, 4, 2};
+        int[] nums2 = new int[]{1, 2};
+        int[] nums3 = new int[]{1, -2, -3};
         System.out.println(new MinStartValue().minStartValue(nums));
         System.out.println(new MinStartValue().minStartValue(nums2));
         System.out.println(new MinStartValue().minStartValue(nums3));
     }
 
-    /** 计算累加过程最小数，如果最小数小于1，求其绝对值加上1即为答案 */
+    /**
+     * 计算累加过程最小数，如果最小数小于1，求其绝对值加上1即为答案
+     */
     public int minStartValue(int[] nums) {
         if (nums.length == 0) {
             return 0;
