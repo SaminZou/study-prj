@@ -36,6 +36,8 @@ public class CompareUseCase {
             // 升序
             return e1.weight - e2.weight;
         });
+        // 语法糖写法
+        // list.sort(Comparator.comparingInt(e -> e.weight));
         System.out.println("Comparator 排序后：" + list);
 
         // 使用TreeMap，使用到了Comparable实现的方法
