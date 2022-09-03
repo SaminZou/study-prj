@@ -102,6 +102,7 @@ Internet of agriculture 农业物联网
 - ITS
 
 Intelligent Traffic System 智能交通系统
+
 Intelligent Transportation System 智能运输系统
 
 - NB-IoT
@@ -139,14 +140,17 @@ Distributed Control System 分布式控制系统 用于有大量控制回路的�
 - FDX
   
 Full-duplex 全双工 
+
 两台设备之间同时双向传输信息,例如手机
 
 - HDX
   
 Half-duplex 半双工
+
 双方可以相互通信，但不能同时通信，沟通是一次一个方向。例如按键通话的步话机
 
 - AMQP
 
-Advanced Message Queuing Protocol 
-高级消息队列协议 实现不同供应商可以互操作
+Advanced Message Queuing Protocol（高级消息队列协议） 
+
+实现不同供应商可以互操作
