@@ -16,7 +16,7 @@ public class SortObj implements Comparable<SortObj> {
 
     @Override
     public int compareTo(SortObj o) {
-        System.out.println("使用Comparable接口实现方法排序");
+        System.out.println("使用 Comparable 接口实现方法排序");
         return -o.weight;
     }
 
