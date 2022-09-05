@@ -40,9 +40,9 @@ public class DateTimeUseCase {
     public static String formatTimeBySecond(long secondTime) {
         String result;
 
-        long days = secondTime / (60 * 60 * 24);
-        long hours = (secondTime % (60 * 60 * 24)) / (60 * 60);
-        long minutes = (int) Math.ceil((secondTime % (60D * 60D)) / 60D);
+        long days = secondTime / (60L * 60L * 24L);
+        long hours = (secondTime % (60L * 60L * 24L)) / (60L * 60L);
+        long minutes = (long) Math.ceil((secondTime % (60D * 60D)) / 60D);
 
         if (days > 0) {
             result = days + "天" + hours + "小时" + minutes + "分钟";
@@ -191,7 +191,7 @@ public class DateTimeUseCase {
         OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
         OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
-        System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60 / 60);
+        System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60L / 60L);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
         System.out.println("时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
         System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
