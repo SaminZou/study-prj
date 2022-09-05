@@ -20,11 +20,19 @@ public class IteratorUseCase {
      */
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(Arrays.asList("a", "B", "c"));
-        for (String ele : list) {
-            if ("c".equals(ele)) {
-                list.remove(ele);
+        // Error process
+        //  for (String ele : list) {
+        //      if ("c".equals(ele)) {
+        //          list.remove(ele);
+        //      }
+        //  }
+
+        list.forEach(e -> {
+            if (e.equals("a")) {
+                return;
             }
-        }
+            System.out.println(e);
+        });
 
         // 应该使用迭代器删除
         Iterator<String> iterator = list.iterator();
