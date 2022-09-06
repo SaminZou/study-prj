@@ -21,6 +21,55 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeUseCase {
 
+    public static void main(String[] args) {
+        DateTimeUseCase.showDetailTime();
+        DateTimeUseCase.showCycleTime();
+        DateTimeUseCase.showTimeOperate();
+        DateTimeUseCase.showTimestamp();
+        DateTimeUseCase.showTimestamp2();
+
+        // 类型转换
+        LocalDateTime dateTime = localDateToLocalDateTime(LocalDate.now());
+        System.out.println("今天的午夜时间：" + dateTime);
+
+        // 打印当前日期
+        LocalDateTime now = getNowDateTime();
+        System.out.printf("当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
+
+        // 修改时间
+        OffsetDateTime alterTime = OffsetDateTime.now();
+        alterTime = alterTime.withYear(2021).withMonth(10).withDayOfMonth(1).withHour(16).withMinute(0).withSecond(0);
+        System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+
+        // 计算时间差
+        OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
+        OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
+        System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60L / 60L);
+        System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
+        System.out.println("时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
+        System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
+        // 判断日期的前后，返回布尔值
+        System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
+        System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
+        // 检查是否闰年
+        System.out.println("aTime 是否闰年：" + aTime.toLocalDate().isLeapYear());
+
+        // 今天是周几
+        System.out.println("今天是当月的第几天" + LocalDateTime.now().getDayOfWeek().getValue());
+        // 今天是当月的第几天
+        System.out.println(LocalDateTime.now().getDayOfMonth());
+
+        // 格式化的时间差
+        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
+        System.out.println(formatTimeBySecond(aTime1.until(bTime1, ChronoUnit.SECONDS)));
+
+        // 现在的时间
+        System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
+    }
+
     /**
      * 时区偏移值
      */
@@ -28,11 +77,18 @@ public class DateTimeUseCase {
 
     /**
      * 获取当前时间
+     *
+     * @return 时分秒
      */
     public static LocalTime getNowTime() {
         return LocalTime.now();
     }
 
+    /**
+     * 获取当前时间
+     *
+     * @return 年月日
+     */
     public static LocalDate getNowDate() {
         return LocalDate.now();
     }
@@ -163,54 +219,5 @@ public class DateTimeUseCase {
 
     public static long timeDiff2(OffsetDateTime a, OffsetDateTime b) {
         return a.until(b, ChronoUnit.HOURS);
-    }
-
-    public static void main(String[] args) {
-        DateTimeUseCase.showDetailTime();
-        DateTimeUseCase.showCycleTime();
-        DateTimeUseCase.showTimeOperate();
-        DateTimeUseCase.showTimestamp();
-        DateTimeUseCase.showTimestamp2();
-
-        // 类型转换
-        LocalDateTime dateTime = localDateToLocalDateTime(LocalDate.now());
-        System.out.println("今天的午夜时间：" + dateTime);
-
-        // 打印当前日期
-        LocalDateTime now = getNowDateTime();
-        System.out.printf("当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
-
-        // 修改时间
-        OffsetDateTime alterTime = OffsetDateTime.now();
-        alterTime = alterTime.withYear(2021).withMonth(10).withDayOfMonth(1).withHour(16).withMinute(0).withSecond(0);
-        System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
-                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-
-        // 计算时间差
-        OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
-        OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
-        OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
-        OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
-        System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60L / 60L);
-        System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
-        System.out.println("时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
-        System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
-        // 判断日期的前后，返回布尔值
-        System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
-        System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));
-        // 检查是否闰年
-        System.out.println("aTime 是否闰年：" + aTime.toLocalDate().isLeapYear());
-
-        // 今天是周几
-        System.out.println("今天是当月的第几天" + LocalDateTime.now().getDayOfWeek().getValue());
-        // 今天是当月的第几天
-        System.out.println(LocalDateTime.now().getDayOfMonth());
-
-        // 格式化的时间差
-        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
-        System.out.println(formatTimeBySecond(aTime1.until(bTime1, ChronoUnit.SECONDS)));
-
-        // 现在的时间
-        System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
     }
 }

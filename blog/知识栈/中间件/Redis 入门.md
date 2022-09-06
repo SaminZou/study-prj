@@ -4,7 +4,7 @@ author: samin
 date: 2022-01-19
 ```
 
-# 为什么使用Redis
+# 为什么使用 Redis
 
 - 性能
 
@@ -16,7 +16,7 @@ date: 2022-01-19
 
   大并发情况下，不直接访问数据库，先访问redis缓冲再进行数据库访问
 
-# 使用Redis的缺点
+# 使用 Redis的缺点
 
 - 缓存和数据库双写一致性问题
 
@@ -28,15 +28,15 @@ date: 2022-01-19
 
 - 缓存的并发竞争问题
 
-# 单线程的Redis为什么这么快
+# 单线程的 Redis 为什么这么快
 
 - 纯内存操作
 
 - 单线程操作，避免了频繁的上下文切换，无法发挥CPU多核优势
 
-- 采用了非阻塞I/O多路复用机制（epoll）
+- 采用了非阻塞 I/O 多路复用机制（epoll）
 
-# Redis的数据类型，以及每种数据类型的使用场景
+# Redis 的数据类型，以及每种数据类型的使用场景
 
 ## String
 
@@ -73,6 +73,7 @@ set/get操作
     一般做单点登录，用这种数据结构存储用户信息，以cookiedId为key，设置30分钟超时
 
 HSET / HGET：一次只能操作一对键值对
+
 HMSET / HMGET：一次可以操作多对键值对
 
 ```
@@ -195,7 +196,7 @@ $ keys *
 
 $ type [key]
 
-# Redis的过期策略以及内存淘汰机制
+# Redis 的过期策略以及内存淘汰机制
 
 默认采用**定期删除+惰性删除策略**（不能做定时删除是因为太消耗CPU资源）
 
@@ -215,7 +216,7 @@ $ type [key]
 - volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个 Key。依然不推荐。
 - volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的 Key 优先移除。不推荐。
 
-# Redis和数据库双写一致性问题
+# Redis 和数据库双写一致性问题
 
 - 最终一致性
 
@@ -315,7 +316,7 @@ Redis 方面：
 
 # 如何解决Redis的并发竞争Key问题
 
-多个子系统同时set一个key
+多个子系统同时 set 一个 key
 
 很多答案推荐使用redis事务机制，但是由于redis在集群环境做了数据分片操作的情况下，事务中的多个key操作不一定在一个server上，所以redis的事务机制不合理
 
@@ -336,32 +337,42 @@ Redis 方面：
 setnx
 
 # redis-cli操作
+
 \# 进入redis的控制台并登录
+
 $ redis-cli -h 127.0.0.1 -p 6379 -a password
 
 \# 输入密码
 $ auth password
 
 \# 查看密码及修改密码
+
 $ config get requirepass
+
 $ config set requirepass
 
 \# 选择数据库，同时清空数据库
+
 $ select 1
+
 $ flushdb
 
 \# 退出
+
 $ quit
 
 # 常用指令
 
 \# 键值对数量
+
 $ DBSIZE
 
 \# 清空所有库
+
 $ FLUASHALL
 
 \# 清空当前库
+
 $ FLUSHDB
 
 # 内存情况
@@ -369,26 +380,39 @@ $ FLUSHDB
 ## 指令
 
 \# 显示 redis 信息
+
 $ INFO
+
 \# 显示 redis 内存信息
+
 $ info memory
 
 ## 主要关注的参数
+
 - used_memory
   Redis分配器分配的内存（单位是字节Byte）+ 虚拟内存（swap）；不包括内存碎片、进程本身需要的内存。used_memory_human只是更友好的显示；
+
 - used_memory_rss
   Redis进程占据操作系统的内存总量，包括：Redis分配器分配的内存+进程本身需要的内存+内存碎片；不包括虚拟内存。
+
 - mem_fragmentation_ratio
   内存碎片比率，该值就是used_memory_rss / used_memory的比值，通常mem_fragmentation_ratio 是 > 1 的。
+
 - mem_fragmentation_ratio
-> 1，且值越大，内存碎片比例越大
+
+  >1，且值越大，内存碎片比例越大
+
 - mem_fragmentation_ratio
-  < 1，证明Redis使用了虚拟内存，也证明Redis内存不足了，且虚拟内存的媒介是磁盘，比内存速度慢很多，所以应及时排查并处理。处理方式例如：增加Redis节点、增加Redis服务器内容、优化应用
+
+  <1，证明Redis使用了虚拟内存，也证明Redis内存不足了，且虚拟内存的媒介是磁盘，比内存速度慢很多，所以应及时排查并处理。处理方式例如：增加Redis节点、增加Redis服务器内容、优化应用
+  
 - mem_allocator
-  Redis使用的内存分配器，在编译时指定；可以选的分配器如下：
-    - jemalloc（默认）
-    - tcmalloc
-    - libc
+
+Redis使用的内存分配器，在编译时指定；可以选的分配器如下：
+
+- jemalloc（默认）
+- tcmalloc
+- libc
 
 ## 内存碎片
 内存碎片是Redis在进行分配内存、回收物理内存产生的。
@@ -401,7 +425,9 @@ $ info memory
 内存碎片已经很大的时候，可以使用安全重启的方式减小内存碎片：因为Redis重启会从备份文件中读取数据，在内存中重新对数据进行分配，以此减小内存碎片
 
 # 解决“竞态条件”
+
 - 乐观锁：版本号控制，CAS（check and set）先检查版本号再修改更新，用于写操作比较少的情况，因为冲突多也意味着retry多，反而降低系统性能
+
 - 悲观锁：先锁数据，再进行修改，行锁和表锁，读锁和写锁
 
 # 持久化
@@ -415,14 +441,19 @@ $ info memory
 ## AOF ( Append Only File - 仅追加文件 ) 
 
 - 命令追加：命令写入aof_buf缓冲区
+
 - 文件写入：调用flushAppendOnlyFile函数，考虑是否要将aof_buf缓冲区写入AOF文件中
+
 - 文件同步：考虑是否将内存缓冲区的数据真正写入到硬盘
 
 ## 两者的适用场景
 
 - rdb对redis的性能几乎没有任何影响，使用空闲IO执行备份
+
 - 数据集越大，rdb的启动效率更高
+
 - rdb在备份过程中如果出现宕机，重启后无法恢复数据
+
 - aof带来更高的数据安全，可以恢复更近的数据
 
 ## RDB和AOF的备份设置
