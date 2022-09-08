@@ -11,6 +11,7 @@ import java.time.OffsetDateTime;
 import java.time.Period;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -22,9 +23,11 @@ import java.time.temporal.ChronoUnit;
 public class DateTimeUseCase {
 
     public static void main(String[] args) {
+        DateTimeUseCase.showTimeOperate();
+
+        System.out.println(":-----------------------");
         DateTimeUseCase.showDetailTime();
         DateTimeUseCase.showCycleTime();
-        DateTimeUseCase.showTimeOperate();
         DateTimeUseCase.showTimestamp();
         DateTimeUseCase.showTimestamp2();
 
@@ -152,6 +155,12 @@ public class DateTimeUseCase {
         LocalDate date = LocalDate.of(2020, 2, 29);
         System.out.println(date.plus(1, ChronoUnit.YEARS));
         System.out.println(date.minus(1, ChronoUnit.YEARS));
+
+        OffsetDateTime now = strToOffsetDateTime("2022-09-08 00:00:00");
+        now = now.plusWeeks(2);
+        now = now.with(ChronoField.DAY_OF_WEEK, 2);
+        // 2022-09-20 00:00:00
+        System.out.println("adjust day of week:" + now);
     }
 
     /**
