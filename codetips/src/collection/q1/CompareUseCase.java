@@ -7,9 +7,9 @@ import java.util.TreeMap;
 /**
  * 集合排序方法
  *
- * <p>Comparator 配合Collection.sort()使用
+ * <p>Comparator 配合 Collection.sort() 使用
  *
- * <p>Comparable 实现后才能使TreeMap等带排序功能的类生效
+ * <p>Comparable 实现后才能使 TreeMap 等带排序功能的类生效
  *
  * @author samin
  * @date 2021-01-10
@@ -40,7 +40,7 @@ public class CompareUseCase {
         // list.sort(Comparator.comparingInt(e -> e.weight));
         System.out.println("Comparator 排序后：" + list);
 
-        // 使用TreeMap，使用到了Comparable实现的方法
+        // 使用 TreeMap，使用到了 Comparable 实现的方法
         TreeMap<SortObj, Integer> treeMap = new TreeMap<>();
         treeMap.put(o1, 1);
         treeMap.put(o2, 2);
@@ -50,8 +50,8 @@ public class CompareUseCase {
         System.out.println(treeMap);
 
         /*
-        Comparable相当于“内部比较器”，而Comparator相当于“外部比较器”
-        当对象同时实现了 Comparable 接口和使用Collections.sort 传入了 Comparator 接口方法
+        Comparable 相当于“内部比较器”，而 Comparator 相当于“外部比较器”
+        当对象同时实现了 Comparable 接口和使用 Collections.sort 传入了 Comparator 接口方法
         会优先调用 Comparator 接口的 compare 方法
          */
     }
