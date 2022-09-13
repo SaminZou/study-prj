@@ -157,6 +157,8 @@ public class DateTimeUseCase {
         System.out.println(date.minus(1, ChronoUnit.YEARS));
 
         OffsetDateTime now = strToOffsetDateTime("2022-09-08 00:00:00");
+
+        // 使用运算后必须赋值，否则原值不变
         now = now.plusWeeks(2);
         now = now.with(ChronoField.DAY_OF_WEEK, 2);
         // 2022-09-20 00:00:00
