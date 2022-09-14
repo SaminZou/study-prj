@@ -8,7 +8,8 @@ package concurrent.q1;
  */
 public class VolatileUseCase extends Thread {
 
-    // 这里需要加上 volatile 让主线程可见修改
+    // 这里需要加上 volatile
+    // 可见性原理
     private volatile boolean stopFlag = false;
 
     public boolean isStopFlag() {

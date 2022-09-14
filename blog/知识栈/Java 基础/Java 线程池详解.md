@@ -1,5 +1,5 @@
 ```yaml
-title: Java线程池详解
+title: Java 线程池详解
 author: samin
 date: 2022-08-08
 ```
