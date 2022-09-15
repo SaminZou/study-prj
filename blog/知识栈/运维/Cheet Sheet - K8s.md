@@ -119,15 +119,29 @@ $ kubectl exec --stdin --tty shell-demo -- /bin/bash
 \# 查看持久化路径的方式
 
 $ kubectl describe pods hello-demo -n ns
+
 $ kubectl get pvc hello-pvc-demo -n ns -oyaml
+
 $ kubectl get pv hello-pv-demo -n ns -oyaml
 
 \# 找密码配置的方式
 
 $ kubectl get sts -n infra
+
 $ kubectl describe sts -n infra rabbitmqcluster-server
+
 $ kubectl edit cm -n infra rabbitmqcluster-server-conf
+
 $ kubectl edit secret -n infra rabbitmqcluster-default-user
+
 $ kubectl get  secret -n infra rabbitmqcluster-default-user -oyaml
+
+\# 获取所有的 K8s 资源对象
+
+$ kubectl api-resources
+
+\# 查看资源字段
+
+$ kubectl explain pod
 
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)

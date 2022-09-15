@@ -236,7 +236,7 @@ $ sudo systemctl daemon-reload
 
 $ sudo systemctl restart docker
 
-\# 查看2375端口是否打开
+\# 查看 2375 端口是否打开
 
 $ netstat -ano | grep 2375
 
@@ -244,7 +244,7 @@ $ netstat -ano | grep 2375
 
 # overlay2 目录迁移
 
-[](https://blog.csdn.net/zfw_666666/article/details/124314741)
+[Docker overlay2 目录迁移](https://blog.csdn.net/zfw_666666/article/details/124314741)
 
 # registry2
 
