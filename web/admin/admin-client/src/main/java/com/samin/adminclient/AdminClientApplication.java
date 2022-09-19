@@ -1,17 +1,15 @@
 package com.samin.adminclient;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
+@Slf4j
 @EnableScheduling
 @SpringBootApplication
 public class AdminClientApplication {
-
-    private final Logger logger = LoggerFactory.getLogger(AdminClientApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(AdminClientApplication.class, args);
@@ -19,6 +17,6 @@ public class AdminClientApplication {
 
     @Scheduled(cron = "0/5 * * * * ?")
     private void triggerTask() {
-        logger.info("trigger task");
+        log.info("trigger task");
     }
 }
