@@ -144,4 +144,10 @@ $ kubectl api-resources
 
 $ kubectl explain pod
 
+$ kubectl explain pod.metadata
+
+$ kubectl explain pod.spec
+
+$ kubectl explain pod.spec.containers
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
