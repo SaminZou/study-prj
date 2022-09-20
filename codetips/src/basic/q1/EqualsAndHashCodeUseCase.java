@@ -20,7 +20,7 @@ public class EqualsAndHashCodeUseCase {
         User user2 = new User();
         user2.setName("a");
         user2.setAge(100);
-        // 在没有重写equals和hashcode，一定是不等的
+        // 没有重写 equals 和 hashcode，一定是 false
         System.out.println(user1.equals(user2));
         System.out.println("--------------------------");
 
@@ -33,14 +33,14 @@ public class EqualsAndHashCodeUseCase {
         System.out.println("打印内存地址(不相同):");
         System.out.println(System.identityHashCode(userPro1));
         System.out.println(System.identityHashCode(userPro2));
-        // 重写后调用equals方法，相等
+        // 重写后调用 equals 方法，相等
         System.out.println(userPro1.equals(userPro2));
         System.out.println("--------------------------");
 
-        // 为什么需要同时重写equals和hashCode方法
-        // 这里展示了hashCode的作用，map集合类的put方法会主动调用hashCode方法
-        // 先判断hashCode是否相同，不一样的一定不相同，一样的情况下再调用equals方法验证最终结果
-        // 因为类似集合类大量调用equals方法会造成性能低下，所以先转换成调用hashCode进行判断
+        // 为什么需要同时重写 equals 和 hashCode 方法
+        // 这里展示了 hashCode 的作用，map 集合类的 put 方法会主动调用 hashCode 方法
+        // 先判断 hashCode 是否相同，不一样的一定不相同，一样的情况下再调用 equals 方法验证最终结果
+        // 因为类似集合类大量调用 equals 方法会造成性能低下，所以先转换成调用 hashCode 进行判断
         Map<User, Integer> map = new HashMap<>();
         map.put(userPro1, 1);
         map.put(userPro2, 2);
@@ -89,13 +89,14 @@ public class EqualsAndHashCodeUseCase {
                 return false;
             }
             User user = (User) o;
-            return super.age == user.age && Objects.equals(super.name, user.name) && Objects.equals(super.phone, user.phone);
+            return super.getAge() == user.getAge() && Objects.equals(super.getName(), user.getName()) && Objects.equals(
+                    super.getPhone(), user.getPhone());
         }
 
         @Override
         public int hashCode() {
             System.out.println("调用了hashCode方法");
-            return Objects.hash(super.name, super.age, super.phone);
+            return Objects.hash(super.getName(), super.getAge(), super.getPhone());
         }
     }
 }
