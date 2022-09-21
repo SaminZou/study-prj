@@ -33,12 +33,7 @@ public class ObjectsUseCase {
          * <p>原因在于 a.equals(b) 这种写法，当 a 为 null 值时，会报错
          */
         System.out.println(Objects.equals(a, b));
-
-        System.out.println("-----------------------");
-
-        // 判断不为空
-        System.out.println(Objects.nonNull(a));
-        // 判断为空
-        System.out.println(Objects.isNull(a));
+        System.out.println("判断不为空: " + Objects.nonNull(a));
+        System.out.println("判断为空: " + Objects.isNull(a));
     }
 }
