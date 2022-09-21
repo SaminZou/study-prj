@@ -1,5 +1,5 @@
 ```yaml
-title: sftp 服务器配置
+title: Sftp 服务器配置
 author: samin
 date: 2021-01-16
 ```
@@ -7,7 +7,7 @@ date: 2021-01-16
 # SSH 服务
 
 ```shell
-# 查看 openssh server 的运行状态
+# 查看 openssh-server 的运行状态
 $ /etc/init.d/ssh status
 
 # 修改 sshd.config，去掉 Port 注释（默认不可访问，需要开放端口），重启服务
@@ -55,15 +55,14 @@ $ chmod 755 /sftp-data
 vi /etc/ssh/sshd_config
 ```
 
-```
-#注释掉这行  
-#Subsystem sftp /usr/libexec/openssh/sftp-server
-#添加在配置文件末尾
-Subsystem sftp internal-sftp  #指定使用sftp服务使用系统自带的internal-sftp
-Match User samin #匹配用户，如果要匹配多个组，多个组之间用逗号分割
-ChrootDirectory %h/das/sftp-data #用chroot将指定用户的根目录
-# ForceCommand internal-sftp #指定sftp命令
-# X11Forwarding no #这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
+```shell
+# Subsystem sftp /usr/libexec/openssh/sftp-server #注释掉这行
+# 添加在配置文件末尾
+Subsystem sftp internal-sftp  # 指定使用 sftp 服务使用系统自带的 internal-sftp
+Match User samin # 匹配用户，如果要匹配多个组，多个组之间用逗号分割
+ChrootDirectory %h/das/sftp-data # 用 chroot 将指定用户的根目录
+# ForceCommand internal-sftp # 指定 sftp 命令
+# X11Forwarding no # 这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
 AllowTcpForwarding no
 # 保持 TCP 连接
 TCPKeepAlive yes
@@ -71,15 +70,14 @@ TCPKeepAlive yes
 
 配置ssh（用户组）
 
-```
-#注释掉这行  
-#Subsystem sftp /usr/libexec/openssh/sftp-server
-#添加在配置文件末尾
-Subsystem sftp internal-sftp  #指定使用sftp服务使用系统自带的internal-sftp
-Match Group sftpusers #匹配用户，如果要匹配多个组，多个组之间用逗号分割
-ChrootDirectory %h/das/sftp-data #用chroot将指定用户的根目录
-# ForceCommand internal-sftp #指定sftp命令
-# X11Forwarding no #这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
+```shell
+# Subsystem sftp /usr/libexec/openssh/sftp-server # 注释掉这行  
+# 添加在配置文件末尾
+Subsystem sftp internal-sftp  # 指定使用 sftp 服务使用系统自带的 internal-sftp
+Match Group sftpusers # 匹配用户，如果要匹配多个组，多个组之间用逗号分割
+ChrootDirectory %h/das/sftp-data #用 chroot 将指定用户的根目录
+# ForceCommand internal-sftp # 指定 sftp 命令
+# X11Forwarding no # 这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
 AllowTcpForwarding no
 ```
 
@@ -154,9 +152,12 @@ $ systemctl restart sshd.service
 $ tail -f /var/log/sftp.log
 ```
 
-关闭SELINUX
+关闭 SELINUX
 
 ```shell
-$ getenforce # 查看SELINUX的开启状态
-$ vi /etc/selinux/config # 修改 SELINUX=disabled  重启
+# 查看SELINUX的开启状态
+$ getenforce
+
+# 修改 SELINUX=disabled  重启
+$ vi /etc/selinux/config 
 ```
