@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author samin
  * @date 2020-12-31
  */
-public class SystemUseCase {
+public class SystemCallUseCase {
 
     public static void main(String[] args) {
         // Arrays.copyOf() 底层调用的就是 System.arraycopy()
@@ -20,7 +20,7 @@ public class SystemUseCase {
         System.arraycopy(arr1, 1, arr2, 0, 3);
         System.out.println(Arrays.toString(arr2));
 
-        // identityHashCode() 获取对象的系统和内部地址相关的 hashCode
+        // identityHashCode() 获取对象的系统和内部地址相关的 hashCode()
         // 可用于判断是否是同一个实例对象
         // 同时可以验证 hashCode() 方法是否重写过
         // String 类的 hashCode() 是重写过的，所以两者的结果自然不一样

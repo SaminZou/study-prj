@@ -53,7 +53,7 @@ public class PrimitiveType {
         System.out.println(str3 == str4); // true
         System.out.println("---------------------------------");
 
-        // 由于STRING1+STRING2在编译期不能决定
+        // 由于 STRING1 + STRING2 在编译期不能决定
         String ele = "aa";
         System.out.println(ele == STRING1 + STRING2); // false
         System.out.println(ele == STRING3 + STRING4); // true
@@ -65,8 +65,8 @@ public class PrimitiveType {
         String newStr1 = "计算机";
         String newStr2 = newStr1.intern();
         String newStr3 = "计算机";
-        System.out.println(newStr1 == newStr2); // false，因为一个是堆内存中的String对象一个是常量池中的String对象，
-        System.out.println(newStr3 == newStr2); // true，因为两个都是常量池中的String对象
+        System.out.println(newStr1 == newStr2); // false，因为一个是堆内存中的 String 对象一个是常量池中的 String 对象，
+        System.out.println(newStr3 == newStr2); // true，因为两个都是常量池中的 String 对象
 
         // String s1 = new String("xyz"); 创建了几个对象？
         // 类加载阶段会放一份到字符串常量池
