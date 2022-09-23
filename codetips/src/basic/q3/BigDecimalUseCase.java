@@ -15,18 +15,19 @@ public class BigDecimalUseCase {
     public static void main(String[] args) {
         BigDecimal a = new BigDecimal(3);
         BigDecimal b = new BigDecimal(2);
+        BigDecimal c = new BigDecimal(3);
 
         // 比较 compareTo ： -1 小于； 0 等于； 1 大于
-        // 1
-        System.out.println(a.compareTo(b));
-        // 0
-        System.out.println(a.compareTo(a));
         // -1
         System.out.println(b.compareTo(a));
+        // 0
+        System.out.println(a.compareTo(c));
+        // 1
+        System.out.println(a.compareTo(b));
 
         // 加法 add
         // 5
-        System.out.println(a.add(b).toString());
+        System.out.println(a.add(b));
 
         // 减法 subtract
         // 1
@@ -34,16 +35,16 @@ public class BigDecimalUseCase {
 
         // 乘法 multiply
         // 6
-        System.out.println(a.multiply(b).toString());
+        System.out.println(a.multiply(b));
 
         // 除法 divide
         // 1
-        System.out.println(a.divide(b).toString());
+        System.out.println(a.divide(b, BigDecimal.ROUND_HALF_UP));
 
         // 处理小数 setScale()
-        BigDecimal c = new BigDecimal("1.234");
+        BigDecimal d = new BigDecimal("1.234");
         // 1.23 四舍五入
-        System.out.println(c.setScale(2, BigDecimal.ROUND_HALF_UP));
+        System.out.println(d.setScale(2, BigDecimal.ROUND_HALF_UP));
 
         // 求余 divideAndRemainder
         // [1 , 1] 第一位为商，第二位为余数
