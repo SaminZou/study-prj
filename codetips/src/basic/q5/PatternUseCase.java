@@ -109,7 +109,7 @@ public class PatternUseCase {
         check(".{4}", "12345");
 
         // | (竖线) 则表示或的关系，表示检测的字符串须满足其中一个时，才符合条件
-        // aa|bb|cc：则表示输入的字符串须是aa，或bb，或cc其中的一个
+        // aa|bb|cc：则表示输入的字符串须是 aa，或 bb，或 cc 其中的一个
         check("aa|bb|cc", "aa");
         check("aa|bb|cc", "bb");
         check("aa|bb|cc", "cc");
@@ -117,14 +117,14 @@ public class PatternUseCase {
         check("aa|bb|cc", "11");
 
         // 或者关系的前后还有其它字符时，需要用（）将他们包裹起来
-        // xx(aa|bb|cc)yy：则表示输入的字符串须是xx开头，yy结尾，且中间是aa，或bb，或cc其中的一个
+        // xx(aa|bb|cc)yy：则表示输入的字符串须是 xx 开头，yy 结尾，且中间是 aa，或 bb，或 cc 其中的一个
         check("xx(aa|bb|cc)yy", "xxaayy");
         check("xx(aa|bb|cc)yy", "xxbbyy");
         check("xx(aa|bb|cc)yy", "xxccyy");
         check("xx(aa|bb|cc)yy", "xxzzyy");
 
         // [] 表示匹配其中任意一个字符
-        // a[bcd]e：则表示a和e的中间须是b，或c，或d其中的一个
+        // a[bcd]e：则表示 a 和 e 的中间须是 b，或 c，或 d 其中的一个
         check("a[bcd]e", "abe");
         check("a[bcd]e", "ace");
         check("a[bcd]e", "ade");
@@ -132,7 +132,7 @@ public class PatternUseCase {
         check("a[bcd]e", "ae");
 
         // [^] 表示不与中括号里的任意字符匹配
-        // a[^bcd]e：则表示a和e的中间除b，c，d这三个字符外，其他的字符都满足
+        // a[^bcd]e：则表示 a 和 e 的中间除 b，c，d 这三个字符外，其他的字符都满足
         check("a[^bcd]e", "abe");
         check("a[^bcd]e", "ace");
         check("a[^bcd]e", "ade");

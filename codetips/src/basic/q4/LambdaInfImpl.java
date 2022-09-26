@@ -14,14 +14,14 @@ import java.util.Comparator;
 public class LambdaInfImpl {
 
     public LambdaInfImpl() {
-        System.out.println("实例化LambdaInfImpl...");
+        System.out.println("实例化 LambdaInfImpl...");
     }
 
     public static void main(String[] args) {
         // Lambda 规定接口中只能有一个需要被实现的方法，不是规定接口中只能有一个方法，
         // 但是default修饰的方法不影响
         LambdaInf lambdaInf = (param) -> System.out.println(param);
-        //        LambdaInf lambdaInf = System.out::println; // 更简单的表达式
+        // LambdaInf lambdaInf = System.out::println; // 更简单的表达式
 
         lambdaInf.actionUtils();
         lambdaInf.action("lambda use case ! ");
@@ -31,7 +31,8 @@ public class LambdaInfImpl {
         LambdaInf2 lambdaInf2 = (x, y) -> {
             return Integer.sum(x, y);
         };
-        //        LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
+        // LambdaInf2 lambdaInf2 = (x, y) -> Integer.sum(x, y); // 简单的表达式
+        // LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
         System.out.println(lambdaInf2.sum(10, 20));
         System.out.println("-----------------------------");
 
