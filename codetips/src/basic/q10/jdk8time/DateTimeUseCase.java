@@ -1,5 +1,7 @@
 package basic.q10.jdk8time;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
@@ -50,10 +52,13 @@ public class DateTimeUseCase {
         OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
         OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
+        OffsetDateTime aTime2 = strToOffsetDateTime("2020-01-01 23:00:00");
+        OffsetDateTime bTime2 = strToOffsetDateTime("2020-01-02 01:00:00");
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60L / 60L);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
         // 天的时间差有两种精度，如 A 为 "2020-01-01 23:00" B 为 "2020-01-02 01:00"，按照日历计算时间差为 1 天，按照 24 小时制时间差不足 1 天结果为 0
-        System.out.println("时间差（天）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getDays());
+        System.out.println("时间差（天）：" + DAYS.between(aTime2.toLocalDate(), bTime2.toLocalDate()));
+        System.out.println("时间差（天）：" + Period.between(aTime2.toLocalDate(), bTime2.toLocalDate()).getDays());
         System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
