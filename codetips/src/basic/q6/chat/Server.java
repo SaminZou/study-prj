@@ -30,7 +30,7 @@ public class Server {
         DataOutputStream dout = new DataOutputStream(s.getOutputStream());
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String str = "", str2 = "";
+        String str = "", str2;
         while (!"stop".equals(str)) {
             str = din.readUTF();
             System.out.println("client says: " + str);
