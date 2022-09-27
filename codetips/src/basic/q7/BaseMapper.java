@@ -19,15 +19,12 @@ public class BaseMapper {
 
     private final Map<String, User> database = new HashMap<>();
 
-    private String tableName;
-    private List<ColumnNode> columnDetails;
-
     public User insert(User user) throws Exception {
-        columnDetails = new ArrayList<>();
+        List<ColumnNode> columnDetails = new ArrayList<>();
 
         // 开始解析注解
         // 1. 获取 Class
-        Class clazz = user.getClass();
+        Class<? extends User> clazz = user.getClass();
 
         // 2. 判断关键注解是否存在
         if (!clazz.isAnnotationPresent(Table.class)) {
@@ -35,8 +32,8 @@ public class BaseMapper {
         }
 
         // 3. 获取参数值
-        Table t = (Table) clazz.getAnnotation(Table.class);
-        this.tableName = t.tableName();
+        Table t = clazz.getAnnotation(Table.class);
+        String tableName = t.tableName();
 
         Field[] fields = clazz.getDeclaredFields();
         for (Field ele : fields) {
