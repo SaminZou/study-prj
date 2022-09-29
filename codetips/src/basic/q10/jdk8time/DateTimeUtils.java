@@ -19,9 +19,9 @@ public class DateTimeUtils {
 
     public static void main(String[] args) {
         // 前 5 个工作日
-        System.out.println(getPreviousDay(new Date(), 5, false));
+        System.out.println(getPreviousDays(new Date(), 5, false));
         // 前 5 个假期
-        System.out.println(getPreviousDay(new Date(), 5, true));
+        System.out.println(getPreviousDays(new Date(), 5, true));
     }
 
     /**
@@ -32,7 +32,7 @@ public class DateTimeUtils {
      * @param isHoliday   是否假期
      * @return 前 n 个工作日 / 假期数组
      */
-    public static List<Date> getPreviousDay(Date currentDate, int n, boolean isHoliday) {
+    public static List<Date> getPreviousDays(Date currentDate, int n, boolean isHoliday) {
         List<Date> results = new ArrayList<>();
 
         LocalDateTime currentLocalDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
