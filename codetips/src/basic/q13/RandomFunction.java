@@ -23,7 +23,7 @@ public class RandomFunction {
             System.out.println(random1.nextInt(100));
         }
 
-        // 使用Math类的random方法
+        // 使用 Math 类的 random()
         System.out.println("--------------------------------");
         for (int i = 0; i < 3; i++) {
             System.out.println((int) (Math.random() * 10));

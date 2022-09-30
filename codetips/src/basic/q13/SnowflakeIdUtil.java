@@ -10,9 +10,9 @@ public class SnowflakeIdUtil {
 
     /**
      * <p> 优点：
-     * <p> - 毫秒数在高位，自增序列在低位，整个ID都是趋势递增的
-     * <p> - 不依赖数据库等第三方系统，以服务的方式部署，稳定性更高，生成ID的性能也是非常高的
-     * <p> - 可以根据自身业务特性分配bit位，非常灵活
+     * <p> - 毫秒数在高位，自增序列在低位，整个 ID 都是趋势递增的
+     * <p> - 不依赖数据库等第三方系统，以服务的方式部署，稳定性更高，生成 ID 的性能也是非常高的
+     * <p> - 可以根据自身业务特性分配 bit 位，非常灵活
      *
      * <p> 缺点：
      * <p> - 强依赖机器时钟，如果机器上时钟回拨，会导致发号重复或者服务会处于不可用状态
@@ -33,10 +33,12 @@ public class SnowflakeIdUtil {
 
     public SnowflakeIdUtil(long workerId, long datacenterId, long sequence) {
         // sanity check for workerId
+        long maxWorkerId = ~(-1L << workerIdBits);
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(
                     String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
+        long maxDatacenterId = ~(-1L << datacenterIdBits);
         if (datacenterId > maxDatacenterId || datacenterId < 0) {
             throw new IllegalArgumentException(
                     String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
@@ -50,18 +52,11 @@ public class SnowflakeIdUtil {
         this.sequence = sequence;
     }
 
-    private long twepoch = 1288834974657L;
+    private final long workerIdBits = 5L;
+    private final long datacenterIdBits = 5L;
+    private final long sequenceBits = 12L;
 
-    private long workerIdBits = 5L;
-    private long datacenterIdBits = 5L;
-    private long maxWorkerId = -1L ^ (-1L << workerIdBits);
-    private long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
-    private long sequenceBits = 12L;
-
-    private long workerIdShift = sequenceBits;
-    private long datacenterIdShift = sequenceBits + workerIdBits;
-    private long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
-    private long sequenceMask = -1L ^ (-1L << sequenceBits);
+    private final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
 
     private long lastTimestamp = -1L;
 
@@ -87,6 +82,7 @@ public class SnowflakeIdUtil {
         }
 
         if (lastTimestamp == timestamp) {
+            long sequenceMask = ~(-1L << sequenceBits);
             sequence = (sequence + 1) & sequenceMask;
             if (sequence == 0) {
                 timestamp = tilNextMillis(lastTimestamp);
@@ -96,8 +92,10 @@ public class SnowflakeIdUtil {
         }
 
         lastTimestamp = timestamp;
+        long twepoch = 1288834974657L;
+        long datacenterIdShift = sequenceBits + workerIdBits;
         return ((timestamp - twepoch) << timestampLeftShift) | (datacenterId << datacenterIdShift) | (workerId
-                << workerIdShift) | sequence;
+                << sequenceBits) | sequence;
     }
 
     private long tilNextMillis(long lastTimestamp) {
