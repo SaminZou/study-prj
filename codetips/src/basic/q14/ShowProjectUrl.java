@@ -2,6 +2,7 @@ package basic.q14;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Objects;
 
 /**
  * Java 路径相关
@@ -12,14 +13,14 @@ import java.net.URL;
 public class ShowProjectUrl {
 
     public static <T> void showUrl(Class<T> t) throws Exception {
-        File f = new File(t.getResource("/").getPath());
+        File f = new File(Objects.requireNonNull(t.getResource("/")).getPath());
         System.out.println("获取类加载的根路径");
         System.out.println(f);
         System.out.println("-----------------------------------------");
         System.out.println();
 
         System.out.println("获取当前类的所在工程路径; 如果不加“/”  获取当前类的加载目录");
-        File f2 = new File(t.getResource("").getPath());
+        File f2 = new File(Objects.requireNonNull(t.getResource("")).getPath());
         System.out.println(f2);
         System.out.println("-----------------------------------------");
         System.out.println();
