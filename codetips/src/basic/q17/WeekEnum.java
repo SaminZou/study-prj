@@ -92,4 +92,13 @@ public enum WeekEnum {
 
         return result;
     }
+
+    public static WeekEnum parseValue2(String label) {
+        for (WeekEnum weekEnum : values()) {
+            if (weekEnum.label.equals(label)) {
+                return weekEnum;
+            }
+        }
+        return UNKNOWN;
+    }
 }

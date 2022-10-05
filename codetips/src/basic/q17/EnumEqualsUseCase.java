@@ -15,6 +15,8 @@ public class EnumEqualsUseCase {
         System.out.println(weekEnum.equals(WeekEnum.FRIDAY));
         System.out.println(weekEnum == WeekEnum.FRIDAY);
 
+        System.out.println(WeekEnum.parseValue2("星期五"));
+
         // 可以看到以上两个输出结果是一样的，原因是 java.lang.Enum 中的 equals 方法被重写，使用的就是 ==
         // public final boolean equals(Object other) { return this==other; }
     }
