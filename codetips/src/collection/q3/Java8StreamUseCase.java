@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 /**
  * Java8 stream 操作
  * <p>
- * Stream将要处理的元素集合看作一种流，在流的过程中，借助 Stream API对流中的元素进行操作，比如：筛选、排序、聚合等。
+ * Stream 将要处理的元素集合看作一种流，在流的过程中，借助 Stream API对流中的元素进行操作，比如：筛选、排序、聚合等。
  *
  * @author samin
  * @date 2021-12-09
