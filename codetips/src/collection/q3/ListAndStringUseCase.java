@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * List和字符串之间的转换
+ * List 和字符串之间的转换
  *
  * @author samin
  * @date 2021-05-18
@@ -13,14 +13,14 @@ import java.util.List;
 public class ListAndStringUseCase {
 
     /**
-     * string to list
+     * String to List
      */
     public static List<String> stringToList(String text) {
         return Arrays.asList(text.split(","));
     }
 
     /**
-     * list to string
+     * List to String
      */
     public static String listToString(List<String> list) {
         return list.toString().replace("[", "").replace("]", "");

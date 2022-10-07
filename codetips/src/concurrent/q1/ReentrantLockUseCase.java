@@ -10,15 +10,15 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * ReentrantLock 用例
  *
- * <p> 使用ReentrantLock比直接使用synchronized更安全，线程在tryLock()失败的时候不会导致死锁。
+ * <p> 使用 ReentrantLock 比直接使用 synchronized 更安全，线程在 tryLock() 失败的时候不会导致死锁。
  *
- * <p> ReentrantLock可以替代synchronized进行同步；
+ * <p> ReentrantLock 可以替代 synchronized 进行同步；
  *
- * <p> ReentrantLock获取锁更安全；
+ * <p> ReentrantLock 获取锁更安全；
  *
- * <p> 必须先获取到锁，再进入try {...}代码块，最后使用finally保证释放锁；
+ * <p> 必须先获取到锁，再进入 try {...} 代码块，最后使用 finally 保证释放锁；
  *
- * <p> 可以使用tryLock()尝试获取锁。
+ * <p> 可以使用 tryLock() 尝试获取锁。
  *
  * @author samin
  * @date 2021-01-08
@@ -49,7 +49,7 @@ public class ReentrantLockUseCase {
                     // lock
                     lock.lock();
                     try {
-                        // 在尝试获取锁的时候，最多等待1秒。如果1秒后仍未获取到锁，tryLock()返回false，程序就可以做一些额外处理，而不是无限等待下去。
+                        // 在尝试获取锁的时候，最多等待1秒。如果1秒后仍未获取到锁，tryLock() 返回 false，程序就可以做一些额外处理，而不是无限等待下去
                         if (lock.tryLock(1, TimeUnit.SECONDS)) {
                             try {
                                 sumsWithLock += 1;

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * List和数组的转换
+ * List 和数组的转换
  *
  * @author samin
  * @date 2021-01-10
