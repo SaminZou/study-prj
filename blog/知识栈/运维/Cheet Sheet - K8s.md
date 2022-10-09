@@ -46,7 +46,7 @@ $ sudo kubectl get deployments -n <namespaces>
 
 \# 强制删除 pods
 
-$ sudo kubectl -n <namespace-name> delete pod <pod-name> --force --grace-period=0
+$ sudo kubectl delete pod <pod-name> -n <namespace-name> --force --grace-period=0
 
 \# 查看 deployment
 
