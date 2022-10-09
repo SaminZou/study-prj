@@ -18,6 +18,8 @@ import java.util.List;
 public class DateTimeUtils {
 
     public static void main(String[] args) {
+        // 前 5 天
+        System.out.println(getPreviousDays(new Date(), 5));
         // 前 5 个工作日
         System.out.println(getPreviousDays(new Date(), 5, false));
         // 前 5 个假期
@@ -76,6 +78,19 @@ public class DateTimeUtils {
                 results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
                 currentLocalDateTime = tempDateTime;
             }
+        }
+
+        return results;
+    }
+
+    public static List<Date> getPreviousDays(Date currentDate, int n) {
+        List<Date> results = new ArrayList<>();
+
+        LocalDateTime currentLocalDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        while (results.size() < n) {
+            LocalDateTime tempDateTime = currentLocalDateTime.minus(1, ChronoUnit.DAYS);
+            results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+            currentLocalDateTime = tempDateTime;
         }
 
         return results;
