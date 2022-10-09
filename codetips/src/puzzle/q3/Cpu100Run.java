@@ -11,7 +11,7 @@ import java.lang.management.ManagementFactory;
 public class Cpu100Run {
 
     /**
-     * 记得加 volatile，不然程序会失效，参考JMM的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据）
+     * 记得加 volatile，不然程序会失效，参考 JMM 的可见性（未使用的时候，变量可能会在主内存、本地内存分别存放数据）
      */
     private static volatile Boolean SWITCH_BOOL = true;
     /**
@@ -26,7 +26,7 @@ public class Cpu100Run {
     public static void main(String[] args) {
         System.out.println("Running at pid:" + ManagementFactory.getRuntimeMXBean().getName());
 
-        // 建议设置不需要超过 `核数+1` ，次模拟基于 CPU密集型任务模型
+        // 建议设置不需要超过 `核数+1` ，次模拟基于 CPU 密集型任务模型
         runThread(RUN_THREAD_NUMS);
 
         // 定时关闭程序

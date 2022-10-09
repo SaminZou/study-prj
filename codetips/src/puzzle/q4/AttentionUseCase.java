@@ -13,7 +13,7 @@ public class AttentionUseCase {
 
     @SuppressWarnings("all")
     public static void main(String[] args) {
-        // 以下代码是正常的，java支持用花括号修饰代码块
+        // 以下代码是正常的，Java 支持用花括号修饰代码块
         {
             {
                 System.out.println("123");
