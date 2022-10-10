@@ -38,6 +38,7 @@ public class PassByValueUseCase {
         user2.name = "original string";
         System.out.println("call function before: " + user2.name);
         // 看第二个实例调用第二个方法，如果还是引用传递的话，user2 的值应该会变，实际上并没有
+        setUser(user2);
         System.out.println("call function after: " + user2.name);
 
         // 总结，值传递的本质为实参进入方法后是否复制了副本给形参，原始类型和 String 类型很明显是复制了副本
