@@ -62,14 +62,13 @@ public class AttentionUseCase {
         list.add(3);
         int length = list.size();
         // 为了能跑完全部代码，注释了以下代码段，学习的时候可以去掉注释观测到抛错
-        //        for (int j = 0; j < length; j++) {
-        //            if (list.get(j) >= 0) {
-        //                list.remove(j);
-        //            }
-        //        }
+        // for (int j = 0; j < length; j++) {
+        //     if (list.get(j) >= 0) {
+        //         list.remove(j);
+        //     }
+        // }
 
         // 修改为迭代器遍历即可
-
         System.out.println("-------------------------------------------------");
 
         // 单字符转换成 int 是根据 ASCII 的规则进行转换，所以转换结果不是 1
