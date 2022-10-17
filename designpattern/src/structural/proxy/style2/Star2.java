@@ -1,5 +1,11 @@
 package structural.proxy.style2;
 
+/**
+ * 明星 2
+ *
+ * @author samin
+ * @date 2022-10-17
+ */
 public class Star2 implements Subject2 {
 
     @Override

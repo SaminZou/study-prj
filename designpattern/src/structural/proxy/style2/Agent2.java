@@ -1,5 +1,11 @@
 package structural.proxy.style2;
 
+/**
+ * 代理 2
+ *
+ * @author samin
+ * @date 2022-10-17
+ */
 public class Agent2 implements Subject2 {
 
     private final Subject2 star;
