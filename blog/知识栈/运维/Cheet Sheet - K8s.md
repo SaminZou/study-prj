@@ -150,4 +150,8 @@ $ kubectl explain pod.spec
 
 $ kubectl explain pod.spec.containers
 
+\# 出现 CrashLoopBackOff 可以尝试
+
+$ kubectl get events -n ns
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
