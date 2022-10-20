@@ -26,6 +26,7 @@ public class CalPoints {
         int index = 1;
         List<String> list = new ArrayList<>();
         list.add(ops[0]);
+
         // 判断第二个字符是否是数字
         if (!"D".equals(ops[1]) && !"C".equals(ops[1])) {
             list.add(ops[1]);

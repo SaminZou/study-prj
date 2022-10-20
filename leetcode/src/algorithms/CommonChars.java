@@ -17,13 +17,16 @@ public class CommonChars {
         String[] A = new String[]{"bella", "label", "roller"};
         String[] B = new String[]{"cool", "lock", "cook"};
         String[] C = new String[]{"abc", "def", "wer"};
-        String[] D = new String[]{
-                "acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"
-        };
+        String[] D = new String[]{"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab",
+                "addcaccd"};
 
-        //        System.out.println(new CommonChars().commonChars(A));
-        //        System.out.println(new CommonChars().commonChars(B));
-        //        System.out.println(new CommonChars().commonChars(C));
+        // [e, l, l]
+        System.out.println(new CommonChars().commonChars(A));
+        // [c, o]
+        System.out.println(new CommonChars().commonChars(B));
+        // []
+        System.out.println(new CommonChars().commonChars(C));
+        // []
         System.out.println(new CommonChars().commonChars(D));
     }
 
