@@ -59,12 +59,16 @@ public class CanFormArray {
     //    }
 
     public static void main(String[] args) {
-        // true true false true false
+        // true
         System.out.println(new CanFormArray().canFormArray(new int[]{85}, new int[][]{new int[]{85}}));
+        // true
         System.out.println(new CanFormArray().canFormArray(new int[]{15, 88}, new int[][]{new int[]{88}, new int[]{15}}));
+        // false
         System.out.println(new CanFormArray().canFormArray(new int[]{49, 18, 16}, new int[][]{new int[]{16, 18, 49}}));
+        // true
         System.out.println(new CanFormArray().canFormArray(new int[]{91, 4, 64, 78},
                 new int[][]{new int[]{78}, new int[]{4, 64}, new int[]{91}}));
+        // false
         System.out.println(new CanFormArray().canFormArray(new int[]{1, 3, 5, 7}, new int[][]{new int[]{2, 4, 6, 8}}));
     }
 
