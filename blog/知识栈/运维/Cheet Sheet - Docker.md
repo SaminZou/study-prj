@@ -23,6 +23,9 @@ $ docker push myrepo/myimage:2.0
 
 # Run
 
+\# 调试技巧！可以进入镜像内部调试，运行结束 docker 实例也会删除
+$ docker run -it --rm <image-name> bash
+
 $ docker run --name web -p 5000:80 alpine:3.9
 
 $ docker run -d --rm redis
@@ -35,7 +38,6 @@ $ docker pull python:alpine
 
 # --rm 参数表示容器结束后自动删除删除
 $ docker run -it --rm -v ${PWD}:/tmp python:alpine sh
-
 ```
 
 $ docker stop web
