@@ -9,9 +9,13 @@ package algorithms;
 public class FindMagicIndex {
 
     public static void main(String[] args) {
+        // 0
         System.out.println(new FindMagicIndex().findMagicIndex(new int[]{0, 2, 3, 4, 5}));
+        // 1
         System.out.println(new FindMagicIndex().findMagicIndex(new int[]{1, 1, 1}));
+        // -1
         System.out.println(new FindMagicIndex().findMagicIndex(new int[]{}));
+        // -1
         System.out.println(new FindMagicIndex().findMagicIndex(new int[]{6, 5, 4, 1, 2, 1}));
     }
 
