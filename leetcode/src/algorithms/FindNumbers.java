@@ -8,20 +8,20 @@ package algorithms;
  */
 public class FindNumbers {
 
-    //    public int findNumbers(int[] nums) {
-    //        int result = 0;
-    //        for (int i = 0; i < nums.length; i++) {
-    //            int index = 0;
-    //            while (nums[i] > 0) {
-    //                nums[i] = nums[i] / 10;
-    //                index = index + 1;
-    //            }
-    //            if (index % 2 == 0) {
-    //                result = result + 1;
-    //            }
-    //        }
-    //        return result;
-    //    }
+    public int findNumbers2(int[] nums) {
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int index = 0;
+            while (nums[i] > 0) {
+                nums[i] = nums[i] / 10;
+                index = index + 1;
+            }
+            if (index % 2 == 0) {
+                result = result + 1;
+            }
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         System.out.println(new FindNumbers().findNumbers(new int[]{}));
