@@ -2,7 +2,10 @@ package basic.q10.jdk8time;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -24,6 +27,39 @@ public class DateTimeUtils {
         System.out.println(getPreviousDays(new Date(), 5, false));
         // 前 5 个假期
         System.out.println(getPreviousDays(new Date(), 5, true));
+        
+        // 格式化的时间差
+        OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:20:00");
+        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
+        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
+    }
+
+    /**
+     * 字符串转时间
+     */
+    public static OffsetDateTime strToOffsetDateTime(String text) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime parseTime = LocalDateTime.parse(text, df);
+        return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
+    }
+    
+    public static String formatTimeBySecond(long secondTime) {
+        String result;
+
+        long days = secondTime / (60L * 60L * 24L);
+        long hours = (secondTime % (60L * 60L * 24L)) / (60L * 60L);
+        long minutes = (long) Math.ceil((secondTime % (60D * 60D)) / 60D);
+
+        if (days > 0) {
+            result = days + "天" + hours + "小时" + minutes + "分钟";
+        } else if (hours > 0) {
+            result = hours + "小时" + minutes + "分钟";
+        } else {
+            result = minutes + "分钟";
+        }
+
+        return result;
     }
 
     /**

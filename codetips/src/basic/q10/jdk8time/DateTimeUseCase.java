@@ -48,17 +48,15 @@ public class DateTimeUseCase {
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         // 计算时间差
-        OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
-        OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:19:00");
-        OffsetDateTime aTime1 = strToOffsetDateTime("2021-07-08 16:18:20");
-        OffsetDateTime bTime1 = strToOffsetDateTime("2021-07-08 16:20:00");
-        OffsetDateTime aTime2 = strToOffsetDateTime("2020-01-01 23:00:00");
-        OffsetDateTime bTime2 = strToOffsetDateTime("2020-01-02 01:00:00");
+        OffsetDateTime aTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:18:20");
+        OffsetDateTime bTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:19:00");
+        OffsetDateTime aTime1 = DateTimeUtils.strToOffsetDateTime("2020-01-01 23:00:00");
+        OffsetDateTime bTime1 = DateTimeUtils.strToOffsetDateTime("2020-01-02 01:00:00");
         System.out.println("时间差（小时）：" + timeDiff(aTime, bTime) / 60L / 60L);
         System.out.println("时间差（小时）：" + timeDiff2(aTime, bTime));
         // 天的时间差有两种精度，如 A 为 "2020-01-01 23:00" B 为 "2020-01-02 01:00"，按照日历计算时间差为 1 天，按照 24 小时制时间差不足 1 天结果为 0
-        System.out.println("时间差（天）：" + DAYS.between(aTime2.toLocalDate(), bTime2.toLocalDate()));
-        System.out.println("时间差（天）：" + Period.between(aTime2.toLocalDate(), bTime2.toLocalDate()).getDays());
+        System.out.println("时间差（天）：" + DAYS.between(aTime1.toLocalDate(), bTime1.toLocalDate()));
+        System.out.println("时间差（天）：" + Period.between(aTime1.toLocalDate(), bTime1.toLocalDate()).getDays());
         System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
@@ -70,10 +68,6 @@ public class DateTimeUseCase {
         System.out.println("今天是当月的第几天" + LocalDateTime.now().getDayOfWeek().getValue());
         // 今天是当月的第几天
         System.out.println(LocalDateTime.now().getDayOfMonth());
-
-        // 格式化的时间差
-        System.out.println(formatTimeBySecond(aTime.until(bTime, ChronoUnit.SECONDS)));
-        System.out.println(formatTimeBySecond(aTime1.until(bTime1, ChronoUnit.SECONDS)));
 
         // 现在的时间
         System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
@@ -100,24 +94,6 @@ public class DateTimeUseCase {
      */
     public static LocalDate getNowDate() {
         return LocalDate.now();
-    }
-
-    public static String formatTimeBySecond(long secondTime) {
-        String result;
-
-        long days = secondTime / (60L * 60L * 24L);
-        long hours = (secondTime % (60L * 60L * 24L)) / (60L * 60L);
-        long minutes = (long) Math.ceil((secondTime % (60D * 60D)) / 60D);
-
-        if (days > 0) {
-            result = days + "天" + hours + "小时" + minutes + "分钟";
-        } else if (hours > 0) {
-            result = hours + "小时" + minutes + "分钟";
-        } else {
-            result = minutes + "分钟";
-        }
-
-        return result;
     }
 
     public static LocalDateTime getNowDateTime() {
@@ -162,7 +138,7 @@ public class DateTimeUseCase {
         System.out.println(date.plus(1, ChronoUnit.YEARS));
         System.out.println(date.minus(1, ChronoUnit.YEARS));
 
-        OffsetDateTime now = strToOffsetDateTime("2022-09-08 00:00:00");
+        OffsetDateTime now = DateTimeUtils.strToOffsetDateTime("2022-09-08 00:00:00");
 
         // 使用运算后必须赋值，否则原值不变
         now = now.plusWeeks(2);
@@ -193,15 +169,6 @@ public class DateTimeUseCase {
      */
     public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
         return LocalDateTime.of(date, LocalTime.MIDNIGHT);
-    }
-
-    /**
-     * 字符串转时间
-     */
-    public static OffsetDateTime strToOffsetDateTime(String text) {
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime parseTime = LocalDateTime.parse(text, df);
-        return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
     /**
