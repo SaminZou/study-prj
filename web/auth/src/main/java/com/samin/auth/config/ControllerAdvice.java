@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * 统一错误抛出
+ *
+ * @author samin
+ * @date 2022-10-28
+ */
 @Slf4j
 @RestControllerAdvice
 public class ControllerAdvice {
@@ -15,7 +21,7 @@ public class ControllerAdvice {
     @ExceptionHandler(Exception.class)
     public HashMap<String, String> exception(Exception e) {
         log.error("系统内部错误：", e);
-        return new HashMap<>() {
+        return new HashMap<String, String>(1) {
             {
                 put("msg", e.getMessage());
             }
