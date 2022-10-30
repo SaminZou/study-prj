@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.samin</groupId>
-    <artifactId>usecase</artifactId>
+    <artifactId>use-case-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>usecase</name>
-    <description>usecase</description>
+    <name>use-case-demo</name>
+    <description>use-case-demo</description>
     <properties>
         <java.version>17</java.version>
     </properties>

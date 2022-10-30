@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @Slf4j
 @SpringBootTest
-class UsecaseApplicationTests {
+class UseCaseApplicationTests {
 
     @Test
     void contextLoads() throws ParseException {
