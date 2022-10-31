@@ -26,6 +26,10 @@ $ sudo kubectl get pods -A
 
 $ sudo kubectl get pods -A -owide
 
+\# 查看 pod 的使用情况
+
+$ sudo kubectl top pods -A
+
 \# 查看 pv
 
 $ sudo kubectl get pv
