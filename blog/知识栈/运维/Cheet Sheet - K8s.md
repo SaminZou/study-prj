@@ -96,6 +96,10 @@ $ kubectl config set -context--current --namespace=<namespace_name>
 
 $ kubectl logs -f <pods_name> -n <namespace_name>
 
+\# 实时查看 pod 的 logs 日志，一个 deployment 有两个容器的情况
+
+$ kubectl logs -f <pods_name> -n <namespace_name> -c <container_name>
+
 \# 修改 deployment
 
 $ sudo kubectl edit deployment <deployment_name> -n <namespace_name>
