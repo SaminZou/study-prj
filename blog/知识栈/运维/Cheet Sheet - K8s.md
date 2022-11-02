@@ -124,6 +124,12 @@ $ kubectl rollout resume deployment <deployment_name> -n <namespace_name>
 
 $ kubectl exec --stdin --tty shell-demo -- /bin/bash
 
+$ kubectl exec -it shell-demo -- /bin/bash
+
+> -i, --stdin[=false]: Pass stdin to the container
+> 
+> -t, --tty[=false]: Stdin is a TTY
+
 \# 查看持久化路径的方式
 
 $ kubectl describe pods hello-demo -n ns
