@@ -29,9 +29,19 @@ public class DateTimeUseCase {
 
         System.out.println(":-----------------------");
         DateTimeUseCase.showDetailTime();
+
+        System.out.println(":-----------------------");
         DateTimeUseCase.showCycleTime();
+
+        System.out.println(":-----------------------");
         DateTimeUseCase.showTimestamp();
+
+        System.out.println(":-----------------------");
         DateTimeUseCase.showTimestamp2();
+
+        // 以下两个解析内容一致
+        System.out.println(LocalDateTime.parse("2022-11-07 24:00:00",DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println(LocalDateTime.parse("2022-11-08 00:00:00",DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         // 类型转换
         LocalDateTime dateTime = localDateToLocalDateTime(LocalDate.now());
