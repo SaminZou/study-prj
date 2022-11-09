@@ -9,7 +9,7 @@ set -o errexit
 # 封装常用脚本
 log() {
   # local 为函数内变量
-  local prefix="[$(date +%Y/%m/%d\ %H:%M:%S)]: "
+  local prefix="[$(date +%Y-%m-%d\ %H:%M:%S)]: "
   echo "${prefix} $@" >&2
 }
 
@@ -21,8 +21,8 @@ echo "A-$(echo B-$(echo C-$(echo D)))"
 
 # echo 不是唯一调试方式
 # 对脚本进行语法检查
-# bash -n best-practices.sh
+# bash -n commonshell-best-practices.sh
 # 跟踪脚本里每个命令的执行
-# bash -v best-practices.sh
+# bash -v commonshell-best-practices.sh
 # 跟踪脚本里每个
-# bash -x best-practices.sh
+# bash -x commonshell-best-practices.sh
