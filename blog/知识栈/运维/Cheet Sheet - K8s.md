@@ -22,9 +22,9 @@ $ sudo kubectl get pods --all-namespaces
 
 $ sudo kubectl get pods -A
 
-\# -owide 获取更多详情
+\# -o wide 获取更多详情
 
-$ sudo kubectl get pods -A -owide
+$ sudo kubectl get pods -A -o wide
 
 \# 查看 pod 的使用情况
 
@@ -134,9 +134,9 @@ $ kubectl exec -it shell-demo -- /bin/bash
 
 $ kubectl describe pods hello-demo -n ns
 
-$ kubectl get pvc hello-pvc-demo -n ns -oyaml
+$ kubectl get pvc hello-pvc-demo -n ns -o yaml
 
-$ kubectl get pv hello-pv-demo -n ns -oyaml
+$ kubectl get pv hello-pv-demo -n ns -o yaml
 
 \# 找密码配置的方式
 
@@ -148,7 +148,7 @@ $ kubectl edit cm -n infra rabbitmqcluster-server-conf
 
 $ kubectl edit secret -n infra rabbitmqcluster-default-user
 
-$ kubectl get  secret -n infra rabbitmqcluster-default-user -oyaml
+$ kubectl get  secret -n infra rabbitmqcluster-default-user -o yaml
 
 \# 获取所有的 K8s 资源对象
 
