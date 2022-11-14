@@ -1,1 +1,40 @@
+dmp_pg_host: samin.local
+dmp_pg_port: 5432
+dmp_pg_database: auth
+dmp_pg_username: auth
+dmp_pg_password: auth123456
+dmp_pg_schema: public
 
+dmp_redis_host: samin.local
+dmp_redis_port: 6379
+dmp_redis_password: dev_plat@123
+dmp_redis_database: 1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${dmp_pg_host}:${dmp_pg_port}/${dmp_pg_database}?currentSchema=${dmp_pg_schema:public}&stringtype=unspecified
+    username: ${dmp_pg_username}
+    password: ${dmp_pg_password}
+
+    driver-class-name: org.postgresql.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 50
+    maxWait: 120000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+  redis:
+    host: ${dmp_redis_host}
+    port: ${dmp_redis_port}
+    password: ${dmp_redis_password}
+    database: ${dmp_redis_database}
+    lettuce:
+      pool:
+        min-idle: 5
+        max-active: 10
+        max-wait: 3000
