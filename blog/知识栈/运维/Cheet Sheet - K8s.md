@@ -8,6 +8,8 @@ date: 2021-10-29
 
 $ kubectl apply -f nodeport.yaml
 
+$ kubectl delete -f nodeport.yaml
+
 \# 更新重启 K8s 资源
 
 $ kubectl replace --force -f nodeport.yaml
@@ -127,7 +129,7 @@ $ kubectl exec --stdin --tty shell-demo -- /bin/bash
 $ kubectl exec -it shell-demo -- /bin/bash
 
 > -i, --stdin[=false]: Pass stdin to the container
-> 
+>
 > -t, --tty[=false]: Stdin is a TTY
 
 \# 查看持久化路径的方式
@@ -148,7 +150,7 @@ $ kubectl edit cm -n infra rabbitmqcluster-server-conf
 
 $ kubectl edit secret -n infra rabbitmqcluster-default-user
 
-$ kubectl get  secret -n infra rabbitmqcluster-default-user -o yaml
+$ kubectl get secret -n infra rabbitmqcluster-default-user -o yaml
 
 \# 获取所有的 K8s 资源对象
 

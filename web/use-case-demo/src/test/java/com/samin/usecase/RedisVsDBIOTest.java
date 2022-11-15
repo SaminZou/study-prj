@@ -53,6 +53,7 @@ public class RedisVsDBIOTest {
         System.out.println("DB 花费：" + ((System.currentTimeMillis() - start) / 1000) + " 秒");
     }
 
+    // 缺点是只要有一组数据异常，比如格式或者长度问题，会导致整个插入失败
     @Test
     public void dbBatchTest() {
         List<UserDO> set = getDataSet();
