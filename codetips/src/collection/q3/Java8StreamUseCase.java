@@ -31,7 +31,9 @@ public class Java8StreamUseCase {
 
         System.out.println(list);
 
+        // 升序
         System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar)).collect(Collectors.toList()));
+        // 倒序
         System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar).reversed()).collect(Collectors.toList()));
 
         // stream 和 parallelStream 的简单区分： stream 是顺序流，由主线程按顺序对流执行操作，而 parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求
