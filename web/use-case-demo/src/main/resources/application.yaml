@@ -15,7 +15,6 @@ spring:
     url: jdbc:postgresql://${dmp_pg_host}:${dmp_pg_port}/${dmp_pg_database}?currentSchema=${dmp_pg_schema:public}&stringtype=unspecified
     username: ${dmp_pg_username}
     password: ${dmp_pg_password}
-
     driver-class-name: org.postgresql.Driver
     initialSize: 5
     minIdle: 5
@@ -38,3 +37,6 @@ spring:
         min-idle: 5
         max-active: 10
         max-wait: 3000
+
+use_case:
+  values: value1,value2,value3
