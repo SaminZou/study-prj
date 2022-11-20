@@ -18,6 +18,7 @@
         <spring-boot-admin.version>2.7.4</spring-boot-admin.version>
     </properties>
     <dependencies>
+        <!-- 服务端 -->
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
