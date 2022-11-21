@@ -174,7 +174,7 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
 
 ### zsh 设置
 
-\# 编辑 `~/.zshrc`
+$ vim ~/.zshrc
 
 ```properties
 # 主题配置， `ys`、`agnoster` 比较常用
@@ -194,7 +194,7 @@ $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh
 
 $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-\# 修改 ~/.zshrc 中的 plugins
+$ vim ~/.zshrc
 
 ```properties
 # 用空格分隔控件
