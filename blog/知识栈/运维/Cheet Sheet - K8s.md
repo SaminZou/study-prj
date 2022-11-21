@@ -170,4 +170,6 @@ $ kubectl explain pod.spec.containers
 
 $ kubectl get events -n ns
 
+$ kubectl get events -n ns --sort-by='{.metadata.creationTimestamp}'
+
 [K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
