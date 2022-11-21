@@ -1,4 +1,6 @@
 logging:
   file:
-    path: logs
+    path: /logs/aop
     name: aop.log
+  level:
+    root: debug
