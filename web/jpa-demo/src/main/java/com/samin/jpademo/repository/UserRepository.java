@@ -1,4 +1,4 @@
-package com.samin.jpademo.service;
+package com.samin.jpademo.repository;
 
 import com.samin.jpademo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
