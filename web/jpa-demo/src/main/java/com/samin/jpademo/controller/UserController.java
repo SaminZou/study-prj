@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 用户控制类
+ *
+ * @author samin
+ * @date 2022-11-23
+ */
 @RequiredArgsConstructor
 @RestController
 public class UserController {
