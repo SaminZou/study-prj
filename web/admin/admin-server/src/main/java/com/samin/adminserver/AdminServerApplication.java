@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 开启 admin-server
+ * admin-server
  *
  * @author samin
  * @date 2022-09-19
