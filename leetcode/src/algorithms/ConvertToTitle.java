@@ -8,6 +8,19 @@ package algorithms;
  */
 public class ConvertToTitle {
 
+    public static void main(String[] args) {
+        // A
+        System.out.println(new ConvertToTitle().convertToTitle(1));
+        // AB
+        System.out.println(new ConvertToTitle().convertToTitle(28));
+        // ZY
+        System.out.println(new ConvertToTitle().convertToTitle(701));
+        // FXSHRXW
+        System.out.println(new ConvertToTitle().convertToTitle(2147483647));
+        // AZ
+        System.out.println(new ConvertToTitle().convertToTitle(52));
+    }
+
     /**
      * 进制
      */
@@ -33,18 +46,5 @@ public class ConvertToTitle {
         }
 
         return sb.reverse().toString();
-    }
-
-    public static void main(String[] args) {
-        // A
-        System.out.println(new ConvertToTitle().convertToTitle(1));
-        // AB
-        System.out.println(new ConvertToTitle().convertToTitle(28));
-        // ZY
-        System.out.println(new ConvertToTitle().convertToTitle(701));
-        // FXSHRXW
-        System.out.println(new ConvertToTitle().convertToTitle(2147483647));
-        // AZ
-        System.out.println(new ConvertToTitle().convertToTitle(52));
     }
 }
