@@ -8,6 +8,14 @@ package algorithms;
  */
 public class FindKthPositive {
 
+    public static void main(String[] args) {
+        // 9
+        System.out.println(new FindKthPositive().findKthPositive(new int[]{2, 3, 4, 7, 11}, 5));
+
+        // 6
+        System.out.println(new FindKthPositive().findKthPositive(new int[]{1, 2, 3, 4}, 2));
+    }
+
     public int findKthPositive(int[] arr, int k) {
         // 从 1 开头排查
         int index = 1;
@@ -33,13 +41,5 @@ public class FindKthPositive {
         }
 
         return -1;
-    }
-
-    public static void main(String[] args) {
-        // 9
-        System.out.println(new FindKthPositive().findKthPositive(new int[]{2, 3, 4, 7, 11}, 5));
-
-        // 6
-        System.out.println(new FindKthPositive().findKthPositive(new int[]{1, 2, 3, 4}, 2));
     }
 }
