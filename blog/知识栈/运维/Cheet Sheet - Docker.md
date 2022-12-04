@@ -174,11 +174,11 @@ $ docker inspect <container_name> |grep IPAddress
 
 \# 查看 docker 容器的运行情况
 
-$ docker stats
+$ docker stats <container>
 
-\# 查看 docker 容器当前运行情况
+\# 查看 docker 容器运行情况，只返回当前结果
 
-$ docker stats --no-stream
+$ docker stats <container> --no-stream
 
 # 导入与导出
 
