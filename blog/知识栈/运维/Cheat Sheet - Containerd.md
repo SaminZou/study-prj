@@ -1,5 +1,5 @@
 ```yaml
-title: Cheet Sheet - Containerd
+title: Cheat Sheet - Containerd
 author: samin
 date: 2022-08-02
 ```

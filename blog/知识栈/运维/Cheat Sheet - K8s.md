@@ -1,5 +1,5 @@
 ```yaml
-title: Cheet Sheet - K8s
+title: Cheat Sheet - K8s
 author: samin
 date: 2021-10-29
 ```
@@ -172,4 +172,4 @@ $ kubectl get events -n ns
 
 $ kubectl get events -n ns --sort-by='{.metadata.creationTimestamp}'
 
-[K8s 官方 Cheet Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+[K8s 官方 Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)

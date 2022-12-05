@@ -1,5 +1,5 @@
 ```yaml
-title: Cheet Sheet - Docker
+title: Cheat Sheet - Docker
 author: samin
 date: 2021-10-29
 ```
@@ -243,6 +243,17 @@ $ sudo systemctl restart docker
 $ netstat -ano | grep 2375
 
 \# 访问http://ip:2375/version 验证
+
+# 一般需要挂载的三类数据
+
+- log
+  日志文件
+
+- data
+  数据文件
+
+- conf
+  配置文件
 
 # overlay2 目录迁移
 
