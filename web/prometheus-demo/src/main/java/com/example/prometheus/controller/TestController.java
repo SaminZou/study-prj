@@ -1,0 +1,29 @@
+package com.example.prometheus.controller;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Slf4j
+@RestController
+public class TestController {
+
+    public static final Map<String, Object> map = new ConcurrentHashMap<>();
+
+    @GetMapping("/something")
+    public ResponseEntity<String> createLogs() {
+        log.warn("Just checking");
+        return ResponseEntity.ok().body("All Ok");
+    }
+
+    @GetMapping("/heap/test")
+    public String testHeapUsed() {
+        for (int i = 0; i < 10000000; i++) {
+            map.put(i + "", new Object());
+        }
+        return "ok";
+    }
+}

@@ -1,0 +1,10 @@
+# 启动后观测 http://localhost:8080/actuator/prometheus
+management:
+  metrics:
+    tags:
+      application: samin-prometheus-test-app
+  endpoints:
+    web:
+      exposure:
+        include:
+          - prometheus
