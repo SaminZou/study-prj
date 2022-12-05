@@ -1,8 +1,12 @@
+spring:
+  application:
+    name: samin-prometheus-test-app
+
 # 启动后观测 http://localhost:8080/actuator/prometheus
 management:
   metrics:
     tags:
-      application: samin-prometheus-test-app
+      application: ${spring.application.name}
   endpoints:
     web:
       exposure:
