@@ -16,7 +16,7 @@ $ sudo /etc/init.d/ssh restart
 
 # 通过用户组控制
 
-新增用户，禁止 ssh 登录，hmoe 路径不创建目录
+新增用户，禁止 ssh 登录，home 路径不创建目录
 
 ```shell
 $ useradd -s /sbin/nologin -M samin -g sftpusers
@@ -60,7 +60,7 @@ vi /etc/ssh/sshd_config
 # 添加在配置文件末尾
 Subsystem sftp internal-sftp  # 指定使用 sftp 服务使用系统自带的 internal-sftp
 Match User samin # 匹配用户，如果要匹配多个组，多个组之间用逗号分割
-ChrootDirectory %h/das/sftp-data # 用 chroot 将指定用户的根目录
+ChrootDirectory /home/das/sftp-data # 用 chroot 将指定用户的根目录
 # ForceCommand internal-sftp # 指定 sftp 命令
 # X11Forwarding no # 这两行，如果不希望该用户能使用端口转发的话就加上，否则删掉
 AllowTcpForwarding no
