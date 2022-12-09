@@ -1,4 +1,4 @@
-package com.example.prometheus.controller;
+package com.samin.prometheus.controller;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

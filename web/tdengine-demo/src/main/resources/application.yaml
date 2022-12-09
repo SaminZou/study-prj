@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:TAOS://tdengine-dev:6030/dev
+    driver-class-name: com.taosdata.jdbc.TSDBDriver
+    username: root
+    password: taosdata
