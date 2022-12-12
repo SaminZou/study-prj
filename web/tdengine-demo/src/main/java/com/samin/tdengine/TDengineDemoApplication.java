@@ -1,11 +1,13 @@
 package com.samin.tdengine;
 
+import com.samin.tdengine.entity.IotDevice;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
@@ -45,7 +47,13 @@ public class TDengineDemoApplication implements CommandLineRunner {
         jdbcTemplate.execute("insert into iot_original_d003(ts,val) values(now, 10.5)");
         jdbcTemplate.execute("insert into iot_original_d003(ts,val) values(now, 10.6)");
 
+        // 查找数据
         result = jdbcTemplate.queryForList("select * from iot_original");
         result.forEach(System.out::println);
+
+        // 查找数据返回实体类列表
+        List<IotDevice> iotDevices = jdbcTemplate.query("select * from iot_original",
+                new BeanPropertyRowMapper<>(IotDevice.class));
+        System.out.println(iotDevices);
     }
 }
