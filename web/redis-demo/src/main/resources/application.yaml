@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://samin.local:5432/auth?currentSchema=public&stringtype=unspecified
+    username: auth
+    password: auth123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cache:
+    type: redis
+    redis:
+      # 存活时间（毫秒）
+      time-to-live: 3600000
+      # key 前缀
+      key-prefix: CACHE_
+      # 是否缓存空值，防止缓存穿透
+      cache-null-values: true
+  redis:
+    host: samin.local
+    port: 6379
+    username:
+    password: dev_plat@123
+    database: 0
+    lettuce:
+      pool:
+        min-idle: 5
+        max-active: 10
+        max-wait: 3000

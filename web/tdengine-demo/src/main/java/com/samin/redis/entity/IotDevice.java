@@ -1,4 +1,4 @@
-package com.samin.tdengine.entity;
+package com.samin.redis.entity;
 
 import lombok.Data;
 
