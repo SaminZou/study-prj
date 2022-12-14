@@ -16,4 +16,9 @@ public class DateUtil {
             throw new RuntimeException("pattern[" + pattern + "] and date[" + date + "] not match");
         }
     }
+
+    public static String format(Date date, String pattern) {
+        DateFormat format = new SimpleDateFormat(pattern);
+        return format.format(date);
+    }
 }
