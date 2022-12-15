@@ -8,6 +8,8 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoField;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +32,7 @@ public class HolidayService {
 
     @Cacheable(cacheNames = "HOLIDAY_STATS", key = "#p0")
     public HolidayStatsVo stats(String specTime) {
+        List<Holiday> all = holidayRepository.findAll();
         HolidayStatsVo vo = new HolidayStatsVo();
 
         int holidaysCount = 0;
@@ -40,23 +43,23 @@ public class HolidayService {
         String lastDay = specTime + "1231";
 
         // 遍历计算每一天
-//        Date firstDate = DateUtil.parse(firstDay, "yyyyMMdd");
-//        while (!firstDay.equals(lastDay)) {
-//            if (isHoliday(firstDate) == 1) {
-//                holidaysCount += 1;
-//            } else {
-//                weekdaysCount += 1;
-//            }
-//            firstDate = DateUtils.addDays(firstDate, 1);
-//            firstDay = DateUtil.format(firstDate, "yyyyMMdd");
-//        }
-//
-//        // 处理最后一天
-//        if (isHoliday(DateUtil.parse(lastDay, "yyyyMMdd")) == 1) {
-//            holidaysCount += 1;
-//        } else {
-//            weekdaysCount += 1;
-//        }
+        Date firstDate = DateUtil.parse(firstDay, "yyyyMMdd");
+        while (!firstDay.equals(lastDay)) {
+            if (isHoliday(all, firstDate)) {
+                holidaysCount += 1;
+            } else {
+                weekdaysCount += 1;
+            }
+            firstDate = DateUtils.addDays(firstDate, 1);
+            firstDay = DateUtil.format(firstDate, "yyyyMMdd");
+        }
+
+        // 处理最后一天
+        if (isHoliday(all, DateUtil.parse(lastDay, "yyyyMMdd"))) {
+            holidaysCount += 1;
+        } else {
+            weekdaysCount += 1;
+        }
 
         vo.setHolidaysCount(holidaysCount);
         vo.setWeekdaysCount(weekdaysCount);
@@ -70,6 +73,7 @@ public class HolidayService {
 
     @CacheEvict(cacheNames = "HOLIDAY_STATS", allEntries = true)
     public Holiday save(Holiday holiday) {
+        // TODO 防止重复
         return holidayRepository.save(holiday);
     }
 
@@ -81,31 +85,38 @@ public class HolidayService {
         }
     }
 
-//    public int isHoliday(Date date) {
-//        Date targetDate = date;
-//        targetDate = DateUtils.setHours(targetDate, 0);
-//        targetDate = DateUtils.setMinutes(targetDate, 0);
-//
-//        String dateStr = DateUtil.format(targetDate, "yyyyMMddHHmmss");
-//        // 匹配数据库特定数据
-//        List<String> workDays = getWorkDays();
-//        for (String ele : workDays) {
-//            if (dateStr.equals(ele)) {
-//                return DiagnosisDateTypeEnum.WORK_DAY.getCode();
-//            }
-//        }
-//
-//        List<String> holidays = getHolidays();
-//        for (String ele : holidays) {
-//            if (dateStr.equals(ele)) {
-//                return DiagnosisDateTypeEnum.HOLIDAY.getCode();
-//            }
-//        }
-//
-//        // 通用假期算法
-//        LocalDateTime currentLocalDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-//        DayOfWeek dayOfWeek = DayOfWeek.of(currentLocalDateTime.get(ChronoField.DAY_OF_WEEK));
-//        return dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY ? DiagnosisDateTypeEnum.HOLIDAY.getCode()
-//                                                                                : DiagnosisDateTypeEnum.WORK_DAY.getCode();
-//    }
+    public boolean isHoliday(List<Holiday> all, Date date) {
+        String dateStr = DateUtil.format(date, "yyyyMMdd");
+        // 匹配数据库特定数据
+        List<String> workDays = getWorkDays(all);
+        for (String ele : workDays) {
+            if (dateStr.equals(ele)) {
+                return false;
+            }
+        }
+
+        List<String> holidays = getHolidays(all);
+        for (String ele : holidays) {
+            if (dateStr.equals(ele)) {
+                return true;
+            }
+        }
+
+        // 通用假期算法
+        LocalDateTime currentLocalDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        DayOfWeek dayOfWeek = DayOfWeek.of(currentLocalDateTime.get(ChronoField.DAY_OF_WEEK));
+        return dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY;
+    }
+
+    public List<String> getWorkDays(List<Holiday> all) {
+        List<String> result = new ArrayList<>();
+        all.forEach(e -> result.addAll(Arrays.asList(e.getWeekdays())));
+        return result;
+    }
+
+    public List<String> getHolidays(List<Holiday> all) {
+        List<String> result = new ArrayList<>();
+        all.forEach(e -> result.addAll(Arrays.asList(e.getHolidays())));
+        return result;
+    }
 }
