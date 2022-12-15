@@ -1,6 +1,6 @@
-package com.samin.redis;
+package com.samin.tdengine;
 
-import com.samin.redis.entity.IotDevice;
+import com.samin.tdengine.entity.IotDevice;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;

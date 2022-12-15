@@ -1,6 +1,6 @@
 package com.samin.redis.service;
 
-import com.samin.redis.DateUtil;
+import com.samin.redis.util.DateUtil;
 import com.samin.redis.entity.Holiday;
 import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;

@@ -1,4 +1,4 @@
-package com.samin.redis;
+package com.samin.redis.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;
