@@ -1,9 +1,9 @@
 package com.samin.redis.service;
 
-import com.samin.redis.util.DateUtil;
 import com.samin.redis.entity.Holiday;
 import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;
+import com.samin.redis.util.DateUtil;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -37,28 +38,15 @@ public class HolidayService {
 
         int holidaysCount = 0;
         int weekdaysCount = 0;
-        // 第一天
-        String firstDay = specTime + "0101";
-        // 最后一天
-        String lastDay = specTime + "1231";
-
         // 遍历计算每一天
-        Date firstDate = DateUtil.parse(firstDay, "yyyyMMdd");
-        while (!firstDay.equals(lastDay)) {
-            if (isHoliday(all, firstDate)) {
+        Date indexDate = DateUtil.parse(specTime + "0101", "yyyyMMdd");
+        while (StringUtils.equals(specTime, DateUtil.format(indexDate, "yyyy"))) {
+            if (isHoliday(all, indexDate)) {
                 holidaysCount += 1;
             } else {
                 weekdaysCount += 1;
             }
-            firstDate = DateUtils.addDays(firstDate, 1);
-            firstDay = DateUtil.format(firstDate, "yyyyMMdd");
-        }
-
-        // 处理最后一天
-        if (isHoliday(all, DateUtil.parse(lastDay, "yyyyMMdd"))) {
-            holidaysCount += 1;
-        } else {
-            weekdaysCount += 1;
+            indexDate = DateUtils.addDays(indexDate, 1);
         }
 
         vo.setHolidaysCount(holidaysCount);
