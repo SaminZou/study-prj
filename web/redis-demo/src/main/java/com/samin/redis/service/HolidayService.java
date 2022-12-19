@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.cache.annotation.CacheEvict;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Service;
  * @author samin
  * @date 2022-11-22
  */
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class HolidayService {
@@ -61,7 +63,7 @@ public class HolidayService {
 
     @CacheEvict(cacheNames = "HOLIDAY_STATS", allEntries = true)
     public Holiday save(Holiday holiday) {
-        // TODO 防止重复
+        // TODO 防止假期和工作日重复
         return holidayRepository.save(holiday);
     }
 
@@ -70,6 +72,7 @@ public class HolidayService {
         try {
             holidayRepository.deleteById(id);
         } catch (Exception e) {
+            log.error("假期删除失败");
         }
     }
 
