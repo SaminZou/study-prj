@@ -50,6 +50,10 @@ $ sudo kubectl create -f deployment.yaml
 
 $ sudo kubectl get deployments -n <namespaces>
 
+或
+
+$ sudo kubectl get sts -n <namespaces>
+
 \# 强制删除 pods
 
 $ sudo kubectl delete pod <pod-name> -n <namespace-name> --force --grace-period=0
