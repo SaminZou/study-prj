@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
 
-    private Integer times = 0;
+    private int times = 0;
 
     public void setTimes() {
         times += 1;
