@@ -3,6 +3,12 @@ package com.samin.logbackdemo.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * 可以证明 bean 为单例模式
+ *
+ * @author samin
+ * @date 2022-12-24
+ */
 @Slf4j
 @Service
 public class TestService {
