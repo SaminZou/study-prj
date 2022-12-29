@@ -1,13 +1,13 @@
-dmp_pg_host: samin.local
-dmp_pg_port: 5432
-dmp_pg_database: auth
-dmp_pg_username: auth
-dmp_pg_password: auth123456
+dmp_pg_host: samin.dev
+dmp_pg_port: 55401
+dmp_pg_database: dmp-dev
+dmp_pg_username: root
+dmp_pg_password: 123456
 dmp_pg_schema: public
 
-dmp_redis_host: samin.local
-dmp_redis_port: 6379
-dmp_redis_password: dev_plat@123
+dmp_redis_host: samin.dev
+dmp_redis_port: 55601
+dmp_redis_password: 123456
 dmp_redis_database: 1
 
 spring:
@@ -40,3 +40,8 @@ spring:
 
 use_case:
   values: value1,value2,value3
+
+# 可以不写，默认为 true
+custom:
+  config:
+    enabled: false
