@@ -2,8 +2,11 @@ spring:
   application:
     name: samin-prometheus-test-app
 
-# 启动后观测 http://localhost:8080/actuator/prometheus
+# 启动后观测 http://localhost:8080/_mng/actuator/prometheus
 management:
+  server:
+    port: 8081
+    base-path: /_mng
   metrics:
     tags:
       application: ${spring.application.name}

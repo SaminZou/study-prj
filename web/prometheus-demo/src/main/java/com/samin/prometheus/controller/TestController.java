@@ -19,6 +19,12 @@ public class TestController {
 
     public static final Map<String, Object> map = new ConcurrentHashMap<>();
 
+    @GetMapping("/timeOver3s")
+    public ResponseEntity<String> timeOver3s() throws InterruptedException {
+        Thread.sleep(3500);
+        return ResponseEntity.ok().body("Ok");
+    }
+
     @GetMapping("/something")
     public ResponseEntity<String> createLogs() {
         log.warn("Just checking");
