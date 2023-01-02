@@ -25,6 +25,12 @@ public class TestController {
         return ResponseEntity.ok().body("Ok");
     }
 
+    @GetMapping("/timeOver5s")
+    public ResponseEntity<String> timeOver5s() throws InterruptedException {
+        Thread.sleep(5500);
+        return ResponseEntity.ok().body("Ok");
+    }
+
     @GetMapping("/something")
     public ResponseEntity<String> createLogs() {
         log.warn("Just checking");
