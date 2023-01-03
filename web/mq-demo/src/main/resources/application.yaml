@@ -1,7 +1,0 @@
-spring:
-  rabbitmq:
-    host: samin.dev
-    port: 55501
-    username: root
-    password: 123456
-    virtual-host: dmp-dev

@@ -1,6 +1,6 @@
-package com.samin.mq.config;
+package com.samin.consumer.config;
 
-import com.samin.mq.service.Receiver;
+import com.samin.consumer.service.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

@@ -1,4 +1,4 @@
-package com.samin.mq.service;
+package com.samin.consumer.service;
 
 import java.util.concurrent.CountDownLatch;
 import org.springframework.stereotype.Component;

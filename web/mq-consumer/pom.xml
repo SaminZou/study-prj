@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.samin</groupId>
-    <artifactId>mq-demo</artifactId>
+    <artifactId>mq-consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mq-demo</name>
-    <description>mq-demo</description>
+    <name>mq-consumer</name>
+    <description>mq-consumer</description>
 
     <properties>
         <java.version>11</java.version>
