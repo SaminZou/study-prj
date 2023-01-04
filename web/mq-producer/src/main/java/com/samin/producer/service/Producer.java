@@ -1,6 +1,9 @@
 package com.samin.producer.service;
 
+import com.samin.common.SystemConstant;
+import com.samin.common.entity.MessageBody;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +16,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Producer implements CommandLineRunner {
 
-    public static final String topicExchangeName = "samin-dev-exchange";
-
     private final RabbitTemplate rabbitTemplate;
 
     public Producer(RabbitTemplate rabbitTemplate) {
@@ -25,6 +26,12 @@ public class Producer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Sending message...");
 
-        rabbitTemplate.convertAndSend(topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
+        rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
+
+        Thread.sleep(3000L);
+
+        MessageBody messageBody = MessageBody.builder().msgId(1L).text("foo").content("bar").userId(1L).build();
+        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+        rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "msg.foo", messageBody);
     }
 }

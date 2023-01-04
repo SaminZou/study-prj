@@ -1,22 +1,16 @@
 package com.samin.consumer.config;
 
-import com.samin.consumer.service.Receiver;
+import com.samin.common.SystemConstant;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
-import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitmqConfig {
-
-    public static final String topicExchangeName = "samin-dev-exchange";
-
-    public static final String queueName = "samin-dev-queue";
 
     /**
      * 新建队列
@@ -25,7 +19,7 @@ public class RabbitmqConfig {
      */
     @Bean
     Queue queue() {
-        return new Queue(queueName, false);
+        return new Queue(SystemConstant.queueName, false);
     }
 
     /**
@@ -35,7 +29,7 @@ public class RabbitmqConfig {
      */
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange(topicExchangeName);
+        return new TopicExchange(SystemConstant.topicExchangeName);
     }
 
     /**
@@ -51,29 +45,33 @@ public class RabbitmqConfig {
     }
 
     /**
-     * 监听队列
+     * 追加的消息队列
      *
-     * @param connectionFactory 连接配置
-     * @param listenerAdapter   监听适配器
-     * @return
-     */
-    @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
-        SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        container.setQueueNames(queueName);
-        container.setMessageListener(listenerAdapter);
-        return container;
-    }
-
-    /**
-     * 消息监听适配器
-     *
-     * @param receiver 监听对象
      * @return bean
      */
     @Bean
-    MessageListenerAdapter listenerAdapter(Receiver receiver) {
-        return new MessageListenerAdapter(receiver, "receiveMessage");
+    Queue msgQueue() {
+        return new Queue(SystemConstant.msgConsumerQueueName, false);
+    }
+
+    /**
+     * 追加的消息队列绑定
+     *
+     * @param exchange 交换机
+     * @return bean
+     */
+    @Bean
+    Binding msgBinding(TopicExchange exchange) {
+        return BindingBuilder.bind(msgQueue()).to(exchange).with("msg.#");
+    }
+
+    /**
+     * 必须添加 Jackson 转换器，否则无法转换接收实体类
+     *
+     * @return 转换器
+     */
+    @Bean
+    public Jackson2JsonMessageConverter converter() {
+        return new Jackson2JsonMessageConverter();
     }
 }
