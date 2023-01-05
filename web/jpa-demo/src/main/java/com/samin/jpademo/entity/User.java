@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import lombok.Data;
 
 @Data
@@ -19,4 +20,10 @@ public class User {
     private String name;
 
     private Integer sex;
+
+    /**
+     * 忽略持久化
+     */
+    @Transient
+    private String other;
 }
