@@ -1,5 +1,6 @@
 package com.samin.jpademo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,6 +20,10 @@ public class User {
 
     private String name;
 
+    /**
+     * 指定字段名称为 sex，默认不指定为和字段保持一致
+     */
+    @Column(name = "sex")
     private Integer sex;
 
     /**
