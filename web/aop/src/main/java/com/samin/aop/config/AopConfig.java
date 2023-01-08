@@ -1,5 +1,6 @@
 package com.samin.aop.config;
 
+import java.time.Instant;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -58,9 +59,9 @@ public class AopConfig {
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         String name = pjp.getSignature().getName();
         // 统计方法执行时间
-        long start = System.currentTimeMillis();
+        long start = Instant.now().toEpochMilli();
         Object result = pjp.proceed();
-        long end = System.currentTimeMillis();
+        long end = Instant.now().toEpochMilli();
         log.info(name + "方法执行时间为：" + (end - start) + " ms");
         return result;
     }
