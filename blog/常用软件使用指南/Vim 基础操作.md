@@ -97,3 +97,7 @@ test 123 456
 test 123 456
 test 123 456
 ```
+
+# 常规操作 
+
+ggVG = window 场景 CTRL + A = 全选
