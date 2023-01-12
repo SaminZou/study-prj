@@ -37,3 +37,9 @@ echo "" >> server.info
 echo "# 硬盘信息：" >> server.info
 lsblk >> server.info
 echo "" >> server.info
+
+# 主频信息
+
+echo "# 主频信息：" >> server.info
+cat /proc/cpuinfo | grep MHz >> server.info
+echo "" >> server.info
