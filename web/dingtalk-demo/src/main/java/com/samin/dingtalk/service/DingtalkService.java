@@ -27,15 +27,16 @@ public class DingtalkService {
     @Value("${custom.dingtalk-url}")
     private String dingtalkUrl;
 
+    private final static String ALARM_MSG_TEMPLATE = "- 告警应用：%s\n- 告警实例：%s\n- 告警时间：%s\n- 告警详情：%s\n- 请求名：%s\n- 请求方法：%s";
+
     public void dingtalk(AlertReq req) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String now = LocalDateTime.now().format(dtf);
 
         for (Alerts alerts : req.getAlerts()) {
-            String text = String.format(
-                    "- 告警应用：%s\n" + "- 告警实例：%s\n" + "- 告警时间：%s\n" + "- 告警详情：%s\n" + "- 请求名：%s\n"
-                            + "- 请求方法：%s", req.getCommonLabels().getApplication(), req.getCommonLabels().getInstance(),
-                    now, alerts.getAnnotations().getSummary(), alerts.getLabels().getUri(), alerts.getLabels().getMethod());
+            String text = String.format(ALARM_MSG_TEMPLATE, req.getCommonLabels().getApplication(),
+                    req.getCommonLabels().getInstance(), now, alerts.getAnnotations().getSummary(),
+                    alerts.getLabels().getUri(), alerts.getLabels().getMethod());
 
             // 构建请求体
             Markdown markdown = new Markdown();

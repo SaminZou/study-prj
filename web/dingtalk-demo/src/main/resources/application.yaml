@@ -7,4 +7,5 @@ spring:
       matching-strategy: ant_path_matcher
 
 custom:
-  dingtalk-url: http://samin.dev/robot/send
+  # 替换成钉钉生成的机器人 token
+  dingtalk-url: http://samin.dev/robot/send?access_token=xxx
