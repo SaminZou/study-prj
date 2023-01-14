@@ -29,4 +29,8 @@ public class UserService {
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
     }
+
+    public List<User> findBySex(int sex){
+        return userRepository.findUserBySex(sex);
+    }
 }
