@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date 2022-11-23
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
-    
+
     List<User> findUserBySex(int sex);
 }
