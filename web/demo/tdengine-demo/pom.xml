@@ -3,31 +3,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.samin</groupId>
+        <artifactId>demo</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <groupId>com.samin</groupId>
-    <artifactId>prometheus-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>prometheus-demo</name>
-    <description>prometheus-demo</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
+    <artifactId>tdengine-demo</artifactId>
+    <name>tdengine-demo</name>
+    <description>tdengine-demo</description>
 
     <dependencies>
         <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-registry-prometheus</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <groupId>com.taosdata.jdbc</groupId>
+            <artifactId>taos-jdbcdriver</artifactId>
+            <version>2.0.36</version>
         </dependency>
 
         <dependency>
@@ -36,9 +25,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${springboot.version}</version>
         </dependency>
     </dependencies>
 
