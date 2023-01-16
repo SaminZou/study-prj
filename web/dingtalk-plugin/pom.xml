@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.samin</groupId>
-    <artifactId>dingtalk-demo</artifactId>
+    <artifactId>dingtalk-plugin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dingtalk-demo</name>
-    <description>dingtalk-demo</description>
+    <name>dingtalk-plugin</name>
+    <description>dingtalk-plugin</description>
     <properties>
         <java.version>17</java.version>
     </properties>
