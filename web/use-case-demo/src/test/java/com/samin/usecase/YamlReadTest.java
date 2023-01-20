@@ -15,14 +15,18 @@ import org.springframework.test.context.ActiveProfiles;
  */
 @Slf4j
 @SpringBootTest
-@ActiveProfiles("dev")
+@ActiveProfiles(value = {"dev","test"})
 public class YamlReadTest {
 
     @Value("${use_case.values}")
     private List<String> arr;
 
+    @Value("${use_case.values2}")
+    private List<String> arr2;
+
     @Test
     public void test() {
         arr.forEach(System.out::println);
+        arr2.forEach(System.out::println);
     }
 }
