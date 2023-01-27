@@ -17,27 +17,27 @@ public class ListAndArrayUseCase {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
         list.add(111);
-        // List<Integer> -> int[]
+        // List<Integer> to int[]
         int[] ints = list.stream().mapToInt(Integer::valueOf).toArray();
         System.out.println(ints.length);
 
         // natural order
         list.sort(Comparator.naturalOrder());
 
-        // List<Integer> -> Integer[]
+        // List<Integer> to Integer[]
         Integer[] integers1 = list.toArray(new Integer[0]);
 
-        // int[] -> List<Integer>
+        // int[] to List<Integer>
         List<Integer> collect = Arrays.stream(ints).boxed().collect(Collectors.toList());
         System.out.println(collect.size());
 
-        // int[] -> Integer[]
+        // int[] to Integer[]
         Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
 
-        // Integer[] -> int[]
+        // Integer[] to int[]
         int[] ints1 = Arrays.stream(integers1).mapToInt(Integer::valueOf).toArray();
 
-        // Integer[] -> List<Integer>
+        // Integer[] to List<Integer>
         List<Integer> integers2 = new ArrayList<>(Arrays.asList(integers1));
     }
 }
