@@ -1,4 +1,4 @@
-package com.samin.swaggerdemo.config;
+package com.samin.dingtalk.config;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.samin.swaggerdemo.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.samin.dingtalk.controller"))
                 .paths(PathSelectors.any())
                 .build();
 
