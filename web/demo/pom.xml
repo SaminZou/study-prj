@@ -15,6 +15,7 @@
         <module>tdengine-demo</module>
         <module>mq-demo</module>
         <module>aop-demo</module>
+        <module>auth-demo</module>
     </modules>
 
     <packaging>pom</packaging>

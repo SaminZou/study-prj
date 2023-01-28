@@ -15,7 +15,7 @@ public class BusinessController {
 
     @GetMapping("/test")
     public HashMap<String, String> test() {
-        return new HashMap<>(1) {
+        return new HashMap<String, String>(1) {
             {
                 put("msg", "访问成功");
             }

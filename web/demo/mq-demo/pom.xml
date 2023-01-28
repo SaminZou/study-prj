@@ -8,7 +8,9 @@
         <artifactId>demo</artifactId>
         <version>1.0.0</version>
     </parent>
+
     <artifactId>mq-demo</artifactId>
+
     <modules>
         <module>mq-common</module>
         <module>mq-consumer</module>
