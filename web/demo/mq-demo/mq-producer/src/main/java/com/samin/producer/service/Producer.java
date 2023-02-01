@@ -28,10 +28,12 @@ public class Producer implements CommandLineRunner {
 
         rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
 
-        Thread.sleep(3000L);
+        while (true){
+            Thread.sleep(3000L);
 
-        MessageBody messageBody = MessageBody.builder().msgId(1L).text("foo").content("bar").userId(1L).build();
-        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
-        rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "msg.foo", messageBody);
+            MessageBody messageBody = MessageBody.builder().msgId(1L).text("foo").content("bar").userId(1L).build();
+            rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+            rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "msg.foo", messageBody);
+        }
     }
 }
