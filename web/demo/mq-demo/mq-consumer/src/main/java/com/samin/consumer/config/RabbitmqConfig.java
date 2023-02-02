@@ -74,4 +74,25 @@ public class RabbitmqConfig {
     public Jackson2JsonMessageConverter converter() {
         return new Jackson2JsonMessageConverter();
     }
+
+    /**
+     * 追加的消息队列
+     *
+     * @return bean
+     */
+    @Bean
+    Queue workerQueue() {
+        return new Queue(SystemConstant.workerQueueName, false);
+    }
+
+    /**
+     * 追加的消息队列绑定
+     *
+     * @param exchange 交换机
+     * @return bean
+     */
+    @Bean
+    Binding workerBinding(TopicExchange exchange) {
+        return BindingBuilder.bind(workerQueue()).to(exchange).with("work.#");
+    }
 }
