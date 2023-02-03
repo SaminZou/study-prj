@@ -5,3 +5,13 @@ spring:
     username: msgbox
     password: msgbox
     virtual-host: /
+    listener:
+      simple:
+        prefetch: 1
+        default-requeue-rejected: false
+        # 每个队列启动的消费者数量
+        concurrency: 1
+        # 每个队列最大的消费者数量
+        max-concurrency: 10
+
+# 死信队列 https://juejin.cn/post/6844904120030085134
