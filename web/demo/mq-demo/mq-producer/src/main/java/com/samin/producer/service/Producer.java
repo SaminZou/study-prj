@@ -26,8 +26,11 @@ public class Producer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Sending message...");
 
+        // 发送字符串消息
         sendStringMsg();
+        // 发送对象消息，使用 Jackson
         sendObjectMsg();
+        // 循环发送消息
         sendLoopMsg();
     }
 
