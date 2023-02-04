@@ -24,7 +24,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class DateTimeUseCase {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         DateTimeUseCase.showTimeOperate();
 
         System.out.println(":-----------------------");
@@ -57,6 +57,8 @@ public class DateTimeUseCase {
         System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
+        // 计算运行时间
+        countProcessTime();
         // 计算时间差
         OffsetDateTime aTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:19:00");
@@ -177,6 +179,14 @@ public class DateTimeUseCase {
         System.out.println(Instant.now().getEpochSecond());
         // 纳秒部分
         System.out.println(Instant.now().getNano());
+    }
+
+    public static void countProcessTime() throws InterruptedException {
+        long startTime = Instant.now().toEpochMilli();
+
+        Thread.sleep(3000L);
+
+        System.out.println("执行时间为：" + ((Instant.now().toEpochMilli() - startTime) / 1000L));
     }
 
     /**
