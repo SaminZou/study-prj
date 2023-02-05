@@ -48,7 +48,7 @@ public class DateTimeUseCase {
         System.out.println("今天的午夜时间：" + dateTime);
 
         // 打印当前日期
-        LocalDateTime now = getNowDateTime();
+        LocalDateTime now = LocalDateTime.now();
         System.out.printf("当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
         // 修改时间
@@ -89,28 +89,6 @@ public class DateTimeUseCase {
      * 时区偏移值
      */
     public static final String OFFSET_ID = "+8";
-
-    /**
-     * 获取当前时间
-     *
-     * @return 时分秒
-     */
-    public static LocalTime getNowTime() {
-        return LocalTime.now();
-    }
-
-    /**
-     * 获取当前时间
-     *
-     * @return 年月日
-     */
-    public static LocalDate getNowDate() {
-        return LocalDate.now();
-    }
-
-    public static LocalDateTime getNowDateTime() {
-        return LocalDateTime.now();
-    }
 
     public static void showDetailTime() {
         LocalDate date = LocalDate.now();
