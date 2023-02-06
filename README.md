@@ -75,3 +75,9 @@ Java Web Demo
 # 6 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
+
+# FAQ
+
+Q：idea 导入后，可能出现异常需要重新导入工程项目，可以使用 `clean-idea-project-files.py` 删除工程文件
+
+$ python clean-idea-project-files.py
