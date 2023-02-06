@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+
 # 打印当前运行程序的 pid
 echo "PID of shell: $$"
 

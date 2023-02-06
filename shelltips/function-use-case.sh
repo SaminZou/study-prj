@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+
 # 打印当前时间
 getDate() {
   local date="$(date "+%Y-%m-%d %H:%M:%S")"
