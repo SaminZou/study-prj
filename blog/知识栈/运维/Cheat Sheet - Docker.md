@@ -299,6 +299,16 @@ COPY、ADD、RUN指令执行会增加层，层的概念和git相似，会占用�
 
 - 若是在启动容器后，容器内容有变化，需要备份，则使用export、import
 
+# 本地操作远程服务器的 docker 服务
+
+1. 打开远程 docker 的 api 服务
+
+2. docker context create 指令添加远程 docker api
+
+3. docker context ls 查看可管理的 docker 服务列表
+
+4. docker context use 切换需要管理的上下文配置
+
 ## 实践
 
 ```shell
