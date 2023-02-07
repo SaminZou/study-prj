@@ -25,20 +25,9 @@ $ 跳至行首
 
 # 优化配置
 
-> 编辑 ~/.vimrc 
+> 编辑 ~/.vimrc
 
-```shell
-syntax on
-set nocompatible
-set backspace=indent,eol,start
-set number
-set cindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-:set mouse=a
-```
+[参考](https://www.notion.so/vim-zsh-5bf5317ef224458aa08cd17c7abcd56e#c931e98f240841c19baacb11ecea536d)
 
 > ~/.vimrc文件是vim的配置文件，在每次vim编辑任何文件的时候都会自动读取并设置相关的信息，所以不需要进行 source
 

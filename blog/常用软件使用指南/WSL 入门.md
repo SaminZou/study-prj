@@ -126,18 +126,9 @@ https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 
 $ vim ~/.vimrc
 
-```
-syntax on
-set nocompatible
-set backspace=indent,eol,start
-set number
-set cindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-:set mouse=a
-```
+> [参考](https://www.notion.so/vim-zsh-5bf5317ef224458aa08cd17c7abcd56e#c931e98f240841c19baacb11ecea536d)
+
+$ source ~/.vimrc
 
 ## ZSH
 
