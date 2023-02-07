@@ -1,5 +1,5 @@
 ```yaml
-title: Cheet Sheet - JavaScript
+title: Cheat Sheet - JavaScript
 author: samin
 date: 2021-10-29
 ```

@@ -1,5 +1,5 @@
 ```yaml
-title: Cheet Sheet - Go
+title: Cheat Sheet - Go
 author: samin
 date: 2021-10-29
 ```
