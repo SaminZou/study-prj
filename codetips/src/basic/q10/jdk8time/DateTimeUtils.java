@@ -20,6 +20,11 @@ import java.util.List;
  */
 public class DateTimeUtils {
 
+    /**
+     * 时区偏移值
+     */
+    public static final String OFFSET_ID = "+8";
+
     public static void main(String[] args) {
         // 前 5 天
         System.out.println(getPreviousDays(new Date(), 5));
@@ -27,7 +32,7 @@ public class DateTimeUtils {
         System.out.println(getPreviousDays(new Date(), 5, false));
         // 前 5 个假期
         System.out.println(getPreviousDays(new Date(), 5, true));
-        
+
         // 格式化的时间差
         OffsetDateTime aTime = strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime = strToOffsetDateTime("2021-07-08 16:20:00");
@@ -41,9 +46,9 @@ public class DateTimeUtils {
     public static OffsetDateTime strToOffsetDateTime(String text) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parseTime = LocalDateTime.parse(text, df);
-        return OffsetDateTime.of(parseTime, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
+        return OffsetDateTime.of(parseTime, ZoneOffset.of(OFFSET_ID));
     }
-    
+
     public static String formatTimeBySecond(long secondTime) {
         String result;
 

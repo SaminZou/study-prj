@@ -2,16 +2,13 @@ package basic.q10.jdk8time;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-import java.time.Clock;
 import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.MonthDay;
 import java.time.OffsetDateTime;
 import java.time.Period;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -33,12 +30,6 @@ public class DateTimeUseCase {
         System.out.println(":-----------------------");
         DateTimeUseCase.showCycleTime();
 
-        System.out.println(":-----------------------");
-        DateTimeUseCase.showTimestamp();
-
-        System.out.println("showTimestamp2():-----------------------");
-        DateTimeUseCase.showTimestamp2();
-
         // 以下两个解析内容一致
         System.out.println(LocalDateTime.parse("2022-11-07 24:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         System.out.println(LocalDateTime.parse("2022-11-08 00:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
@@ -57,8 +48,6 @@ public class DateTimeUseCase {
         System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
-        // 计算运行时间
-        countProcessTime();
         // 计算时间差
         OffsetDateTime aTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime = DateTimeUtils.strToOffsetDateTime("2021-07-08 16:19:00");
@@ -85,10 +74,6 @@ public class DateTimeUseCase {
         System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
     }
 
-    /**
-     * 时区偏移值
-     */
-    public static final String OFFSET_ID = "+8";
 
     public static void showDetailTime() {
         LocalDate date = LocalDate.now();
@@ -138,36 +123,6 @@ public class DateTimeUseCase {
     }
 
     /**
-     * Clock 用来代替 System.currentTimeInMillis() 和 TimeZone.getDefault()
-     */
-    public static void showTimestamp() {
-        // 根据系统时间返回当前时间并设置为UTC
-        System.out.println(Clock.systemUTC());
-        System.out.println(Clock.systemUTC().millis());
-
-        // 根据系统时钟区域返回时间
-        System.out.println(Clock.systemDefaultZone());
-        System.out.println(Clock.systemDefaultZone().millis());
-    }
-
-    public static void showTimestamp2() {
-        // 毫秒
-        System.out.println(Instant.now().toEpochMilli());
-        // 秒数部分
-        System.out.println(Instant.now().getEpochSecond());
-        // 纳秒部分
-        System.out.println(Instant.now().getNano());
-    }
-
-    public static void countProcessTime() throws InterruptedException {
-        long startTime = Instant.now().toEpochMilli();
-
-        Thread.sleep(3000L);
-
-        System.out.println("执行时间为：" + ((Instant.now().toEpochMilli() - startTime) / 1000L));
-    }
-
-    /**
      * LocalDate to LocalDateTime
      */
     public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
@@ -180,13 +135,6 @@ public class DateTimeUseCase {
     public static String localDateTimeToString(LocalDateTime ldt) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return ldt.format(df);
-    }
-
-    /**
-     * LocalDateTime to OffsetDateTime
-     */
-    public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
-        return OffsetDateTime.of(ldt, ZoneOffset.of(DateTimeUseCase.OFFSET_ID));
     }
 
     /**

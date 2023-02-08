@@ -18,6 +18,11 @@ import java.util.stream.Collectors;
  */
 public class DateSortUseCase {
 
+    /**
+     * 时区偏移值
+     */
+    public static final String OFFSET_ID = "+8";
+
     public static void main(String[] args) {
         String date1 = "2018-10-21 10:11:12";
         String date2 = "2021-10-23 11:11:12";
@@ -25,18 +30,14 @@ public class DateSortUseCase {
         String date4 = "2020-10-22 12:11:12";
 
         List<SortObj> list = new ArrayList<>();
-        list.add(new SortObj(1, "foo1",
-                OffsetDateTime.of(LocalDateTime.parse(date1, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                        ZoneOffset.of(DateTimeUseCase.OFFSET_ID))));
-        list.add(new SortObj(2, "foo2",
-                OffsetDateTime.of(LocalDateTime.parse(date2, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                        ZoneOffset.of(DateTimeUseCase.OFFSET_ID))));
-        list.add(new SortObj(3, "foo3",
-                OffsetDateTime.of(LocalDateTime.parse(date3, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                        ZoneOffset.of(DateTimeUseCase.OFFSET_ID))));
-        list.add(new SortObj(4, "foo4",
-                OffsetDateTime.of(LocalDateTime.parse(date4, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                        ZoneOffset.of(DateTimeUseCase.OFFSET_ID))));
+        list.add(new SortObj(1, "foo1", localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date1, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))));
+        list.add(new SortObj(2, "foo2", localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date2, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))));
+        list.add(new SortObj(3, "foo3", localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date3, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))));
+        list.add(new SortObj(4, "foo4", localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date4, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))));
 
         // 1 2 3 4
         System.out.println(list);
@@ -47,20 +48,23 @@ public class DateSortUseCase {
 
         // 时间排序
         List<OffsetDateTime> dateList = new ArrayList<>();
-        dateList.add(OffsetDateTime.of(LocalDateTime.parse(date1, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                ZoneOffset.of(DateTimeUseCase.OFFSET_ID)));
-        dateList.add(OffsetDateTime.of(LocalDateTime.parse(date2, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                ZoneOffset.of(DateTimeUseCase.OFFSET_ID)));
-        dateList.add(OffsetDateTime.of(LocalDateTime.parse(date3, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                ZoneOffset.of(DateTimeUseCase.OFFSET_ID)));
-        dateList.add(OffsetDateTime.of(LocalDateTime.parse(date4, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                ZoneOffset.of(DateTimeUseCase.OFFSET_ID)));
+        dateList.add(localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date1, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
+        dateList.add(localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date2, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
+        dateList.add(localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date3, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
+        dateList.add(localDateTimeToOffsetDateTime(
+                LocalDateTime.parse(date4, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))));
 
         System.out.println(dateList);
 
         System.out.println(dateList.stream().sorted(Comparator.comparing(e -> e)).collect(Collectors.toList()));
     }
 
+    /**
+     * 需要实现排序接口
+     */
     private static class SortObj implements Comparable<SortObj> {
 
         private Integer foo;
@@ -86,5 +90,12 @@ public class DateSortUseCase {
         public int compareTo(SortObj o) {
             return -this.getTime().compareTo(o.getTime());
         }
+    }
+
+    /**
+     * LocalDateTime to OffsetDateTime
+     */
+    private static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime ldt) {
+        return OffsetDateTime.of(ldt, ZoneOffset.of(OFFSET_ID));
     }
 }
