@@ -1,6 +1,7 @@
 package basic.q10.jdk8time;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -47,6 +48,11 @@ public class DateTimeUtils {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime parseTime = LocalDateTime.parse(text, df);
         return OffsetDateTime.of(parseTime, ZoneOffset.of(OFFSET_ID));
+    }
+
+    public static LocalDate strToLocalDate(String text) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(text, df);
     }
 
     public static String formatTimeBySecond(long secondTime) {

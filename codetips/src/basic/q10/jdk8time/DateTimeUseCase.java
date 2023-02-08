@@ -2,6 +2,7 @@ package basic.q10.jdk8time;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,6 +23,16 @@ import java.time.temporal.ChronoUnit;
 public class DateTimeUseCase {
 
     public static void main(String[] args) throws InterruptedException {
+        // 判断是否假期 false false true true
+        DayOfWeek dayOfWeek = DayOfWeek.of(DateTimeUtils.strToLocalDate("2023-02-08").get(ChronoField.DAY_OF_WEEK));
+        System.out.println(dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY);
+        dayOfWeek = DayOfWeek.of(DateTimeUtils.strToLocalDate("2023-02-10").get(ChronoField.DAY_OF_WEEK));
+        System.out.println(dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY);
+        dayOfWeek = DayOfWeek.of(DateTimeUtils.strToLocalDate("2023-02-11").get(ChronoField.DAY_OF_WEEK));
+        System.out.println(dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY);
+        dayOfWeek = DayOfWeek.of(DateTimeUtils.strToLocalDate("2023-02-12").get(ChronoField.DAY_OF_WEEK));
+        System.out.println(dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY);
+
         DateTimeUseCase.showTimeOperate();
 
         System.out.println(":-----------------------");
