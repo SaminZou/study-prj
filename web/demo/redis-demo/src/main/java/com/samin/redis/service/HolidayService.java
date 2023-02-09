@@ -5,7 +5,7 @@ import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;
 import com.samin.redis.util.DateUtil;
 import java.time.DayOfWeek;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoField;
 import java.util.ArrayList;
@@ -94,8 +94,8 @@ public class HolidayService {
         }
 
         // 通用假期算法
-        LocalDateTime currentLocalDateTime = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        DayOfWeek dayOfWeek = DayOfWeek.of(currentLocalDateTime.get(ChronoField.DAY_OF_WEEK));
+        LocalDate currentLocalDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        DayOfWeek dayOfWeek = DayOfWeek.of(currentLocalDate.get(ChronoField.DAY_OF_WEEK));
         return dayOfWeek == DayOfWeek.SATURDAY || dayOfWeek == DayOfWeek.SUNDAY;
     }
 
