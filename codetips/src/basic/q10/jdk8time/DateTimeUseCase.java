@@ -36,7 +36,12 @@ public class DateTimeUseCase {
         DateTimeUseCase.showTimeOperate();
 
         System.out.println(":-----------------------");
-        DateTimeUseCase.showDetailTime();
+        LocalDate date = LocalDate.now();
+        int year = date.getYear();
+        int month = date.getMonthValue();
+        int day = date.getDayOfMonth();
+
+        System.out.format("Year : %d  Month : %d  day : %d %n", year, month, day);
 
         System.out.println(":-----------------------");
         DateTimeUseCase.showCycleTime();
@@ -83,16 +88,6 @@ public class DateTimeUseCase {
 
         // 现在的时间
         System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
-    }
-
-
-    public static void showDetailTime() {
-        LocalDate date = LocalDate.now();
-        int year = date.getYear();
-        int month = date.getMonthValue();
-        int day = date.getDayOfMonth();
-
-        System.out.format("Year : %d  Month : %d  day : %d %n", year, month, day);
     }
 
     /**
