@@ -44,17 +44,9 @@ public class DateTimeUseCase {
         System.out.println(":-----------------------");
         DateTimeUseCase.showCycleTime();
 
-        // 以下两个解析内容一致
-        System.out.println(LocalDateTime.parse("2022-11-07 24:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        System.out.println(LocalDateTime.parse("2022-11-08 00:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-
         // 类型转换
-        LocalDateTime dateTime = localDateToLocalDateTime(LocalDate.now());
+        LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.MIDNIGHT);
         System.out.println("今天的午夜时间：" + dateTime);
-
-        // 打印当前日期
-        LocalDateTime now = LocalDateTime.now();
-        System.out.printf("当前时间是：%d年%d月%d日\n", now.getYear(), now.getMonthValue(), now.getDayOfMonth());
 
         // 修改时间
         OffsetDateTime alterTime = OffsetDateTime.now();
@@ -103,26 +95,11 @@ public class DateTimeUseCase {
     }
 
     /**
-     * LocalDate to LocalDateTime
-     */
-    public static LocalDateTime localDateToLocalDateTime(LocalDate date) {
-        return LocalDateTime.of(date, LocalTime.MIDNIGHT);
-    }
-
-    /**
      * LocalDateTime to String
      */
     public static String localDateTimeToString(LocalDateTime ldt) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return ldt.format(df);
-    }
-
-    /**
-     * OffsetDateTime to String
-     */
-    public static String offsetDateTimeToString(OffsetDateTime odt) {
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return odt.toLocalDateTime().format(df);
     }
 
     /**
