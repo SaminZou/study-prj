@@ -1,4 +1,4 @@
-package basic.q13;
+package basic.q12;
 
 /**
  * 雪花算法 id 生成

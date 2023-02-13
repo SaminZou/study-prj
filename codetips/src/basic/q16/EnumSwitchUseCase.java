@@ -1,4 +1,4 @@
-package basic.q17;
+package basic.q16;
 
 /**
  * 枚举类 + switch 最佳实践
