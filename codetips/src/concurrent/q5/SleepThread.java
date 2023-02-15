@@ -1,5 +1,11 @@
 package concurrent.q5;
 
+/**
+ * 模拟休眠线程
+ *
+ * @author samin
+ * @date 2023-02-15
+ */
 public class SleepThread implements Runnable {
 
     @Override

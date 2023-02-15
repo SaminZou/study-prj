@@ -1,5 +1,11 @@
 package concurrent.q5;
 
+/**
+ * 模拟任务线程
+ *
+ * @author samin
+ * @date 2023-02-15
+ */
 public class TaskThread implements Runnable {
 
     @Override
