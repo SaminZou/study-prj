@@ -34,7 +34,7 @@ Share how I summarize and summarize the knowledge stack in learning, and provide
 
 # 3 codetips 📕
 
-编码中需要注意的地方，以及遇到的一些坑
+编码中需要注意的地方，以及遇到的一些坑，旨在建造一个丰富的案例库
 
 ## 3.1 basic
 
