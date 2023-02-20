@@ -6,10 +6,10 @@ package basic.q11;
  * @author samin
  * @date 2021-01-10
  */
-public class Q24Test {
+public class ClassCastTest {
 
     public static void main(String[] args) {
-        // 分别为泛型、Object、限定类型的工厂模式获取Bean
+        // 分别为泛型、Object、限定类型的工厂模式获取 Bean
         Foo tmp = new Foo();
 
         BeanFactory beanFactory = new BeanFactory();
