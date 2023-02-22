@@ -9,6 +9,10 @@ package template;
 public class BatchProcess {
 
     public static void main(String[] args) {
+        new BatchProcess().batch();
+    }
+
+    public void batch() {
         // 初始化数据
         int offset = 0;
         int doneNum = 0;
