@@ -18,6 +18,7 @@
         <module>auth-demo</module>
         <module>use-case-demo</module>
         <module>admin-demo</module>
+        <module>starter-demo</module>
     </modules>
 
     <packaging>pom</packaging>
