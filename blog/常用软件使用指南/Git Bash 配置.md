@@ -59,3 +59,23 @@ export PS1="\W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 将解压后的所有文件合并至 git 的安装目录
 
 配置好 zsh 后，可以继续安装[oh-my-zsh](WSL 入门.md)
+
+# Git bash Emojis（ Windows ）
+
+$ cd "C:/Program Files/Git/usr/share/mintty"
+
+> 进入 Git 安装目录的 usr/share/mintty
+
+$ mkdir -p emojis
+
+$ cd emojis
+
+$ curl https://raw.githubusercontent.com/wiki/mintty/mintty/getemojis > getemojis
+
+$ ./getemojis -d
+
+打开 Git bash，通过 `Options -> Text -> Emojis` 设置 `Stype -> Windows` & `Placement -> middle` 
+
+# 解决 Git Bash 交互性太差的问题
+
+可以集成进 VS Code 或者 Windows Terminal 使用 
