@@ -176,4 +176,14 @@ $ kubectl get events -n ns
 
 $ kubectl get events -n ns --sort-by='{.metadata.creationTimestamp}'
 
+\# 查看正在运行的 pod
+
+$ kubectl get pods -A | grep -vi running
+
+\# 修改副本
+
+$ kubectl scale --replicas=1 deployment/<deployname> -n <ns>
+
+$ kubectl scale --replicas=1 deploy <deployname> -n <ns>
+
 [K8s 官方 Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
