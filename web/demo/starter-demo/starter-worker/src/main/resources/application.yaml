@@ -1,2 +1,9 @@
 server:
   port: 8081
+
+# 如果没配置 优先使用 starter 默认配置
+custom:
+  part1:
+    custom-key: part1-vuale
+  part2:
+    key: part2-vuale

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.samin.provider.config.CustomClientConfig,\
+com.samin.provider.config.CustomConfig

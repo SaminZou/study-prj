@@ -12,11 +12,16 @@
     <name>starter-worker</name>
     <description>starter-worker</description>
 
-    <dependencies>      
-      <dependency>
+    <dependencies>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>${springboot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.samin</groupId>
+            <artifactId>starter-provider</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
