@@ -1,6 +1,6 @@
 package com.samin.worker.controller;
 
-import com.samin.provider.CustomClient;
+import com.samin.demo.CustomClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

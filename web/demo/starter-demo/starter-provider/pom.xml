@@ -18,28 +18,14 @@
             <artifactId>spring-boot-starter</artifactId>
             <version>${springboot.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <version>${springboot.version}</version>
-        </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>demo-spring-boot-starter-autoconfigure</module>
+        <module>custom-spring-boot-starter</module>
+        <module>confirm-spring-boot-starter</module>
+        <module>web-spring-boot-starter</module>
+    </modules>
+
+    <packaging>pom</packaging>
 </project>

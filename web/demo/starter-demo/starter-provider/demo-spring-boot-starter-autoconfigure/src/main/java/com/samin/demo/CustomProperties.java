@@ -1,11 +1,11 @@
-package com.samin.provider.properties;
+package com.samin.demo;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
 @ConfigurationProperties(prefix = "custom")
-public class Custom {
+public class CustomProperties {
 
     private Part1 part1 = new Part1();
 

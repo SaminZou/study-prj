@@ -1,4 +1,4 @@
-package com.samin.provider.config;
+package com.samin.demo;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Import;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import({CustomLoadCofirm.class})
+@Import({CustomLoadConfirm.class})
 public @interface EnabelCustomLoadConfirm {
 
 }
