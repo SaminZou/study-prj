@@ -34,7 +34,7 @@ public class ThreadLocalUseCase implements Runnable {
     }
 
     /**
-     * 每个线程都会修改formatter，不影响其他线程
+     * 每个线程都会修改 formatter，不影响其他线程
      */
     @Override
     public void run() {
