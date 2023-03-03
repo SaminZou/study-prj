@@ -1,8 +1,8 @@
-package com.samin.usecase.configandcomponet;
+package com.samin.usecase.configwithcomponet;
 
-public class A {
+public class C {
 
-    private String name = "A";
+    private String name = "C";
 
     public String getName() {
         return name;

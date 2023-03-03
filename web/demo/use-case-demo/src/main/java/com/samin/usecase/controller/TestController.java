@@ -1,9 +1,9 @@
 package com.samin.usecase.controller;
 
-import com.samin.usecase.configandcomponet.A;
-import com.samin.usecase.configandcomponet.B;
-import com.samin.usecase.configandcomponet.C;
-import com.samin.usecase.configandcomponet.D;
+import com.samin.usecase.configwithcomponet.A;
+import com.samin.usecase.configwithcomponet.B;
+import com.samin.usecase.configwithcomponet.C;
+import com.samin.usecase.configwithcomponet.D;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

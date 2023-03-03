@@ -1,4 +1,4 @@
-package com.samin.usecase.configandcomponet;
+package com.samin.usecase.configwithcomponet;
 
 public class D {
 
