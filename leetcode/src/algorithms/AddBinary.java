@@ -8,8 +8,14 @@ package algorithms;
  */
 public class AddBinary {
 
-    // https://leetcode-cn.com/problems/add-binary/
+    public static void main(String[] args) {
+        // 100
+        System.out.println(new AddBinary().addBinary("11", "1"));
+        // 10101
+        System.out.println(new AddBinary().addBinary("1010", "1011"));
+    }
+
     public String addBinary(String a, String b) {
-        return "";
+        return Integer.toBinaryString(Integer.parseInt(a, 2) + Integer.parseInt(b, 2));
     }
 }
