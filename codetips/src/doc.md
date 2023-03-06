@@ -72,4 +72,6 @@
 
 - q6 如何统计代码段时间
 
+- q7 try catch 影响性能吗 ？
+
 # template 代码模板
