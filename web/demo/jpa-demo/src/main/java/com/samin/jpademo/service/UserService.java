@@ -3,6 +3,7 @@ package com.samin.jpademo.service;
 import com.samin.jpademo.entity.User;
 import com.samin.jpademo.repository.UserRepository;
 import java.util.List;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,11 @@ public class UserService {
 
     public List<User> findBySex(int sex){
         return userRepository.findUserBySex(sex);
+    }
+
+    // TODO
+    @Transactional
+    public void transaction(){
+
     }
 }
