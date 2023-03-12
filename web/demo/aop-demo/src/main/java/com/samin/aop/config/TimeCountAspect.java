@@ -30,17 +30,17 @@ public class TimeCountAspect {
     @Before("timeCount()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
         startTime.set(System.currentTimeMillis());
-        //接收到请求，记录请求内容
+        // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-        //记录请求的内容
+        // 记录请求的内容
         log.info("请求URL: {}", request.getRequestURL().toString());
         log.info("请求METHOD: {}", request.getMethod());
     }
 
     @AfterReturning(pointcut = "timeCount()")
     public void doAfterReturning() {
-        //处理完请求后，返回内容
+        // 处理完请求后，返回内容
         log.info("方法执行时间: {}", (System.currentTimeMillis() - startTime.get()));
         startTime.remove();
     }
