@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-public class User {
+public class UserDO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,9 @@ public class User {
      */
     @Column(name = "sex")
     private Integer sex;
+
+    @Column(name = "mobile")
+    private String mobile;
 
     /**
      * 忽略持久化

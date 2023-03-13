@@ -1,6 +1,6 @@
 package com.samin.jpademo.repository;
 
-import com.samin.jpademo.entity.User;
+import com.samin.jpademo.entity.UserDO;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author samin
  * @date 2022-11-23
  */
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<UserDO, Integer> {
 
-    List<User> findUserBySex(int sex);
+    List<UserDO> findUserBySex(int sex);
 }

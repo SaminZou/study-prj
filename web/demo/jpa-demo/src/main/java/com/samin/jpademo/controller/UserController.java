@@ -1,9 +1,11 @@
 package com.samin.jpademo.controller;
 
-import com.samin.jpademo.entity.User;
+import com.samin.jpademo.entity.UserVO;
 import com.samin.jpademo.service.UserService;
 import java.util.List;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author samin
  * @date 2022-11-23
  */
+@Slf4j
 @RequiredArgsConstructor
 @RestController
 public class UserController {
@@ -24,17 +27,18 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/list")
-    public List<User> list() {
+    public List<UserVO> list() {
         return userService.findAll();
     }
 
     @PostMapping("/user/update")
-    public User save(@RequestBody User user) {
-        return userService.save(user);
+    public UserVO save(@Valid @RequestBody UserVO userDO) {
+        log.info("保存时间：{}", userDO.getDate());
+        return userService.saveUser(userDO);
     }
 
     @GetMapping("/user/findbysex")
-    public List<User> findBySex(@RequestParam(value = "sex") int sex) {
+    public List<UserVO> findBySex(@RequestParam(value = "sex") int sex) {
         return userService.findBySex(sex);
     }
 
