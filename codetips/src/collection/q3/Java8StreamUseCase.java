@@ -3,6 +3,7 @@ package collection.q3;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -44,6 +45,34 @@ public class Java8StreamUseCase {
 
         // 大于 6 的元素集合
         System.out.println(list.stream().filter(e -> e.getBar() > 2).count());
+
+        Obj o1 = new Obj("foo1", 1);
+        Obj o2 = new Obj("foo2", 1);
+        Obj o3 = new Obj("foo1", 3);
+        Obj o4 = new Obj("foo2", 3);
+        Obj o5 = new Obj("foo1", 2);
+        Obj o6 = new Obj("foo3", 2);
+        Obj o7 = new Obj("foo1", 4);
+        Obj o8 = new Obj("foo1", 5);
+        Obj o9 = new Obj("foo2", 2);
+        Obj o10 = new Obj("foo3", 1);
+
+        List<Obj> list2 = new ArrayList<>();
+        list2.add(o1);
+        list2.add(o2);
+        list2.add(o3);
+        list2.add(o4);
+        list2.add(o5);
+        list2.add(o6);
+        list2.add(o7);
+        list2.add(o8);
+        list2.add(o9);
+        list2.add(o10);
+
+        Map<String, List<Obj>> collect = list2.stream().collect(Collectors.groupingBy(Obj::getFoo));
+        collect.forEach((k, v) -> {
+            System.out.printf("key: [%s], value: [%s]\n", k, v);
+        });
     }
 
     private static class Obj {
@@ -55,6 +84,10 @@ public class Java8StreamUseCase {
 
         private String foo;
         private int bar;
+
+        public String getFoo() {
+            return foo;
+        }
 
         public int getBar() {
             return bar;
