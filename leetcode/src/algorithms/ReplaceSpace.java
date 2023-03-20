@@ -8,8 +8,12 @@ package algorithms;
  */
 public class ReplaceSpace {
 
-    // TODO https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/
+    public static void main(String[] args) {
+        // We%20are%20happy.
+        System.out.println(new ReplaceSpace().replaceSpace("We are happy."));
+    }
+
     public String replaceSpace(String s) {
-        return "";
+        return s.replace(" ", "%20");
     }
 }
