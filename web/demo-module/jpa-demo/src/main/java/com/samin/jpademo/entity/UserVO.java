@@ -1,5 +1,6 @@
 package com.samin.jpademo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;
@@ -35,4 +36,7 @@ public class UserVO {
     @Future(message = "只能是将来时间")
     // @Past(message = "只能是过去时间")
     private LocalDate date;
+
+    @JsonIgnore
+    private String foo;
 }
