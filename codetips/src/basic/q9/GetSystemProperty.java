@@ -7,15 +7,16 @@ import java.util.Properties;
  * 打印系统参数
  *
  * <p> java.library.path
+ *
  * @author samin
  * @date 2023-03-21
  */
 public class GetSystemProperty {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         if (args.length == 0) {
             Properties p = System.getProperties();
-            Enumeration keys = p.keys();
+            Enumeration<Object> keys = p.keys();
             while (keys.hasMoreElements()) {
                 String key = (String) keys.nextElement();
                 String value = (String) p.get(key);
