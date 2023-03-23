@@ -128,9 +128,9 @@ $ kubectl rollout resume deployment <deployment_name> -n <namespace_name>
 
 \# 进入容器运行指令
 
-$ kubectl exec --stdin --tty shell-demo -- /bin/bash
+$ kubectl exec -n <namespace> --stdin --tty shell-demo -- /bin/bash
 
-$ kubectl exec -it shell-demo -- /bin/bash
+$ kubectl exec -n <namespace> -it shell-demo -- /bin/bash
 
 > -i, --stdin[=false]: Pass stdin to the container
 >
