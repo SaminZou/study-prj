@@ -28,7 +28,7 @@ public class ReverseList {
     //    }
 
     public static void main(String[] args) {
-        ListNode l1 = ListNode.listNodeGenerator(new int[]{1, 2, 3, 4, 5});
+        ListNode l1 = ListNode.listNodeGenerator(1, 2, 3, 4, 5);
         ListNode.listNodePrinter(l1);
         ListNode nl = new ReverseList().reverseList(l1);
         ListNode.listNodePrinter(nl);

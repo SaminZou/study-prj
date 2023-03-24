@@ -21,7 +21,7 @@ public class ListNode {
         this.next = next;
     }
 
-    public static ListNode listNodeGenerator(int[] arrs) {
+    public static ListNode listNodeGenerator(int... arrs) {
         ListNode head = null;
         ListNode current = null;
         int index = 0;

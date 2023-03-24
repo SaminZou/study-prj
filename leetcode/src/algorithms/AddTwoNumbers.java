@@ -13,8 +13,9 @@ import algorithms.base.model.ListNode;
 public class AddTwoNumbers {
 
     public static void main(String[] args) {
-        ListNode listNode = new AddTwoNumbers().addTwoNumbers(ListNode.listNodeGenerator(new int[]{2, 4, 3}),
-                ListNode.listNodeGenerator(new int[]{5, 6, 4}));
+        // 7 0 8
+        ListNode listNode = new AddTwoNumbers().addTwoNumbers(ListNode.listNodeGenerator(2, 4, 3),
+                ListNode.listNodeGenerator(5, 6, 4));
 
         ListNode.listNodePrinter(listNode);
     }

@@ -13,15 +13,18 @@ import java.util.List;
 public class ReorderList {
 
     public static void main(String[] args) {
-        ListNode l1 = ListNode.listNodeGenerator(new int[]{1, 2, 3, 4});
+        // 1 4 2 3
+        ListNode l1 = ListNode.listNodeGenerator(1, 2, 3, 4);
         new ReorderList().reorderList(l1);
         ListNode.listNodePrinter(l1);
 
-        ListNode l2 = ListNode.listNodeGenerator(new int[]{1, 2, 3, 4, 5});
+        // 1 5 2 4 3
+        ListNode l2 = ListNode.listNodeGenerator(1, 2, 3, 4, 5);
         new ReorderList().reorderList(l2);
         ListNode.listNodePrinter(l2);
 
-        ListNode l3 = ListNode.listNodeGenerator(new int[]{});
+        //
+        ListNode l3 = ListNode.listNodeGenerator();
         new ReorderList().reorderList(l3);
         ListNode.listNodePrinter(l3);
     }
