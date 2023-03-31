@@ -1,0 +1,8 @@
+FROM openjdk:8-jdk
+VOLUME /tmp
+COPY app.jar app.jar
+COPY libtaos.so.2.4.0.5 /usr/lib/libtaos.so
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+EXPOSE 8080
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Duser.timezone=Asia/Shanghai","-Dfile.encoding=UTF-8","-jar","/app.jar"]
+
