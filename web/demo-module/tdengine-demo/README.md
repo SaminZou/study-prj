@@ -2,7 +2,7 @@
 
 Dockerfile 中的 libtaos.so.2.4.0.5 在官网中自行下载
 
-供参考的 K8s deployment.yaml
+# 供参考的 K8s deployment.yaml
 
 ```yaml
 ---
@@ -102,3 +102,15 @@ spec:
       protocol: TCP
       targetPort: 8080
 ```
+
+# 总结
+
+如果需要使用原生连接，以下是注意事项：
+
+1. 应用程序需要依赖 tdengine 提供的 client，下载对应版本 windows 或者 Linux 的客户端，放置在工作目录
+
+2. 需要修改 hosts 文件添加 tdengine 服务端 ip 和 hostname 的映射关系
+
+3. 应用运行时，会自动依赖 /etc/taos/taos.cfg 文件，里面注意填写关键配置
+
+| 如果是在 K8s 中运行，所有的 Node 需要配置 /etc/hosts 文件，添加 tdengine 服务端 ip 和 hostname 的映射关系
