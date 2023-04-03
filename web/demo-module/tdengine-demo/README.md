@@ -29,7 +29,7 @@ spec:
         - "tdengine-dev"
       containers:
         - name: td-test
-          image: 10.170.208.106:30500/td-test:latest
+          image: 192.168.10.10:5000/td-test:latest
           imagePullPolicy: Always
           volumeMounts:
             - name: taos-test-config
@@ -40,7 +40,7 @@ spec:
               name: http
               protocol: TCP
           env:
-          - name: spring.datasource.url
+          - name: tdengine-host
             value: jdbc:TAOS://tdengine-dev:6030/dev
           readinessProbe:
             failureThreshold: 3
