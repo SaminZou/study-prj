@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.samin</groupId>
     <artifactId>demo-module</artifactId>
@@ -24,7 +24,6 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>11</java.version>
         <springboot.version>2.6.14</springboot.version>
         <lombok.version>1.18.24</lombok.version>
         <mysql.version>8.0.30</mysql.version>

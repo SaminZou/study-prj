@@ -1,9 +1,11 @@
+tdengine-host: tdengine-devtdengine-dev
+
 spring:
   jpa:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:TAOS://tdengine-dev:6030/dev
+    url: jdbc:TAOS://${tdengine-host}:6030/dev
     driver-class-name: com.taosdata.jdbc.TSDBDriver
     username: root
     password: taosdata
