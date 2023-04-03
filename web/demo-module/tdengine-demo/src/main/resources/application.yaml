@@ -1,4 +1,4 @@
-tdengine-host: tdengine-devtdengine-dev
+tdengine-host: tdengine-dev
 
 spring:
   jpa:
