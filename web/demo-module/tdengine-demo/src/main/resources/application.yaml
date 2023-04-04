@@ -5,7 +5,7 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:TAOS://${tdengine-host}:6030/dev
+    url: jdbc:TAOS://${tdengine-host}:6030/dev?timezone=UTC-8&charset=UTF-8&locale=en_US.UTF-8
     driver-class-name: com.taosdata.jdbc.TSDBDriver
     username: root
     password: taosdata
