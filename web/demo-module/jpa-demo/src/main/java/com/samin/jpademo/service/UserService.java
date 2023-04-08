@@ -3,12 +3,13 @@ package com.samin.jpademo.service;
 import com.samin.jpademo.entity.UserDO;
 import com.samin.jpademo.entity.UserVO;
 import com.samin.jpademo.repository.UserRepository;
-import java.util.ArrayList;
-import java.util.List;
-import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 用户服务类
@@ -63,7 +64,7 @@ public class UserService {
     }
 
     // TODO
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public void transaction() {
 
     }
