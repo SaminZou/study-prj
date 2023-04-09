@@ -64,7 +64,7 @@ public class UserService {
     }
 
     // TODO
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackOn = Exception.class, value = Transactional.TxType.REQUIRED)
     public void transaction() {
 
     }
