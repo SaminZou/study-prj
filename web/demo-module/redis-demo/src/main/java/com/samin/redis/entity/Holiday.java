@@ -19,6 +19,16 @@ import org.hibernate.annotations.TypeDefs;
 @Table(name = "holiday")
 public class Holiday {
 
+    public static Holiday getInstance() {
+        Holiday ins = new Holiday();
+
+        ins.setEnabled(true);
+        ins.setRemark("");
+        ins.setHolidayType(7);
+
+        return ins;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -26,15 +36,15 @@ public class Holiday {
     @Type(type = "string-array")
     // @Column(name = "holidays", columnDefinition = "varchar(255)[]")
     @Column(name = "holidays", columnDefinition = "text[]")
-    @Comment("假期")
+    @Comment("假期，yyyy-MM-dd")
     private String[] holidays;
 
     @Type(type = "string-array")
-    @Comment("工作日")
+    @Comment("工作日，yyyy-MM-dd")
     @Column(name = "weekdays", columnDefinition = "text[]")
     private String[] weekdays;
 
-    @Comment("假期类型: 0元旦，1春节，2清明节，3劳动节，4端午节，5中秋节，6国庆节，7其他非工作日，8其他工作日")
+    @Comment("假期类型: 0元旦，1春节，2清明节，3劳动节，4端午节，5中秋节，6国庆节，7其他")
     private Integer holidayType;
 
     @Comment("备注")
