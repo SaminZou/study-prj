@@ -4,16 +4,6 @@ import com.samin.redis.entity.Holiday;
 import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;
 import com.samin.redis.util.DateUtil;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.temporal.ChronoField;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
@@ -23,6 +13,13 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoField;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 用户服务类
@@ -70,7 +67,7 @@ public class HolidayService {
         List<String> intersection = new ArrayList<>();
 
         // 校验入参假期和补班否重复
-        if (param.getHolidays().length > 0 && param.getWeekdays().length > 0) {
+        if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWeekdays()) && param.getHolidays().length > 0 && param.getWeekdays().length > 0) {
             for (String item : param.getWeekdays()) {
                 if (ArrayUtils.contains(param.getHolidays(), item)) {
                     intersection.add(item);
@@ -99,7 +96,7 @@ public class HolidayService {
         }
 
         // 校验假期
-        if (param.getHolidays().length > 0) {
+        if (Objects.nonNull(param.getHolidays()) &&param.getHolidays().length > 0) {
             intersection = new ArrayList<>();
             for (String item : param.getHolidays()) {
                 if (specDays.contains(item)) {
@@ -112,7 +109,7 @@ public class HolidayService {
         }
 
         // 校验补班
-        if (param.getWeekdays().length > 0) {
+        if (Objects.nonNull(param.getWeekdays()) &&param.getWeekdays().length > 0) {
             intersection = new ArrayList<>();
             for (String item : param.getWeekdays()) {
                 if (specDays.contains(item)) {

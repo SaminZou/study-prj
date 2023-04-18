@@ -1,4 +1,4 @@
-﻿package com.samin.redis.service;
+package com.samin.redis.service;
 
 import com.samin.redis.entity.Holiday;
 import lombok.extern.slf4j.Slf4j;
@@ -15,11 +15,18 @@ class HolidayServiceTest {
 
     @Test
     void contextLoads() throws Exception {
+        // Init
         Holiday holiday = Holiday.getInstance();
         holiday.setHolidays(new String[]{"2023-04-29", "2023-04-30", "2023-05-01", "2023-05-02", "2023-05-03"});
         holiday.setWeekdays(new String[]{"2023-04-23", "2023-05-06"});
         holiday.setHolidayType(3);
         holiday.setRemark("劳动节");
+        holidayService.save(holiday);
+
+        // Init
+        holiday = Holiday.getInstance();
+        holiday.setHolidays(new String[]{"2023-05-15", "2023-05-16", "2023-05-17"});
+        holiday.setWeekdays(new String[]{"2023-05-18", "2023-05-19"});
         holidayService.save(holiday);
 
         // ERROR 入参重复
