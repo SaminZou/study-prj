@@ -96,7 +96,7 @@ public class HolidayService {
         }
 
         // 校验假期
-        if (Objects.nonNull(param.getHolidays()) &&param.getHolidays().length > 0) {
+        if (Objects.nonNull(param.getHolidays()) && param.getHolidays().length > 0) {
             intersection = new ArrayList<>();
             for (String item : param.getHolidays()) {
                 if (specDays.contains(item)) {
@@ -109,7 +109,7 @@ public class HolidayService {
         }
 
         // 校验补班
-        if (Objects.nonNull(param.getWeekdays()) &&param.getWeekdays().length > 0) {
+        if (Objects.nonNull(param.getWeekdays()) && param.getWeekdays().length > 0) {
             intersection = new ArrayList<>();
             for (String item : param.getWeekdays()) {
                 if (specDays.contains(item)) {

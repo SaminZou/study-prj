@@ -50,7 +50,7 @@ class HolidayServiceTest {
         holiday.setHolidays(new String[]{"2023-05-19"});
         holidayService.save(holiday);
 
-        // 补班与假期重复
+        // ERROR 补班与假期重复
         holiday = Holiday.getInstance();
         holiday.setWeekdays(new String[]{"2023-05-17"});
         holidayService.save(holiday);
