@@ -4,9 +4,9 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
-分享自己如何总结归纳学习中的知识栈，为开发者提供一些灵感
+分享如何总结归纳知识栈，为开发者提供一些启发
 
-Share how I summarize and summarize the knowledge stack in learning, and provide some inspiration for developers
+Share how to summarize the knowledge stack in learning, provide some inspiration for developers
 
 **Learn how to learn**
 
