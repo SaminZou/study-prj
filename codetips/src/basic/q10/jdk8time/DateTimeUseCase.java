@@ -1,18 +1,11 @@
 package basic.q10.jdk8time;
 
-import static java.time.temporal.ChronoUnit.DAYS;
-
-import java.time.DayOfWeek;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.MonthDay;
-import java.time.OffsetDateTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * Java8 时间类
@@ -77,7 +70,16 @@ public class DateTimeUseCase {
         System.out.println(LocalDateTime.now().getDayOfMonth());
 
         // 现在的时间
-        System.out.printf("现在的时间是: %s", localDateTimeToString(LocalDateTime.now()));
+        System.out.printf("现在的时间是: %s\r\n", localDateTimeToString(LocalDateTime.now()));
+
+        // 测试时间是否重叠
+        DateTimeBo time1 = new DateTimeBo();
+        time1.startDate = LocalDate.parse("20230110", DateTimeFormatter.ofPattern("yyyyMMdd"));
+        time1.endDate = LocalDate.parse("20230120", DateTimeFormatter.ofPattern("yyyyMMdd"));
+        DateTimeBo time2 = new DateTimeBo();
+        time2.startDate = LocalDate.parse("20230101", DateTimeFormatter.ofPattern("yyyyMMdd"));
+        time2.endDate = LocalDate.parse("20230105", DateTimeFormatter.ofPattern("yyyyMMdd"));
+        System.out.println("两个时间是否重叠：" + isOverlap(time1, time2));
     }
 
     /**
@@ -111,5 +113,25 @@ public class DateTimeUseCase {
 
     public static long timeDiff2(OffsetDateTime a, OffsetDateTime b) {
         return a.until(b, ChronoUnit.HOURS);
+    }
+
+    /**
+     * 是否存在时间重叠
+     *
+     * @param time1 时间段对象参数
+     * @param time2 时间段对象参数
+     * @return
+     */
+    public static boolean isOverlap(DateTimeBo time1, DateTimeBo time2) {
+        if (time1.startDate.isBefore(time2.endDate) && time1.endDate.isAfter(time2.startDate)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static class DateTimeBo {
+        public LocalDate startDate;
+        public LocalDate endDate;
     }
 }
