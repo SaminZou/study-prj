@@ -123,11 +123,7 @@ public class DateTimeUseCase {
      * @return
      */
     public static boolean isOverlap(DateTimeBo time1, DateTimeBo time2) {
-        if (time1.startDate.isBefore(time2.endDate) && time1.endDate.isAfter(time2.startDate)) {
-            return true;
-        } else {
-            return false;
-        }
+        return time1.startDate.isBefore(time2.endDate) && time1.endDate.isAfter(time2.startDate);
     }
 
     static class DateTimeBo {
