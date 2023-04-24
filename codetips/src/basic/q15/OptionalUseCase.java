@@ -17,8 +17,11 @@ public class OptionalUseCase {
         // 常见的修复策略，导致代码臃肿可维护性差
         // getCompanyFromEmployee2();
 
+        // 等价 employee = Optional.of(getEmployee()).isPresent() ? getEmployee() : new Employee();
+        Employee employee = Optional.of(getEmployee()).orElse(new Employee());
+
         // 最佳实践
-        Employee employee = getEmployee();
+        employee = getEmployee();
         String companyName = Optional.ofNullable(getEmployee())
                 .map(ele -> ele.getTeam())
                 .map(team -> team.getDepartment())
