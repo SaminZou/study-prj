@@ -1,0 +1,10 @@
+boot
+book
+booze
+machine
+boots
+bungie
+bark
+aardvark
+broken$tuff
+robots
