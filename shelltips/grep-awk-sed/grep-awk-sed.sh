@@ -27,3 +27,16 @@ echo "计算当前目录所有文件的总大小："
 ls -l | awk 'BEGIN {sum=0} {sum=sum+$5} END {print sum}'
 
 # sed (stream editor)
+
+# sed -i ‘行数i\要插入的内容’
+# 注意，行数一定要是存在的，如文件只有两行内容，则 3i\111 不生效
+echo "在第二行插入 111："
+sed -i '2i\111' sed_test_file
+cat sed_test_file
+
+# sed -i '/DELETE STRING/d' * 删除所有文件中含有 “DELETE STRING” 行
+echo "删除 111："
+sed -i '/111/d' sed_test_file
+cat sed_test_file
+
+# sed 's/pattern/replace_string/g' file 替换文本
