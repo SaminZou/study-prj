@@ -46,3 +46,7 @@ echo ''
 # sed 's/pattern/replace_string/g' file 替换文本
 echo "修改 input 为 output："
 sed -e 's/input/output/g' sed_test_file
+echo ''
+
+echo "删除所有的 #备注："
+sed -e '/^#/ d' sed_test_file
