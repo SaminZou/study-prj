@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Import;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
+// 核心是自动注入 bean
 @Import({CustomLoadConfirm.class})
 public @interface EnabelCustomLoadConfirm {
 
