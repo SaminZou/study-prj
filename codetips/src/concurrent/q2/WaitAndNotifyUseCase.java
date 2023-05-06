@@ -1,10 +1,12 @@
 package concurrent.q2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
- * 使用wait/notify
+ * 使用 wait / notify
  *
  * @author samin
  * @date 2021-01-08
@@ -12,25 +14,26 @@ import java.util.List;
 public class WaitAndNotifyUseCase {
 
     public static void main(String[] args) {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
+
         Queue queue = new Queue();
-        Thread threadA = new Thread(new ThreadA(queue), "Thread A");
-        Thread threadB = new Thread(new ThreadB(queue), "Thread B");
-        threadA.start();
-        threadB.start();
+        executor.execute(new ThreadA(queue));
+        executor.execute(new ThreadB(queue));
+
+        executor.shutdown();
     }
 
     private static class Queue {
 
-        List<Integer> list;
-        int nums = 1;
+        int nums = 0;
 
         Queue() {
-            list = new ArrayList<>();
         }
 
         // 模拟操作方法，打印执行线程
         public void add() {
-            list.add(nums++);
+            nums++;
             System.out.println(Thread.currentThread().getName() + " is done");
         }
     }
