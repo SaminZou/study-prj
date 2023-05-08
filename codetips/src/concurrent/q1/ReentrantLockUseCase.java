@@ -46,9 +46,9 @@ public class ReentrantLockUseCase {
             poolExecutor.execute(() -> {
                 final Lock lock = new ReentrantLock();
                 for (int j = 0; j < 5000; j++) {
+                    // lock
+                    lock.lock();
                     try {
-                        // lock
-                        lock.lock();
                         // 在尝试获取锁的时候，最多等待 1 秒。如果 1 秒后仍未获取到锁，tryLock() 返回 false，程序就可以做一些额外处理，而不是无限等待下去
                         if (lock.tryLock(1, TimeUnit.SECONDS)) {
                             try {
