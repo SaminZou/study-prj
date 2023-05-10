@@ -35,13 +35,13 @@ public class Producer implements CommandLineRunner {
     }
 
     public void sendStringMsg() {
-        rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
+        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, "foo.bar.baz", "Hello from RabbitMQ!");
     }
 
     public void sendObjectMsg() {
         MessageBody messageBody = MessageBody.builder().msgId(1L).text("foo").content("bar").userId(1L).build();
         rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
-        rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "msg.foo", messageBody);
+        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, "msg.foo", messageBody);
     }
 
     public void sendLoopMsg() throws InterruptedException {
@@ -49,7 +49,7 @@ public class Producer implements CommandLineRunner {
         while (true) {
             Thread.sleep(1000L);
 
-            rabbitTemplate.convertAndSend(SystemConstant.topicExchangeName, "work.bar", "[Loop] msg: " + count++);
+            rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, "work.bar", "[Loop] msg: " + count++);
         }
     }
 }

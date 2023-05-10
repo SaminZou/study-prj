@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Receiver {
 
-    @RabbitListener(queues = SystemConstant.queueName)
+    @RabbitListener(queues = SystemConstant.QUEUE_NAME)
     public void onMessage(String message) {
         System.out.println("Received <" + message + ">");
     }

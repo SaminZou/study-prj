@@ -26,7 +26,7 @@ public class RestConfig {
 
     @Bean
     public HttpClient httpClient() {
-        // 支持HTTP / HTTPS
+        // 支持 HTTP / HTTPS
         Registry<ConnectionSocketFactory> registry = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", PlainConnectionSocketFactory.getSocketFactory())
                 .register("https", SSLConnectionSocketFactory.getSocketFactory())

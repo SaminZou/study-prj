@@ -19,7 +19,7 @@ public class RabbitmqConfig {
      */
     @Bean
     Queue queue() {
-        return new Queue(SystemConstant.queueName, false);
+        return new Queue(SystemConstant.QUEUE_NAME, false);
     }
 
     /**
@@ -29,7 +29,7 @@ public class RabbitmqConfig {
      */
     @Bean
     TopicExchange exchange() {
-        return new TopicExchange(SystemConstant.topicExchangeName);
+        return new TopicExchange(SystemConstant.TOPIC_EXCHANGE_NAME);
     }
 
     /**
@@ -51,7 +51,7 @@ public class RabbitmqConfig {
      */
     @Bean
     Queue msgQueue() {
-        return new Queue(SystemConstant.msgConsumerQueueName, false);
+        return new Queue(SystemConstant.MSG_CONSUMER_QUEUE_NAME, false);
     }
 
     /**
@@ -82,7 +82,7 @@ public class RabbitmqConfig {
      */
     @Bean
     Queue workerQueue() {
-        return new Queue(SystemConstant.workerQueueName, false);
+        return new Queue(SystemConstant.WORKER_QUEUE_NAME, false);
     }
 
     /**

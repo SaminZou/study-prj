@@ -1,6 +1,5 @@
 package com.samin.aop.config;
 
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -11,12 +10,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Slf4j
 @Aspect
 @Component
 public class TimeCountAspect {
 
-    // 统计请求的处理时间
+    /**
+     * 统计请求的处理时间
+     */
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
     /**

@@ -1,6 +1,7 @@
 package com.samin.auth.db;
 
 import com.samin.auth.authentication.CustomUserDetails;
+
 import java.util.HashMap;
 
 /**
@@ -14,7 +15,7 @@ public class DBService {
     /**
      * 存放用户数据
      */
-    public static final HashMap<String, CustomUserDetails> userDetailsMap = new HashMap<String, CustomUserDetails>() {
+    public static final HashMap<String, CustomUserDetails> USER_DETAILS_MAP = new HashMap<String, CustomUserDetails>() {
         {
             put("samin", CustomUserDetails.getInstance("samin", "123"));
         }

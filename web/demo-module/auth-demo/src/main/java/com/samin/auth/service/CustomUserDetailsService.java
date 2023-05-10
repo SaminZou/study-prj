@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        CustomUserDetails customUserDetails = DBService.userDetailsMap.get(username);
+        CustomUserDetails customUserDetails = DBService.USER_DETAILS_MAP.get(username);
 
         if (Objects.isNull(customUserDetails)) {
             throw new UsernameNotFoundException("用户不存在");

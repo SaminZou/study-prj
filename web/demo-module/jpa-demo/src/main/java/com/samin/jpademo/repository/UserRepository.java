@@ -1,8 +1,9 @@
 package com.samin.jpademo.repository;
 
 import com.samin.jpademo.entity.UserDO;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * 用户仓库类
@@ -12,5 +13,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserRepository extends JpaRepository<UserDO, Integer> {
 
+    /**
+     * 根据性别获取用户记录
+     *
+     * @param sex
+     * @return
+     */
     List<UserDO> findUserBySex(int sex);
 }

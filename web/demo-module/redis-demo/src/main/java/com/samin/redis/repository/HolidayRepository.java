@@ -1,8 +1,9 @@
 package com.samin.redis.repository;
 
 import com.samin.redis.entity.Holiday;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * 用户仓库类
@@ -12,7 +13,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface HolidayRepository extends JpaRepository<Holiday, Integer> {
 
+    /**
+     * 根据 id 获取假期记录
+     *
+     * @param id
+     * @return
+     */
     Holiday findHolidayById(Integer id);
 
+    /**
+     * 获取假期列表记录
+     *
+     * @param enabled
+     * @return
+     */
     List<Holiday> findAllByEnabled(boolean enabled);
 }
