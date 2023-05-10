@@ -43,4 +43,9 @@ public class HolidayController {
     public void delete(@PathVariable("id") Integer id) {
         holidayService.deleteById(id);
     }
+
+    @PostMapping("/holiday/isExist/{specTime}")
+    public boolean isExist(@PathVariable(name = "specTime") String specTime) {
+        return holidayService.isExist(specTime);
+    }
 }

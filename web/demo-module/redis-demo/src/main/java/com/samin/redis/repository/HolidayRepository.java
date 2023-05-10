@@ -2,6 +2,8 @@ package com.samin.redis.repository;
 
 import com.samin.redis.entity.Holiday;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -28,4 +30,10 @@ public interface HolidayRepository extends JpaRepository<Holiday, Integer> {
      * @return
      */
     List<Holiday> findAllByEnabled(boolean enabled);
+
+    @Query(value = "select * from holiday  where ?1 = any(workdays)", nativeQuery = true)
+    List<Holiday> findByWorkdays(String specTime);
+
+    @Query(value = "select * from holiday  where ?1 = any(holidays)", nativeQuery = true)
+    List<Holiday> findByHolidays(String specTime);
 }

@@ -34,6 +34,10 @@ public class HolidayService {
 
     private final HolidayRepository holidayRepository;
 
+    public boolean isExist(String specTime) {
+        return !(CollectionUtils.isEmpty(holidayRepository.findByHolidays(specTime)) && CollectionUtils.isEmpty(holidayRepository.findByWorkdays(specTime)));
+    }
+
     @Cacheable(cacheNames = "HOLIDAY_STATS", key = "#p0")
     public HolidayStatsVo stats(String specTime) {
         HolidayGroupBo holidayGroupBo = getHolidayGroupBo();
@@ -41,7 +45,7 @@ public class HolidayService {
 
         int holidaysCount = 0;
         // 遍历计算每一天
-        LocalDate localDate = LocalDate.parse(specTime + "-01-01");
+        LocalDate localDate = LocalDate.parse(specTime + "0101", DateTimeFormatter.ofPattern(Holiday.DATE_FORMAT));
         while (localDate.get(ChronoField.YEAR) == Integer.parseInt(specTime)) {
             if (holidayGroupBo.isHoliday(localDate)) {
                 holidaysCount += 1;
@@ -62,8 +66,8 @@ public class HolidayService {
     @CacheEvict(cacheNames = "HOLIDAY_STATS", allEntries = true)
     public Holiday save(Holiday param) throws Exception {
         // 校验入参假期和补班否重复
-        if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWeekdays()) && param.getHolidays().length > 0 && param.getWeekdays().length > 0) {
-            if (isIntersect(Arrays.asList(param.getHolidays()), param.getWeekdays())) {
+        if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWorkdays()) && param.getHolidays().length > 0 && param.getWorkdays().length > 0) {
+            if (isIntersect(Arrays.asList(param.getHolidays()), param.getWorkdays())) {
                 throw new Exception("入参配置不能重复");
             }
         }
@@ -73,14 +77,14 @@ public class HolidayService {
         List<String> specDays = new ArrayList<>();
         for (Holiday item : all) {
             specDays.addAll(Arrays.asList(item.getHolidays()));
-            specDays.addAll(Arrays.asList(item.getWeekdays()));
+            specDays.addAll(Arrays.asList(item.getWorkdays()));
         }
         // 更新操作，去掉当前记录历史配置
         if (Objects.nonNull(param.getId())) {
             Holiday historyHistory = holidayRepository.findHolidayById(param.getId());
             if (Objects.nonNull(historyHistory)) {
                 specDays = specDays.stream().filter(item -> !ArrayUtils.contains(historyHistory.getHolidays(), item))
-                        .filter(item -> !ArrayUtils.contains(historyHistory.getWeekdays(), item))
+                        .filter(item -> !ArrayUtils.contains(historyHistory.getWorkdays(), item))
                         .collect(Collectors.toList());
             }
         }
@@ -93,8 +97,8 @@ public class HolidayService {
         }
 
         // 校验补班
-        if (Objects.nonNull(param.getWeekdays()) && param.getWeekdays().length > 0) {
-            if (isIntersect(specDays, param.getWeekdays())) {
+        if (Objects.nonNull(param.getWorkdays()) && param.getWorkdays().length > 0) {
+            if (isIntersect(specDays, param.getWorkdays())) {
                 throw new Exception("补班配置存在重复天数");
             }
         }
@@ -139,7 +143,7 @@ public class HolidayService {
 
         private List<String> getWorkDays(List<Holiday> all) {
             List<String> result = new ArrayList<>();
-            all.forEach(e -> result.addAll(Arrays.asList(e.getWeekdays())));
+            all.forEach(e -> result.addAll(Arrays.asList(e.getWorkdays())));
             return result;
         }
 
@@ -150,7 +154,7 @@ public class HolidayService {
         }
 
         private boolean isHoliday(LocalDate date) {
-            String dateStr = date.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+            String dateStr = date.format(DateTimeFormatter.ofPattern(Holiday.DATE_FORMAT));
 
             // 匹配是否有工作日配置
             if (this.workdays.contains(dateStr)) {

@@ -18,7 +18,7 @@ class HolidayServiceTest {
         // Init
         Holiday holiday = Holiday.getInstance();
         holiday.setHolidays(new String[]{"2023-04-29", "2023-04-30", "2023-05-01", "2023-05-02", "2023-05-03"});
-        holiday.setWeekdays(new String[]{"2023-04-23", "2023-05-06"});
+        holiday.setWorkdays(new String[]{"2023-04-23", "2023-05-06"});
         holiday.setHolidayType(3);
         holiday.setRemark("劳动节");
         holidayService.save(holiday);
@@ -26,13 +26,13 @@ class HolidayServiceTest {
         // Init
         holiday = Holiday.getInstance();
         holiday.setHolidays(new String[]{"2023-05-15", "2023-05-16", "2023-05-17"});
-        holiday.setWeekdays(new String[]{"2023-05-18", "2023-05-19"});
+        holiday.setWorkdays(new String[]{"2023-05-18", "2023-05-19"});
         holidayService.save(holiday);
 
         // ERROR 入参重复
         holiday = Holiday.getInstance();
         holiday.setHolidays(new String[]{"2023-05-15", "2023-05-16", "2023-05-17"});
-        holiday.setWeekdays(new String[]{"2023-05-16", "2023-05-18", "2023-05-19"});
+        holiday.setWorkdays(new String[]{"2023-05-16", "2023-05-18", "2023-05-19"});
         holidayService.save(holiday);
 
         // ERROR 假期重复
@@ -42,7 +42,7 @@ class HolidayServiceTest {
 
         // ERROR 补班重复
         holiday = Holiday.getInstance();
-        holiday.setWeekdays(new String[]{"2023-05-18"});
+        holiday.setWorkdays(new String[]{"2023-05-18"});
         holidayService.save(holiday);
 
         // ERROR 假期与补班重复
@@ -52,7 +52,7 @@ class HolidayServiceTest {
 
         // ERROR 补班与假期重复
         holiday = Holiday.getInstance();
-        holiday.setWeekdays(new String[]{"2023-05-17"});
+        holiday.setWorkdays(new String[]{"2023-05-17"});
         holidayService.save(holiday);
     }
 }
