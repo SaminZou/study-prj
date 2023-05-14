@@ -24,7 +24,7 @@ public class SmallerNumbersThanCurrent {
 
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] temp = Arrays.copyOf(nums, nums.length);
-        QuickSort.quickSort(nums, 0, nums.length - 1);
+        new QuickSort().quickSort(nums, 0, nums.length - 1);
 
         // 计算每个元素的排序即得出小于它所有数字的数目
         HashMap<Integer, Integer> numsSeqMap = new HashMap<>();

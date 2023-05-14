@@ -36,7 +36,7 @@ public class GetMinimumDifference {
         }
 
         // 排序输出结果
-        QuickSort.quickSort(arrs, 0, arrs.length - 1);
+        new QuickSort().quickSort(arrs, 0, arrs.length - 1);
 
         return arrs[0];
     }

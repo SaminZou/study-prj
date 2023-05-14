@@ -19,6 +19,6 @@ public class Merge {
             System.arraycopy(nums2, 0, nums1, m, n);
         }
 
-        QuickSort.quickSort(nums1, 0, m + n - 1);
+        new QuickSort().quickSort(nums1, 0, m + n - 1);
     }
 }

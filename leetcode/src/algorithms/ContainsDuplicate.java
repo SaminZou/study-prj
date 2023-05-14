@@ -24,7 +24,7 @@ public class ContainsDuplicate {
             return false;
         }
 
-        QuickSort.quickSort(nums, 0, nums.length - 1);
+        new QuickSort().quickSort(nums, 0, nums.length - 1);
 
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] == nums[i - 1]) {

@@ -15,7 +15,7 @@ public class ArrayPairSum {
     }
 
     public int arrayPairSum(int[] nums) {
-        QuickSort.quickSort(nums, 0, nums.length - 1);
+        new QuickSort().quickSort(nums, 0, nums.length - 1);
 
         int res = 0;
         for (int i = 0; i < nums.length; i = i + 2) {

@@ -28,8 +28,8 @@ public class CanBeEqual {
     }
 
     public boolean canBeEqual(int[] target, int[] arr) {
-        QuickSort.quickSort(target, 0, target.length - 1);
-        QuickSort.quickSort(arr, 0, target.length - 1);
+        new QuickSort().quickSort(target, 0, target.length - 1);
+        new QuickSort().quickSort(arr, 0, target.length - 1);
 
         for (int i = 0; i < target.length; i++) {
             if (target[i] != arr[i]) {

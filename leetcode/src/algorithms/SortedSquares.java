@@ -21,7 +21,7 @@ public class SortedSquares {
             A[i] = (int) Math.pow(A[i], 2);
         }
 
-        QuickSort.quickSort(A, 0, A.length - 1);
+        new QuickSort().quickSort(A, 0, A.length - 1);
         return A;
     }
 }

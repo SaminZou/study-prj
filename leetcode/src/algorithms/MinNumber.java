@@ -16,7 +16,7 @@ public class MinNumber {
     }
 
     public String minNumber(int[] nums) {
-        QuickSort.quickSort(nums, 0, nums.length - 1);
+        new QuickSort().quickSort(nums, 0, nums.length - 1);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < nums.length; i++) {
             sb.append(nums[i]);
