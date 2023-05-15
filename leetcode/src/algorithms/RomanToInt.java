@@ -1,4 +1,4 @@
-package algorithms.base;
+package algorithms;
 
 /**
  * 罗马数字转整数
