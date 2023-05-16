@@ -1,5 +1,7 @@
 package collection.q1;
 
+import java.util.Objects;
+
 /**
  * 对象实现排序方式
  *
@@ -8,7 +10,7 @@ package collection.q1;
  */
 public class SortObj implements Comparable<SortObj> {
 
-    Integer weight;
+    int weight;
 
     public SortObj(Integer weight) {
         this.weight = weight;
@@ -16,8 +18,26 @@ public class SortObj implements Comparable<SortObj> {
 
     @Override
     public int compareTo(SortObj o) {
-        System.out.println("使用 Comparable 接口实现方法排序");
-        return -o.weight;
+        // System.out.println("使用 Comparable 接口实现方法排序");
+        // 实现升序
+        return this.weight - o.weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SortObj sortObj = (SortObj) o;
+        return Objects.equals(weight, sortObj.weight);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(weight);
     }
 
     @Override

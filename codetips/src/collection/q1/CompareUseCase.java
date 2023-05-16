@@ -32,7 +32,7 @@ public class CompareUseCase {
 
         // 使用 Comparator
         list.sort((e1, e2) -> {
-            System.out.println("使用 Comparator 接口实现方法排序");
+            // System.out.println("使用 Comparator 接口实现方法排序");
             // 升序
             return e1.weight - e2.weight;
         });
@@ -40,17 +40,21 @@ public class CompareUseCase {
         // list.sort(Comparator.comparingInt(e -> e.weight));
         System.out.println("Comparator 排序后：" + list);
 
-        // 使用 TreeMap，使用到了 Comparable 实现的方法
-        TreeMap<SortObj, Integer> treeMap = new TreeMap<>();
-        treeMap.put(o1, 1);
-        treeMap.put(o2, 2);
-        treeMap.put(o3, 3);
-        treeMap.put(o4, 4);
-        treeMap.put(o5, 5);
-        System.out.println(treeMap);
+        // 使用 TreeMap，key 会调用 Comparable 实现方法进行排序
+        TreeMap<SortObj, String> treeMap = new TreeMap<>();
+        treeMap.put(o4, "1");
+        treeMap.put(o1, "3");
+        treeMap.put(o2, "4");
+        treeMap.put(o5, "2");
+        treeMap.put(o3, "5");
+        System.out.println("TreeMap 会调用排序方法：");
+        // 遍历 TreeMap
+        for (SortObj key : treeMap.keySet()) {
+            System.out.println(key + ":" + treeMap.get(key));
+        }
 
         /*
-        Comparable 相当于“内部比较器”，而 Comparator 相当于“外部比较器”
+        Comparable 相当于 "内部比较器"，而 Comparator 相当于 "外部比较器"
         当对象同时实现了 Comparable 接口和使用 Collections.sort 传入了 Comparator 接口方法
         会优先调用 Comparator 接口的 compare 方法
          */
