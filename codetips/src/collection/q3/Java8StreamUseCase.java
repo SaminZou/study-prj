@@ -1,9 +1,6 @@
 package collection.q3;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -41,7 +38,8 @@ public class Java8StreamUseCase {
         System.out.println(list.stream().parallel().filter(e -> e.getBar() > 2).collect(Collectors.toList()));
 
         // 获取 bar 最大的元素
-        System.out.println(list.stream().max(Comparator.comparingInt(Obj::getBar)).get());
+        Optional<Obj> max = list.stream().max(Comparator.comparingInt(Obj::getBar));
+        max.ifPresent(System.out::println);
 
         // 大于 6 的元素集合
         System.out.println(list.stream().filter(e -> e.getBar() > 2).count());
