@@ -80,8 +80,8 @@ public class Java8StreamUseCase {
             this.bar = bar;
         }
 
-        private String foo;
-        private int bar;
+        private final String foo;
+        private final int bar;
 
         public String getFoo() {
             return foo;
