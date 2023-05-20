@@ -34,7 +34,8 @@ public class Java8StreamUseCase {
         // 倒序
         System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar).reversed()).collect(Collectors.toList()));
 
-        // stream 和 parallelStream 的简单区分： stream 是顺序流，由主线程按顺序对流执行操作，而 parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求
+        // stream 和 parallelStream 的简单区分： stream 是顺序流，由主线程按顺序对流执行操作
+        // parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求
         System.out.println(list.stream().parallel().filter(e -> e.getBar() > 2).collect(Collectors.toList()));
 
         // 获取 bar 最大的元素
@@ -68,9 +69,7 @@ public class Java8StreamUseCase {
         list2.add(o10);
 
         Map<String, List<Obj>> collect = list2.stream().collect(Collectors.groupingBy(Obj::getFoo));
-        collect.forEach((k, v) -> {
-            System.out.printf("key: [%s], value: [%s]\n", k, v);
-        });
+        collect.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
     }
 
     private static class Obj {
