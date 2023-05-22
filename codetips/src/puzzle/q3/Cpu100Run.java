@@ -1,6 +1,10 @@
 package puzzle.q3;
 
 import java.lang.management.ManagementFactory;
+import java.util.Random;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 此模拟程序目的是为了观测多核 CPU 的运行负载情况
@@ -24,28 +28,29 @@ public class Cpu100Run {
     private final static long PROGRAM_RUNNING_TIME = 5 * 1000L;
 
     public static void main(String[] args) {
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
+                r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
         System.out.println("Running at pid:" + ManagementFactory.getRuntimeMXBean().getName());
 
         // 建议设置不需要超过 `核数+1` ，次模拟基于 CPU 密集型任务模型
-        runThread(RUN_THREAD_NUMS);
+        runThread(poolExecutor);
 
         // 定时关闭程序
-        new Thread(new ChangeSwitch()).start();
+        poolExecutor.execute(new ChangeSwitch());
 
         while (SWITCH_BOOL) {
         }
 
+        poolExecutor.shutdown();
         System.out.println("program stop.");
     }
 
     /**
      * 运行线程
-     *
-     * @param nums 启动的线程数
      */
-    private static void runThread(int nums) {
-        for (int i = 0; i < nums; i++) {
-            new Thread(new Running100Thread(), "100%Thread-" + (i + 1)).start();
+    private static void runThread(ThreadPoolExecutor poolExecutor) {
+        for (int i = 0; i < Cpu100Run.RUN_THREAD_NUMS; i++) {
+            poolExecutor.execute(new Running100Thread());
         }
     }
 
