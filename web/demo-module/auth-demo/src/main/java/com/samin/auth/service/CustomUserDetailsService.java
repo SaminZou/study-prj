@@ -2,7 +2,7 @@ package com.samin.auth.service;
 
 
 import com.samin.auth.authentication.CustomUserDetails;
-import com.samin.auth.db.DBService;
+import com.samin.auth.db.DbService;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        CustomUserDetails customUserDetails = DBService.USER_DETAILS_MAP.get(username);
+        CustomUserDetails customUserDetails = DbService.USER_DETAILS_MAP.get(username);
 
         if (Objects.isNull(customUserDetails)) {
             throw new UsernameNotFoundException("用户不存在");

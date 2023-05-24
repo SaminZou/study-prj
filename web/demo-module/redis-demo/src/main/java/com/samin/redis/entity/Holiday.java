@@ -32,7 +32,9 @@ public class Holiday {
     private Integer id;
 
     @Type(type = "string-array")
-    // @Column(name = "holidays", columnDefinition = "varchar(255)[]")
+    /**
+     * @Column(name = "holidays", columnDefinition = "varchar(255)[]")
+     */
     @Column(name = "holidays", columnDefinition = "text[]")
     @Comment("假期，格式：" + DATE_FORMAT)
     private String[] holidays;

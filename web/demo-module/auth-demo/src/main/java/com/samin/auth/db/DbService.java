@@ -10,7 +10,7 @@ import java.util.HashMap;
  * @author samin
  * @date 2022-08-08
  */
-public class DBService {
+public class DbService {
 
     /**
      * 存放用户数据
