@@ -1,21 +1,19 @@
 package com.samin.dingtalk.service;
 
-import com.samin.dingtalk.pojo.req.AlertReq;
-import com.samin.dingtalk.pojo.req.Alerts;
-import com.samin.dingtalk.pojo.req.At;
-import com.samin.dingtalk.pojo.req.DingtalkReq;
-import com.samin.dingtalk.pojo.req.Markdown;
+import com.samin.dingtalk.pojo.req.*;
 import com.samin.dingtalk.pojo.resp.DingtalkResp;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -27,16 +25,23 @@ public class DingtalkService {
     @Value("${custom.dingtalk-url}")
     private String dingtalkUrl;
 
-    private final static String ALARM_MSG_TEMPLATE = "- 告警应用：%s\n- 告警实例：%s\n- 告警时间：%s\n- 告警详情：%s\n- 请求名：%s\n- 请求方法：%s";
+    private final static String ALARM_MSG_TEMPLATE1 = "- 告警应用：%s\n- 告警实例：%s\n- 请求名：%s\n- 请求方法：%s\n- 告警时间：%s\n- 告警标题：%s";
+    private final static String ALARM_MSG_TEMPLATE2 = "- 告警应用：%s\n- 告警实例：%s\n- 请求名：%s\n- 请求方法：%s\n- 告警时间：%s\n- 告警标题：%s\n- 告警描述：%s";
 
     public void dingtalk(AlertReq req) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String now = LocalDateTime.now().format(dtf);
 
         for (Alerts alerts : req.getAlerts()) {
-            String text = String.format(ALARM_MSG_TEMPLATE, req.getCommonLabels().getApplication(),
-                    req.getCommonLabels().getInstance(), now, alerts.getAnnotations().getSummary(),
-                    alerts.getLabels().getUri(), alerts.getLabels().getMethod());
+            String text;
+            if (StringUtils.isNotBlank(alerts.getAnnotations().getDescription())) {
+                text = String.format(ALARM_MSG_TEMPLATE2, alerts.getLabels().getApplication(), alerts.getLabels().getInstance(),
+                        alerts.getLabels().getUri(), alerts.getLabels().getMethod(), now, alerts.getAnnotations().getSummary()
+                        , alerts.getAnnotations().getDescription());
+            } else {
+                text = String.format(ALARM_MSG_TEMPLATE1, alerts.getLabels().getApplication(), alerts.getLabels().getInstance(),
+                        alerts.getLabels().getUri(), alerts.getLabels().getMethod(), now, alerts.getAnnotations().getSummary());
+            }
 
             // 构建请求体
             Markdown markdown = new Markdown();
