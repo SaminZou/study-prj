@@ -25,7 +25,6 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.samin.dingtalk.controller"))
                 .paths(PathSelectors.any())
                 .build();
-
     }
 
     private ApiInfo apiInfo() {

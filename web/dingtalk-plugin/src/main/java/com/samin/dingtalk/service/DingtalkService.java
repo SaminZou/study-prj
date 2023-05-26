@@ -55,12 +55,12 @@ public class DingtalkService {
             dingtalkReq.setMarkdown(markdown);
             dingtalkReq.setAt(at);
 
-            ResponseEntity<DingtalkResp> dingtalkResp = restTemplate.postForEntity(dingtalkUrl, dingtalkReq,
-                    DingtalkResp.class);
-            if (dingtalkResp.getStatusCode().equals(HttpStatus.OK) && Objects.nonNull(dingtalkResp.getBody())
-                    && dingtalkResp.getBody().getErrcode() == 0) {
-                log.info("告警信息钉钉转发成功 {}", now);
-            }
+//            ResponseEntity<DingtalkResp> dingtalkResp = restTemplate.postForEntity(dingtalkUrl, dingtalkReq,
+//                    DingtalkResp.class);
+//            if (dingtalkResp.getStatusCode().equals(HttpStatus.OK) && Objects.nonNull(dingtalkResp.getBody())
+//                    && dingtalkResp.getBody().getErrcode() == 0) {
+//                log.info("告警信息钉钉转发成功 {}", now);
+//            }
         }
     }
 }
