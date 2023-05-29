@@ -25,28 +25,44 @@ public class DingtalkService {
     @Value("${custom.dingtalk-url}")
     private String dingtalkUrl;
 
-    private final static String ALARM_MSG_TEMPLATE1 = "- 告警应用：%s\n- 告警实例：%s\n- 请求名：%s\n- 请求方法：%s\n- 告警时间：%s\n- 告警标题：%s";
-    private final static String ALARM_MSG_TEMPLATE2 = "- 告警应用：%s\n- 告警实例：%s\n- 请求名：%s\n- 请求方法：%s\n- 告警时间：%s\n- 告警标题：%s\n- 告警描述：%s";
-
     public void dingtalk(AlertReq req) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String now = LocalDateTime.now().format(dtf);
 
         for (Alerts alerts : req.getAlerts()) {
-            String text;
-            if (StringUtils.isNotBlank(alerts.getAnnotations().getDescription())) {
-                text = String.format(ALARM_MSG_TEMPLATE2, alerts.getLabels().getApplication(), alerts.getLabels().getInstance(),
-                        alerts.getLabels().getUri(), alerts.getLabels().getMethod(), now, alerts.getAnnotations().getSummary()
-                        , alerts.getAnnotations().getDescription());
-            } else {
-                text = String.format(ALARM_MSG_TEMPLATE1, alerts.getLabels().getApplication(), alerts.getLabels().getInstance(),
-                        alerts.getLabels().getUri(), alerts.getLabels().getMethod(), now, alerts.getAnnotations().getSummary());
+            StringBuilder sb = new StringBuilder();
+            sb.append("- 告警时间：").append(now).append("\n");
+
+            if (StringUtils.isNotBlank(alerts.getLabels().getApplication())) {
+                sb.append("- 告警应用：").append(alerts.getLabels().getApplication()).append("\n");
             }
+
+            if (StringUtils.isNotBlank(alerts.getLabels().getInstance())) {
+                sb.append("- 告警实例：").append(alerts.getLabels().getInstance()).append("\n");
+            }
+
+            if (StringUtils.isNotBlank(alerts.getLabels().getUri())) {
+                sb.append("- 请求名：").append(alerts.getLabels().getUri()).append("\n");
+            }
+
+            if (StringUtils.isNotBlank(alerts.getLabels().getMethod())) {
+                sb.append("- 请求方法：").append(alerts.getLabels().getMethod()).append("\n");
+            }
+
+            if (StringUtils.isNotBlank(alerts.getAnnotations().getSummary())) {
+                sb.append("- 告警条目：").append(alerts.getAnnotations().getSummary()).append("\n");
+            }
+
+            if (StringUtils.isNotBlank(alerts.getAnnotations().getDescription())) {
+                sb.append("- 告警描述：").append(alerts.getAnnotations().getDescription()).append("\n");
+            }
+
+            log.info("\n{}", sb);
 
             // 构建请求体
             Markdown markdown = new Markdown();
             markdown.setTitle("监控告警");
-            markdown.setText(text);
+            markdown.setText(sb.toString());
             At at = new At();
             at.setIsAtAll("false");
 
@@ -55,12 +71,12 @@ public class DingtalkService {
             dingtalkReq.setMarkdown(markdown);
             dingtalkReq.setAt(at);
 
-//            ResponseEntity<DingtalkResp> dingtalkResp = restTemplate.postForEntity(dingtalkUrl, dingtalkReq,
-//                    DingtalkResp.class);
-//            if (dingtalkResp.getStatusCode().equals(HttpStatus.OK) && Objects.nonNull(dingtalkResp.getBody())
-//                    && dingtalkResp.getBody().getErrcode() == 0) {
-//                log.info("告警信息钉钉转发成功 {}", now);
-//            }
+            ResponseEntity<DingtalkResp> dingtalkResp = restTemplate.postForEntity(dingtalkUrl, dingtalkReq,
+                    DingtalkResp.class);
+            if (dingtalkResp.getStatusCode().equals(HttpStatus.OK) && Objects.nonNull(dingtalkResp.getBody())
+                    && dingtalkResp.getBody().getErrcode() == 0) {
+                log.info("告警信息钉钉转发成功 {}", now);
+            }
         }
     }
 }
