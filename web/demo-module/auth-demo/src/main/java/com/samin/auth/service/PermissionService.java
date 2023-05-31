@@ -1,6 +1,6 @@
 package com.samin.auth.service;
 
-import com.samin.auth.exception.DmpBusException;
+import com.samin.auth.exception.BusException;
 import com.samin.auth.exception.ExceptionEnums;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -21,7 +21,7 @@ public class PermissionService {
 
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (Objects.isNull(requestAttributes)) {
-            throw new DmpBusException(ExceptionEnums.SYSTEM_ERROR);
+            throw new BusException(ExceptionEnums.SYSTEM_ERROR);
         }
 
         HttpServletRequest request = requestAttributes.getRequest();

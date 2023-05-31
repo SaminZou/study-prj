@@ -6,7 +6,7 @@ package com.samin.auth.exception;
  * @author samin
  * @date 2022-08-18
  */
-public class DmpBusException extends RuntimeException {
+public class BusException extends RuntimeException {
 
     private int code;
 
@@ -14,21 +14,21 @@ public class DmpBusException extends RuntimeException {
         return code;
     }
 
-    public DmpBusException(int code) {
+    public BusException(int code) {
         this.code = code;
     }
 
-    public DmpBusException(int code, String msg) {
+    public BusException(int code, String msg) {
         super(msg);
         this.code = code;
     }
 
-    public DmpBusException(int code, String msg, Throwable cause) {
+    public BusException(int code, String msg, Throwable cause) {
         super(msg, cause);
         this.code = code;
     }
 
-    public DmpBusException(BusinessCode businessCode) {
+    public BusException(BusinessCode businessCode) {
         super(businessCode.getValue());
         this.code = businessCode.getCode();
     }
