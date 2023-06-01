@@ -18,13 +18,13 @@ public class LoginService {
     @Resource
     private AuthenticationManager authenticationManager;
 
-    public BaseResp login(HashMap<String, String> loginReq) {
+    public BaseResp<Void> login(HashMap<String, String> loginReq) {
         Authentication authenticate = authenticationManager.authenticate(
                 new CustomAuthenticationToken(loginReq.get("name"), loginReq.get("pwd")));
 
         CustomUserDetails dmpUserDetails = (CustomUserDetails) authenticate.getPrincipal();
         log.info("登录成功：{}", dmpUserDetails);
 
-        return BaseResp.success(null);
+        return BaseResp.success();
     }
 }

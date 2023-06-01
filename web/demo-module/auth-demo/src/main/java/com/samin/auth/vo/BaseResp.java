@@ -17,8 +17,16 @@ public class BaseResp<T> {
         return resp;
     }
 
-    public static <T> BaseResp<T> fail(int code, String msg) {
-        BaseResp<T> resp = new BaseResp<>();
+    public static BaseResp<Void> success() {
+        BaseResp<Void> resp = new BaseResp<>();
+        resp.setCode(0);
+        resp.setMsg("success");
+        resp.setData(null);
+        return resp;
+    }
+
+    public static BaseResp<Void> fail(int code, String msg) {
+        BaseResp<Void> resp = new BaseResp<>();
         resp.setCode(code);
         resp.setMsg(msg);
         resp.setData(null);
