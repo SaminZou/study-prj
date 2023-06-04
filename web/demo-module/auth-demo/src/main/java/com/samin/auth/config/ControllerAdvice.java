@@ -20,14 +20,14 @@ public class ControllerAdvice {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
-    public BaseResp exception(Exception e) {
+    public BaseResp<Void> exception(Exception e) {
         log.error("系统内部错误：", e);
         return BaseResp.fail(-1, e.getMessage());
     }
 
     @ExceptionHandler(BusException.class)
     @ResponseStatus(HttpStatus.OK)
-    public BaseResp runtimeException(BusException e) {
+    public BaseResp<Void> runtimeException(BusException e) {
         log.error("DmpBusException：", e);
         return BaseResp.fail(e.getCode(), e.getMessage());
     }
