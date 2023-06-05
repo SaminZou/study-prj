@@ -6,7 +6,7 @@ set -o errexit
 num=$1
 flag=0
 
-# 非逻辑
+# 非逻辑案例， flag 不等于 1
 if [ ! "$flag" -eq 1 ]; then
   echo "trigger not logic"
   # 正常结束程序
@@ -23,6 +23,9 @@ elif [ "$num" -eq 4 ] && [ "$flag" -eq 1 ]; then
   echo "3"
 elif [ "$num" -lt 10 ]; then
   echo "2"
+elif [ "$num" -eq 99 ]; then
+  # 使用 : 可以代替空代码块
+  :
 else
   echo "unknow"
 fi
