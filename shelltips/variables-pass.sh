@@ -19,3 +19,10 @@ if [ -z $1 ]; then
 fi
 
 echo "variable is: $1"
+
+# 声明了一个变量
+test="hello world -by s"
+echo '处理前的值为：'$test
+# 需求：去掉 -by s
+test=${test%-by s}
+echo '处理后的值为：'$test
