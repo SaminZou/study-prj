@@ -2,6 +2,28 @@
 
 Dockerfile 中的 libtaos.so.2.4.0.5 在官网中自行下载
 
+# 供参考镜像打包命令
+
+$ docker build -t <ip>:<port>/td-test:v1 .
+
+# 供参考 docker-compose.yml
+
+```yaml
+version: "3.3"
+
+services:
+    td-test:
+        container_name: td-test
+        restart: always
+        image: <ip>:<port>/td-test:v1
+        extra_hosts:
+          - "tdengine-dev:<your_ip>"
+        environment:
+          - tdengine-host=jdbc:TAOS://tdengine-dev:6030/dev
+        ports:
+            - "8080:8080"
+```
+
 # 供参考的 K8s deployment.yaml
 
 ```yaml
@@ -41,7 +63,7 @@ spec:
               protocol: TCP
           env:
           - name: tdengine-host
-            value: jdbc:TAOS://tdengine-dev:6030/dev
+            value: tdengine-dev
           readinessProbe:
             failureThreshold: 3
             initialDelaySeconds: 20
@@ -114,3 +136,5 @@ spec:
 3. 应用运行时，会自动依赖 /etc/taos/taos.cfg 文件，里面注意填写关键配置
 
 | 如果是在 K8s 中运行，所有的 Node 需要配置 /etc/hosts 文件，添加 tdengine 服务端 ip 和 hostname 的映射关系
+
+4. taos -s "show databases;" 可以测试连通性

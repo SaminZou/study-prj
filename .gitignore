@@ -7,3 +7,6 @@ target
 *.log
 *.gz
 logs
+libtaos.so.*
+TDengine-client-2.4.0.5-Linux-x64.tar.gz
+taos.cfg
