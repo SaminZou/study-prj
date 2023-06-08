@@ -19,7 +19,7 @@ public class ShowProjectUrl {
         System.out.println("-----------------------------------------");
         System.out.println();
 
-        System.out.println("获取当前类的所在工程路径; 如果不加“/”  获取当前类的加载目录");
+        System.out.println("获取当前类的所在工程路径; 如果不加 “/”  获取当前类的加载目录");
         File f2 = new File(Objects.requireNonNull(t.getResource("")).getPath());
         System.out.println(f2);
         System.out.println("-----------------------------------------");
