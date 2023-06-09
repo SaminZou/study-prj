@@ -14,16 +14,6 @@ public class TDengineDemoController {
 
     private final TDengineDemoService tDengineDemoService;
 
-    @PostMapping("create_super_table")
-    public void createSuperTable() {
-        tDengineDemoService.createSuperTable();
-    }
-
-    @PostMapping("insert_table")
-    public void insert() {
-        tDengineDemoService.insert();
-    }
-
     @PostMapping("insert_data")
     public void insertData() {
         tDengineDemoService.insertData();
@@ -35,11 +25,6 @@ public class TDengineDemoController {
     }
 
     @PostMapping("find_super_table_data")
-    public List<Map<String, Object>> findSuperTableData() {
-        return tDengineDemoService.findSuperTableData();
-    }
-
-    @PostMapping("find_super_table_data_2_object")
     public List<IotDevice> findSuperTableData2Object() {
         return tDengineDemoService.findSuperTableData2Object();
     }

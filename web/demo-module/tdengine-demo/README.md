@@ -1,12 +1,26 @@
-使用 JNI 的 jdbc 连接方式本地需要安装 taos 客户端，本 demo 使用的 tdengine 服务端版本是 2.4.0.5，taos 客户端是 2.4.0.5-Windows-x64，taos-jdbcdriver 版本是 2.0.36
+# 1 下载需要的资源
 
-> Dockerfile 事例中的 TDengine-client-2.4.0.5-Linux-x64.tar.gz 和 libtaos.so.2.4.0.5 可以在官网中下载
+- TDengine-client-2.4.0.5-Linux-x64.tar.gz
 
-# 供参考镜像打包命令
+- libtaos.so.2.4.0.5（TDengine-client-2.4.0.5-Linux-x64.tar.gz 解压后，driver 目录中）
+
+- TDengine-client-2.4.0.5-Windows-x64.exe（ Windows 环境调试用）
+
+- Java 项目中对应 taos-jdbcdriver 2.0.36
+
+> 官网可以下载以上内容
+
+# 2 供参考镜像打包命令
 
 $ docker build -t <ip>:<port>/td-test:v1 .
 
-# 供参考 docker-compose.yml
+或者使用以下轻量级构建方式，区别在于使用完整版的构建，在容器中可以使用 taos 命令，以及查看相应的操作日志
+
+$ docker build -t <ip>:<port>/td-test:v1 -f Dockerfile-simple .
+
+# 3 供参考的启动方式
+
+## 3.1 docker-compose.yml（ docker 容器启动 ）
 
 ```yaml
 version: "3.3"
@@ -24,7 +38,7 @@ services:
             - "8080:8080"
 ```
 
-# 供参考的 K8s deployment.yaml
+## 3.2 deployment.yaml（ K8s 启动 ）
 
 ```yaml
 ---
@@ -125,16 +139,12 @@ spec:
       targetPort: 8080
 ```
 
-# 总结
+# 4 tips
 
-如果需要使用原生连接，以下是注意事项：
+- 使用原生连接方式，应用程序需要依赖 tdengine 提供的 client，下载对应版本 windows 或者 Linux 的客户端，放置在工作目录
 
-1. 应用程序需要依赖 tdengine 提供的 client，下载对应版本 windows 或者 Linux 的客户端，放置在工作目录
+- 重要的配置文件 /etc/taos/taos.cfg
 
-2. 需要修改 hosts 文件添加 tdengine 服务端 ip 和 hostname 的映射关系
+- 在 K8s 中运行，所有的 Node 需要配置 /etc/hosts 文件，添加 tdengine 服务端 ip 和 hostname 的映射关系
 
-3. 应用运行时，会自动依赖 /etc/taos/taos.cfg 文件，里面注意填写关键配置
-
-| 如果是在 K8s 中运行，所有的 Node 需要配置 /etc/hosts 文件，添加 tdengine 服务端 ip 和 hostname 的映射关系
-
-4. taos -s "show databases;" 可以测试连通性
+- taos -s "show databases;" 可以测试连通性
