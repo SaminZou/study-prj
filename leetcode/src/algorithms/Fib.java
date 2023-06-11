@@ -23,7 +23,7 @@ public class Fib {
             return 1;
         }
 
-        // 注意有F(0)的情况
+        // 注意有 F(0) 的情况
         int[] arr = new int[N + 1];
         arr[0] = 0;
         arr[1] = 1;
