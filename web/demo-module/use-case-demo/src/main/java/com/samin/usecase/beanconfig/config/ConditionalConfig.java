@@ -1,4 +1,4 @@
-package com.samin.usecase.config;
+package com.samin.usecase.beanconfig.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

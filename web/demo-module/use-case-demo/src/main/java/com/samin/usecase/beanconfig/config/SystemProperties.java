@@ -1,4 +1,4 @@
-package com.samin.usecase.config;
+package com.samin.usecase.beanconfig.config;
 
 import lombok.Getter;
 import lombok.Setter;

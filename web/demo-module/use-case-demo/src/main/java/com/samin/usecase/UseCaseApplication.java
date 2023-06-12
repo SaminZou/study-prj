@@ -1,6 +1,6 @@
 package com.samin.usecase;
 
-import com.samin.usecase.config.SystemProperties;
+import com.samin.usecase.beanconfig.config.SystemProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

@@ -1,4 +1,4 @@
-package com.samin.usecase.configwithcomponet;
+package com.samin.usecase.beanconfig.configwithcomponet;
 
 public class B {
 

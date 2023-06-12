@@ -1,10 +1,10 @@
-package com.samin.usecase.config;
+package com.samin.usecase.beanconfig.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.samin.usecase.entity.UserDO;
+import com.samin.usecase.repo.entity.UserDO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;

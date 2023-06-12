@@ -1,4 +1,4 @@
-package com.samin.usecase.configwithcomponet;
+package com.samin.usecase.beanconfig.configwithcomponet;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

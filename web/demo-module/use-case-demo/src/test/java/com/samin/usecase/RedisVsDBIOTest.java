@@ -1,8 +1,8 @@
 package com.samin.usecase;
 
 
-import com.samin.usecase.entity.UserDO;
-import com.samin.usecase.repository.UserRepository;
+import com.samin.usecase.repo.entity.UserDO;
+import com.samin.usecase.repo.repository.UserRepository;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;

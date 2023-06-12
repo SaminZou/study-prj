@@ -1,4 +1,4 @@
-package com.samin.usecase.entity;
+package com.samin.usecase.repo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

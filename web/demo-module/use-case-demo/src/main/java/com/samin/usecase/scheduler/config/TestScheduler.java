@@ -1,4 +1,4 @@
-package com.samin.usecase.scheduler;
+package com.samin.usecase.scheduler.config;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
