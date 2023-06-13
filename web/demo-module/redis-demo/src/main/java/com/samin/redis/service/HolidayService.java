@@ -6,6 +6,8 @@ import com.samin.redis.repository.HolidayRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -33,6 +35,7 @@ import java.util.stream.Collectors;
 public class HolidayService {
 
     private final HolidayRepository holidayRepository;
+    private final CacheManager cacheManager;
 
     public boolean isExist(String specTime) {
         return !(CollectionUtils.isEmpty(holidayRepository.findByHolidays(specTime)) && CollectionUtils.isEmpty(holidayRepository.findByWorkdays(specTime)));
@@ -64,6 +67,8 @@ public class HolidayService {
     }
 
     @CacheEvict(cacheNames = "HOLIDAY_STATS", allEntries = true)
+    // 删除指定年份
+    // @CacheEvict(cacheNames = "HOLIDAY_STATS", key = "'HOLIDAY_STATS:' + #param.year")
     public Holiday save(Holiday param) throws Exception {
         // 校验入参假期和补班否重复
         if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWorkdays()) && param.getHolidays().length > 0 && param.getWorkdays().length > 0) {
@@ -125,6 +130,21 @@ public class HolidayService {
         } catch (Exception e) {
             log.error("假期删除失败");
         }
+    }
+
+    /**
+     * 判断缓存是否存在
+     *
+     * @param year
+     * @return
+     */
+    public boolean isCache(int year) {
+        Cache cache = cacheManager.getCache("HOLIDAY_STATS");
+        if (Objects.nonNull(cache)) {
+            Object cachedValue = cache.get("HOLIDAY_STATS:" + year);
+            return Objects.nonNull(cachedValue);
+        }
+        return false;
     }
 
     private HolidayGroupBo getHolidayGroupBo() {
