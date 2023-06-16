@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@Slf4j
-@RequiredArgsConstructor
 @EnableScheduling
 @EnableRetry
+@Slf4j
+@RequiredArgsConstructor
 @SpringBootApplication
 public class UseCaseApplication implements CommandLineRunner {
 

@@ -1,5 +1,6 @@
 package com.samin.usecase.retry.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
@@ -7,26 +8,36 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
 
+@Slf4j
 @Service
 public class RetryService {
 
     private int index = 0;
 
-    @Retryable(value = Exception.class, maxAttempts = 3, backoff = @Backoff(delay = 2000, multiplier = 1.5))
-    public int test(int code) throws Exception {
-        System.out.println("test被调用,时间：" + LocalTime.now());
-        if (index < 5) {
+    /**
+     * 注意 maxAttempts 的次数是包含了所有的执行次数
+     *
+     * @param code
+     * @return
+     * @throws Exception
+     */
+    @Retryable(value = Exception.class, maxAttempts = 2, backoff = @Backoff(delay = 2000, multiplier = 1.5))
+    public int retry(int code) throws Exception {
+        // param > 1 就可以观测 recover() 方法被执行
+        int param = 1;
+        log.info("业务方法被调用，时间：" + LocalTime.now());
+        if (index < param) {
             index += 1;
-            throw new Exception("情况不对头！");
+            throw new Exception("业务方法被调用，执行报错！");
         }
-        System.out.println("test被调用,情况对头了！");
-        return 200;
+        log.info("业务方法调用成功");
+        return code;
     }
 
     @Recover
     public int recover(Exception e, int code) {
-        System.out.println("回调方法执行！！！！");
-        //记日志到数据库 或者调用其余的方法
-        return 400;
+        log.info("业务方法调用失败，触发执行对应的方法回调！！！！");
+        //记日志到数据库，或者进行补救措施
+        return -1;
     }
 }

@@ -16,9 +16,9 @@
         <module>mq-demo</module>
         <module>aop-demo</module>
         <module>auth-demo</module>
-        <module>use-case-demo</module>
         <module>admin-demo</module>
         <module>starter-demo</module>
+        <module>use-case-demo</module>
     </modules>
 
     <packaging>pom</packaging>
