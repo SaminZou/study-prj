@@ -1,4 +1,6 @@
-Spring Boot Admin（SBA）是一个社区开源项目，用于管理和监视 Spring Boot 应用程序
+# Spring Boot Admin
+
+SBA 是一个社区开源项目，用于管理和监视 Spring Boot 应用程序
 
 - 启动时间、累计运行时间
 - 进程和线程数量和占用的 CPU 资源
