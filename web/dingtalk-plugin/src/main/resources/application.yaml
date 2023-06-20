@@ -9,3 +9,4 @@ spring:
 custom:
   # 替换成钉钉生成的机器人 token
   dingtalk-url: http://samin.dev/robot/send?access_token=xxx
+  project-name: A市智慧园区项目

@@ -24,6 +24,8 @@ public class DingtalkService {
 
     @Value("${custom.dingtalk-url}")
     private String dingtalkUrl;
+    @Value("${custom.project-name}")
+    private String projectName;
 
     public void dingtalk(AlertReq req) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -31,6 +33,7 @@ public class DingtalkService {
 
         for (Alerts alerts : req.getAlerts()) {
             StringBuilder sb = new StringBuilder();
+            sb.append("- 所属项目：").append(projectName).append("\n");
             sb.append("- 告警时间：").append(now).append("\n");
 
             if (StringUtils.isNotBlank(alerts.getLabels().getApplication())) {
