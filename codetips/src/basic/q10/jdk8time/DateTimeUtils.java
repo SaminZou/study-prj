@@ -1,11 +1,6 @@
 package basic.q10.jdk8time;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -84,7 +79,7 @@ public class DateTimeUtils {
     public static List<Date> getPreviousDays(Date currentDate, int n, boolean isHoliday) {
         List<Date> results = new ArrayList<>();
 
-        LocalDateTime currentLocalDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime currentLocalDateTime = dateToLocalDateTime(currentDate);
         while (results.size() < n) {
             DayOfWeek dayOfWeek = DayOfWeek.of(currentLocalDateTime.get(ChronoField.DAY_OF_WEEK));
             LocalDateTime tempDateTime;
@@ -133,7 +128,7 @@ public class DateTimeUtils {
     public static List<Date> getPreviousDays(Date currentDate, int n) {
         List<Date> results = new ArrayList<>();
 
-        LocalDateTime currentLocalDateTime = currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime currentLocalDateTime = dateToLocalDateTime(currentDate);
         while (results.size() < n) {
             LocalDateTime tempDateTime = currentLocalDateTime.minus(1, ChronoUnit.DAYS);
             results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
@@ -141,5 +136,15 @@ public class DateTimeUtils {
         }
 
         return results;
+    }
+
+    /**
+     * Date to LocalDateTime
+     *
+     * @param currentDate Date 类型实例
+     * @return LocalDateTime 类型实例
+     */
+    private static LocalDateTime dateToLocalDateTime(Date currentDate) {
+        return currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 }
