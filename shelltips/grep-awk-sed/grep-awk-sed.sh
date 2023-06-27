@@ -26,6 +26,8 @@ grep "s$" foo_file
 echo "计算当前目录所有文件的总大小："
 ls -l | awk 'BEGIN {sum=0} {sum=sum+$5} END {print sum}'
 
+echo "打印第二列：$(echo "1 2 3 4" | awk '{print $2}')"
+
 # sed (stream editor)
 
 # -e 和 -i 的区别，-e 是执行后标准输出，-i 会修改文件内容，即区别为是否会修改文件内容
