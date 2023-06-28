@@ -1,10 +1,11 @@
-package basic.q10.jdk8time;
+package basic.q10.date;
 
 import java.time.Clock;
 import java.time.Instant;
 
 /**
- * Clock 用来代替 System.currentTimeInMillis() 和 TimeZone.getDefault()
+ * 时间戳用例
+ * <p> Clock 用来代替 System.currentTimeInMillis() 和 TimeZone.getDefault()
  *
  * @author samin
  * @date 2023-02-08
