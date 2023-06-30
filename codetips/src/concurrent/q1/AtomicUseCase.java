@@ -22,6 +22,7 @@ public class AtomicUseCase {
      * 没有使用原子类型
      */
     public static Integer sumsInteger = 0;
+    public static Integer sumsInteger2 = 0;
 
     public static void main(String[] args) throws Exception {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
@@ -47,6 +48,18 @@ public class AtomicUseCase {
 
         System.out.println("sumsInteger: " + sumsInteger);
 
+        System.out.println("----------------------------------------------------------");
+
+        // 使用同步方法可以解决问题，性能不如原子类型
+        for (int i = 0; i < 10; i++) {
+            poolExecutor.execute(new IntegerMockThread2());
+        }
+
+        // 等待全部线程执行完毕，结果观测才是有意义的
+        Thread.sleep(5000);
+
+        System.out.println("sumsInteger2: " + sumsInteger2);
+
         poolExecutor.shutdown();
     }
 
@@ -69,5 +82,19 @@ public class AtomicUseCase {
                 sumsInteger += 1;
             }
         }
+    }
+
+    static class IntegerMockThread2 implements Runnable {
+
+        @Override
+        public void run() {
+            for (int j = 0; j < 5000; j++) {
+                add();
+            }
+        }
+    }
+
+    static synchronized void add() {
+        sumsInteger2 += 1;
     }
 }
