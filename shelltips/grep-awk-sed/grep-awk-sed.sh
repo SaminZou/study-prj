@@ -52,3 +52,6 @@ echo ''
 
 echo "删除所有的 #备注："
 sed -e '/^#/ d' sed_test_file
+
+# 从第二行开始，去掉以 "#" 开头的备注
+sed -e '2,$ { /^[[:space:]]*#/d; }' <src_name> > <des_name>
