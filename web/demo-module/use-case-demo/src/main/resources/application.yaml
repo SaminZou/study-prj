@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 # 可以不写，默认为 true
 custom:
   config:
