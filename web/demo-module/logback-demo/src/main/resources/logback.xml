@@ -14,15 +14,15 @@
     <!-- 彩色日志依赖的渲染类 -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <conversionRule conversionWord="wex"
-      converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
     <conversionRule conversionWord="wEx"
-      converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
     <!-- 彩色日志格式 -->
     <property name="CONSOLE_LOG_PATTERN"
-      value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+              value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
     <!-- 文件输出日志格式 -->
     <property name="FILE_LOG_PATTERN"
-      value="%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n"/>
 
     <!-- 控制台输出 -->
     <appender name="CONSOLE-PURE" class="ch.qos.logback.core.ConsoleAppender">
@@ -98,6 +98,30 @@
             <!--日志文件保留天数-->
             <maxHistory>15</maxHistory>
         </rollingPolicy>
+    </appender>
+
+    <!-- INFO日志文件，用于记录重要日志信息 -->
+    <appender name="INFO_FILE2" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/log_info2.log</file>
+        <!-- 过滤器，只打印INFO级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${log.path}/info/log-info-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <!--日志文件最大的大小-->
+            <maxFileSize>1GB</maxFileSize>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志-->
+            <totalSizeCap>50GB</totalSizeCap>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
     </appender>
 
     <!-- 时间滚动输出 level为 WARN 日志 -->
