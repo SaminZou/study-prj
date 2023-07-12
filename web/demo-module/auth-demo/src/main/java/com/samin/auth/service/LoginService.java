@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.HashMap;
 
+/**
+ * 登录类
+ *
+ * @author samin
+ * @date 2023-07-12
+ */
 @Slf4j
 @Service
 public class LoginService {
@@ -24,6 +30,7 @@ public class LoginService {
 
         CustomUserDetails dmpUserDetails = (CustomUserDetails) authenticate.getPrincipal();
         log.info("登录成功：{}", dmpUserDetails);
+        // TODO save log
 
         return BaseResp.success();
     }

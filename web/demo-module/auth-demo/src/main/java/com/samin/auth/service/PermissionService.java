@@ -11,11 +11,16 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
+/**
+ * 权限服务类
+ *
+ * @author samin
+ * @date 2023-07-12
+ */
 @Slf4j
 @Service
 public class PermissionService {
-
-
+    
     public boolean access() {
         log.info("access!");
 

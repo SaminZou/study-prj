@@ -30,6 +30,7 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <prometheus.version>1.10.3</prometheus.version>
         <spring-boot-admin.version>2.7.4</spring-boot-admin.version>
+        <postgresql-jdbc.version>42.5.1</postgresql-jdbc.version>
     </properties>
 
     <dependencyManagement>

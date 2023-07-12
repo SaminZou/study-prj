@@ -1,6 +1,6 @@
 package com.samin.auth.authentication;
 
-import com.samin.auth.service.CustomUserDetailsService;
+import com.samin.auth.service.CustomUserDetailsServiceImpl;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Resource
-    private CustomUserDetailsService customUserDetailsService;
+    private CustomUserDetailsServiceImpl customUserDetailsServiceImpl;
     @Resource
     private PasswordEncoder passwordEncoder;
 
@@ -30,7 +30,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         CustomAuthenticationToken request = (CustomAuthenticationToken) authentication;
 
-        UserDetails userDetails = customUserDetailsService.loadUserByUsername(request.getUsername());
+        UserDetails userDetails = customUserDetailsServiceImpl.loadUserByUsername(request.getUsername());
 
         // 密码加密后比较是否匹配
         if (!passwordEncoder.matches(request.getPassword(), userDetails.getPassword())) {
