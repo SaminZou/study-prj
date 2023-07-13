@@ -8,22 +8,19 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "system_log")
-public class UserLoginLog {
+@Table(name = "auth_user_role_relation", schema = "auth")
+public class UserRoleRelation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Comment("操作用户id")
+    @Comment("用户id")
     private Integer userId;
 
-    @Comment("日志类型")
-    private String type;
+    @Comment("角色id")
+    private Integer roleId;
 
-    @Comment("操作 ip")
-    private String ip;
-
-    @Comment("操作时间")
+    @Comment("创建时间")
     private LocalDateTime createTime;
 }

@@ -1,10 +1,10 @@
 custom:
   pg_host: samin.dev
   pg_port: 55401
-  pg_database: dmp-dev
+  pg_database: samin-dev
   pg_username: root
   pg_password: 123456
-  pg_schema: public
+  # pg_schema: public
   redis_host: samin.dev
   redis_port: 55601
   redis_password: 123456
@@ -12,7 +12,8 @@ custom:
 
 spring:
   datasource:
-    url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?currentSchema=${custom.pg_schema:public}&stringtype=unspecified
+    url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?stringtype=unspecified
+    # url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?currentSchema=${custom.pg_schema:public}&stringtype=unspecified
     username: ${custom.pg_username}
     password: ${custom.pg_password}
     driver-class-name: org.postgresql.Driver
