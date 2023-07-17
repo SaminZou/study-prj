@@ -2,15 +2,16 @@ package com.samin.auth.service;
 
 
 import com.samin.auth.authentication.CustomUserDetails;
-import com.samin.auth.db.DbService;
+import com.samin.auth.entity.User;
 import com.samin.auth.exception.ExceptionEnums;
+import com.samin.auth.repo.UserRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
+import java.util.Optional;
 
 /**
  * 自定义用户信息加载服务类
@@ -20,16 +21,18 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        CustomUserDetails customUserDetails = DbService.USER_DETAILS_MAP.get(username);
+    private final UserRepository userRepository;
 
-        if (Objects.isNull(customUserDetails)) {
+    @Override
+    public UserDetails loadUserByUsername(String username) {
+        Optional<User> userOptional = userRepository.findByNickName(username);
+        if (!userOptional.isPresent()) {
             ExceptionEnums.throwException(ExceptionEnums.USER_NOT_EXIST_ERROR);
         }
 
-        return customUserDetails;
+        return CustomUserDetails.getInstance(userOptional.get());
     }
 }

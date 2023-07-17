@@ -28,3 +28,13 @@ spring:
       hibernate:
         show_sql: false
         format_sql: false
+
+jwt:
+  # JWT 存储的请求头
+  tokenHeader: Authorization
+  # JWT 加解密使用的密钥
+  secret: authdev
+  # JWT 的超期限时间 (60*60*24*7)
+  expiration: 604800
+  # JWT 负载中拿到开头
+  tokenHead: 'Bearer '

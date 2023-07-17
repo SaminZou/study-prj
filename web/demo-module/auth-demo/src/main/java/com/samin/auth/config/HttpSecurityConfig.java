@@ -3,8 +3,6 @@ package com.samin.auth.config;
 import com.samin.auth.authentication.CustomAuthenticationProvider;
 import com.samin.auth.handler.CustomAccessDeniedHandler;
 import com.samin.auth.handler.CustomAuthenticationEntryPoint;
-import java.util.Collections;
-import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +16,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.header.Header;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
+
+import javax.annotation.Resource;
+import java.util.Collections;
 
 /**
  * Spring Boot Security 配置类
@@ -62,7 +63,10 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         // 不做认证授权的地址
-        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**").antMatchers("/login").antMatchers("/logout");
+        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
+                .antMatchers("/login")
+                .antMatchers("/logout")
+                .antMatchers("/user/save");
     }
 
     @Override

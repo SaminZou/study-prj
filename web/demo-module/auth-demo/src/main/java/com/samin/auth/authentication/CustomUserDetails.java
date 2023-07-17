@@ -1,10 +1,11 @@
 package com.samin.auth.authentication;
 
-import java.util.Collection;
+import com.samin.auth.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Collection;
 
 @Data
 public class CustomUserDetails implements UserDetails {
@@ -12,11 +13,11 @@ public class CustomUserDetails implements UserDetails {
     private String username;
     private String password;
 
-    public static CustomUserDetails getInstance(String username, String password) {
+    public static CustomUserDetails getInstance(User user) {
         CustomUserDetails ins = new CustomUserDetails();
 
-        ins.setUsername(username);
-        ins.setPassword(new BCryptPasswordEncoder().encode(password));
+        ins.setUsername(user.getNickName());
+        ins.setPassword(user.getPassword());
 
         return ins;
     }

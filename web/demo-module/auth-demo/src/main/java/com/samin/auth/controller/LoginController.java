@@ -22,7 +22,7 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping(value = "/login")
-    public BaseResp<Void> login(@RequestBody HashMap<String, String> loginReq) {
+    public BaseResp<String> login(@RequestBody HashMap<String, String> loginReq) {
         return loginService.login(loginReq);
     }
 }

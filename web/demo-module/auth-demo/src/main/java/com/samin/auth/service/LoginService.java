@@ -2,7 +2,9 @@ package com.samin.auth.service;
 
 import com.samin.auth.authentication.CustomAuthenticationToken;
 import com.samin.auth.authentication.CustomUserDetails;
+import com.samin.auth.util.JwtUtil;
 import com.samin.auth.vo.BaseResp;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -19,19 +21,20 @@ import java.util.HashMap;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class LoginService {
 
-    @Resource
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
+    private final JwtUtil jwtUtil;
 
-    public BaseResp<Void> login(HashMap<String, String> loginReq) {
+    public BaseResp<String> login(HashMap<String, String> loginReq) {
         Authentication authenticate = authenticationManager.authenticate(
                 new CustomAuthenticationToken(loginReq.get("name"), loginReq.get("pwd")));
 
-        CustomUserDetails dmpUserDetails = (CustomUserDetails) authenticate.getPrincipal();
-        log.info("登录成功：{}", dmpUserDetails);
+        CustomUserDetails userDetails = (CustomUserDetails) authenticate.getPrincipal();
+        log.info("登录成功：{}", userDetails);
         // TODO save log
 
-        return BaseResp.success();
+        return BaseResp.success(jwtUtil.generateToken(userDetails));
     }
 }
