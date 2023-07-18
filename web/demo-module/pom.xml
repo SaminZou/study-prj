@@ -24,7 +24,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <springboot.version>2.6.14</springboot.version>
+        <springboot.version>2.7.5</springboot.version>
         <lombok.version>1.18.24</lombok.version>
         <mysql.version>8.0.30</mysql.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>

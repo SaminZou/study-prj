@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -30,7 +31,8 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
         Optional<User> userOptional = userRepository.findByNickName(username);
         if (!userOptional.isPresent()) {
-            ExceptionEnums.throwException(ExceptionEnums.USER_NOT_EXIST_ERROR);
+            // 用这个的原因是因为可以被 AuthenticationEntryPoint 实现方法识别返回自定义报错
+            throw new UsernameNotFoundException(ExceptionEnums.USER_NOT_EXIST_ERROR.getValue());
         }
 
         return CustomUserDetails.getInstance(userOptional.get());

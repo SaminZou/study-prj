@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerAdvice {
 
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public BaseResp<Void> exception(Exception e) {
         log.error("系统内部错误：", e);
         return BaseResp.fail(-1, e.getMessage());
