@@ -1,23 +1,31 @@
 package com.samin.auth.authentication;
 
+import com.samin.auth.entity.Menu;
+import com.samin.auth.entity.Resource;
+import com.samin.auth.entity.Role;
 import com.samin.auth.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Data
 public class CustomUserDetails implements UserDetails {
 
-    private String username;
-    private String password;
+    private User user;
+    private List<Role> roles;
+    private List<Menu> menus;
+    private List<Resource> resources;
 
-    public static CustomUserDetails getInstance(User user) {
+    public static CustomUserDetails getInstance(User user, List<Role> roles, List<Menu> menus, List<Resource> resources) {
         CustomUserDetails ins = new CustomUserDetails();
 
-        ins.setUsername(user.getNickName());
-        ins.setPassword(user.getPassword());
+        ins.setRoles(roles);
+        ins.setUser(user);
+        ins.setMenus(menus);
+        ins.setResources(resources);
 
         return ins;
     }
@@ -29,31 +37,31 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return user.getNickName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return user.getStatus() == 1;
     }
 }

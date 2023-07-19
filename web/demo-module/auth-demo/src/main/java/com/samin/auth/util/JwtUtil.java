@@ -2,6 +2,7 @@ package com.samin.auth.util;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import com.samin.auth.authentication.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -18,6 +19,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
+    private static final String CLAIM_KEY_ID = "jti";
     private static final String CLAIM_KEY_USERNAME = "sub";
     private static final String CLAIM_KEY_CREATED = "created";
 
@@ -27,7 +29,6 @@ public class JwtUtil {
     private Long expiration;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
-
 
     /**
      * 根据负责生成JWT的token
@@ -77,6 +78,17 @@ public class JwtUtil {
         return username;
     }
 
+    public String getIdFromToken(String token) {
+        String id;
+        try {
+            Claims claims = getClaimsFromToken(token);
+            id = claims.getId();
+        } catch (Exception e) {
+            id = null;
+        }
+        return id;
+    }
+
     /**
      * 验证token是否还有效
      *
@@ -107,8 +119,9 @@ public class JwtUtil {
     /**
      * 根据用户信息生成token
      */
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(CustomUserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+        claims.put(CLAIM_KEY_ID, userDetails.getUser().getId());
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);

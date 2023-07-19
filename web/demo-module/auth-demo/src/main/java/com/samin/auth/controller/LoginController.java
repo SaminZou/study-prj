@@ -2,11 +2,11 @@ package com.samin.auth.controller;
 
 import com.samin.auth.service.LoginService;
 import com.samin.auth.vo.BaseResp;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 
 /**
@@ -16,10 +16,10 @@ import java.util.HashMap;
  * @date 2022-08-08
  */
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
 
-    @Resource
-    private LoginService loginService;
+    private final LoginService loginService;
 
     @PostMapping(value = "/login")
     public BaseResp<String> login(@RequestBody HashMap<String, String> loginReq) {
