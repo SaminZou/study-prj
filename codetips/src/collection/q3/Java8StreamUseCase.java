@@ -55,6 +55,7 @@ public class Java8StreamUseCase {
         Obj o8 = new Obj("foo1", 5);
         Obj o9 = new Obj("foo2", 2);
         Obj o10 = new Obj("foo3", 1);
+        Obj o11 = new Obj("foo3", 1);
 
         List<Obj> list2 = new ArrayList<>();
         list2.add(o1);
@@ -67,9 +68,14 @@ public class Java8StreamUseCase {
         list2.add(o8);
         list2.add(o9);
         list2.add(o10);
+        list2.add(o11);
 
         Map<String, List<Obj>> collect = list2.stream().collect(Collectors.groupingBy(Obj::getFoo));
         collect.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
+
+        // foo3 有两个 bar = 1 的相同对象，可以转换为 Map<String, Set<Obj>>
+        Map<String, Set<Integer>> collect2 = list2.stream().collect(Collectors.groupingBy(Obj::getFoo, Collectors.mapping(Obj::getBar, Collectors.toSet())));
+        collect2.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
     }
 
     private static class Obj {
