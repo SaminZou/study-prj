@@ -28,6 +28,16 @@ spring:
       hibernate:
         show_sql: false
         format_sql: false
+  redis:
+    host: ${custom.redis_host}
+    port: ${custom.redis_port}
+    password: ${custom.redis_password}
+    database: ${custom.redis_database}
+    lettuce:
+      pool:
+        min-idle: 5
+        max-active: 10
+        max-wait: 3000
 
 jwt:
   # JWT 存储的请求头
