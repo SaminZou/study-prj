@@ -30,6 +30,10 @@ public class CustomUserDetails implements UserDetails {
         return ins;
     }
 
+    /**
+     * 用来绑定角色结合 @PreAuthorize("hasRole('ROLE_ADMIN')") 来使用
+     * @return
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
