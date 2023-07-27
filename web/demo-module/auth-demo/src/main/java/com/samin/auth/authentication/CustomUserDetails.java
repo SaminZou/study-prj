@@ -8,11 +8,12 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
 @Data
-public class CustomUserDetails implements UserDetails {
+public class CustomUserDetails implements UserDetails, Serializable {
 
     private User user;
     private List<Role> roles;
@@ -32,6 +33,7 @@ public class CustomUserDetails implements UserDetails {
 
     /**
      * 用来绑定角色结合 @PreAuthorize("hasRole('ROLE_ADMIN')") 来使用
+     *
      * @return
      */
     @Override

@@ -174,4 +174,8 @@ public class JwtUtil {
         }
         return false;
     }
+
+    public Long getExpiration() {
+        return this.expiration;
+    }
 }

@@ -4,12 +4,13 @@ import lombok.Data;
 import org.hibernate.annotations.Comment;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "auth_menu", schema = "auth")
-public class Menu {
+public class Menu implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

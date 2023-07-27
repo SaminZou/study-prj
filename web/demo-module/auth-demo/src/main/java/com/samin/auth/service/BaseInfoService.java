@@ -15,10 +15,12 @@ public class BaseInfoService {
 
     public BaseInfoVo baseInfo() {
         CustomUserDetails currentUser = securityService.getCurrentUser();
+
         BaseInfoVo baseInfoVo = new BaseInfoVo();
         baseInfoVo.setRoles(currentUser.getRoles());
         baseInfoVo.setMenus(currentUser.getMenus());
         baseInfoVo.setResources(currentUser.getResources());
+
         return baseInfoVo;
     }
 }

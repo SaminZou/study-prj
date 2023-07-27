@@ -5,20 +5,20 @@ import cn.hutool.core.collection.CollectionUtil;
 import com.samin.auth.authentication.CustomUserDetails;
 import com.samin.auth.entity.*;
 import com.samin.auth.exception.ExceptionEnums;
-import com.samin.auth.repo.MenuResourceRelationRepository;
-import com.samin.auth.repo.RoleMenuRelationRepository;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RList;
+import org.redisson.api.RMap;
+import org.redisson.api.RedissonClient;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 自定义用户信息加载服务类
@@ -32,9 +32,8 @@ import java.util.Optional;
 public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRoleRelationRepository userRoleRelationRepository;
-    private final RoleMenuRelationRepository roleMenuRelationRepository;
-    private final MenuResourceRelationRepository menuResourceRelationRepository;
     private final UserRepository userRepository;
+    private final RedissonClient redissonClient;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -47,31 +46,48 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
         User user = userOptional.get();
         List<UserRoleRelation> userRoleRelations = userRoleRelationRepository.findByUserId(user.getId());
 
-        List<Role> roles = new ArrayList<>();
-        List<Menu> menus = new ArrayList<>();
-        List<Resource> resources = new ArrayList<>();
+        // 缓存中全量获取数据
+        RList<Role> roleRedisList = redissonClient.getList("Roles");
+        List<Role> roles = roleRedisList.readAll();
+        RList<Menu> menuRedisList = redissonClient.getList("Menus");
+        List<Menu> menus = menuRedisList.readAll();
+        RList<Resource> resourceRedisList = redissonClient.getList("Resources");
+        List<Resource> resources = resourceRedisList.readAll();
+        RMap<Integer, List<Integer>> roleMenuRedisMap = redissonClient.getMap("RoleMenuMap");
+        Map<Integer, List<Integer>> roleMenuMap = roleMenuRedisMap.readAllMap();
+        RMap<Integer, Set<Integer>> menuResourceRedisMap = redissonClient.getMap("MenuResourceMap");
+        Map<Integer, Set<Integer>> menuResourceMap = menuResourceRedisMap.readAllMap();
+        // 过滤用户实际数据
+        List<Role> userRoles = new ArrayList<>();
+        List<Menu> userMenus = new ArrayList<>();
+        List<Resource> userResources = new ArrayList<>();
         if (CollectionUtil.isNotEmpty(userRoleRelations)) {
             userRoleRelations.forEach(userRoleRelation -> {
-                // TODO 从缓存中获取 Role
-                Role role = null;
-                roles.add(role);
+                // 从缓存中获取 Role
+                List<Role> roleRels = roles.stream().filter(e -> e.getId().equals(userRoleRelation.getRoleId())).collect(Collectors.toList());
+                if (CollectionUtil.isNotEmpty(roleRels)) {
+                    Role role = roleRels.get(0);
+                    userRoles.add(role);
 
-                List<RoleMenuRelation> roleMenuRelations = roleMenuRelationRepository.findByRoleId(role.getId());
-                roleMenuRelations.forEach(roleMenuRelation -> {
-                    // TODO 从缓存中获取 Menu
-                    Menu menu = null;
-                    menus.add(menu);
+                    List<Integer> menuRelIndexs = roleMenuMap.get(role.getId());
+                    if (CollectionUtil.isNotEmpty(menuRelIndexs)) {
+                        List<Menu> menuRels = menus.stream().filter(e -> menuRelIndexs.contains(e.getId())).collect(Collectors.toList());
+                        if (CollectionUtil.isNotEmpty(menuRels)) {
+                            userMenus.addAll(menuRels);
 
-                    List<MenuResourceRelation> menuResourceRelations = menuResourceRelationRepository.findByMenuId(menu.getId());
-                    menuResourceRelations.forEach(menuResourceRelation -> {
-                        // TODO 从缓存中获取 resource
-                        Resource resource = null;
-                        resources.add(resource);
-                    });
-                });
+                            menuRels.forEach(menu -> {
+                                Set<Integer> resourceRelIndexs = menuResourceMap.get(menu.getId());
+                                List<Resource> resourceRels = resources.stream().filter(e -> resourceRelIndexs.contains(e.getId())).collect(Collectors.toList());
+                                if (CollectionUtil.isNotEmpty(resourceRels)) {
+                                    userResources.addAll(resourceRels);
+                                }
+                            });
+                        }
+                    }
+                }
             });
         }
 
-        return CustomUserDetails.getInstance(user, roles, menus, resources);
+        return CustomUserDetails.getInstance(user, userRoles, userMenus, userResources);
     }
 }
