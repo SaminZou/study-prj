@@ -22,7 +22,7 @@ public class ConponEntryStrategyEnhance {
     /**
      * 真实业务场景，这个会作为入参
      */
-    private final Map<Integer, String> mappipng = new HashMap<Integer, String>(4) {
+    private final Map<Integer, String> mapping = new HashMap<Integer, String>(4) {
         {
             put(1, COUPON_RED_ENVELOPE);
             put(2, COUPON_GOODS_COUPON);
@@ -32,6 +32,6 @@ public class ConponEntryStrategyEnhance {
     };
 
     public CouponStrategyEnhance context(int type) {
-        return couponStrategyMap.get(mappipng.get(type));
+        return couponStrategyMap.get(mapping.get(type));
     }
 }
