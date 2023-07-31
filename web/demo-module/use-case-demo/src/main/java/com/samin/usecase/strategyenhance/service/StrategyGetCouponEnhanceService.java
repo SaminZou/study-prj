@@ -20,7 +20,7 @@ public class StrategyGetCouponEnhanceService {
     /**
      * 真实业务场景，这个会作为入参
      */
-    private final Map<Integer, String> BIZ_PARAM = new HashMap<>() {
+    private final Map<Integer, String> BIZ_PARAM = new HashMap<>(4) {
         {
             put(1, "RedEnvelope");
             put(2, "GoodsCoupon");
