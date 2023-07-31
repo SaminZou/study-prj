@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service("GoodsCoupon")
+@Service(ConponEntryStrategyEnhance.COUPON_GOODS_COUPON)
 public class GoodsCouponStrategyEnhance implements CouponStrategyEnhance {
 
     @Override
@@ -16,7 +16,6 @@ public class GoodsCouponStrategyEnhance implements CouponStrategyEnhance {
     public void userCouponRel() {
         log.info("2. 绑定用户和商品优惠券关联关系");
     }
-
 
     @Override
     public String result() {

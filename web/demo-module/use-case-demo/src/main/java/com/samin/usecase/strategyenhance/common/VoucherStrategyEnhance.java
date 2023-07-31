@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service("Voucher")
+@Service(ConponEntryStrategyEnhance.COUPON_VOUCHER)
 public class VoucherStrategyEnhance implements CouponStrategyEnhance {
 
     @Override

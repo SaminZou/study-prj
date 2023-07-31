@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
-@Service("RedEnvelope")
+@Service(ConponEntryStrategyEnhance.COUPON_RED_ENVELOPE)
 public class RedEnvelopeStrategyEnhance implements CouponStrategyEnhance {
 
     @Override
@@ -16,7 +16,6 @@ public class RedEnvelopeStrategyEnhance implements CouponStrategyEnhance {
     public void userCouponRel() {
         log.info("2. 绑定用户和红包关联关系");
     }
-
 
     @Override
     public String result() {
