@@ -1,18 +1,17 @@
 package com.samin.auth.exception;
 
+import lombok.Getter;
+
 /**
  * 统一业务错误类
  *
  * @author samin
  * @date 2022-08-18
  */
+@Getter
 public class BusException extends RuntimeException {
 
-    private int code;
-
-    public int getCode() {
-        return code;
-    }
+    private final int code;
 
     public BusException(int code) {
         this.code = code;

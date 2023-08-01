@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class ConponEntryStrategyEnhance {
+public class ConponStrategyEnhanceEntry {
 
     public final static String COUPON_RED_ENVELOPE = "RedEnvelope";
     public final static String COUPON_GOODS_COUPON = "GoodsCoupon";
@@ -22,7 +22,7 @@ public class ConponEntryStrategyEnhance {
     /**
      * 真实业务场景，这个会作为入参
      */
-    private final Map<Integer, String> mapping = new HashMap<Integer, String>(4) {
+    private static final Map<Integer, String> mapping = new HashMap<Integer, String>(4) {
         {
             put(1, COUPON_RED_ENVELOPE);
             put(2, COUPON_GOODS_COUPON);

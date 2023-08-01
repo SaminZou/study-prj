@@ -2,6 +2,8 @@ package com.samin.auth.vo;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class UserVo {
 
@@ -26,4 +28,6 @@ public class UserVo {
     private String lastLoginTime;
 
     private Integer status;
+
+    private List<Integer> roles;
 }

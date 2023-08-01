@@ -2,6 +2,7 @@ package com.samin.auth.controller;
 
 import com.samin.auth.service.UserService;
 import com.samin.auth.vo.BaseResp;
+import com.samin.auth.vo.UserSaveResp;
 import com.samin.auth.vo.UserVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/save")
-    public BaseResp<UserVo> save(@RequestBody UserVo userVo) {
+    public BaseResp<UserSaveResp> save(@RequestBody UserVo userVo) {
         return BaseResp.success(userService.saveUser(userVo));
     }
 }
