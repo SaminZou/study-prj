@@ -14,16 +14,16 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Slf4j
 @RequiredArgsConstructor
 @SpringBootApplication
-public class UseCaseApplication implements CommandLineRunner {
+public class UseCaseBootstrap implements CommandLineRunner {
 
     private final SystemProperties systemProperties;
 
     public static void main(String[] args) {
-        SpringApplication.run(UseCaseApplication.class, args);
+        SpringApplication.run(UseCaseBootstrap.class, args);
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         log.info("pgHost: {}", systemProperties.getPgHost());
         log.info("pgPort: {}", systemProperties.getPgPort());

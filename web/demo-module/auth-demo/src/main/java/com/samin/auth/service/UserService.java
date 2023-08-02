@@ -3,9 +3,11 @@ package com.samin.auth.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
+import com.samin.auth.entity.Role;
 import com.samin.auth.entity.User;
 import com.samin.auth.entity.UserRoleRelation;
 import com.samin.auth.exception.ExceptionEnums;
+import com.samin.auth.repo.RoleRepository;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
 import com.samin.auth.vo.UserSaveResp;
@@ -21,12 +23,19 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * 用户服务类
+ *
+ * @author samin
+ * @date 2023-08-02
+ */
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final UserRoleRelationRepository userRoleRelationRepository;
+    private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     /**
@@ -114,7 +123,10 @@ public class UserService {
     }
 
     public List<Integer> validRoles(List<Integer> roles) {
-        // TODO
-        return roles;
+        // 过滤存在的角色
+        return roleRepository.findByIdIn(roles)
+                .stream()
+                .map(Role::getId)
+                .collect(Collectors.toList());
     }
 }
