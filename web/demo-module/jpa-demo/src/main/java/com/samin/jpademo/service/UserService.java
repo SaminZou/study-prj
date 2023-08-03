@@ -6,8 +6,9 @@ import com.samin.jpademo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +65,7 @@ public class UserService {
     }
 
     // TODO
-    @Transactional(rollbackOn = Exception.class, value = Transactional.TxType.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public void transaction() {
 
     }

@@ -15,9 +15,10 @@ import com.samin.auth.vo.UserVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -44,7 +45,7 @@ public class UserService {
      * @param userVo 用户信息
      * @return 回显信息
      */
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public UserSaveResp saveUser(UserVo userVo) {
         UserSaveResp resp = new UserSaveResp();
 
