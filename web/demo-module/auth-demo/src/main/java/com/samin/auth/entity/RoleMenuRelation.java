@@ -12,6 +12,16 @@ import java.time.LocalDateTime;
 @Table(name = "auth_role_menu_relation", schema = "auth")
 public class RoleMenuRelation implements Serializable {
 
+    public static RoleMenuRelation getInstance(Integer roleId, Integer menuId) {
+        RoleMenuRelation instance = new RoleMenuRelation();
+
+        instance.setRoleId(roleId);
+        instance.setMenuId(menuId);
+        instance.setCreateTime(LocalDateTime.now());
+
+        return instance;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

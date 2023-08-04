@@ -58,7 +58,7 @@ public class UserService {
                 user = userOptional.get();
                 CopyOptions options = CopyOptions.create()
                         .ignoreNullValue()
-                        .setIgnoreProperties("nickName");
+                        .setIgnoreProperties("mobile");
                 BeanUtil.copyProperties(userVo, user, options);
 
                 if (StrUtil.isNotBlank(user.getPassword())) {
@@ -76,7 +76,7 @@ public class UserService {
 
             // insert
         } else {
-            Optional<User> userOptional = userRepository.findByNickName(userVo.getNickName());
+            Optional<User> userOptional = userRepository.findByMobile(userVo.getMobile());
 
             if (userOptional.isPresent()) {
                 ExceptionEnums.throwException(ExceptionEnums.USER_EXIST_ERROR);
@@ -119,12 +119,13 @@ public class UserService {
             List<UserRoleRelation> userRoleRelations = roles.stream()
                     .map(e -> UserRoleRelation.getInstance(userId, e))
                     .collect(Collectors.toList());
+
             userRoleRelationRepository.saveAll(userRoleRelations);
         }
     }
 
     public List<Integer> validRoles(List<Integer> roles) {
-        // 过滤存在的角色
+        // 过滤不存在的角色
         return roleRepository.findByIdIn(roles)
                 .stream()
                 .map(Role::getId)

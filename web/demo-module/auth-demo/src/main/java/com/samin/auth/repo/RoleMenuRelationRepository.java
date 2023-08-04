@@ -8,4 +8,6 @@ import java.util.List;
 public interface RoleMenuRelationRepository extends JpaRepository<RoleMenuRelation, Integer> {
 
     List<RoleMenuRelation> findByRoleId(Integer roleId);
+
+    void deleteByRoleId(Integer roleId);
 }

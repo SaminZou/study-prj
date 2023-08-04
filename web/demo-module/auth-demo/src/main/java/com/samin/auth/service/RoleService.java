@@ -1,10 +1,123 @@
 package com.samin.auth.service;
 
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.bean.copier.CopyOptions;
+import com.samin.auth.entity.Menu;
+import com.samin.auth.entity.Role;
+import com.samin.auth.entity.RoleMenuRelation;
+import com.samin.auth.exception.ExceptionEnums;
+import com.samin.auth.repo.MenuRepository;
+import com.samin.auth.repo.RoleMenuRelationRepository;
+import com.samin.auth.repo.RoleRepository;
+import com.samin.auth.vo.RoleSaveResp;
+import com.samin.auth.vo.RoleVo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 /**
  * 角色服务类
  *
  * @author samin
  * @date 2023-07-23
  */
+@Service
+@RequiredArgsConstructor
 public class RoleService {
+
+    private final RoleRepository roleRepository;
+    private final MenuRepository menuRepository;
+    private final RoleMenuRelationRepository roleMenuRelationRepository;
+
+    /**
+     * 保存角色
+     *
+     * @param roleVo 角色信息
+     * @return 回显信息
+     */
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    public RoleSaveResp saveRole(RoleVo roleVo) {
+        RoleSaveResp resp = new RoleSaveResp();
+
+        Role role;
+        // update
+        if (Objects.nonNull(roleVo.getId())) {
+            Optional<Role> roleOptional = roleRepository.findById(roleVo.getId());
+
+            if (roleOptional.isPresent()) {
+                role = roleOptional.get();
+                CopyOptions options = CopyOptions.create()
+                        .ignoreNullValue()
+                        .setIgnoreProperties("code");
+                BeanUtil.copyProperties(roleVo, role, options);
+
+                roleRepository.save(role);
+                // 绑定菜单
+                setRoleMenuRelations(role.getId(), roleVo.getMenus());
+
+                resp.setId(role.getId());
+            } else {
+                ExceptionEnums.throwException(ExceptionEnums.ROLE_NOT_EXIST_ERROR);
+            }
+
+            // insert
+        } else {
+            Optional<Role> userOptional = roleRepository.findByCode(roleVo.getCode());
+
+            if (userOptional.isPresent()) {
+                ExceptionEnums.throwException(ExceptionEnums.USER_EXIST_ERROR);
+            }
+
+            role = new Role();
+            CopyOptions options = CopyOptions.create()
+                    .ignoreNullValue();
+            BeanUtil.copyProperties(roleVo, role, options);
+
+            roleRepository.save(role);
+            // 绑定菜单
+            setRoleMenuRelations(role.getId(), roleVo.getMenus());
+
+            resp.setId(role.getId());
+        }
+
+        return resp;
+    }
+
+    /**
+     * 绑定菜单
+     *
+     * @param roleId 角色 id
+     * @param menus  菜单集合
+     */
+    public void setRoleMenuRelations(Integer roleId, List<Integer> menus) {
+        // 过滤合法菜单
+        menus = validMenus(menus);
+
+        // 删除历史绑定
+        roleMenuRelationRepository.deleteByRoleId(roleId);
+
+        // 新增绑定
+        if (!CollectionUtils.isEmpty(menus)) {
+            List<RoleMenuRelation> userRoleRelations = menus.stream()
+                    .map(e -> RoleMenuRelation.getInstance(roleId, e))
+                    .collect(Collectors.toList());
+
+            roleMenuRelationRepository.saveAll(userRoleRelations);
+        }
+    }
+
+    public List<Integer> validMenus(List<Integer> menus) {
+        // 过滤不存在的菜单
+        return menuRepository.findByIdIn(menus)
+                .stream()
+                .map(Menu::getId)
+                .collect(Collectors.toList());
+    }
 }

@@ -37,7 +37,7 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        Optional<User> userOptional = userRepository.findByNickName(username);
+        Optional<User> userOptional = userRepository.findByMobile(username);
         if (!userOptional.isPresent()) {
             // 用这个的原因是因为可以被 AuthenticationEntryPoint 实现方法感知处理返回自定义报错
             throw new UsernameNotFoundException(ExceptionEnums.USER_NOT_EXIST_ERROR.getValue());

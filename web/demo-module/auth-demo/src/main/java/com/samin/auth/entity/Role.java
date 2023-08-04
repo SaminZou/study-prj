@@ -19,6 +19,9 @@ public class Role implements Serializable {
     @Comment("名称")
     private String name;
 
+    @Comment("编码")
+    private String code;
+
     @Comment("备注")
     private String remark;
 
