@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class UserVo {
+public class UserSaveVo {
 
     private Integer id;
 
@@ -20,14 +20,6 @@ public class UserVo {
     private String nickName;
 
     private String note;
-
-    private String createTime;
-
-    private String updateTime;
-
-    private String lastLoginTime;
-
-    private Integer status;
 
     private List<Integer> roles;
 }

@@ -11,7 +11,7 @@ import com.samin.auth.repo.RoleRepository;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
 import com.samin.auth.vo.UserSaveResp;
-import com.samin.auth.vo.UserVo;
+import com.samin.auth.vo.UserSaveVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -42,24 +42,24 @@ public class UserService {
     /**
      * 保存用户
      *
-     * @param userVo 用户信息
+     * @param userSaveVo 用户信息
      * @return 回显信息
      */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public UserSaveResp saveUser(UserVo userVo) {
+    public UserSaveResp saveUser(UserSaveVo userSaveVo) {
         UserSaveResp resp = new UserSaveResp();
 
         User user;
         // update
-        if (Objects.nonNull(userVo.getId())) {
-            Optional<User> userOptional = userRepository.findById(userVo.getId());
+        if (Objects.nonNull(userSaveVo.getId())) {
+            Optional<User> userOptional = userRepository.findById(userSaveVo.getId());
 
             if (userOptional.isPresent()) {
                 user = userOptional.get();
                 CopyOptions options = CopyOptions.create()
                         .ignoreNullValue()
                         .setIgnoreProperties("mobile");
-                BeanUtil.copyProperties(userVo, user, options);
+                BeanUtil.copyProperties(userSaveVo, user, options);
 
                 if (StrUtil.isNotBlank(user.getPassword())) {
                     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -67,7 +67,7 @@ public class UserService {
 
                 userRepository.save(user);
                 // 绑定角色
-                setUserRoleRelations(user.getId(), userVo.getRoles());
+                setUserRoleRelations(user.getId(), userSaveVo.getRoles());
 
                 resp.setId(user.getId());
             } else {
@@ -76,7 +76,7 @@ public class UserService {
 
             // insert
         } else {
-            Optional<User> userOptional = userRepository.findByMobile(userVo.getMobile());
+            Optional<User> userOptional = userRepository.findByMobile(userSaveVo.getMobile());
 
             if (userOptional.isPresent()) {
                 ExceptionEnums.throwException(ExceptionEnums.USER_EXIST_ERROR);
@@ -85,7 +85,7 @@ public class UserService {
             user = new User();
             CopyOptions options = CopyOptions.create()
                     .ignoreNullValue();
-            BeanUtil.copyProperties(userVo, user, options);
+            BeanUtil.copyProperties(userSaveVo, user, options);
 
             if (StrUtil.isNotBlank(user.getPassword())) {
                 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -93,7 +93,7 @@ public class UserService {
 
             userRepository.save(user);
             // 绑定角色
-            setUserRoleRelations(user.getId(), userVo.getRoles());
+            setUserRoleRelations(user.getId(), userSaveVo.getRoles());
 
             resp.setId(user.getId());
         }

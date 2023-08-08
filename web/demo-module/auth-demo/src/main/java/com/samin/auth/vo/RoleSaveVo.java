@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RoleVo {
+public class RoleSaveVo {
 
     private Integer id;
 
@@ -14,12 +14,6 @@ public class RoleVo {
     private String code;
 
     private String remark;
-
-    private String createTime;
-
-    private String updateTime;
-
-    private Integer status;
 
     private List<Integer> menus;
 }

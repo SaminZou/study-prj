@@ -22,6 +22,9 @@ public class Menu implements Serializable {
     @Comment("菜单名称")
     private String name;
 
+    @Comment("菜单编码")
+    private String code;
+
     @Comment("菜单级数")
     private Integer level;
 
@@ -34,11 +37,11 @@ public class Menu implements Serializable {
     @Comment("备注")
     private String remark;
 
-    @Comment("状态（0：禁用，1：启用）")
-    private Integer status;
-
     @Comment("是否隐藏（0：显示，1：隐藏）")
     private Integer hidden;
+
+    @Comment("状态（0：禁用，1：启用）")
+    private Integer status;
 
     @Comment("创建时间")
     private LocalDateTime createTime;

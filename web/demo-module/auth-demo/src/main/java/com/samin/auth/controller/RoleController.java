@@ -3,7 +3,7 @@ package com.samin.auth.controller;
 import com.samin.auth.service.RoleService;
 import com.samin.auth.vo.BaseResp;
 import com.samin.auth.vo.RoleSaveResp;
-import com.samin.auth.vo.RoleVo;
+import com.samin.auth.vo.RoleSaveVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +24,7 @@ public class RoleController {
     private final RoleService roleService;
 
     @PostMapping("/save")
-    public BaseResp<RoleSaveResp> save(@RequestBody RoleVo roleVo) {
-        return BaseResp.success(roleService.saveRole(roleVo));
+    public BaseResp<RoleSaveResp> save(@RequestBody RoleSaveVo roleSaveVo) {
+        return BaseResp.success(roleService.saveRole(roleSaveVo));
     }
 }
