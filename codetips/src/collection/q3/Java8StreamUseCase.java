@@ -1,6 +1,7 @@
 package collection.q3;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -30,20 +31,31 @@ public class Java8StreamUseCase {
         System.out.println(list);
 
         // 升序
-        System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar)).collect(Collectors.toList()));
+        System.out.println(list.stream()
+                .sorted(Comparator.comparing(Obj::getBar))
+                .collect(Collectors.toList()));
         // 倒序
-        System.out.println(list.stream().sorted(Comparator.comparing(Obj::getBar).reversed()).collect(Collectors.toList()));
+        System.out.println(list.stream()
+                .sorted(Comparator.comparing(Obj::getBar)
+                        .reversed())
+                .collect(Collectors.toList()));
 
         // stream 和 parallelStream 的简单区分： stream 是顺序流，由主线程按顺序对流执行操作
         // parallelStream 是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求
-        System.out.println(list.stream().parallel().filter(e -> e.getBar() > 2).collect(Collectors.toList()));
+        System.out.println(list.stream()
+                .parallel()
+                .filter(e -> e.getBar() > 2)
+                .collect(Collectors.toList()));
 
         // 获取 bar 最大的元素
-        Optional<Obj> max = list.stream().max(Comparator.comparingInt(Obj::getBar));
+        Optional<Obj> max = list.stream()
+                .max(Comparator.comparingInt(Obj::getBar));
         max.ifPresent(System.out::println);
 
         // 大于 6 的元素集合
-        System.out.println(list.stream().filter(e -> e.getBar() > 2).count());
+        System.out.println(list.stream()
+                .filter(e -> e.getBar() > 2)
+                .count());
 
         Obj o1 = new Obj("foo1", 1);
         Obj o2 = new Obj("foo2", 1);
@@ -70,12 +82,27 @@ public class Java8StreamUseCase {
         list2.add(o10);
         list2.add(o11);
 
-        Map<String, List<Obj>> collect = list2.stream().collect(Collectors.groupingBy(Obj::getFoo));
+        // list to  Map<String, List<Obj>>
+        Map<String, List<Obj>> collect = list2.stream()
+                .collect(Collectors.groupingBy(Obj::getFoo));
         collect.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
 
+        // list to Map<String,Set<Integer>>
         // foo3 有两个 bar = 1 的相同对象，可以转换为 Map<String, Set<Obj>>
-        Map<String, Set<Integer>> collect2 = list2.stream().collect(Collectors.groupingBy(Obj::getFoo, Collectors.mapping(Obj::getBar, Collectors.toSet())));
+        Map<String, Set<Integer>> collect2 = list2.stream()
+                .collect(Collectors.groupingBy(Obj::getFoo, Collectors.mapping(Obj::getBar, Collectors.toSet())));
         collect2.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
+
+        // list to Map<String, Integer>
+        // (oldValue, newValue) -> newValue：这是一个合并函数，用于处理当遇到相同的键时如何合并值。在这里，如果遇到相同的键，则选择新值（newValue）作为最终的值
+        Map<String, Integer> collect3 = list2.stream()
+                .collect(Collectors.toMap(Obj::getFoo, Obj::getBar, (oldValue, newValue) -> newValue));
+        collect3.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
+
+        // list to Map<String, Obj>
+        Map<String, Obj> collect4 = list2.stream()
+                .collect(Collectors.toMap(Obj::getFoo, Function.identity(), (oldValue, newValue) -> newValue));
+        collect4.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
     }
 
     private static class Obj {
