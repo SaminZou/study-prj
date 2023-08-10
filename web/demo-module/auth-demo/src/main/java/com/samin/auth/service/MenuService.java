@@ -4,7 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import com.samin.auth.entity.Menu;
 import com.samin.auth.repo.MenuRepository;
-import com.samin.auth.vo.MenuSaveVo;
+import com.samin.auth.vo.req.MenuSaveReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -34,7 +34,7 @@ public class MenuService {
      * @param menuVos 菜单信息
      */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public void saveMenu(List<MenuSaveVo> menuVos) {
+    public void saveMenu(List<MenuSaveReq> menuVos) {
         if (CollectionUtils.isEmpty(menuVos)) {
             return;
         }

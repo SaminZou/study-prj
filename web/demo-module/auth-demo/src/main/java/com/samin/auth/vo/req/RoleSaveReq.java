@@ -1,11 +1,11 @@
-package com.samin.auth.vo;
+package com.samin.auth.vo.req;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class RoleSaveVo {
+public class RoleSaveReq {
 
     private Integer id;
 

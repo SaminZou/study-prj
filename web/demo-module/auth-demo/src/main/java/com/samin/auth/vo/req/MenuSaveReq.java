@@ -1,9 +1,9 @@
-package com.samin.auth.vo;
+package com.samin.auth.vo.req;
 
 import lombok.Data;
 
 @Data
-public class MenuSaveVo {
+public class MenuSaveReq {
 
     private Integer id;
 

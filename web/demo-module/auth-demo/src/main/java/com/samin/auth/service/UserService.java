@@ -10,9 +10,15 @@ import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.repo.RoleRepository;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
-import com.samin.auth.vo.UserSaveResp;
-import com.samin.auth.vo.UserSaveVo;
+import com.samin.auth.vo.req.PageReq;
+import com.samin.auth.vo.req.UserSaveReq;
+import com.samin.auth.vo.resp.PageResp;
+import com.samin.auth.vo.resp.UserResp;
+import com.samin.auth.vo.resp.UserSaveResp;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -39,27 +45,42 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    public PageResp<UserResp> page(PageReq req) {
+        Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
+                .descending());
+
+        PageResp<User> users = PageResp.success(userRepository.findAll(pageable));
+
+        PageResp<UserResp> resp = PageResp.baseOf(users);
+        resp.setContent(users.getContent()
+                .stream()
+                .map(UserResp::getInstance)
+                .collect(Collectors.toList()));
+
+        return resp;
+    }
+
     /**
      * 保存用户
      *
-     * @param userSaveVo 用户信息
+     * @param userSaveReq 用户信息
      * @return 回显信息
      */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public UserSaveResp saveUser(UserSaveVo userSaveVo) {
+    public UserSaveResp saveUser(UserSaveReq userSaveReq) {
         UserSaveResp resp = new UserSaveResp();
 
         User user;
         // update
-        if (Objects.nonNull(userSaveVo.getId())) {
-            Optional<User> userOptional = userRepository.findById(userSaveVo.getId());
+        if (Objects.nonNull(userSaveReq.getId())) {
+            Optional<User> userOptional = userRepository.findById(userSaveReq.getId());
 
             if (userOptional.isPresent()) {
                 user = userOptional.get();
                 CopyOptions options = CopyOptions.create()
                         .ignoreNullValue()
                         .setIgnoreProperties("mobile");
-                BeanUtil.copyProperties(userSaveVo, user, options);
+                BeanUtil.copyProperties(userSaveReq, user, options);
 
                 if (StrUtil.isNotBlank(user.getPassword())) {
                     user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -67,7 +88,7 @@ public class UserService {
 
                 userRepository.save(user);
                 // 绑定角色
-                setUserRoleRelations(user.getId(), userSaveVo.getRoles());
+                setUserRoleRelations(user.getId(), userSaveReq.getRoles());
 
                 resp.setId(user.getId());
             } else {
@@ -76,7 +97,7 @@ public class UserService {
 
             // insert
         } else {
-            Optional<User> userOptional = userRepository.findByMobile(userSaveVo.getMobile());
+            Optional<User> userOptional = userRepository.findByMobile(userSaveReq.getMobile());
 
             if (userOptional.isPresent()) {
                 ExceptionEnums.throwException(ExceptionEnums.USER_EXIST_ERROR);
@@ -85,7 +106,7 @@ public class UserService {
             user = new User();
             CopyOptions options = CopyOptions.create()
                     .ignoreNullValue();
-            BeanUtil.copyProperties(userSaveVo, user, options);
+            BeanUtil.copyProperties(userSaveReq, user, options);
 
             if (StrUtil.isNotBlank(user.getPassword())) {
                 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -93,7 +114,7 @@ public class UserService {
 
             userRepository.save(user);
             // 绑定角色
-            setUserRoleRelations(user.getId(), userSaveVo.getRoles());
+            setUserRoleRelations(user.getId(), userSaveReq.getRoles());
 
             resp.setId(user.getId());
         }

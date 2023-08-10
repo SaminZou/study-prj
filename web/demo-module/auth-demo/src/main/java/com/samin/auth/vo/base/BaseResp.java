@@ -1,4 +1,4 @@
-package com.samin.auth.vo;
+package com.samin.auth.vo.base;
 
 import lombok.Data;
 

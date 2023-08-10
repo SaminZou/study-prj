@@ -1,7 +1,7 @@
 package com.samin.auth.controller;
 
 import com.samin.auth.service.LoginService;
-import com.samin.auth.vo.BaseResp;
+import com.samin.auth.vo.base.BaseResp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

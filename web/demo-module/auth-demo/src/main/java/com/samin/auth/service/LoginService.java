@@ -6,7 +6,7 @@ import com.samin.auth.entity.SystemLog;
 import com.samin.auth.enums.SystemLogTypeEnum;
 import com.samin.auth.repo.SystemLogRepository;
 import com.samin.auth.util.JwtUtil;
-import com.samin.auth.vo.BaseResp;
+import com.samin.auth.vo.base.BaseResp;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;

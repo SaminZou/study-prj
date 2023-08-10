@@ -1,7 +1,7 @@
 package com.samin.auth.service;
 
 import com.samin.auth.authentication.CustomUserDetails;
-import com.samin.auth.vo.BaseInfoVo;
+import com.samin.auth.vo.resp.BaseInfoResp;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,14 +13,14 @@ public class BaseInfoService {
 
     private final SecurityService securityService;
 
-    public BaseInfoVo baseInfo() {
+    public BaseInfoResp baseInfo() {
         CustomUserDetails currentUser = securityService.getCurrentUser();
 
-        BaseInfoVo baseInfoVo = new BaseInfoVo();
-        baseInfoVo.setRoles(currentUser.getRoles());
-        baseInfoVo.setMenus(currentUser.getMenus());
-        baseInfoVo.setResources(currentUser.getResources());
+        BaseInfoResp baseInfoResp = new BaseInfoResp();
+        baseInfoResp.setRoles(currentUser.getRoles());
+        baseInfoResp.setMenus(currentUser.getMenus());
+        baseInfoResp.setResources(currentUser.getResources());
 
-        return baseInfoVo;
+        return baseInfoResp;
     }
 }

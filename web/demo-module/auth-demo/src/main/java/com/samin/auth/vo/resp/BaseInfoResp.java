@@ -1,4 +1,4 @@
-package com.samin.auth.vo;
+package com.samin.auth.vo.resp;
 
 import com.samin.auth.entity.Menu;
 import com.samin.auth.entity.Resource;
@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class BaseInfoVo {
+public class BaseInfoResp {
 
     private List<Role> roles;
 

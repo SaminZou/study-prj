@@ -1,9 +1,8 @@
 package com.samin.auth.handler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.samin.auth.vo.BaseResp;
+import com.samin.auth.vo.base.BaseResp;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.AccessDeniedException;

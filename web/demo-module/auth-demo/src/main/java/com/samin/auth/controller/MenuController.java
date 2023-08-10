@@ -1,8 +1,8 @@
 package com.samin.auth.controller;
 
 import com.samin.auth.service.MenuService;
-import com.samin.auth.vo.BaseResp;
-import com.samin.auth.vo.MenuSaveVo;
+import com.samin.auth.vo.base.BaseResp;
+import com.samin.auth.vo.req.MenuSaveReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +25,7 @@ public class MenuController {
     private final MenuService menuService;
 
     @PostMapping("/save")
-    public BaseResp<Void> save(@RequestBody List<MenuSaveVo> menuVos) {
+    public BaseResp<Void> save(@RequestBody List<MenuSaveReq> menuVos) {
         menuService.saveMenu(menuVos);
         return BaseResp.success();
     }

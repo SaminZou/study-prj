@@ -9,8 +9,8 @@ import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.repo.MenuRepository;
 import com.samin.auth.repo.RoleMenuRelationRepository;
 import com.samin.auth.repo.RoleRepository;
-import com.samin.auth.vo.RoleSaveResp;
-import com.samin.auth.vo.RoleSaveVo;
+import com.samin.auth.vo.resp.RoleSaveResp;
+import com.samin.auth.vo.req.RoleSaveReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -39,28 +39,28 @@ public class RoleService {
     /**
      * 保存角色
      *
-     * @param roleSaveVo 角色信息
+     * @param roleSaveReq 角色信息
      * @return 回显信息
      */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
-    public RoleSaveResp saveRole(RoleSaveVo roleSaveVo) {
+    public RoleSaveResp saveRole(RoleSaveReq roleSaveReq) {
         RoleSaveResp resp = new RoleSaveResp();
 
         Role role;
         // update
-        if (Objects.nonNull(roleSaveVo.getId())) {
-            Optional<Role> roleOptional = roleRepository.findById(roleSaveVo.getId());
+        if (Objects.nonNull(roleSaveReq.getId())) {
+            Optional<Role> roleOptional = roleRepository.findById(roleSaveReq.getId());
 
             if (roleOptional.isPresent()) {
                 role = roleOptional.get();
                 CopyOptions options = CopyOptions.create()
                         .ignoreNullValue()
                         .setIgnoreProperties("code");
-                BeanUtil.copyProperties(roleSaveVo, role, options);
+                BeanUtil.copyProperties(roleSaveReq, role, options);
 
                 roleRepository.save(role);
                 // 绑定菜单
-                setRoleMenuRelations(role.getId(), roleSaveVo.getMenus());
+                setRoleMenuRelations(role.getId(), roleSaveReq.getMenus());
 
                 resp.setId(role.getId());
             } else {
@@ -69,7 +69,7 @@ public class RoleService {
 
             // insert
         } else {
-            Optional<Role> userOptional = roleRepository.findByCode(roleSaveVo.getCode());
+            Optional<Role> userOptional = roleRepository.findByCode(roleSaveReq.getCode());
 
             if (userOptional.isPresent()) {
                 ExceptionEnums.throwException(ExceptionEnums.USER_EXIST_ERROR);
@@ -78,11 +78,11 @@ public class RoleService {
             role = new Role();
             CopyOptions options = CopyOptions.create()
                     .ignoreNullValue();
-            BeanUtil.copyProperties(roleSaveVo, role, options);
+            BeanUtil.copyProperties(roleSaveReq, role, options);
 
             roleRepository.save(role);
             // 绑定菜单
-            setRoleMenuRelations(role.getId(), roleSaveVo.getMenus());
+            setRoleMenuRelations(role.getId(), roleSaveReq.getMenus());
 
             resp.setId(role.getId());
         }

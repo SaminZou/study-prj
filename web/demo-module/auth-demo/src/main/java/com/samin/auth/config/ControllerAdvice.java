@@ -1,7 +1,7 @@
 package com.samin.auth.config;
 
 import com.samin.auth.exception.BusException;
-import com.samin.auth.vo.BaseResp;
+import com.samin.auth.vo.base.BaseResp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
