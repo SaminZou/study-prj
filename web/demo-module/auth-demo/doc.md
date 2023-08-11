@@ -1,3 +1,7 @@
+# Get Start
+
+执行 com.samin.auth.service.UserServiceTest.initUser() 可以插入初始化用户
+
 # 常见需求
 
 - 系统认证授权
@@ -9,7 +13,6 @@
 如第三方想快速集成系统，用于展示用，需要做免登录（也叫隐式登录）
 
 - 支持授权第三方集成
-
 
 # 业内比较好的中间件 
 

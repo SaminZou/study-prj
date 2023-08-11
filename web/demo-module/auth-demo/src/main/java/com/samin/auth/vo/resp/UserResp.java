@@ -4,6 +4,7 @@ import com.samin.auth.entity.User;
 import lombok.Data;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @Data
 public class UserResp {
@@ -30,8 +31,8 @@ public class UserResp {
         userResp.nickName = user.getNickName();
         userResp.note = user.getNote();
         userResp.createTime = dtf.format(user.getCreateTime());
-        userResp.updateTime = dtf.format(user.getUpdateTime());
-        userResp.lastLoginTime = dtf.format(user.getLastLoginTime());
+        userResp.updateTime = Objects.nonNull(user.getUpdateTime()) ? dtf.format(user.getUpdateTime()) : "";
+        userResp.lastLoginTime = Objects.nonNull(user.getLastLoginTime()) ? dtf.format(user.getLastLoginTime()) : "";
         userResp.status = user.getStatus();
 
         return userResp;

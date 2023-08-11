@@ -35,7 +35,7 @@ public class User implements Serializable {
     private String note;
 
     @Comment("创建时间")
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 
     @Comment("更新时间")
     private LocalDateTime updateTime;
@@ -44,5 +44,5 @@ public class User implements Serializable {
     private LocalDateTime lastLoginTime;
 
     @Comment("状态（0：禁用，1启用）")
-    private Integer status;
+    private Integer status = 1;
 }

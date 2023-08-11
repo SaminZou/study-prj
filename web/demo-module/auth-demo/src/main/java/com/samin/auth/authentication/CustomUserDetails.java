@@ -48,7 +48,7 @@ public class CustomUserDetails implements UserDetails, Serializable {
 
     @Override
     public String getUsername() {
-        return user.getNickName();
+        return user.getMobile();
     }
 
     @Override

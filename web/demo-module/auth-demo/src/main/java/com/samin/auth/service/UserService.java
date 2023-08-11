@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -45,6 +46,12 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    /**
+     * 分页查询
+     *
+     * @param req 请求入参
+     * @return 分页数据
+     */
     public PageResp<UserResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
                 .descending());
@@ -146,6 +153,10 @@ public class UserService {
     }
 
     public List<Integer> validRoles(List<Integer> roles) {
+        if (CollectionUtils.isEmpty(roles)) {
+            return new ArrayList<>(0);
+        }
+
         // 过滤不存在的角色
         return roleRepository.findByIdIn(roles)
                 .stream()

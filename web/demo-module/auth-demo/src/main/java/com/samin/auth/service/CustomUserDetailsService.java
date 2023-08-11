@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CustomUserDetailsServiceImpl implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRoleRelationRepository userRoleRelationRepository;
     private final UserRepository userRepository;
