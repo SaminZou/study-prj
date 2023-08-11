@@ -14,7 +14,7 @@
 
     <properties>
         <jjwt.version>0.9.1</jjwt.version>
-        <hutool.version>5.8.9</hutool.version>
+        <hutool.version>5.8.14</hutool.version>
     </properties>
 
     <dependencies>
