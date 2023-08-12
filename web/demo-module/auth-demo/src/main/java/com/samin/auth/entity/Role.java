@@ -26,7 +26,7 @@ public class Role implements Serializable {
     private String remark;
 
     @Comment("创建时间")
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 
     @Comment("更新时间")
     private LocalDateTime updateTime;

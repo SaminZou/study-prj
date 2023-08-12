@@ -9,9 +9,15 @@ import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.repo.MenuRepository;
 import com.samin.auth.repo.RoleMenuRelationRepository;
 import com.samin.auth.repo.RoleRepository;
-import com.samin.auth.vo.resp.RoleSaveResp;
+import com.samin.auth.vo.req.PageReq;
 import com.samin.auth.vo.req.RoleSaveReq;
+import com.samin.auth.vo.resp.PageResp;
+import com.samin.auth.vo.resp.RoleResp;
+import com.samin.auth.vo.resp.RoleSaveResp;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +41,27 @@ public class RoleService {
     private final RoleRepository roleRepository;
     private final MenuRepository menuRepository;
     private final RoleMenuRelationRepository roleMenuRelationRepository;
+
+    /**
+     * 分页查询
+     *
+     * @param req 请求入参
+     * @return 分页数据
+     */
+    public PageResp<RoleResp> page(PageReq req) {
+        Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
+                .descending());
+
+        PageResp<Role> roles = PageResp.success(roleRepository.findAll(pageable));
+
+        PageResp<RoleResp> resp = PageResp.baseOf(roles);
+        resp.setContent(roles.getContent()
+                .stream()
+                .map(RoleResp::getInstance)
+                .collect(Collectors.toList()));
+
+        return resp;
+    }
 
     /**
      * 保存角色

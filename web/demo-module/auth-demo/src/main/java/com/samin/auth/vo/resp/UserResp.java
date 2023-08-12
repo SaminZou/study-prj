@@ -22,19 +22,19 @@ public class UserResp {
 
     public static UserResp getInstance(User user) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        UserResp userResp = new UserResp();
+        UserResp resp = new UserResp();
 
-        userResp.id = user.getId();
-        userResp.mobile = user.getMobile();
-        userResp.icon = user.getIcon();
-        userResp.email = user.getEmail();
-        userResp.nickName = user.getNickName();
-        userResp.note = user.getNote();
-        userResp.createTime = dtf.format(user.getCreateTime());
-        userResp.updateTime = Objects.nonNull(user.getUpdateTime()) ? dtf.format(user.getUpdateTime()) : "";
-        userResp.lastLoginTime = Objects.nonNull(user.getLastLoginTime()) ? dtf.format(user.getLastLoginTime()) : "";
-        userResp.status = user.getStatus();
+        resp.id = user.getId();
+        resp.mobile = user.getMobile();
+        resp.icon = user.getIcon();
+        resp.email = user.getEmail();
+        resp.nickName = user.getNickName();
+        resp.note = user.getNote();
+        resp.createTime = dtf.format(user.getCreateTime());
+        resp.updateTime = Objects.nonNull(user.getUpdateTime()) ? dtf.format(user.getUpdateTime()) : "";
+        resp.lastLoginTime = Objects.nonNull(user.getLastLoginTime()) ? dtf.format(user.getLastLoginTime()) : "";
+        resp.status = user.getStatus();
 
-        return userResp;
+        return resp;
     }
 }
