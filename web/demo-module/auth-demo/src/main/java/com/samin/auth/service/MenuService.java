@@ -5,7 +5,13 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import com.samin.auth.entity.Menu;
 import com.samin.auth.repo.MenuRepository;
 import com.samin.auth.vo.req.MenuSaveReq;
+import com.samin.auth.vo.req.PageReq;
+import com.samin.auth.vo.resp.MenuResp;
+import com.samin.auth.vo.resp.PageResp;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +33,27 @@ import java.util.stream.Collectors;
 public class MenuService {
 
     private final MenuRepository menuRepository;
+
+    /**
+     * 分页查询
+     *
+     * @param req 请求入参
+     * @return 分页数据
+     */
+    public PageResp<MenuResp> page(PageReq req) {
+        Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
+                .descending());
+
+        PageResp<Menu> roles = PageResp.success(menuRepository.findAll(pageable));
+
+        PageResp<MenuResp> resp = PageResp.baseOf(roles);
+        resp.setContent(roles.getContent()
+                .stream()
+                .map(MenuResp::getInstance)
+                .collect(Collectors.toList()));
+
+        return resp;
+    }
 
     /**
      * 保存菜单
