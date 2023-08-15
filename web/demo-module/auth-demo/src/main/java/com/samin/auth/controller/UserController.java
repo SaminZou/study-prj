@@ -8,11 +8,12 @@ import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Min;
+
+@Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -28,5 +29,11 @@ public class UserController {
     @PostMapping("/save")
     public BaseResp<UserSaveResp> save(@RequestBody UserSaveReq userSaveReq) {
         return BaseResp.success(userService.saveUser(userSaveReq));
+    }
+
+    @PostMapping("/delete/{id}")
+    public BaseResp<Void> delete(@Min(value = 1,message = "最小") @PathVariable("id") Integer id) {
+        userService.delete(id);
+        return BaseResp.success();
     }
 }

@@ -129,6 +129,11 @@ public class UserService {
         return resp;
     }
 
+    public void delete(Integer id) {
+        userRepository.deleteById(id);
+        userRoleRelationRepository.deleteByUserId(id);
+    }
+
     /**
      * 绑定角色
      *

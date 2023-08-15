@@ -93,4 +93,8 @@ public class MenuService {
 
         menuRepository.saveAll(menus);
     }
+
+    public void delete(Integer id) {
+        menuRepository.deleteById(id);
+    }
 }

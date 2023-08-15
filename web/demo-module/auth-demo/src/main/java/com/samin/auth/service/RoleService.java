@@ -117,6 +117,11 @@ public class RoleService {
         return resp;
     }
 
+    public void delete(Integer id) {
+        roleRepository.deleteById(id);
+        roleMenuRelationRepository.deleteByRoleId(id);
+    }
+
     /**
      * 绑定菜单
      *
