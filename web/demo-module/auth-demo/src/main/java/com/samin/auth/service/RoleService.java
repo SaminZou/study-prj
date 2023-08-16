@@ -57,7 +57,7 @@ public class RoleService {
         PageResp<RoleResp> resp = PageResp.baseOf(roles);
         resp.setContent(roles.getContent()
                 .stream()
-                .map(RoleResp::getInstance)
+                .map(role -> RoleResp.getInstance(role, roleMenuRelationRepository.findByRoleId(role.getId())))
                 .collect(Collectors.toList()));
 
         return resp;

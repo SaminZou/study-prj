@@ -33,9 +33,11 @@ import java.util.stream.Collectors;
 
 /**
  * 用户服务类
- *
- * @author samin
- * @date 2023-08-02
+ * <p>
+ * Description: 用户服务类
+ * <p>
+ * Created By: Samin
+ * Created Date: 2023-08-16
  */
 @Service
 @RequiredArgsConstructor
@@ -61,7 +63,7 @@ public class UserService {
         PageResp<UserResp> resp = PageResp.baseOf(users);
         resp.setContent(users.getContent()
                 .stream()
-                .map(UserResp::getInstance)
+                .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
                 .collect(Collectors.toList()));
 
         return resp;

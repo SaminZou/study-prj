@@ -1,10 +1,13 @@
 package com.samin.auth.vo.resp;
 
 import com.samin.auth.entity.Role;
+import com.samin.auth.entity.RoleMenuRelation;
 import lombok.Data;
 
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Data
 public class RoleResp {
@@ -15,19 +18,21 @@ public class RoleResp {
     private String remark;
     private String createTime;
     private String updateTime;
-    private Integer status;
+    private List<Integer> menus;
 
-    public static RoleResp getInstance(Role role) {
+    public static RoleResp getInstance(Role role, List<RoleMenuRelation> list) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         RoleResp resp = new RoleResp();
 
-        resp.id = role.getId();
-        resp.name = role.getName();
-        resp.code = role.getCode();
-        resp.remark = role.getRemark();
-        resp.createTime = dtf.format(role.getCreateTime());
-        resp.updateTime = Objects.nonNull(role.getUpdateTime()) ? dtf.format(role.getUpdateTime()) : "";
-        resp.status = role.getStatus();
+        resp.setId(role.getId());
+        resp.setName(role.getName());
+        resp.setCode(role.getCode());
+        resp.setRemark(role.getRemark());
+        resp.setCreateTime(dtf.format(role.getCreateTime()));
+        resp.setUpdateTime(Objects.nonNull(role.getUpdateTime()) ? dtf.format(role.getUpdateTime()) : "");
+        resp.setMenus(list.stream()
+                .map(RoleMenuRelation::getMenuId)
+                .collect(Collectors.toList()));
 
         return resp;
     }
