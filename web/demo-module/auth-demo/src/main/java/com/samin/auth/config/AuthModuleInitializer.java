@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class SystemInit implements CommandLineRunner {
+public class AuthModuleInitializer implements CommandLineRunner {
 
     private final RoleRepository roleRepository;
     private final MenuRepository menuRepository;
