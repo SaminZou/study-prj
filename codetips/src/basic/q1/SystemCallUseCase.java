@@ -11,6 +11,9 @@ import java.util.Arrays;
 public class SystemCallUseCase {
 
     public static void main(String[] args) {
+        // $ java SystemCallUseCase foo
+        System.out.println("Your first argument is:" + args[0]);
+
         // Arrays.copyOf() 底层调用的就是 System.arraycopy()
 
         // System.arraycopy() 入参分别是源数组，源数组开头，目的数组，目的数组开头，复制长度
