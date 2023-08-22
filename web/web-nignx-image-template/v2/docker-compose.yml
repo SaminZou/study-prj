@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  web:
+    container_name: web
+    restart: always
+    image: 127.0.0.1:5000/web:master
+    volumes:
+      - $PWD/html:/usr/share/nginx/html
+    ports:
+      - 80:80

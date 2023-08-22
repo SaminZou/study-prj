@@ -1,0 +1,7 @@
+# 排除不需要的构建内容
+html
+docker-compose.yml
+
+# 以下文件需要加入到构建目录，否则无法添加到镜像中导致构建失败
+# default.conf
+# nginx.conf

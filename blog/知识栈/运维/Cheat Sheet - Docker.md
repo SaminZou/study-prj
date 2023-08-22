@@ -9,6 +9,9 @@ date: 2021-10-29
 \# 在当前路径根据 Dockerfile 文件进行镜像构件
 $ docker build -t myimage:1.0 .
 
+\# 在当前路径根据 Dockerfile 文件进行镜像构件，去掉缓存机制（如 nginx 镜像构建，nginx.conf 修改后重新构建不生效问题）
+$ docker build --no-cache -t myimage:1.0 .
+
 $ docker image ls / docker images
 
 $ docker image rm alpine:3.4 / docker rmi alpine:3.4
@@ -291,7 +294,7 @@ $ sudo docker-compose rm <container_id>
 
 # docker 容器镜像瘦身
 
-COPY、ADD、RUN指令执行会增加层，层的概念和git相似，会占用空间，所以执行这些命令尽量使用 && 连接 
+COPY、ADD、RUN 指令执行会增加层，层的概念和git相似，会占用空间，所以执行这些命令尽量使用 && 连接 
 
 # 导入与导出
 
