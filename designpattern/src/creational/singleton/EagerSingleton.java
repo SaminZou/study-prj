@@ -1,7 +1,7 @@
 package creational.singleton;
 
 /**
- * 饿汉模式 类加载初始化的时候执行，浪费内存
+ * 饿汉模式 类加载初始化的时候执行
  *
  * @author samin
  * @date 2021-01-05
