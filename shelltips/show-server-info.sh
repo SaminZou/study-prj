@@ -3,6 +3,8 @@
 set -o nounset
 set -o errexit
 
+touch server.info
+
 # 物理 CPU
 # 物理 CPU 数是指实际 Server 中插槽上的 CPU 个数
 cpuNum=$(cat /proc/cpuinfo| grep "physical id"| sort | uniq | wc -l | tr -cd "[0-9]" | sed s/[[:space:]]//g)
@@ -12,10 +14,10 @@ echo "# 物理 CPU 个数：$cpuNum" > server.info
 
 # 物理核数是指一个 CPU 上的物理核心数，每个 CPU 上有一到多个物理核
 cpuCoreNum=$(cat /proc/cpuinfo | grep "cpu cores" | uniq | tr -cd "[0-9]" | sed s/[[:space:]]//g)
-echo "# 物理 CPU 核数：$cpuCoreNum" >> server.info
+# echo "# 物理 CPU 核数：$cpuCoreNum" >> server.info
 
 # 物理总核数 = 物理 CPU 个数 * 每个物理 CPU 的核
-echo "# 物理 CPU 总核数：$(($cpuNum*$cpuCoreNum))" >> server.info
+# echo "# 物理 CPU 总核数：$(($cpuNum*$cpuCoreNum))" >> server.info
 
 # 逻辑 CPU（指处理器单元，它可以在与其它逻辑 CPU 并行执行）
 # 一般所说的 CPU 核数是指逻辑 CPU 数
@@ -35,5 +37,6 @@ echo "" >> server.info
 
 # 主频信息，每个 CPU 会有一个主频信息
 echo "# 主频信息：" >> server.info
-cat /proc/cpuinfo | grep MHz | uniq >> server.info
-echo "" >> server.info
+cat /proc/cpuinfo | grep MHz >> server.info
+# 以下可过滤主频相同的 CPU 主频信息
+# cat /proc/cpuinfo | grep MHz | uniq >> server.info
