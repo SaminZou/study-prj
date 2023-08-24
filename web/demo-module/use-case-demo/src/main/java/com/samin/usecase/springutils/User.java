@@ -1,4 +1,4 @@
-package com.samin.usecase.springutils.bo;
+package com.samin.usecase.springutils;
 
 import lombok.Data;
 

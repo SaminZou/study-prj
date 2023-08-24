@@ -1,6 +1,5 @@
-package com.samin.usecase.springutils.service;
+package com.samin.usecase.springutils;
 
-import com.samin.usecase.springutils.bo.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.*;
 
