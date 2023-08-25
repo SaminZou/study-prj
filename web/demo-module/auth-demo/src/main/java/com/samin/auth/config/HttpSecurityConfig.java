@@ -3,6 +3,8 @@ package com.samin.auth.config;
 import com.samin.auth.authentication.CustomAuthenticationProvider;
 import com.samin.auth.handler.CustomAccessDeniedHandler;
 import com.samin.auth.handler.CustomAuthenticationEntryPoint;
+import java.util.Collections;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +18,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.header.Header;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
-
-import javax.annotation.Resource;
-import java.util.Collections;
 
 /**
  * Spring Boot Security 配置类
@@ -38,35 +37,44 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
-                .disable()
-                .sessionManagement()
-                // 关闭本地 Session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .cors()
-                .and()
-                .headers()
-                .addHeaderWriter(new StaticHeadersWriter(
-                        Collections.singletonList(new Header("Access-Control-Expose-Headers", "Authorization"))));
+            .disable()
+            .sessionManagement()
+            // 关闭本地 Session
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .cors()
+            .and()
+            .headers()
+            .addHeaderWriter(new StaticHeadersWriter(
+                    Collections.singletonList(new Header("Access-Control-Expose-Headers", "Authorization"))));
 
-        http.formLogin().disable().headers().frameOptions().disable();
+        http.formLogin()
+            .disable()
+            .headers()
+            .frameOptions()
+            .disable();
 
-        http.authorizeRequests().anyRequest().access("@permissionService.access()");
+        http.authorizeRequests()
+            .anyRequest()
+            .access("@permissionService.access()");
 
         http.exceptionHandling()
-                // 认证抛错（AuthenticationProvider authentication 方法报错）
-                .authenticationEntryPoint(customAuthenticationEntryPoint)
-                // 鉴权拦截器
-                .accessDeniedHandler(customAccessDeniedHandler);
+            // 认证抛错（AuthenticationProvider authentication 方法报错）
+            .authenticationEntryPoint(customAuthenticationEntryPoint)
+            // 鉴权拦截器
+            .accessDeniedHandler(customAccessDeniedHandler);
     }
 
     @Override
     public void configure(WebSecurity web) {
         // 不做认证授权的地址
-        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**")
-                .antMatchers("/login")
-                .antMatchers("/logout")
-                .antMatchers("/user/save");
+        web.ignoring()
+           .antMatchers(HttpMethod.OPTIONS, "/**")
+           .antMatchers("/login")
+           .antMatchers("/logout")
+           .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources", "/swagger-resources/**",
+                        "/swagger-ui.html", "/swagger-ui.html/**")
+           .antMatchers("/user/save");
     }
 
     @Override

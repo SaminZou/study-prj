@@ -38,6 +38,22 @@ spring:
         min-idle: 5
         max-active: 10
         max-wait: 3000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+knife4j:
+  # 开启增强
+  enable: true
+  # 开启生产环境保护
+  production: false
+  # 开启 Swagger 的 Basic 认证功能,默认是 false
+  basic:
+    enable: false
+    # Basic认证用户名
+    username: knifeAdmin
+    # Basic认证密码
+    password: knifeAdmin
 
 logging:
   level:

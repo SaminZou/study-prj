@@ -7,12 +7,24 @@ import com.samin.auth.vo.req.UserSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
+import javax.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Min;
-
+/**
+ * 用户控制器
+ * <p>
+ * Description: 用户控制器
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-08-25
+ */
 @Validated
 @RestController
 @RequiredArgsConstructor
@@ -32,7 +44,7 @@ public class UserController {
     }
 
     @PostMapping("/delete/{id}")
-    public BaseResp<Void> delete(@Min(value = 1,message = "最小") @PathVariable("id") Integer id) {
+    public BaseResp<Void> delete(@Min(value = 1, message = "最小") @PathVariable("id") Integer id) {
         userService.delete(id);
         return BaseResp.success();
     }

@@ -11,7 +11,6 @@
         <module>logback-demo</module>
         <module>redis-demo</module>
         <module>prometheus-demo</module>
-        <module>swagger-demo</module>
         <module>tdengine-demo</module>
         <module>mq-demo</module>
         <module>aop-demo</module>
@@ -24,7 +23,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <springboot.version>2.7.5</springboot.version>
+        <springboot.version>2.5.15</springboot.version>
         <lombok.version>1.18.24</lombok.version>
         <mysql.version>8.0.30</mysql.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
@@ -36,6 +35,24 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>2.0.9</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>

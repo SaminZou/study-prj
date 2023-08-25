@@ -1,20 +1,25 @@
 package com.samin.auth.controller;
 
 import com.samin.auth.service.BaseInfoService;
-import com.samin.auth.vo.resp.BaseInfoResp;
 import com.samin.auth.vo.base.BaseResp;
+import com.samin.auth.vo.resp.BaseInfoResp;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 菜单控制器
- *
- * @author samin
- * @date 2023-07-19
+ * 基础信息控制器
+ * <p>
+ * Description: 基础信息控制器
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-08-25
  */
 @RestController
 @RequiredArgsConstructor
+@Api("基础信息控制器")
 public class BaseInfoController {
 
     private final BaseInfoService baseInfoService;
