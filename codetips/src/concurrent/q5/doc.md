@@ -11,6 +11,29 @@ interrupt() 方法的使用效果并不像 for+break 语句那样，马上就停
 
 interrupt() 与 return 结合使用也能实现停止线程
 
+```java
+public class MyThread extends Thread {
+    public void run(){
+        while (true){
+            if(this.isInterrupted()){
+                System.out.println("线程被停止了！");
+                return;
+            }
+            System.out.println("Time: " + System.currentTimeMillis());
+        }
+    }
+}
+
+public class Run {
+    public static void main(String args[]) throws InterruptedException {
+        Thread thread = new MyThread();
+        thread.start();
+        Thread.sleep(2000);
+        thread.interrupt();
+    }
+}
+```
+
 # interrupted() 和 isInterrupted() 的区别
 
 interrupted() 是判断**当前**线程是否停止，并且会清除 interrupted 标签
