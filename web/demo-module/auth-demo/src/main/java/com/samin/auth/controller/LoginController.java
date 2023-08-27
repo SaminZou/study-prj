@@ -2,7 +2,6 @@ package com.samin.auth.controller;
 
 import com.samin.auth.service.LoginService;
 import com.samin.auth.vo.base.BaseResp;
-import io.swagger.annotations.Api;
 import java.util.HashMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * Created Date: 2023-08-25
  */
-@Api("登录控制器")
+//@Api("登录控制器")
 @RestController
 @RequiredArgsConstructor
 public class LoginController {

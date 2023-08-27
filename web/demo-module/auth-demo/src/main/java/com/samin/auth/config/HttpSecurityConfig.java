@@ -72,6 +72,7 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
            .antMatchers(HttpMethod.OPTIONS, "/**")
            .antMatchers("/login")
            .antMatchers("/logout")
+           // TODO swagger2
            .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources", "/swagger-resources/**",
                         "/swagger-ui.html", "/swagger-ui.html/**")
            .antMatchers("/user/save");

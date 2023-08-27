@@ -1,7 +1,9 @@
 package com.samin.auth.entity;
 
 import com.samin.auth.authentication.CustomUserDetails;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
 
 import javax.persistence.*;
@@ -66,7 +68,7 @@ public class SystemLog {
     private String responseMessage;
 
     @Comment("执行时间")
-    private long executionTime;
+    private Long executionTime;
 
     @Comment("设备信息，User Agent")
     private String deviceInformation;

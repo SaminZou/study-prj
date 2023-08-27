@@ -11,6 +11,9 @@ custom:
   redis_database: 1
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?stringtype=unspecified
     # url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?currentSchema=${custom.pg_schema:public}&stringtype=unspecified
@@ -38,13 +41,10 @@ spring:
         min-idle: 5
         max-active: 10
         max-wait: 3000
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
 
 knife4j:
   # 开启增强
-  enable: true
+  enable: false
   # 开启生产环境保护
   production: false
   # 开启 Swagger 的 Basic 认证功能,默认是 false
