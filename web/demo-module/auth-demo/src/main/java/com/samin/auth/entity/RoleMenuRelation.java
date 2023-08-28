@@ -26,9 +26,11 @@ public class RoleMenuRelation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    // TODO 使用 code
     @Comment("角色id")
     private Integer roleId;
 
+    // TODO 使用 code
     @Comment("菜单id")
     private Integer menuId;
 

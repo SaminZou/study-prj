@@ -1,21 +1,17 @@
 package com.samin.auth.config;
 
-import com.samin.auth.authentication.CustomAuthenticationProvider;
 import com.samin.auth.handler.CustomAccessDeniedHandler;
 import com.samin.auth.handler.CustomAuthenticationEntryPoint;
 import java.util.Collections;
-import javax.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.Header;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
 
@@ -27,15 +23,21 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
  */
 @Slf4j
 @Configuration
-public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
+@RequiredArgsConstructor
+public class HttpSecurityConfig {
 
-    @Resource
-    private CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
-    @Resource
-    private CustomAccessDeniedHandler customAccessDeniedHandler;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+    private final CustomAccessDeniedHandler customAccessDeniedHandler;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    /**
+     * fix WebSecurityConfigurerAdapter @Deprecated problem
+     *
+     * @param http
+     * @return
+     * @throws Exception
+     */
+    @Bean
+    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf()
             .disable()
             .sessionManagement()
@@ -55,6 +57,19 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
             .disable();
 
         http.authorizeRequests()
+            .antMatchers(HttpMethod.OPTIONS, "/**")
+            .permitAll()
+            .antMatchers("/login")
+            .permitAll()
+            .antMatchers("/logout")
+            .permitAll()
+            // TODO swagger2
+            .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources", "/swagger-resources/**",
+                         "/swagger-ui.html", "/swagger-ui.html/**")
+            .permitAll()
+            // TODO temporary use
+            .antMatchers("/user/save")
+            .permitAll()
             .anyRequest()
             .access("@permissionService.access()");
 
@@ -63,35 +78,8 @@ public class HttpSecurityConfig extends WebSecurityConfigurerAdapter {
             .authenticationEntryPoint(customAuthenticationEntryPoint)
             // 鉴权拦截器
             .accessDeniedHandler(customAccessDeniedHandler);
-    }
 
-    @Override
-    public void configure(WebSecurity web) {
-        // 不做认证授权的地址
-        web.ignoring()
-           .antMatchers(HttpMethod.OPTIONS, "/**")
-           .antMatchers("/login")
-           .antMatchers("/logout")
-           // TODO swagger2
-           .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources", "/swagger-resources/**",
-                        "/swagger-ui.html", "/swagger-ui.html/**")
-           .antMatchers("/user/save");
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(dmpAuthenticationProvider());
-    }
-
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
-
-    @Bean
-    public CustomAuthenticationProvider dmpAuthenticationProvider() {
-        return new CustomAuthenticationProvider();
+        return http.build();
     }
 
     @Bean

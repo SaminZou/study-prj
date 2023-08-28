@@ -28,6 +28,7 @@ public class UserRoleRelation {
     @Comment("用户id")
     private Integer userId;
 
+    // TODO 使用 code
     @Comment("角色id")
     private Integer roleId;
 

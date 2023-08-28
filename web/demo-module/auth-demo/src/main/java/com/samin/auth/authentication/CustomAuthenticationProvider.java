@@ -1,8 +1,10 @@
 package com.samin.auth.authentication;
 
 import com.samin.auth.service.CustomUserDetailsService;
-import javax.annotation.Resource;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -12,12 +14,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Slf4j
+@Configuration
+@RequiredArgsConstructor
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-    @Resource
-    private CustomUserDetailsService customUserDetailsService;
-    @Resource
-    private PasswordEncoder passwordEncoder;
+    private final CustomUserDetailsService customUserDetailsService;
+    private final PasswordEncoder passwordEncoder;
+
+    @Bean
+    public CustomAuthenticationProvider dmpAuthenticationProvider() {
+        return new CustomAuthenticationProvider(customUserDetailsService, passwordEncoder);
+    }
 
     /**
      * 自定义认证逻辑

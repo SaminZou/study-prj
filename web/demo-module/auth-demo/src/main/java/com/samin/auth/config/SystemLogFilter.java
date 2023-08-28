@@ -66,7 +66,7 @@ public class SystemLogFilter implements HandlerInterceptor {
         } else {
             user = securityService.getCurrentUser();
         }
-        
+
         systemLogRepository.save(SystemLog.getInstance(request, response, user, endTime - startTime));
         // 记录响应日志
         log.info("Response: {} {} - Status: {}", request.getMethod(), request.getRequestURI(), response.getStatus());

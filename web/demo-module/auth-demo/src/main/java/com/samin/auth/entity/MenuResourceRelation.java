@@ -16,9 +16,11 @@ public class MenuResourceRelation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    // TODO 使用 code
     @Comment("菜单id")
     private Integer menuId;
 
+    // TODO 使用 urn
     @Comment("资源id")
     private Integer resourceId;
 

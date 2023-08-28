@@ -1,19 +1,16 @@
 package com.samin.auth.service;
 
-import com.samin.auth.authentication.CustomAuthenticationToken;
 import com.samin.auth.authentication.CustomUserDetails;
 import com.samin.auth.util.JwtUtil;
-import com.samin.auth.vo.base.BaseResp;
+import com.samin.auth.vo.req.LoginReq;
+import java.util.concurrent.TimeUnit;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 登录类
@@ -26,20 +23,24 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class LoginService {
 
-    private final AuthenticationManager authenticationManager;
     private final RedissonClient redissonClient;
+    private final CustomUserDetailsService userDetailsService;
     private final JwtUtil jwtUtil;
 
-    public BaseResp<String> login(HashMap<String, String> loginReq) {
-        Authentication authenticate = authenticationManager.authenticate(new CustomAuthenticationToken(loginReq.get("name"), loginReq.get("pwd")));
+    public String login(LoginReq loginReq) {
+        CustomUserDetails userDetails = (CustomUserDetails) userDetailsService.loadUserByUsername(loginReq.getName());
 
-        CustomUserDetails userDetails = (CustomUserDetails) authenticate.getPrincipal();
+        // TODO 用途
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
+        SecurityContextHolder.getContext()
+                             .setAuthentication(authentication);
+
         // save token
         RBucket<CustomUserDetails> userDetailsRedisBucket = redissonClient.getBucket("token:" + userDetails.getUser()
-                .getId());
+                                                                                                           .getId());
         userDetailsRedisBucket.set(userDetails, jwtUtil.getExpiration(), TimeUnit.SECONDS);
         log.info("登录成功：{}", userDetails);
 
-        return BaseResp.success(jwtUtil.generateToken(userDetails));
+        return jwtUtil.generateToken(userDetails);
     }
 }
