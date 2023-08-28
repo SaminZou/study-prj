@@ -29,7 +29,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        show_sql: true
+        # INFO 级别时候配置可以输出 SQL，DEBUG 级别下，配置形同虚设
+        show_sql: false
         format_sql: true
   redis:
     host: ${custom.redis_host}
@@ -58,7 +59,7 @@ knife4j:
 logging:
   level:
     root:
-    org.hibernate.SQL: DEBUG
+    org.hibernate.SQL: INFO
 
 jwt:
   # JWT 存储的请求头
