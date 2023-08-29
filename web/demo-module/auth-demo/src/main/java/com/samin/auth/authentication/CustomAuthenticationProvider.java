@@ -11,6 +11,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Slf4j
@@ -19,11 +20,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private final CustomUserDetailsService customUserDetailsService;
-    private final PasswordEncoder passwordEncoder;
 
     @Bean
     public CustomAuthenticationProvider dmpAuthenticationProvider() {
-        return new CustomAuthenticationProvider(customUserDetailsService, passwordEncoder);
+        return new CustomAuthenticationProvider(customUserDetailsService);
     }
 
     /**
@@ -40,7 +40,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(request.getUsername());
 
         // 密码加密后比较是否匹配
-        if (!passwordEncoder.matches(request.getPassword(), userDetails.getPassword())) {
+        if (!bCryptPasswordEncoder().matches(request.getPassword(), userDetails.getPassword())) {
             log.info("账号或密码错误");
             throw new BadCredentialsException("账号或密码错误");
         }
@@ -57,5 +57,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
     @Override
     public boolean supports(Class<?> authentication) {
         return (CustomAuthenticationToken.class.isAssignableFrom(authentication));
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

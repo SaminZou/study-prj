@@ -45,7 +45,7 @@ spring:
 
 knife4j:
   # 开启增强
-  enable: false
+  enable: true
   # 开启生产环境保护
   production: false
   # 开启 Swagger 的 Basic 认证功能,默认是 false

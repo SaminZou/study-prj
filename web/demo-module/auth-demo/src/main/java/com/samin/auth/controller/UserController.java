@@ -1,5 +1,6 @@
 package com.samin.auth.controller;
 
+import com.samin.auth.common.Log;
 import com.samin.auth.service.UserService;
 import com.samin.auth.vo.base.BaseResp;
 import com.samin.auth.vo.req.PageReq;
@@ -38,6 +39,7 @@ public class UserController {
         return userService.page(req);
     }
 
+    @Log("用户保存")
     @PostMapping("/save")
     public BaseResp<UserSaveResp> save(@RequestBody UserSaveReq userSaveReq) {
         return BaseResp.success(userService.saveUser(userSaveReq));

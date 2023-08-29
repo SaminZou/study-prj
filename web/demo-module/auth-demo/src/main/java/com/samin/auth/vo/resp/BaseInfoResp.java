@@ -3,6 +3,8 @@ package com.samin.auth.vo.resp;
 import com.samin.auth.entity.Menu;
 import com.samin.auth.entity.Resource;
 import com.samin.auth.entity.Role;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import lombok.Data;
 
@@ -15,16 +17,16 @@ import lombok.Data;
  * <p>
  * Created Date: 2023-08-25
  */
-//@ApiModel("基础信息返回")
+@ApiModel("基础信息返回")
 @Data
 public class BaseInfoResp {
 
-    //    @ApiModelProperty("角色列表")
+    @ApiModelProperty("角色列表")
     private List<Role> roles;
 
-    //    @ApiModelProperty("菜单列表")
+    @ApiModelProperty("菜单列表")
     private List<Menu> menus;
 
-    //    @ApiModelProperty("资源列表")
+        @ApiModelProperty("资源列表")
     private List<Resource> resources;
 }

@@ -7,6 +7,8 @@ import com.samin.auth.vo.req.RoleSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.RoleResp;
 import com.samin.auth.vo.resp.RoleSaveResp;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import javax.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author samin
  * @date 2023-07-23
  */
-//@Api("角色控制类")
+@Api("角色控制类")
 @Validated
 @RestController
 @RequiredArgsConstructor
@@ -31,19 +33,19 @@ public class RoleController {
 
     private final RoleService roleService;
 
-    //    @ApiOperation("分页查询")
+    @ApiOperation("分页查询")
     @PostMapping("/page")
     public PageResp<RoleResp> page(@RequestBody PageReq req) {
         return roleService.page(req);
     }
 
-    //    @ApiOperation("保存")
+    @ApiOperation("保存")
     @PostMapping("/save")
     public BaseResp<RoleSaveResp> save(@RequestBody RoleSaveReq roleSaveReq) {
         return BaseResp.success(roleService.saveRole(roleSaveReq));
     }
 
-    //    @ApiOperation("删除")
+    @ApiOperation("删除")
     @PostMapping("/delete/{id}")
     public BaseResp<Void> delete(@Min(value = 1, message = "最小") @PathVariable("id") Integer id) {
         roleService.delete(id);

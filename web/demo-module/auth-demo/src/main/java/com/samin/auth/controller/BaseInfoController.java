@@ -3,6 +3,7 @@ package com.samin.auth.controller;
 import com.samin.auth.service.BaseInfoService;
 import com.samin.auth.vo.base.BaseResp;
 import com.samin.auth.vo.resp.BaseInfoResp;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequiredArgsConstructor
-//@Api("基础信息控制器")
+@Api("基础信息控制器")
 public class BaseInfoController {
 
     private final BaseInfoService baseInfoService;

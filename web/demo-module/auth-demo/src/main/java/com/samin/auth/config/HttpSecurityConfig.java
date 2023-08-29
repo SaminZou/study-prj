@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.Header;
 import org.springframework.security.web.header.writers.StaticHeadersWriter;
@@ -63,9 +62,9 @@ public class HttpSecurityConfig {
             .permitAll()
             .antMatchers("/logout")
             .permitAll()
-            // TODO swagger2
-            .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources", "/swagger-resources/**",
-                         "/swagger-ui.html", "/swagger-ui.html/**")
+            //  swagger2
+            .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/favicon.ico", "/swagger-resources",
+                         "/swagger-resources/**", "/swagger-ui.html", "/swagger-ui.html/**")
             .permitAll()
             // TODO temporary use
             .antMatchers("/user/save")
@@ -80,10 +79,5 @@ public class HttpSecurityConfig {
             .accessDeniedHandler(customAccessDeniedHandler);
 
         return http.build();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }

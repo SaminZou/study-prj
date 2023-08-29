@@ -1,35 +1,38 @@
 package com.samin.auth.entity;
 
 import com.samin.auth.authentication.CustomUserDetails;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Comment;
-
-import javax.persistence.*;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import lombok.Data;
+import org.hibernate.annotations.Comment;
 
 @Data
 @Entity
 @Table(name = "system_log", schema = "system")
 public class SystemLog {
 
-    public static SystemLog getInstance(HttpServletRequest request, HttpServletResponse response, CustomUserDetails customUserDetails, long executionTime) {
+    public static SystemLog getInstance(HttpServletRequest request, HttpServletResponse response,
+                                        CustomUserDetails customUserDetails, String remark, long executionTime) {
         SystemLog ins = new SystemLog();
 
         LocalDateTime now = LocalDateTime.now();
         if (Objects.nonNull(customUserDetails)) {
             ins.setUserId(customUserDetails.getUser()
-                    .getId());
+                                           .getId());
         }
         ins.setClientIpAddress(request.getRemoteAddr());
         ins.setRequestTime(now);
         ins.setRequestPath(request.getRequestURI());
         ins.setRequestMethod(request.getMethod());
         ins.setResponseStatusCode(response.getStatus());
+        ins.setRemark(remark);
         ins.setExecutionTime(executionTime);
         ins.setDeviceInformation(request.getHeader("User-Agent"));
         ins.setCreateTime(now);
@@ -43,6 +46,9 @@ public class SystemLog {
 
     @Comment("操作用户id")
     private Integer userId;
+
+    @Comment("备注")
+    private String remark;
 
     @Comment("操作 ip")
     private String clientIpAddress;

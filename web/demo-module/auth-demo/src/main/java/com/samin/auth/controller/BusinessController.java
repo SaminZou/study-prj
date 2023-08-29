@@ -1,5 +1,7 @@
 package com.samin.auth.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.util.HashMap;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * Created Date: 2023-08-25
  */
-//@Api("业务控制器")
+@Api("业务控制器")
 @RestController
 public class BusinessController {
 
@@ -23,7 +25,7 @@ public class BusinessController {
      *
      * @return
      */
-    //    @ApiOperation("测试接口")
+    @ApiOperation("测试接口")
     @PreAuthorize("@permissionService.access('get:full:test')")
     @GetMapping("/test")
     public HashMap<String, String> test() {
@@ -34,7 +36,7 @@ public class BusinessController {
         };
     }
 
-    //    @ApiOperation("测试接口2")
+    @ApiOperation("测试接口2")
     @PreAuthorize("@permissionService.access('get:full:test2')")
     @GetMapping("/test2")
     public HashMap<String, String> test2() {
