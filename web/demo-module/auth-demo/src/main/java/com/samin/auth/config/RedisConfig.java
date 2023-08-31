@@ -36,12 +36,12 @@ public class RedisConfig {
 
     @Bean
     public RedisSerializer<Object> redisSerializer() {
-        //创建 JSON 序列化器
+        // 创建 JSON 序列化器
         Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        //必须设置，否则无法将 JSON 转化为对象，会转化成 Map 类型
+        // 必须设置，否则无法将 JSON 转化为对象，会转化成 Map 类型
         objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, ObjectMapper.DefaultTyping.NON_FINAL);
         serializer.setObjectMapper(objectMapper);
         return serializer;

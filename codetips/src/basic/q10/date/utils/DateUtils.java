@@ -1,5 +1,7 @@
 package basic.q10.date.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,6 +19,31 @@ import java.util.List;
  * @date 2023-06-14
  */
 public class DateUtils {
+
+    /**
+     * 是否是前一个 15 分钟时段
+     *
+     * @param date1Str 开始时间
+     * @param date2Str 结束时间
+     * @return 布尔型结果
+     */
+    public static boolean isPre15Minute(String date1Str, String date2Str) {
+        try {
+            Date date1 = parseDate(date1Str);
+            Date date2 = parseDate(date2Str);
+
+            long diffMinute = (date2.getTime() - date1.getTime()) / 60000L;
+            return (int) diffMinute == 15;
+        } catch (ParseException e) {
+            System.out.println("解析时间出错: " + e);
+            return false;
+        }
+    }
+
+    public static Date parseDate(String dateString) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
+        return format.parse(dateString);
+    }
 
     @Deprecated
     public static int getDateYear(Date date) {
@@ -36,7 +63,9 @@ public class DateUtils {
      * @return LocalDateTime 类型实例
      */
     public static LocalDateTime dateToLocalDateTime(Date currentDate) {
-        return currentDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        return currentDate.toInstant()
+                          .atZone(ZoneId.systemDefault())
+                          .toLocalDateTime();
     }
 
     /**
@@ -52,7 +81,8 @@ public class DateUtils {
         LocalDateTime currentLocalDateTime = dateToLocalDateTime(currentDate);
         while (results.size() < n) {
             LocalDateTime tempDateTime = currentLocalDateTime.minus(1, ChronoUnit.DAYS);
-            results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+            results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault())
+                                              .toInstant()));
             currentLocalDateTime = tempDateTime;
         }
 
@@ -95,7 +125,8 @@ public class DateUtils {
                     default:
                         tempDateTime = currentLocalDateTime.minus(1, ChronoUnit.DAYS);
                 }
-                results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+                results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault())
+                                                  .toInstant()));
                 currentLocalDateTime = tempDateTime;
             } else {
                 switch (dayOfWeek) {
@@ -108,7 +139,8 @@ public class DateUtils {
                     default:
                         tempDateTime = currentLocalDateTime.minus(1, ChronoUnit.DAYS);
                 }
-                results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault()).toInstant()));
+                results.add(Date.from(tempDateTime.atZone(ZoneId.systemDefault())
+                                                  .toInstant()));
                 currentLocalDateTime = tempDateTime;
             }
         }
