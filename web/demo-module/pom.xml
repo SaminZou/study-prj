@@ -18,6 +18,7 @@
         <module>admin-demo</module>
         <module>starter-demo</module>
         <module>use-case-demo</module>
+        <module>maven-demo</module>
     </modules>
 
     <packaging>pom</packaging>
