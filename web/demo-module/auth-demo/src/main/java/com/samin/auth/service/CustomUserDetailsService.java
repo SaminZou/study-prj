@@ -3,10 +3,20 @@ package com.samin.auth.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.samin.auth.authentication.CustomUserDetails;
-import com.samin.auth.entity.*;
+import com.samin.auth.entity.Menu;
+import com.samin.auth.entity.Resource;
+import com.samin.auth.entity.Role;
+import com.samin.auth.entity.User;
+import com.samin.auth.entity.UserRoleRelation;
 import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RList;
@@ -16,9 +26,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 自定义用户信息加载服务类
@@ -64,20 +71,27 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (CollectionUtil.isNotEmpty(userRoleRelations)) {
             userRoleRelations.forEach(userRoleRelation -> {
                 // 从缓存中获取 Role
-                List<Role> roleRels = roles.stream().filter(e -> e.getId().equals(userRoleRelation.getRoleId())).collect(Collectors.toList());
+                List<Role> roleRels = roles.stream()
+                                           .filter(e -> e.getCode()
+                                                         .equals(userRoleRelation.getRoleCode()))
+                                           .collect(Collectors.toList());
                 if (CollectionUtil.isNotEmpty(roleRels)) {
                     Role role = roleRels.get(0);
                     userRoles.add(role);
 
                     List<Integer> menuRelIndexs = roleMenuMap.get(role.getId());
                     if (CollectionUtil.isNotEmpty(menuRelIndexs)) {
-                        List<Menu> menuRels = menus.stream().filter(e -> menuRelIndexs.contains(e.getId())).collect(Collectors.toList());
+                        List<Menu> menuRels = menus.stream()
+                                                   .filter(e -> menuRelIndexs.contains(e.getId()))
+                                                   .collect(Collectors.toList());
                         if (CollectionUtil.isNotEmpty(menuRels)) {
                             userMenus.addAll(menuRels);
 
                             menuRels.forEach(menu -> {
                                 Set<Integer> resourceRelIndexs = menuResourceMap.get(menu.getId());
-                                List<Resource> resourceRels = resources.stream().filter(e -> resourceRelIndexs.contains(e.getId())).collect(Collectors.toList());
+                                List<Resource> resourceRels = resources.stream()
+                                                                       .filter(e -> resourceRelIndexs.contains(e.getId()))
+                                                                       .collect(Collectors.toList());
                                 if (CollectionUtil.isNotEmpty(resourceRels)) {
                                     userResources.addAll(resourceRels);
                                 }

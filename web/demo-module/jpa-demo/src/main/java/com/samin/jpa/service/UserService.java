@@ -1,8 +1,8 @@
-package com.samin.jpademo.service;
+package com.samin.jpa.service;
 
-import com.samin.jpademo.entity.UserDO;
-import com.samin.jpademo.entity.UserVO;
-import com.samin.jpademo.repository.UserRepository;
+import com.samin.jpa.entity.UserDO;
+import com.samin.jpa.entity.UserVO;
+import com.samin.jpa.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

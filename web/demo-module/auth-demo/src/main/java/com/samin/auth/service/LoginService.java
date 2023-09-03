@@ -30,7 +30,7 @@ public class LoginService {
     public String login(LoginReq loginReq) {
         CustomUserDetails userDetails = (CustomUserDetails) userDetailsService.loadUserByUsername(loginReq.getName());
 
-        // TODO 用途
+        // 使用 Spring Security 进行认证
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
         SecurityContextHolder.getContext()
                              .setAuthentication(authentication);

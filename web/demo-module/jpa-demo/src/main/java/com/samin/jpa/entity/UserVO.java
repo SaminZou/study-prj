@@ -1,4 +1,4 @@
-package com.samin.jpademo.entity;
+package com.samin.jpa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

@@ -1,11 +1,14 @@
 package com.samin.auth.entity;
 
-import lombok.Data;
-import org.hibernate.annotations.Comment;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import lombok.Data;
+import org.hibernate.annotations.Comment;
 
 @Data
 @Entity
@@ -16,13 +19,11 @@ public class MenuResourceRelation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    // TODO 使用 code
-    @Comment("菜单id")
-    private Integer menuId;
+    @Comment("菜单 code")
+    private String menuCode;
 
-    // TODO 使用 urn
-    @Comment("资源id")
-    private Integer resourceId;
+    @Comment("资源 urn")
+    private String resourceUrn;
 
     @Comment("创建时间")
     private LocalDateTime createTime;

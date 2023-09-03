@@ -14,21 +14,6 @@ import lombok.Data;
 @Data
 public class RoleResp {
 
-    @ApiModelProperty("id")
-    private Integer id;
-    @ApiModelProperty("角色名")
-    private String name;
-    @ApiModelProperty("角色编码")
-    private String code;
-    @ApiModelProperty("备注")
-    private String remark;
-    @ApiModelProperty("创建时间")
-    private String createTime;
-    @ApiModelProperty("更新时间")
-    private String updateTime;
-    @ApiModelProperty("菜单列表")
-    private List<Integer> menus;
-
     public static RoleResp getInstance(Role role, List<RoleMenuRelation> list) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         RoleResp resp = new RoleResp();
@@ -40,9 +25,30 @@ public class RoleResp {
         resp.setCreateTime(dtf.format(role.getCreateTime()));
         resp.setUpdateTime(Objects.nonNull(role.getUpdateTime()) ? dtf.format(role.getUpdateTime()) : "");
         resp.setMenus(list.stream()
-                          .map(RoleMenuRelation::getMenuId)
+                          .map(RoleMenuRelation::getMenuCode)
                           .collect(Collectors.toList()));
 
         return resp;
     }
+
+    @ApiModelProperty("id")
+    private Integer id;
+
+    @ApiModelProperty("角色名")
+    private String name;
+
+    @ApiModelProperty("角色编码")
+    private String code;
+
+    @ApiModelProperty("备注")
+    private String remark;
+
+    @ApiModelProperty("创建时间")
+    private String createTime;
+
+    @ApiModelProperty("更新时间")
+    private String updateTime;
+
+    @ApiModelProperty("菜单列表")
+    private List<String> menus;
 }

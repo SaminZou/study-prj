@@ -1,6 +1,6 @@
-package com.samin.jpademo.repository;
+package com.samin.jpa.repository;
 
-import com.samin.jpademo.entity.UserDO;
+import com.samin.jpa.entity.UserDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

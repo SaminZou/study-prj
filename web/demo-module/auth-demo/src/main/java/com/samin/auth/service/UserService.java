@@ -15,6 +15,11 @@ import com.samin.auth.vo.req.UserSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -25,19 +30,12 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 /**
  * 用户服务类
  * <p>
  * Description: 用户服务类
  * <p>
- * Created By: Samin
- * Created Date: 2023-08-16
+ * Created By: Samin Created Date: 2023-08-16
  */
 @Service
 @RequiredArgsConstructor
@@ -56,15 +54,15 @@ public class UserService {
      */
     public PageResp<UserResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
-                .descending());
+                                                                             .descending());
 
         PageResp<User> users = PageResp.success(userRepository.findAll(pageable));
 
         PageResp<UserResp> resp = PageResp.baseOf(users);
         resp.setContent(users.getContent()
-                .stream()
-                .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
-                .collect(Collectors.toList()));
+                             .stream()
+                             .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
+                             .collect(Collectors.toList()));
 
         return resp;
     }
@@ -87,8 +85,8 @@ public class UserService {
             if (userOptional.isPresent()) {
                 user = userOptional.get();
                 CopyOptions options = CopyOptions.create()
-                        .ignoreNullValue()
-                        .setIgnoreProperties("mobile");
+                                                 .ignoreNullValue()
+                                                 .setIgnoreProperties("mobile");
                 BeanUtil.copyProperties(userSaveReq, user, options);
 
                 if (StrUtil.isNotBlank(user.getPassword())) {
@@ -114,7 +112,7 @@ public class UserService {
 
             user = new User();
             CopyOptions options = CopyOptions.create()
-                    .ignoreNullValue();
+                                             .ignoreNullValue();
             BeanUtil.copyProperties(userSaveReq, user, options);
 
             if (StrUtil.isNotBlank(user.getPassword())) {
@@ -142,7 +140,7 @@ public class UserService {
      * @param userId 用户 id
      * @param roles  角色集合
      */
-    public void setUserRoleRelations(Integer userId, List<Integer> roles) {
+    public void setUserRoleRelations(Integer userId, List<String> roles) {
         // 过滤合法角色
         roles = validRoles(roles);
 
@@ -152,22 +150,22 @@ public class UserService {
         // 新增绑定
         if (!CollectionUtils.isEmpty(roles)) {
             List<UserRoleRelation> userRoleRelations = roles.stream()
-                    .map(e -> UserRoleRelation.getInstance(userId, e))
-                    .collect(Collectors.toList());
+                                                            .map(e -> UserRoleRelation.getInstance(userId, e))
+                                                            .collect(Collectors.toList());
 
             userRoleRelationRepository.saveAll(userRoleRelations);
         }
     }
 
-    public List<Integer> validRoles(List<Integer> roles) {
+    public List<String> validRoles(List<String> roles) {
         if (CollectionUtils.isEmpty(roles)) {
             return new ArrayList<>(0);
         }
 
         // 过滤不存在的角色
-        return roleRepository.findByIdIn(roles)
-                .stream()
-                .map(Role::getId)
-                .collect(Collectors.toList());
+        return roleRepository.findByCodeIn(roles)
+                             .stream()
+                             .map(Role::getCode)
+                             .collect(Collectors.toList());
     }
 }

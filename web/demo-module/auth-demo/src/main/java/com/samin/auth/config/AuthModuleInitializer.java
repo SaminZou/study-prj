@@ -1,18 +1,25 @@
 package com.samin.auth.config;
 
-import com.samin.auth.entity.*;
-import com.samin.auth.repo.*;
+import com.samin.auth.entity.Menu;
+import com.samin.auth.entity.MenuResourceRelation;
+import com.samin.auth.entity.Resource;
+import com.samin.auth.entity.Role;
+import com.samin.auth.entity.RoleMenuRelation;
+import com.samin.auth.repo.MenuRepository;
+import com.samin.auth.repo.MenuResourceRelationRepository;
+import com.samin.auth.repo.ResourceRepository;
+import com.samin.auth.repo.RoleMenuRelationRepository;
+import com.samin.auth.repo.RoleRepository;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RList;
 import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -43,17 +50,26 @@ public class AuthModuleInitializer implements CommandLineRunner {
         resourceRedisList.clear();
         resourceRedisList.addAll(resources);
 
-        // 生成 Map<Integer, List<Integer>>
+        // 生成 Map<String, List<String>>
         List<RoleMenuRelation> roleMenus = roleMenuRelationRepository.findAll();
-        Map<Integer, List<Integer>> roleMenuMap = roleMenus.stream().collect(Collectors.groupingBy(RoleMenuRelation::getRoleId, Collectors.mapping(RoleMenuRelation::getMenuId, Collectors.toList())));
-        RMap<Integer, List<Integer>> roleMenuRedisMap = redissonClient.getMap("RoleMenuMap");
+        Map<String, List<String>> roleMenuMap = roleMenus.stream()
+                                                         .collect(Collectors.groupingBy(RoleMenuRelation::getRoleCode,
+                                                                                        Collectors.mapping(
+                                                                                                RoleMenuRelation::getMenuCode,
+                                                                                                Collectors.toList())));
+        RMap<String, List<String>> roleMenuRedisMap = redissonClient.getMap("RoleMenuMap");
         roleMenuRedisMap.clear();
         roleMenuRedisMap.putAll(roleMenuMap);
 
-        // 生成 Map<Integer, Set<Integer>>
+        // 生成 Map<String, Set<String>>
         List<MenuResourceRelation> menuResources = menuResourceRelationRepository.findAll();
-        Map<Integer, Set<Integer>> menuResourceMap = menuResources.stream().collect(Collectors.groupingBy(MenuResourceRelation::getMenuId, Collectors.mapping(MenuResourceRelation::getResourceId, Collectors.toSet())));
-        RMap<Integer, Set<Integer>> menuResourceRedisMap = redissonClient.getMap("MenuResourceMap");
+        Map<String, Set<String>> menuResourceMap = menuResources.stream()
+                                                                .collect(Collectors.groupingBy(
+                                                                        MenuResourceRelation::getMenuCode,
+                                                                        Collectors.mapping(
+                                                                                MenuResourceRelation::getResourceUrn,
+                                                                                Collectors.toSet())));
+        RMap<String, Set<String>> menuResourceRedisMap = redissonClient.getMap("MenuResourceMap");
         menuResourceRedisMap.clear();
         menuResourceRedisMap.putAll(menuResourceMap);
     }

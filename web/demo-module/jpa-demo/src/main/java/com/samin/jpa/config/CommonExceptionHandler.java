@@ -1,4 +1,4 @@
-package com.samin.jpademo.config;
+package com.samin.jpa.config;
 
 import javax.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

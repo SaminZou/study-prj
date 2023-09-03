@@ -1,8 +1,7 @@
 package com.samin.auth.vo.req;
 
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 @Data
 public class RoleSaveReq {
@@ -15,5 +14,5 @@ public class RoleSaveReq {
 
     private String remark;
 
-    private List<Integer> menus;
+    private List<String> menus;
 }

@@ -1,4 +1,4 @@
-package com.samin.jpademo.entity;
+package com.samin.jpa.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,21 +1,24 @@
 package com.samin.auth.entity;
 
+import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
-
-import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Data
 @Entity
 @Table(name = "auth_user_role_relation", schema = "auth")
 public class UserRoleRelation {
 
-    public static UserRoleRelation getInstance(Integer userId, Integer roleId) {
+    public static UserRoleRelation getInstance(Integer userId, String roleCode) {
         UserRoleRelation instance = new UserRoleRelation();
 
         instance.setUserId(userId);
-        instance.setRoleId(roleId);
+        instance.setRoleCode(roleCode);
         instance.setCreateTime(LocalDateTime.now());
 
         return instance;
@@ -28,9 +31,8 @@ public class UserRoleRelation {
     @Comment("用户id")
     private Integer userId;
 
-    // TODO 使用 code
-    @Comment("角色id")
-    private Integer roleId;
+    @Comment("角色 code")
+    private String roleCode;
 
     @Comment("创建时间")
     private LocalDateTime createTime;

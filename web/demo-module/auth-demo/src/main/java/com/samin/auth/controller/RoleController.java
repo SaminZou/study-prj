@@ -9,7 +9,7 @@ import com.samin.auth.vo.resp.RoleResp;
 import com.samin.auth.vo.resp.RoleSaveResp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,9 +46,9 @@ public class RoleController {
     }
 
     @ApiOperation("删除")
-    @PostMapping("/delete/{id}")
-    public BaseResp<Void> delete(@Min(value = 1, message = "最小") @PathVariable("id") Integer id) {
-        roleService.delete(id);
+    @PostMapping("/delete/{code}")
+    public BaseResp<Void> delete(@NotBlank @PathVariable("code") String code) {
+        roleService.delete(code);
         return BaseResp.success();
     }
 }

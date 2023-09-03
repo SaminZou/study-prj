@@ -1,7 +1,7 @@
-package com.samin.jpademo.controller;
+package com.samin.jpa.controller;
 
-import com.samin.jpademo.entity.UserVO;
-import com.samin.jpademo.service.UserService;
+import com.samin.jpa.entity.UserVO;
+import com.samin.jpa.service.UserService;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;

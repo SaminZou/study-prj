@@ -1,8 +1,7 @@
 package com.samin.auth.vo.req;
 
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 @Data
 public class UserSaveReq {
@@ -21,5 +20,5 @@ public class UserSaveReq {
 
     private String note;
 
-    private List<Integer> roles;
+    private List<String> roles;
 }
