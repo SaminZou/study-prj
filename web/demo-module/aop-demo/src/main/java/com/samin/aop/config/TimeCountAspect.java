@@ -1,5 +1,7 @@
 package com.samin.aop.config;
 
+import java.util.Objects;
+import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -9,8 +11,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Aspect
@@ -35,10 +35,13 @@ public class TimeCountAspect {
         startTime.set(System.currentTimeMillis());
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-        // 记录请求的内容
-        log.info("请求URL: {}", request.getRequestURL().toString());
-        log.info("请求METHOD: {}", request.getMethod());
+        if (Objects.nonNull(attributes)) {
+            HttpServletRequest request = attributes.getRequest();
+            // 记录请求的内容
+            log.info("请求URL: {}", request.getRequestURL()
+                                           .toString());
+            log.info("请求METHOD: {}", request.getMethod());
+        }
     }
 
     @AfterReturning(pointcut = "timeCount()")
