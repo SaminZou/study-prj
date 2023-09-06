@@ -120,7 +120,7 @@ public class JwtUtil {
      * 根据用户信息生成token
      */
     public String generateToken(CustomUserDetails userDetails) {
-        Map<String, Object> claims = new HashMap<>();
+        Map<String, Object> claims = new HashMap<>(3);
         claims.put(CLAIM_KEY_ID, userDetails.getUser().getId());
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());

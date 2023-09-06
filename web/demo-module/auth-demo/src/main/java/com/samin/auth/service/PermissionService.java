@@ -63,6 +63,6 @@ public class PermissionService {
     }
 
     public boolean access(String urn) {
-        return urn.equals("get:full:test");
+        return "get:full:test".equals(urn);
     }
 }
