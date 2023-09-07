@@ -27,11 +27,11 @@ public class DateUtils {
      * @return
      */
     public static int correctMinutes(int minutes) {
-        if (minutes < 0 || minutes > 59) {
-            // 处理越界的分钟部分
-            // 修正为最接近的 15 的倍数
-            return minutes / 15 * 15;
-        }
+        // if (minutes < 0 || minutes > 59) {
+        //     // 处理越界的分钟部分
+        //     // 修正为最接近的 15 的倍数
+        //     return minutes / 15 * 15;
+        // }
 
         // 处理符合要求的分钟部分
         if (minutes % 15 != 0) {
