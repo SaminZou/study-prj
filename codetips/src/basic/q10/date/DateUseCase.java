@@ -1,6 +1,8 @@
 package basic.q10.date;
 
 import basic.q10.date.utils.DateUtils;
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -11,7 +13,34 @@ import java.util.Date;
  */
 public class DateUseCase {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
+        String time1 = "20230907234400";
+        String time2 = "20230907234600";
+        String time3 = "20230907231300";
+        String time4 = "20230907233100";
+        String time5 = "20230907231600";
+        String time6 = "20230907230100";
+
+        Calendar cal = Calendar.getInstance();
+        // 45
+        cal.setTime(DateUtils.parseDate(time1));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+        // 45
+        cal.setTime(DateUtils.parseDate(time2));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+        // 15
+        cal.setTime(DateUtils.parseDate(time3));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+        // 30
+        cal.setTime(DateUtils.parseDate(time4));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+        // 15
+        cal.setTime(DateUtils.parseDate(time5));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+        // 00
+        cal.setTime(DateUtils.parseDate(time6));
+        System.out.println(DateUtils.correctMinutes(cal.get(Calendar.MINUTE)));
+
         String time1Str = "20221027170000";
         String time2Str = "20221027171500";
         String time3Str = "20221027173000";

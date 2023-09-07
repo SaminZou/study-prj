@@ -21,6 +21,28 @@ import java.util.List;
 public class DateUtils {
 
     /**
+     * 如果分钟部分不在 00、15、30、45 这些合法值范围内，可以根据需要进行修正
+     *
+     * @param minutes
+     * @return
+     */
+    public static int correctMinutes(int minutes) {
+        if (minutes < 0 || minutes > 59) {
+            // 处理越界的分钟部分
+            // 修正为最接近的 15 的倍数
+            return minutes / 15 * 15;
+        }
+
+        // 处理符合要求的分钟部分
+        if (minutes % 15 != 0) {
+            // 如果不是 00、15、30、45，可以将其修正为最接近的正确值
+            return Math.round(minutes / 15.0f) * 15;
+        }
+
+        return minutes;
+    }
+
+    /**
      * 是否是前一个 15 分钟时段
      *
      * @param date1Str 开始时间
