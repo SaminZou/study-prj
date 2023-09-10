@@ -3,6 +3,7 @@ package com.samin.auth.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.excel.EasyExcel;
 import com.samin.auth.entity.Role;
 import com.samin.auth.entity.User;
 import com.samin.auth.entity.UserRoleRelation;
@@ -10,16 +11,20 @@ import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.repo.RoleRepository;
 import com.samin.auth.repo.UserRepository;
 import com.samin.auth.repo.UserRoleRelationRepository;
+import com.samin.auth.vo.excel.UserExcel;
 import com.samin.auth.vo.req.PageReq;
 import com.samin.auth.vo.req.UserSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
+import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -65,6 +70,23 @@ public class UserService {
                              .collect(Collectors.toList()));
 
         return resp;
+    }
+
+    public void pageExport(PageReq req, HttpServletResponse response) throws IOException {
+        List<UserResp> users = page(req).getContent();
+        List<UserExcel> excels = users.stream()
+                                      .map(UserExcel::getInstance)
+                                      .collect(Collectors.toList());
+
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf-8");
+        String fileName = URLEncoder.encode("用户列表", "UTF-8");
+        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+        response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
+        EasyExcel.write(response.getOutputStream(), UserExcel.class)
+                 .inMemory(true)
+                 .sheet(fileName)
+                 .doWrite(excels);
     }
 
     /**

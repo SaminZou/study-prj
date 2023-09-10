@@ -8,6 +8,8 @@ import com.samin.auth.vo.req.UserSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
+import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -37,6 +39,11 @@ public class UserController {
     @PostMapping("/page")
     public PageResp<UserResp> page(@RequestBody PageReq req) {
         return userService.page(req);
+    }
+
+    @PostMapping("/page/export")
+    public void pageExport(@RequestBody PageReq req, HttpServletResponse response) throws IOException {
+        userService.pageExport(req, response);
     }
 
     @Log("用户保存")
