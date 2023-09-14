@@ -2,6 +2,7 @@ package basic.q10.date;
 
 import basic.q10.date.utils.DateUtils;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -14,6 +15,9 @@ import java.util.Date;
 public class DateUseCase {
 
     public static void main(String[] args) throws ParseException {
+        Date[] dates = DateUtils.getCurMonthPeriod(null);
+        System.out.println(Arrays.toString(dates));
+
         String time1 = "20230907234400";
         String time2 = "20230907234600";
         String time3 = "20230907231300";

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * JDK8 以前的 Date 类
@@ -19,6 +20,32 @@ import java.util.List;
  * @date 2023-06-14
  */
 public class DateUtils {
+
+    /**
+     * 计算月初和月尾
+     *
+     * @param date
+     * @return
+     */
+    public static Date[] getCurMonthPeriod(Date date) {
+        Date[] dates = new Date[2];
+
+        Calendar calendar = Calendar.getInstance();
+        if (Objects.nonNull(date)) {
+            calendar.setTime(date);
+        }
+
+        // 月初
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        dates[0] = calendar.getTime();
+
+        // 月尾
+        calendar.add(Calendar.MONTH, 1);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        dates[1] = calendar.getTime();
+
+        return dates;
+    }
 
     /**
      * 如果分钟部分不在 00、15、30、45 这些合法值范围内，可以根据需要进行修正
