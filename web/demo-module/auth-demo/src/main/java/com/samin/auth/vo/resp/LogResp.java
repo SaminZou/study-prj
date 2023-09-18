@@ -1,12 +1,29 @@
 package com.samin.auth.vo.resp;
 
 import com.samin.auth.entity.SystemLog;
-import java.time.format.DateTimeFormatter;
-import java.util.Objects;
+import com.samin.auth.util.DateUtil;
 import lombok.Data;
 
 @Data
 public class LogResp {
+
+    public static LogResp getInstance(SystemLog log) {
+        LogResp ins = new LogResp();
+
+        ins.setId(log.getId());
+        ins.setUserId(log.getUserId());
+        ins.setRemark(log.getRemark());
+        ins.setClientIpAddress(log.getClientIpAddress());
+        ins.setRequestTime(DateUtil.getDisplayTime(log.getRequestTime()));
+        ins.setRequestPath(log.getRequestPath());
+        ins.setRequestMethod(log.getRequestMethod());
+        ins.setResponseStatusCode(log.getResponseStatusCode());
+        ins.setExecutionTime(log.getExecutionTime());
+        ins.setDeviceInformation(log.getDeviceInformation());
+        ins.setCreateTime(DateUtil.getDisplayTime(log.getCreateTime()));
+
+        return ins;
+    }
 
     private Integer id;
     private Integer userId;
@@ -19,24 +36,4 @@ public class LogResp {
     private Long executionTime;
     private String deviceInformation;
     private String createTime;
-
-    public static LogResp getInstance(SystemLog log) {
-        // TODO 换成统一处理，保持每个返回数据的时间格式一致
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LogResp ins = new LogResp();
-
-        ins.setId(log.getId());
-        ins.setUserId(log.getUserId());
-        ins.setRemark(log.getRemark());
-        ins.setClientIpAddress(log.getClientIpAddress());
-        ins.setRequestTime(Objects.nonNull(log.getRequestTime()) ? dtf.format(log.getRequestTime()) : "");
-        ins.setRequestPath(log.getRequestPath());
-        ins.setRequestMethod(log.getRequestMethod());
-        ins.setResponseStatusCode(log.getResponseStatusCode());
-        ins.setExecutionTime(log.getExecutionTime());
-        ins.setDeviceInformation(log.getDeviceInformation());
-        ins.setCreateTime(Objects.nonNull(log.getCreateTime()) ? dtf.format(log.getCreateTime()) : "");
-
-        return ins;
-    }
 }

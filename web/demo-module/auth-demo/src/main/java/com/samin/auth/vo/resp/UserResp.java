@@ -2,9 +2,8 @@ package com.samin.auth.vo.resp;
 
 import com.samin.auth.entity.User;
 import com.samin.auth.entity.UserRoleRelation;
-import java.time.format.DateTimeFormatter;
+import com.samin.auth.util.DateUtil;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import lombok.Data;
 
@@ -12,7 +11,6 @@ import lombok.Data;
 public class UserResp {
 
     public static UserResp getInstance(User user, List<UserRoleRelation> list) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         UserResp resp = new UserResp();
 
         resp.setId(user.getId());
@@ -21,9 +19,9 @@ public class UserResp {
         resp.setEmail(user.getEmail());
         resp.setNickName(user.getNickName());
         resp.setNote(user.getNote());
-        resp.setCreateTime(dtf.format(user.getCreateTime()));
-        resp.setUpdateTime(Objects.nonNull(user.getUpdateTime()) ? dtf.format(user.getUpdateTime()) : "");
-        resp.setLastLoginTime(Objects.nonNull(user.getLastLoginTime()) ? dtf.format(user.getLastLoginTime()) : "");
+        resp.setCreateTime(DateUtil.getDisplayTime(user.getCreateTime()));
+        resp.setUpdateTime(DateUtil.getDisplayTime(user.getUpdateTime()));
+        resp.setLastLoginTime(DateUtil.getDisplayTime(user.getLastLoginTime()));
         resp.setRoles(list.stream()
                           .map(UserRoleRelation::getRoleCode)
                           .collect(Collectors.toList()));

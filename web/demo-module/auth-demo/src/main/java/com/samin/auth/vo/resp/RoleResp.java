@@ -2,11 +2,10 @@ package com.samin.auth.vo.resp;
 
 import com.samin.auth.entity.Role;
 import com.samin.auth.entity.RoleMenuRelation;
+import com.samin.auth.util.DateUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 import lombok.Data;
 
@@ -15,15 +14,14 @@ import lombok.Data;
 public class RoleResp {
 
     public static RoleResp getInstance(Role role, List<RoleMenuRelation> list) {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         RoleResp resp = new RoleResp();
 
         resp.setId(role.getId());
         resp.setName(role.getName());
         resp.setCode(role.getCode());
         resp.setRemark(role.getRemark());
-        resp.setCreateTime(dtf.format(role.getCreateTime()));
-        resp.setUpdateTime(Objects.nonNull(role.getUpdateTime()) ? dtf.format(role.getUpdateTime()) : "");
+        resp.setCreateTime(DateUtil.getDisplayTime(role.getCreateTime()));
+        resp.setUpdateTime(DateUtil.getDisplayTime(role.getUpdateTime()));
         resp.setMenus(list.stream()
                           .map(RoleMenuRelation::getMenuCode)
                           .collect(Collectors.toList()));
