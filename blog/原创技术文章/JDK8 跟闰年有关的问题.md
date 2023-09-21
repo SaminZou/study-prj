@@ -15,9 +15,22 @@ Java8 提供了非常便利的时间类
 # 参考答案
 
 ```java
-LocalDate date=LocalDate.of(2020,2,29);
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+LocalDate date = LocalDate.of(2020, 2, 29);
+// 2020-02-28
+System.out.println(dtf.format(date.plusYears(1)));
 // 2021-02-28
-System.out.println(date.plus(1,ChronoUnit.YEARS));
+System.out.println(dtf.format(date.plusYears(1)));
 // 2019-02-28
-System.out.println(date.minus(1,ChronoUnit.YEARS));
+System.out.println(dtf.format(date.minusYears(1)));
+```
+
+# 进阶
+
+如果是初始化 2020年3月32日呢？输出是什么
+
+```java
+// 报错
+LocalDate date2 = LocalDate.of(2020, 3, 32);
+System.out.println(dtf.format(date2));
 ```
