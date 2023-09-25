@@ -11,7 +11,7 @@ j  下，或 Enter 或 +（要 Shift 键），或方向键
 k  上，或 方向键或 -（不必 Shift 键）
 l  右，或 Space 或方向键
 Ctrl-f    即 PageDown 翻页。
-Crtl-b    即 PageUp 翻页。
+Ctrl-b    即 PageUp 翻页。
 dd 快速删行
 u 撤销
 GG 文章末
