@@ -22,9 +22,9 @@ public class Client {
         // 换频道
         control.change();
         control.change();
-        control.ChannelUndo();
-        control.ChannelUndo();
-        control.ChannelUndo();
+        control.channelUndo();
+        control.channelUndo();
+        control.channelUndo();
         // 关闭电视机
         control.close();
     }
