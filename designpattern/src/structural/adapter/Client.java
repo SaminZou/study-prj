@@ -6,7 +6,7 @@ package structural.adapter;
  * @author samin
  * @date 2021-01-05
  */
-public class Runner {
+public class Client {
 
     public static void main(String[] args) {
         // 首先我们需要一个机器人
