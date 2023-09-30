@@ -3,6 +3,8 @@ package structural.facade;
 /**
  * 外观模式
  *
+ * <p> 统一入口
+ *
  * @author samin
  * @date 2021-01-05
  */

@@ -17,7 +17,7 @@ public class Presciption {
         list.add(medicine);
     }
 
-    public void removeMedicien(Medicine medicine) {
+    public void removeMedicine(Medicine medicine) {
         list.remove(medicine);
     }
 }
