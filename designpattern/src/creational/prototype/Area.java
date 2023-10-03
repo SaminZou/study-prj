@@ -2,7 +2,9 @@ package creational.prototype;
 
 public class Area {
 
-    // 钞票单位
+    /**
+     * 钞票单位
+     */
     private String unit;
 
     public String getUnit() {
