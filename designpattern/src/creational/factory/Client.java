@@ -4,7 +4,7 @@ import creational.factory.base.Product;
 import creational.factory.simple.SimpleProductFactory;
 
 /**
- * 工厂模式
+ * 工厂方法模式
  *
  * @author samin
  * @date 2021-01-05
