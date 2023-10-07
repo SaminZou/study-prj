@@ -1,6 +1,7 @@
 package basic.q10.date;
 
 import basic.q10.date.utils.DateUtils;
+
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -15,6 +16,8 @@ import java.util.Date;
 public class DateUseCase {
 
     public static void main(String[] args) throws ParseException {
+        System.out.println("当前月份：" + DateUtils.getMonth());
+
         Date[] dates = DateUtils.getCurMonthPeriod(null);
         System.out.println(Arrays.toString(dates));
 
