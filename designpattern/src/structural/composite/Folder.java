@@ -9,10 +9,12 @@ public class Folder extends File {
 
     public Folder(String name) {
         super(name);
-        files = new ArrayList<File>();
+        files = new ArrayList<>();
     }
 
-    // 浏览文件夹中的文件
+    /**
+     * 浏览文件夹中的文件
+     */
     @Override
     public void display() {
         for (File file : files) {
@@ -20,12 +22,20 @@ public class Folder extends File {
         }
     }
 
-    // 文件夹中添加文件
+    /**
+     * 文件夹中添加文件
+     *
+     * @param file
+     */
     public void add(File file) {
         files.add(file);
     }
 
-    // 从文件夹中删除文件
+    /**
+     * 从文件夹中删除文件
+     *
+     * @param file
+     */
     public void remove(File file) {
         files.remove(file);
     }

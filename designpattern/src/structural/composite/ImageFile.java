@@ -1,8 +1,8 @@
 package structural.composite;
 
-public class ImagerFile extends File {
+public class ImageFile extends File {
 
-    public ImagerFile(String name) {
+    public ImageFile(String name) {
         super(name);
     }
 
