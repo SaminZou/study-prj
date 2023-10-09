@@ -1,5 +1,14 @@
 package behavioural.command;
 
+/**
+ * Receiver
+ * <p>
+ * Description: Receiver
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2020-09-19
+ */
 public class Television {
 
     public void open() {

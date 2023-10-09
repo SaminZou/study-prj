@@ -9,23 +9,24 @@ package behavioural.command;
 public class Client {
 
     public static void main(String[] a) {
-        Command openCommand, closeCommand, changeCommand;
+        // 创建接受者 Receiver
+        Television tv = new Television();
 
-        openCommand = new OpenTvCommand();
-        closeCommand = new CloseTvCommand();
-        changeCommand = new ChangeChannelCommand();
+        // 创建命令 Command
+        Command openCommand = new OpenTvCommand(tv);
+        Command closeCommand = new CloseTvCommand(tv);
+        Command changeCommand = new ChangeChannelCommand(tv);
 
+        // 创建调用者 Invoker
         Controller control = new Controller(openCommand, closeCommand, changeCommand);
 
-        // 打开电视机
+        // 实际操作
         control.open();
-        // 换频道
         control.change();
         control.change();
         control.channelUndo();
         control.channelUndo();
         control.channelUndo();
-        // 关闭电视机
         control.close();
     }
 }
