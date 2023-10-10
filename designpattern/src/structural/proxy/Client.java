@@ -16,7 +16,7 @@ import structural.proxy.style2.Subject2;
  * @author samin
  * @date 2021-01-05
  */
-public class Runner {
+public class Client {
 
     public static void main(String[] args) {
         // style1
@@ -33,11 +33,14 @@ public class Runner {
         Subject2 star2 = new Star2();
         Subject2 proxy2 = star2.getAgent();
         proxy2.movie();
+        
+        System.out.println("-------------------------------------------------------");
 
+        // style3
         // sendmsg 使用 JDK 动态代理来实现计算发短信计费
         SMSService smsService = new SMSServiceImpl();
-        smsService = (SMSService) Proxy.newProxyInstance(Runner.class.getClassLoader(), new Class[]{SMSService.class},
-                new MoneyCountInvocationHandler(smsService));
+        smsService = (SMSService) Proxy.newProxyInstance(Client.class.getClassLoader(), new Class[]{SMSService.class},
+                                                         new MoneyCountInvocationHandler(smsService));
         smsService.sendMessage();
         smsService.sendMessage();
         smsService.sendMessage();
