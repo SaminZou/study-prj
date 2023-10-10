@@ -11,9 +11,9 @@ package behavioural.command;
  */
 public class OpenTvCommand implements Command {
 
-    private final Television tv;
+    private final TelevisionReceiver tv;
 
-    public OpenTvCommand(Television tv) {
+    public OpenTvCommand(TelevisionReceiver tv) {
         this.tv = tv;
     }
 

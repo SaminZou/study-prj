@@ -9,7 +9,7 @@ package behavioural.command;
  * <p>
  * Created Date: 2020-09-19
  */
-public class Controller {
+public class ControllerInvoker {
 
     /**
      * 当前频道
@@ -23,7 +23,7 @@ public class Controller {
     private final Command closeTVCommand;
     private final Command changeChannelCommand;
 
-    public Controller(Command openTvCommand, Command closeTvCommand, Command changeChannelCommand) {
+    public ControllerInvoker(Command openTvCommand, Command closeTvCommand, Command changeChannelCommand) {
         this.openTVCommand = openTvCommand;
         this.closeTVCommand = closeTvCommand;
         this.changeChannelCommand = changeChannelCommand;

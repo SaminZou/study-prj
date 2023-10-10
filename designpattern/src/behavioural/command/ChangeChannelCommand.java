@@ -11,9 +11,9 @@ package behavioural.command;
  */
 public class ChangeChannelCommand implements Command {
 
-    private final Television tv;
+    private final TelevisionReceiver tv;
 
-    public ChangeChannelCommand(Television tv) {
+    public ChangeChannelCommand(TelevisionReceiver tv) {
         this.tv = tv;
     }
 

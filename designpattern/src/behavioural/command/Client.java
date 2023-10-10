@@ -10,7 +10,7 @@ public class Client {
 
     public static void main(String[] a) {
         // 创建接受者 Receiver
-        Television tv = new Television();
+        TelevisionReceiver tv = new TelevisionReceiver();
 
         // 创建命令 Command
         Command openCommand = new OpenTvCommand(tv);
@@ -18,15 +18,15 @@ public class Client {
         Command changeCommand = new ChangeChannelCommand(tv);
 
         // 创建调用者 Invoker
-        Controller control = new Controller(openCommand, closeCommand, changeCommand);
+        ControllerInvoker invoker = new ControllerInvoker(openCommand, closeCommand, changeCommand);
 
         // 实际操作
-        control.open();
-        control.change();
-        control.change();
-        control.channelUndo();
-        control.channelUndo();
-        control.channelUndo();
-        control.close();
+        invoker.open();
+        invoker.change();
+        invoker.change();
+        invoker.channelUndo();
+        invoker.channelUndo();
+        invoker.channelUndo();
+        invoker.close();
     }
 }

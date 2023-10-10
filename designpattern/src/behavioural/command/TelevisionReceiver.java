@@ -9,7 +9,7 @@ package behavioural.command;
  * <p>
  * Created Date: 2020-09-19
  */
-public class Television {
+public class TelevisionReceiver {
 
     public void open() {
         System.out.println("打开电视机......");

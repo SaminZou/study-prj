@@ -11,9 +11,9 @@ package behavioural.command;
  */
 public class CloseTvCommand implements Command {
 
-    private final Television tv;
+    private final TelevisionReceiver tv;
 
-    public CloseTvCommand(Television tv) {
+    public CloseTvCommand(TelevisionReceiver tv) {
         this.tv = tv;
     }
 
