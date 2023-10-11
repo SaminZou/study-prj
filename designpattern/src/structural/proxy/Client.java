@@ -33,7 +33,7 @@ public class Client {
         Subject2 star2 = new Star2();
         Subject2 proxy2 = star2.getAgent();
         proxy2.movie();
-        
+
         System.out.println("-------------------------------------------------------");
 
         // style3
