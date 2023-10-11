@@ -1,6 +1,10 @@
 package creational.builder;
 
-import creational.builder.style1.*;
+import creational.builder.style1.Builder;
+import creational.builder.style1.BuilderA;
+import creational.builder.style1.BuilderB;
+import creational.builder.style1.Director;
+import creational.builder.style1.Production;
 import creational.builder.style2.ProductionObj;
 
 /**
@@ -15,11 +19,10 @@ import creational.builder.style2.ProductionObj;
 public class Client {
 
     public static void main(String[] args) {
-        /* style1 中演示的是有 Director 的建造者模式，以下是具体的调用方式
-         * 传统的 Builder 模式
-         */
+        // style1 中演示的是有 Director 的建造者模式（传统的 Builder 模式），以下是具体的调用方式
         Builder builderA = new BuilderA();
         Director directorA = new Director(builderA);
+        // construct() 包含了对象所有属性的配置
         Production a = directorA.construct();
         a.getPart1();
 
@@ -30,12 +33,15 @@ public class Client {
 
         System.out.println("----------------------------------------------------------");
 
-        /* style2 中演示的是无 Director 的建造者模式，简化的使用模式 */
+        // style2 中演示的是无 Director 的建造者模式，简化的使用模式
         ProductionObj obj = new ProductionObj.Builder("a", "d").build();
         System.out.println(obj);
 
         // 可以指定特定元素值
-        obj = new ProductionObj.Builder("a", "d").b("bbb").c("ccc").e("ee").build();
+        obj = new ProductionObj.Builder("a", "d").b("bbb")
+                                                 .c("ccc")
+                                                 .e("ee")
+                                                 .build();
         System.out.println(obj);
 
         // style2 的使用方式比较实用，很容易理解此方法的用意，在 okhttp 工具包中有体现
