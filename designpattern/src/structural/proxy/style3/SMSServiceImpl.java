@@ -1,4 +1,4 @@
-package structural.proxy.sendmsg;
+package structural.proxy.style3;
 
 public class SMSServiceImpl implements SMSService {
 

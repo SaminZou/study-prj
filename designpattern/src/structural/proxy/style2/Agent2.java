@@ -19,9 +19,4 @@ public class Agent2 implements Subject2 {
         System.out.println("I am agent. I agree this work...");
         star.movie();
     }
-
-    @Override
-    public Agent2 getAgent() {
-        return this;
-    }
 }
