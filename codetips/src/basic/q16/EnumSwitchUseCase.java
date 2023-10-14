@@ -12,7 +12,7 @@ public class EnumSwitchUseCase {
      * 先解析是哪个枚举类，在进行 switch 逻辑判断
      */
     public static void parseWeek(int value) {
-        WeekEnum weekEnum = WeekEnum.parseValue(value);
+        WeekEnum weekEnum = WeekEnum.badUse(value);
 
         switch (weekEnum) {
             case MONDAY:

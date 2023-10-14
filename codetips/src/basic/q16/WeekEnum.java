@@ -61,7 +61,7 @@ public enum WeekEnum {
         return label;
     }
 
-    public static WeekEnum parseValue(int value) {
+    public static WeekEnum badUse(int value) {
         WeekEnum result;
 
         switch (value) {
@@ -93,7 +93,7 @@ public enum WeekEnum {
         return result;
     }
 
-    public static WeekEnum parseValue2(String label) {
+    public static WeekEnum bestPractice(String label) {
         for (WeekEnum weekEnum : values()) {
             if (weekEnum.label.equals(label)) {
                 return weekEnum;
