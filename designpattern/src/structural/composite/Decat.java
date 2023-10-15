@@ -1,4 +1,6 @@
-package structural.decorator;
+package structural.composite;
+
+import structural.decorator.Beverage;
 
 public class Decat extends Beverage {
 

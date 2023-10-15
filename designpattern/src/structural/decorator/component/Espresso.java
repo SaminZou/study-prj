@@ -1,4 +1,6 @@
-package structural.decorator;
+package structural.decorator.component;
+
+import structural.decorator.Beverage;
 
 public class Espresso extends Beverage {
 

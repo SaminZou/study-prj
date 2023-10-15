@@ -1,4 +1,7 @@
-package structural.decorator;
+package structural.decorator.decorator;
+
+import structural.decorator.Beverage;
+import structural.decorator.CondimentDecorator;
 
 public class Mocha extends CondimentDecorator {
 
