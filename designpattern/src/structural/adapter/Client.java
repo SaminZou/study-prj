@@ -1,5 +1,8 @@
 package structural.adapter;
 
+import structural.adapter.adapter.Tame;
+import structural.adapter.adapter.TameWolfAdapter;
+
 /**
  * 适配器模式
  *
@@ -9,19 +12,21 @@ package structural.adapter;
 public class Client {
 
     public static void main(String[] args) {
-        // 首先我们需要一个机器人
-        BioRobot robot = new BioRobot();
-        // 和一只狗
+        // 现实中的狗
         Dog dog = new Dog();
+        // 现实中的狼
+        Wolf wolf = new Wolf();
 
-        // 将这只狗包装到机器人中，使其有点儿像机器人
-        Robot dogRobot = new DogAdapter(dog);
-        dogRobot.cry();
-        dogRobot.move();
+        // 狗可以直接按照命令行动
+        dog.wang();
+        dog.run();
 
-        // 然后是机器人叫和跑
-        System.out.println("BioRob cry.....");
-        robot.cry();
-        robot.move();
+        System.out.println("-------------");
+
+        // 通过适配器可以获取一只被驯服的狼
+        Tame tameWolf = new TameWolfAdapter(wolf);
+        // 可以和狗一样直接按照预期调用
+        tameWolf.wang();
+        tameWolf.run();
     }
 }
