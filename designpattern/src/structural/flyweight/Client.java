@@ -1,32 +1,30 @@
 package structural.flyweight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 享元模式
- *
- * @author samin
- * @date 2021-01-05
+ * <p>
+ * Description: 享元模式
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-10-17
  */
 public class Client {
 
     public static void main(String[] args) {
-        Shape shape1 = FlyweightFactory.getShape("红色");
-        shape1.draw();
+        List<Tree> forest = new ArrayList<>();
+        forest.add(new Tree(1, 2, FlyweightFactory.getTreeType("松树")));
+        forest.add(new Tree(2, 3, FlyweightFactory.getTreeType("樟树")));
+        forest.add(new Tree(1, 4, FlyweightFactory.getTreeType("迎客松")));
+        forest.add(new Tree(1, 5, FlyweightFactory.getTreeType("松树")));
+        forest.add(new Tree(1, 6, FlyweightFactory.getTreeType("樟树")));
+        forest.add(new Tree(9, 8, FlyweightFactory.getTreeType("松树")));
 
-        Shape shape2 = FlyweightFactory.getShape("灰色");
-        shape2.draw();
+        forest.forEach(Tree::show);
 
-        Shape shape3 = FlyweightFactory.getShape("绿色");
-        shape3.draw();
-
-        Shape shape4 = FlyweightFactory.getShape("红色");
-        shape4.draw();
-
-        Shape shape5 = FlyweightFactory.getShape("灰色");
-        shape5.draw();
-
-        Shape shape6 = FlyweightFactory.getShape("灰色");
-        shape6.draw();
-
-        System.out.println("一共绘制了" + FlyweightFactory.getSum() + "中颜色的圆形");
+        System.out.printf("森林中一共有 %s 种树", FlyweightFactory.getSum());
     }
 }

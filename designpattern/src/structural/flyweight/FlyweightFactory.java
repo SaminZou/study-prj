@@ -4,21 +4,30 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 树的品种是可以固定的，所以可以复用
+ * <p>
+ * Description: 树的品种是可以固定的，所以可以复用
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-10-17
+ */
 public class FlyweightFactory {
 
-    static Map<String, Shape> shapes = new HashMap<>();
+    static Map<String, TreeType> treeTypeMap = new HashMap<>();
 
-    public static Shape getShape(String key) {
-        Shape shape = shapes.get(key);
+    public static TreeType getTreeType(String key) {
+        TreeType treeType = treeTypeMap.get(key);
         // 如果 shape 为空，表示不存在，则新建，并且保持到共享池中
-        if (Objects.isNull(shape)) {
-            shape = new Circle(key);
-            shapes.put(key, shape);
+        if (Objects.isNull(treeType)) {
+            treeType = new TreeType(key);
+            treeTypeMap.put(key, treeType);
         }
-        return shape;
+        return treeType;
     }
 
     public static int getSum() {
-        return shapes.size();
+        return treeTypeMap.size();
     }
 }
