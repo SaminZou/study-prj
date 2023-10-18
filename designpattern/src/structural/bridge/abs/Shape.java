@@ -1,4 +1,6 @@
-package structural.bridge;
+package structural.bridge.abs;
+
+import structural.bridge.inf.Color;
 
 public abstract class Shape {
 

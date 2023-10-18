@@ -1,6 +1,6 @@
-package structural.bridge;
+package structural.bridge.abs;
 
-public class Square extends Shape {
+public class Circle extends Shape {
 
     @Override
     public void draw() {

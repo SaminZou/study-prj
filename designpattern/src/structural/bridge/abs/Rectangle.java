@@ -1,4 +1,4 @@
-package structural.bridge;
+package structural.bridge.abs;
 
 public class Rectangle extends Shape {
 

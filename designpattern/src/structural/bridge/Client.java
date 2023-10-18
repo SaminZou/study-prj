@@ -1,5 +1,12 @@
 package structural.bridge;
 
+import structural.bridge.abs.Rectangle;
+import structural.bridge.abs.Shape;
+import structural.bridge.abs.Square;
+import structural.bridge.inf.Black;
+import structural.bridge.inf.Color;
+import structural.bridge.inf.White;
+
 /**
  * 桥接模式
  *
