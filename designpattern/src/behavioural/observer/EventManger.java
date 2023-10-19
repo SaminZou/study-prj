@@ -1,5 +1,6 @@
 package behavioural.observer;
 
+import behavioural.observer.subscriber.Observer;
 import java.util.ArrayList;
 import java.util.List;
 

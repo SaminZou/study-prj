@@ -1,9 +1,12 @@
-package behavioural.responsibility;
+package behavioural.responsibility.concretehandler;
+
+import behavioural.responsibility.Request;
+import behavioural.responsibility.handler.Handler;
 
 public class HandlerObj2 implements Handler {
 
     @Override
-    public Boolean process(Request request) {
+    public boolean process(Request request) {
         if ("".equals(request.getContent())) {
             return false;
         } else {

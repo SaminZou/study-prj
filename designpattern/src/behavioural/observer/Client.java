@@ -1,5 +1,10 @@
 package behavioural.observer;
 
+import behavioural.observer.publisher.Judge;
+import behavioural.observer.subscriber.LazySheep;
+import behavioural.observer.subscriber.Observer;
+import behavioural.observer.subscriber.PleasantSheep;
+
 /**
  * 观察者模式（发布订阅模式）
  *

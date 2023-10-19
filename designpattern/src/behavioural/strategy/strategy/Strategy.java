@@ -1,4 +1,4 @@
-package behavioural.strategy;
+package behavioural.strategy.strategy;
 
 public interface Strategy {
 

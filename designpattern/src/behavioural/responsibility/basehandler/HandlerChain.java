@@ -1,9 +1,11 @@
-package behavioural.responsibility;
+package behavioural.responsibility.basehandler;
 
+import behavioural.responsibility.Request;
+import behavioural.responsibility.handler.Handler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HandlerChain {
+public class HandlerChain implements Handler {
 
     private final List<Handler> handlers = new ArrayList<>();
 
@@ -11,6 +13,7 @@ public class HandlerChain {
         this.handlers.add(handler);
     }
 
+    @Override
     public boolean process(Request request) {
         for (Handler ele : handlers) {
             if (!ele.process(request)) {

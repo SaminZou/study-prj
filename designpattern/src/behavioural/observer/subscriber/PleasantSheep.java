@@ -1,7 +1,7 @@
-package behavioural.observer;
+package behavioural.observer.subscriber;
 
 /**
- * 观察者
+ * 观察者 / 订阅者
  *
  * @author samin
  * @date 2022-10-14

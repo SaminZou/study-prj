@@ -1,4 +1,6 @@
-package behavioural.observer;
+package behavioural.observer.publisher;
+
+import behavioural.observer.EventManger;
 
 /**
  * 事件发布者
