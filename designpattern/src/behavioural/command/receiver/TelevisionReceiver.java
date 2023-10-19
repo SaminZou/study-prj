@@ -1,4 +1,4 @@
-package behavioural.command;
+package behavioural.command.receiver;
 
 /**
  * Receiver

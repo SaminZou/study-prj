@@ -1,4 +1,6 @@
-package behavioural.command;
+package behavioural.command.command;
+
+import behavioural.command.receiver.TelevisionReceiver;
 
 /**
  * Concrete Command
@@ -9,16 +11,16 @@ package behavioural.command;
  * <p>
  * Created Date: 2020-09-19
  */
-public class OpenTvCommand implements Command {
+public class ChangeChannelCommand implements Command {
 
     private final TelevisionReceiver tv;
 
-    public OpenTvCommand(TelevisionReceiver tv) {
+    public ChangeChannelCommand(TelevisionReceiver tv) {
         this.tv = tv;
     }
 
     @Override
     public void execute(int i) {
-        tv.open();
+        tv.changeChannel(i);
     }
 }

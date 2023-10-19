@@ -1,4 +1,6 @@
-package behavioural.command;
+package behavioural.command.invoker;
+
+import behavioural.command.command.Command;
 
 /**
  * Invoker

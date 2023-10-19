@@ -1,5 +1,12 @@
 package behavioural.command;
 
+import behavioural.command.command.ChangeChannelCommand;
+import behavioural.command.command.CloseTvCommand;
+import behavioural.command.command.Command;
+import behavioural.command.command.OpenTvCommand;
+import behavioural.command.invoker.ControllerInvoker;
+import behavioural.command.receiver.TelevisionReceiver;
+
 /**
  * 命令模式
  *

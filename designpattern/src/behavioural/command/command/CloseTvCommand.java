@@ -1,4 +1,6 @@
-package behavioural.command;
+package behavioural.command.command;
+
+import behavioural.command.receiver.TelevisionReceiver;
 
 /**
  * Concrete Command
