@@ -9,18 +9,26 @@ package behavioural.observer;
 public class Client {
 
     public static void main(String[] args) {
-        // 喊数人--被观察者
-        Judge judge = new Judge();
+        EventManger eventManger = new EventManger();
+
+        // 喊数人--被观察者（发布者）
+        Judge judge = new Judge(eventManger);
 
         // 喜羊羊--观察者（参与游戏）
         Observer pleasantSheep = new PleasantSheep();
         // 登记观察者
-        judge.attach(pleasantSheep);
+        eventManger.attach(pleasantSheep);
 
         // 懒羊羊--观察者（参与游戏）
         Observer lazySheep = new LazySheep();
         // 登记观察者
-        judge.attach(lazySheep);
+        eventManger.attach(lazySheep);
+
+        // 123，木头人
+        judge.instruction();
+
+        // 解除观察者
+        eventManger.dettach(lazySheep);
 
         // 123，木头人
         judge.instruction();

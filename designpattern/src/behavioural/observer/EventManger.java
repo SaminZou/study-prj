@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 订阅
+ * 事件管理
  *
  * @author samin
  * @date 2022-10-14
  */
-public abstract class Subject {
+public class EventManger {
 
     /**
      * 观察者对象的集合
