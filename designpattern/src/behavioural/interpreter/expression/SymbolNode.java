@@ -1,4 +1,4 @@
-package behavioural.interpreter;
+package behavioural.interpreter.expression;
 
 public abstract class SymbolNode implements Node {
 

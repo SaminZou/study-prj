@@ -1,4 +1,6 @@
-package behavioural.interpreter;
+package behavioural.interpreter.concrete;
+
+import behavioural.interpreter.expression.Node;
 
 public class ValueNode implements Node {
 

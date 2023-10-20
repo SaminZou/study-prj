@@ -1,4 +1,7 @@
-package behavioural.interpreter;
+package behavioural.interpreter.concrete;
+
+import behavioural.interpreter.expression.Node;
+import behavioural.interpreter.expression.SymbolNode;
 
 public class ModNode extends SymbolNode {
 
