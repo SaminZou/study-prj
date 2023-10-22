@@ -1,13 +1,15 @@
-package behavioural.iterator;
+package behavioural.iterator.iterator.concrete;
 
+import behavioural.iterator.MenuItem;
+import behavioural.iterator.iterator.Iterator;
 import java.util.List;
 
-public class TVChanneMenuIterator implements Iterator {
+public class TVChannelMenuIterator implements Iterator {
 
     List<MenuItem> menuItems;
     int position = 0;
 
-    public TVChanneMenuIterator(List<MenuItem> menuItems) {
+    public TVChannelMenuIterator(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
     }
 

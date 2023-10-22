@@ -1,5 +1,9 @@
 package behavioural.iterator;
 
+import behavioural.iterator.iterablecollection.TelevisionMenu;
+import behavioural.iterator.iterablecollection.concrete.FilmMenu;
+import behavioural.iterator.iterator.Iterator;
+
 public class MainMenu {
 
     TelevisionMenu tvMenu;

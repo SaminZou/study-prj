@@ -1,4 +1,6 @@
-package behavioural.iterator;
+package behavioural.iterator.iterablecollection;
+
+import behavioural.iterator.iterator.Iterator;
 
 public interface TelevisionMenu {
 

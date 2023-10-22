@@ -3,7 +3,7 @@ package behavioural.state;
 /**
  * 没有使用状态模式
  */
-public class NoState {
+public class NoState implements BaseState {
 
     public static final int CLOSING_STATE = 0;
     public static final int FAULT_STATE = 1;
@@ -13,9 +13,14 @@ public class NoState {
 
     private static int state;
 
+    @Override
+    public void setContext(Context context) {
+    }
+
     /**
      * 模拟电梯的运行方法
      */
+    @Override
     public void run() {
         switch (state) {
             case CLOSING_STATE:
@@ -46,6 +51,7 @@ public class NoState {
     /**
      * 模拟电梯的停止方法
      */
+    @Override
     public void stop() {
         switch (state) {
             case CLOSING_STATE:
@@ -76,6 +82,7 @@ public class NoState {
     /**
      * 模拟电梯的开门方法
      */
+    @Override
     public void open() {
         switch (state) {
             case CLOSING_STATE:
@@ -106,6 +113,7 @@ public class NoState {
     /**
      * 模拟电梯的关门方法
      */
+    @Override
     public void close() {
         switch (state) {
             case CLOSING_STATE:

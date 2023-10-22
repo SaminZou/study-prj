@@ -1,5 +1,7 @@
 package behavioural.visitor;
 
+import behavioural.visitor.element.Medicine;
+import behavioural.visitor.visitor.Visitor;
 import java.util.ArrayList;
 import java.util.List;
 

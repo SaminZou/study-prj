@@ -3,7 +3,18 @@ package behavioural.state;
 /**
  * 模拟故障状态,四个方法都不可用
  */
-public class FaultState extends BaseState {
+public class FaultState implements BaseState {
+
+    private Context mContext;
+
+    public FaultState(Context mContext) {
+        this.mContext = mContext;
+    }
+
+    @Override
+    public void setContext(Context mContext) {
+        this.mContext = mContext;
+    }
 
     /**
      * 模拟电梯的运行方法

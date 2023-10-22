@@ -1,4 +1,4 @@
-package behavioural.iterator;
+package behavioural.iterator.iterator;
 
 public interface Iterator {
 

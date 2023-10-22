@@ -1,6 +1,14 @@
 package behavioural.template;
 
-// 扫码开锁的单车
+/**
+ * 扫码开锁的单车
+ * <p>
+ * Description: 扫码开锁的单车
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-10-20
+ */
 public class ScanBicycle extends AbstractClass {
 
     @Override

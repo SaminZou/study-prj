@@ -1,4 +1,6 @@
-package behavioural.visitor;
+package behavioural.visitor.element;
+
+import behavioural.visitor.visitor.Visitor;
 
 public abstract class Medicine {
 

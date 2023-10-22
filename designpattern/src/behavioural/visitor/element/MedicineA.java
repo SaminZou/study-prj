@@ -1,4 +1,6 @@
-package behavioural.visitor;
+package behavioural.visitor.element;
+
+import behavioural.visitor.visitor.Visitor;
 
 public class MedicineA extends Medicine {
 
@@ -8,6 +10,6 @@ public class MedicineA extends Medicine {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visitor(this);
+        visitor.visit(this);
     }
 }

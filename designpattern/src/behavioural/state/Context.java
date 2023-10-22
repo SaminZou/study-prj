@@ -2,19 +2,13 @@ package behavioural.state;
 
 public class Context {
 
-    public static final ClosingState CLOSING_STATE = new ClosingState();
-    public static final FaultState FAULT_STATE = new FaultState();
-    public static final OpeningState OPENING_STATE = new OpeningState();
-    public static final RunningState RUNNING_STATE = new RunningState();
-    public static final StoppingState STOPPING_STATE = new StoppingState();
-
     private BaseState mBaseState;
 
-    public BaseState getBaseState() {
-        return mBaseState;
+    public Context(BaseState mBaseState) {
+        this.mBaseState = mBaseState;
     }
 
-    public void setBaseState(BaseState baseState) {
+    public void changeBaseState(BaseState baseState) {
         this.mBaseState = baseState;
         this.mBaseState.setContext(this);
     }

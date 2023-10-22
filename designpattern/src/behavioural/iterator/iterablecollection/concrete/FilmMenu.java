@@ -1,4 +1,9 @@
-package behavioural.iterator;
+package behavioural.iterator.iterablecollection.concrete;
+
+import behavioural.iterator.iterator.concrete.FilmMenuIterator;
+import behavioural.iterator.MenuItem;
+import behavioural.iterator.iterablecollection.TelevisionMenu;
+import behavioural.iterator.iterator.Iterator;
 
 public class FilmMenu implements TelevisionMenu {
 
@@ -6,7 +11,9 @@ public class FilmMenu implements TelevisionMenu {
     MenuItem[] menuItems;
     int numberOfItems = 0;
 
-    // 构造函数完成初始化
+    /**
+     * 构造函数完成初始化
+     */
     public FilmMenu() {
         menuItems = new MenuItem[MAX_ITEMS];
 
@@ -17,7 +24,13 @@ public class FilmMenu implements TelevisionMenu {
         addItem(5, "肖申克的救赎", "自由，幸福，离你有多远");
     }
 
-    // 将电影解决添加到菜单项中
+    /**
+     * 将电影解决添加到菜单项中
+     *
+     * @param channe
+     * @param name
+     * @param description
+     */
     @Override
     public void addItem(int channe, String name, String description) {
         MenuItem tvmenuiItem = new MenuItem(channe, name, description);

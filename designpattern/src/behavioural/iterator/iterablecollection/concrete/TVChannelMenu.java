@@ -1,14 +1,20 @@
-package behavioural.iterator;
+package behavioural.iterator.iterablecollection.concrete;
 
+import behavioural.iterator.MenuItem;
+import behavioural.iterator.iterator.concrete.TVChannelMenuIterator;
+import behavioural.iterator.iterablecollection.TelevisionMenu;
+import behavioural.iterator.iterator.Iterator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TVChanneMenu implements TelevisionMenu {
+public class TVChannelMenu implements TelevisionMenu {
 
     List<MenuItem> menuItems;
 
-    // 构造函数完成初始化
-    public TVChanneMenu() {
+    /**
+     * 构造函数完成初始化
+     */
+    public TVChannelMenu() {
         menuItems = new ArrayList<MenuItem>();
         addItem(1, "CCTV-1", "This is CCTV-1");
         addItem(2, "CCTV-2", "This is CCTV-2");
@@ -17,7 +23,13 @@ public class TVChanneMenu implements TelevisionMenu {
         addItem(5, "CCTV-5", "This is CCTV-5");
     }
 
-    // 将电视频道节目添加菜单集合中
+    /**
+     * 将电视频道节目添加菜单集合中
+     *
+     * @param channe
+     * @param name
+     * @param description
+     */
     @Override
     public void addItem(int channe, String name, String description) {
         MenuItem tvMenuItem = new MenuItem(channe, name, description);
@@ -26,6 +38,6 @@ public class TVChanneMenu implements TelevisionMenu {
 
     @Override
     public Iterator createIrerator() {
-        return new TVChanneMenuIterator(menuItems);
+        return new TVChannelMenuIterator(menuItems);
     }
 }

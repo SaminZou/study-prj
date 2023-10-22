@@ -1,6 +1,14 @@
 package behavioural.template;
 
-// 密码开锁的单车
+/**
+ * 密码开锁的单车
+ * <p>
+ * Description: 密码开锁的单车
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2023-10-20
+ */
 public class CodeBicycle extends AbstractClass {
 
     @Override

@@ -3,14 +3,25 @@ package behavioural.state;
 /**
  * 模拟电梯停止状态
  */
-public class StoppingState extends BaseState {
+public class StoppingState implements BaseState {
+
+    private Context mContext;
+
+    public StoppingState(Context mContext) {
+        this.mContext = mContext;
+    }
+
+    @Override
+    public void setContext(Context mContext) {
+        this.mContext = mContext;
+    }
 
     /**
      * 模拟电梯的运行方法
      */
     @Override
     public void run() {
-        super.mContext.setBaseState(Context.RUNNING_STATE);
+        mContext.changeBaseState(new RunningState(this.mContext));
         System.out.println("电梯开始跑起来-----------");
     }
 
@@ -27,7 +38,7 @@ public class StoppingState extends BaseState {
      */
     @Override
     public void open() {
-        super.mContext.setBaseState(Context.OPENING_STATE);
+        mContext.changeBaseState(new OpeningState(this.mContext));
         System.out.println("电梯开门-----------");
     }
 

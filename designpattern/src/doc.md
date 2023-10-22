@@ -58,7 +58,7 @@
 
 - state 状态模式 ⭐⭐⭐
 
-- memento 备忘录模式 ⭐⭐
+- concreteMemento 备忘录模式 ⭐⭐
 
 - mediator 中介者模式 ⭐⭐
 
