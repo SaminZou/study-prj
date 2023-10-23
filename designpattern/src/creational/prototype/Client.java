@@ -20,7 +20,8 @@ public class Client {
             try {
                 Money cloneMoney = money.clone();
                 cloneMoney.setFaceValue(i * 100);
-                System.out.println("这张是" + cloneMoney.getFaceValue() + cloneMoney.getArea().getUnit() + "的钞票");
+                System.out.println("这张是" + cloneMoney.getFaceValue() + cloneMoney.getArea()
+                                                                                    .getUnit() + "的钞票");
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
@@ -34,8 +35,10 @@ public class Client {
             cloneMoney.setFaceValue(200);
             area.setUnit("美元");
 
-            System.out.println("原型实例的面值：" + money.getFaceValue() + money.getArea().getUnit());
-            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getArea().getUnit());
+            System.out.println("原型实例的面值：" + money.getFaceValue() + money.getArea()
+                                                                               .getUnit());
+            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getArea()
+                                                                                         .getUnit());
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
@@ -53,8 +56,10 @@ public class Client {
             cloneMoney.setFaceValue(200);
             areaDeep.setUnit("美元");
 
-            System.out.println("原型实例的面值：" + moneyDeep.getFaceValue() + moneyDeep.getAreaDeep().getUnit());
-            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getAreaDeep().getUnit());
+            System.out.println("原型实例的面值：" + moneyDeep.getFaceValue() + moneyDeep.getAreaDeep()
+                                                                                       .getUnit());
+            System.out.println("拷贝实例的面值：" + cloneMoney.getFaceValue() + cloneMoney.getAreaDeep()
+                                                                                         .getUnit());
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }

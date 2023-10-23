@@ -3,8 +3,8 @@ package behavioural.interpreter.context;
 import behavioural.interpreter.concrete.DivNode;
 import behavioural.interpreter.concrete.ModNode;
 import behavioural.interpreter.concrete.MulNode;
-import behavioural.interpreter.expression.Node;
 import behavioural.interpreter.concrete.ValueNode;
+import behavioural.interpreter.expression.Node;
 import java.util.Stack;
 
 public class CalculatorContext {

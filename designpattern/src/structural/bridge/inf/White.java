@@ -1,7 +1,5 @@
 package structural.bridge.inf;
 
-import structural.bridge.inf.Color;
-
 public class White implements Color {
 
     @Override
