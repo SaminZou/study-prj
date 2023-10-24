@@ -1,7 +1,8 @@
-package structural.composite;
+package structural.composite.composite;
 
 import java.util.ArrayList;
 import java.util.List;
+import structural.composite.component.File;
 
 public class Folder extends File {
 
@@ -17,6 +18,7 @@ public class Folder extends File {
      */
     @Override
     public void display() {
+        System.out.println("正在打印文件夹 [" + this.getName() + "]: ");
         for (File file : files) {
             file.display();
         }
