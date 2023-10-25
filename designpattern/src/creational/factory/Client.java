@@ -2,6 +2,7 @@ package creational.factory;
 
 import creational.factory.base.Product;
 import creational.factory.simple.SimpleProductFactory;
+import java.util.Objects;
 
 /**
  * 工厂方法模式
@@ -15,10 +16,14 @@ public class Client {
         // 使用简单工厂模式
         // 生产雪糕
         Product i = SimpleProductFactory.create("0");
-        i.product();
+        if (Objects.nonNull(i)) {
+            i.product();
+        }
         // 生产披萨
         Product p = SimpleProductFactory.create("1");
-        p.product();
+        if (Objects.nonNull(i)) {
+            i.product();
+        }
 
         System.out.println();
 
