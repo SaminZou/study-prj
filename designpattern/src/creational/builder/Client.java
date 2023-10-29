@@ -22,7 +22,7 @@ public class Client {
         // style1 中演示的是有 Director 的建造者模式（传统的 Builder 模式），以下是具体的调用方式
         Builder builderA = new BuilderA();
         Director directorA = new Director(builderA);
-        // construct() 包含了对象所有属性的配置
+        // Builder 包含了对象所有属性的声明
         Production a = directorA.construct();
         a.getPart1();
 
