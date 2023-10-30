@@ -23,11 +23,13 @@ public class DateUtils {
 
     /**
      * 获取当前月份
+     *
      * @return
      */
-    public static int getMonth(){
+    public static int getMonth() {
         // get(Calendar.MONTH) 方法的月份实际值是 0 ~ 11
-        return Calendar.getInstance().get(Calendar.MONTH) + 1;
+        return Calendar.getInstance()
+                       .get(Calendar.MONTH) + 1;
     }
 
     /**

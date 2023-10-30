@@ -19,7 +19,7 @@ public class BusyStudent {
         System.out.println(new BusyStudent().busyStudent(new int[]{1, 1, 1, 1}, new int[]{1, 3, 2, 4}, 7));
         // 5
         System.out.println(new BusyStudent().busyStudent(new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1},
-                new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10}, 5));
+                                                         new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10}, 5));
     }
 
     public int busyStudent(int[] startTime, int[] endTime, int queryTime) {

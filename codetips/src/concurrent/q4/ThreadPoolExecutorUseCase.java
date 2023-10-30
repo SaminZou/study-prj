@@ -19,7 +19,8 @@ public class ThreadPoolExecutorUseCase {
         // 设置了守护线程，执行结果不会打印到控制台，并且执行完自动关系
 
         Executor executor = new ThreadPoolExecutor(1, 2, 0, TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(2),
-                Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
+                                                   Executors.defaultThreadFactory(),
+                                                   new ThreadPoolExecutor.CallerRunsPolicy());
 
         // 使用 CallerRunsPolicy 饱和策略时，主线程会被挂起执行任务，等待消费完毕才会继续被唤醒
         for (int i = 1; i < 10; i++) {
@@ -43,7 +44,8 @@ public class ThreadPoolExecutorUseCase {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Thread：" + Thread.currentThread().getName() + " action：" + name + " done");
+            System.out.println("Thread：" + Thread.currentThread()
+                                                 .getName() + " action：" + name + " done");
         }
     }
 }

@@ -20,7 +20,7 @@ public class SynchronizedUseCase {
 
     public static void main(String[] args) throws Exception {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                (ThreadFactory) Thread::new);
+                                                                 (ThreadFactory) Thread::new);
 
         // 未加锁
         for (int i = 0; i < 5; i++) {

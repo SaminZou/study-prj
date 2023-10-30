@@ -4,13 +4,12 @@ import com.samin.auth.entity.Menu;
 import com.samin.auth.entity.Resource;
 import com.samin.auth.entity.Role;
 import com.samin.auth.entity.User;
-import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Data
 public class CustomUserDetails implements UserDetails, Serializable {

@@ -48,7 +48,8 @@ public class IteratorUseCase {
         map.put(1, "Java");
         map.put(2, "C++");
         map.put(3, "PHP");
-        Iterator<Map.Entry<Integer, String>> entryIterator = map.entrySet().iterator();
+        Iterator<Map.Entry<Integer, String>> entryIterator = map.entrySet()
+                                                                .iterator();
         while (entryIterator.hasNext()) {
             Map.Entry<Integer, String> entry = entryIterator.next();
             System.out.println(entry.getKey() + entry.getValue());

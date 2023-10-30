@@ -56,7 +56,8 @@ public class IsPalindrome {
             return false;
         }
 
-        String[] intStrs = String.valueOf(x).split("");
+        String[] intStrs = String.valueOf(x)
+                                 .split("");
 
         int leftIndex;
         int rightIndex;

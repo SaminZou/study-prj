@@ -27,7 +27,8 @@ public class ReverseWords {
 
         List<String> strList = new ArrayList<>();
         // 遍历去掉前后空格后分割的字符数组
-        for (String ele : s.trim().split(" ")) {
+        for (String ele : s.trim()
+                           .split(" ")) {
             // 去除多余空格造成的空字符串
             if (!"".equals(ele)) {
                 strList.add(ele);
@@ -46,6 +47,7 @@ public class ReverseWords {
             sb.append(" ");
         }
 
-        return sb.substring(0, sb.toString().length() - 1);
+        return sb.substring(0, sb.toString()
+                                 .length() - 1);
     }
 }

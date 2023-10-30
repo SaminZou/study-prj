@@ -1,15 +1,14 @@
 package com.samin.tdengine.service;
 
 import com.samin.tdengine.entity.IotDevice;
+import java.util.List;
+import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -67,7 +66,7 @@ public class TDengineDemoService {
     public List<IotDevice> findSuperTableData2Object() {
         // 查找数据返回实体类列表
         List<IotDevice> iotDevices = jdbcTemplate.query("select * from iot_original",
-                new BeanPropertyRowMapper<>(IotDevice.class));
+                                                        new BeanPropertyRowMapper<>(IotDevice.class));
         log.info("{}", iotDevices);
         return iotDevices;
     }

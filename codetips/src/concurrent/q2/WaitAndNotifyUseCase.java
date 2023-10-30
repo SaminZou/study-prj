@@ -15,7 +15,9 @@ public class WaitAndNotifyUseCase {
 
     public static void main(String[] args) {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
+                                                             r -> new Thread(r,
+                                                                             "show-the-fixed-thread-" + new Random().nextInt(
+                                                                                     999)));
 
         Queue queue = new Queue();
         executor.execute(new ThreadA(queue));
@@ -34,7 +36,8 @@ public class WaitAndNotifyUseCase {
         // 模拟操作方法，打印执行线程
         public void add() {
             nums++;
-            System.out.println(Thread.currentThread().getName() + " is done");
+            System.out.println(Thread.currentThread()
+                                     .getName() + " is done");
         }
     }
 
@@ -52,7 +55,8 @@ public class WaitAndNotifyUseCase {
         @Override
         public void run() {
             synchronized (queue) {
-                System.out.println(Thread.currentThread().getName() + " is running , wait for lock");
+                System.out.println(Thread.currentThread()
+                                         .getName() + " is running , wait for lock");
                 try {
                     queue.wait();
                 } catch (InterruptedException e) {

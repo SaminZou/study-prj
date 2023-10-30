@@ -21,7 +21,8 @@ public class SupplierUseCase {
 
         // 和 optional 搭配使用，不存在大于 5 的数
         Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5);
-        Optional<Integer> firstInt = integerStream.filter(i -> i > 5).findFirst();
+        Optional<Integer> firstInt = integerStream.filter(i -> i > 5)
+                                                  .findFirst();
         // orElse：如果first中存在数，就返回这个数，如果不存在，就放回传入的数
         System.out.println(firstInt.orElse(1));
         // orElseGet：如果first中存在数，就返回这个数，如果不存在，就返回supplier返回的值

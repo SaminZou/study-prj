@@ -4,7 +4,8 @@
 
 # 使用以下指令上传 consumer
 
-mvn clean compile package deploy -pl consumer -am -Dmaven.test.skip=true -DaltDeploymentRepository=samin-dev::default::http://host:port/repository/maven-releases/
+mvn clean compile package deploy -pl consumer -am -Dmaven.test.skip=true -DaltDeploymentRepository=samin-dev::
+default::http://host:port/repository/maven-releases/
 
 > -pl 指定只编译上传 consumer 包到 maven 仓库
 > -am 可以把相关依赖包同时编译上传（maven-demo 和 common 项目）

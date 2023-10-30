@@ -20,7 +20,10 @@ public class CommonExceptionHandler {
         BindingResult bindingResult = ex.getBindingResult();
         StringBuilder sb = new StringBuilder("校验失败:");
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
-            sb.append(fieldError.getField()).append("：").append(fieldError.getDefaultMessage()).append(", ");
+            sb.append(fieldError.getField())
+              .append("：")
+              .append(fieldError.getDefaultMessage())
+              .append(", ");
         }
         String msg = sb.toString();
         return msg;

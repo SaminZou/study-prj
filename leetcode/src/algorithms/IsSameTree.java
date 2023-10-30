@@ -41,7 +41,8 @@ public class IsSameTree {
         }
 
         for (int i = 0; i < pVals.size(); i++) {
-            if (!pVals.get(i).equals(qVals.get(i))) {
+            if (!pVals.get(i)
+                      .equals(qVals.get(i))) {
                 return false;
             }
         }

@@ -24,6 +24,8 @@ public class DecompressRLElist {
                 res.add(nums[i + 1]);
             }
         }
-        return res.stream().mapToInt(Integer::valueOf).toArray();
+        return res.stream()
+                  .mapToInt(Integer::valueOf)
+                  .toArray();
     }
 }

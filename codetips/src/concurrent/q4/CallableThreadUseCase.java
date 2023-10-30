@@ -35,7 +35,7 @@ public class CallableThreadUseCase {
 
         // 线程池，注意阻塞队列的容量配置，如果不指定数量，会一直增长，线程池将一直使用 corePoolSize
         ExecutorService threadPool = new ThreadPoolExecutor(10, 50, 10, TimeUnit.SECONDS, new LinkedBlockingDeque<>(10),
-                (ThreadFactory) Thread::new);
+                                                            (ThreadFactory) Thread::new);
 
         System.out.println("-------------------------------------------------------------------");
 

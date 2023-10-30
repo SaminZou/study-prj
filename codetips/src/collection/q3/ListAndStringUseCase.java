@@ -23,7 +23,9 @@ public class ListAndStringUseCase {
      * List to String
      */
     public static String listToString(List<String> list) {
-        return list.toString().replace("[", "").replace("]", "");
+        return list.toString()
+                   .replace("[", "")
+                   .replace("]", "");
     }
 
     public static void main(String[] args) {

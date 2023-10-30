@@ -1,15 +1,14 @@
 package basic.q10.date;
 
-import basic.q10.date.utils.DateTimeUtils;
+import static java.time.temporal.ChronoUnit.DAYS;
 
+import basic.q10.date.utils.DateTimeUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.Period;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
-
-import static java.time.temporal.ChronoUnit.DAYS;
 
 /**
  * 时间操作用例
@@ -24,16 +23,20 @@ public class TimeOperate {
         int year = date.getYear();
         int month = date.getMonthValue();
         int day = date.getDayOfMonth();
-        int dayOfWeek = date.getDayOfWeek().getValue();
+        int dayOfWeek = date.getDayOfWeek()
+                            .getValue();
         System.out.format("Year : %d  Month : %d  day : %d %d %n", year, month, day, dayOfWeek);
 
         System.out.println(":-----------------------");
         // 增加小时数
-        System.out.println("两小时以后：" + LocalDateTime.now().plusHours(2));
+        System.out.println("两小时以后：" + LocalDateTime.now()
+                                                        .plusHours(2));
         // 增加一周
-        System.out.println("一周以后：" + LocalDate.now().plus(1, ChronoUnit.WEEKS));
+        System.out.println("一周以后：" + LocalDate.now()
+                                                  .plus(1, ChronoUnit.WEEKS));
         // 一年前
-        System.out.println("一年前：" + LocalDate.now().minus(1, ChronoUnit.YEARS));
+        System.out.println("一年前：" + LocalDate.now()
+                                                .minus(1, ChronoUnit.YEARS));
 
         System.out.println(":-----------------------");
         LocalDate specDate = LocalDate.of(2020, 2, 29);
@@ -60,8 +63,10 @@ public class TimeOperate {
         System.out.println("时间差（小时）：" + DateTimeUtils.timeDiff2(aTime, bTime));
         // 天的时间差有两种精度，如 A 为 "2020-01-01 23:00" B 为 "2020-01-02 01:00"，按照日历计算时间差为 1 天，按照 24 小时制时间差不足 1 天结果为 0
         System.out.println("时间差（天）：" + DAYS.between(cTime.toLocalDate(), dTime.toLocalDate()));
-        System.out.println("时间差（天）：" + Period.between(cTime.toLocalDate(), dTime.toLocalDate()).getDays());
-        System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate()).getMonths());
+        System.out.println("时间差（天）：" + Period.between(cTime.toLocalDate(), dTime.toLocalDate())
+                                                 .getDays());
+        System.out.println("时间差（月）：" + Period.between(aTime.toLocalDate(), bTime.toLocalDate())
+                                                 .getMonths());
         // 判断日期的前后，返回布尔值
         System.out.println("aTime 在 bTime 之前：" + aTime.isBefore(bTime));
         System.out.println("aTime 在 bTime 之后：" + aTime.isAfter(bTime));

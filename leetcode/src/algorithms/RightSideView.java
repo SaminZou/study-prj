@@ -30,7 +30,9 @@ public class RightSideView {
 
     public List<Integer> rightSideView(TreeNode root) {
         pro(root, 0, res);
-        return res.stream().map(e -> e.val).collect(Collectors.toList());
+        return res.stream()
+                  .map(e -> e.val)
+                  .collect(Collectors.toList());
     }
 
     private void pro(TreeNode root, int level, List<TreeNode> res) {

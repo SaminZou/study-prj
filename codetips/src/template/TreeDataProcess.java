@@ -39,8 +39,10 @@ public class TreeDataProcess {
             } else {
                 TreeData parentNodeData = nodeMap.get(nodeData.getpCode());
                 if (Objects.nonNull(parentNodeData)) {
-                    parentNodeData.getChildren().add(nodeData);
-                    parentNodeData.getChildren().sort(TreeData::compareTo);
+                    parentNodeData.getChildren()
+                                  .add(nodeData);
+                    parentNodeData.getChildren()
+                                  .sort(TreeData::compareTo);
                 }
             }
         }

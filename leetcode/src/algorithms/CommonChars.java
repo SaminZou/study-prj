@@ -17,8 +17,9 @@ public class CommonChars {
         String[] A = new String[]{"bella", "label", "roller"};
         String[] B = new String[]{"cool", "lock", "cook"};
         String[] C = new String[]{"abc", "def", "wer"};
-        String[] D = new String[]{"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab",
-                "addcaccd"};
+        String[] D = new String[]{
+                "acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"
+        };
 
         // [e, l, l]
         System.out.println(new CommonChars().commonChars(A));
@@ -62,11 +63,13 @@ public class CommonChars {
         // 整合最终结果
         for (int i = 1; i < mapList.size(); i++) {
             for (Character ele : indexMap.keySet()) {
-                if (mapList.get(i).get(ele) == null) {
+                if (mapList.get(i)
+                           .get(ele) == null) {
                     countMap.remove(ele);
                 } else {
                     if (countMap.get(ele) != null) {
-                        countMap.put(ele, Math.min(countMap.get(ele), mapList.get(i).get(ele)));
+                        countMap.put(ele, Math.min(countMap.get(ele), mapList.get(i)
+                                                                             .get(ele)));
                     }
                 }
             }

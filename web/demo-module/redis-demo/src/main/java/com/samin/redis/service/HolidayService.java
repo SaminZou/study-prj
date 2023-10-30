@@ -3,16 +3,6 @@ package com.samin.redis.service;
 import com.samin.redis.entity.Holiday;
 import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ArrayUtils;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +12,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 /**
  * 用户服务类
@@ -38,7 +37,8 @@ public class HolidayService {
     private final CacheManager cacheManager;
 
     public boolean isExist(String specTime) {
-        return !(CollectionUtils.isEmpty(holidayRepository.findByHolidays(specTime)) && CollectionUtils.isEmpty(holidayRepository.findByWorkdays(specTime)));
+        return !(CollectionUtils.isEmpty(holidayRepository.findByHolidays(specTime)) && CollectionUtils.isEmpty(
+                holidayRepository.findByWorkdays(specTime)));
     }
 
     @Cacheable(cacheNames = "HOLIDAY_STATS", key = "#p0")
@@ -71,7 +71,8 @@ public class HolidayService {
     // @CacheEvict(cacheNames = "HOLIDAY_STATS", key = "'HOLIDAY_STATS:' + #param.year")
     public Holiday save(Holiday param) throws Exception {
         // 校验入参假期和补班否重复
-        if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWorkdays()) && param.getHolidays().length > 0 && param.getWorkdays().length > 0) {
+        if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWorkdays()) && param.getHolidays().length > 0
+                && param.getWorkdays().length > 0) {
             if (isIntersect(Arrays.asList(param.getHolidays()), param.getWorkdays())) {
                 throw new Exception("入参配置不能重复");
             }
@@ -88,9 +89,10 @@ public class HolidayService {
         if (Objects.nonNull(param.getId())) {
             Holiday historyHistory = holidayRepository.findHolidayById(param.getId());
             if (Objects.nonNull(historyHistory)) {
-                specDays = specDays.stream().filter(item -> !ArrayUtils.contains(historyHistory.getHolidays(), item))
-                        .filter(item -> !ArrayUtils.contains(historyHistory.getWorkdays(), item))
-                        .collect(Collectors.toList());
+                specDays = specDays.stream()
+                                   .filter(item -> !ArrayUtils.contains(historyHistory.getHolidays(), item))
+                                   .filter(item -> !ArrayUtils.contains(historyHistory.getWorkdays(), item))
+                                   .collect(Collectors.toList());
             }
         }
 
@@ -153,6 +155,7 @@ public class HolidayService {
     }
 
     private static class HolidayGroupBo {
+
         List<String> holidays;
         List<String> workdays;
 

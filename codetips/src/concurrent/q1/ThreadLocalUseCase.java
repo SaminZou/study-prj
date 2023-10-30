@@ -23,7 +23,7 @@ public class ThreadLocalUseCase implements Runnable {
 
     public static void main(String[] args) throws InterruptedException {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                (ThreadFactory) Thread::new);
+                                                                 (ThreadFactory) Thread::new);
 
         ThreadLocalUseCase obj = new ThreadLocalUseCase();
         for (int i = 0; i < 10; i++) {
@@ -38,8 +38,9 @@ public class ThreadLocalUseCase implements Runnable {
      */
     @Override
     public void run() {
-        System.out.println(
-                "Thread Name= " + Thread.currentThread().getName() + " default Formatter = " + FORMATTER.get().toPattern());
+        System.out.println("Thread Name= " + Thread.currentThread()
+                                                   .getName() + " default Formatter = " + FORMATTER.get()
+                                                                                                   .toPattern());
         try {
             Thread.sleep(new Random().nextInt(1000));
         } catch (InterruptedException e) {
@@ -48,8 +49,9 @@ public class ThreadLocalUseCase implements Runnable {
         // formatter pattern is changed here by thread, but it won't reflect to other threads
         FORMATTER.set(new SimpleDateFormat());
 
-        System.out.println(
-                "Thread Name= " + Thread.currentThread().getName() + " formatter = " + FORMATTER.get().toPattern());
+        System.out.println("Thread Name= " + Thread.currentThread()
+                                                   .getName() + " formatter = " + FORMATTER.get()
+                                                                                           .toPattern());
         FORMATTER.remove(); // 避免内存泄露
     }
 }

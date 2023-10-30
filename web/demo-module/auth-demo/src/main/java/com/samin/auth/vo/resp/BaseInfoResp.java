@@ -27,6 +27,6 @@ public class BaseInfoResp {
     @ApiModelProperty("菜单列表")
     private List<Menu> menus;
 
-        @ApiModelProperty("资源列表")
+    @ApiModelProperty("资源列表")
     private List<Resource> resources;
 }

@@ -13,14 +13,16 @@ import java.util.Objects;
 public class ShowProjectUrl {
 
     public static <T> void showUrl(Class<T> t) throws Exception {
-        File f = new File(Objects.requireNonNull(t.getResource("/")).getPath());
+        File f = new File(Objects.requireNonNull(t.getResource("/"))
+                                 .getPath());
         System.out.println("获取类加载的根路径");
         System.out.println(f);
         System.out.println("-----------------------------------------");
         System.out.println();
 
         System.out.println("获取当前类的所在工程路径; 如果不加 “/”  获取当前类的加载目录");
-        File f2 = new File(Objects.requireNonNull(t.getResource("")).getPath());
+        File f2 = new File(Objects.requireNonNull(t.getResource(""))
+                                  .getPath());
         System.out.println(f2);
         System.out.println("-----------------------------------------");
         System.out.println();
@@ -32,7 +34,8 @@ public class ShowProjectUrl {
         System.out.println("-----------------------------------------");
         System.out.println();
 
-        URL xmlpath = t.getClassLoader().getResource("");
+        URL xmlpath = t.getClassLoader()
+                       .getResource("");
         System.out.println(xmlpath);
         System.out.println("-----------------------------------------");
         System.out.println();

@@ -1,6 +1,5 @@
 package com.samin.usecase.strategy.common;
 
-import com.samin.usecase.strategy.common.CouponStrategy;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

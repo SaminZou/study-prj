@@ -15,7 +15,7 @@ public class AddTwoNumbers {
     public static void main(String[] args) {
         // 7 0 8
         ListNode listNode = new AddTwoNumbers().addTwoNumbers(ListNode.listNodeGenerator(2, 4, 3),
-                ListNode.listNodeGenerator(5, 6, 4));
+                                                              ListNode.listNodeGenerator(5, 6, 4));
 
         ListNode.listNodePrinter(listNode);
     }

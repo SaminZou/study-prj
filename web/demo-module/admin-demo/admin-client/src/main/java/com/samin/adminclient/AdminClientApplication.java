@@ -21,6 +21,7 @@ public class AdminClientApplication {
 
     @Scheduled(cron = "0/5 * * * * ?")
     private void triggerTask() {
-        log.info("trigger task：{}", LocalDateTime.now().format(DTF));
+        log.info("trigger task：{}", LocalDateTime.now()
+                                                 .format(DTF));
     }
 }

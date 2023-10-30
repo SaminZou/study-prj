@@ -27,7 +27,9 @@ public class Permute {
 
     public void perm(int[] nums, int start, int end) {
         if (start == end) {
-            res.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
+            res.add(Arrays.stream(nums)
+                          .boxed()
+                          .collect(Collectors.toList()));
         } else {
             for (int i = start; i <= end; i++) {
                 swap(nums, start, i);

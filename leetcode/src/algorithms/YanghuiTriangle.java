@@ -19,7 +19,9 @@ public class YanghuiTriangle {
                 if (j == 0 || j == i) {
                     row.add(1);
                 } else {
-                    row.add(ret.get(i - 1).get(j - 1) + ret.get(i - 1).get(j));
+                    row.add(ret.get(i - 1)
+                               .get(j - 1) + ret.get(i - 1)
+                                                .get(j));
                 }
             }
             ret.add(row);

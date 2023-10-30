@@ -21,7 +21,9 @@ public class ListAndArrayUseCase {
         list.add(333);
         System.out.println("原始列表：" + list);
         // List<Integer> to int[]
-        int[] ints = list.stream().mapToInt(Integer::valueOf).toArray();
+        int[] ints = list.stream()
+                         .mapToInt(Integer::valueOf)
+                         .toArray();
         System.out.println("列表转换成数组：" + Arrays.toString(ints));
 
         // natural order
@@ -33,15 +35,21 @@ public class ListAndArrayUseCase {
         System.out.println("列表转换成数组：" + Arrays.toString(integers1));
 
         // int[] to List<Integer>
-        List<Integer> collect = Arrays.stream(ints).boxed().collect(Collectors.toList());
+        List<Integer> collect = Arrays.stream(ints)
+                                      .boxed()
+                                      .collect(Collectors.toList());
         System.out.println("数组转换成列表：" + collect);
 
         // int[] to Integer[]
-        Integer[] integers = Arrays.stream(ints).boxed().toArray(Integer[]::new);
+        Integer[] integers = Arrays.stream(ints)
+                                   .boxed()
+                                   .toArray(Integer[]::new);
         System.out.println("原始数据类型数组转换成对象数组：" + Arrays.toString(integers));
 
         // Integer[] to int[]
-        int[] ints1 = Arrays.stream(integers1).mapToInt(Integer::valueOf).toArray();
+        int[] ints1 = Arrays.stream(integers1)
+                            .mapToInt(Integer::valueOf)
+                            .toArray();
         System.out.println("对象数组转换成原始数据类型数组：" + Arrays.toString(integers1));
 
         // Integer[] to List<Integer>

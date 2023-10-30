@@ -33,7 +33,8 @@ public class FindNumbers {
         int result = 0;
 
         for (int num : nums) {
-            if (String.valueOf(num).length() % 2 == 0) {
+            if (String.valueOf(num)
+                      .length() % 2 == 0) {
                 result = result + 1;
             }
         }

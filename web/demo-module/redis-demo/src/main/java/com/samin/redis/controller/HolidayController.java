@@ -4,13 +4,12 @@ package com.samin.redis.controller;
 import com.samin.redis.entity.Holiday;
 import com.samin.redis.entity.HolidayStatsVo;
 import com.samin.redis.service.HolidayService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * 用户控制类

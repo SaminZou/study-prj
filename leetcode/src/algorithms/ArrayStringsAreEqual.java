@@ -30,6 +30,7 @@ public class ArrayStringsAreEqual {
             s2.append(ele);
         }
 
-        return s1.toString().equals(s2.toString());
+        return s1.toString()
+                 .equals(s2.toString());
     }
 }

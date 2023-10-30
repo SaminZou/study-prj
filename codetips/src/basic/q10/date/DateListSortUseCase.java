@@ -1,7 +1,6 @@
 package basic.q10.date;
 
 import basic.q10.date.utils.DateTimeUtils;
-
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +46,9 @@ public class DateListSortUseCase {
 
         System.out.println(dateList);
 
-        System.out.println(dateList.stream().sorted(Comparator.comparing(e -> e)).collect(Collectors.toList()));
+        System.out.println(dateList.stream()
+                                   .sorted(Comparator.comparing(e -> e))
+                                   .collect(Collectors.toList()));
     }
 
     /**
@@ -76,7 +77,8 @@ public class DateListSortUseCase {
 
         @Override
         public int compareTo(SortObj o) {
-            return -this.getTime().compareTo(o.getTime());
+            return -this.getTime()
+                        .compareTo(o.getTime());
         }
     }
 }

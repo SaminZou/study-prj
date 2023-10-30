@@ -15,8 +15,8 @@ public class SleepThread implements Runnable {
             Thread.sleep(200000);
             System.out.println("线程结束。");
         } catch (InterruptedException e) {
-            System.out.println(
-                    "在沉睡中被停止, 进入catch， 调用isInterrupted()方法的结果是：" + Thread.currentThread().isInterrupted());
+            System.out.println("在沉睡中被停止, 进入catch， 调用isInterrupted()方法的结果是：" + Thread.currentThread()
+                                                                                                     .isInterrupted());
             e.printStackTrace();
         }
     }

@@ -1,11 +1,9 @@
 package com.samin.usecase.pojostandard;
 
-import com.samin.usecase.pojostandard.BizClass;
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Objects;
 
 /**
  * 业务对象必须使用包装类的原因
@@ -18,7 +16,7 @@ import java.util.Objects;
 public class BizController {
 
     @GetMapping("/biz")
-    public String biz(){
+    public String biz() {
         BizClass bizClass = new BizClass();
         // 场景 1：存在价格为 0 的商品，进行告警上报运营人员，实际商品不存在
         if (bizClass.getPriceNativeType() == 0) {

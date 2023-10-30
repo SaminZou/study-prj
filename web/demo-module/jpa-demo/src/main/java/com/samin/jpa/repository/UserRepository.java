@@ -1,9 +1,8 @@
 package com.samin.jpa.repository;
 
 import com.samin.jpa.entity.UserDO;
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * 用户仓库类

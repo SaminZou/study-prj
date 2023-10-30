@@ -25,7 +25,7 @@ public class ProducerAndConsumer {
 
     public static void main(String[] args) throws InterruptedException {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                (ThreadFactory) Thread::new);
+                                                                 (ThreadFactory) Thread::new);
 
         Queue<Integer> queue = new LinkedList<>();
         // 数字可以设置大一点，可以观测到无队满或队空的现象，非常巧妙的设计

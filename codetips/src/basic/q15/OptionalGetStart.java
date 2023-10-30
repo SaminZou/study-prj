@@ -51,8 +51,9 @@ public class OptionalGetStart {
 
         // 使用 Optional
         Object ret2 = Optional.ofNullable(map) // Optional<Map<String, Map<String, Object>>>
-                .map(kkv -> kkv.get("k2")) // Optional<Map<String, Object>>
-                .map(kv -> kv.get("kk2")) // Optional<Object>
-                .orElseGet(Object::new); // 或者 orElse(new Object())，所以 orElse 和 orElseGet 的区别在于是否可以使用 lambda 表达式
+                              .map(kkv -> kkv.get("k2")) // Optional<Map<String, Object>>
+                              .map(kv -> kv.get("kk2")) // Optional<Object>
+                              .orElseGet(
+                                      Object::new); // 或者 orElse(new Object())，所以 orElse 和 orElseGet 的区别在于是否可以使用 lambda 表达式
     }
 }

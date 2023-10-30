@@ -21,7 +21,9 @@ public class SpiralOrder {
     public int[] spiralOrder(int[][] matrix) {
         List<Integer> resultList = new ArrayList<>();
         if (matrix.length == 0) {
-            return resultList.stream().mapToInt(Integer::intValue).toArray();
+            return resultList.stream()
+                             .mapToInt(Integer::intValue)
+                             .toArray();
         }
 
         int left = 0;
@@ -64,6 +66,8 @@ public class SpiralOrder {
             }
         }
 
-        return resultList.stream().mapToInt(Integer::intValue).toArray();
+        return resultList.stream()
+                         .mapToInt(Integer::intValue)
+                         .toArray();
     }
 }

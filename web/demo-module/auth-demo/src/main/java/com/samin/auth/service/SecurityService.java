@@ -4,6 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.samin.auth.authentication.CustomUserDetails;
 import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.util.JwtUtil;
+import java.util.Objects;
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
@@ -13,9 +15,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Objects;
 
 /**
  * 认证相关服务类
@@ -51,7 +50,8 @@ public class SecurityService {
 
         String idFromToken = jwtUtil.getIdFromToken(authToken);
         if (StrUtil.isNotBlank(idFromToken)) {
-            RBucket<CustomUserDetails> userDetailsRedisBucket = redissonClient.getBucket("token:" + Integer.parseInt(idFromToken));
+            RBucket<CustomUserDetails> userDetailsRedisBucket = redissonClient.getBucket(
+                    "token:" + Integer.parseInt(idFromToken));
             CustomUserDetails userDetails = userDetailsRedisBucket.get();
 
             if (Objects.isNull(userDetails)) {

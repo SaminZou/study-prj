@@ -18,12 +18,12 @@ public class KeyboardInput {
         Scanner input = new Scanner(System.in);
         String s = input.nextLine();
         input.close();
-        System.out.println("1: "+s);
+        System.out.println("1: " + s);
 
         // 方法2
         BufferedReader brInput = new BufferedReader(new InputStreamReader(System.in));
         String s2 = brInput.readLine();
-        System.out.println("2: "+s2);
+        System.out.println("2: " + s2);
     }
 
     /**

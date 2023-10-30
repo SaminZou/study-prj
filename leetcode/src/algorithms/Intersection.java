@@ -23,8 +23,12 @@ public class Intersection {
 
     public int[] intersection(int[] nums1, int[] nums2) {
         // int[] to List<Integer>
-        List<Integer> list1 = Arrays.stream(nums1).boxed().collect(Collectors.toList());
-        List<Integer> list2 = Arrays.stream(nums2).boxed().collect(Collectors.toList());
+        List<Integer> list1 = Arrays.stream(nums1)
+                                    .boxed()
+                                    .collect(Collectors.toList());
+        List<Integer> list2 = Arrays.stream(nums2)
+                                    .boxed()
+                                    .collect(Collectors.toList());
 
         // do intersection
         list1.retainAll(list2);
@@ -33,6 +37,8 @@ public class Intersection {
         Set<Integer> resSet = new HashSet<>(list1);
 
         // return result
-        return new ArrayList<>(resSet).stream().mapToInt(Integer::valueOf).toArray();
+        return new ArrayList<>(resSet).stream()
+                                      .mapToInt(Integer::valueOf)
+                                      .toArray();
     }
 }

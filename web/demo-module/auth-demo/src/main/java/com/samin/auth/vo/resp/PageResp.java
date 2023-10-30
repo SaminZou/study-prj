@@ -1,11 +1,10 @@
 package com.samin.auth.vo.resp;
 
 import com.samin.auth.vo.base.BaseResp;
-import lombok.Data;
-import org.springframework.data.domain.Page;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
+import org.springframework.data.domain.Page;
 
 @Data
 public class PageResp<T> extends BaseResp<Page<T>> {

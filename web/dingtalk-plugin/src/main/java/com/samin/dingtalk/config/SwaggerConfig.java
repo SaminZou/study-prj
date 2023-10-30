@@ -20,18 +20,19 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.samin.dingtalk.controller"))
-                .paths(PathSelectors.any())
-                .build();
+                                                      .apiInfo(apiInfo())
+                                                      .select()
+                                                      .apis(RequestHandlerSelectors.basePackage(
+                                                              "com.samin.dingtalk.controller"))
+                                                      .paths(PathSelectors.any())
+                                                      .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().description("接口文档")
-                .contact(new Contact("samin", "https://github.com/SaminZou", "822085977@qq.com"))
-                .version("v1.0.0")
-                .title("API测试文档")
-                .build();
+                                   .contact(new Contact("samin", "https://github.com/SaminZou", "822085977@qq.com"))
+                                   .version("v1.0.0")
+                                   .title("API测试文档")
+                                   .build();
     }
 }

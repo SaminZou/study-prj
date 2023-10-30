@@ -45,6 +45,7 @@ public class ConvertToTitle {
             columnNumber = (columnNumber - cur) / BASE_26;
         }
 
-        return sb.reverse().toString();
+        return sb.reverse()
+                 .toString();
     }
 }

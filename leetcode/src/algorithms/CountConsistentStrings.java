@@ -14,12 +14,14 @@ public class CountConsistentStrings {
                 new CountConsistentStrings().countConsistentStrings("ab", new String[]{"ad", "bd", "aaab", "baa", "badab"}));
 
         // 7
-        System.out.println(new CountConsistentStrings().countConsistentStrings("abc",
-                new String[]{"a", "b", "c", "ab", "ac", "bc", "abc"}));
+        System.out.println(new CountConsistentStrings().countConsistentStrings("abc", new String[]{
+                "a", "b", "c", "ab", "ac", "bc", "abc"
+        }));
 
         // 4
-        System.out.println(new CountConsistentStrings().countConsistentStrings("cad",
-                new String[]{"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"}));
+        System.out.println(new CountConsistentStrings().countConsistentStrings("cad", new String[]{
+                "cc", "acd", "b", "ba", "bac", "bad", "ac", "d"
+        }));
     }
 
     public int countConsistentStrings(String allowed, String[] words) {

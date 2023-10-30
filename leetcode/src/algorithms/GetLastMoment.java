@@ -25,7 +25,9 @@ public class GetLastMoment {
         System.out.println(new GetLastMoment().getLastMoment(1000, new int[]{0}, new int[]{}));
         System.out.println(new GetLastMoment().getLastMoment(10, new int[]{5, 6, 7}, new int[]{1, 2, 4}));
         System.out.println(new GetLastMoment().getLastMoment(30, new int[]{5, 3, 15, 11, 6, 10, 19, 0, 26, 24, 8, 7, 28, 20},
-                new int[]{12, 2, 25, 27, 1, 16, 22, 23, 13, 30, 14, 29, 4, 17}));
+                                                             new int[]{
+                                                                     12, 2, 25, 27, 1, 16, 22, 23, 13, 30, 14, 29, 4, 17
+                                                             }));
         System.out.println(new GetLastMoment().getLastMoment(880, new int[]{
                 448, 645, 415, 744, 837, 735, 550, 841, 694, 701, 439, 210, 390, 838, 810, 534, 397, 117, 835, 372, 579, 167,
                 480, 304, 387, 191, 209, 723, 342, 357, 858, 786, 153, 409, 356, 299, 161, 19, 109, 813, 495, 671, 434, 446,

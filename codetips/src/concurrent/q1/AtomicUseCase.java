@@ -26,7 +26,8 @@ public class AtomicUseCase {
 
     public static void main(String[] args) throws Exception {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                r -> new Thread(r, "show-the-fixed-thread-" + new Random().nextInt(999)));
+                                                                 r -> new Thread(r, "show-the-fixed-thread-"
+                                                                         + new Random().nextInt(999)));
 
         for (int i = 0; i < 10; i++) {
             poolExecutor.execute(new AtomicMockThread());

@@ -60,6 +60,7 @@ public class AddStrings {
             sb.append('1');
         }
 
-        return sb.reverse().toString();
+        return sb.reverse()
+                 .toString();
     }
 }

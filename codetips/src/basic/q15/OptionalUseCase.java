@@ -18,16 +18,17 @@ public class OptionalUseCase {
         // getCompanyFromEmployee2();
 
         // 等价 employee = Optional.of(getEmployee()).isPresent() ? getEmployee() : new Employee();
-        Employee employee = Optional.of(getEmployee()).orElse(new Employee());
+        Employee employee = Optional.of(getEmployee())
+                                    .orElse(new Employee());
 
         // 最佳实践
         employee = getEmployee();
         String companyName = Optional.ofNullable(getEmployee())
-                .map(ele -> ele.getTeam())
-                .map(team -> team.getDepartment())
-                .map(department -> department.getCompany())
-                .map(company -> company.getName())
-                .orElse("No Company");
+                                     .map(ele -> ele.getTeam())
+                                     .map(team -> team.getDepartment())
+                                     .map(department -> department.getCompany())
+                                     .map(company -> company.getName())
+                                     .orElse("No Company");
         System.out.println(companyName);
     }
 
@@ -39,7 +40,9 @@ public class OptionalUseCase {
 
     public static void getCompanyFromEmployee() {
         Employee employee = getEmployee();
-        Company company = employee.getTeam().getDepartment().getCompany();
+        Company company = employee.getTeam()
+                                  .getDepartment()
+                                  .getCompany();
         System.out.println(company);
     }
 

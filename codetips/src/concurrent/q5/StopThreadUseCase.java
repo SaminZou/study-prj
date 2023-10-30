@@ -41,7 +41,8 @@ public class StopThreadUseCase {
         TaskThread taskThread = new TaskThread();
 
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(9, 20, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(100),
-                r -> new Thread(r, "show-the-error-thread-" + new Random().nextInt(999)));
+                                                                 r -> new Thread(r, "show-the-error-thread-"
+                                                                         + new Random().nextInt(999)));
         Future<?> future = poolExecutor.submit(taskThread);
 
         try {

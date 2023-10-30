@@ -40,7 +40,8 @@ public class RedisVsDBIOTest {
         List<UserDO> set = getDataSet();
         long start = System.currentTimeMillis();
         set.forEach(e -> {
-            redisTemplate.opsForValue().set(e.getUserName(), e);
+            redisTemplate.opsForValue()
+                         .set(e.getUserName(), e);
         });
         System.out.println("Redis 花费：" + ((System.currentTimeMillis() - start) / 1000) + " 秒");
     }

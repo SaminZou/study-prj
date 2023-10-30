@@ -1,8 +1,11 @@
 package basic.q10.date;
 
 import basic.q10.date.utils.DateTimeUtils;
-
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.MonthDay;
+import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -40,13 +43,19 @@ public class DateTimeUseCase {
         System.out.println(":-----------------------");
         // 修改时间
         OffsetDateTime alterTime = OffsetDateTime.now();
-        alterTime = alterTime.withYear(2021).withMonth(10).withDayOfMonth(1).withHour(16).withMinute(0).withSecond(0);
+        alterTime = alterTime.withYear(2021)
+                             .withMonth(10)
+                             .withDayOfMonth(1)
+                             .withHour(16)
+                             .withMinute(0)
+                             .withSecond(0);
         System.out.println("修改后的时间为(2021-10-01 16：00：00): " + alterTime.format(
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
         System.out.println(":-----------------------");
         // 检查是否闰年
-        System.out.println("aTime 是否闰年：" + aTime.toLocalDate().isLeapYear());
+        System.out.println("aTime 是否闰年：" + aTime.toLocalDate()
+                                                    .isLeapYear());
 
         System.out.println(":-----------------------");
         // 测试时间是否重叠
@@ -90,6 +99,7 @@ public class DateTimeUseCase {
     }
 
     static class DateTimeBo {
+
         public LocalDate startDate;
         public LocalDate endDate;
     }

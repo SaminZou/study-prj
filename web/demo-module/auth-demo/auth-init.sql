@@ -16,16 +16,26 @@ create table auth_menu
     update_time timestamp,
     code        varchar(255)
 );
-comment on column auth_menu.create_time is '创建时间';
-comment on column auth_menu.hidden is '是否隐藏（0：显示，1：隐藏）';
-comment on column auth_menu.icon is '图标';
-comment on column auth_menu.level is '菜单级数';
-comment on column auth_menu.name is '菜单名称';
-comment on column auth_menu.parent_id is '父级id';
-comment on column auth_menu.remark is '备注';
-comment on column auth_menu.sort is '菜单排序';
-comment on column auth_menu.status is '状态（0：禁用，1：启用）';
-comment on column auth_menu.update_time is '更新时间';
+comment
+on column auth_menu.create_time is '创建时间';
+comment
+on column auth_menu.hidden is '是否隐藏（0：显示，1：隐藏）';
+comment
+on column auth_menu.icon is '图标';
+comment
+on column auth_menu.level is '菜单级数';
+comment
+on column auth_menu.name is '菜单名称';
+comment
+on column auth_menu.parent_id is '父级id';
+comment
+on column auth_menu.remark is '备注';
+comment
+on column auth_menu.sort is '菜单排序';
+comment
+on column auth_menu.status is '状态（0：禁用，1：启用）';
+comment
+on column auth_menu.update_time is '更新时间';
 
 create table auth_resource
 (
@@ -37,11 +47,16 @@ create table auth_resource
     update_time timestamp,
     urn         varchar(255)
 );
-comment on column auth_resource.create_time is '创建时间';
-comment on column auth_resource.name is '名称';
-comment on column auth_resource.remark is '备注';
-comment on column auth_resource.update_time is '更新时间';
-comment on column auth_resource.urn is '统一资源名称，格式：<method>:<full/prefix>:<data>';
+comment
+on column auth_resource.create_time is '创建时间';
+comment
+on column auth_resource.name is '名称';
+comment
+on column auth_resource.remark is '备注';
+comment
+on column auth_resource.update_time is '更新时间';
+comment
+on column auth_resource.urn is '统一资源名称，格式：<method>:<full/prefix>:<data>';
 
 create table auth_role
 (
@@ -54,11 +69,16 @@ create table auth_role
     update_time timestamp,
     code        varchar(255)
 );
-comment on column auth_role.create_time is '创建时间';
-comment on column auth_role.name is '名称';
-comment on column auth_role.remark is '备注';
-comment on column auth_role.status is '状态（0：禁用，1启用）';
-comment on column auth_role.update_time is '更新时间';
+comment
+on column auth_role.create_time is '创建时间';
+comment
+on column auth_role.name is '名称';
+comment
+on column auth_role.remark is '备注';
+comment
+on column auth_role.status is '状态（0：禁用，1启用）';
+comment
+on column auth_role.update_time is '更新时间';
 
 create table auth_user
 (
@@ -75,16 +95,26 @@ create table auth_user
     status          integer,
     update_time     timestamp
 );
-comment on column auth_user.create_time is '创建时间';
-comment on column auth_user.email is '电子邮件';
-comment on column auth_user.icon is '头像';
-comment on column auth_user.last_login_time is '最后登录时间';
-comment on column auth_user.mobile is '电话';
-comment on column auth_user.nick_name is '昵称';
-comment on column auth_user.note is '个人签名';
-comment on column auth_user.password is '密码';
-comment on column auth_user.status is '状态（0：禁用，1启用）';
-comment on column auth_user.update_time is '更新时间';
+comment
+on column auth_user.create_time is '创建时间';
+comment
+on column auth_user.email is '电子邮件';
+comment
+on column auth_user.icon is '头像';
+comment
+on column auth_user.last_login_time is '最后登录时间';
+comment
+on column auth_user.mobile is '电话';
+comment
+on column auth_user.nick_name is '昵称';
+comment
+on column auth_user.note is '个人签名';
+comment
+on column auth_user.password is '密码';
+comment
+on column auth_user.status is '状态（0：禁用，1启用）';
+comment
+on column auth_user.update_time is '更新时间';
 
 create table system_log
 (
@@ -95,7 +125,11 @@ create table system_log
     type        varchar(255),
     user_id     integer
 );
-comment on column system_log.create_time is '操作时间';
-comment on column system_log.ip is '操作 ip';
-comment on column system_log.type is '日志类型';
-comment on column system_log.user_id is '操作用户id';
+comment
+on column system_log.create_time is '操作时间';
+comment
+on column system_log.ip is '操作 ip';
+comment
+on column system_log.type is '日志类型';
+comment
+on column system_log.user_id is '操作用户id';

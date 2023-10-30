@@ -25,7 +25,8 @@ public class VolatileUseCase extends Thread {
 
         }
         stopFlag = true;
-        System.out.println(Thread.currentThread().getName() + " stopFlag = " + stopFlag);
+        System.out.println(Thread.currentThread()
+                                 .getName() + " stopFlag = " + stopFlag);
     }
 
     public static void main(String[] args) {

@@ -35,9 +35,12 @@ public class ArraysUseCase {
         myList3.add(4);
         // 2. java8的stream
         Integer[] myArrays3 = {1, 2, 3};
-        List myList4 = Arrays.stream(myArrays3).collect(Collectors.toList());
+        List myList4 = Arrays.stream(myArrays3)
+                             .collect(Collectors.toList());
         // 基本类型也可以实现转换
         int[] myArrays4 = {1, 2, 3};
-        List myList5 = Arrays.stream(myArrays4).boxed().collect(Collectors.toList());
+        List myList5 = Arrays.stream(myArrays4)
+                             .boxed()
+                             .collect(Collectors.toList());
     }
 }

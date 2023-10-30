@@ -65,7 +65,8 @@ public class BackspaceCompare {
         // 判断字符的具体内容
         int length = sStack.size();
         for (int i = 0; i < length; i++) {
-            if (!sStack.pop().equals(tStack.pop())) {
+            if (!sStack.pop()
+                       .equals(tStack.pop())) {
                 return false;
             }
         }

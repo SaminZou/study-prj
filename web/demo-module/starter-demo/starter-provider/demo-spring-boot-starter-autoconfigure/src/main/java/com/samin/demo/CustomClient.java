@@ -14,8 +14,11 @@ public class CustomClient {
     }
 
     public String showKey() {
-        log.info("custom.part1.custom-key: {}", customProperties.getPart1().getCustomKey());
-        log.info("custom.part2.key: {}", customProperties.getPart2().getKey());
-        return customProperties.getPart1().getCustomKey();
+        log.info("custom.part1.custom-key: {}", customProperties.getPart1()
+                                                                .getCustomKey());
+        log.info("custom.part2.key: {}", customProperties.getPart2()
+                                                         .getKey());
+        return customProperties.getPart1()
+                               .getCustomKey();
     }
 }
