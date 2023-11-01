@@ -3,6 +3,7 @@ package algorithms;
 import algorithms.base.model.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 二叉树的后序遍历
@@ -24,7 +25,7 @@ public class PostorderTraversal {
     }
 
     public void pro(TreeNode root, List<Integer> res) {
-        if (root != null) {
+        if (Objects.nonNull(root)) {
             pro(root.left, res);
             pro(root.right, res);
             res.add(root.val);

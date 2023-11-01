@@ -3,6 +3,7 @@ package algorithms;
 import algorithms.base.model.ListNode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 两两交换链表中的节点
@@ -35,7 +36,7 @@ public class SwapPairs {
         ListNode tmp = head;
 
         // 存储所有的变量
-        while (head != null) {
+        while (Objects.nonNull(head)) {
             list.add(head.val);
             head = head.next;
         }

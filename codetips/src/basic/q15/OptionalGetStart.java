@@ -1,6 +1,7 @@
 package basic.q15;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -39,13 +40,13 @@ public class OptionalGetStart {
         // 不使用 Optional
         Object ret1 = null;
 
-        if (map != null) {
+        if (Objects.nonNull(map)) {
             Map<String, Object> tmp = map.get("k1");
-            if (tmp != null) {
+            if (Objects.nonNull(tmp)) {
                 ret1 = tmp.get("kk1");
             }
         }
-        if (ret1 == null) {
+        if (Objects.isNull(ret1)) {
             ret1 = new Object();
         }
 

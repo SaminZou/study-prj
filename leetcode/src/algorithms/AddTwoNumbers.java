@@ -1,6 +1,7 @@
 package algorithms;
 
 import algorithms.base.model.ListNode;
+import java.util.Objects;
 
 /**
  * 两数相加
@@ -25,10 +26,10 @@ public class AddTwoNumbers {
         ListNode cursor = root;
         int carry = 0;
         // 有数字或进位则需要继续相加
-        while (l1 != null || l2 != null || carry != 0) {
+        while (Objects.nonNull(l1) || Objects.nonNull(l2) || carry != 0) {
             // 从最低位开始相加
-            int l1Val = l1 != null ? l1.val : 0;
-            int l2Val = l2 != null ? l2.val : 0;
+            int l1Val = Objects.nonNull(l1) ? l1.val : 0;
+            int l2Val = Objects.nonNull(l2) ? l2.val : 0;
             int sumVal = l1Val + l2Val + carry;
             carry = sumVal / 10;
 
@@ -37,10 +38,10 @@ public class AddTwoNumbers {
             cursor.next = sumNode;
             cursor = sumNode;
 
-            if (l1 != null) {
+            if (Objects.nonNull(l1)) {
                 l1 = l1.next;
             }
-            if (l2 != null) {
+            if (Objects.nonNull(l2)) {
                 l2 = l2.next;
             }
         }

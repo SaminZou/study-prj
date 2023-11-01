@@ -1,5 +1,7 @@
 package algorithms.base.model;
 
+import java.util.Objects;
+
 /**
  * 链表节点
  *
@@ -42,7 +44,7 @@ public class ListNode {
     }
 
     public static void listNodePrinter(ListNode head) {
-        while (head != null) {
+        while (Objects.nonNull(head)) {
             System.out.print(head.val + " ");
             head = head.next;
         }
