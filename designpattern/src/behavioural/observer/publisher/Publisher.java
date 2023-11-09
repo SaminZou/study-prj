@@ -1,24 +1,25 @@
 package behavioural.observer.publisher;
 
-import behavioural.observer.EventManger;
-
 /**
  * 事件发布者
  *
  * @author samin
  * @date 2022-10-14
  */
-public class Judge {
+public class Publisher {
 
     EventManger eventManger;
 
-    public Judge(EventManger eventManger) {
+    public Publisher(EventManger eventManger) {
         this.eventManger = eventManger;
     }
 
-    public void instruction() {
-        System.out.println("123,木头人！");
+    /**
+     * 具体业务
+     */
+    public void action() {
+        System.out.println("灰太狼来了！");
         // 通知所有观察者
-        eventManger.notifyObserver();
+        eventManger.notifySubscriber();
     }
 }

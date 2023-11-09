@@ -14,5 +14,5 @@ public interface Observer {
     /**
      * 通知更新方法
      */
-    void update(String msg);
+    void update(String context);
 }

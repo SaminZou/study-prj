@@ -8,7 +8,6 @@ package behavioural.observer.subscriber;
  */
 public class LazySheep implements Observer {
 
-    @Override
     public String getName() {
         return "懒羊羊";
     }

@@ -1,6 +1,7 @@
 package behavioural.observer;
 
-import behavioural.observer.publisher.Judge;
+import behavioural.observer.publisher.EventManger;
+import behavioural.observer.publisher.Publisher;
 import behavioural.observer.subscriber.LazySheep;
 import behavioural.observer.subscriber.Observer;
 import behavioural.observer.subscriber.PleasantSheep;
@@ -15,27 +16,22 @@ public class Client {
 
     public static void main(String[] args) {
         EventManger eventManger = new EventManger();
-
-        // 喊数人--被观察者（发布者）
-        Judge judge = new Judge(eventManger);
-
-        // 喜羊羊--观察者（参与游戏）
         Observer pleasantSheep = new PleasantSheep();
-        // 登记观察者
-        eventManger.attach(pleasantSheep);
-
-        // 懒羊羊--观察者（参与游戏）
         Observer lazySheep = new LazySheep();
-        // 登记观察者
-        eventManger.attach(lazySheep);
 
-        // 123，木头人
-        judge.instruction();
+        // 添加订阅者
+        eventManger.subscribe(pleasantSheep);
+        // 添加订阅者
+        eventManger.subscribe(lazySheep);
 
+        // 声明事件发布者
+        Publisher publisher = new Publisher(eventManger);
+
+        // 灰太狼来了
+        publisher.action();
         // 解除观察者
-        eventManger.dettach(lazySheep);
-
-        // 123，木头人
-        judge.instruction();
+        eventManger.unSubscribe(lazySheep);
+        // 灰太狼来了
+        publisher.action();
     }
 }
