@@ -117,6 +117,12 @@ public class Java8StreamUseCase {
                                     .map(Obj::getFoo)
                                     .collect(Collectors.toSet());
         collect5.forEach((v) -> System.out.printf("value: [%s]\n", v));
+
+        // list split，以下例子根据 foo 字段特定条件进行分组
+        Map<Boolean, List<Obj>> collect6 = list2.stream()
+                                                .collect(Collectors.partitioningBy(obj -> "foo1".equals(obj.getFoo())));
+        List<Obj> collect7 = collect6.get(true);
+        collect7.forEach((v) -> System.out.printf("collect7 value: [%s]\n", v));
     }
 
     private static class Obj {
