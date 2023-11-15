@@ -25,8 +25,7 @@ public class CommonExceptionHandler {
               .append(fieldError.getDefaultMessage())
               .append(", ");
         }
-        String msg = sb.toString();
-        return msg;
+        return sb.toString();
     }
 
     @ExceptionHandler({ConstraintViolationException.class})
