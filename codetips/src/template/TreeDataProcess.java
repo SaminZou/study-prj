@@ -23,8 +23,6 @@ public class TreeDataProcess {
         // 生成 Map 数据集合
         Map<String, TreeData> nodeMap = new HashMap<>();
         for (TreeData ele : treeDataList) {
-            ele.setChildren(new ArrayList<>());
-
             nodeMap.put(ele.getCode(), ele);
         }
 
@@ -58,7 +56,7 @@ public class TreeDataProcess {
         private String code;
         private String pCode;
         private Integer order;
-        private List<TreeData> children;
+        private List<TreeData> children = new ArrayList<>();
 
         public static TreeData getInstance(String name, String code, String pCode, Integer order) {
             TreeData ins = new TreeData();
