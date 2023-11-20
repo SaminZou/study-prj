@@ -56,7 +56,7 @@ public class TreeDataProcess {
         private String code;
         private String pCode;
         private Integer order;
-        private List<TreeData> children = new ArrayList<>();
+        private final List<TreeData> children = new ArrayList<>();
 
         public static TreeData getInstance(String name, String code, String pCode, Integer order) {
             TreeData ins = new TreeData();
@@ -99,10 +99,6 @@ public class TreeDataProcess {
 
         public List<TreeData> getChildren() {
             return children;
-        }
-
-        public void setChildren(List<TreeData> children) {
-            this.children = children;
         }
 
         @Override
