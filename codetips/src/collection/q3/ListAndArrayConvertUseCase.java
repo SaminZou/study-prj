@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @author samin
  * @date 2021-01-10
  */
-public class ListAndArrayUseCase {
+public class ListAndArrayConvertUseCase {
 
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();

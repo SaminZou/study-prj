@@ -10,7 +10,7 @@ import java.util.List;
  * @author samin
  * @date 2021-05-18
  */
-public class ListAndStringUseCase {
+public class ListAndStringConvertUseCase {
 
     /**
      * String to List
