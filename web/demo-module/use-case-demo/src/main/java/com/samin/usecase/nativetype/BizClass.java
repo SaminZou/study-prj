@@ -1,4 +1,4 @@
-package com.samin.usecase.pojostandard;
+package com.samin.usecase.nativetype;
 
 import lombok.Data;
 
