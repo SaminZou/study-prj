@@ -44,6 +44,7 @@ public class EqualsAndHashCodeUseCase {
         Map<User, Integer> map = new HashMap<>();
         map.put(userPro1, 1);
         map.put(userPro2, 2);
+        System.out.println(map);
     }
 
     private static class User {
