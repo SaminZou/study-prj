@@ -24,7 +24,7 @@ public class HolidayController {
     private final HolidayService holidayService;
 
     @PostMapping("/holiday/stats/{specTime}")
-    public HolidayStatsVo stats(@PathVariable(name = "specTime") String specTime) {
+    public HolidayStatsVo stats(@PathVariable("specTime") String specTime) {
         return holidayService.stats(specTime);
     }
 
@@ -44,7 +44,7 @@ public class HolidayController {
     }
 
     @PostMapping("/holiday/isExist/{specTime}")
-    public boolean isExist(@PathVariable(name = "specTime") String specTime) {
+    public boolean isExist(@PathVariable("specTime") String specTime) {
         return holidayService.isExist(specTime);
     }
 }
