@@ -32,7 +32,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder().description("接口文档")
                                    .contact(new Contact("samin", "https://github.com/SaminZou", "822085977@qq.com"))
                                    .version("v1.0.0")
-                                   .title("API测试文档")
+                                   .title("API 文档")
                                    .build();
     }
 }

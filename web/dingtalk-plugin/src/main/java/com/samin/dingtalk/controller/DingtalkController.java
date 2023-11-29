@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@Api("钉钉通知控制类")
+@Api(tags = "钉钉通知控制类")
 public class DingtalkController {
 
     private final ObjectMapper objectMapper;

@@ -23,6 +23,6 @@ class CleanTool:
 if __name__ == "__main__":
     dir_path = os.getcwd()
     print("[current work directory] : " + dir_path)
-    # CleanTool.clean_dir(dir_path, ".idea")
-    # CleanTool.clean_file(dir_path, ".iml")
+    CleanTool.clean_dir(dir_path, ".idea")
+    CleanTool.clean_file(dir_path, ".iml")
     CleanTool.clean_file(dir_path, ".log")
