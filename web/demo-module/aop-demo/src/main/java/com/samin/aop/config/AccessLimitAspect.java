@@ -16,9 +16,9 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * 防止恶意请求
+ * 模拟滑动窗口控制
  * <p>
- * Description: 防止恶意请求
+ * Description: 模拟滑动窗口控制
  * <p>
  * Created By: Samin
  * <p>
@@ -32,7 +32,7 @@ public class AccessLimitAspect {
     /**
      * 统计请求的处理时间
      */
-    private ConcurrentMap<String, AccessCounter> counterMap = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, AccessCounter> counterMap = new ConcurrentHashMap<>();
 
 
     @Before("@annotation(accessLimit)")
