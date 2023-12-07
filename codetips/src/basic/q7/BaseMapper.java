@@ -2,7 +2,7 @@ package basic.q7;
 
 import basic.q7.annotaion.Column;
 import basic.q7.annotaion.Table;
-import basic.q7.demo.User;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;

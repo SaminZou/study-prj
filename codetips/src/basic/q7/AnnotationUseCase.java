@@ -1,7 +1,5 @@
 package basic.q7;
 
-import basic.q7.demo.User;
-
 /**
  * 演示主方法
  *

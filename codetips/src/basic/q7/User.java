@@ -1,4 +1,4 @@
-package basic.q7.demo;
+package basic.q7;
 
 import basic.q7.annotaion.Column;
 import basic.q7.annotaion.Table;
