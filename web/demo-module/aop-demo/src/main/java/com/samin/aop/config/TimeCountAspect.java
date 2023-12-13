@@ -1,7 +1,5 @@
 package com.samin.aop.config;
 
-import java.util.Objects;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -11,6 +9,9 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
 @Slf4j
 @Aspect
@@ -32,6 +33,7 @@ public class TimeCountAspect {
 
     @Before("timeCount()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
+        log.info("进入切面拦截器 TimeCountAspect");
         startTime.set(System.currentTimeMillis());
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -39,7 +41,7 @@ public class TimeCountAspect {
             HttpServletRequest request = attributes.getRequest();
             // 记录请求的内容
             log.info("请求URL: {}", request.getRequestURL()
-                                           .toString());
+                    .toString());
             log.info("请求METHOD: {}", request.getMethod());
         }
     }
