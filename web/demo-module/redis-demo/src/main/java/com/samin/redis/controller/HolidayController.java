@@ -54,4 +54,9 @@ public class HolidayController {
     public boolean isExist(@PathVariable("specTime") String specTime) {
         return holidayService.isExist(specTime);
     }
+
+    @PostMapping("/holiday/isCache/{specTime}")
+    public boolean isCache(@PathVariable("specTime") Integer specTime) {
+        return holidayService.isCache(specTime);
+    }
 }

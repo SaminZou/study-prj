@@ -70,6 +70,7 @@ public class HolidayService {
 
     /**
      * 删除指定年份缓存，key 如何使用变量实例
+     * <p> 缓存操作是在方法执行之后进行的，这意味着如果方法执行发生异常，缓存操作不会被触发。通过将 beforeInvocation 属性设置为 true，可以指定在方法执行之前进行缓存操作，即使方法最终抛出异常
      *
      * @param req
      * @throws Exception
@@ -153,8 +154,8 @@ public class HolidayService {
     public boolean isCache(int year) {
         Cache cache = cacheManager.getCache("HOLIDAY_STATS");
         if (Objects.nonNull(cache)) {
-            Object cachedValue = cache.get("HOLIDAY_STATS:" + year);
-            return Objects.nonNull(cachedValue);
+            Cache.ValueWrapper valueWrapper = cache.get(year);
+            return Objects.nonNull(valueWrapper);
         }
         return false;
     }
