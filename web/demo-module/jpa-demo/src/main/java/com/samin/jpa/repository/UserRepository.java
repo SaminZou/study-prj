@@ -1,8 +1,11 @@
 package com.samin.jpa.repository;
 
 import com.samin.jpa.entity.UserDO;
-import java.util.List;
+import com.samin.jpa.entity.UserVO;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * 用户仓库类
@@ -19,4 +22,6 @@ public interface UserRepository extends JpaRepository<UserDO, Integer> {
      * @return
      */
     List<UserDO> findUserBySex(int sex);
+
+    Optional<UserDO> findUserDOById(Integer id);
 }

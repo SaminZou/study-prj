@@ -3,13 +3,15 @@ package com.samin.jpa.service;
 import com.samin.jpa.entity.UserDO;
 import com.samin.jpa.entity.UserVO;
 import com.samin.jpa.repository.UserRepository;
-import java.util.ArrayList;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * 用户服务类
@@ -47,6 +49,15 @@ public class UserService {
         });
 
         return result;
+    }
+
+    public UserVO detail(Integer id) {
+        Optional<UserDO> opt = userRepository.findUserDOById(id);
+        UserDO userDO = opt.orElse(new UserDO());
+
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(userDO, userVO);
+        return userVO;
     }
 
     public UserVO saveUser(UserVO req) {
