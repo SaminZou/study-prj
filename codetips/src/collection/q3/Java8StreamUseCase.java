@@ -60,30 +60,8 @@ public class Java8StreamUseCase {
                 .filter(e -> e.getBar() > 2)
                 .count());
 
-        Obj o1 = new Obj("foo1", 1);
-        Obj o2 = new Obj("foo2", 1);
-        Obj o3 = new Obj("foo1", 3);
-        Obj o4 = new Obj("foo2", 3);
-        Obj o5 = new Obj("foo1", 2);
-        Obj o6 = new Obj("foo3", 2);
-        Obj o7 = new Obj("foo1", 4);
-        Obj o8 = new Obj("foo1", 5);
-        Obj o9 = new Obj("foo2", 2);
-        Obj o10 = new Obj("foo3", 1);
-        Obj o11 = new Obj("foo3", 1);
-
-        List<Obj> list2 = new ArrayList<>();
-        list2.add(o1);
-        list2.add(o2);
-        list2.add(o3);
-        list2.add(o4);
-        list2.add(o5);
-        list2.add(o6);
-        list2.add(o7);
-        list2.add(o8);
-        list2.add(o9);
-        list2.add(o10);
-        list2.add(o11);
+        // 快速声明方式
+        List<Obj> list2 = List.of(new Obj("foo1", 1), new Obj("foo2", 1), new Obj("foo1", 3), new Obj("foo2", 3), new Obj("foo1", 2), new Obj("foo3", 2), new Obj("foo1", 4), new Obj("foo1", 5), new Obj("foo2", 2), new Obj("foo3", 1), new Obj("foo3", 1));
 
         // list to  Map<String, List<Obj>>
         Map<String, List<Obj>> collect = list2.stream()
