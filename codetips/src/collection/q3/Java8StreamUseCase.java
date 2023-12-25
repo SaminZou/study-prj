@@ -60,8 +60,12 @@ public class Java8StreamUseCase {
                 .filter(e -> e.getBar() > 2)
                 .count());
 
-        // 快速声明方式
+        // 快速声明方式，JDK8 没有
         List<Obj> list2 = List.of(new Obj("foo1", 1), new Obj("foo2", 1), new Obj("foo1", 3), new Obj("foo2", 3), new Obj("foo1", 2), new Obj("foo3", 2), new Obj("foo1", 4), new Obj("foo1", 5), new Obj("foo2", 2), new Obj("foo3", 1), new Obj("foo3", 1));
+        // JDK 用以下方式替代
+        // list2 = Arrays.asList(new Obj("foo1", 1), new Obj("foo2", 1), new Obj("foo1", 3), new Obj("foo2", 3),
+        //         new Obj("foo1", 2), new Obj("foo3", 2), new Obj("foo1", 4), new Obj("foo1", 5), new Obj("foo2", 2)
+        //         , new Obj("foo3", 1), new Obj("foo3", 1));
 
         // list to  Map<String, List<Obj>>
         Map<String, List<Obj>> collect = list2.stream()
