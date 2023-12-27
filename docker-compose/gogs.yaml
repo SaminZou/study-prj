@@ -1,0 +1,27 @@
+version: '3'
+
+# samin/123456
+# 配置的时候，监听端口 22 和 3000 不能动，否则无法映射成功
+
+services:
+  gogs:
+    image: gogs/gogs:latest
+    depends_on:
+      - db
+    ports:
+      - "8000:3000"
+      - "1022:22"
+    volumes:
+      - /mnt/gogs/data:/data
+
+  db:
+    image: mysql:5.7
+    ports:
+      - 3308:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=gogs
+      - MYSQL_DATABASE=gogs
+      - MYSQL_USER=gogs
+      - MYSQL_PASSWORD=gogs
+    volumes:
+      - /mnt/mysql/data:/var/lib/mysql
