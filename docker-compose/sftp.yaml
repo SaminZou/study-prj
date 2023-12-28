@@ -1,0 +1,14 @@
+version: "3"
+
+# 适用开放映射服务器日志
+
+services:
+  logs-sftp:
+    container_name: sftp
+    restart: always
+    image: atmoz/sftp
+    command: foo:pass:1001
+    volumes:
+      - /home/dev/app/logs:/home/foo/upload
+    ports:
+      - 1022:22
