@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  minio:
+    container_name: minio
+    restart: always
+    image: minio/minio
+    # 指定控制台地址
+    command: server /data --console-address ":9001"
+    environment:
+      - "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE"
+      - "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+    volumes:
+      - /mnt/data/minio:/data
+    ports:
+      - 9000:9000
+      - 9001:9001
