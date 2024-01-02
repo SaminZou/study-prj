@@ -9,6 +9,6 @@ services:
     image: atmoz/sftp
     command: foo:pass:1001
     volumes:
-      - /home/dev/app/logs:/home/foo/upload
+      - /mnt/data/appLogs:/home/foo/upload
     ports:
       - 1022:22

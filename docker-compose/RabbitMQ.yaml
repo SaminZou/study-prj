@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    # 带控制台版本
+    image: rabbitmq:3-management
+    volumes:
+      - /mnt/data/rabbitmq/home:/var/lib/rabbitmq
+      - /mnt/data/rabbitmq/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+    ports:
+      - "5672:5672"
+      - "15672:15672"

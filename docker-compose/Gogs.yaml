@@ -12,7 +12,7 @@ services:
       - "8000:3000"
       - "1022:22"
     volumes:
-      - /mnt/gogs/data:/data
+      - /mnt/data/gogs:/data
 
   db:
     image: mysql:5.7
