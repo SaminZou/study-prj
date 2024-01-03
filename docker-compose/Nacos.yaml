@@ -1,0 +1,25 @@
+version: '3'
+
+# MySQL 数据库需要进行脚本初始化，否则启动抱错
+# https://github.com/alibaba/nacos/blob/develop/distribution/conf/mysql-schema.sql
+
+# 默认管理界面：http://host:8848/nacos/index.html
+# 默认管理账户：nacos/nacos
+
+# Nacos 可以使用 Data Id 特性搭配 spring profiles active 配置来实现多环境切换
+# Data Id 声明格式为：${spring.application.name}-${spring.profiles.active}.${file-extension}，实例：samin-dev.yaml
+
+services:
+  nacos:
+    image: nacos/nacos-server:v2.3.0
+    container_name: nacos
+    ports:
+      - 8848:8848
+    environment:
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=samin-use-case.local
+      - MYSQL_SERVICE_DB_NAME=nacos
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=123456

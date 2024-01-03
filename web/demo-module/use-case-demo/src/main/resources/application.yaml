@@ -1,6 +1,10 @@
 server:
   port: 8081
 
+nacos:
+  config:
+    server-addr: samin-use-case.local:8848
+
 # 可以不写，默认为 true
 custom:
   config:
@@ -43,6 +47,10 @@ spring:
         min-idle: 5
         max-active: 10
         max-wait: 3000
+  profiles:
+    active: dev
+  application:
+    name: samin
 
 use_case:
   values: value1,value2,value3
