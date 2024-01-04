@@ -1,6 +1,5 @@
 package com.samin.usecase;
 
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import com.samin.usecase.beanconfig.config.SystemProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@NacosPropertySource(dataId = "samin-dev.yaml", autoRefreshed = true)
 @EnableScheduling
 @EnableRetry
 @Slf4j
