@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+  nginx:
+    container_name: nginx
+    restart: always
+    image: nginx:1.19.4
+    volumes:
+      - /mnt/data/Nginx/html:/usr/share/nginx/html
+    ports:
+      - 80:80
