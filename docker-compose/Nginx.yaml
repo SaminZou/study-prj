@@ -6,6 +6,6 @@ services:
     restart: always
     image: nginx:1.19.4
     volumes:
-      - /mnt/data/Nginx/html:/usr/share/nginx/html
+      - /mnt/data/nginx/html:/usr/share/nginx/html
     ports:
       - 80:80

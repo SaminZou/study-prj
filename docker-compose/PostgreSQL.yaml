@@ -7,7 +7,7 @@ services:
     image: postgres:13
     command: postgres -c 'max_connections=1000'
     volumes:
-      - /mnt/data/postgres/data:/var/lib/postgresql/data
+      - /mnt/data/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: postgres123456
       POSTGRES_USER: postgres

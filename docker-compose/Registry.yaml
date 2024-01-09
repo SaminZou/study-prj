@@ -1,0 +1,25 @@
+version: "3.6"
+
+services:
+  registry:
+    container_name: registry
+    restart: always
+    image: registry:2
+    volumes:
+      - /mnt/data/registry:/var/lib/registry
+    environment:
+      - REGISTRY_HTTP_ADDR=0.0.0.0:5000
+    ports:
+      - "5000:5000"
+
+  registry-console:
+    container_name: registry-console
+    restart: always
+    image: hyper/docker-registry-web
+    environment:
+      # Registry 地址
+      - REGISTRY_URL=http://samin.local:5000/v2
+      # Registry 名称
+      - REGISTRY_NAME=samin.local:5000
+    ports:
+      - "8080:8080"
