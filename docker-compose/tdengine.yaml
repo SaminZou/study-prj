@@ -1,0 +1,20 @@
+version: "3.6"
+
+services:
+  tdengine:
+    container_name: tdengine
+    hostname: tdengine-dev
+    restart: always
+    image: tdengine/tdengine:2.4.0.5
+    volumes:
+      - /mnt/data/tdengine/taos.cfg:/etc/taos/taos.cfg
+      - /mnt/data/tdengine/data:/var/lib/taos
+      - /mnt/data/tdengine/logs:/var/log/taos
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    ports:
+      - "6030-6041:6030-6041"
+      - "6030-6041:6030-6041/udp"
+
+# taos.cfg 配置
+# 时区
+# timezone UTC-8
