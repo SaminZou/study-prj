@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres:13
+    command: postgres -c 'max_connections=1000'
+    volumes:
+      - /mnt/data/postgres/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres123456
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
