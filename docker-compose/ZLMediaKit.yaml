@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  zlm:
+    container_name: zlm
+    restart: always
+    image: zlmediakit/zlmediakit:master
+    ports:
+      - 1935:1935
+      - 8089:80
+      - 8443:443
+      - 8554:554
+      - 10000:10000
+      - 10000:10000/udp
+      - 8000:8000/udp
+      - 9000:9000/udp
