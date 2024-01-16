@@ -11,7 +11,7 @@ import java.util.List;
  * @author samin
  * @date 2022-06-07
  */
-public class PageProcess {
+public class  PageProcess {
 
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
@@ -24,7 +24,7 @@ public class PageProcess {
         System.out.println(getPageResp(98, 10, list));
     }
 
-    public static <T> PageResp<T> getPageResp(int page, int size, List<T> list) {
+    private static <T> PageResp<T> getPageResp(int page, int size, List<T> list) {
         if (page < 1) {
             page = 1;
         }
