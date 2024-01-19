@@ -6,6 +6,7 @@ nacos:
     server-addr: samin-use-case.local:8848
 
 custom:
+  order_test: application
   config:
     # 可以不写，默认为 true
     enabled: false
@@ -22,7 +23,10 @@ custom:
 
 spring:
   profiles:
+    # 指定一个
     active: dev
+    # 指定多个，同一个参数，最后的文件参数值优先级最高
+    # include: dev,test
   application:
     name: samin
   datasource:
