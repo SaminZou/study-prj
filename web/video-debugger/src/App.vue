@@ -9,7 +9,7 @@
           label-width="80px"
           size="mini"
         >
-          <el-form-item label="视频地址" prop="videoUrl">
+          <el-form-item label="视频地址(HLS)" prop="videoUrl">
             <el-input
               v-model="videoInfo.videoUrl"
               :rules="rules.videoUrl"
