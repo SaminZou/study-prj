@@ -19,6 +19,7 @@
         <module>starter-demo</module>
         <module>use-case-demo</module>
         <module>maven-demo</module>
+        <module>spring-study-demo</module>
     </modules>
 
     <packaging>pom</packaging>
