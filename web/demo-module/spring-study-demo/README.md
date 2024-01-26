@@ -17,7 +17,8 @@ Bean 的初始化为方法 initializeBean(beanName, bean ...) 实际为实现 In
 
 # Spring AOP 是如何实现的？和 AspectJ 有什么区别
 
-AOP 是一种编程思想（面向切面编程），实现方式有：AspectJ（编译期）、Spring AOP（动态代理，使用的是 AspectJ 定义的注解，所以有引入 AspectJ 包）、aspectwerkz、JBoss 4.0
+AOP 是一种编程思想（面向切面编程），实现方式有：AspectJ（编译期）、Spring AOP（动态代理，使用的是 AspectJ 定义的注解，所以有引入
+AspectJ 包）、aspectwerkz、JBoss 4.0
 
 编译期和动态代理实现主要区别是，编译期相当于在编译时往每个需要执行切面代码的文件中织入对应的代码，动态代理则是在运行期由一个对象管理执行对应代码
 
@@ -49,6 +50,16 @@ answer4
 # Spring 事务失效的情况
 
 # Spring Bean 创建的生命周期
+
+answer5
+
+1. 推断构造方法（多个构造函数的情况下，优先无参构造、其次是使用 @Autowired 注定的构造方法）
+2. 实例化
+3. 填充属性，依赖注入
+4. 处理 Aware 回调（实现 BeanFactoryAware、BeanNameAware 等接口实现）
+5. 处理 @PostConstruct 注解
+6. 处理 InitializingBean 接口
+7. 初始化后进行 AOP
 
 # Spring 的 Bean 是否线程安全
 
