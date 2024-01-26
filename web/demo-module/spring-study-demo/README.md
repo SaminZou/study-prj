@@ -63,16 +63,60 @@ answer5
 
 # Spring 的 Bean 是否线程安全
 
+需要看 Bean 本身
+
+1. 如果 Bean 是无状态的，那么 Bean 是线程安全的
+2. 如果 Bean 是有状态的，那么 Bean 不是是线程安全的
+
 # ApplicationContext 和 BeanFactory 有什么区别
+
+- BeanFactory 是 Spring 的核心组件，生成维护 Bean
+- ApplicationContext 实现了除 BeanFactory 之外还实现了诸如 EnvironmentCapable, ListableBeanFactory,
+  HierarchicalBeanFactory,
+  MessageSource, ApplicationEventPublisher, ResourcePatternResolver 等接口，功能更多
 
 # Spring 容器启动流程
 
-# @SpringBootApplication 注解的作用
-
-# spring.factories 文件的作用
-
-# SpringBoot 中的自动配置
+1. 扫描所有 BeanDefinition 对象，存放在一个 Map 中
+2. 筛选出非懒加载的单例 BeanDefinition 进行创建 Bean，对于多例 Bean 不需要在启动过程中创建，多例 Bean 会在每次获取 Bean
+   时利用 BeanDefinition 去创建
+3. 执行 Spring Bean 创建的生命周期
+4. 单例 Bean 创建完后，发布一个容器启动事件
+5. Spring 启动结束
 
 # SpringBoot 启动做了什么事情
 
+1. 判断应用类型，是否 web 应用，servlet 应用或是 webflux 应用，根据类型创建对应的 Spring 容器
+2. 创建 Spring 容器
+3. 解析启动类，扫描、导入配置类并解析
+4. 启动 Tomcat、Jetty 或 Undertow
+5. 调用 ApplicationRunner 或 CommandLineRunner
+
+> 调用 SpringApplicationRunListeners、Banner 打印、执行 ApplicationContextInitializer 等
+
+# @SpringBootApplication 注解的作用
+
+- @SpringBootApplication 是一个复合注解（主要是 @SpringBootConfiguration、@EnableAutoConfiguration、@ComponentScan）
+- 根据常用的使用习惯的一个复合配置类
+- 语法糖
+
+# spring.factories 文件的作用
+
+- SPI 机制的体现
+
+# SpringBoot 中的自动配置
+
 # Spring MVC 请求处理的流程
+
+1. 启动 Tomcat 过程中，创建 DispatcherServlet 对象，执行初始化逻辑
+2. DispatcherServlet 初始化过程中创建 Spring 容器
+3. 初始化 HandlerMapping、HandlerAdapter 等
+4. SpringMVC 提供了好几个 HandlerMapping，其中有一个叫 RequestMappingHandlerMapping
+5. RequestMappingHandlerMapping 加载 Spring 容器中加了 @RequestMapping 的方法
+6. 把 path 做为 key，method 做为 value 存到一个 map 中
+7. DispatcherServlet 接收到请求后，RequestMappingHandlerMapping 负责根据请求路径从 map 中找到对应的方法
+8. 根据 @RequestParam 或 @RequestBody 等解析映射参数
+9. 执行方法
+10. 获取返回值进行封装
+11. 如果方法加了 @ResponseBody，那么会直接把返回值返回给浏览器
+12. 如果方法没有加 @ResponseBody，那么会根据返回值找到对应的页面，在服务端进行渲染，再把渲染结果返回给浏览器

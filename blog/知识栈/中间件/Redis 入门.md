@@ -371,7 +371,7 @@ setnx
 $ redis-cli -h 127.0.0.1 -p 6379 -a password
 
 \# 输入密码
-$ auth password
+$ auth <password>
 
 \# 查看密码及修改密码
 
