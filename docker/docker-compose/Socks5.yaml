@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  minio:
+    container_name: socks5
+    restart: always
+    image: xkuma/socks5
+    environment:
+      - PROXY_USER=samin
+      - PROXY_PASSWORD=samin
+    ports:
+      - 1080:1080
