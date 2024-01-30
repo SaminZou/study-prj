@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  # 默认管理员用户密码：samin/nextcloud
+  nextcloud:
+    container_name: nextcloud
+    image: nextcloud
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      PUID: 1000
+      PGID: 100
+      UMASK: 022
+    ports:
+      - "9000:80"
+    volumes:
+      - /mnt/data/nextcloud:/var/www/html

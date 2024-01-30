@@ -2,6 +2,7 @@ version: '3'
 
 services:
   mysql:
+    restart: always
     container_name: mysql
     image: mysql:5.7
     # 可以做一些定制化配置
