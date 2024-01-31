@@ -5,9 +5,10 @@ import com.samin.auth.entity.RoleMenuRelation;
 import com.samin.auth.util.DateUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Data;
 
 @ApiModel("角色响应体")
 @Data
@@ -23,8 +24,8 @@ public class RoleResp {
         resp.setCreateTime(DateUtil.getDisplayTime(role.getCreateTime()));
         resp.setUpdateTime(DateUtil.getDisplayTime(role.getUpdateTime()));
         resp.setMenus(list.stream()
-                          .map(RoleMenuRelation::getMenuCode)
-                          .collect(Collectors.toList()));
+                .map(RoleMenuRelation::getMenuCode)
+                .collect(Collectors.toList()));
 
         return resp;
     }

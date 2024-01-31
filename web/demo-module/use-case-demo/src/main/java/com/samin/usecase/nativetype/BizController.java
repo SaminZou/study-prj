@@ -1,9 +1,10 @@
 package com.samin.usecase.nativetype;
 
-import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Objects;
 
 /**
  * 业务对象必须使用包装类的原因

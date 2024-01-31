@@ -3,9 +3,10 @@ package com.samin.auth.vo.resp;
 import com.samin.auth.entity.User;
 import com.samin.auth.entity.UserRoleRelation;
 import com.samin.auth.util.DateUtil;
+import lombok.Data;
+
 import java.util.List;
 import java.util.stream.Collectors;
-import lombok.Data;
 
 @Data
 public class UserResp {
@@ -23,8 +24,8 @@ public class UserResp {
         resp.setUpdateTime(DateUtil.getDisplayTime(user.getUpdateTime()));
         resp.setLastLoginTime(DateUtil.getDisplayTime(user.getLastLoginTime()));
         resp.setRoles(list.stream()
-                          .map(UserRoleRelation::getRoleCode)
-                          .collect(Collectors.toList()));
+                .map(UserRoleRelation::getRoleCode)
+                .collect(Collectors.toList()));
 
         return resp;
     }

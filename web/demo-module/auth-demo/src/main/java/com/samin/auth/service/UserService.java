@@ -17,14 +17,6 @@ import com.samin.auth.vo.req.UserSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.UserResp;
 import com.samin.auth.vo.resp.UserSaveResp;
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +26,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * 用户服务类
@@ -59,15 +60,15 @@ public class UserService {
      */
     public PageResp<UserResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
-                                                                             .descending());
+                .descending());
 
         PageResp<User> users = PageResp.success(userRepository.findAll(pageable));
 
         PageResp<UserResp> resp = PageResp.baseOf(users);
         resp.setContent(users.getContent()
-                             .stream()
-                             .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
-                             .collect(Collectors.toList()));
+                .stream()
+                .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
+                .collect(Collectors.toList()));
 
         return resp;
     }
@@ -75,8 +76,8 @@ public class UserService {
     public void pageExport(PageReq req, HttpServletResponse response) throws IOException {
         List<UserResp> users = page(req).getContent();
         List<UserExcel> excels = users.stream()
-                                      .map(UserExcel::getInstance)
-                                      .collect(Collectors.toList());
+                .map(UserExcel::getInstance)
+                .collect(Collectors.toList());
 
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");
@@ -84,9 +85,9 @@ public class UserService {
         response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
         response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
         EasyExcel.write(response.getOutputStream(), UserExcel.class)
-                 .inMemory(true)
-                 .sheet(fileName)
-                 .doWrite(excels);
+                .inMemory(true)
+                .sheet(fileName)
+                .doWrite(excels);
     }
 
     /**
@@ -107,8 +108,8 @@ public class UserService {
             if (userOptional.isPresent()) {
                 user = userOptional.get();
                 CopyOptions options = CopyOptions.create()
-                                                 .ignoreNullValue()
-                                                 .setIgnoreProperties("mobile");
+                        .ignoreNullValue()
+                        .setIgnoreProperties("mobile");
                 BeanUtil.copyProperties(userSaveReq, user, options);
 
                 if (StrUtil.isNotBlank(user.getPassword())) {
@@ -134,7 +135,7 @@ public class UserService {
 
             user = new User();
             CopyOptions options = CopyOptions.create()
-                                             .ignoreNullValue();
+                    .ignoreNullValue();
             BeanUtil.copyProperties(userSaveReq, user, options);
 
             if (StrUtil.isNotBlank(user.getPassword())) {
@@ -172,8 +173,8 @@ public class UserService {
         // 新增绑定
         if (!CollectionUtils.isEmpty(roles)) {
             List<UserRoleRelation> userRoleRelations = roles.stream()
-                                                            .map(e -> UserRoleRelation.getInstance(userId, e))
-                                                            .collect(Collectors.toList());
+                    .map(e -> UserRoleRelation.getInstance(userId, e))
+                    .collect(Collectors.toList());
 
             userRoleRelationRepository.saveAll(userRoleRelations);
         }
@@ -186,8 +187,8 @@ public class UserService {
 
         // 过滤不存在的角色
         return roleRepository.findByCodeIn(roles)
-                             .stream()
-                             .map(Role::getCode)
-                             .collect(Collectors.toList());
+                .stream()
+                .map(Role::getCode)
+                .collect(Collectors.toList());
     }
 }

@@ -40,11 +40,11 @@ public class Producer implements CommandLineRunner {
 
     public void sendObjectMsg() {
         MessageBody messageBody = MessageBody.builder()
-                                             .msgId(1L)
-                                             .text("foo")
-                                             .content("bar")
-                                             .userId(1L)
-                                             .build();
+                .msgId(1L)
+                .text("foo")
+                .content("bar")
+                .userId(1L)
+                .build();
         rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, "msg.foo", messageBody);
     }

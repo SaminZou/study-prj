@@ -46,6 +46,7 @@ public class ParamAndInstanceController {
     /**
      * 入参为 parkCode=test&parkCode=test2&parkCode=test3
      * 打印结果为 test,test2,test3
+     *
      * @param parkCode
      */
     @GetMapping("/multipleSameParams")

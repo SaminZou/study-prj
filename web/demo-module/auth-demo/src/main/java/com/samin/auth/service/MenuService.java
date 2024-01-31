@@ -8,10 +8,6 @@ import com.samin.auth.vo.req.MenuSaveReq;
 import com.samin.auth.vo.req.PageReq;
 import com.samin.auth.vo.resp.MenuResp;
 import com.samin.auth.vo.resp.PageResp;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +16,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * 菜单服务类
@@ -41,15 +42,15 @@ public class MenuService {
      */
     public PageResp<MenuResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
-                                                                             .descending());
+                .descending());
 
         PageResp<Menu> menus = PageResp.success(menuRepository.findAll(pageable));
 
         PageResp<MenuResp> resp = PageResp.baseOf(menus);
         resp.setContent(menus.getContent()
-                             .stream()
-                             .map(MenuResp::getInstance)
-                             .collect(Collectors.toList()));
+                .stream()
+                .map(MenuResp::getInstance)
+                .collect(Collectors.toList()));
 
         return resp;
     }
@@ -66,29 +67,29 @@ public class MenuService {
         }
 
         List<Menu> menus = menuVos.stream()
-                                  .map(e -> {
-                                      Menu menu = null;
-                                      if (Objects.nonNull(e.getId()) && e.getId() != 0) {
-                                          Optional<Menu> menuOptional = menuRepository.findById(e.getId());
+                .map(e -> {
+                    Menu menu = null;
+                    if (Objects.nonNull(e.getId()) && e.getId() != 0) {
+                        Optional<Menu> menuOptional = menuRepository.findById(e.getId());
 
-                                          if (menuOptional.isPresent()) {
-                                              menu = menuOptional.get();
-                                              CopyOptions options = CopyOptions.create()
-                                                                               .ignoreNullValue()
-                                                                               .setIgnoreProperties("code");
-                                              BeanUtil.copyProperties(e, menu, options);
-                                          }
-                                      } else {
-                                          menu = new Menu();
-                                          CopyOptions options = CopyOptions.create()
-                                                                           .ignoreNullValue();
-                                          BeanUtil.copyProperties(e, menu, options);
-                                      }
+                        if (menuOptional.isPresent()) {
+                            menu = menuOptional.get();
+                            CopyOptions options = CopyOptions.create()
+                                    .ignoreNullValue()
+                                    .setIgnoreProperties("code");
+                            BeanUtil.copyProperties(e, menu, options);
+                        }
+                    } else {
+                        menu = new Menu();
+                        CopyOptions options = CopyOptions.create()
+                                .ignoreNullValue();
+                        BeanUtil.copyProperties(e, menu, options);
+                    }
 
-                                      return menu;
-                                  })
-                                  .filter(Objects::nonNull)
-                                  .collect(Collectors.toList());
+                    return menu;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
 
         menuRepository.saveAll(menus);
     }

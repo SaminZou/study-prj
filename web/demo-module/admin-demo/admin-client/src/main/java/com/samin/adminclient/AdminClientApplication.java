@@ -1,12 +1,13 @@
 package com.samin.adminclient;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Slf4j
 @EnableScheduling
@@ -22,6 +23,6 @@ public class AdminClientApplication {
     @Scheduled(cron = "0/5 * * * * ?")
     private void triggerTask() {
         log.info("trigger task：{}", LocalDateTime.now()
-                                                 .format(DTF));
+                .format(DTF));
     }
 }

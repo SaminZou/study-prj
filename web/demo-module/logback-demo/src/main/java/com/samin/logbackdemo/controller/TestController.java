@@ -2,11 +2,12 @@ package com.samin.logbackdemo.controller;
 
 import com.samin.logbackdemo.pojo.BizLogBO;
 import com.samin.logbackdemo.service.TestService;
-import java.time.Instant;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.Instant;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -18,23 +19,23 @@ public class TestController {
     @GetMapping("/test/log_level")
     public void testLogLevel() {
         long startTime = Instant.now()
-                                .toEpochMilli();
+                .toEpochMilli();
         log.trace("trace...");
         log.debug("debug...");
         log.info("info...");
         log.warn("warn...");
 
         BizLogBO bizLog = BizLogBO.builder()
-                                  .id(1L)
-                                  .eventName("testLogLevel")
-                                  .userId("samin")
-                                  .resultMsg("")
-                                  .costTime(Instant.now()
-                                                   .toEpochMilli() - startTime)
-                                  .request("")
-                                  .response("")
-                                  .others("")
-                                  .build();
+                .id(1L)
+                .eventName("testLogLevel")
+                .userId("samin")
+                .resultMsg("")
+                .costTime(Instant.now()
+                        .toEpochMilli() - startTime)
+                .request("")
+                .response("")
+                .others("")
+                .build();
 
         log.error("info: [{}]", bizLog);
 

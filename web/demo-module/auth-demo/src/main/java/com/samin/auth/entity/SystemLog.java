@@ -1,17 +1,14 @@
 package com.samin.auth.entity;
 
 import com.samin.auth.authentication.CustomUserDetails;
-import java.time.LocalDateTime;
-import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
+
+import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -25,7 +22,7 @@ public class SystemLog {
         LocalDateTime now = LocalDateTime.now();
         if (Objects.nonNull(customUserDetails)) {
             ins.setUserId(customUserDetails.getUser()
-                                           .getId());
+                    .getId());
         }
         ins.setClientIpAddress(request.getRemoteAddr());
         ins.setRequestTime(now);

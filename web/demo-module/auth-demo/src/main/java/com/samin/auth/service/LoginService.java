@@ -3,7 +3,6 @@ package com.samin.auth.service;
 import com.samin.auth.authentication.CustomUserDetails;
 import com.samin.auth.util.JwtUtil;
 import com.samin.auth.vo.req.LoginReq;
-import java.util.concurrent.TimeUnit;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
@@ -11,6 +10,8 @@ import org.redisson.api.RedissonClient;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * 登录类
@@ -33,11 +34,11 @@ public class LoginService {
         // 使用 Spring Security 进行认证
         UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null);
         SecurityContextHolder.getContext()
-                             .setAuthentication(authentication);
+                .setAuthentication(authentication);
 
         // save token
         RBucket<CustomUserDetails> userDetailsRedisBucket = redissonClient.getBucket("token:" + userDetails.getUser()
-                                                                                                           .getId());
+                .getId());
         userDetailsRedisBucket.set(userDetails, jwtUtil.getExpiration(), TimeUnit.SECONDS);
         log.info("登录成功：{}", userDetails);
 

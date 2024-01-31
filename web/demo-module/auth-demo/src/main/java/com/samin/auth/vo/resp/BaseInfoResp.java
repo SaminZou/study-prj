@@ -5,8 +5,9 @@ import com.samin.auth.entity.Resource;
 import com.samin.auth.entity.Role;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 基础信息返回

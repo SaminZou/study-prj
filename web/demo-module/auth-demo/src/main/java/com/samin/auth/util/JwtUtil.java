@@ -6,13 +6,14 @@ import com.samin.auth.authentication.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 @Component
@@ -34,10 +35,10 @@ public class JwtUtil {
      */
     private String generateToken(Map<String, Object> claims) {
         return Jwts.builder()
-                   .setClaims(claims)
-                   .setExpiration(generateExpirationDate())
-                   .signWith(SignatureAlgorithm.HS512, secret)
-                   .compact();
+                .setClaims(claims)
+                .setExpiration(generateExpirationDate())
+                .signWith(SignatureAlgorithm.HS512, secret)
+                .compact();
     }
 
     /**
@@ -47,9 +48,9 @@ public class JwtUtil {
         Claims claims = null;
         try {
             claims = Jwts.parser()
-                         .setSigningKey(secret)
-                         .parseClaimsJws(token)
-                         .getBody();
+                    .setSigningKey(secret)
+                    .parseClaimsJws(token)
+                    .getBody();
         } catch (Exception e) {
             log.info("JWT格式验证失败:{}", token);
         }
@@ -121,7 +122,7 @@ public class JwtUtil {
     public String generateToken(CustomUserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>(3);
         claims.put(CLAIM_KEY_ID, userDetails.getUser()
-                                            .getId());
+                .getId());
         claims.put(CLAIM_KEY_USERNAME, userDetails.getUsername());
         claims.put(CLAIM_KEY_CREATED, new Date());
         return generateToken(claims);

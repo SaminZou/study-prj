@@ -2,11 +2,12 @@ package com.samin.tdengine.controller;
 
 import com.samin.tdengine.entity.IotDevice;
 import com.samin.tdengine.service.TDengineDemoService;
-import java.util.List;
-import java.util.Map;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
