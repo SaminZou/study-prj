@@ -2,14 +2,25 @@ package com.samin.usecase.retry.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
 
+/**
+ * 重试服务类
+ * <p>
+ * Description: 重试服务类，需要 @EnableRetry
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2024-02-01
+ */
 @Slf4j
 @Service
+@EnableRetry
 public class RetryService {
 
     private int index = 0;
