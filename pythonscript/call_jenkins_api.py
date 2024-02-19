@@ -1,32 +1,46 @@
-import requests
+import time
 
-def run_jenkins_job(job_name, parameters):
-    jenkins_url = 'http://your_jenkins_url'  # 替换为您的Jenkins实例URL
-    username = 'your_username'  # 替换为您的Jenkins用户名
-    password = 'your_password'  # 替换为您的Jenkins密码或API令牌
+import jenkins
 
-    # 构建API URL
-    api_url = f'{jenkins_url}/job/{job_name}/buildWithParameters'
+# 背景：先调用执行构建镜像任务，待任务执行成功后执行镜像推送到远程仓库任务
 
-    # 构建请求参数
-    params = {
-        'token': 'your_build_token',  # 替换为您的构建令牌
-        'parameter1': parameters['parameter1'],  # 替换为您的任务参数1
-        'parameter2': parameters['parameter2']  # 替换为您的任务参数2
+def execute_jobs():
+    # Jenkins 服务器的 URL、用户名和密码
+    jenkins_url = 'http://jenkins.samin.com'
+    username = 'samin'
+    password = 'smain'
+
+    # 创建 Jenkins 对象
+    server = jenkins.Jenkins(jenkins_url, username=username, password=password)
+
+    # 触发构建镜像
+    job_name1 = 'build/biz-images'
+    parameters1 = {
+        'parameter1': 'master',
+        'parameter2': 'latest'
     }
+    server.build_job(job_name1, parameters1)
 
-    # 发送POST请求
-    response = requests.post(api_url, auth=(username, password), params=params)
+    # API 调用后，Jenkins 任务并没有立即生效，设置缓冲时间
+    time.sleep(10)
 
-    if response.status_code == 201:
-        print(f'Successfully triggered Jenkins job: {job_name}')
-    else:
-        print(f'Failed to trigger Jenkins job: {job_name}. Error: {response.text}')
+    # 轮询检测任务1是否完成
+    job_info1 = server.get_job_info(job_name1)
+    while job_info1['lastBuild']["number"] != job_info1['lastCompletedBuild']["number"]:
+        print(f'Job 【{job_name1}】 is being processed...')
+        time.sleep(3)  # 每 3 秒检测一次
+        job_info1 = server.get_job_info(job_name1)
 
-# 调用任务
-job_name = 'your_job_name'  # 替换为您的任务名称
-parameters = {
-    'parameter1': 'value1',  # 替换为您的任务的参数1值
-    'parameter2': 'value2'  # 替换为您的任务的参数2值
-}
-run_jenkins_job(job_name, parameters)
+    print(f'Job 【{job_name1}】 completed.')
+
+    # 触发推送镜像
+    job_name2 = 'deploy/biz-images'
+    parameters2 = {
+        'parameter1': 'latest'
+    }
+    server.build_job(job_name2, parameters2)
+
+    print(f'Job 【{job_name2}】 completed.')
+
+
+execute_jobs()
