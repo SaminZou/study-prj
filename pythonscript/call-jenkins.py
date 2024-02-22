@@ -4,6 +4,7 @@ import jenkins
 
 # 背景：先调用执行构建镜像任务，待任务执行成功后执行镜像推送到远程仓库任务
 # 使用 Jenkins 团队提供的 python sdk，而不是直接调用 rest api，会使脚本创建更加便捷
+# 需要注意 requests 的版本，低版本会报错
 
 def execute_jobs():
     # Jenkins 服务器的 URL、用户名和密码
