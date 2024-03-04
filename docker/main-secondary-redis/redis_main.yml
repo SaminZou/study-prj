@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    redis_main:
+        container_name: redis_main
+        restart: always
+        image: bitnami/redis:latest
+        command: /opt/bitnami/scripts/redis/run.sh --appendonly yes
+        environment:
+            - "REDIS_REPLICATION_MODE=master"
+            - "REDIS_PASSWORD=master_scp_pwd"
+        volumes:
+            - /mng/data/redis_main:/bitnami/redis/data
+        ports:
+            - 6378:6379

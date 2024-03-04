@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  postgresql-slave:
+    image: 'bitnami/postgresql:13.10.0'
+    ports:
+      - 5431:5432
+    volumes:
+      - '/data/bibt/pg/data:/bitnami/postgresql'
+    environment:
+      - POSTGRESQL_EXTRA_FLAGS='-c 'max_connections=1000''
+      - POSTGRESQL_REPLICATION_MODE=slave
+      - POSTGRESQL_REPLICATION_USER=master_scp
+      - POSTGRESQL_REPLICATION_PASSWORD=master_scp_pwd
+      - POSTGRESQL_MASTER_HOST=192.168.10.10
+      - POSTGRESQL_MASTER_PORT_NUMBER=5432
+      - POSTGRESQL_USERNAME=samin
+      - POSTGRESQL_PASSWORD=samin

@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  postgresql-master:
+    image: 'bitnami/postgresql:13.10.0'
+    ports:
+      - 5431:5432
+    volumes:
+      - '/data/bibt/pg/data:/bitnami/postgresql'
+    environment:
+      POSTGRESQL_EXTRA_FLAGS: -c max_connections=1000
+      POSTGRESQL_REPLICATION_MODE: master
+      POSTGRESQL_REPLICATION_USER: master_scp
+      POSTGRESQL_REPLICATION_PASSWORD: master_scp_pwd
+      POSTGRESQL_USERNAME: samin
+      POSTGRESQL_PASSWORD: samin
+      POSTGRESQL_DATABASE: biz
