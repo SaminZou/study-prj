@@ -20,6 +20,7 @@
         <module>use-case-demo</module>
         <module>maven-demo</module>
         <module>spring-study-demo</module>
+        <module>pdf-generate-demo</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -58,6 +59,12 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
 
