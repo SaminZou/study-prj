@@ -1,6 +1,5 @@
 package com.samin.generator.controller;
 
-import com.itextpdf.text.DocumentException;
 import com.samin.generator.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class ReportController {
     }
 
     @GetMapping("/report2PDF")
-    public void report2PDF() throws IOException, DocumentException {
+    public void report2PDF() throws IOException {
         reportService.report();
     }
 }
