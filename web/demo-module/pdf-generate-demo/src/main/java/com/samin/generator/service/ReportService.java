@@ -18,7 +18,7 @@ public class ReportService {
 
     private final TemplateEngine templateEngine;
 
-    public void report() throws IOException {
+    public String report() throws IOException {
         // 创建Thymeleaf上下文
         Context context = new Context();
         // 设置要传递给Thymeleaf模板的数据（例如，从后端获取的报表数据）
@@ -33,10 +33,10 @@ public class ReportService {
         ITextFontResolver fontResolver = renderer.getFontResolver();
         fontResolver.addFont("static/SimSun.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
-        System.out.println(htmlContent);
-
         renderer.setDocumentFromString(htmlContent);
         renderer.layout();
         renderer.createPDF(Files.newOutputStream(Paths.get("C:\\Users\\samin\\Desktop\\report.pdf")));
+
+        return htmlContent;
     }
 }
