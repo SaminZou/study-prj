@@ -70,6 +70,10 @@ sudo kubectl -n <namespace-name> delete deployment <pod-name>
 
 $ sudo kubectl get node --show-labels
 
+\# node 资源情况
+
+$ kubectl top node
+
 \# 查看 kubelet 的日志
 
 $ journalctl -u kubelet -f
