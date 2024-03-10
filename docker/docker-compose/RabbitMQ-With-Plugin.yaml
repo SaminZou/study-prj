@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    image: bitnami/rabbitmq:3.9.10
+    environment:
+      - "RABBITMQ_USERNAME=samin"
+      - "RABBITMQ_PASSWORD=samin"
+      - "RABBITMQ_PLUGINS=rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_management"
+    volumes:
+      - /mnt/rabbitmq/data:/bitnami
+    ports:
+      - "1883:1883"
+      - "5672:5672"
+      - "15672:15672"
+      - "15675:15675"
