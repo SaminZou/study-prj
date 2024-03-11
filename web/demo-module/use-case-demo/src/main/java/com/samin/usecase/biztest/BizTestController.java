@@ -40,8 +40,8 @@ public class BizTestController {
     public BizResp configData(HttpServletRequest request) throws IOException {
         BizResp resp = new BizResp();
 
-        String uri = request.getRemoteAddr();
-        if (uri.equals("127.0.0.1")) {
+        String ip = request.getRemoteAddr();
+        if (ip.equals("127.0.0.1")) {
             // 内网
             Optional<TableConfig> dataOpt = tableConfigRepository.findFirstByCode("internalConfigData");
             if (dataOpt.isPresent()) {
