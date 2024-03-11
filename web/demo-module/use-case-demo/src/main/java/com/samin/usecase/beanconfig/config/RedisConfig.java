@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.samin.usecase.repo.entity.UserDO;
+import com.samin.usecase.repo.entity.TableUser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -16,14 +16,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String, UserDO> redisTemplate(RedisConnectionFactory factory) {
-        Jackson2JsonRedisSerializer<UserDO> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(UserDO.class);
+    public RedisTemplate<String, TableUser> redisTemplate(RedisConnectionFactory factory) {
+        Jackson2JsonRedisSerializer<TableUser> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(TableUser.class);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
-        RedisTemplate<String, UserDO> template = new RedisTemplate<>();
+        RedisTemplate<String, TableUser> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(jackson2JsonRedisSerializer);
