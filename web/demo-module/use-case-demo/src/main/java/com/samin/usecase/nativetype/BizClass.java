@@ -17,5 +17,5 @@ public class BizClass {
 
     private boolean isExistNativeType;
 
-    private boolean isExistWrapperType;
+    private Boolean isExistWrapperType;
 }
