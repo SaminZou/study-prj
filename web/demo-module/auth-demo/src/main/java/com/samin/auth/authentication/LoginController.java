@@ -1,9 +1,10 @@
-package com.samin.auth.controller;
+package com.samin.auth.authentication;
 
 import com.samin.auth.common.Log;
 import com.samin.auth.service.LoginService;
 import com.samin.auth.vo.base.BaseResp;
 import com.samin.auth.vo.req.LoginReq;
+import com.samin.auth.vo.resp.UserInfoResp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,11 @@ public class LoginController {
     @PostMapping(value = "/login")
     public BaseResp<String> login(@RequestBody LoginReq loginReq) {
         return BaseResp.success(loginService.login(loginReq));
+    }
+
+    @ApiOperation("用户信息控制器")
+    @PostMapping(value = "/user_info")
+    public BaseResp<UserInfoResp> userInfo() {
+        return BaseResp.success(loginService.userInfo());
     }
 }

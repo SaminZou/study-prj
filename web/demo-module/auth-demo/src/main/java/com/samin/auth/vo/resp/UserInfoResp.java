@@ -20,7 +20,7 @@ import java.util.List;
  */
 @ApiModel("基础信息返回")
 @Data
-public class BaseInfoResp {
+public class UserInfoResp {
 
     @ApiModelProperty("角色列表")
     private List<Role> roles;
