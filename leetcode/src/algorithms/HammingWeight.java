@@ -2,6 +2,7 @@ package algorithms;
 
 /**
  * 二进制中1的个数 / 位1的个数
+ * <p>使用此算法实现的数据校验方式叫海明码</p>
  *
  * @author samin
  * @date 2021-01-11
@@ -21,6 +22,7 @@ public class HammingWeight {
         int result = 0;
 
         while (n != 0) {
+            // 如 13 的二进制为 1101，每一次计算都是和 1 进行，不够的位数用 0 补齐，所以结果为 0 或 1，结合 & 的特性可以得出 1 的最终个数
             result += n & 1;
             n = n >>> 1;
         }
