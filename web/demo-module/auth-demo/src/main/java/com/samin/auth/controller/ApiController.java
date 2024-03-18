@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 提供第三方的 API
  * <p>
- * Description: 无认证控制
+ * Description: HttpSecurityConfig 配置绕过认证供第三方使用
  * <p>
  * Created By: Samin
  * <p>
