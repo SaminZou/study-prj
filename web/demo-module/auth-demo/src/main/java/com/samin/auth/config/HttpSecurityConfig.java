@@ -47,8 +47,7 @@ public class HttpSecurityConfig {
                 .cors()
                 .and()
                 .headers()
-                .addHeaderWriter(new StaticHeadersWriter(
-                        Collections.singletonList(new Header("Access-Control-Expose-Headers", "Authorization"))));
+                .addHeaderWriter(new StaticHeadersWriter(Collections.singletonList(new Header("Access-Control-Expose-Headers", "Authorization"))));
 
         http.formLogin()
                 .disable()
@@ -64,11 +63,12 @@ public class HttpSecurityConfig {
                 .antMatchers("/logout")
                 .permitAll()
                 //  swagger2
-                .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/favicon.ico", "/swagger-resources",
-                        "/swagger-resources/**", "/swagger-ui.html", "/swagger-ui.html/**")
+                .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/favicon.ico", "/swagger-resources", "/swagger-resources/**", "/swagger-ui.html", "/swagger-ui.html/**")
                 .permitAll()
                 // TODO temporary use
                 .antMatchers("/user/save")
+                .permitAll()
+                .antMatchers("/api/**")
                 .permitAll()
                 .anyRequest()
                 .access("@permissionService.access()");
