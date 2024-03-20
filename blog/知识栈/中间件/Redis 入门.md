@@ -85,33 +85,33 @@ struct sdshdr {
 
 ### 常用指令
 
-set/get操作
+set / get操作（查看 key 内容）
 
 ```
-> SET citystring BEIJING
-> GET citystring
+> set citystring BEIJING
+> get citystring
 ```
 
 ## Hash
 
-    一般做单点登录，用这种数据结构存储用户信息，以cookiedId为key，设置30分钟超时
+    一般做单点登录，用这种数据结构存储用户信息，以cookiedId 为 key，设置 30 分钟超时
 
-HSET / HGET：一次只能操作一对键值对
+hset / hget：一次只能操作一对键值对
 
-HMSET / HMGET：一次可以操作多对键值对
+hmset / hmget：一次可以操作多对键值对
 
 ```
-> HSET testmap A 10
-> HGET testmap A
+> hset testmap A 10
+> hget testmap A
 
->HMSET testmap A 10 B 20 C 30
->HGET testmap A C
+> hmset testmap A 10 B 20 C 30
+> hget testmap A C
 
-> HGETALL testmap
+> hgetall testmap
 
-> HDEL testmap B
+> hdel testmap B
 
-> DEL testmap
+> del testmap
 ```
 
 ## List
@@ -161,11 +161,11 @@ typedef struct list {
 ### 常用指令
 
 ```
-> LPUSH citylist BEIJING SHANGHAI
-> RPUSH citylist SHENZHEN GUANGZHOU
-> LRANGE citylist 0 10
+> lpush citylist BEIJING SHANGHAI
+> rpush citylist SHENZHEN GUANGZHOU
+> lrange citylist 0 10
 # 获取长度
-> LLEN citylsit
+> llen citylsit
 ```
 
 ## Set
@@ -173,42 +173,42 @@ typedef struct list {
 集群部署中用作全局去重
 
 ```
-> SADD cityset SHENZHEN GUANGZHOU
-> SADD cityset SHENZHEN GUANGZHOU
-> SMEMBERS cityset
+> sadd cityset SHENZHEN GUANGZHOU
+> sadd cityset SHENZHEN GUANGZHOU
+> smembers cityset
 # 获取成员数
-> SCARD cityset
+> scard cityset
 # 判断是否是集合成员
-> SISMEMBER cityset SHENZHEN
+> sismember cityset SHENZHEN
 ```
 
 ## Sorted Set
 
-有Score权重参数，集合中的元素安装Score排序，可以用来做排行榜、延时任务、范围查找
+有 Score 权重参数，集合中的元素安装 Score 排序，可以用来做排行榜、延时任务、范围查找
 
 ```
-> ZADD cityzset 1 BEIJING
-> ZADD cityzset 2 SHANGHAI
-> ZADD cityzset 3 GUANGZHOU
+> zadd cityzset 1 BEIJING
+> zadd cityzset 2 SHANGHAI
+> zadd cityzset 3 GUANGZHOU
 # 获取成员数
-> ZCARD cityzset
+> zcard cityzset
 # 计算区间内的成员
-> ZCOUNT cityzset 1 2
+> zcount cityzset 1 2
 # 增加计数，键为"BEIJING"的值加上5
-> ZINCRBY cityzset 5 BEIJING
+> zincrby cityzset 5 BEIJING
 # 返回分数区间的数据
-> ZRANGE cityzset 0 100
+> zrange cityzset 0 100
 ```
 
 # 设置和查询超时时间
 
 \# 设置超时时间（单位秒）
 
-$ EXPIRE testkey 10
+$ expire testkey 10
 
 \# 查询超时时间
 
-$ TTL testkey
+$ ttl testkey
 
 # 常用指令
 
@@ -513,7 +513,6 @@ save [time] [keyNums]
 ### AOF
 
 appendfsync no | everysec | always # 不同步 | 每秒同步一次 | 每次有数据修改发生时都写入AOF文件
-
 
 ### 对比
 
