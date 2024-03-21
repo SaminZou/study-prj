@@ -76,7 +76,7 @@ public class TreeData implements Comparable<TreeData> {
 
     @Override
     public int compareTo(TreeData tree) {
-        //升序
+        // 升序
         return this.order - tree.order;
     }
 
