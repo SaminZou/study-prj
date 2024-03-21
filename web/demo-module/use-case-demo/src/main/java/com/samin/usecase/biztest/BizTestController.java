@@ -3,11 +3,13 @@ package com.samin.usecase.biztest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -21,6 +23,7 @@ import java.util.Optional;
  * <p>
  * Created Date: 2024-03-11
  */
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class BizTestController {
@@ -38,6 +41,14 @@ public class BizTestController {
      */
     @GetMapping("/biz/config_data")
     public BizResp configData(HttpServletRequest request) throws IOException {
+        // 排查问题时遍历打印所有 header
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            String headerValue = request.getHeader(headerName);
+            log.info("请求头[{}]: [{}]", headerName, headerValue);
+        }
+
         BizResp resp = new BizResp();
 
         String ip = request.getRemoteAddr();
