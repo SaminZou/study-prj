@@ -9,3 +9,8 @@ target
 logs
 libtaos.so.*
 TDengine-client-2.4.0.5-Linux-x64.tar.gz
+.gradle
+build
+gradle
+gradlew
+gradlew.bat
