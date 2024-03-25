@@ -28,10 +28,10 @@ public class Job {
     private String description;
 
     /**
-     * 业务应用编码
+     * 执行方法编码
      */
-    @Comment("业务应用编码")
-    private String appCode;
+    @Comment("执行方法编码")
+    private String actionCode;
 
     /**
      * 周期表达式
