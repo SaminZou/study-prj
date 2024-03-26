@@ -1,6 +1,6 @@
-package com.samin.jobcenter.repository;
+package com.samin.jobserver.repository;
 
-import com.samin.jobcenter.entity.Job;
+import com.samin.jobserver.entity.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;

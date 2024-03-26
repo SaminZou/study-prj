@@ -1,1 +1,3 @@
 rootProject.name = 'job-center'
+include 'job-sdk'
+include 'job-server'

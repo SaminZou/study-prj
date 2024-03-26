@@ -1,10 +1,10 @@
-package com.samin.jobcenter.service;
+package com.samin.jobserver.service;
 
-import com.samin.jobcenter.bean.JobDTO;
-import com.samin.jobcenter.entity.Job;
-import com.samin.jobcenter.entity.JobLog;
-import com.samin.jobcenter.repository.JobLogRepository;
-import com.samin.jobcenter.repository.JobRepository;
+import com.samin.jobsdk.bean.JobDTO;
+import com.samin.jobserver.entity.Job;
+import com.samin.jobserver.entity.JobLog;
+import com.samin.jobserver.repository.JobLogRepository;
+import com.samin.jobserver.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -56,11 +56,13 @@ public class JobGenerateService {
             job.setProcessTime(next);
             jobRepository.save(job);
 
+            // 生成日志
             JobLog log = new JobLog();
             log.setJobId(job.getId());
             log.setResult(false);
             jobLogRepository.save(log);
 
+            // 推送任务
             JobDTO dto = new JobDTO();
             dto.setLogId(log.getId());
             dto.setProcessTime(now);

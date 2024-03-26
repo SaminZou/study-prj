@@ -1,0 +1,15 @@
+group = 'com.samin'
+version = 'v1.0.0'
+
+java {
+    sourceCompatibility = '11'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+dependencies {
+    
+}

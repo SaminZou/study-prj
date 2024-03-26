@@ -1,6 +1,6 @@
 spring:
   application:
-    name: job-center
+    name: job-server
   datasource:
     url: jdbc:mysql://samin.local:3306/job?useUnicode=true&characterEncoding=utf-8
     username: root

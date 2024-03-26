@@ -1,4 +1,4 @@
-package com.samin.jobcenter.entity;
+package com.samin.jobserver.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.Comment;
