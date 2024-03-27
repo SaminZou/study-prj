@@ -16,28 +16,28 @@ public class TimestampUseCase {
         // 根据系统时间返回当前时间并设置为 UTC
         System.out.println(Clock.systemUTC());
         System.out.println(Clock.systemUTC()
-                                .millis());
+                .millis());
 
         // 根据系统时钟区域返回时间
         System.out.println(Clock.systemDefaultZone());
         System.out.println(Clock.systemDefaultZone()
-                                .millis());
+                .millis());
 
         // 毫秒
         System.out.println(Instant.now()
-                                  .toEpochMilli());
+                .toEpochMilli());
         // 秒数部分
-        System.out.println(Instant.now()
-                                  .getEpochSecond());
+        System.out.println("秒：" + Instant.now()
+                .getEpochSecond());
         // 纳秒部分
         System.out.println(Instant.now()
-                                  .getNano());
+                .getNano());
 
         // 统计代码执行时间
         long startTime = Instant.now()
-                                .toEpochMilli();
+                .toEpochMilli();
         Thread.sleep(3000L);
         System.out.println("执行时间为：" + ((Instant.now()
-                                                    .toEpochMilli() - startTime) / 1000L));
+                .toEpochMilli() - startTime) / 1000L));
     }
 }
