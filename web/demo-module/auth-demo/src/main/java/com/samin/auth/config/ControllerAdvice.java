@@ -28,7 +28,7 @@ public class ControllerAdvice {
     @ExceptionHandler(BusException.class)
     @ResponseStatus(HttpStatus.OK)
     public BaseResp<Void> runtimeException(BusException e) {
-        log.error("DmpBusException：", e);
+        log.error("BusException：", e);
         return BaseResp.fail(e.getCode(), e.getMessage());
     }
 }
