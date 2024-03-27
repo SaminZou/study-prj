@@ -1,6 +1,7 @@
 package com.samin.jobserver.service;
 
-import com.samin.jobsdk.bean.JobDTO;
+import com.samin.jobsdk.SystemConstant;
+import com.samin.jobsdk.bean.JobDto;
 import com.samin.jobserver.entity.Job;
 import com.samin.jobserver.entity.JobLog;
 import com.samin.jobserver.repository.JobLogRepository;
@@ -13,6 +14,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.support.CronExpression;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -39,13 +41,14 @@ public class JobGenerateService {
     /**
      * 执行定时任务，精度为 5 秒一次
      */
+    @Transactional
     @Scheduled(cron = "0/5 * * * * *")
     public void processJob() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         log.info("process job {}", dtf.format(now));
 
-        List<Job> list = jobRepository.findByProcessTimeAfter(now);
+        List<Job> list = jobRepository.findByProcessTimeBefore(now);
         for (Job job : list) {
             log.info("process job {} {} {}", job.getName(), job.getActionCode(), job.getParamJson());
 
@@ -63,12 +66,12 @@ public class JobGenerateService {
             jobLogRepository.save(log);
 
             // 推送任务
-            JobDTO dto = new JobDTO();
+            JobDto dto = new JobDto();
             dto.setLogId(log.getId());
             dto.setProcessTime(now);
             dto.setActionCode(job.getActionCode());
             dto.setParamJson(job.getParamJson());
-            rabbitTemplate.convertAndSend("job-exchange", job.getName(), dto);
+            rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.ROUTING_KEY, dto);
         }
     }
 }

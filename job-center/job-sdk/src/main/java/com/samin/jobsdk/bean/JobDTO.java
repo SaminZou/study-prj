@@ -5,7 +5,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class JobDTO {
+public class JobDto {
 
     private Integer logId;
 
