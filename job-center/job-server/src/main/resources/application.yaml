@@ -1,3 +1,6 @@
+server:
+  port: 8089
+
 spring:
   application:
     name: job-server

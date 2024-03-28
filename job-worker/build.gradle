@@ -2,12 +2,20 @@ subprojects {
     apply plugin: 'java'
 
     repositories {
-       mavenCentral()
+        mavenCentral()
+        maven {
+            allowInsecureProtocol true
+            url = "http://samin.local:8081/repository/maven-releases/"
+            credentials {
+                username = 'admin'
+                password = 'admin'
+            }
+        }
     }
 
     dependencies {
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+        compileOnly 'org.projectlombok:lombok:1.18.24'
+        annotationProcessor 'org.projectlombok:lombok:1.18.24'
     }
 
     version = 'v1.0.0'
