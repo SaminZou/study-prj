@@ -1,7 +1,7 @@
 version: "3.6"
 
 services:
-  # 启动等待时间较长
+  # 启动等待时间较长（本人服务器启动接近 20 分钟）
   nexus3:
     container_name: nexus3
     restart: always
