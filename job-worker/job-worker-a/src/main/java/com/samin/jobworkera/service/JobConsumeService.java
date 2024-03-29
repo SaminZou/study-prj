@@ -12,6 +12,6 @@ public class JobConsumeService {
 
     @RabbitListener(queues = SystemConstant.QUEUE_NAME)
     public void onMessage(JobDto job) {
-        log.info("定时任务：{},{},{},{}", job.getLogId(), job.getActionCode(), job.getParamJson(), job.getProcessTime());
+        log.info("定时任务：日志 ID：{},执行码：{},参数：{},执行时间：{}", job.getLogId(), job.getActionCode(), job.getParamJson(), job.getProcessTime());
     }
 }

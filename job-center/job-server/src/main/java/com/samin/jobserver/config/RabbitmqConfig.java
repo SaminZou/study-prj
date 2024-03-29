@@ -23,7 +23,7 @@ public class RabbitmqConfig {
      */
     @Bean
     Queue queue() {
-        return new Queue(SystemConstant.QUEUE_NAME, false);
+        return new Queue(SystemConstant.JOB_QUEUE_NAME, false);
     }
 
     /**
@@ -47,7 +47,7 @@ public class RabbitmqConfig {
     Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue)
                 .to(exchange)
-                .with(SystemConstant.ROUTING_KEY);
+                .with(SystemConstant.JOB_ROUTING_KEY);
     }
 
     /**
