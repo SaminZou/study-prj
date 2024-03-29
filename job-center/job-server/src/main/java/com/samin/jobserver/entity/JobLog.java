@@ -50,4 +50,10 @@ public class JobLog {
      */
     @Comment("创建时间")
     private LocalDateTime createTime;
+
+    /**
+     * 更新时间
+     */
+    @Comment("更新时间")
+    private LocalDateTime updateTime;
 }

@@ -26,6 +26,11 @@ public class RabbitmqConfig {
         return new Queue(SystemConstant.JOB_QUEUE_NAME, false);
     }
 
+    @Bean
+    Queue callBackQueue() {
+        return new Queue(SystemConstant.JOB_CALLBACK_QUEUE_NAME, false);
+    }
+
     /**
      * 新建交换机
      *
@@ -39,16 +44,22 @@ public class RabbitmqConfig {
     /**
      * 绑定队列和交换机
      *
-     * @param queue    队列
-     * @param exchange 交换机
      * @return bean
      */
     @Bean
-    Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue)
-                .to(exchange)
+    Binding binding() {
+        return BindingBuilder.bind(queue())
+                .to(exchange())
                 .with(SystemConstant.JOB_ROUTING_KEY);
     }
+
+    @Bean
+    Binding callBackBinding() {
+        return BindingBuilder.bind(callBackQueue())
+                .to(exchange())
+                .with(SystemConstant.JOB_CALLBACK_ROUTING_KEY);
+    }
+
 
     /**
      * 必须添加 Jackson 转换器，否则无法转换接收实体类
