@@ -35,6 +35,6 @@ public class JobConsumeService {
         }
 
         jobCallbackDto.setEndTime(LocalDateTime.now());
-        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.JOB_ROUTING_KEY, jobCallbackDto);
+        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.JOB_CALLBACK_ROUTING_KEY, jobCallbackDto);
     }
 }

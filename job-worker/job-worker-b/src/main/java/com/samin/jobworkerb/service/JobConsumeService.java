@@ -19,7 +19,7 @@ public class JobConsumeService {
     private final RabbitTemplate rabbitTemplate;
 
     @RabbitListener(queues = SystemConstant.JOB_QUEUE_NAME)
-    public void onMessage(JobDto job) {
+    public void onMessage(JobDto job) throws InterruptedException {
         log.info("定时任务：日志 ID：{},执行码：{},参数：{},执行时间：{}", job.getLogId(), job.getActionCode(), job.getParamJson(), job.getProcessTime());
 
         JobCallbackDto jobCallbackDto = new JobCallbackDto();
@@ -29,12 +29,13 @@ public class JobConsumeService {
 
         try {
             // TODO process business
+            Thread.sleep(2000);
         } catch (Exception e) {
             jobCallbackDto.setResult(false);
             jobCallbackDto.setErrorMsg(e.getMessage());
         }
 
         jobCallbackDto.setEndTime(LocalDateTime.now());
-        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.JOB_ROUTING_KEY, jobCallbackDto);
+        rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.JOB_CALLBACK_ROUTING_KEY, jobCallbackDto);
     }
 }
