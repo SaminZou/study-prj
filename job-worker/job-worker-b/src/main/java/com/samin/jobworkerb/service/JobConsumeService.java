@@ -18,7 +18,7 @@ public class JobConsumeService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    @RabbitListener(queues = SystemConstant.JOB_QUEUE_NAME)
+    @RabbitListener(queues = "#{queue.name}")
     public void onMessage(JobDto job) throws InterruptedException {
         log.info("定时任务：日志 ID：{},执行码：{},参数：{},执行时间：{}", job.getLogId(), job.getActionCode(), job.getParamJson(), job.getProcessTime());
 

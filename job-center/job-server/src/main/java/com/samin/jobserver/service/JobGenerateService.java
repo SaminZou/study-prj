@@ -71,7 +71,7 @@ public class JobGenerateService {
             dto.setProcessTime(now);
             dto.setActionCode(job.getActionCode());
             dto.setParamJson(job.getParamJson());
-            rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, SystemConstant.JOB_ROUTING_KEY, dto);
+            rabbitTemplate.convertAndSend(SystemConstant.TOPIC_EXCHANGE_NAME, job.getAppCode() + SystemConstant.JOB_ROUTING_KEY, dto);
         }
     }
 }

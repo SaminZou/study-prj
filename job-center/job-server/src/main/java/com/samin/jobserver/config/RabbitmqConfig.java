@@ -16,16 +16,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitmqConfig {
 
-    /**
-     * 新建队列
-     *
-     * @return bean
-     */
-    @Bean
-    Queue queue() {
-        return new Queue(SystemConstant.JOB_QUEUE_NAME, false);
-    }
-
     @Bean
     Queue callBackQueue() {
         return new Queue(SystemConstant.JOB_CALLBACK_QUEUE_NAME, false);
@@ -41,25 +31,12 @@ public class RabbitmqConfig {
         return new TopicExchange(SystemConstant.TOPIC_EXCHANGE_NAME);
     }
 
-    /**
-     * 绑定队列和交换机
-     *
-     * @return bean
-     */
-    @Bean
-    Binding binding() {
-        return BindingBuilder.bind(queue())
-                .to(exchange())
-                .with(SystemConstant.JOB_ROUTING_KEY);
-    }
-
     @Bean
     Binding callBackBinding() {
         return BindingBuilder.bind(callBackQueue())
                 .to(exchange())
                 .with(SystemConstant.JOB_CALLBACK_ROUTING_KEY);
     }
-
 
     /**
      * 必须添加 Jackson 转换器，否则无法转换接收实体类

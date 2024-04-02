@@ -28,6 +28,12 @@ public class Job {
     private String description;
 
     /**
+     * 执行器编码
+     */
+    @Comment("执行器编码")
+    private String appCode;
+
+    /**
      * 执行方法编码
      */
     @Comment("执行方法编码")
