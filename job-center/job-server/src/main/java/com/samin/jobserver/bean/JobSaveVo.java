@@ -15,6 +15,8 @@ public class JobSaveVo {
 
     private String description;
 
+    private String appCode;
+
     private String actionCode;
 
     private String cron;

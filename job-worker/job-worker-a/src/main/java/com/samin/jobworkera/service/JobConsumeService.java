@@ -3,10 +3,12 @@ package com.samin.jobworkera.service;
 import com.samin.jobsdk.SystemConstant;
 import com.samin.jobsdk.bean.JobCallbackDto;
 import com.samin.jobsdk.bean.JobDto;
+import com.samin.jobsdk.itf.JobWorker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,6 +19,7 @@ import java.time.LocalDateTime;
 public class JobConsumeService {
 
     private final RabbitTemplate rabbitTemplate;
+    private final ApplicationContext applicationContext;
 
     /**
      * 使用动态的队列名
@@ -33,7 +36,8 @@ public class JobConsumeService {
         jobCallbackDto.setStartTime(LocalDateTime.now());
 
         try {
-            // TODO process business
+            JobWorker worker = (JobWorker) applicationContext.getBean(job.getActionCode());
+            worker.action();
         } catch (Exception e) {
             jobCallbackDto.setResult(false);
             jobCallbackDto.setErrorMsg(e.getMessage());
