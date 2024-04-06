@@ -1,8 +1,11 @@
 package com.samin.jobworkerb.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.samin.jobsdk.SystemConstant;
 import com.samin.jobsdk.bean.JobCallbackDto;
 import com.samin.jobsdk.bean.JobDto;
+import com.samin.jobworkerb.bean.ParamBo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -19,10 +22,15 @@ public class JobConsumeService {
 
     private final RabbitTemplate rabbitTemplate;
     private final ApplicationContext applicationContext;
+    private final ObjectMapper objectMapper;
 
     @RabbitListener(queues = "#{queue.name}")
-    public void onMessage(JobDto job) throws InterruptedException {
+    public void onMessage(JobDto job) throws JsonProcessingException {
         log.info("定时任务：日志 ID：{},执行码：{},参数：{},执行时间：{}", job.getLogId(), job.getActionCode(), job.getParamJson(), job.getProcessTime());
+
+        // parse param object
+        ParamBo paramBo = objectMapper.readValue(job.getParamJson(), ParamBo.class);
+        log.info("定时任务参数为：{}", paramBo);
 
         JobCallbackDto jobCallbackDto = new JobCallbackDto();
         jobCallbackDto.setLogId(job.getLogId());
