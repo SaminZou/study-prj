@@ -4,5 +4,5 @@ import com.samin.jobsdk.exception.JobException;
 
 public interface JobWorker {
 
-    String action() throws JobException;
+    String action(String param) throws JobException;
 }

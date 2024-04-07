@@ -37,7 +37,7 @@ public class JobConsumeService {
 
         try {
             JobWorker worker = (JobWorker) applicationContext.getBean(job.getActionCode());
-            worker.action();
+            worker.action(job.getParamJson());
         } catch (Exception e) {
             jobCallbackDto.setResult(false);
             jobCallbackDto.setErrorMsg(e.getMessage());
