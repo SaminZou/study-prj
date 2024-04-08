@@ -1,5 +1,6 @@
 package com.samin.jobserver.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 
@@ -50,6 +51,20 @@ public class Job {
      */
     @Comment("参数，json 字符串")
     private String paramJson;
+
+    /**
+     * 是否删除（0：否，1：是）
+     */
+    @Comment("是否删除（0：否，1：是）")
+    @JsonProperty("isDelete")
+    private Integer isDelete;
+
+    /**
+     * 是否停用（0：否，1：是）
+     */
+    @Comment("是否停用（0：否，1：是）")
+    @JsonProperty("isEnable")
+    private Integer isEnable;
 
     /**
      * 执行时间

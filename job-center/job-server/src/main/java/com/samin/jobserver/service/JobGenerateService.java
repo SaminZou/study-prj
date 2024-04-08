@@ -48,6 +48,7 @@ public class JobGenerateService {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         log.info("process job {}", dtf.format(now));
 
+        // TODO 控制 is_enable 和 is_delete
         List<Job> list = jobRepository.findByProcessTimeBefore(now);
         for (Job job : list) {
             log.info("process job {} {} {}", job.getName(), job.getActionCode(), job.getParamJson());

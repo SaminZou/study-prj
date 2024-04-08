@@ -5,6 +5,7 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
 import com.samin.jobserver.bean.JobSaveVo;
 import com.samin.jobserver.entity.Job;
+import com.samin.jobserver.exception.BusException;
 import com.samin.jobserver.exception.ExceptionEnums;
 import com.samin.jobserver.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,7 @@ public class JobService {
         Job job;
         // update
         if (Objects.nonNull(req.getId())) {
-            Optional<Job> jobOptional = jobRepository.findById(req.getId());
-
+            Optional<Job> jobOptional = getJob(req.getId());
             if (jobOptional.isPresent()) {
                 job = jobOptional.get();
                 CopyOptions options = CopyOptions.create()
@@ -36,7 +36,7 @@ public class JobService {
                 BeanUtil.copyProperties(req, job, options);
                 job.setUpdateTime(now);
 
-                if (StrUtil.isNotBlank(req.getCron())){
+                if (StrUtil.isNotBlank(req.getCron())) {
                     CronExpression exp = CronExpression.parse(job.getCron());
                     LocalDateTime next = exp.next(now);
                     job.setProcessTime(next);
@@ -71,5 +71,33 @@ public class JobService {
         }
 
         return req;
+    }
+
+    public void disable(Integer id) {
+        Optional<Job> jobOptional = getJob(id);
+        if (jobOptional.isPresent()) {
+            Job job = jobOptional.get();
+            job.setIsEnable(0);
+            job.setUpdateTime(LocalDateTime.now());
+            jobRepository.save(job);
+        } else {
+            ExceptionEnums.throwException(ExceptionEnums.JOB_NOT_EXIST_ERROR);
+        }
+    }
+
+    public void delete(Integer id) {
+        Optional<Job> jobOptional = getJob(id);
+        if (jobOptional.isPresent()) {
+            Job job = jobOptional.get();
+            job.setIsDelete(1);
+            job.setUpdateTime(LocalDateTime.now());
+            jobRepository.save(job);
+        } else {
+            ExceptionEnums.throwException(ExceptionEnums.JOB_NOT_EXIST_ERROR);
+        }
+    }
+
+    private Optional<Job> getJob(Integer id) throws BusException {
+        return jobRepository.findById(id);
     }
 }
