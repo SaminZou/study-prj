@@ -18,7 +18,7 @@ public class BizBJob implements JobWorker {
     private final ObjectMapper objectMapper;
 
     @Override
-    public String action(String param) throws JobException {
+    public void action(String param) throws JobException {
         log.info("biz2Job is working...");
 
         try {
@@ -32,6 +32,5 @@ public class BizBJob implements JobWorker {
         } catch (InterruptedException | JsonProcessingException e) {
             throw new JobException(e.getMessage());
         }
-        return null;
     }
 }

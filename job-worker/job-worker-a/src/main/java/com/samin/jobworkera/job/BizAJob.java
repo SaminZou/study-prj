@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class BizAJob implements JobWorker {
 
     @Override
-    public String action(String param) throws JobException {
+    public void action(String param) throws JobException {
         log.info("biz1Job is working...");
         throw new JobException("biz 执行失败");
     }
