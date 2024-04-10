@@ -5,14 +5,18 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
 import com.samin.jobserver.bean.JobSaveVo;
 import com.samin.jobserver.entity.Job;
+import com.samin.jobserver.entity.JobLog;
 import com.samin.jobserver.exception.BusException;
 import com.samin.jobserver.exception.ExceptionEnums;
+import com.samin.jobserver.repository.JobLogRepository;
 import com.samin.jobserver.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.support.CronExpression;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -21,6 +25,28 @@ import java.util.Optional;
 public class JobService {
 
     private final JobRepository jobRepository;
+    private final JobLogRepository jobLogRepository;
+
+    public List<Job> getList(LocalDateTime now) {
+        return jobRepository.findByProcessTimeBeforeAndIsDeleteAndIsEnable(now, 0, 1);
+    }
+
+    @Transactional
+    public JobLog generateJobLog(Job job, LocalDateTime now) {
+        // 任务下次执行时间
+        CronExpression exp = CronExpression.parse(job.getCron());
+        LocalDateTime next = exp.next(now);
+        job.setProcessTime(next);
+        jobRepository.save(job);
+
+        // 生成日志
+        JobLog log = new JobLog();
+        log.setJobId(job.getId());
+        log.setResult(false);
+        jobLogRepository.save(log);
+
+        return log;
+    }
 
     public JobSaveVo save(JobSaveVo req) {
         LocalDateTime now = LocalDateTime.now();
