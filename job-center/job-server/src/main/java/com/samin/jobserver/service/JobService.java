@@ -51,7 +51,7 @@ public class JobService {
 
             // insert
         } else {
-            Optional<Job> jobOptional = jobRepository.findByName(req.getName());
+            Optional<Job> jobOptional = jobRepository.findByNameAndIsDelete(req.getName(), 0);
 
             if (jobOptional.isPresent()) {
                 ExceptionEnums.throwException(ExceptionEnums.JOB_EXIST_ERROR);

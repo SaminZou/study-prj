@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface JobRepository extends JpaRepository<Job, Integer> {
 
-    List<Job> findByProcessTimeBefore(LocalDateTime localDateTime);
+    List<Job> findByProcessTimeBeforeAndIsDeleteAndIsEnable(LocalDateTime localDateTime, Integer isDelete, Integer isEnable);
 
-    Optional<Job> findByName(String name);
+    Optional<Job> findByNameAndIsDelete(String name, Integer isDelete);
 }
