@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
 import com.samin.jobadmin.bean.JobSaveVo;
+import com.samin.jobadmin.bean.JobVo;
 import com.samin.jobadmin.entity.Job;
 import com.samin.jobadmin.exception.BusException;
 import com.samin.jobadmin.exception.ExceptionEnums;
@@ -13,14 +14,23 @@ import org.springframework.scheduling.support.CronExpression;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class JobService {
 
     private final JobRepository jobRepository;
+
+    public List<JobVo> list() {
+        List<Job> jobs = jobRepository.findByIsDeleteAndIsEnable(0, 1);
+        return jobs.stream()
+                .map(JobVo::getInstance)
+                .collect(Collectors.toList());
+    }
 
     public JobSaveVo save(JobSaveVo req) {
         LocalDateTime now = LocalDateTime.now();
