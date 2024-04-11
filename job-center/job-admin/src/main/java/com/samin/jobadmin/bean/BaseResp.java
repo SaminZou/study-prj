@@ -1,4 +1,4 @@
-package com.samin.jobserver.bean;
+package com.samin.jobadmin.bean;
 
 import lombok.Data;
 

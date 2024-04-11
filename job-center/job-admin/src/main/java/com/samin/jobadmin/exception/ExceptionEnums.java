@@ -1,4 +1,4 @@
-package com.samin.jobserver.exception;
+package com.samin.jobadmin.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

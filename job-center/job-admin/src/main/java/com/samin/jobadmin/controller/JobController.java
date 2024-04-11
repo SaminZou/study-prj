@@ -1,8 +1,8 @@
-package com.samin.jobserver.controller;
+package com.samin.jobadmin.controller;
 
-import com.samin.jobserver.bean.BaseResp;
-import com.samin.jobserver.bean.JobSaveVo;
-import com.samin.jobserver.service.JobService;
+import com.samin.jobadmin.bean.BaseResp;
+import com.samin.jobadmin.bean.JobSaveVo;
+import com.samin.jobadmin.service.JobService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

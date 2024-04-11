@@ -21,11 +21,8 @@ repositories {
 
 dependencies {
     implementation project(':job-sdk')
-    implementation 'org.springframework.boot:spring-boot-starter-amqp:2.7.5'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.5'
-    implementation 'org.springframework.boot:spring-boot-starter:2.7.5'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.5'
     implementation 'cn.hutool:hutool-all:5.8.14'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     runtimeOnly 'mysql:mysql-connector-java:8.0.30'

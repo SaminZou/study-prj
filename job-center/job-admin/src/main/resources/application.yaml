@@ -1,3 +1,6 @@
+server:
+  port: 8089
+
 spring:
   application:
     name: job-server
@@ -10,15 +13,3 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  rabbitmq:
-    host: samin.local
-    port: 5672
-    username: job
-    password: job
-    virtual-host: job
-    listener:
-      simple:
-        prefetch: 1
-        default-requeue-rejected: false
-        concurrency: 1
-        max-concurrency: 10
