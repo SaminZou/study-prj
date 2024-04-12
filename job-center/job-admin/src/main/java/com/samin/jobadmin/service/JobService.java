@@ -5,19 +5,22 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import cn.hutool.core.util.StrUtil;
 import com.samin.jobadmin.bean.JobSaveVo;
 import com.samin.jobadmin.bean.JobVo;
+import com.samin.jobadmin.bean.PageReq;
 import com.samin.jobadmin.entity.Job;
 import com.samin.jobadmin.exception.BusException;
 import com.samin.jobadmin.exception.ExceptionEnums;
 import com.samin.jobadmin.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.scheduling.support.CronExpression;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,11 +28,11 @@ public class JobService {
 
     private final JobRepository jobRepository;
 
-    public List<JobVo> list() {
-        List<Job> jobs = jobRepository.findByIsDeleteAndIsEnable(0, 1);
-        return jobs.stream()
-                .map(JobVo::getInstance)
-                .collect(Collectors.toList());
+    public Page<JobVo> page(PageReq req) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
+        Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), sort);
+        Page<Job> jobs = jobRepository.findByIsDeleteAndIsEnable(pageable, 0, 1);
+        return jobs.map(JobVo::getInstance);
     }
 
     public JobSaveVo save(JobSaveVo req) {

@@ -3,11 +3,11 @@ package com.samin.jobadmin.controller;
 import com.samin.jobadmin.bean.BaseResp;
 import com.samin.jobadmin.bean.JobSaveVo;
 import com.samin.jobadmin.bean.JobVo;
+import com.samin.jobadmin.bean.PageReq;
 import com.samin.jobadmin.service.JobService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/job")
@@ -16,9 +16,9 @@ public class JobController {
 
     private final JobService jobService;
 
-    @GetMapping("/list")
-    public BaseResp<List<JobVo>> list() {
-        return BaseResp.success(jobService.list());
+    @GetMapping("/page")
+    public BaseResp<Page<JobVo>> page(PageReq req) {
+        return BaseResp.success(jobService.page(req));
     }
 
     @PostMapping("/save")
