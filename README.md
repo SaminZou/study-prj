@@ -4,11 +4,9 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
-分享如何总结归纳知识栈，为开发者提供一些启发
+分享知识栈总结归纳，为开发者提供一些启发，同时给世界留下点什么。
 
-Share how to summarize the knowledge stack in learning, provide some inspiration for developers
-
-**Learn how to learn**
+Share a summary of the knowledge stack, provide some inspiration for developers, and leave something to the world.
 
 > Author **Samin**
 >
@@ -33,6 +31,8 @@ Share how to summarize the knowledge stack in learning, provide some inspiration
 设计模式共23种（大部分文献也有24种的说法，增加了空对象模式），常用一定要掌握的设计模式：单例模式、工厂模式、抽象工厂模式、策略模式、装饰模式、适配器模式、桥接模式、观察者模式
 
 # 3 codetips 📕
+
+**Learn how to study**
 
 编码中需要注意的地方，以及遇到的一些坑，旨在建造一个丰富的案例库
 
@@ -70,7 +70,11 @@ Share how to summarize the knowledge stack in learning, provide some inspiration
 
 # 5 web
 
-Java Web Demo
+Java Web demo
+
+# 6 insight
+
+// TODO 一些想法实现 
 
 # FAQ
 
