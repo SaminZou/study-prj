@@ -28,7 +28,7 @@ public class JobService {
 
     private final JobRepository jobRepository;
 
-    public Page<JobVo> page(PageReq req) {
+    public Page<JobVo> page(PageReq<Void> req) {
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), sort);
         Page<Job> jobs = jobRepository.findByIsDeleteAndIsEnable(pageable, 0, 1);

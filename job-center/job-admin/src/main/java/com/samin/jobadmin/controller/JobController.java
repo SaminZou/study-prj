@@ -16,8 +16,10 @@ public class JobController {
 
     private final JobService jobService;
 
+    // TODO 测试入参接收情况
+    // TODO 重新封装 PageResp
     @GetMapping("/page")
-    public BaseResp<Page<JobVo>> page(PageReq req) {
+    public BaseResp<Page<JobVo>> page(PageReq<Void> req) {
         return BaseResp.success(jobService.page(req));
     }
 
