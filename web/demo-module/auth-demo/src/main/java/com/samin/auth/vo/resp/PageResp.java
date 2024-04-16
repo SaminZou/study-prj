@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Data
 public class PageResp<T> extends BaseResp<Page<T>> {
@@ -27,15 +29,17 @@ public class PageResp<T> extends BaseResp<Page<T>> {
         return resp;
     }
 
-    // TODO 去掉这个方法
-    public static <T, E> PageResp<T> baseOf(PageResp<E> data) {
-        PageResp<T> resp = new PageResp<>();
-        resp.setPage(data.getPage());
-        resp.setSize(data.getSize());
-        resp.setTotal(data.getTotal());
+    public <R> PageResp<R> map(Function<? super T, ? extends R> mapper) {
+        PageResp<R> resp = new PageResp<>();
+        resp.setPage(this.getPage());
+        resp.setSize(this.getSize());
+        resp.setTotal(this.getTotal());
         resp.setCode(0);
         resp.setMsg("success");
-        resp.setData(null);
+        resp.setContent(this.getContent()
+                .stream()
+                .map(mapper)
+                .collect(Collectors.toList()));
         return resp;
     }
 }

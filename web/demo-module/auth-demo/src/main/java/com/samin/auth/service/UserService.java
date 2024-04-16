@@ -64,13 +64,7 @@ public class UserService {
 
         PageResp<User> users = PageResp.success(userRepository.findAll(pageable));
 
-        PageResp<UserResp> resp = PageResp.baseOf(users);
-        resp.setContent(users.getContent()
-                .stream()
-                .map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())))
-                .collect(Collectors.toList()));
-
-        return resp;
+        return users.map(user -> UserResp.getInstance(user, userRoleRelationRepository.findByUserId(user.getId())));
     }
 
     public void pageExport(PageReq req, HttpServletResponse response) throws IOException {

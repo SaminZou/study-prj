@@ -11,8 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.stream.Collectors;
-
 /**
  * 日志服务类
  * <p>
@@ -40,12 +38,6 @@ public class LogService {
 
         PageResp<SystemLog> logs = PageResp.success(systemLogRepository.findAll(pageable));
 
-        PageResp<LogResp> resp = PageResp.baseOf(logs);
-        resp.setContent(logs.getContent()
-                .stream()
-                .map(LogResp::getInstance)
-                .collect(Collectors.toList()));
-
-        return resp;
+        return logs.map(LogResp::getInstance);
     }
 }

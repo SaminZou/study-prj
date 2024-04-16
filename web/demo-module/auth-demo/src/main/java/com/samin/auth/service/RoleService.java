@@ -54,14 +54,7 @@ public class RoleService {
 
         PageResp<Role> roles = PageResp.success(roleRepository.findAll(pageable));
 
-        PageResp<RoleResp> resp = PageResp.baseOf(roles);
-        resp.setContent(roles.getContent()
-                .stream()
-                .map(role -> RoleResp.getInstance(role,
-                        roleMenuRelationRepository.findByRoleCode(role.getCode())))
-                .collect(Collectors.toList()));
-
-        return resp;
+        return roles.map(role -> RoleResp.getInstance(role, roleMenuRelationRepository.findByRoleCode(role.getCode())));
     }
 
     /**

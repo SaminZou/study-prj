@@ -46,13 +46,7 @@ public class MenuService {
 
         PageResp<Menu> menus = PageResp.success(menuRepository.findAll(pageable));
 
-        PageResp<MenuResp> resp = PageResp.baseOf(menus);
-        resp.setContent(menus.getContent()
-                .stream()
-                .map(MenuResp::getInstance)
-                .collect(Collectors.toList()));
-
-        return resp;
+        return menus.map(MenuResp::getInstance);
     }
 
     /**
