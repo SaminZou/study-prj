@@ -1,12 +1,8 @@
 package com.samin.jobadmin.controller;
 
-import com.samin.jobadmin.bean.BaseResp;
-import com.samin.jobadmin.bean.JobSaveVo;
-import com.samin.jobadmin.bean.JobVo;
-import com.samin.jobadmin.bean.PageReq;
+import com.samin.jobadmin.bean.*;
 import com.samin.jobadmin.service.JobService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,9 +13,8 @@ public class JobController {
     private final JobService jobService;
 
     // TODO 测试入参接收情况
-    // TODO 重新封装 PageResp
     @GetMapping("/page")
-    public BaseResp<Page<JobVo>> page(PageReq<Void> req) {
+    public BaseResp<PageResp<JobVo>> page(PageReq<Void> req) {
         return BaseResp.success(jobService.page(req));
     }
 

@@ -27,6 +27,7 @@ public class PageResp<T> extends BaseResp<Page<T>> {
         return resp;
     }
 
+    // TODO 去掉这个方法
     public static <T, E> PageResp<T> baseOf(PageResp<E> data) {
         PageResp<T> resp = new PageResp<>();
         resp.setPage(data.getPage());
