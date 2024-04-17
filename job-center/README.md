@@ -35,5 +35,3 @@
 - job admin 用户管理 ❌
 
 - job admin 管理界面 ❌
-
-- worker  ❌
