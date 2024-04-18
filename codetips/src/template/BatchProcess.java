@@ -27,7 +27,7 @@ public class BatchProcess {
 
         System.out.println("需要处理的数据总量：" + count);
         while (count - 50 > 0) {
-            // TODO 业务代码
+            // 业务代码写在此处
 
             System.out.printf("sql：offset %s limit %s \n", offset, BATCH_NUM);
 
@@ -40,7 +40,7 @@ public class BatchProcess {
 
         // 处理最后一批次
         if (count > 0) {
-            // TODO 业务代码
+            // 业务代码写在此处
 
             System.out.printf("sql：offset %s limit %s \n", offset, BATCH_NUM);
 
