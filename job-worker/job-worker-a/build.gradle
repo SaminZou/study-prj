@@ -19,6 +19,7 @@ repositories {
     mavenCentral()
 }
 
+// TODO 优化包
 dependencies {
     implementation 'com.samin:job-sdk:v1.0.0'
     implementation 'org.springframework.boot:spring-boot-starter-amqp:2.7.5'

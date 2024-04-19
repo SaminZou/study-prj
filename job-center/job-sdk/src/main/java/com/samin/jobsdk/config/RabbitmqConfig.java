@@ -1,4 +1,4 @@
-package com.samin.jobworkerb.config;
+package com.samin.jobsdk.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
