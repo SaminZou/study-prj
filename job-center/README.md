@@ -30,6 +30,10 @@
 
 - worker 可视管理 ❌
 
+  - 维护一张表用于记录 worker 添加
+  - 启动成功推送 worker 注册消息
+  - 下线由 server 探测感知
+
 - job admin 登录 ❌
 
 - job admin 用户管理 ❌
