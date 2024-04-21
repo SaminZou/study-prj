@@ -20,6 +20,7 @@ public class JobService {
     private final JobLogRepository jobLogRepository;
 
     public List<Job> getList(LocalDateTime now) {
+        // TODO 需要过滤有配置 Job Worker 的定时任务
         return jobRepository.findByProcessTimeBeforeAndIsDeleteAndIsEnable(now, 0, 1);
     }
 

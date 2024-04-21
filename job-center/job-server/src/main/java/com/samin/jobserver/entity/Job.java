@@ -3,6 +3,7 @@ package com.samin.jobserver.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.NotFound;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,7 +31,10 @@ public class Job {
 
     /**
      * 执行器编码
+     *
+     * // TODO 修改为 Job Worker Group 执行，必填项
      */
+    @NotFound
     @Comment("执行器编码")
     private String appCode;
 
