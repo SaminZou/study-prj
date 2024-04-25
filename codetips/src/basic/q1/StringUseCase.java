@@ -1,5 +1,6 @@
 package basic.q1;
 
+import java.util.Collections;
 import java.util.StringJoiner;
 
 /**
@@ -26,6 +27,8 @@ public class StringUseCase {
         System.out.println("------------------------");
 
         // ---------------------------- JDK8 学会使用 StringJoiner -------------------------------
+        System.out.println("空列表拼接：" + String.join(",", Collections.emptyList()));
+
         // 更方便的加入分隔符
         StringJoiner sj = new StringJoiner(" ");
         sj.add("hello");
