@@ -3,12 +3,12 @@ package com.samin.jobadmin.entity;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
+@Entity
+@Table(name = "job_worker")
 public class JobWorker {
 
     @Id
