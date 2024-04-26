@@ -3,11 +3,17 @@ package com.samin.jobadmin.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import com.samin.jobadmin.bean.JobWorkerGroupSaveVo;
+import com.samin.jobadmin.bean.JobWorkerGroupVo;
+import com.samin.jobadmin.bean.PageReq;
+import com.samin.jobadmin.bean.PageResp;
 import com.samin.jobadmin.entity.JobWorkerGroup;
 import com.samin.jobadmin.exception.BusException;
 import com.samin.jobadmin.exception.ExceptionEnums;
 import com.samin.jobadmin.repository.JobWorkerGroupRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,6 +25,14 @@ import java.util.Optional;
 public class JobWorkerGroupService {
 
     private final JobWorkerGroupRepository jobWorkerGroupRepository;
+
+    public PageResp<JobWorkerGroupVo> page(PageReq<Void> req) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
+        Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), sort);
+        PageResp<JobWorkerGroup> jobWorkerGroups = PageResp.success(jobWorkerGroupRepository.findAll(pageable));
+
+        return jobWorkerGroups.map(JobWorkerGroupVo::getInstance);
+    }
 
     public JobWorkerGroupSaveVo save(JobWorkerGroupSaveVo req) {
         LocalDateTime now = LocalDateTime.now();
