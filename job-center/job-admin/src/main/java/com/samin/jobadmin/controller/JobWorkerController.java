@@ -1,7 +1,7 @@
 package com.samin.jobadmin.controller;
 
 import com.samin.jobadmin.bean.BaseResp;
-import com.samin.jobadmin.bean.JobWorkerGroupVo;
+import com.samin.jobadmin.bean.JobWorkerVo;
 import com.samin.jobadmin.bean.PageReq;
 import com.samin.jobadmin.bean.PageResp;
 import com.samin.jobadmin.service.JobWorkerService;
@@ -18,7 +18,7 @@ public class JobWorkerController {
     private final JobWorkerService jobWorkerService;
 
     @GetMapping("/page")
-    public BaseResp<PageResp<JobWorkerGroupVo>> page(PageReq<Void> req) {
+    public BaseResp<PageResp<JobWorkerVo>> page(PageReq<Void> req) {
         return BaseResp.success(jobWorkerService.page(req));
     }
 }
