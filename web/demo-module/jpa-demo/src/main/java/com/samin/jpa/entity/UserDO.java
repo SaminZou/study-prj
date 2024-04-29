@@ -29,4 +29,6 @@ public class UserDO {
      */
     @Transient
     private String other;
+
+    private String createTime;
 }

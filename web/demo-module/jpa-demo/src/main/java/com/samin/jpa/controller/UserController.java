@@ -22,6 +22,21 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/user/distinct")
+    public List<Integer> distinct() {
+        return userService.distinct();
+    }
+
+    @PostMapping("/user/between")
+    public List<UserVO> between() {
+        return userService.between();
+    }
+
+    @PostMapping("/user/count")
+    public List<Long> count() {
+        return userService.count();
+    }
+
     @PostMapping("/user/list")
     public List<UserVO> list() {
         return userService.findAll();
