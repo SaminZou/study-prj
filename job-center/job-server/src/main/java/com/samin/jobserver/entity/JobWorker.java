@@ -21,6 +21,12 @@ public class JobWorker {
     @Comment("地址")
     private String address;
 
+    @Comment("状态（0：离线，1：在线）")
+    private Integer status;
+
     @Comment("注册时间")
     private LocalDateTime createTime;
+
+    @Comment("更新时间")
+    private LocalDateTime updateTime;
 }
