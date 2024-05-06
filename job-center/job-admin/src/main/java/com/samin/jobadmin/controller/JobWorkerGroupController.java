@@ -21,4 +21,10 @@ public class JobWorkerGroupController {
     public BaseResp<JobWorkerGroupSaveVo> save(@RequestBody JobWorkerGroupSaveVo req) {
         return BaseResp.success(jobWorkerGroupService.save(req));
     }
+
+    @PostMapping("/disable/{id}")
+    public BaseResp<Void> disable(@PathVariable Integer id) {
+        jobWorkerGroupService.disable(id);
+        return BaseResp.success();
+    }
 }

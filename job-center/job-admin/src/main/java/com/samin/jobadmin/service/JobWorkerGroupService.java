@@ -40,7 +40,7 @@ public class JobWorkerGroupService {
         JobWorkerGroup jobWorkerGroup;
         // update
         if (Objects.nonNull(req.getId())) {
-            Optional<JobWorkerGroup> jobOptional = getJob(req.getId());
+            Optional<JobWorkerGroup> jobOptional = getJobWorkerGroup(req.getId());
             if (jobOptional.isPresent()) {
                 jobWorkerGroup = jobOptional.get();
                 CopyOptions options = CopyOptions.create()
@@ -76,7 +76,19 @@ public class JobWorkerGroupService {
         return req;
     }
 
-    private Optional<JobWorkerGroup> getJob(Integer id) throws BusException {
+    public void disable(Integer id) {
+        Optional<JobWorkerGroup> optional = getJobWorkerGroup(id);
+        if (optional.isPresent()) {
+            JobWorkerGroup jobWorkerGroup = optional.get();
+            jobWorkerGroup.setIsEnable(0);
+            jobWorkerGroup.setUpdateTime(LocalDateTime.now());
+            jobWorkerGroupRepository.save(jobWorkerGroup);
+        } else {
+            ExceptionEnums.throwException(ExceptionEnums.JOB_NOT_EXIST_ERROR);
+        }
+    }
+
+    private Optional<JobWorkerGroup> getJobWorkerGroup(Integer id) throws BusException {
         return jobWorkerGroupRepository.findById(id);
     }
 }

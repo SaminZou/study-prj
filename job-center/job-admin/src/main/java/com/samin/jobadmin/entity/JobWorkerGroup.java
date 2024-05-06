@@ -1,5 +1,6 @@
 package com.samin.jobadmin.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 
@@ -20,6 +21,10 @@ public class JobWorkerGroup {
 
     @Comment("执行器编码")
     private String appCode;
+
+    @Comment("是否停用（0：否，1：是）")
+    @JsonProperty("isEnable")
+    private Integer isEnable;
 
     @Comment("创建时间")
     private LocalDateTime createTime;

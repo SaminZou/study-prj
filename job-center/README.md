@@ -39,3 +39,5 @@
 - job admin 用户管理 ❌
 
 - job admin 管理界面 ❌
+
+- job-base 项目，用来提供基础服务，处理多个 entity 管理的问题
