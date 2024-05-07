@@ -6,6 +6,7 @@ import com.samin.jobadmin.bean.JobWorkerGroupSaveVo;
 import com.samin.jobadmin.bean.JobWorkerGroupVo;
 import com.samin.jobadmin.bean.PageReq;
 import com.samin.jobadmin.bean.PageResp;
+import com.samin.jobadmin.entity.Job;
 import com.samin.jobadmin.entity.JobWorkerGroup;
 import com.samin.jobadmin.exception.BusException;
 import com.samin.jobadmin.exception.ExceptionEnums;
@@ -84,7 +85,19 @@ public class JobWorkerGroupService {
             jobWorkerGroup.setUpdateTime(LocalDateTime.now());
             jobWorkerGroupRepository.save(jobWorkerGroup);
         } else {
-            ExceptionEnums.throwException(ExceptionEnums.JOB_NOT_EXIST_ERROR);
+            ExceptionEnums.throwException(ExceptionEnums.JOB_WORKER_GROUP_NOT_EXIST_ERROR);
+        }
+    }
+
+    public void delete(Integer id) {
+        Optional<JobWorkerGroup> optional = getJobWorkerGroup(id);
+        if (optional.isPresent()) {
+            JobWorkerGroup jobWorkerGroup = optional.get();
+            jobWorkerGroup.setIsDelete(1);
+            jobWorkerGroup.setUpdateTime(LocalDateTime.now());
+            jobWorkerGroupRepository.save(jobWorkerGroup);
+        } else {
+            ExceptionEnums.throwException(ExceptionEnums.JOB_WORKER_GROUP_NOT_EXIST_ERROR);
         }
     }
 

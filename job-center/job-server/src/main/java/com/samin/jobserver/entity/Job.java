@@ -60,14 +60,12 @@ public class Job {
      * 是否删除（0：否，1：是）
      */
     @Comment("是否删除（0：否，1：是）")
-    @JsonProperty("isDelete")
     private Integer isDelete;
 
     /**
      * 是否停用（0：否，1：是）
      */
     @Comment("是否停用（0：否，1：是）")
-    @JsonProperty("isEnable")
     private Integer isEnable;
 
     /**

@@ -57,6 +57,13 @@ public class RabbitmqConfig {
                 .with(appCode + SystemConstant.JOB_ROUTING_KEY);
     }
 
+    @Bean
+    Binding callBackBinding() {
+        return BindingBuilder.bind(callBackQueue())
+                .to(exchange())
+                .with(SystemConstant.JOB_CALLBACK_ROUTING_KEY);
+    }
+
     /**
      * 必须添加 Jackson 转换器，否则无法转换接收实体类
      *

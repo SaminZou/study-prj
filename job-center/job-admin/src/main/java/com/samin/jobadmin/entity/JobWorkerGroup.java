@@ -26,6 +26,10 @@ public class JobWorkerGroup {
     @JsonProperty("isEnable")
     private Integer isEnable;
 
+    @Comment("是否删除（0：否，1：是）")
+    @JsonProperty("isDelete")
+    private Integer isDelete;
+
     @Comment("创建时间")
     private LocalDateTime createTime;
 

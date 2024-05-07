@@ -23,8 +23,10 @@ public class JobWorkerGroup {
     private String appCode;
 
     @Comment("是否停用（0：否，1：是）")
-    @JsonProperty("isEnable")
     private Integer isEnable;
+
+    @Comment("是否删除（0：否，1：是）")
+    private Integer isDelete;
 
     @Comment("创建时间")
     private LocalDateTime createTime;

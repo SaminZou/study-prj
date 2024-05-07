@@ -27,4 +27,10 @@ public class JobWorkerGroupController {
         jobWorkerGroupService.disable(id);
         return BaseResp.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public BaseResp<Void> delete(@PathVariable Integer id) {
+        jobWorkerGroupService.delete(id);
+        return BaseResp.success();
+    }
 }
