@@ -1,9 +1,9 @@
 package com.samin.jobadmin.controller;
 
-import com.samin.jobadmin.bean.BaseResp;
+import com.samin.jobsdk.bean.BaseResp;
 import com.samin.jobadmin.bean.JobWorkerVo;
-import com.samin.jobadmin.bean.PageReq;
-import com.samin.jobadmin.bean.PageResp;
+import com.samin.jobsdk.bean.PageReq;
+import com.samin.jobsdk.bean.PageResp;
 import com.samin.jobadmin.service.JobWorkerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

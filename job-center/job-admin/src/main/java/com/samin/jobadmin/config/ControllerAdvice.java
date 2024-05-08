@@ -1,6 +1,6 @@
 package com.samin.jobadmin.config;
 
-import com.samin.jobadmin.bean.BaseResp;
+import com.samin.jobsdk.bean.BaseResp;
 import com.samin.jobadmin.exception.BusException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

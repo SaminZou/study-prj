@@ -2,6 +2,9 @@ package com.samin.jobadmin.controller;
 
 import com.samin.jobadmin.bean.*;
 import com.samin.jobadmin.service.JobService;
+import com.samin.jobsdk.bean.BaseResp;
+import com.samin.jobsdk.bean.PageReq;
+import com.samin.jobsdk.bean.PageResp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

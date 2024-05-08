@@ -1,8 +1,8 @@
 package com.samin.jobadmin.service;
 
 import com.samin.jobadmin.bean.JobWorkerVo;
-import com.samin.jobadmin.bean.PageReq;
-import com.samin.jobadmin.bean.PageResp;
+import com.samin.jobsdk.bean.PageReq;
+import com.samin.jobsdk.bean.PageResp;
 import com.samin.jobadmin.entity.JobWorker;
 import com.samin.jobadmin.repository.JobWorkerRepository;
 import lombok.RequiredArgsConstructor;
