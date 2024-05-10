@@ -18,7 +18,7 @@ public class JobWorker {
     @Comment("分组ID")
     private Integer groupId;
 
-    @Comment("地址")
+    @Comment("地址，唯一标识")
     private String address;
 
     @Comment("状态（0：离线，1：在线）")

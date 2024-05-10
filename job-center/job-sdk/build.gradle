@@ -20,6 +20,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.4'
     implementation 'org.springframework:spring-context:5.3.23'
     implementation 'org.springframework.amqp:spring-rabbit:2.4.7'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.7.5'
 }
 
 afterEvaluate {
