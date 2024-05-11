@@ -32,7 +32,7 @@ public class Job {
     /**
      * 执行器编码
      *
-     * // TODO 修改为 Job Worker Group 执行，必填项
+     * TODO 修改为 Job Worker Group 执行，必填项
      */
     @NotFound
     @Comment("执行器编码")
