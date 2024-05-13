@@ -50,6 +50,8 @@ public class JobWorkerGroupService {
 
                 jobWorkerGroupRepository.save(jobWorkerGroup);
 
+                // TODO isEnable 等于 0 时，下线所有 Job Worker
+
                 req.setId(jobWorkerGroup.getId());
             } else {
                 ExceptionEnums.throwException(ExceptionEnums.JOB_WORKER_GROUP_NOT_EXIST_ERROR);

@@ -17,6 +17,8 @@ public class JobWorkerService {
     public void save(JobWorker jobWorker) {
         LocalDateTime now = LocalDateTime.now();
 
+        // TODO Job Worker Group 是否启用判断是否可以注册成功
+
         // insert
         Optional<JobWorker> jobWorkerOptional = jobWorkerRepository.findByAddress(jobWorker.getAddress());
 
