@@ -4,19 +4,26 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import com.samin.jobadmin.bean.JobWorkerGroupSaveVo;
 import com.samin.jobadmin.bean.JobWorkerGroupVo;
-import com.samin.jobsdk.bean.PageReq;
-import com.samin.jobsdk.bean.PageResp;
+import com.samin.jobadmin.entity.JobWorker;
 import com.samin.jobadmin.entity.JobWorkerGroup;
 import com.samin.jobadmin.exception.BusException;
 import com.samin.jobadmin.exception.ExceptionEnums;
 import com.samin.jobadmin.repository.JobWorkerGroupRepository;
+import com.samin.jobadmin.repository.JobWorkerRepository;
+import com.samin.jobsdk.bean.PageReq;
+import com.samin.jobsdk.bean.PageResp;
+import com.samin.jobsdk.enums.EnableEnum;
+import com.samin.jobsdk.enums.StatusEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -25,6 +32,7 @@ import java.util.Optional;
 public class JobWorkerGroupService {
 
     private final JobWorkerGroupRepository jobWorkerGroupRepository;
+    private final JobWorkerRepository jobWorkerRepository;
 
     public PageResp<JobWorkerGroupVo> page(PageReq<Void> req) {
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
@@ -34,6 +42,7 @@ public class JobWorkerGroupService {
         return jobWorkerGroups.map(JobWorkerGroupVo::getInstance);
     }
 
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public JobWorkerGroupSaveVo save(JobWorkerGroupSaveVo req) {
         LocalDateTime now = LocalDateTime.now();
 
@@ -50,7 +59,14 @@ public class JobWorkerGroupService {
 
                 jobWorkerGroupRepository.save(jobWorkerGroup);
 
-                // TODO isEnable 等于 0 时，下线所有 Job Worker
+                // isEnable 等于 0 时，下线所有 Job Worker
+                if (EnableEnum.parseByCode(jobWorkerGroup.getIsEnable()) == EnableEnum.DISABLE) {
+                    List<JobWorker> jobWorkers = jobWorkerRepository.findByGroupId(jobWorkerGroup.getId());
+                    jobWorkers.forEach(jobWorker -> {
+                        jobWorker.setStatus(StatusEnum.OFFLINE.getCode());
+                    });
+                    jobWorkerRepository.saveAll(jobWorkers);
+                }
 
                 req.setId(jobWorkerGroup.getId());
             } else {

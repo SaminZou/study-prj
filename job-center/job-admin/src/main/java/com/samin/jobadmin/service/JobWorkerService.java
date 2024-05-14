@@ -31,7 +31,9 @@ public class JobWorkerService {
     }
 
     public void register(JobWorkerRegisterDto dto) {
-        Optional<JobWorker> optional = jobWorkerRepository.findByAddress(dto.getAddress());
+        Optional<JobWorker> optional = jobWorkerRepository.findFirstByAddress(dto.getAddress());
+
+        // TODO Job Worker Group 是否可用状态
 
         JobWorker jobWorker;
         if (optional.isPresent()) {
