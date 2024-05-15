@@ -6,5 +6,5 @@ import com.samin.jobsdk.bean.JobWorkerRegisterDto;
 // TODO 注册工作节点
 public interface JobWorkerApi {
 
-    BaseResp<Void> register(JobWorkerRegisterDto dto);
+    BaseResp<Boolean> register(JobWorkerRegisterDto dto);
 }

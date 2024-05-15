@@ -22,8 +22,7 @@ public class JobWorkerController {
     }
 
     @PostMapping("/register")
-    public BaseResp<Void> register(@RequestBody JobWorkerRegisterDto dto) {
-        jobWorkerService.register(dto);
-        return BaseResp.success();
+    public BaseResp<Boolean> register(@RequestBody JobWorkerRegisterDto dto) {
+        return BaseResp.success(jobWorkerService.register(dto));
     }
 }
