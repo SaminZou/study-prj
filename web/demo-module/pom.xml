@@ -12,7 +12,7 @@
         <module>redis-demo</module>
         <module>prometheus-demo</module>
         <module>tdengine-demo</module>
-        <module>mq-demo</module>
+        <module>rabbitmq-demo</module>
         <module>aop-demo</module>
         <module>auth-demo</module>
         <module>admin-demo</module>
