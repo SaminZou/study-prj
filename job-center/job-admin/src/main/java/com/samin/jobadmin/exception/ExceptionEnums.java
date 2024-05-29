@@ -13,6 +13,7 @@ public enum ExceptionEnums implements BusinessCode {
     JOB_EXIST_ERROR(20003, "任务已存在"),
     JOB_WORKER_GROUP_NOT_EXIST_ERROR(20004, "执行器分组不存在"),
     JOB_WORKER_GROUP_EXIST_ERROR(20005, "执行器分组已存在"),
+    USER_NOT_EXIST_ERROR(20006, "用户不存在"),
     ;
 
     private final int code;
