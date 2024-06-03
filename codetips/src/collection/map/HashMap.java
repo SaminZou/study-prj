@@ -1,5 +1,6 @@
 package collection.map;
 
+import java.util.Iterator;
 import java.util.Map;
 
 public class HashMap {
@@ -13,7 +14,28 @@ public class HashMap {
         System.out.println(r2);
         String r3 = map.put("1", "r3");
         System.out.println(r3);
-        map.put(null, "123");
         System.out.println(map.get(null));
+        map.put("2", "3");
+        System.out.println(map);
+
+        // 报错 java.util.ConcurrentModificationException
+        // for (String key: map.keySet()) {
+        //     if (key.equals("1")){
+        //         map.remove("2");
+        //     }
+        // }
+        // 解决方案
+        Iterator<String> iterator = map.keySet()
+                .iterator();
+
+        while (iterator.hasNext()) {
+            String key = iterator.next();
+            if (key.equals("1")) {
+                // map.remove("2");
+                // 使用迭代器的 remove()
+                iterator.remove();
+            }
+        }
+        System.out.println(map);
     }
 }
