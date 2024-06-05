@@ -7,6 +7,10 @@ public class HashMap {
 
     public static void main(String[] args) {
         Map<String, String> map = new java.util.HashMap<>();
+        map.putIfAbsent("a", "b");
+        System.out.println(map);
+        map.putIfAbsent("a", "c");
+        System.out.println(map);
         // put 方法返回值为被覆盖的值
         String r1 = map.put("1", "r1");
         System.out.println(r1);
