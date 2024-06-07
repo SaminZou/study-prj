@@ -32,3 +32,12 @@
 
 是 Spring 框架的安全模块，提供了认证、授权、密码加密、会话管理等功能，可以与多种用户数据库进行集成。它还提供了与 Spring
 框架的无缝集成，并且具有丰富的扩展性和灵活性
+
+# 实现 UserDetailsService 接口获取用户信息时推荐抛错
+
+- UsernameNotFoundException：当无法找到指定用户名的用户时，可以抛出此异常。表示用户不存在或未找到。
+- DisabledException：当用户被禁用或处于禁用状态时，可以抛出此异常。表示用户被禁用，无法进行身份验证。
+- LockedException：当用户被锁定或处于锁定状态时，可以抛出此异常。表示用户被锁定，无法进行身份验证。
+- BadCredentialsException：当用户提供的凭据（如密码）无效或不匹配时，可以抛出此异常。表示凭据不正确。
+- AccountExpiredException：当用户帐户已过期时，可以抛出此异常。表示用户帐户已过期，无法进行身份验证。
+- CredentialsExpiredException：当用户凭据（如密码）已过期时，可以抛出此异常。表示用户凭据已过期，需要重置或更新。
