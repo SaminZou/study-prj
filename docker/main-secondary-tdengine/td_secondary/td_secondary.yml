@@ -1,0 +1,11 @@
+version: "3"
+services:
+  td-2:
+    image: tdengine/tdengine:2.4.0.5
+    network_mode: "host"
+    volumes:
+      - /data/td/data/:/var/lib/taos/
+      - /data/td/log/:/var/log/taos/
+      - /etc/hosts:/etc/hosts
+      - /data/td/taos.cfg:/etc/taos/taos.cfg
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
