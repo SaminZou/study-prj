@@ -69,6 +69,10 @@ answer 6
 
 answer 7
 
+# Spring # 表达式
+
+answer 8
+
 # Spring 的 Bean 是否线程安全
 
 需要看 Bean 本身
