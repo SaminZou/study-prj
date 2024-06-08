@@ -61,6 +61,14 @@ answer5
 6. 处理 InitializingBean 接口
 7. 初始化后进行 AOP
 
+# Spring 也适配继承
+
+answer 6
+
+# Spring @Autowired 注解 required = false，即使没有声明依赖 bean，启动也不会报错
+
+answer 7
+
 # Spring 的 Bean 是否线程安全
 
 需要看 Bean 本身
