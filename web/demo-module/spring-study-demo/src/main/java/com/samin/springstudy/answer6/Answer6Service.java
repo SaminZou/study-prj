@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 @Service
-public class TestService extends BaseService {
+public class Answer6Service extends BaseService {
 
     @PostConstruct
     public void postConstruct() {
