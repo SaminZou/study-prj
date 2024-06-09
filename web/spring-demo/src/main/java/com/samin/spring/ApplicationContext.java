@@ -14,6 +14,7 @@ public class ApplicationContext {
     private Class configClass;
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
     private Map<String, Object> singletonObjects = new ConcurrentHashMap<>();
+    private List<BeanPostProcessor> beanPostProcessorList = new ArrayList<>();
 
     public ApplicationContext(Class configClass) {
         this.configClass = configClass;
@@ -26,6 +27,23 @@ public class ApplicationContext {
         // 解析类 -> BeanDefinition -> beanDefinitionMap
         for (Class clazz : classList) {
             if (clazz.isAnnotationPresent(Component.class)) {
+                if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
+                    try {
+                        BeanPostProcessor instance = (BeanPostProcessor) clazz.getDeclaredConstructor()
+                                .newInstance();
+                        beanPostProcessorList.add(instance);
+                    } catch (InstantiationException e) {
+                        throw new RuntimeException(e);
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    } catch (InvocationTargetException e) {
+                        throw new RuntimeException(e);
+                    } catch (NoSuchMethodException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+                // 构建 BeanDefinition
                 BeanDefinition beanDefinition = new BeanDefinition();
                 beanDefinition.setBeanClass(clazz);
 
@@ -124,6 +142,21 @@ public class ApplicationContext {
             // 3. Aware
             if (bean instanceof BeanNameAware) {
                 ((BeanNameAware) bean).setBeanName(beanName);
+            }
+
+            // 初始化之前
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                bean = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
+            }
+
+            // 4. 初始化
+            if (bean instanceof InitializingBean) {
+                ((InitializingBean) bean).afterPropertiesSet();
+            }
+
+            // 初始化之后
+            for (BeanPostProcessor beanPostProcessor : beanPostProcessorList) {
+                bean = beanPostProcessor.postProcessAfterInitialization(bean, beanName);
             }
 
             return bean;
