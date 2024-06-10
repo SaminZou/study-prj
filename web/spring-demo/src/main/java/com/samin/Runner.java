@@ -4,6 +4,15 @@ import com.samin.spring.ApplicationContext;
 import com.samin.study.AppConfig;
 import com.samin.study.service.UserService;
 
+/**
+ * Bean 的生命周期
+ * <p>
+ * Description: Bean 的生命周期
+ * <p>
+ * Created By: Samin
+ * <p>
+ * Created Date: 2024-06-09
+ */
 public class Runner {
 
     public static void main(String[] args) {
