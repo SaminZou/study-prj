@@ -73,6 +73,10 @@ answer 7
 
 answer 8
 
+# Spring Bean 加载顺序和循环依赖的关系
+
+Spring Bean 默认会按照字母顺序加载 Bean，所以当有 AService 和 BService 循环依赖的时候，AService 使用 set 注入，BService 使用构造器方式可以成功处理循环依赖问题，反之报错。
+
 # Spring 的 Bean 是否线程安全
 
 需要看 Bean 本身
