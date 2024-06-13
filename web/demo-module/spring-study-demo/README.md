@@ -83,6 +83,13 @@ answer 9
 
 answer 10
 
+# Spring Bean 的声明方式
+
+- @Component 等注解
+- 实现 FactoryBean
+- 实现 BeanFactoryPostProcessor 接口，使用 beanFactory.registerSingleton(beanName, class);
+- @Configuration 中配置 @Bean
+
 # Spring 的 Bean 是否线程安全
 
 需要看 Bean 本身
