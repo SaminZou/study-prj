@@ -15,6 +15,7 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   datasource:
+    # 不指定 schema，entity 中指定
     url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?stringtype=unspecified
     # url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?currentSchema=${custom.pg_schema:public}&stringtype=unspecified
     username: ${custom.pg_username}

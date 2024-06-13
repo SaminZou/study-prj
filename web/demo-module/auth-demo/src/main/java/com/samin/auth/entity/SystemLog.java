@@ -1,6 +1,7 @@
 package com.samin.auth.entity;
 
 import com.samin.auth.authentication.CustomUserDetails;
+import com.samin.auth.config.RequestThreadLocal;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 
@@ -15,24 +16,24 @@ import java.util.Objects;
 @Table(name = "system_log", schema = "system")
 public class SystemLog {
 
-    public static SystemLog getInstance(HttpServletRequest request, HttpServletResponse response,
-                                        CustomUserDetails customUserDetails, String remark, long executionTime) {
+    public static SystemLog getInstance(HttpServletRequest request, HttpServletResponse response, RequestThreadLocal.Request requestData, CustomUserDetails customUserDetails, String remark, long executionTime) {
         SystemLog ins = new SystemLog();
 
-        LocalDateTime now = LocalDateTime.now();
         if (Objects.nonNull(customUserDetails)) {
             ins.setUserId(customUserDetails.getUser()
                     .getId());
         }
         ins.setClientIpAddress(request.getRemoteAddr());
-        ins.setRequestTime(now);
+        ins.setRequestTime(requestData.getRequestTime());
         ins.setRequestPath(request.getRequestURI());
+        ins.setRequestParameters(requestData.getBody());
         ins.setRequestMethod(request.getMethod());
         ins.setResponseStatusCode(response.getStatus());
+        ins.setResponseMessage(requestData.getResponse());
         ins.setRemark(remark);
         ins.setExecutionTime(executionTime);
         ins.setDeviceInformation(request.getHeader("User-Agent"));
-        ins.setCreateTime(now);
+        ins.setCreateTime(LocalDateTime.now());
 
         return ins;
     }
@@ -59,14 +60,12 @@ public class SystemLog {
     @Comment("请求方法")
     private String requestMethod;
 
-    // TODO
     @Comment("请求参数")
     private String requestParameters;
 
     @Comment("响应状态码")
     private Integer responseStatusCode;
 
-    // TODO
     @Comment("响应信息")
     private String responseMessage;
 

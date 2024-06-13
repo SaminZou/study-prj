@@ -15,13 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Objects;
 
 @Slf4j
 @Component
 public class SystemLogFilter implements HandlerInterceptor {
-
-    private final ThreadLocal<Long> requestStartTimeThreadLocal = new ThreadLocal<>();
 
     private final SystemLogRepository systemLogRepository;
     private final SecurityService securityService;
@@ -33,21 +33,24 @@ public class SystemLogFilter implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        requestStartTimeThreadLocal.set(Instant.now()
+        LocalDateTime now = LocalDateTime.now();
+        RequestThreadLocal.Request requestData = RequestThreadLocal.getRequest();
+        requestData.setRequestTime(now);
+        requestData.setRequestStartTime(now.atZone(ZoneId.systemDefault())
+                .toInstant()
                 .toEpochMilli());
         return true;
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-                           ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Log anno = handlerMethod.getMethodAnnotation(Log.class);
 
             // 记录请求日志
             if (Objects.nonNull(anno)) {
-                long startTime = requestStartTimeThreadLocal.get();
+                RequestThreadLocal.Request requestData = RequestThreadLocal.getRequest();
 
                 log.info("Request: {} {} from {}", request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
 
@@ -62,12 +65,14 @@ public class SystemLogFilter implements HandlerInterceptor {
                     user = securityService.getCurrentUser();
                 }
 
-                systemLogRepository.save(SystemLog.getInstance(request, response, user, anno.value(), endTime - startTime));
+                SystemLog instance = SystemLog.getInstance(request, response, requestData, user, anno.value(),
+                        endTime - requestData.getRequestStartTime());
+                systemLogRepository.save(instance);
 
                 log.info("Response: {} {} - Status: {}", request.getMethod(), request.getRequestURI(), response.getStatus());
 
                 // 防止内存溢出
-                requestStartTimeThreadLocal.remove();
+                RequestThreadLocal.clear();
             }
         }
     }
