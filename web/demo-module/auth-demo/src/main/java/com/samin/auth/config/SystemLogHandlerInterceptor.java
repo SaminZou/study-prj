@@ -21,12 +21,12 @@ import java.util.Objects;
 
 @Slf4j
 @Component
-public class SystemLogFilter implements HandlerInterceptor {
+public class SystemLogHandlerInterceptor implements HandlerInterceptor {
 
     private final SystemLogRepository systemLogRepository;
     private final SecurityService securityService;
 
-    public SystemLogFilter(SystemLogRepository systemLogRepository, SecurityService securityService) {
+    public SystemLogHandlerInterceptor(SystemLogRepository systemLogRepository, SecurityService securityService) {
         this.systemLogRepository = systemLogRepository;
         this.securityService = securityService;
     }
