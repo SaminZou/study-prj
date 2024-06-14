@@ -28,7 +28,7 @@ Share a summary of the knowledge stack, provide some inspiration for developers,
 
 # 2 designpattern 📗
 
-设计模式共23种（大部分文献也有24种的说法，增加了空对象模式），常用一定要掌握的设计模式：单例模式、工厂模式、抽象工厂模式、策略模式、装饰模式、适配器模式、桥接模式、观察者模式
+设计模式共23种（大部分文献也有24种的说法，增加了空对象模式）
 
 # 3 codetips 📕
 
@@ -68,13 +68,19 @@ Share a summary of the knowledge stack, provide some inspiration for developers,
 
 ## 4.5 软技能（非技术）
 
-# 5 web
+# 5 docker
 
-Java Web demo
+常用 docker 相关的 yaml 文件
 
-# 6 insight
+# 6 shell tips
 
-// TODO 一些想法实现 
+# 7 python script
+
+# 8 SQL
+
+# 9 web
+
+Java Web Demo
 
 # FAQ
 
