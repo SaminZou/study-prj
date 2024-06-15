@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * CyclicBarrier 调用await()是在任务线程调用的
+ * CyclicBarrier 调用 await() 是在任务线程调用的
  *
- * <p>CyclicBarrier(int parties)int类型的参数表示有几个线程来参与这个屏障拦截
+ * <p>CyclicBarrier(int parties) int 类型的参数表示有几个线程来参与这个屏障拦截
  *
- * <p>CyclicBarrier(int parties,Runnable barrierAction)当所有线程到达一个屏障点时，优先执行barrierAction这个线程。
+ * <p>CyclicBarrier(int parties, Runnable barrierAction) 当所有线程到达一个屏障点时，优先执行 barrierAction 这个线程。
  *
  * @author samin
  * @date 2021-08-24
@@ -47,7 +47,9 @@ public class CyclicBarrierUseCase {
                 System.out.println(sdf.format(new Date()) + " " + name + "出发去饭店");
                 Thread.sleep((long) (random.nextDouble() * 3000) + 1000);
                 System.out.println(sdf.format(new Date()) + " " + name + "到了饭店");
-                latch.await(); // 执行完成
+
+                // 执行完成
+                latch.await();
             } catch (Exception e) {
                 e.printStackTrace();
             }
