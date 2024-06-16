@@ -3,7 +3,7 @@ package algorithms;
 import algorithms.base.model.ListNode;
 
 /**
- * 反转链表
+ * 反转链表 / 链表反转
  *
  * @author samin
  * @date 2021-01-11
