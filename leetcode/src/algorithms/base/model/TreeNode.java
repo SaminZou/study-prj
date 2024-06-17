@@ -24,4 +24,9 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public void leftAndRight(TreeNode left, TreeNode right) {
+        this.left = left;
+        this.right = right;
+    }
 }

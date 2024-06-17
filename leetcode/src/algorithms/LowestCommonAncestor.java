@@ -3,47 +3,26 @@ package algorithms;
 import algorithms.base.model.TreeNode;
 
 /**
- * 二叉搜索树的最近公共祖先
+ * 二叉最近公共祖先
  *
  * @author samin
  * @date 2021-01-11
  */
 public class LowestCommonAncestor {
-    // 适用二叉搜索树的最近公共祖先遍历
-    //    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    //        // 使用迭代法找出最近公共节点
-    //        while (root != null) {
-    //            if (p.val < root.val && q.val < root.val) { // 在左子树的情况
-    //                root = root.left;minCostToMoveChips
-    //            } else if (p.val > root.val && q.val > root.val) { // 在右子树的情况
-    //                root = root.right;
-    //            } else {
-    //                return root;
-    //            }
-    //        }
-    //
-    //        return root;
-    //    }
 
     public static void main(String[] args) {
-        TreeNode t0 = new TreeNode(0);
-        TreeNode t1 = new TreeNode(1);
-        TreeNode t2 = new TreeNode(2);
-        TreeNode t3 = new TreeNode(3);
-        TreeNode t4 = new TreeNode(4);
-        TreeNode t5 = new TreeNode(5);
+        TreeNode t8 = new TreeNode(8);
         TreeNode t6 = new TreeNode(6);
         TreeNode t7 = new TreeNode(7);
-        TreeNode t8 = new TreeNode(8);
-        t3.left = t5;
-        t3.right = t1;
-        t5.left = t6;
-        t5.right = t2;
-        t2.left = t7;
-        t2.right = t4;
-        t1.left = t0;
-        t1.right = t8;
+        TreeNode t4 = new TreeNode(4);
+        TreeNode t0 = new TreeNode(0);
+        TreeNode t1 = new TreeNode(1, t0, t8);
+        TreeNode t2 = new TreeNode(2, t7, t4);
+        TreeNode t5 = new TreeNode(5, t6, t2);
+        TreeNode t3 = new TreeNode(3, t5, t1);
         TreeNode res = new LowestCommonAncestor().lowestCommonAncestor(t3, t4, t5);
+
+        // 5
         System.out.println(res.val);
     }
 
