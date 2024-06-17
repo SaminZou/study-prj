@@ -1,6 +1,7 @@
 package algorithms;
 
 import algorithms.base.model.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -13,7 +14,7 @@ import java.util.Queue;
 public class MaxDepth {
 
     /**
-     * 广度优先搜索
+     * 广度优先搜索(DFS)
      *
      * @param root 根节点
      * @return 深度
@@ -27,12 +28,12 @@ public class MaxDepth {
     }
 
     /**
-     * 深度优先搜索
+     * 深度优先搜索(BFS)
      *
      * @param root 根节点
      * @return 深度
      */
-    public int maxDepthByBFS(TreeNode root) {
+    public int maxBreadthByBFS(TreeNode root) {
         int result = 0;
 
         if (root == null) {

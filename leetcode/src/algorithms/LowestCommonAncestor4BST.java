@@ -69,7 +69,7 @@ public class LowestCommonAncestor4BST {
                 root = root.right;
             }
         }
-        
+
         return paths;
     }
 }
