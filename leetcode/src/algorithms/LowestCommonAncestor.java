@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 二叉最近公共祖先
+ * 236. 二叉树的最近公共祖先
  *
  * @author samin
  * @date 2021-01-11
@@ -24,16 +24,16 @@ public class LowestCommonAncestor {
         TreeNode t5 = new TreeNode(5, t6, t2);
         TreeNode t3 = new TreeNode(3, t5, t1);
 
+        // 3
+        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t3, t5, t1).val);
         // 5
-        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t3, t4, t5));
-        // 5
-        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t3, t4, t5));
+        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t3, t5, t4).val);
 
         TreeNode t10 = new TreeNode(2);
         TreeNode t9 = new TreeNode(1);
-        t10.left = t9;
+        t9.left = t10;
 
-        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t1, t1, t2));
+        System.out.println(new LowestCommonAncestor().lowestCommonAncestor(t9, t9, t10).val);
     }
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -56,11 +56,41 @@ public class LowestCommonAncestor {
         return lastSame;
     }
 
-    private static List<TreeNode> path(TreeNode root, TreeNode des) {
+    private static List<TreeNode> path(TreeNode root, TreeNode target) {
         // 存放节点路径
         List<TreeNode> paths = new ArrayList<>();
+        return dfs(root, target, paths);
+    }
 
-        return paths;
+    private static List<TreeNode> dfs(TreeNode root, TreeNode target, List<TreeNode> path) {
+        // 没有找到路径
+        if (root == null) {
+            return null;
+        }
+
+        // 当前节点添加到路径中
+        path.add(root);
+
+        if (root.val == target.val) {
+            // 找到目标节点，返回路径
+            return path;
+        }
+
+        // 递归搜索左子树和右子树
+        List<TreeNode> leftPath = dfs(root.left, target, path);
+        if (leftPath != null) {
+            // 如果在左子树中找到路径，则返回
+            return leftPath;
+        }
+        List<TreeNode> rightPath = dfs(root.right, target, path);
+        if (rightPath != null) {
+            // 如果在右子树中找到路径，则返回
+            return rightPath;
+        }
+
+        path.remove(path.size() - 1);
+
+        return null;
     }
 
     //public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {

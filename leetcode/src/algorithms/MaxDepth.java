@@ -13,13 +13,23 @@ import java.util.Queue;
  */
 public class MaxDepth {
 
+    public static void main(String[] args) {
+        TreeNode t5 = new TreeNode(7);
+        TreeNode t4 = new TreeNode(5);
+        TreeNode t3 = new TreeNode(20);
+        TreeNode t2 = new TreeNode(9, t4, t5);
+        TreeNode t1 = new TreeNode(3, t2, t3);
+
+        System.out.println(maxBreadthByBFS(t1));
+    }
+
     /**
      * 广度优先搜索(DFS)
      *
      * @param root 根节点
      * @return 深度
      */
-    public int maxDepthByDFS(TreeNode root) {
+    public static int maxDepthByDFS(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -33,7 +43,7 @@ public class MaxDepth {
      * @param root 根节点
      * @return 深度
      */
-    public int maxBreadthByBFS(TreeNode root) {
+    public static int maxBreadthByBFS(TreeNode root) {
         int result = 0;
 
         if (root == null) {
@@ -42,8 +52,9 @@ public class MaxDepth {
 
         Queue<TreeNode> rootQueue = new LinkedList<>();
         rootQueue.add(root);
-        while (rootQueue.size() > 0) {
+        while (!rootQueue.isEmpty()) {
             ++result;
+            // 每一层在当前循环处理完
             for (int i = rootQueue.size(); i > 0; i--) {
                 TreeNode node = rootQueue.poll();
                 if (node.left != null) {
