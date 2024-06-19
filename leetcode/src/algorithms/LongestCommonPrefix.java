@@ -9,17 +9,17 @@ package algorithms;
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {
-        //        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
-        //                "flower", "flow", "flight"
-        //        }));
-        //        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
-        //                "dog", "racecar", "car"
-        //        }));
+        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
+                "flower", "flow", "flight"
+        }));
+        System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
+                "dog", "racecar", "car"
+        }));
         System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{"ca", "a"}));
     }
 
     public String longestCommonPrefix(String[] strs) {
-        // 等于0和1的特殊情况
+        // 等于 0 和 1 的特殊情况
         if (strs.length == 0) {
             return "";
         }
