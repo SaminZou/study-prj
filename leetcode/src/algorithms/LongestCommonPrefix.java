@@ -9,12 +9,15 @@ package algorithms;
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {
+        // 2
         System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
                 "flower", "flow", "flight"
         }));
+        //
         System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{
                 "dog", "racecar", "car"
         }));
+        //
         System.out.println(new LongestCommonPrefix().longestCommonPrefix(new String[]{"ca", "a"}));
     }
 
