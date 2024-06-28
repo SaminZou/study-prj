@@ -27,12 +27,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/v1/minio/tasks")
 public class MinioUploadTaskController {
+
     /**
      * 服务对象
      */
     @Resource
-    private MultiFileUploadService sysUploadTaskService;
-
+    private MultiFileUploadService multiFileUploadService;
 
     /**
      * 获取上传进度
@@ -42,7 +42,7 @@ public class MinioUploadTaskController {
      */
     @GetMapping("/{identifier}")
     public Result<TaskInfoDTO> taskInfo(@PathVariable("identifier") String identifier) {
-        return Result.ok(sysUploadTaskService.getTaskInfo(identifier));
+        return Result.ok(multiFileUploadService.getTaskInfo(identifier));
     }
 
     /**
@@ -56,7 +56,7 @@ public class MinioUploadTaskController {
             return Result.error(bindingResult.getFieldError()
                     .getDefaultMessage());
         }
-        return Result.ok(sysUploadTaskService.initTask(param));
+        return Result.ok(multiFileUploadService.initTask(param));
     }
 
     /**
@@ -68,14 +68,14 @@ public class MinioUploadTaskController {
      */
     @GetMapping("/{identifier}/{partNumber}")
     public Result preSignUploadUrl(@PathVariable("identifier") String identifier, @PathVariable("partNumber") Integer partNumber) {
-        MultiFileUpload task = sysUploadTaskService.getByIdentifier(identifier);
+        MultiFileUpload task = multiFileUploadService.getByIdentifier(identifier);
         if (task == null) {
             return Result.error("分片任务不存在");
         }
         Map<String, String> params = new HashMap<>();
         params.put("partNumber", partNumber.toString());
         params.put("uploadId", task.getUploadId());
-        return Result.ok(sysUploadTaskService.genPreSignUploadUrl(task.getBucketName(), task.getObjectKey(), params));
+        return Result.ok(multiFileUploadService.genPreSignUploadUrl(task.getBucketName(), task.getObjectKey(), params));
     }
 
     /**
@@ -86,7 +86,7 @@ public class MinioUploadTaskController {
      */
     @PostMapping("/merge/{identifier}")
     public Result merge(@PathVariable("identifier") String identifier) {
-        sysUploadTaskService.merge(identifier);
+        multiFileUploadService.merge(identifier);
         return Result.ok();
     }
 
