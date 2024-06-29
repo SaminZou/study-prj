@@ -6,6 +6,7 @@ import com.samin.minio.model.dto.TaskInfoDTO;
 import com.samin.minio.model.entity.MultiFileUpload;
 import com.samin.minio.model.param.InitTaskParam;
 import com.samin.minio.service.MultiFileUploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class MinioUploadTaskController {
     /**
      * 服务对象
      */
-    @Resource
+    @Autowired
     private MultiFileUploadService multiFileUploadService;
 
     /**
@@ -89,5 +90,4 @@ public class MinioUploadTaskController {
         multiFileUploadService.merge(identifier);
         return Result.ok();
     }
-
 }
