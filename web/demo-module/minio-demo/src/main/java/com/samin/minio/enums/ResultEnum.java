@@ -1,11 +1,9 @@
 package com.samin.minio.enums;
 
 public enum ResultEnum {
-    //未知错误
-
-    //默认成功
+    
     /**
-     * SUCCESS    成功
+     * SUCCESS    成功（默认成功）
      * <p>
      * ERROR_301		TOKEN失效，需要重新登录
      * ERROR_400  	请求无效
