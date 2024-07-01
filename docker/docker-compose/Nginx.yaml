@@ -3,6 +3,11 @@ version: "3.3"
 services:
   nginx:
     container_name: nginx
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     image: nginx:1.19.4
     volumes:

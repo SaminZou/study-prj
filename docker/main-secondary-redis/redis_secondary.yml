@@ -3,6 +3,11 @@ version: "3.3"
 services:
     redis_secondary:
         container_name: redis_secondary
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "500m"
+                max-file: 2
         restart: always
         image: bitnami/redis:latest
         command: /opt/bitnami/scripts/redis/run.sh --appendonly yes

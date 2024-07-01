@@ -3,6 +3,11 @@ version: "3.3"
 services:
   postgres:
     container_name: postgres
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     image: postgres:13
     command: postgres -c 'max_connections=1000'

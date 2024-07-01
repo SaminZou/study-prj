@@ -5,6 +5,11 @@ services:
     container_name: nextcloud-mysql
     image: mysql:8
     command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_connections=100
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     environment:
       MYSQL_ROOT_PASSWORD: nextcloud
       MYSQL_DATABASE: nextcloud
@@ -14,6 +19,11 @@ services:
        - '/mnt/data/mysql/data:/var/lib/mysql'
   # 默认管理员用户密码：samin/nextcloud
   nextcloud:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     container_name: nextcloud
     image: nextcloud:28.0.1
     restart: always

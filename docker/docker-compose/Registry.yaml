@@ -3,6 +3,11 @@ version: "3.6"
 services:
   registry:
     container_name: registry
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     image: registry:2
     volumes:
@@ -14,6 +19,11 @@ services:
 
   registry-console:
     container_name: registry-console
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     image: hyper/docker-registry-web
     environment:

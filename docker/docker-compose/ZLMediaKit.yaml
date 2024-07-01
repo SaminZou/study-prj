@@ -5,6 +5,11 @@ services:
     container_name: zlm
     restart: always
     image: zlmediakit/zlmediakit:master
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     ports:
       - 1935:1935
       - 8089:80

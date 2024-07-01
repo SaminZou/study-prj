@@ -11,11 +11,21 @@ services:
     ports:
       - "8000:3000"
       - "1022:22"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     volumes:
       - /mnt/data/gogs:/data
 
   db:
     image: mysql:5.7
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     ports:
       - 3308:3306
     environment:

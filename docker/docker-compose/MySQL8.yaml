@@ -9,6 +9,17 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpasswd
       MYSQL_DATABASE: default
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'mysqladmin -uroot -prootpasswd -hlocalhost status || exit 1'"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    # 也可以通过修改 daemon.json 来默认每个容器默认的配置
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     ports:
       - '3306:3306'
     volumes:

@@ -8,6 +8,11 @@ services:
     restart: always
     image: atmoz/sftp
     command: foo:pass:1001
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     volumes:
       - /mnt/data/sftp/appLogs:/home/foo/upload
     ports:

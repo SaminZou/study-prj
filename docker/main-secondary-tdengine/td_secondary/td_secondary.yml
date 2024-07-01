@@ -3,6 +3,11 @@ services:
   td-2:
     image: tdengine/tdengine:2.4.0.5
     network_mode: "host"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     volumes:
       - /data/td/data/:/var/lib/taos/
       - /data/td/log/:/var/log/taos/

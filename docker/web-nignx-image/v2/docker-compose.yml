@@ -5,6 +5,11 @@ services:
     container_name: web
     restart: always
     image: 127.0.0.1:5000/web:master
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     volumes:
       - $PWD/html:/usr/share/nginx/html
     ports:

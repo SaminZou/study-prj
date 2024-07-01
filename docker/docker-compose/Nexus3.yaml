@@ -6,6 +6,11 @@ services:
     container_name: nexus3
     restart: always
     image: sonatype/nexus3:3.66.0
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     environment:
       - TZ=Asia/Shanghai
     # mkdir -pv /mnt/data/nexus && chown -R 777 /mnt/data/nexus

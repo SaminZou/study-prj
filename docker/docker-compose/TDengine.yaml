@@ -11,6 +11,11 @@ services:
       - /mnt/data/tdengine/data:/var/lib/taos
       - /mnt/data/tdengine/logs:/var/log/taos
       - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     ports:
       - "6030-6041:6030-6041"
       - "6030-6041:6030-6041/udp"

@@ -9,6 +9,11 @@ services:
         environment:
             - "REDIS_REPLICATION_MODE=master"
             - "REDIS_PASSWORD=master_scp_pwd"
+        logging:
+            driver: "json-file"
+            options:
+                max-size: "500m"
+                max-file: 2
         volumes:
             - /mng/data/redis_main:/bitnami/redis/data
         ports:

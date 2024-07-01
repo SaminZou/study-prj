@@ -8,5 +8,10 @@ services:
     environment:
       - PROXY_USER=samin
       - PROXY_PASSWORD=samin
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     ports:
       - 1080:1080

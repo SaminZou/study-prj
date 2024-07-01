@@ -3,6 +3,11 @@ version: "3.3"
 services:
   rabbitmq:
     container_name: rabbitmq
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     # 带控制台版本
     image: rabbitmq:3-management

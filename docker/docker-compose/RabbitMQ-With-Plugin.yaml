@@ -3,6 +3,11 @@ version: "3.3"
 services:
   rabbitmq:
     container_name: rabbitmq
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     restart: always
     image: bitnami/rabbitmq:3.9.10
     environment:

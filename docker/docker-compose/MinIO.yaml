@@ -10,6 +10,11 @@ services:
     environment:
       - "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE"
       - "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     volumes:
       - /mnt/data/minio:/data
     ports:

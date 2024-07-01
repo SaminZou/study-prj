@@ -15,6 +15,11 @@ services:
     container_name: nacos
     ports:
       - 8848:8848
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
     environment:
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
