@@ -7,9 +7,9 @@ import java.util.List;
 /**
  * 三数之和
  *
- * <p> https://leetcode.cn/problems/3sum/
+ * <p> 15.三数之和
  *
- * <p> 解题思路，排序 + 双指针
+ * <p> 解题思路：排序 + 双指针
  *
  * @author samin
  * @date 2021-01-03
@@ -21,22 +21,25 @@ public class ThreeSum {
         System.out.println(new ThreeSum().threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
         // []
         System.out.println(new ThreeSum().threeSum(new int[]{0, 1, 1}));
+        // [[0,0,0]]
+        System.out.println(new ThreeSum().threeSum(new int[]{0, 0, 0}));
     }
 
     public List<List<Integer>> threeSum(int[] nums) {
         int n = nums.length;
-        // 排序
+        // 模式识别：利用排序避免重复答案
         Arrays.sort(nums);
-        List<List<Integer>> ans = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
 
         for (int first = 0; first < n; ++first) {
-            // 需要和上一个数不相同
+            // 搭配模式识别使用，判断是否和上一个数不相同，旨在跳过重复的答案
             if (first > 0 && nums[first] == nums[first - 1]) {
                 continue;
             }
 
             int third = n - 1;
             int target = -nums[first];
+            // 满足条件的两数之和
             for (int second = first + 1; second < n; ++second) {
                 // 需要和上一次枚举的数不相同
                 if (second > first + 1 && nums[second] == nums[second - 1]) {
@@ -56,10 +59,11 @@ public class ThreeSum {
                     list.add(nums[first]);
                     list.add(nums[second]);
                     list.add(nums[third]);
-                    ans.add(list);
+                    res.add(list);
                 }
             }
         }
-        return ans;
+
+        return res;
     }
 }
