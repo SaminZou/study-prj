@@ -49,6 +49,10 @@ answer4
 
 # Spring 事务失效的情况
 
+- 异常捕获异常
+- 抛出检查异常（rollbackFor 设置对应的异常）
+- 非 public 方法
+
 # Spring Bean 创建的生命周期
 
 answer5
