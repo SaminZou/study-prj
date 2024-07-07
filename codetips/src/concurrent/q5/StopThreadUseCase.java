@@ -16,13 +16,13 @@ public class StopThreadUseCase {
 
     public static void main(String[] args) {
         // 停止正在运行的线程
-        // stopThread();
+        // stopThreadV1();
         // stopThreadV2();
         // 停止沉睡中的线程
         stopSleepThread();
     }
 
-    static void stopThread() {
+    static void stopThreadV1() {
         TaskThread taskThread = new TaskThread();
         Thread thread = new Thread(taskThread, "taskThread");
         thread.start();
