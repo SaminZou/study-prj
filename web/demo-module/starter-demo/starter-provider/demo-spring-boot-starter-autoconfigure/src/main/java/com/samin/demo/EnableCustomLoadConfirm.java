@@ -9,6 +9,6 @@ import java.lang.annotation.*;
 @Documented
 // 核心是自动注入 bean
 @Import({CustomLoadConfirm.class})
-public @interface EnabelCustomLoadConfirm {
+public @interface EnableCustomLoadConfirm {
 
 }

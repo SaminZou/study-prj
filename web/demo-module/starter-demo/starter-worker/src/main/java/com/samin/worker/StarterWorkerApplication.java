@@ -1,10 +1,10 @@
 package com.samin.worker;
 
-import com.samin.demo.EnabelCustomLoadConfirm;
+import com.samin.demo.EnableCustomLoadConfirm;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@EnabelCustomLoadConfirm
+@EnableCustomLoadConfirm
 @SpringBootApplication
 public class StarterWorkerApplication {
 
