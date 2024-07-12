@@ -1,0 +1,4 @@
+server.port: 8888
+
+zookeeper:
+  host: samin.local:2181
