@@ -44,7 +44,8 @@ public class ConfigController {
     }
 
     /**
-     * 获取分布式 ID
+     * 使用 zookeeper 生成分布式 ID
+     * 由于 zookeeper 是 CP，所以性能有一定的影响
      *
      * @return
      * @throws Exception
@@ -70,7 +71,7 @@ public class ConfigController {
     }
 
     /**
-     * 获取雪花 ID
+     * 基于 zookeeper 生成雪花 ID
      *
      * @return
      * @throws Exception
