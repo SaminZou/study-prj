@@ -36,6 +36,7 @@ public class JobService {
         JobLog log = new JobLog();
         log.setJobId(job.getId());
         log.setResult(false);
+        log.setCreateTime(now);
         jobLogRepository.save(log);
 
         return log;
