@@ -11,7 +11,7 @@ public class AsyncUseCaseController {
     private final AsyncUseCaseService asyncUseCaseService;
 
     @GetMapping("/async/test")
-    public String asyncTest() {
+    public String asyncTest() throws InterruptedException {
         asyncUseCaseService.test();
 
         return "success";

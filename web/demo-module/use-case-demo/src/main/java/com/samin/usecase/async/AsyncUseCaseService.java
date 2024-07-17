@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 public class AsyncUseCaseService {
 
     @Async
-    public void test() {
+    public void test() throws InterruptedException {
+        Thread.sleep(5000);
         log.info("异步方法执行");
     }
 }
