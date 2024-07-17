@@ -2,6 +2,7 @@ package com.samin.zookeeperdemo.config;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -24,5 +25,15 @@ public class ZookeeperConfig {
                 .retryPolicy(new ExponentialBackoffRetry(1000, 3))
                 // .namespace("demo-app")
                 .build();
+    }
+
+    /**
+     * 可重入互斥锁
+     *
+     * @return
+     */
+    @Bean
+    public InterProcessMutex interProcessMutex() {
+        return new InterProcessMutex(curatorFramework(), "/curator_lock");
     }
 }

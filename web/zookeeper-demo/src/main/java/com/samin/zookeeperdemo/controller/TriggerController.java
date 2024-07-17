@@ -1,6 +1,7 @@
 package com.samin.zookeeperdemo.controller;
 
 import com.samin.zookeeperdemo.bean.ConfigVO;
+import com.samin.zookeeperdemo.service.CuratorLockService;
 import com.samin.zookeeperdemo.service.SnowflakeIdService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
@@ -18,13 +19,30 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
-@RequestMapping("/config")
-public class ConfigController {
+@RequestMapping("/trigger")
+public class TriggerController {
 
     @Autowired
     private CuratorFramework curatorFramework;
     @Autowired
     private SnowflakeIdService snowflakeIdService;
+    @Autowired
+    private CuratorLockService curatorLockService;
+
+    /**
+     * 利用分布式锁获取订单号
+     * TODO 速度慢
+     *
+     * @return
+     * @throws InterruptedException
+     */
+    @GetMapping("/getOrderCode")
+    public String getOrderCode() throws InterruptedException {
+        for (int i = 0; i < 30; i++) {
+            curatorLockService.generator();
+        }
+        return "success";
+    }
 
     @PostMapping("/create")
     public String create(@RequestBody ConfigVO configVO) throws Exception {
