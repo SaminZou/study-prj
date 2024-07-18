@@ -1,0 +1,21 @@
+spring:
+  cache:
+    type: redis
+    redis:
+      # 存活时间（毫秒）
+      time-to-live: 3600000
+      # key 前缀
+      key-prefix:
+      # 是否缓存空值，防止缓存穿透
+      cache-null-values: true
+  redis:
+    host: samin.local
+    port: 6379
+    username:
+    password: dev_plat@123
+    database: 0
+    lettuce:
+      pool:
+        min-idle: 5
+        max-active: 10
+        max-wait: 3000
