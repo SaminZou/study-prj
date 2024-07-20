@@ -23,15 +23,15 @@ public class AmazonS3Config {
 
     @Bean(name = "amazonS3Client")
     public AmazonS3 amazonS3Client() {
-        //设置连接时的参数
+        // 设置连接时的参数
         ClientConfiguration config = new ClientConfiguration();
-        //设置连接方式为HTTP，可选参数为HTTP和HTTPS
+        // 设置连接方式为 HTTP，可选参数为 HTTP 和 HTTPS
         config.setProtocol(Protocol.HTTP);
-        //设置网络访问超时时间
+        // 设置网络访问超时时间
         config.setConnectionTimeout(5000);
         config.setUseExpectContinue(true);
         AWSCredentials credentials = new BasicAWSCredentials(minioProperties.getAccessKey(), minioProperties.getAccessSecret());
-        //设置Endpoint
+        // 设置 Endpoint
         AwsClientBuilder.EndpointConfiguration end_point = new AwsClientBuilder.EndpointConfiguration(minioProperties.getEndpoint(), Regions.US_EAST_1.name());
         AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
                 .withClientConfiguration(config)
