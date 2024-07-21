@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 public class InitTaskParam {
 
     /**
-     * 文件唯一标识(MD5)
+     * 文件唯一标识（MD5）
      */
     @NotBlank(message = "文件标识不能为空")
     private String identifier;

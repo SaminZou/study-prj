@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +37,7 @@ public class MinioUploadTaskController {
     /**
      * 获取上传进度
      *
-     * @param identifier 文件md5
+     * @param identifier 文件 md5
      * @return
      */
     @GetMapping("/{identifier}")

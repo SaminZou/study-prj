@@ -15,7 +15,7 @@ public class ObjectInfo {
     private String bucket;
 
     /**
-     * 对象的key
+     * 对象的 key
      */
     private String objectKey;
 

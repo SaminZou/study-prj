@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 分片上传-分片任务记录(MultiFileUpload)表服务实现类
+ * 分片上传-分片任务记录（MultiFileUpload）表服务实现类
  *
  * @since 2022-08-22 17:47:31
  */

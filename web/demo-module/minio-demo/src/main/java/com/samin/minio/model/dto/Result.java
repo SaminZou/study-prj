@@ -9,30 +9,8 @@ public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 状态码
-     * <p>
-     * 200000	成功
-     * 400000	参数错误
-     * 400100	用户名或者密码错误
-     * 401000	token失效，请重新登录
-     * 403000	未授权的访问
-     * 404000	请求的网页/路径不存在
-     * 500000	系统错误:请联系管理员
-     */
     private Integer code;
 
-    /**
-     * 对应状态码的，返回提醒信息
-     * <p>
-     * 200000	成功
-     * 400000	参数错误
-     * 400100	用户名或者密码错误
-     * 401000	token失效，请重新登录
-     * 403000	未授权的访问
-     * 404000	请求的网页/路径不存在
-     * 500000	系统错误:请联系管理员
-     */
     private String msg;
 
     /**

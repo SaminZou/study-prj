@@ -13,7 +13,7 @@ public class MultiFileUpload implements Serializable {
 
     private Long id;
     /**
-     * 分片上传的uploadId
+     * 分片上传的 uploadId
      */
     private String uploadId;
     /**
@@ -29,7 +29,7 @@ public class MultiFileUpload implements Serializable {
      */
     private String bucketName;
     /**
-     * 文件的key
+     * 文件的 key
      */
     private String objectKey;
     /**
