@@ -9,6 +9,7 @@
         <!-- lookup parent from repository -->
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.samin</groupId>
     <artifactId>zookeeper-demo</artifactId>
     <name>zookeeper-demo</name>
     <description>zookeeper-demo</description>
