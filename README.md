@@ -4,79 +4,43 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
 
-分享知识栈总结归纳，为开发者提供一些启发，同时给世界留下点什么。
+分享知识栈，为开发者提供一些启发。
 
-Share a summary of the knowledge stack, provide some inspiration for developers, and leave something to the world.
+Share knowledge stack, provide some inspiration for developers.
 
 > Author **Samin**
 >
 > Date **2019-11-12**
+> 
+> Leave something to the world.
 
-# 1 leetcode 📘
+# 1 blog
 
-力扣刷题记录
+博客
 
-## 1.1 algorithms
+# 2 codetips 📕
 
-算法刷题记录
-
-## 1.2 database
-
-数据库刷题记录
-
-使用 MySQL 语法
-
-# 2 designpattern 📗
+# 3 designpattern 📗
 
 设计模式共23种（大部分文献也有24种的说法，增加了空对象模式）
 
-# 3 codetips 📕
+# 4 docker
 
-**Learn how to study**
+# 5 leetcode 📘
 
-编码中需要注意的地方，以及遇到的一些坑，旨在建造一个丰富的案例库
+力扣刷题记录
 
-## 3.1 basic
+# 6 pythonscript
 
-基础
+Python 脚本
 
-## 3.2 collection
+# 7 shelltips
 
-容器
-
-## 3.3 concurrent
-
-并发
-
-## 3.4 puzzle
-
-疑难杂症
-
-## 3.5 template
-
-模板代码
-
-# 4 blog
-
-## 4.1 业务知识
-
-## 4.2 原创技术文章
-
-## 4.3 常用软件使用指南
-
-## 4.4 知识栈
-
-## 4.5 软技能（非技术）
-
-# 5 docker
-
-常用 docker 相关的 yaml 文件
-
-# 6 shell tips
-
-# 7 python script
+常用 shell 脚本 
 
 # 8 SQL
+
+数据库 SQL 整理
 
 # 9 web
 
@@ -84,7 +48,7 @@ Java Web Demo
 
 # FAQ
 
-Q：idea 导入后，可能出现异常需要重新导入工程项目，可以使用 `clean-idea-project-files.py` 删除工程文件
+1. 使用 `clean-idea-project-files.py` 删除工程文件
 
 $ python clean-idea-project-files.py
 
