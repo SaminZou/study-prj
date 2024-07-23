@@ -1,6 +1,9 @@
 import os
 import shutil
 
+# 删除 IDEA 工程文件、日志文件
+
+# python clean-idea-project-files.py
 
 class CleanTool:
     @staticmethod
@@ -24,5 +27,6 @@ if __name__ == "__main__":
     dir_path = os.getcwd()
     print("[current work directory] : " + dir_path)
     CleanTool.clean_dir(dir_path, ".idea")
+    CleanTool.clean_dir(dir_path, "out")
     CleanTool.clean_file(dir_path, ".iml")
     CleanTool.clean_file(dir_path, ".log")

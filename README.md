@@ -46,12 +46,6 @@ Python 脚本
 
 Java Web Demo
 
-# FAQ
-
-1. 使用 `clean-idea-project-files.py` 删除工程文件
-
-$ python clean-idea-project-files.py
-
 # License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
