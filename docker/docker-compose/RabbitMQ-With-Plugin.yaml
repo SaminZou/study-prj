@@ -9,13 +9,14 @@ services:
         max-size: "500m"
         max-file: 2
     restart: always
-    image: bitnami/rabbitmq:3.9.10
+    image: bitnami/rabbitmq:latest
     environment:
       - "RABBITMQ_USERNAME=samin"
       - "RABBITMQ_PASSWORD=samin"
       - "RABBITMQ_PLUGINS=rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_management"
     volumes:
-      - /mnt/rabbitmq/data:/bitnami
+      - /mnt/data/rabbitmq/data:/bitnami
+      - /mnt/data/rabbitmq/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
     ports:
       - "1883:1883"
       - "5672:5672"
