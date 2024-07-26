@@ -16,7 +16,6 @@ services:
       - "RABBITMQ_PLUGINS=rabbitmq_mqtt rabbitmq_web_mqtt rabbitmq_management"
     volumes:
       - /mnt/data/rabbitmq/data:/bitnami
-      - /mnt/data/rabbitmq/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
     ports:
       - "1883:1883"
       - "5672:5672"
