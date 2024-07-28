@@ -5,18 +5,21 @@ date: 2021-09-09
 ```
 
 # 安装及注意事项
-首先安装nodejs  
+
+## 安装 Nodejs
+
+首先安装 nodejs  
 官网下载最新的版本
 
-注意设置node_global和node_cache（一般来说输入如下指令即可修改）  
+注意设置 node_global 和 node_cache（一般来说输入如下指令即可修改）  
 npm config set prefix "F:\node\node_global"  
 npm config set cache "F:\node\node_cache"
 
-注意用npm安装的时候加g参数，指定全局，如：
+注意用 npm 安装的时候加 g 参数，指定全局，如：
 npm install express -g
 
-注意设置npm node_global的环境变量，让插件的cmd指令集可以使用    
-在环境变量中添加node_global的路径，如"F:\node\node_cache"
+注意设置 npm node_global 的环境变量，让插件的 cmd 指令集可以使用    
+在环境变量中添加 node_global 的路径，如"F:\node\node_global\bin"
 
 # 常用指令
 - hexo new "postName" //新建文章
