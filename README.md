@@ -1,4 +1,4 @@
-# Java学习笔记 🚀
+# Java 技术栈知识积累 🚀
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
