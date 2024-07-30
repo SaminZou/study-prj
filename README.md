@@ -1,51 +1,52 @@
-# Java 技术栈知识积累 🚀
+# Java Technical Skills Share 🚀
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/SaminZou/study-prj?style=social)
 ![GitHub top language](https://img.shields.io/github/languages/top/SaminZou/study-prj)
 ![GitHub](https://img.shields.io/github/license/SaminZou/study-prj)
-
-分享知识栈，为开发者提供一些启发。
 
 Share knowledge stack, provide some inspiration for developers.
 
 > Author **Samin**
 >
 > Date **2019-11-12**
-> 
+>
 > Leave something to the world.
 
 # 1 blog
 
-博客
+Technical Skills content
 
 # 2 codetips 📕
 
+code snippets
+
 # 3 designpattern 📗
 
-设计模式共23种（大部分文献也有24种的说法，增加了空对象模式）
+design pattern
 
 # 4 docker
 
 # 5 leetcode 📘
 
-力扣刷题记录
+question record
 
 # 6 pythonscript
 
-Python 脚本
+python scripts
 
 # 7 shelltips
 
-常用 shell 脚本 
+common shell scripts
 
 # 8 SQL
 
-数据库 SQL 整理
+database common SQL
 
 # 9 web
 
-Java Web Demo
+Java web demo
 
 # License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
+This project is licensed under the Apache License 2.0 - see
+the [LICENSE.txt](https://github.com/SaminZou/study-prj/blob/master/LICENSE.txt) file for details
