@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Nexus 安装搜索项目中的 "Nexus3.yaml"
+
 # $1 项目路径 $2 过滤需要指定模块
 mavenProjectDeploy(){
   cd $1
