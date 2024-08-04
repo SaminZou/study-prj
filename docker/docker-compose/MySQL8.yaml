@@ -3,6 +3,7 @@ version: '3'
 services:
   mysql:
     container_name: mysql8
+    restart: always
     image: mysql:8.0
     # 可以做一些定制化配置
     command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_connections=1000

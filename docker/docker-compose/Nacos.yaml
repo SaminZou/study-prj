@@ -13,6 +13,7 @@ services:
   nacos:
     image: nacos/nacos-server:v2.3.0
     container_name: nacos
+    restart: always
     ports:
       - 8848:8848
     logging:
