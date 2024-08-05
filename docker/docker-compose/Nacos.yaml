@@ -16,6 +16,8 @@ services:
     restart: always
     ports:
       - 8848:8848
+    volumes:
+      - '/mnt/data/nacos/logs:/home/nacos/logs'
     logging:
       driver: "json-file"
       options:
@@ -29,7 +31,6 @@ services:
       - MYSQL_SERVICE_PORT=3306
       - MYSQL_SERVICE_USER=root
       - MYSQL_SERVICE_PASSWORD=123456
-      -
 
 # CREATE TABLE `config_info` (
 #   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
