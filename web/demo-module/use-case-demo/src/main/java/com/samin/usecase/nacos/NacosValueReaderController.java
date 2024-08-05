@@ -1,4 +1,4 @@
-package com.samin.usecase.value;
+package com.samin.usecase.nacos;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
