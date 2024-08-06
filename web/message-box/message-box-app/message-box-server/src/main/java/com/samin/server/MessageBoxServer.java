@@ -1,12 +1,12 @@
-package com.samin.demo;
+package com.samin.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MessageBoxApp {
+public class MessageBoxServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(MessageBoxApp.class, args);
+        SpringApplication.run(MessageBoxServer.class, args);
     }
 }
