@@ -3,7 +3,7 @@ server:
 
 spring:
   rabbitmq:
-    host: samin.local
+    host: samin.dev
     port: 5672
     username: msgbox
     password: msgbox

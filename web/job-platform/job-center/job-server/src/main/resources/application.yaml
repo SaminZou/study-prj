@@ -2,7 +2,7 @@ spring:
   application:
     name: job-server
   datasource:
-    url: jdbc:mysql://samin.local:3306/job?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://samin.dev:3306/job?useUnicode=true&characterEncoding=utf-8
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -11,7 +11,7 @@ spring:
       ddl-auto: update
     show-sql: true
   rabbitmq:
-    host: samin.local
+    host: samin.dev
     port: 5672
     username: job
     password: job

@@ -34,7 +34,7 @@ afterEvaluate {
         repositories {
             maven {
                 allowInsecureProtocol true
-                url = "http://samin.local:8081/repository/maven-releases/"
+                url = "http://samin.dev:8081/repository/maven-releases/"
                 credentials {
                     username = 'admin'
                     password = 'admin'

@@ -6,12 +6,12 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://samin.local:3306/minio?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://samin.dev:3306/minio?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 123456
 
 minio:
-  endpoint: http://samin.local:9000
+  endpoint: http://samin.dev:9000
   access-key: AKIAIOSFODNN7EXAMPLE
   access-secret: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
   bucket: minio-demo
