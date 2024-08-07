@@ -1,10 +1,6 @@
 server:
   port: 8081
 
-nacos:
-  config:
-    server-addr: samin.dev:8848
-
 custom:
   order_test: application
   config:
@@ -18,6 +14,7 @@ custom:
   pg_schema: public
   redis_host: samin.dev
   redis_port: 6379
+  redis_username:
   redis_password: 123456
   redis_database: 0
 
@@ -28,8 +25,6 @@ spring:
     # 指定多个，同一个参数，最后的文件参数值优先级最高
     # include: dev,test
   application:
-    # Nacos Data ID 自动切换配置使用此属性，完整规则为 ${spring.application.name}-${spring.application.name}.$｛配置格式｝
-    # 如：在网页上新建配置 Data ID 为 "samin-test" 并选择配置格式为 "YAML"，那么 Nacos 服务端会自动生成 "samin-test.yaml"
     name: samin
   datasource:
     url: jdbc:postgresql://${custom.pg_host}:${custom.pg_port}/${custom.pg_database}?currentSchema=${custom.pg_schema:public}&stringtype=unspecified
@@ -50,6 +45,7 @@ spring:
   redis:
     host: ${custom.redis_host}
     port: ${custom.redis_port}
+    username: ${custom.redis_username}
     password: ${custom.redis_password}
     database: ${custom.redis_database}
     lettuce:

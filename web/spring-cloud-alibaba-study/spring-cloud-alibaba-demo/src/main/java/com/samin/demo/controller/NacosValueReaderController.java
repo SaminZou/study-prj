@@ -1,15 +1,15 @@
-package com.samin.usecase.nacos;
+package com.samin.demo.controller;
 
-import com.alibaba.nacos.api.config.annotation.NacosValue;
-import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@NacosPropertySource(dataId = "samin-test.yaml", autoRefreshed = true)
+@RefreshScope
 @RestController
 public class NacosValueReaderController {
 
-    @NacosValue(value = "${blogTitle:}", autoRefreshed = true)
+    @Value("${blogTitle:default}")
     private String blogTitle;
 
     @GetMapping("/blogTitle")

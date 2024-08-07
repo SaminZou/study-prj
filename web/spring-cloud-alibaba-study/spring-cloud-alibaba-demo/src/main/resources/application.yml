@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    # 指定一个
+    active: test
+    # 指定多个，同一个参数，最后的文件参数值优先级最高
+    # include: dev,test
+  application:
+    # Nacos Data ID 自动切换配置使用此属性，完整规则为 ${spring.application.name}-${spring.profiles.active}.$｛文件格式｝
+    # Nacos 控制台新建配置 Data ID 为 "samin-test.yaml"
+    name: samin
+  cloud:
+    nacos:
+      config:
+        import-check:
+          enabled: false
+        server-addr: samin.dev:8848
+        namespace: samin-app
+        group: samin-app
+        prefix: samin
+        file-extension: yaml
+      discovery:
+        server-addr: samin.dev:8848
+        namespace: samin-app
