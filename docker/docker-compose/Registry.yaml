@@ -28,8 +28,8 @@ services:
     image: hyper/docker-registry-web
     environment:
       # Registry 地址
-      - REGISTRY_URL=http://samin.local:5000/v2
+      - REGISTRY_URL=http://samin.dev:5000/v2
       # Registry 名称
-      - REGISTRY_NAME=samin.local:5000
+      - REGISTRY_NAME=samin.dev:5000
     ports:
       - "8080:8080"

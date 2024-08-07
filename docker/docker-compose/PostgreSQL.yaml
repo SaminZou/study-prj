@@ -12,9 +12,15 @@ services:
     image: postgres:13
     command: postgres -c 'max_connections=1000'
     volumes:
-      - /mnt/data/postgres:/var/lib/postgresql/data
+      - /mnt/data/postgresql/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d study"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
     environment:
-      POSTGRES_PASSWORD: postgres123456
+      POSTGRES_DB: study
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123456
     ports:
       - 5432:5432

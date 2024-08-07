@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  redis:
+    container_name: redis
+    restart: always
+    image: bitnami/redis:latest
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    environment:
+      - "REDIS_AOF_ENABLED=no"
+      - "REDIS_RDB_POLICY_DISABLED=no"
+      - "REDIS_PASSWORD=123456"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+    # volumes:
+    #  - /mnt/data/redis/data:/bitnami/redis/data
+    ports:
+      - 6379:6379
