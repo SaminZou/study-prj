@@ -1,7 +1,7 @@
 <template>
   <el-container id="app" class="container" v-if="this.showIndex">
     <el-header class="header">
-      <div id="logo">MessageBox 后台管理</div>
+      <div id="logo">Message Box 后台管理</div>
       <div id="userInfo">
         <el-avatar icon="el-icon-user-solid"></el-avatar>
       </div>
