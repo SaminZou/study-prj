@@ -6,6 +6,7 @@
     <groupId>com.samin</groupId>
     <artifactId>message-box-app</artifactId>
     <version>1.0.0</version>
+
     <modules>
 <!--        <module>message-box-sdk</module>-->
         <module>message-box-server</module>
