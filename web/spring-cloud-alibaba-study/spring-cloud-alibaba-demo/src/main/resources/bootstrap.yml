@@ -1,6 +1,22 @@
 spring:
+  profiles:
+    active: dev
+
+  application:
+    # Nacos Data ID 自动切换配置使用此属性，完整规则为 ${prefix}-${spring.profiles.active}.${file-extension}
+    # 本项目需要 Nacos 控制台新建配置 Data ID 为 "samin-dev.yaml" 和 "samin-test.yaml"，内容包含 blogTitle
+    name: samin
+
   cloud:
     nacos:
+      config:
+        server-addr: samin.dev:8848
+        namespace: 84bc787d-3fd3-40c8-898e-3f45fae0a36b
+        group: study-group
+        # prefix 默认值为 spring.application.name
+        # 默认 file-extension 为 properties
+        file-extension: yaml
       discovery:
+        server-addr: samin.dev:8848
         metadata:
           health: true

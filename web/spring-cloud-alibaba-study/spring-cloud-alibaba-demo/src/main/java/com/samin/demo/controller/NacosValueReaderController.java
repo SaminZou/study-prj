@@ -11,9 +11,11 @@ public class NacosValueReaderController {
 
     @Value("${blogTitle:default}")
     private String blogTitle;
+    @Value("${blogEnabled:false}")
+    private boolean blogEnabled;
 
     @GetMapping("/blogTitle")
     public String blogTitle() {
-        return blogTitle;
+        return blogEnabled + " " + blogTitle;
     }
 }
