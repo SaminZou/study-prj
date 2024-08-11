@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.samin</groupId>
-        <artifactId>spring-cloud-alibaba-demo</artifactId>
+        <artifactId>spring-cloud-alibaba-demo2</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>spring-cloud-alibaba-demo-app</artifactId>
-    <name>spring-cloud-alibaba-demo-app</name>
-    <description>spring-cloud-alibaba-demo-app</description>
+    <artifactId>spring-cloud-alibaba-demo-app2</artifactId>
+    <name>spring-cloud-alibaba-demo-app2</name>
+    <description>spring-cloud-alibaba-demo-app2</description>
 
     <dependencies>
         <dependency>
