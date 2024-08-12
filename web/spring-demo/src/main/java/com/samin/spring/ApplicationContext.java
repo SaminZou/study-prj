@@ -58,7 +58,9 @@ public class ApplicationContext {
                     beanDefinition.setScope("singleton");
                 }
 
-                // beanDefinition.setLazy();
+                if (clazz.isAnnotationPresent(Lazy.class)) {
+                    beanDefinition.setLazy(true);
+                }
 
                 beanDefinitionMap.put(beanName, beanDefinition);
             }
