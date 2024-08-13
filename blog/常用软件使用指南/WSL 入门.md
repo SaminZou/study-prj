@@ -163,14 +163,6 @@ $ source ~/.vimrc
 
 $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-### zsh 设置
-
-$ vim ~/.zshrc
-
-```properties
-
-```
-
 ### 安装插件（可选）
 
 \# 自动补全
