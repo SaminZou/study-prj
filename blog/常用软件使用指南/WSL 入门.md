@@ -168,11 +168,7 @@ $ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/t
 $ vim ~/.zshrc
 
 ```properties
-# 主题配置， `ys`、`agnoster` 比较常用
-ZSH_THEME="ys"
 
-# 取消自动更新
-DISABLE_UPDATE_PROMPT=true
 ```
 
 ### 安装插件（可选）
@@ -188,8 +184,13 @@ $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zs
 $ vim ~/.zshrc
 
 ```properties
+# 主题配置， `ys`、`agnoster` 比较常用
+ZSH_THEME="ys"
+
+# 取消自动更新
+DISABLE_UPDATE_PROMPT=true
 # 用空格分隔控件
-plugins=( [plugins...] zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
 ### Windows 修改 git bash 的默认指令集为 zsh（可选）

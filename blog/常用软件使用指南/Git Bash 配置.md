@@ -80,4 +80,4 @@ $ ./getemojis -d
 
 # 解决 Git Bash 交互性太差的问题
 
-可以集成进 VS Code 或者 Windows Terminal 使用 
+可以集成进 VS Code 或者 Windows Terminal 使用
