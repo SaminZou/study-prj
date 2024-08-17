@@ -4,13 +4,14 @@
 check_git_changes() {
     cd "$1" || exit
     if [ -d ".git" ]; then
-        if git diff-index --quiet HEAD --; then
-            echo "No changes in $1"
-        else
-            echo "Changes detected in $1"
+        status=$(git status --porcelain)
+        if [ -n "$status" ]; then
+            echo "Git status has output in $1"
+        # else
+        #     echo "Git status is clean."
         fi
     fi
-        cd ..
+    cd ..
 }
 
 # 遍历当前目录所有文件夹
