@@ -1,6 +1,6 @@
 package com.samin.auth.config;
 
-import com.samin.auth.exception.BusException;
+import com.samin.auth.exception.BusiException;
 import com.samin.auth.vo.base.BaseResp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @Slf4j
 @RestControllerAdvice
-public class ControllerAdvice {
+public class GlobalExceptionAdvice {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -25,9 +25,9 @@ public class ControllerAdvice {
         return BaseResp.fail(-1, e.getMessage());
     }
 
-    @ExceptionHandler(BusException.class)
+    @ExceptionHandler(BusiException.class)
     @ResponseStatus(HttpStatus.OK)
-    public BaseResp<Void> runtimeException(BusException e) {
+    public BaseResp<Void> runtimeException(BusiException e) {
         log.error("BusException：", e);
         return BaseResp.fail(e.getCode(), e.getMessage());
     }

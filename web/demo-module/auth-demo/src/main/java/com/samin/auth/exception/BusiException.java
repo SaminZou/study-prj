@@ -9,25 +9,25 @@ import lombok.Getter;
  * @date 2022-08-18
  */
 @Getter
-public class BusException extends RuntimeException {
+public class BusiException extends RuntimeException {
 
     private final int code;
 
-    public BusException(int code) {
+    public BusiException(int code) {
         this.code = code;
     }
 
-    public BusException(int code, String msg) {
+    public BusiException(int code, String msg) {
         super(msg);
         this.code = code;
     }
 
-    public BusException(int code, String msg, Throwable cause) {
+    public BusiException(int code, String msg, Throwable cause) {
         super(msg, cause);
         this.code = code;
     }
 
-    public BusException(BusinessCode businessCode) {
+    public BusiException(BusinessCode businessCode) {
         super(businessCode.getValue());
         this.code = businessCode.getCode();
     }

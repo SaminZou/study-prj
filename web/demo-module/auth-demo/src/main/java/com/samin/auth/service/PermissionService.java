@@ -1,6 +1,6 @@
 package com.samin.auth.service;
 
-import com.samin.auth.exception.BusException;
+import com.samin.auth.exception.BusiException;
 import com.samin.auth.exception.ExceptionEnums;
 import com.samin.auth.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class PermissionService {
 
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if (Objects.isNull(requestAttributes)) {
-            throw new BusException(ExceptionEnums.SYSTEM_ERROR);
+            throw new BusiException(ExceptionEnums.SYSTEM_ERROR);
         }
 
         HttpServletRequest request = requestAttributes.getRequest();

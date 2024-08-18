@@ -28,7 +28,7 @@ public enum ExceptionEnums implements BusinessCode {
         return UNKNOWN;
     }
 
-    public static void throwException(ExceptionEnums exceptionEnums) throws BusException {
-        throw new BusException(exceptionEnums);
+    public static void throwException(ExceptionEnums exceptionEnums) throws BusiException {
+        throw new BusiException(exceptionEnums);
     }
 }
