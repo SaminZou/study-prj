@@ -25,4 +25,4 @@ services:
       - '3306:3306'
     volumes:
       - '/mnt/data/mysql/data:/var/lib/mysql'
-      - '/mnt/data/mysql/conf.d:/etc/mysql/conf.d'
+      #- '/mnt/data/mysql/conf.d:/etc/mysql/conf.d'
