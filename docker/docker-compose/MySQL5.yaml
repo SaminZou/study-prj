@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mysql5:
+    container_name: mysql5.7
+    restart: always
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpasswd
+      MYSQL_DATABASE: default
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+    ports:
+      - '3306:3306'
+    volumes:
+      - '/mnt/data/mysql/data:/var/lib/mysql'

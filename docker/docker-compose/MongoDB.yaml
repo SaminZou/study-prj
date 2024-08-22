@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:4.0.27
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - /mnt/mongodb/data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8089:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+
+networks:
+  default:
+    name: mongodb_network
