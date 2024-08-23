@@ -12,8 +12,9 @@ fi
 for user in "$@"
 do
     # 创建用户并指定密码
-    password="${user}@salt"
+    password=$(pwgen 8 1)
     sudo adduser --disabled-password --gecos "" "$user"
+    echo "$user:$password"
     echo "$user:$password" | sudo chpasswd
 
     # 添加用户到sudo组
