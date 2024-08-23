@@ -13,7 +13,8 @@ startDate=$(getDate)
 
 echo "#开始时间：$startDate" >> run.log
 
-# 程序暂停，单位秒
+# TODO 此处模拟程序执行
+# [Mock] 程序暂停，单位秒
 sleep 2
 
 endDate=$(getDate)
