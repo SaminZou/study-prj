@@ -1,0 +1,35 @@
+services:
+  yapi:
+    container_name: yapi
+    restart: always
+    image: jayfong/yapi
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+    ports:
+       - '3000:3000'
+    volumes:
+       - '/mnt/data/yapi/config.json:/yapi/config.json'
+
+# config.json
+# {
+#   "port": 3000,
+#   "adminAccount": "admin@admin.com",
+#   "timeout": 120000,
+#   "db": {
+#     "servername": "192.168.11.111",
+#     "DATABASE": "yapi",
+#     "port": 27017,
+#     "user": "yapi",
+#     "pass": "yapi123456",
+#     "authSource": ""
+#   },
+#   "mail": {
+#     "enable": false,
+#     "auth": {}
+#   },
+#   "ldapLogin": {},
+#   "plugins": []
+# }
