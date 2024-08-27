@@ -30,3 +30,4 @@ if __name__ == "__main__":
     CleanTool.clean_dir(dir_path, "out")
     CleanTool.clean_file(dir_path, ".iml")
     CleanTool.clean_file(dir_path, ".log")
+    CleanTool.clean_file(dir_path, "target")
