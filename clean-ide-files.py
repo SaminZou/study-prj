@@ -28,6 +28,6 @@ if __name__ == "__main__":
     print("[current work directory] : " + dir_path)
     CleanTool.clean_dir(dir_path, ".idea")
     CleanTool.clean_dir(dir_path, "out")
+    CleanTool.clean_dir(dir_path, "target")
     CleanTool.clean_file(dir_path, ".iml")
     CleanTool.clean_file(dir_path, ".log")
-    CleanTool.clean_file(dir_path, "target")
