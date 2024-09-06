@@ -1,0 +1,21 @@
+services:
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mqtt_broker
+    ports:
+      - "1883:1883"
+      # WebSocket
+      - "9001:9001"
+    volumes:
+      - /mnt/data/mosquitto/config:/mosquitto/config
+      - /mnt/data/mosquitto/data:/mosquitto/data
+      - /mnt/data/mosquitto/log:/mosquitto/log
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+    restart: always
+    # 根据需要设置时区
+    environment:
+      - TZ=Asia/Shanghai
