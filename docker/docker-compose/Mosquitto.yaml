@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   mqtt:
     image: eclipse-mosquitto
@@ -19,3 +21,22 @@ services:
     # 根据需要设置时区
     environment:
       - TZ=Asia/Shanghai
+
+# 1. 编辑 config/mosquitto.conf
+
+# allow_anonymous false
+# listener 1883
+# listener 9001
+# protocol websockets
+# persistence true
+# password_file /mosquitto/config/pwfile
+# persistence_file mosquitto.db
+# persistence_location /mosquitto/data/
+
+# 2. touch config/pwfile
+
+# 3. docker exec -it mqtt_broker sh
+
+# 4. mosquitto_passwd -c /mosquitto/config/pwfile user1
+
+# 5. docker-compose restart
