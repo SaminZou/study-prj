@@ -40,3 +40,7 @@ services:
 # 4. mosquitto_passwd -c /mosquitto/config/pwfile user1
 
 # 5. docker-compose restart
+
+# 6. 连接 WS， 可以订阅查询服务器的实时状态
+# $SYS/broker/clients/connected 当前连接的客户端数量
+# $SYS/broker/subscriptions/count 服务器订阅主题总数
