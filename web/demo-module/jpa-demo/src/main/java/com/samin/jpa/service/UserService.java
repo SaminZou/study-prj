@@ -105,6 +105,22 @@ public class UserService {
         return userVO;
     }
 
+    public void saveAll() {
+        List<UserDO> list = new ArrayList<>();
+        UserDO userDO = new UserDO();
+        // 需要先插入
+        userDO.setId(1);
+        userDO.setName("test1");
+        userDO.setMobile("123");
+        list.add(userDO);
+
+        UserDO userDO2 = new UserDO();
+        userDO2.setName("test2");
+        list.add(userDO2);
+
+        userRepository.saveAll(list);
+    }
+
     public UserVO saveUser(UserVO req) {
         UserDO userDO = new UserDO();
         BeanUtils.copyProperties(req, userDO);

@@ -22,6 +22,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/user/save/all")
+    public void saveAll() {
+        userService.saveAll();
+    }
+
     @PostMapping("/user/distinct")
     public List<Integer> distinct() {
         return userService.distinct();
