@@ -55,6 +55,8 @@ public class BigDecimalUseCase {
         DecimalFormat decimalFormat = new DecimalFormat("#.00");
         System.out.println(decimalFormat.format(new BigDecimal("1234.1234")));
         System.out.println(decimalFormat.format(1234.1234));
+        // 输出是 .123 DecimalFormat decimalFormat = new DecimalFormat("0.00"); 来显示 0
+        System.out.println(decimalFormat.format(0.123));
 
         // 建立货币格式化引用
         NumberFormat currency = NumberFormat.getCurrencyInstance();
