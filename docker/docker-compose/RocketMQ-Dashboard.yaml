@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  rocketmq-dashboard:
+    container_name: rocketmq-dashboard
+    restart: always
+    image: apacherocketmq/rocketmq-dashboard:latest
+    environment:
+      - "JAVA_OPTS=-Drocketmq.namesrv.addr=127.0.0.1:9876"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500m"
+        max-file: 2
+    ports:
+      - 8080:8080
+
+# https://github.com/bitnami/containers/tree/main/bitnami/redis#how-to-use-this-image
