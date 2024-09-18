@@ -59,10 +59,10 @@ public class Token {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-        String productId = "syS7Q1Dqko";
-        String deviceId = "test_light";
+        String productId = "g76xaVQxw5";
+        String deviceId = "gateway_52028";
         // device secret
-        String accessKey = "bkluTXZQb0x5SGJMQmR0VzY4ekpsQWFxRmdmMmt0VEM=";
+        String accessKey = "d25zbThKdjY5T2Y3SjI2Um5GMVRYNU45bVJYUVlySEE=";
 
         String version = "2018-10-31";
         String resourceName = String.format("products/%s/devices/%s", productId, deviceId);
