@@ -13,6 +13,7 @@
         <module>prometheus-demo</module>
         <module>tdengine-demo</module>
         <module>rabbitmq-demo</module>
+        <module>rocket-demo</module>
         <module>aop-demo</module>
         <module>auth-demo</module>
         <module>admin-demo</module>

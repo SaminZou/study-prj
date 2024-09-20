@@ -1,0 +1,8 @@
+server:
+  port: 8081
+
+spring:
+  rocketmq:
+    name-server: samin.dev:9876
+    producer:
+      group: producer-group
