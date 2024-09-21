@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+rocketmq:
+  name-server: samin.local:9876
+  producer:
+    group: producer-group
+    send-message-timeout: 3000
+    retry-times-when-send-failed: 2
+    retry-next-server: true

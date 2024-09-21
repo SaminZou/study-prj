@@ -1,0 +1,5 @@
+rocketmq:
+  name-server: samin.local:9876
+  consumer:
+    group: consumer-group
+    topic: test-topic

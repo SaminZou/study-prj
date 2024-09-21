@@ -1,5 +1,0 @@
-spring:
-  rocketmq:
-    name-server: samin.dev:9876
-    consumer:
-      group: consumer-group

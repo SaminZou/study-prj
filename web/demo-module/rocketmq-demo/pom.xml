@@ -9,7 +9,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>rocket-demo</artifactId>
+    <artifactId>rocketmq-demo</artifactId>
 
     <modules>
         <module>rocketmq-common</module>

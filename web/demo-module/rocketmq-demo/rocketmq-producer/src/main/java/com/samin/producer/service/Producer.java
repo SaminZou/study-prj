@@ -20,13 +20,9 @@ public class Producer implements CommandLineRunner {
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
-    public void sendMessage(String topic, String message) {
-        rocketMQTemplate.convertAndSend(topic, message);
-        System.out.println("消息发送成功: " + message);
-    }
-
     @Override
     public void run(String... args) throws Exception {
-        sendMessage("test-topic", "test message");
+        rocketMQTemplate.convertAndSend("test-topic", "test message");
+        System.out.println("消息发送成功: " + "test message");
     }
 }
