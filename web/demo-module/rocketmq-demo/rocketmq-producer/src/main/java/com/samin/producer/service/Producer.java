@@ -1,5 +1,6 @@
 package com.samin.producer.service;
 
+import com.samin.common.entity.MessageBody;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,6 +23,13 @@ public class Producer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        MessageBody messageBody = MessageBody.builder()
+                .msgId(1L)
+                .text("foo")
+                .content("bar")
+                .userId(1L)
+                .build();
+        rocketMQTemplate.convertAndSend("test-topic2", messageBody);
         rocketMQTemplate.convertAndSend("test-topic", "test message");
         System.out.println("消息发送成功: " + "test message");
     }
