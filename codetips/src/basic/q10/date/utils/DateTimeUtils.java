@@ -1,11 +1,6 @@
 package basic.q10.date.utils;
 
-import java.time.DayOfWeek;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
@@ -30,6 +25,23 @@ public class DateTimeUtils {
         return localDateTimeToOffsetDateTime(parseTime);
     }
 
+    /**
+     * UTC 转换为东八区
+     *
+     * @param localDateTime
+     * @return
+     */
+    public static ZonedDateTime utcToShanghai(LocalDateTime localDateTime) {
+        return localDateTime.atZone(ZoneId.of("UTC"))
+                .withZoneSameInstant(ZoneId.of("Asia/Shanghai"));
+    }
+
+    /**
+     * 转换为带时区的时间
+     *
+     * @param localDateTime
+     * @return
+     */
     public static OffsetDateTime localDateTimeToOffsetDateTime(LocalDateTime localDateTime) {
         // 时区偏移值
         String OFFSET_ID = "+8";
@@ -86,7 +98,7 @@ public class DateTimeUtils {
      */
     public static long timeDiff(OffsetDateTime a, OffsetDateTime b) {
         return Duration.between(a, b)
-                       .getSeconds() / 60L / 60L;
+                .getSeconds() / 60L / 60L;
     }
 
     public static long timeDiff2(OffsetDateTime a, OffsetDateTime b) {
