@@ -10,12 +10,12 @@ public class EnumEqualsUseCase {
 
     public static void main(String[] args) {
 
-        WeekEnum weekEnum = WeekEnum.badUse(5);
+        WeekEnum weekEnum = WeekEnum.badTaste(5);
 
         System.out.println(weekEnum.equals(WeekEnum.FRIDAY));
         System.out.println(weekEnum == WeekEnum.FRIDAY);
 
-        System.out.println(WeekEnum.bestPractice("星期五"));
+        System.out.println(WeekEnum.bestPractice(5));
 
         // 可以看到以上两个输出结果是一样的，原因是 java.lang.Enum 中的 equals 方法被重写，使用的就是 ==
         // public final boolean equals(Object other) { return this==other; }
