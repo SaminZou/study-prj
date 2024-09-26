@@ -3,7 +3,6 @@ package com.samin.producer.service;
 import com.samin.common.entity.MessageBody;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,13 +15,12 @@ import org.springframework.stereotype.Component;
  * Created Date: 2024-09-20
  */
 @Component
-public class Producer implements CommandLineRunner {
+public class Producer {
 
     @Autowired
     private RocketMQTemplate rocketMQTemplate;
 
-    @Override
-    public void run(String... args) throws Exception {
+    public void run() {
         MessageBody messageBody = MessageBody.builder()
                 .msgId(1L)
                 .text("foo")

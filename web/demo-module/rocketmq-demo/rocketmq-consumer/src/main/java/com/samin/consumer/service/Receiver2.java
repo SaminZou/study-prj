@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * Created Date: 2024-09-20
  */
 @Component
-@RocketMQMessageListener(topic = "test-topic2", consumerGroup = "consumer-group")
+@RocketMQMessageListener(topic = "test-topic2", consumerGroup = "consumer-group2")
 public class Receiver2 implements RocketMQListener<MessageBody> {
 
     @Override
