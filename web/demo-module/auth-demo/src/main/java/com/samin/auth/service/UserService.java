@@ -73,10 +73,11 @@ public class UserService {
                 .map(UserExcel::getInstance)
                 .collect(Collectors.toList());
 
-        response.setContentType("application/vnd.ms-excel");
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         response.setCharacterEncoding("utf-8");
+        // 为了解决中文导出异常，需要对中文进行 URL 编码后，配置好 Content-Disposition
         String fileName = URLEncoder.encode("用户列表", "UTF-8");
-        response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
+        response.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
         response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
         EasyExcel.write(response.getOutputStream(), UserExcel.class)
                 .inMemory(true)

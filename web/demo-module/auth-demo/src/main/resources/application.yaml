@@ -1,11 +1,11 @@
 custom:
   pg_host: samin.dev
   pg_port: 5432
-  pg_database: samin-dev
-  pg_username: auth
-  pg_password: auth123456
+  pg_database: dev
+  pg_username: postgres
+  pg_password: postgres123456
   # pg_schema: public
-  redis_host: samin.dev
+  redis_host: samin.local
   redis_port: 6379
   redis_password: dev_plat@123
   redis_database: 1

@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://samin.dev:5432/auth?currentSchema=public&stringtype=unspecified
-    username: auth
-    password: auth123456
+    url: jdbc:postgresql://samin.dev:5432/dev?currentSchema=public&stringtype=unspecified
+    username: postgres
+    password: postgres123456
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
