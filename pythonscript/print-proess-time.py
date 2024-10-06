@@ -18,8 +18,7 @@ def print_duration(start_time, end_time):
 # 记录开始时间
 start_time = time.time()
 
-# 模拟程序执行时间（这里使用sleep函数模拟）
-import time
+# 模拟程序执行时间（这里使用 sleep 函数模拟）
 time.sleep(5)  # 假设程序执行了5秒
 
 # 记录结束时间
