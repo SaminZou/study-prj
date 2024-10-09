@@ -64,10 +64,11 @@ public class StringUseCase {
         // ---------------------------- 字符切割 -------------------------------
         // 以 "." 为分隔符
         String str1 = "192.168.110.1";
-        String test1 = "192";
         for (String ele : str1.split("\\.")) {
             System.out.println("str1: " + ele);
         }
+        // 没有分隔符也可以直接输出
+        String test1 = "192";
         for (String ele : test1.split("\\.")) {
             System.out.println("test1: " + ele);
         }
