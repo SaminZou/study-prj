@@ -2,10 +2,12 @@ package basic.q6.tcp;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
 public class TcpServer {
@@ -66,10 +68,30 @@ public class TcpServer {
     }
 
     private void readData(SelectionKey key) throws IOException {
-        // 实现读取客户端数据逻辑
+        SocketChannel channel = (SocketChannel) key.channel();
+        ByteBuffer buffer = ByteBuffer.allocate(1024); // 假设最大接收1KB的数据
+        int numRead;
+
+        while ((numRead = channel.read(buffer)) > 0) {
+            buffer.flip(); // 准备读取数据
+            byte[] data = new byte[numRead];
+            buffer.get(data); // 从buffer中获取数据
+            String message = new String(data, StandardCharsets.UTF_8);
+            System.out.println("接收到的消息: " + message);
+            buffer.clear(); // 清空buffer以备下次读取
+        }
+
+        if (numRead == -1) { // 客户端关闭了连接
+            System.out.println("客户端关闭了连接.");
+            channel.close();
+            key.cancel();
+        }
     }
 
     private void sendHeartbeat(SelectionKey key) throws IOException {
-        // 实现发送心跳逻辑
+        SocketChannel channel = (SocketChannel) key.channel();
+        ByteBuffer buffer = ByteBuffer.wrap("1".getBytes(StandardCharsets.UTF_8)); // 心跳消息
+        channel.write(buffer); // 向客户端写入数据
+        System.out.println("发送心跳消息.");
     }
 }
