@@ -1,6 +1,8 @@
-package puzzle.q2;
+package puzzle;
 
 /**
+ * Q：Unicode 编码注释问题
+ *
  * Java 的注释不一定不会执行，可能需要排除这种特殊情况
  *
  * <p>编译器会解析 Unicode 字符，可能导致代码会在编译时报错

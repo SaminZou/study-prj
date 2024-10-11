@@ -1,4 +1,4 @@
-package puzzle.q3;
+package puzzle;
 
 import java.lang.management.ManagementFactory;
 import java.util.Random;
@@ -7,6 +7,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Q：观测 CPU 100% 运行
+ * <p>
  * 此模拟程序目的是为了观测多核 CPU 的运行负载情况
  *
  * @author samin
@@ -29,10 +31,10 @@ public class Cpu100Run {
 
     public static void main(String[] args) {
         ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5, 10, 10, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
-                                                                 r -> new Thread(r, "show-the-fixed-thread-"
-                                                                         + new Random().nextInt(999)));
+                r -> new Thread(r, "show-the-fixed-thread-"
+                        + new Random().nextInt(999)));
         System.out.println("Running at pid:" + ManagementFactory.getRuntimeMXBean()
-                                                                .getName());
+                .getName());
 
         // 建议设置不需要超过 `核数+1` ，次模拟基于 CPU 密集型任务模型
         runThread(poolExecutor);
@@ -64,13 +66,13 @@ public class Cpu100Run {
         @Override
         public void run() {
             System.out.println("Thread :" + Thread.currentThread()
-                                                  .getName() + " start.");
+                    .getName() + " start.");
             // 死循环，模拟 CPU 100%运行
             while (SWITCH_BOOL) {
                 int sum = 1 + 1;
             }
             System.out.println("Thread :" + Thread.currentThread()
-                                                  .getName() + " stop.");
+                    .getName() + " stop.");
         }
     }
 

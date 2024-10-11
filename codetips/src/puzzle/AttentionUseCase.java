@@ -1,9 +1,11 @@
-package puzzle.q4;
+package puzzle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Q：容易出错的语法点
+ * <p>
  * 一些疑难杂症
  *
  * @author samin

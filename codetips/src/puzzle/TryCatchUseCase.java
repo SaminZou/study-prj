@@ -1,7 +1,7 @@
-package puzzle.q7;
+package puzzle;
 
 /**
- * try catch 性能测试
+ * Q：try catch 性能测试
  *
  * <p> 从 class 编译后文件看，try catch 并不会影响性能
  *

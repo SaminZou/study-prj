@@ -1,14 +1,11 @@
-package puzzle.q1;
+package puzzle;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Objects;
 
 /**
+ * Q：读取中文字符乱码问题
+ *
  * 认知 IO 和字符串的关系
  *
  * @author samin
@@ -19,10 +16,10 @@ public class ChineseReader {
     public static void main(String[] args) throws Exception {
         // 获取文件相对路径
         String uri = Objects.requireNonNull(Thread.currentThread()
-                                                  .getContextClassLoader()
-                                                  .getResource("./"))
-                            .getPath();
-        File file = new File(uri + "/puzzle/q1/chinese.txt");
+                        .getContextClassLoader()
+                        .getResource("./"))
+                .getPath();
+        File file = new File(uri + "/puzzle/chinese.txt");
 
         try (InputStream inputStream = new FileInputStream(file)) {
             System.out.println("方式 1：未完全读取的情况，乱码");

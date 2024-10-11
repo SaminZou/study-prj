@@ -1,7 +1,7 @@
-package puzzle.q6;
+package puzzle;
 
 /**
- * 代码性能统计
+ * Q：代码执行时间统计
  *
  * @author samin
  * @date 2021-01-29
