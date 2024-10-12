@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
 public class TcpServer {
+
     public void startServer(int port) throws IOException {
         // 创建一个 Selector
         Selector selector = Selector.open();
@@ -29,7 +30,8 @@ public class TcpServer {
                 .isInterrupted()) {
             int select = selector.select();
             if (select == 0) {
-                continue; // 没有就绪通道
+                // 没有就绪通道
+                continue;
             }
 
             // 获取所有已就绪的注册通道
@@ -69,19 +71,24 @@ public class TcpServer {
 
     private void readData(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
-        ByteBuffer buffer = ByteBuffer.allocate(1024); // 假设最大接收1KB的数据
+        // 假设最大接收1KB的数据
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
         int numRead;
 
         while ((numRead = channel.read(buffer)) > 0) {
-            buffer.flip(); // 准备读取数据
+            // 准备读取数据
+            buffer.flip();
             byte[] data = new byte[numRead];
-            buffer.get(data); // 从buffer中获取数据
+            // 从buffer中获取数据
+            buffer.get(data);
             String message = new String(data, StandardCharsets.UTF_8);
             System.out.println("接收到的消息: " + message);
-            buffer.clear(); // 清空buffer以备下次读取
+            // 清空buffer以备下次读取
+            buffer.clear();
         }
 
-        if (numRead == -1) { // 客户端关闭了连接
+        // 客户端关闭了连接
+        if (numRead == -1) {
             System.out.println("客户端关闭了连接.");
             channel.close();
             key.cancel();
@@ -90,8 +97,10 @@ public class TcpServer {
 
     private void sendHeartbeat(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
-        ByteBuffer buffer = ByteBuffer.wrap("1".getBytes(StandardCharsets.UTF_8)); // 心跳消息
-        channel.write(buffer); // 向客户端写入数据
+        // 心跳消息
+        ByteBuffer buffer = ByteBuffer.wrap("1".getBytes(StandardCharsets.UTF_8));
+        // 向客户端写入数据
+        channel.write(buffer);
         System.out.println("发送心跳消息.");
     }
 }
