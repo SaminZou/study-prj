@@ -1,4 +1,4 @@
-package collection.q3;
+package collection;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

@@ -38,15 +38,9 @@
 
 - q15 Optional 类用例
 
-- q16 枚举类用例
+- q16 
 
 # collection 容器
-
-- q1 Comparable 和 Comparator 的区别
-
-- q2 容器的遍历方法比较
-
-- q3 List 相关
 
 # concurrent 并发
 

@@ -1,11 +1,14 @@
-package collection.q1;
+package collection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.TreeMap;
 
 /**
- * 集合排序方法
+ * Comparable 和 Comparator 的区别
+ *
+ * <p>集合排序方法
  *
  * <p>Comparator 配合 Collection.sort() 使用
  *
@@ -58,5 +61,42 @@ public class CompareUseCase {
         当对象同时实现了 Comparable 接口和使用 Collections.sort 传入了 Comparator 接口方法
         会优先调用 Comparator 接口的 compare 方法
          */
+    }
+
+    static class SortObj implements Comparable<SortObj> {
+
+        int weight;
+
+        public SortObj(Integer weight) {
+            this.weight = weight;
+        }
+
+        @Override
+        public int compareTo(SortObj o) {
+            // 实现升序
+            return this.weight - o.weight;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            SortObj sortObj = (SortObj) o;
+            return Objects.equals(weight, sortObj.weight);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(weight);
+        }
+
+        @Override
+        public String toString() {
+            return "SortObj{" + "weight=" + weight + '}' + "\n";
+        }
     }
 }

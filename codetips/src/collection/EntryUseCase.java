@@ -1,4 +1,4 @@
-package collection.map;
+package collection;
 
 /**
  * 模拟 HashMap 的列表节点
@@ -9,24 +9,24 @@ package collection.map;
  * <p>
  * Created Date: 2024-06-03
  */
-public class Entry {
+public class EntryUseCase {
 
     private Object key;
     private Object value;
-    private Entry next;
+    private EntryUseCase next;
     private int hash;
 
-    public Entry(Object key, Entry next) {
+    public EntryUseCase(Object key, EntryUseCase next) {
         this.key = key;
         this.next = next;
     }
 
     public static void main(String[] args) {
-        Entry header = new Entry(new Object(), null);
+        EntryUseCase header = new EntryUseCase(new Object(), null);
 
-        header.next = new Entry(new Object(), null);
+        header.next = new EntryUseCase(new Object(), null);
 
         // 新节点直接当作头部插入最快
-        header = new Entry(new Object(), header);
+        header = new EntryUseCase(new Object(), header);
     }
 }

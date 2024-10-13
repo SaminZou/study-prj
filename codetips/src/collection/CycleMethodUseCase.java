@@ -1,11 +1,13 @@
-package collection.q2;
+package collection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
- * 遍历方式及性能测试
+ * 容器的遍历方法比较
+ *
+ * <p>遍历方式及性能测试
  *
  * @author samin
  * @date 2021-01-10

@@ -1,9 +1,9 @@
-package collection.map;
+package collection;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Unsafe {
+public class UnsafeUseCase {
 
     public static class Person {
         private int i = 0;
@@ -20,7 +20,7 @@ public class Unsafe {
             field.setAccessible(true);
             UNSAFE = (sun.misc.Unsafe) field.get(null);
 
-            I_OFFSET = UNSAFE.objectFieldOffset(Unsafe.Person.class.getDeclaredField("i"));
+            I_OFFSET = UNSAFE.objectFieldOffset(UnsafeUseCase.Person.class.getDeclaredField("i"));
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }

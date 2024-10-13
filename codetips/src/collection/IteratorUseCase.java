@@ -1,4 +1,4 @@
-package collection.q2;
+package collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

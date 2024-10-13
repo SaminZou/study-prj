@@ -1,9 +1,9 @@
-package collection.map;
+package collection;
 
 import java.util.Iterator;
 import java.util.Map;
 
-public class HashMap {
+public class HashMapUseCase {
 
     public static void main(String[] args) {
         Map<String, String> map = new java.util.HashMap<>();
