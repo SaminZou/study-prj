@@ -38,8 +38,6 @@
 
 - q15 Optional 类用例
 
-- q16 
-
 # collection 容器
 
 # concurrent 并发
