@@ -6,7 +6,7 @@ package basic;
  * @author samin
  * @date 2021-06-01
  */
-public class EnumEqualsUseCase {
+public class EnumUseCase {
 
     public static void main(String[] args) {
         // Part 1: 枚举类判断相等的方法
