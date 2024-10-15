@@ -1,4 +1,4 @@
-package basic.q2;
+package basic;
 
 /**
  * 原生类型的坑 基本类型的包装类不都实现了常量池
@@ -6,7 +6,7 @@ package basic.q2;
  * @author samin
  * @date 2021-01-10
  */
-public class PrimitiveType {
+public class PrimitiveTypeUseCase {
 
     public static final String STRING1;
     public static final String STRING2;

@@ -9,9 +9,7 @@
     - String 类
 
     - Arrays 类
-
-- q2 原始类型
-
+  
 - q3 float计算精度问题
 
 - q4 lambda表达式
