@@ -1,4 +1,4 @@
-package basic.q1;
+package basic;
 
 import java.util.Arrays;
 

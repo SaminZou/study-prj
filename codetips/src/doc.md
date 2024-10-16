@@ -1,18 +1,6 @@
 # basic 基础
-
-- q1 原生工具类用法
-
-    - System 类
-
-    - Object 类
-
-    - String 类
-
-    - Arrays 类
   
 - q3 float计算精度问题
-
-- q4 lambda表达式
 
 - q5 Java正则
 
@@ -31,10 +19,6 @@
 - q12 生成随机数的方式
 
 - q13 获取项目相关路径
-
-- q14 final 关键字用例
-
-- q15 Optional 类用例
 
 # collection 容器
 

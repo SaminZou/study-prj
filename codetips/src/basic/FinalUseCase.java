@@ -1,4 +1,4 @@
-package basic.q14;
+package basic;
 
 /**
  * final 修饰变量赋值写法

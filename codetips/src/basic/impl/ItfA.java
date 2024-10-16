@@ -1,4 +1,4 @@
-package basic.q17;
+package basic.impl;
 
 public interface ItfA {
 

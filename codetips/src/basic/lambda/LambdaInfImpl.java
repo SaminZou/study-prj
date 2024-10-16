@@ -1,4 +1,4 @@
-package basic.q4;
+package basic.lambda;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -1,7 +1,6 @@
-package basic.q17;
+package basic.impl;
 
 public class Claz implements ItfA, ItfB {
-
 
     public static void main(String[] args) {
         // Claz 单实现 ItfA 或者 ItfB，不需要实现 print 可以直接调用

@@ -1,4 +1,4 @@
-package basic.q4;
+package basic.lambda;
 
 /**
  * 演示接口3
