@@ -1,4 +1,4 @@
-package basic.q3;
+package basic;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

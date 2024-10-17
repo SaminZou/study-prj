@@ -1,6 +1,4 @@
 # basic 基础
-  
-- q3 float计算精度问题
 
 - q5 Java正则
 
