@@ -1,4 +1,4 @@
-package basic.q5;
+package basic;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

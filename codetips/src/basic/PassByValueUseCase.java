@@ -1,4 +1,4 @@
-package basic.q8;
+package basic;
 
 /**
  * Java 里面其实只有值传递，包括对象
