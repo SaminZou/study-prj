@@ -1,4 +1,4 @@
-package basic.q6.chat;
+package basic;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -14,10 +14,10 @@ import java.net.Socket;
  * @author samin
  * @date 2021-01-10
  */
-public class Server {
+public class ChatServerSocketUseCase {
 
     public static void main(String[] args) throws Exception {
-        Server.serverRun();
+        ChatServerSocketUseCase.serverRun();
     }
 
     /**

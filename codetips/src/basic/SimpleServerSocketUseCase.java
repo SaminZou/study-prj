@@ -1,4 +1,4 @@
-package basic.q6.simple;
+package basic;
 
 import java.io.DataInputStream;
 import java.net.ServerSocket;
@@ -10,10 +10,10 @@ import java.net.Socket;
  * @author samin
  * @date 2021-01-10
  */
-public class Server {
+public class SimpleServerSocketUseCase {
 
     public static void main(String[] args) throws Exception {
-        Server.simpleServerRun();
+        SimpleServerSocketUseCase.simpleServerRun();
     }
 
     public static void simpleServerRun() throws Exception {

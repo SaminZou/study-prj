@@ -1,4 +1,4 @@
-package basic.q6.simple;
+package basic;
 
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -9,10 +9,10 @@ import java.net.Socket;
  * @author samin
  * @date 2021-01-10
  */
-public class Client {
+public class SimpleClientSocketUseCase {
 
     public static void main(String[] args) throws Exception {
-        Client.simpleClientRun();
+        SimpleClientSocketUseCase.simpleClientRun();
     }
 
     public static void simpleClientRun() throws Exception {

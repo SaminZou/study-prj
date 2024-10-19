@@ -1,4 +1,4 @@
-package basic.q6.tcp;
+package basic;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
-public class TcpServer {
+public class TcpServerSocketUseCase {
 
     public void startServer(int port) throws IOException {
         // 创建一个 Selector
