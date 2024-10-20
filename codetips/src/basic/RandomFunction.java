@@ -1,4 +1,4 @@
-package basic.q12;
+package basic;
 
 import java.util.Random;
 
