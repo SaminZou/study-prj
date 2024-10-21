@@ -1,4 +1,4 @@
-package basic.q9;
+package basic;
 
 import java.util.Enumeration;
 import java.util.Properties;
@@ -11,7 +11,7 @@ import java.util.Properties;
  * @author samin
  * @date 2023-03-21
  */
-public class GetSystemProperty {
+public class GetSystemPropertyUseCase {
 
     public static void main(String[] args) {
         if (args.length == 0) {
