@@ -1,7 +1,7 @@
-package basic.q7;
+package basic.anno;
 
-import basic.q7.annotaion.Column;
-import basic.q7.annotaion.Table;
+import basic.anno.annotaion.Column;
+import basic.anno.annotaion.Table;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

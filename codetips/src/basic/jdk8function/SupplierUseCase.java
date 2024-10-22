@@ -1,4 +1,4 @@
-package basic.q10.jdk8function;
+package basic.jdk8function;
 
 import java.util.Optional;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package basic.q10.date.utils;
+package basic.date.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

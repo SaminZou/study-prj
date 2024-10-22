@@ -1,8 +1,8 @@
-package basic.q10.date;
+package basic.date;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-import basic.q10.date.utils.DateTimeUtils;
+import basic.date.utils.DateTimeUtils;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;

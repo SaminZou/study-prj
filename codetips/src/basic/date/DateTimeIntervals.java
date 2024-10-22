@@ -1,4 +1,4 @@
-package basic.q10.date;
+package basic.date;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;

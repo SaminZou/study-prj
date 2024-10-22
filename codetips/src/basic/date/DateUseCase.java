@@ -1,6 +1,6 @@
-package basic.q10.date;
+package basic.date;
 
-import basic.q10.date.utils.DateUtils;
+import basic.date.utils.DateUtils;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Calendar;

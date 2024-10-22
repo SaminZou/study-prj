@@ -1,4 +1,4 @@
-package basic.q10.jdk8function;
+package basic.jdk8function;
 
 import java.util.function.Consumer;
 import java.util.stream.Stream;

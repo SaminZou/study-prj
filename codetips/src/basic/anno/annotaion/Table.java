@@ -1,4 +1,4 @@
-package basic.q7.annotaion;
+package basic.anno.annotaion;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -7,17 +7,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 字段映射
+ * 表名映射
  *
  * @author samin
  * @date 2020-12-22
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD})
-public @interface Column {
+@Target({ElementType.TYPE})
+public @interface Table {
 
-    String column() default "";
-
-    boolean require() default false;
+    String tableName() default "";
 }

@@ -1,6 +1,6 @@
-package basic.q10.date;
+package basic.date;
 
-import basic.q10.date.utils.DateTimeUtils;
+import basic.date.utils.DateTimeUtils;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package basic.q7;
+package basic.anno;
 
 /**
  * 演示主方法
