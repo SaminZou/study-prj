@@ -1,4 +1,4 @@
-package basic.q11;
+package basic.generics;
 
 /**
  * 演示主方法

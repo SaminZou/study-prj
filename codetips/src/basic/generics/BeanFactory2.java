@@ -1,4 +1,4 @@
-package basic.q11;
+package basic.generics;
 
 /**
  * 使用 Object
