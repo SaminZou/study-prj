@@ -1,4 +1,6 @@
-package concurrent.q6;
+package concurrent;
+
+import concurrent.q6.ThreadStates;
 
 /**
  * 重复调用 start()
@@ -9,7 +11,7 @@ package concurrent.q6;
  * <p>
  * Created Date: 2024-07-09
  */
-public class ThreadStart {
+public class ThreadStartUseCase {
 
     public static void main(String[] args) {
 

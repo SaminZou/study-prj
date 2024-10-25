@@ -1,11 +1,5 @@
 # basic 基础
 
-- q7 注解入门
-
-- q11 泛型、Object、？ 的区别
-
-- q13 获取项目相关路径
-
 # collection 容器
 
 # concurrent 并发
