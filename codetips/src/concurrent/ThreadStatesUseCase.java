@@ -1,6 +1,6 @@
-package concurrent.q6;
+package concurrent;
 
-public class ThreadStates {
+public class ThreadStatesUseCase {
 
     public static void main(String[] args) {
 

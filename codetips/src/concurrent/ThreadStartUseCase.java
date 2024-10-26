@@ -1,7 +1,5 @@
 package concurrent;
 
-import concurrent.q6.ThreadStates;
-
 /**
  * 重复调用 start()
  * <p>
@@ -15,7 +13,7 @@ public class ThreadStartUseCase {
 
     public static void main(String[] args) {
 
-        Thread thread = new Thread(new ThreadStates.TestThread());
+        Thread thread = new Thread(new ThreadStatesUseCase.TestThread());
 
         // 通常是 NEW
         System.out.println("Before starting thread: " + thread.getState());
