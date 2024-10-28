@@ -1,4 +1,4 @@
-package concurrent.q5;
+package concurrent;
 
 import java.util.Random;
 import java.util.concurrent.Future;
