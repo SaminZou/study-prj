@@ -67,35 +67,35 @@ public class Java8StreamUseCase {
         //         new Obj("foo1", 2), new Obj("foo3", 2), new Obj("foo1", 4), new Obj("foo1", 5), new Obj("foo2", 2)
         //         , new Obj("foo3", 1), new Obj("foo3", 1));
 
-        // list to  Map<String, List<Obj>>
+        // List to  Map<String, List<Obj>>
         Map<String, List<Obj>> collect = list2.stream()
                 .collect(Collectors.groupingBy(Obj::getFoo));
         collect.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
 
-        // list to Map<String,Set<Integer>>
+        // List to Map<String,Set<Integer>>
         // foo3 有两个 bar = 1 的相同对象，可以转换为 Map<String, Set<Obj>>
         Map<String, Set<Integer>> collect2 = list2.stream()
                 .collect(Collectors.groupingBy(Obj::getFoo, Collectors.mapping(Obj::getBar, Collectors.toSet())));
         collect2.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
 
-        // list to Map<String, Integer>
+        // List to Map<String, Integer>
         // (oldValue, newValue) -> newValue：这是一个合并函数，用于处理当遇到相同的键时如何合并值。在这里，如果遇到相同的键，则选择新值（newValue）作为最终的值
         Map<String, Integer> collect3 = list2.stream()
                 .collect(Collectors.toMap(Obj::getFoo, Obj::getBar, (oldValue, newValue) -> newValue));
         collect3.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
 
-        // list to Map<String, Obj>，Function.identity() 代表对象实例本身
+        // List to Map<String, Obj>，Function.identity() 代表对象实例本身
         Map<String, Obj> collect4 = list2.stream()
                 .collect(Collectors.toMap(Obj::getFoo, Function.identity(), (oldValue, newValue) -> newValue));
         collect4.forEach((k, v) -> System.out.printf("key: [%s], value: [%s]\n", k, v));
 
-        // list to Set<String>
+        // List to Set<String>
         Set<String> collect5 = list2.stream()
                 .map(Obj::getFoo)
                 .collect(Collectors.toSet());
         collect5.forEach((v) -> System.out.printf("value: [%s]\n", v));
 
-        // list split，以下例子根据 foo 字段特定条件进行分组
+        // List split，以下例子根据 foo 字段特定条件进行分组
         Map<Boolean, List<Obj>> collect6 = list2.stream()
                 .collect(Collectors.partitioningBy(obj -> "foo1".equals(obj.getFoo())));
         List<Obj> collect7 = collect6.get(true);
