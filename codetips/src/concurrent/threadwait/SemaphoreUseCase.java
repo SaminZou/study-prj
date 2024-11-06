@@ -1,4 +1,4 @@
-package concurrent.q3;
+package concurrent.threadwait;
 
 import java.util.concurrent.Semaphore;
 

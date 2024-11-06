@@ -1,4 +1,4 @@
-package concurrent.q2;
+package concurrent.waitnotify;
 
 import java.util.LinkedList;
 import java.util.Queue;

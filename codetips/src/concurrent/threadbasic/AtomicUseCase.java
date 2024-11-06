@@ -1,4 +1,4 @@
-package concurrent.q1;
+package concurrent.threadbasic;
 
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;

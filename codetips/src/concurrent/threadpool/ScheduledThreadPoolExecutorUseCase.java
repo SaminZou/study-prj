@@ -1,4 +1,4 @@
-package concurrent.q4;
+package concurrent.threadpool;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;

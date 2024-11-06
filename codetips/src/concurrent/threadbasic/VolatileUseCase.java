@@ -1,4 +1,4 @@
-package concurrent.q1;
+package concurrent.threadbasic;
 
 /**
  * Volatile 用例

@@ -1,4 +1,4 @@
-package concurrent.q2;
+package concurrent.waitnotify;
 
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;

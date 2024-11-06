@@ -1,4 +1,4 @@
-package concurrent.q4;
+package concurrent.threadpool;
 
 import java.util.ArrayList;
 import java.util.Iterator;

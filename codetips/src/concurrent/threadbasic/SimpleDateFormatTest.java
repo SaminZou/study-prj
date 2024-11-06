@@ -1,4 +1,4 @@
-package concurrent.q1;
+package concurrent.threadbasic;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
