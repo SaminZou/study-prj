@@ -1,4 +1,4 @@
-package concurrent.threadpool;
+package concurrent.threadbasic;
 
 import java.util.ArrayList;
 import java.util.Iterator;

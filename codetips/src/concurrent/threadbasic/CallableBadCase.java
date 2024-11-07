@@ -1,4 +1,4 @@
-package concurrent.threadpool;
+package concurrent.threadbasic;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
