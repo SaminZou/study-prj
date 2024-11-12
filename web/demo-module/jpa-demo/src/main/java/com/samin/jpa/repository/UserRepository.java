@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -31,7 +32,11 @@ public interface UserRepository extends JpaRepository<UserDO, Integer> {
   @Query(
       value = "SELECT DISTINCT sex FROM user WHERE create_time between ?1 and ?2",
       nativeQuery = true)
-  List<Integer> findDistinctBySex(String startTime, String endTime);
+  List<Integer> findDistinctBySexWithQuery(String startTime, String endTime);
+
+  @Query(value = "SELECT DISTINCT sex FROM UserDO WHERE createTime between :startTime and :endTime")
+  List<Integer> findDistinctBySex(
+      @Param("startTime") String startTime, @Param("endTime") String endTime);
 
   List<UserDO> findByCreateTimeBetween(String startDate, String endDate);
 

@@ -35,6 +35,10 @@ public class UserService {
     LocalDateTime endTime = LocalDateTime.parse(endTimeStr, dtf);
     OffsetDateTime now = OffsetDateTime.now();
 
+    //    return userRepository.findDistinctBySexWithQuery(
+    //        String.valueOf(startTime.atZone(now.getOffset()).toEpochSecond()),
+    //        String.valueOf(endTime.atZone(now.getOffset()).toEpochSecond()));
+    // 方法 2
     return userRepository.findDistinctBySex(
         String.valueOf(startTime.atZone(now.getOffset()).toEpochSecond()),
         String.valueOf(endTime.atZone(now.getOffset()).toEpochSecond()));
@@ -142,7 +146,6 @@ public class UserService {
     userRepository.deleteById(sex);
   }
 
-  // TODO
   @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
   public void transaction() {}
 }
