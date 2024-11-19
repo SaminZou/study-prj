@@ -29,9 +29,14 @@ if [ -f "$PID_FILE" ]; then
     fi
 fi
 
-# 启动Java应用
+# 启动 Java 应用
 echo "正在启动Java应用..."
-nohup java -jar "$JAR_PATH" > "$LOG_FILE" 2>&1 &
+nohup java -jar "$JAR_PATH" -Xms4g -Xmx6g -XX:NewRatio=3 \
+-XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m \
+-XX:+UseG1GC -XX:ParallelGCThreads=4 -XX:ConcGCThreads=2 \
+-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/mnt/ips-alarm/heapdump.hprof \
+-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8 \
+> "$LOG_FILE" 2>&1 &
 PID=$!
 echo "Java应用已启动，PID为：$PID"
 
