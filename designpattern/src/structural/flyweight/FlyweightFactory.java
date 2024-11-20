@@ -19,11 +19,13 @@ public class FlyweightFactory {
 
     public static TreeType getTreeType(String key) {
         TreeType treeType = treeTypeMap.get(key);
+
         // 如果 shape 为空，表示不存在，则新建，并且保持到共享池中
         if (Objects.isNull(treeType)) {
             treeType = new TreeType(key);
             treeTypeMap.put(key, treeType);
         }
+
         return treeType;
     }
 

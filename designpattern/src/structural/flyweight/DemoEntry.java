@@ -12,10 +12,11 @@ import java.util.List;
  * <p>
  * Created Date: 2023-10-17
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         List<Tree> forest = new ArrayList<>();
+        
         forest.add(new Tree(1, 2, FlyweightFactory.getTreeType("松树")));
         forest.add(new Tree(2, 3, FlyweightFactory.getTreeType("樟树")));
         forest.add(new Tree(1, 4, FlyweightFactory.getTreeType("迎客松")));
