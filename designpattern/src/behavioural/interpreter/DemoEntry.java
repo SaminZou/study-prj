@@ -8,7 +8,7 @@ import behavioural.interpreter.context.CalculatorContext;
  * @author samin
  * @date 2021-01-05
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         String statement = "3 * 2 * 4 / 6 % 5";
