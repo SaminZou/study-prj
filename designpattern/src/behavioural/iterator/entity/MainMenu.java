@@ -1,4 +1,4 @@
-package behavioural.iterator;
+package behavioural.iterator.entity;
 
 import behavioural.iterator.iterablecollection.TelevisionMenu;
 import behavioural.iterator.iterablecollection.concrete.FilmMenu;
@@ -15,20 +15,20 @@ public class MainMenu {
     }
 
     public void printMenu() {
-        Iterator tvIterator = tvMenu.createIrerator();
-        Iterator filmIterator = filmMenu.createIrerator();
+        Iterator tvIterator = tvMenu.createIterator();
+        Iterator filmIterator = filmMenu.createIterator();
 
         System.out.println("电视节目有:");
-        printMenu(tvIterator);
+        printMenuDetails(tvIterator);
         System.out.println("----------------------------------------------------------------");
         System.out.println("电影节目有:");
-        printMenu(filmIterator);
+        printMenuDetails(filmIterator);
     }
 
-    private void printMenu(Iterator iterator) {
+    private void printMenuDetails(Iterator iterator) {
         while (iterator.hasNext()) {
             MenuItem menuItem = (MenuItem) iterator.next();
-            System.out.print("channe:" + menuItem.getChanne() + ",  ");
+            System.out.print("channe:" + menuItem.getChannel() + ",  ");
             System.out.print("name:" + menuItem.getName() + ",  ");
             System.out.println("description :" + menuItem.getDescription());
         }

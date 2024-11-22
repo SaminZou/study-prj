@@ -1,15 +1,15 @@
-package behavioural.iterator;
+package behavioural.iterator.entity;
 
 public class MenuItem {
 
     private String name;
     private String description;
-    private int channe;
+    private int channel;
 
-    public MenuItem(int channe, String name, String description) {
+    public MenuItem(int channel, String name, String description) {
         this.name = name;
         this.description = description;
-        this.channe = channe;
+        this.channel = channel;
     }
 
     public String getName() {
@@ -28,11 +28,11 @@ public class MenuItem {
         this.description = description;
     }
 
-    public int getChanne() {
-        return channe;
+    public int getChannel() {
+        return channel;
     }
 
-    public void setChanne(int channe) {
-        this.channe = channe;
+    public void setChannel(int channel) {
+        this.channel = channel;
     }
 }

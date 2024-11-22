@@ -1,6 +1,6 @@
 package behavioural.iterator.iterablecollection.concrete;
 
-import behavioural.iterator.MenuItem;
+import behavioural.iterator.entity.MenuItem;
 import behavioural.iterator.iterablecollection.TelevisionMenu;
 import behavioural.iterator.iterator.Iterator;
 import behavioural.iterator.iterator.concrete.TVChannelMenuIterator;
@@ -37,7 +37,7 @@ public class TVChannelMenu implements TelevisionMenu {
     }
 
     @Override
-    public Iterator createIrerator() {
+    public Iterator createIterator() {
         return new TVChannelMenuIterator(menuItems);
     }
 }

@@ -4,7 +4,7 @@ import behavioural.iterator.iterator.Iterator;
 
 public interface TelevisionMenu {
 
-    void addItem(int channe, String name, String description);
+    void addItem(int channel, String name, String description);
 
-    Iterator createIrerator();
+    Iterator createIterator();
 }

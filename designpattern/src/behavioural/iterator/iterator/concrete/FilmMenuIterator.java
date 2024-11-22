@@ -1,6 +1,6 @@
 package behavioural.iterator.iterator.concrete;
 
-import behavioural.iterator.MenuItem;
+import behavioural.iterator.entity.MenuItem;
 import behavioural.iterator.iterator.Iterator;
 
 public class FilmMenuIterator implements Iterator {

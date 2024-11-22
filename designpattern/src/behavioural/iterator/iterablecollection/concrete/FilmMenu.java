@@ -1,6 +1,6 @@
 package behavioural.iterator.iterablecollection.concrete;
 
-import behavioural.iterator.MenuItem;
+import behavioural.iterator.entity.MenuItem;
 import behavioural.iterator.iterablecollection.TelevisionMenu;
 import behavioural.iterator.iterator.Iterator;
 import behavioural.iterator.iterator.concrete.FilmMenuIterator;
@@ -44,7 +44,7 @@ public class FilmMenu implements TelevisionMenu {
     }
 
     @Override
-    public Iterator createIrerator() {
+    public Iterator createIterator() {
         return new FilmMenuIterator(menuItems);
     }
 }
