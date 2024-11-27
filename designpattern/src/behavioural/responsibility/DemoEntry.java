@@ -13,7 +13,7 @@ import behavioural.responsibility.concretehandler.HandlerObj3;
  * @author samin
  * @date 2021-01-05
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) throws Exception {
         // 构建责任链，也可以在 BaseHandler 中编排 ConcreteHandler，直接声明使用
