@@ -13,7 +13,7 @@ import behavioural.visitor.visitor.WorkerOfPharmacy;
  * @author samin
  * @date 2021-01-05
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         // 双分派技术：第一次确定操作者，第二次根据药物执行任务
