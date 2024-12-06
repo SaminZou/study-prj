@@ -9,7 +9,7 @@ import creational.abstractfactory.base.McDonaldProduct;
  * @author samin
  * @date 2021-02-02
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         // 实例化工厂
