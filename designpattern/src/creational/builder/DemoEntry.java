@@ -16,7 +16,7 @@ import creational.builder.style2.ProductionObj;
  *
  * <p>解决问题：参数多造成需要的构造器多，初始化分步设置属性容易出错
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         // style1 中演示的是有 Director 的建造者模式（传统的 Builder 模式），以下是具体的调用方式
