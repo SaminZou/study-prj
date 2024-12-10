@@ -6,7 +6,7 @@ package creational.prototype;
  * @author samin
  * @date 2021-01-05
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         System.out.println("——普通用法");
