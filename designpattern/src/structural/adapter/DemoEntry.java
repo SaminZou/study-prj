@@ -9,7 +9,7 @@ import structural.adapter.adapter.TameWolfAdapter;
  * @author samin
  * @date 2021-01-05
  */
-public class Client {
+public class DemoEntry {
 
     public static void main(String[] args) {
         // 现实中的狗
