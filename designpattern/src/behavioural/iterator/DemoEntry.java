@@ -17,7 +17,7 @@ public class DemoEntry {
         TVChannelMenu tvMenu = new TVChannelMenu();
         FilmMenu filmMenu = new FilmMenu();
 
-        // 为了代码整洁，MainMenu 充当了 Client 角色
+        // 为了代码整洁，MainMenu 作为入口
         MainMenu mainMenu = new MainMenu(tvMenu, filmMenu);
         mainMenu.printMenu();
     }
