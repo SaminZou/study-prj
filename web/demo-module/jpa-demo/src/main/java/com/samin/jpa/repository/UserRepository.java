@@ -25,8 +25,6 @@ public interface UserRepository extends JpaRepository<UserDO, Integer> {
    */
   List<UserDO> findUserBySex(int sex);
 
-  Optional<UserDO> findUserDOById(Integer id);
-
   long countBySex(Integer sex);
 
   @Query(
@@ -37,6 +35,9 @@ public interface UserRepository extends JpaRepository<UserDO, Integer> {
   @Query(value = "SELECT DISTINCT sex FROM UserDO WHERE createTime between :startTime and :endTime")
   List<Integer> findDistinctBySex(
       @Param("startTime") String startTime, @Param("endTime") String endTime);
+
+  @Query(value = "SELECT u FROM UserDO u WHERE u.id = :id")
+  Optional<UserDO> findByIdCustom(@Param("id") Integer id);
 
   List<UserDO> findByCreateTimeBetween(String startDate, String endDate);
 

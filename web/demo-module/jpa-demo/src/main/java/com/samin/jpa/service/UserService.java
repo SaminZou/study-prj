@@ -104,7 +104,7 @@ public class UserService {
   }
 
   public UserVO detail(Integer id) {
-    Optional<UserDO> opt = userRepository.findUserDOById(id);
+    Optional<UserDO> opt = userRepository.findByIdCustom(id);
     UserDO userDO = opt.orElse(new UserDO());
 
     UserVO userVO = new UserVO();

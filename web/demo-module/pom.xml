@@ -42,7 +42,7 @@
         <redisson.version>3.17.0</redisson.version>
         <knife4j.version>3.0.3</knife4j.version>
         <jjwt.version>0.9.1</jjwt.version>
-        <hutool.version>5.8.14</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
     </properties>
 
     <dependencyManagement>
