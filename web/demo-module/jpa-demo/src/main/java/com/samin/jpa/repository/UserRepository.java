@@ -36,6 +36,12 @@ public interface UserRepository extends JpaRepository<UserDO, Integer> {
   List<Integer> findDistinctBySex(
       @Param("startTime") String startTime, @Param("endTime") String endTime);
 
+  /**
+   * 和原生的对比，这个可以直接使用实体
+   *
+   * @param id
+   * @return
+   */
   @Query(value = "SELECT u FROM UserDO u WHERE u.id = :id")
   Optional<UserDO> findByIdCustom(@Param("id") Integer id);
 
