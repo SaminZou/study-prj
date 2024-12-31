@@ -1,9 +1,9 @@
 import os
 import shutil
 
-# 删除 IDEA 工程文件、日志文件
+# 脚本作用：删除 IDEA 工程文件、日志文件
 
-# python clean-idea-project-files.py
+# $ python clean-idea-project-files.py
 
 class CleanTool:
     @staticmethod
