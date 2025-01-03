@@ -1,4 +1,4 @@
-package com.samin.minio.configuration;
+package com.samin.minio.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;

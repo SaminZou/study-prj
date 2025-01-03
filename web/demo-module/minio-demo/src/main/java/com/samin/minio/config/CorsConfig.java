@@ -1,4 +1,4 @@
-package com.samin.minio.configuration;
+package com.samin.minio.config;
 
 
 import org.springframework.context.annotation.Bean;

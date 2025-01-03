@@ -1,4 +1,4 @@
-package com.samin.minio.configuration;
+package com.samin.minio.config;
 
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
@@ -10,10 +10,9 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.samin.minio.properties.MinioProperties;
+import javax.annotation.Resource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.Resource;
 
 @Configuration
 public class AmazonS3Config {
@@ -33,13 +32,13 @@ public class AmazonS3Config {
         AWSCredentials credentials = new BasicAWSCredentials(minioProperties.getAccessKey(), minioProperties.getAccessSecret());
         // 设置 Endpoint
         AwsClientBuilder.EndpointConfiguration end_point = new AwsClientBuilder.EndpointConfiguration(minioProperties.getEndpoint(), Regions.US_EAST_1.name());
-        AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
-                .withClientConfiguration(config)
-                .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withEndpointConfiguration(end_point)
-                .withPathStyleAccessEnabled(true)
-                .build();
-        return amazonS3;
+
+        return AmazonS3ClientBuilder.standard()
+                                               .withClientConfiguration(config)
+                                               .withCredentials(new AWSStaticCredentialsProvider(credentials))
+                                               .withEndpointConfiguration(end_point)
+                                               .withPathStyleAccessEnabled(true)
+                                               .build();
     }
 
 }

@@ -1,4 +1,4 @@
-package com.samin.minio.configuration;
+package com.samin.minio.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
