@@ -1,9 +1,8 @@
 package com.samin.usecase.springutils;
 
+import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 import org.springframework.util.*;
-
-import java.util.ArrayList;
 
 /**
  * spring 自带工具类用例

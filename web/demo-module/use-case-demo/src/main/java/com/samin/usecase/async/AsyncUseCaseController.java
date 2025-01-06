@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AsyncUseCaseController {
 
-    private final AsyncUseCaseService asyncUseCaseService;
+  private final AsyncUseCaseService asyncUseCaseService;
 
-    @GetMapping("/async/test")
-    public String asyncTest() throws InterruptedException {
-        asyncUseCaseService.test();
+  @GetMapping("/async/test")
+  public String asyncTest() throws InterruptedException {
+    asyncUseCaseService.test();
 
-        return "success";
-    }
+    return "success";
+  }
 }

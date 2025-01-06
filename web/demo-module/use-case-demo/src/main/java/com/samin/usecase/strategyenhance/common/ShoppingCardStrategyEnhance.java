@@ -7,23 +7,23 @@ import org.springframework.stereotype.Service;
 @Service(ConponStrategyEnhanceEntry.COUPON_SHOPPING_CARD)
 public class ShoppingCardStrategyEnhance implements CouponStrategyEnhance {
 
-    @Override
-    public void checkTotal() {
-        log.info("1. 查询购物卡剩余量");
-    }
+  @Override
+  public void checkTotal() {
+    log.info("1. 查询购物卡剩余量");
+  }
 
-    @Override
-    public void userCouponRel() {
-        log.info("2. 绑定用户和购物卡关联关系");
-    }
+  @Override
+  public void userCouponRel() {
+    log.info("2. 绑定用户和购物卡关联关系");
+  }
 
-    @Override
-    public String result() {
-        return "购物卡";
-    }
+  @Override
+  public String result() {
+    return "购物卡";
+  }
 
-    @Override
-    public void saveLog() {
-        log.info("3. 存入日志");
-    }
+  @Override
+  public void saveLog() {
+    log.info("3. 存入日志");
+  }
 }

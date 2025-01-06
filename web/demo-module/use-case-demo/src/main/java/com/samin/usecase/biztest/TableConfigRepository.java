@@ -1,8 +1,7 @@
 package com.samin.usecase.biztest;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TableConfigRepository extends JpaRepository<TableConfig, Integer> {
 

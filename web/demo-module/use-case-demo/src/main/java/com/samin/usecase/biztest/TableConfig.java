@@ -1,8 +1,7 @@
 package com.samin.usecase.biztest;
 
-import lombok.Data;
-
 import javax.persistence.*;
+import lombok.Data;
 
 @Data
 @Entity

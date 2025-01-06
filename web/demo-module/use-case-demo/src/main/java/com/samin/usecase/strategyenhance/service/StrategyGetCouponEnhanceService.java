@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class StrategyGetCouponEnhanceService {
 
-    private final ConponStrategyEnhanceEntry conponStrategyEnhanceEntry;
+  private final ConponStrategyEnhanceEntry conponStrategyEnhanceEntry;
 
-    public String getCoupon(int type) {
-        CouponStrategyEnhance strategy = conponStrategyEnhanceEntry.context(type);
-        strategy.checkTotal();
-        strategy.userCouponRel();
-        strategy.saveLog();
-        return strategy.result();
-    }
+  public String getCoupon(int type) {
+    CouponStrategyEnhance strategy = conponStrategyEnhanceEntry.context(type);
+    strategy.checkTotal();
+    strategy.userCouponRel();
+    strategy.saveLog();
+    return strategy.result();
+  }
 }

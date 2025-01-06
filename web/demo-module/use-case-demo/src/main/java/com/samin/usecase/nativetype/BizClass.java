@@ -11,11 +11,11 @@ import lombok.Data;
 @Data
 public class BizClass {
 
-    private int priceNativeType;
+  private int priceNativeType;
 
-    private Integer priceWrapperType;
+  private Integer priceWrapperType;
 
-    private boolean isExistNativeType;
+  private boolean isExistNativeType;
 
-    private Boolean isExistWrapperType;
+  private Boolean isExistWrapperType;
 }

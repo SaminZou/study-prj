@@ -1,21 +1,20 @@
 package com.samin.usecase.param;
 
-import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
 
 public class ParamAndInstanceObject {
 
-    @Data
-    public static class ParamObj1 {
+  @Data
+  public static class ParamObj1 {
 
-        private List<String> roleIds;
-    }
+    private List<String> roleIds;
+  }
 
-    @Data
-    public static class ParamObj2 {
+  @Data
+  public static class ParamObj2 {
 
-        private List<String> roleIds = new ArrayList<>(0);
-    }
+    private List<String> roleIds = new ArrayList<>(0);
+  }
 }
