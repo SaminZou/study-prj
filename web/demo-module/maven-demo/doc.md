@@ -12,4 +12,4 @@ default::http://host:port/repository/maven-releases/
 
 # 其他项目引入 consumer 模块
 
-实际上，引入 consumer 的同时，maven-demo 及 consumer 项目也会同时被导入到本地仓库
+实际上，引入 consumer 的同时，maven-demo 及 common 项目也会同时被导入到本地仓库
