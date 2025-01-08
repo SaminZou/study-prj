@@ -89,10 +89,16 @@ answer 10
 
 # Spring Bean 的声明方式
 
+answer 11
+
 - @Component 等注解
 - 实现 FactoryBean
 - 实现 BeanFactoryPostProcessor 接口，使用 beanFactory.registerSingleton(beanName, class);
 - @Configuration 中配置 @Bean
+
+# @Value 在构造器中无效，需要在实体类声明后才能使用赋值
+
+answer 12
 
 # Spring 的 Bean 是否线程安全
 
