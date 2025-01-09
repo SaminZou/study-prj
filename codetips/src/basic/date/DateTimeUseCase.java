@@ -18,6 +18,16 @@ import java.time.temporal.ChronoUnit;
 public class DateTimeUseCase {
 
     public static void main(String[] args) throws InterruptedException {
+        // 上两个整点的开始和结束时间
+        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime startOfLastHour = now.truncatedTo(ChronoUnit.HOURS).minusHours(2);
+        LocalDateTime endOfLastHour = startOfLastHour.plusHours(1).minusNanos(1);
+        LocalDateTime startOfCurrentHour = now.truncatedTo(ChronoUnit.HOURS).minusHours(1);
+        LocalDateTime endOfCurrentHour = startOfCurrentHour.plusHours(1).minusNanos(1);
+        System.out.println("上两个整点的开始和结束时间：");
+        System.out.println(startOfLastHour + " ~ " + endOfLastHour);
+        System.out.println(startOfCurrentHour + " ~ " + endOfCurrentHour);
+
         // 格式化的时间差
         OffsetDateTime aTime = DateTimeUtils.stringToOffsetDateTime("2021-07-08 16:18:20");
         OffsetDateTime bTime = DateTimeUtils.stringToOffsetDateTime("2021-07-08 16:20:00");
