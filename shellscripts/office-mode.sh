@@ -2,26 +2,25 @@
 
 # apt install ddcutil
 
-# 调试：./office.sh close && sleep 10 && ./office.sh open
+# debugger：./office.sh close && sleep 10 && ./office.sh open
 
 set -o nounset
 set -o errexit
 
-# 设置不同的办公环境
 set_office_env() {
     case "$1" in
         open)
             ddcutil setvcp D6 01
             ifconfig enp2s0 up
-            echo "上班 $(date +"%Y-%m-%d %H:%M:%S")" >> office.log
+            echo "Work $(date +"%Y-%m-%d %H:%M:%S")" >> office.log
             ;;
         close)
             ifconfig enp2s0 down
-            # 锁屏
+            # lock screen
             # loginctl lock-session
-            # 关闭屏幕
+            # close screen
             ddcutil setvcp D6 04
-            echo "下班 $(date +"%Y-%m-%d %H:%M:%S")" >> office.log
+            echo "Leave $(date +"%Y-%m-%d %H:%M:%S")" >> office.log
             ;;
         *)
             echo "未知变量: $1"
@@ -31,11 +30,11 @@ set_office_env() {
     esac
 }
 
-# 检查参数数量
+# check parameter
 if [ $# -ne 1 ]; then
     echo "用法: $0 {open|close}"
     exit 1
 fi
 
-# 切换办公环境
+# call function
 set_office_env "$1"
