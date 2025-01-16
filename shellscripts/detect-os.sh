@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+
 # 检测操作系统
 detect_os() {
     if [ -f /etc/os-release ]; then
