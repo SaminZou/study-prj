@@ -41,7 +41,6 @@ public class CompletableFutureUseCase {
         // 阻塞到获取到最快任务执行完结束
         System.out.println(anyFutures.join());
 
-
         // 适合可以并发执行并需要返回结果的任务，模拟用户注册
         CompletableFuture<Boolean> async5 = CompletableFuture.supplyAsync(() -> {
             try {
@@ -71,7 +70,8 @@ public class CompletableFutureUseCase {
             return false;
         });
         CompletableFuture<Boolean> allFuture = CompletableFuture.allOf(async5, async6, async7)
-                .thenApply(res -> async5.join() && async6.join() && async7.join());
+                                                                .thenApply(res -> async5.join() && async6.join()
+                                                                        && async7.join());
         System.out.println("注册结果: " + allFuture.join());
 
         // TODO whenComplete 没有返回值，可以向后续任务传递异常信息

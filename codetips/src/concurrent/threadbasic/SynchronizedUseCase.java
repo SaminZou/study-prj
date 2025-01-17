@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Synchronized 用例
  *
- * <p> synchronized关键字用于加锁，但这种锁一是很重，二是获取时必须一直等待，没有额外的尝试机制
+ * <p> synchronized 关键字用于加锁，但这种锁一是很重，二是获取时必须一直等待，没有额外的尝试机制
  *
  * @author samin
  * @date 2021-01-08
