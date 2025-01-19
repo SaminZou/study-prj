@@ -42,7 +42,7 @@ public class ThreadPoolExecutorUseCase {
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
-                System.out.println(e);
+                e.printStackTrace();
             }
             System.out.println("Thread：" + Thread.currentThread()
                                                  .getName() + " action：" + name + " done");

@@ -21,7 +21,7 @@ public class  PageProcess {
 
         System.out.println(getPageResp(1, 10, list));
         System.out.println(getPageResp(50, 10, list));
-        System.out.println(getPageResp(98, 10, list));
+        System.out.println(getPageResp(98, 20, list));
     }
 
     private static <T> PageResp<T> getPageResp(int page, int size, List<T> list) {
