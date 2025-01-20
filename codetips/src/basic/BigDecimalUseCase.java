@@ -1,6 +1,7 @@
 package basic;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Arrays;
@@ -14,6 +15,19 @@ import java.util.Arrays;
 public class BigDecimalUseCase {
 
     public static void main(String[] args) {
+        // 小数被截取，输出错误结果 0
+        System.out.println(BigDecimal.valueOf(1100)
+                                     .divide(BigDecimal.valueOf(32), RoundingMode.HALF_UP)
+                                     .divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP)
+                                     .multiply(BigDecimal.valueOf(16))
+                                     .divide(BigDecimal.valueOf(1000), RoundingMode.HALF_UP));
+        // 正确输出结果 0.0055
+        System.out.println(BigDecimal.valueOf(1100)
+                                     .divide(BigDecimal.valueOf(32), 10, RoundingMode.HALF_UP)
+                                     .divide(BigDecimal.valueOf(100), 10, RoundingMode.HALF_UP)
+                                     .multiply(BigDecimal.valueOf(16))
+                                     .divide(BigDecimal.valueOf(1000), 10, RoundingMode.HALF_UP));
+
         BigDecimal a = new BigDecimal(3);
         BigDecimal b = new BigDecimal(2);
         BigDecimal c = new BigDecimal(3);
