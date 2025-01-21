@@ -54,12 +54,12 @@ public class BigDecimalUseCase {
 
         // 除法 divide
         // 1
-        System.out.println(a.divide(b, BigDecimal.ROUND_HALF_UP));
+        System.out.println(a.divide(b, RoundingMode.HALF_UP));
 
         // 处理小数 setScale()
         BigDecimal d = new BigDecimal("1.234");
         // 1.23 四舍五入
-        System.out.println(d.setScale(2, BigDecimal.ROUND_HALF_UP));
+        System.out.println(d.setScale(2, RoundingMode.HALF_UP));
 
         // 求余 divideAndRemainder
         // [1 , 1] 第一位为商，第二位为余数
