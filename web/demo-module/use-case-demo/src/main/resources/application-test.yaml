@@ -1,3 +1,6 @@
+# 启动的时候，使用 -D 可以指定启动文件
+# $ java jar biz.jar --spring.profiles.active=test
+
 use_case:
   values2: value4,value5,value6
   values4: 1,2,3,4,5
