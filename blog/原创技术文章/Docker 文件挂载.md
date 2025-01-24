@@ -4,9 +4,9 @@ author: samin
 date: 2025-01-23
 ```
 
-# 前提
+# 背景
 
-mysql5.7 为例，容器中已经有内容： /etc/my.cnf 文件、/var/lib/mysql 文件夹
+mysql5.7 为例，且容器中已有结构： /etc/my.cnf 文件、/var/lib/mysql 文件夹
 
 # 关于文件夹
 
@@ -20,13 +20,19 @@ mysql5.7 为例，容器中已经有内容： /etc/my.cnf 文件、/var/lib/mysq
 
 和文件夹挂载一样，宿主机中必须存在文件才能
 
+## bad taste
+
 如容器中有 /etc/my.cnf 文件，如果想要映射到宿主机，那么在宿主机中必须有这个文件，我们一般的操作会是
 
 $ touch /path/to/my.cnf
 
-但是这样做会出现的问题是，一旦启动镜像，容器中的 /etc/my.cnf 文件会被宿主机中覆盖，所以正确做法应该是先不挂载文件启动一次镜像，执行操作
+但是这样做会出现的问题是，一旦启动镜像，容器中的 /etc/my.cnf 文件会被宿主机中覆盖
 
-$ docker cp <mysql5.7-container-name>:/etc/my.cnf .
+## good taste
+
+正确做法应该是先不挂载文件启动一次镜像，执行操作
+
+$ docker cp <mysql5.7-container-name>:/etc/my.cnf /path/to
 
 通过 docker 指令把文件复制到宿主机中，然后再修改 docker-compose 的文件映射，这样就可以无损的完成文件映射
 
