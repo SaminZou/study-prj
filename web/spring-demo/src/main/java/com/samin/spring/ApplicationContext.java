@@ -30,7 +30,7 @@ public class ApplicationContext {
                 if (BeanPostProcessor.class.isAssignableFrom(clazz)) {
                     try {
                         BeanPostProcessor instance = (BeanPostProcessor) clazz.getDeclaredConstructor()
-                                .newInstance();
+                                                                              .newInstance();
                         beanPostProcessorList.add(instance);
                     } catch (InstantiationException e) {
                         throw new RuntimeException(e);
@@ -112,7 +112,7 @@ public class ApplicationContext {
             BeanDefinition beanDefinition = beanDefinitionMap.get(beanName);
 
             if (beanDefinition.getScope()
-                    .equals("singleton")) {
+                              .equals("singleton")) {
                 // 创建 bean
                 if (!singletonObjects.containsKey(beanName)) {
                     Object bean = doCreateBean(beanName, beanDefinition);
@@ -127,7 +127,7 @@ public class ApplicationContext {
             // 1. 实例化
             Class beanClass = beanDefinition.getBeanClass();
             Object bean = beanClass.getDeclaredConstructor()
-                    .newInstance();
+                                   .newInstance();
 
             // 2. 属性填充（依赖注入）
             Field[] fields = beanClass.getDeclaredFields();
@@ -178,11 +178,11 @@ public class ApplicationContext {
 
         // 判断单例、原型
         if (beanDefinition.getScope()
-                .equals("prototype")) {
+                          .equals("prototype")) {
             // 创建 bean
             return doCreateBean(beanName, beanDefinition);
         } else if (beanDefinition.getScope()
-                .equals("singleton")) {
+                                 .equals("singleton")) {
             // 单例池里面去拿
             Object bean = singletonObjects.get(beanName);
             if (bean == null) {

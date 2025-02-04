@@ -6,18 +6,17 @@ import com.samin.auth.common.Log;
 import com.samin.auth.entity.SystemLog;
 import com.samin.auth.repo.SystemLogRepository;
 import com.samin.auth.service.SecurityService;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Objects;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Objects;
 
 @Slf4j
 @Component
@@ -37,13 +36,14 @@ public class SystemLogHandlerInterceptor implements HandlerInterceptor {
         RequestThreadLocal.Request requestData = RequestThreadLocal.getRequest();
         requestData.setRequestTime(now);
         requestData.setRequestStartTime(now.atZone(ZoneId.systemDefault())
-                .toInstant()
-                .toEpochMilli());
+                                           .toInstant()
+                                           .toEpochMilli());
         return true;
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+                           ModelAndView modelAndView) throws Exception {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Log anno = handlerMethod.getMethodAnnotation(Log.class);
@@ -55,7 +55,7 @@ public class SystemLogHandlerInterceptor implements HandlerInterceptor {
                 log.info("Request: {} {} from {}", request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
 
                 long endTime = Instant.now()
-                        .toEpochMilli();
+                                      .toEpochMilli();
 
                 CustomUserDetails user;
                 // 适配没有登录过的连接日志记录
@@ -66,7 +66,7 @@ public class SystemLogHandlerInterceptor implements HandlerInterceptor {
                 }
 
                 SystemLog instance = SystemLog.getInstance(request, response, requestData, user, anno.value(),
-                        endTime - requestData.getRequestStartTime());
+                                                           endTime - requestData.getRequestStartTime());
                 systemLogRepository.save(instance);
 
                 log.info("Response: {} {} - Status: {}", request.getMethod(), request.getRequestURI(), response.getStatus());

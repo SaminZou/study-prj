@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CouponEnhanceController {
 
-  private final StrategyGetCouponEnhanceService strategyGetCouponEnhanceService;
+    private final StrategyGetCouponEnhanceService strategyGetCouponEnhanceService;
 
-  @GetMapping("/getCoupon3")
-  public String getCoupon3(@RequestParam(value = "type") Integer type) {
-    return strategyGetCouponEnhanceService.getCoupon(type);
-  }
+    @GetMapping("/getCoupon3")
+    public String getCoupon3(@RequestParam(value = "type") Integer type) {
+        return strategyGetCouponEnhanceService.getCoupon(type);
+    }
 }

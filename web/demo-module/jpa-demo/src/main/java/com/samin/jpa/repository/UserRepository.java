@@ -17,47 +17,44 @@ import org.springframework.transaction.annotation.Transactional;
  */
 public interface UserRepository extends JpaRepository<UserDO, Integer> {
 
-  /**
-   * 根据性别获取用户记录
-   *
-   * @param sex
-   * @return
-   */
-  List<UserDO> findUserBySex(int sex);
+    /**
+     * 根据性别获取用户记录
+     *
+     * @param sex
+     * @return
+     */
+    List<UserDO> findUserBySex(int sex);
 
-  long countBySex(Integer sex);
+    long countBySex(Integer sex);
 
-  @Query(
-      value = "SELECT DISTINCT sex FROM user WHERE create_time between ?1 and ?2",
-      nativeQuery = true)
-  List<Integer> findDistinctBySexWithQuery(String startTime, String endTime);
+    @Query(value = "SELECT DISTINCT sex FROM user WHERE create_time between ?1 and ?2", nativeQuery = true)
+    List<Integer> findDistinctBySexWithQuery(String startTime, String endTime);
 
-  @Query(value = "SELECT DISTINCT sex FROM UserDO WHERE createTime between :startTime and :endTime")
-  List<Integer> findDistinctBySex(
-      @Param("startTime") String startTime, @Param("endTime") String endTime);
+    @Query(value = "SELECT DISTINCT sex FROM UserDO WHERE createTime between :startTime and :endTime")
+    List<Integer> findDistinctBySex(@Param("startTime") String startTime, @Param("endTime") String endTime);
 
-  /**
-   * 和原生的对比，这个可以直接使用实体
-   *
-   * @param id
-   * @return
-   */
-  @Query(value = "SELECT u FROM UserDO u WHERE u.id = :id")
-  Optional<UserDO> findByIdCustom(@Param("id") Integer id);
+    /**
+     * 和原生的对比，这个可以直接使用实体
+     *
+     * @param id
+     * @return
+     */
+    @Query(value = "SELECT u FROM UserDO u WHERE u.id = :id")
+    Optional<UserDO> findByIdCustom(@Param("id") Integer id);
 
-  List<UserDO> findByCreateTimeBetween(String startDate, String endDate);
+    List<UserDO> findByCreateTimeBetween(String startDate, String endDate);
 
-  // 直接这样声明只会调用 select 语句，Jpa 的安全设定
-  // void deleteBySex(Integer sex);
+    // 直接这样声明只会调用 select 语句，Jpa 的安全设定
+    // void deleteBySex(Integer sex);
 
-  // 这种方式先调用 select，然后再根据结果一条条记录删除
-  // @Modifying
-  // @Transactional
-  // void deleteBySex(Integer sex);
+    // 这种方式先调用 select，然后再根据结果一条条记录删除
+    // @Modifying
+    // @Transactional
+    // void deleteBySex(Integer sex);
 
-  // 最佳实践
-  @Modifying
-  @Transactional
-  @Query("DELETE FROM UserDO d WHERE d.sex = :sex")
-  void deleteBySex(Integer sex);
+    // 最佳实践
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM UserDO d WHERE d.sex = :sex")
+    void deleteBySex(Integer sex);
 }

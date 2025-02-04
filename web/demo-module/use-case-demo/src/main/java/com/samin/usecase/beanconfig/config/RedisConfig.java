@@ -15,22 +15,22 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-  @Bean
-  public RedisTemplate<String, TableUser> redisTemplate(RedisConnectionFactory factory) {
-    Jackson2JsonRedisSerializer<TableUser> jackson2JsonRedisSerializer =
-        new Jackson2JsonRedisSerializer<>(TableUser.class);
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-    jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+    @Bean
+    public RedisTemplate<String, TableUser> redisTemplate(RedisConnectionFactory factory) {
+        Jackson2JsonRedisSerializer<TableUser> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(
+                TableUser.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
-    RedisTemplate<String, TableUser> template = new RedisTemplate<>();
-    template.setConnectionFactory(factory);
-    template.setKeySerializer(new StringRedisSerializer());
-    template.setValueSerializer(jackson2JsonRedisSerializer);
-    template.setHashKeySerializer(new StringRedisSerializer());
-    template.setHashValueSerializer(jackson2JsonRedisSerializer);
-    template.afterPropertiesSet();
-    return template;
-  }
+        RedisTemplate<String, TableUser> template = new RedisTemplate<>();
+        template.setConnectionFactory(factory);
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(jackson2JsonRedisSerializer);
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(jackson2JsonRedisSerializer);
+        template.afterPropertiesSet();
+        return template;
+    }
 }

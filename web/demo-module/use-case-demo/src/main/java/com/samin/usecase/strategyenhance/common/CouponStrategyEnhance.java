@@ -8,19 +8,25 @@ package com.samin.usecase.strategyenhance.common;
  */
 public interface CouponStrategyEnhance {
 
-  /** 检查剩余数量 */
-  void checkTotal();
+    /**
+     * 检查剩余数量
+     */
+    void checkTotal();
 
-  /** 绑定关系 */
-  void userCouponRel();
+    /**
+     * 绑定关系
+     */
+    void userCouponRel();
 
-  /**
-   * 返回结果
-   *
-   * @return
-   */
-  String result();
+    /**
+     * 返回结果
+     *
+     * @return
+     */
+    String result();
 
-  /** 保存日志 */
-  void saveLog();
+    /**
+     * 保存日志
+     */
+    void saveLog();
 }

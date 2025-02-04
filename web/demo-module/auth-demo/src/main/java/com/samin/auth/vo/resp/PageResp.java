@@ -1,13 +1,12 @@
 package com.samin.auth.vo.resp;
 
 import com.samin.auth.vo.base.BaseResp;
-import lombok.Data;
-import org.springframework.data.domain.Page;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import lombok.Data;
+import org.springframework.data.domain.Page;
 
 @Data
 public class PageResp<T> extends BaseResp<Page<T>> {
@@ -37,9 +36,9 @@ public class PageResp<T> extends BaseResp<Page<T>> {
         resp.setCode(0);
         resp.setMsg("success");
         resp.setContent(this.getContent()
-                .stream()
-                .map(mapper)
-                .collect(Collectors.toList()));
+                            .stream()
+                            .map(mapper)
+                            .collect(Collectors.toList()));
         return resp;
     }
 }

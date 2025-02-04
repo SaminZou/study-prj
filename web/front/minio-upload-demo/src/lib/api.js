@@ -1,5 +1,6 @@
 import axios from 'axios'
 import axiosExtra from 'axios-extra'
+
 const baseUrl = 'http://localhost:8080'
 
 const http = axios.create({
@@ -35,8 +36,9 @@ const taskInfo = (identifier) => {
  * @param chunkSize 分块大小
  * @returns {Promise<AxiosResponse<any>>}
  */
-const initTask = ({ identifier, fileName, totalSize, chunkSize }) => {
-    return http.post('/v1/minio/tasks', {identifier, fileName, totalSize, chunkSize})
+const initTask = ({identifier, fileName, totalSize, chunkSize}) => {
+    return http.post('/v1/minio/tasks',
+        {identifier, fileName, totalSize, chunkSize})
 }
 
 /**
@@ -45,7 +47,7 @@ const initTask = ({ identifier, fileName, totalSize, chunkSize }) => {
  * @param partNumber 分片编号
  * @returns {Promise<AxiosResponse<any>>}
  */
-const preSignUrl = ({ identifier, partNumber }) => {
+const preSignUrl = ({identifier, partNumber}) => {
     return http.get(`/v1/minio/tasks/${identifier}/${partNumber}`)
 }
 

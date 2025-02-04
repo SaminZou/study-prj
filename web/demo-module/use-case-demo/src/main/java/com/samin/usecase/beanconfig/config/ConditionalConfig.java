@@ -13,15 +13,12 @@ import org.springframework.context.annotation.Configuration;
  */
 @Slf4j
 @Configuration
-@ConditionalOnProperty(
-    value = {"custom.config.enabled"},
-    havingValue = "true",
-    matchIfMissing = true)
+@ConditionalOnProperty(value = {"custom.config.enabled"}, havingValue = "true", matchIfMissing = true)
 public class ConditionalConfig {
 
-  @Bean
-  public String test() {
-    log.info("[启动时加载] test String bean inject...");
-    return "test";
-  }
+    @Bean
+    public String test() {
+        log.info("[启动时加载] test String bean inject...");
+        return "test";
+    }
 }

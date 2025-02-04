@@ -26,7 +26,8 @@ public class SystemLogResponseAdvice implements ResponseBodyAdvice {
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
+                                  Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         log.debug("=============================== SyslogRespAdvice beforeBodyWrite");
         RequestThreadLocal.Request data = RequestThreadLocal.getRequest();
         if (data != null) {

@@ -14,6 +14,10 @@ import com.samin.auth.vo.req.RoleSaveReq;
 import com.samin.auth.vo.resp.PageResp;
 import com.samin.auth.vo.resp.RoleResp;
 import com.samin.auth.vo.resp.RoleSaveResp;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,11 +26,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * 角色服务类
@@ -50,7 +49,7 @@ public class RoleService {
      */
     public PageResp<RoleResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
-                .descending());
+                                                                             .descending());
 
         PageResp<Role> roles = PageResp.success(roleRepository.findAll(pageable));
 
@@ -75,8 +74,8 @@ public class RoleService {
             if (roleOptional.isPresent()) {
                 role = roleOptional.get();
                 CopyOptions options = CopyOptions.create()
-                        .ignoreNullValue()
-                        .setIgnoreProperties("code");
+                                                 .ignoreNullValue()
+                                                 .setIgnoreProperties("code");
                 BeanUtil.copyProperties(roleSaveReq, role, options);
 
                 roleRepository.save(role);
@@ -98,7 +97,7 @@ public class RoleService {
 
             role = new Role();
             CopyOptions options = CopyOptions.create()
-                    .ignoreNullValue();
+                                             .ignoreNullValue();
             BeanUtil.copyProperties(roleSaveReq, role, options);
 
             roleRepository.save(role);
@@ -132,8 +131,8 @@ public class RoleService {
         // 新增绑定
         if (!CollectionUtils.isEmpty(menus)) {
             List<RoleMenuRelation> userRoleRelations = menus.stream()
-                    .map(e -> RoleMenuRelation.getInstance(roleCode, e))
-                    .collect(Collectors.toList());
+                                                            .map(e -> RoleMenuRelation.getInstance(roleCode, e))
+                                                            .collect(Collectors.toList());
 
             roleMenuRelationRepository.saveAll(userRoleRelations);
         }
@@ -142,8 +141,8 @@ public class RoleService {
     public List<String> validMenus(List<String> menus) {
         // 过滤不存在的菜单
         return menuRepository.findByCodeIn(menus)
-                .stream()
-                .map(Menu::getCode)
-                .collect(Collectors.toList());
+                             .stream()
+                             .map(Menu::getCode)
+                             .collect(Collectors.toList());
     }
 }

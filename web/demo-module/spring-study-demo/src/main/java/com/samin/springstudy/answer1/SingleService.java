@@ -12,5 +12,4 @@ import org.springframework.stereotype.Service;
  * Created Date: 2024-01-26
  */
 @Service
-public class SingleService {
-}
+public class SingleService {}

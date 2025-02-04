@@ -15,7 +15,8 @@ public class ServiceStartObserve implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ServiceStartObserve.class, SingleService.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
+                ServiceStartObserve.class, SingleService.class);
         // 观测是否单例
         System.out.println(applicationContext.getBean("singleService"));
         System.out.println(applicationContext.getBean("singleService"));

@@ -19,23 +19,23 @@ public class TestController {
     @GetMapping("/test/log_level")
     public void testLogLevel() {
         long startTime = Instant.now()
-                .toEpochMilli();
+                                .toEpochMilli();
         log.trace("trace...");
         log.debug("debug...");
         log.info("info...");
         log.warn("warn...");
 
         BizLogBO bizLog = BizLogBO.builder()
-                .id(1L)
-                .eventName("testLogLevel")
-                .userId("samin")
-                .resultMsg("")
-                .costTime(Instant.now()
-                        .toEpochMilli() - startTime)
-                .request("")
-                .response("")
-                .others("")
-                .build();
+                                  .id(1L)
+                                  .eventName("testLogLevel")
+                                  .userId("samin")
+                                  .resultMsg("")
+                                  .costTime(Instant.now()
+                                                   .toEpochMilli() - startTime)
+                                  .request("")
+                                  .response("")
+                                  .others("")
+                                  .build();
 
         log.error("info: [{}]", bizLog);
 

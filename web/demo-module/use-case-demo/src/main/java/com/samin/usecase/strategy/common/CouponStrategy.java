@@ -8,11 +8,11 @@ package com.samin.usecase.strategy.common;
  */
 public interface CouponStrategy {
 
-  void checkTotal();
+    void checkTotal();
 
-  void userCouponRel();
+    void userCouponRel();
 
-  String result();
+    String result();
 
-  void saveLog();
+    void saveLog();
 }

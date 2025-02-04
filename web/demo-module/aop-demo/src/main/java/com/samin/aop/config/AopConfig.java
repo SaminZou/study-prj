@@ -1,12 +1,17 @@
 package com.samin.aop.config;
 
+import java.time.Instant;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
-
-import java.time.Instant;
 
 @Slf4j
 @Aspect
@@ -29,7 +34,7 @@ public class AopConfig {
     @Before(value = "pc1()")
     public void before(JoinPoint jp) {
         String name = jp.getSignature()
-                .getName();
+                        .getName();
         Object[] args = jp.getArgs();
         log.info(name + "方法开始执行...");
         log.info("方法参数: " + args[0]);
@@ -43,7 +48,7 @@ public class AopConfig {
     @After(value = "pc1()")
     public void after(JoinPoint jp) {
         String name = jp.getSignature()
-                .getName();
+                        .getName();
         log.info(name + "方法执行结束...");
     }
 
@@ -56,7 +61,7 @@ public class AopConfig {
     @AfterReturning(value = "pc1()", returning = "result")
     public void afterReturning(JoinPoint jp, Object result) {
         String name = jp.getSignature()
-                .getName();
+                        .getName();
         log.info(name + "方法返回值为：" + result);
     }
 
@@ -69,7 +74,7 @@ public class AopConfig {
     @AfterThrowing(value = "pc1()", throwing = "e")
     public void afterThrowing(JoinPoint jp, Exception e) {
         String name = jp.getSignature()
-                .getName();
+                        .getName();
         log.info(name + "方法抛异常了，异常是：" + e.getMessage());
     }
 
@@ -83,13 +88,13 @@ public class AopConfig {
     @Around("pc1()")
     public Object around(ProceedingJoinPoint pjp) throws Throwable {
         String name = pjp.getSignature()
-                .getName();
+                         .getName();
         // 统计方法执行时间
         long start = Instant.now()
-                .toEpochMilli();
+                            .toEpochMilli();
         Object result = pjp.proceed();
         long end = Instant.now()
-                .toEpochMilli();
+                          .toEpochMilli();
         log.info(name + "方法执行时间为：" + (end - start) + " ms");
         return result;
     }

@@ -17,16 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CouponController {
 
-  private final TraditionGetCouponService traditionGetCouponService;
-  private final StrategyGetCouponService strategyGetCouponService;
+    private final TraditionGetCouponService traditionGetCouponService;
+    private final StrategyGetCouponService strategyGetCouponService;
 
-  @GetMapping("/getCoupon1")
-  public String getCoupon1(@RequestParam(value = "type") Integer type) {
-    return traditionGetCouponService.getCoupon(type);
-  }
+    @GetMapping("/getCoupon1")
+    public String getCoupon1(@RequestParam(value = "type") Integer type) {
+        return traditionGetCouponService.getCoupon(type);
+    }
 
-  @GetMapping("/getCoupon2")
-  public String getCoupon2(@RequestParam(value = "type") Integer type) {
-    return strategyGetCouponService.getCoupon(type);
-  }
+    @GetMapping("/getCoupon2")
+    public String getCoupon2(@RequestParam(value = "type") Integer type) {
+        return strategyGetCouponService.getCoupon(type);
+    }
 }

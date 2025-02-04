@@ -22,11 +22,11 @@ public class Producer {
 
     public void run() {
         MessageBody messageBody = MessageBody.builder()
-                .msgId(1L)
-                .text("foo")
-                .content("bar")
-                .userId(1L)
-                .build();
+                                             .msgId(1L)
+                                             .text("foo")
+                                             .content("bar")
+                                             .userId(1L)
+                                             .build();
         rocketMQTemplate.convertAndSend("test-topic2", messageBody);
         rocketMQTemplate.convertAndSend("test-topic", "test message");
         System.out.println("消息发送成功: " + "test message");

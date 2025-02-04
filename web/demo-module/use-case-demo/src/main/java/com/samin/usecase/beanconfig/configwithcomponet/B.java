@@ -2,23 +2,23 @@ package com.samin.usecase.beanconfig.configwithcomponet;
 
 public class B {
 
-  private String name = "B";
+    private String name = "B";
 
-  private A a;
+    private A a;
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public A getA() {
-    return a;
-  }
+    public A getA() {
+        return a;
+    }
 
-  public void setA(A a) {
-    this.a = a;
-  }
+    public void setA(A a) {
+        this.a = a;
+    }
 }

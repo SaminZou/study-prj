@@ -18,7 +18,7 @@ public class TestScheduler {
     @Scheduled(cron = "0/15 * * * * *")
     public void test() {
         log.info("每隔 15 秒运行一次: {}", LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+                                                        .format(DateTimeFormatter.ofPattern("HH:mm:ss")));
     }
 
     /**
@@ -27,6 +27,6 @@ public class TestScheduler {
     @Scheduled(cron = "5 * * * * ?")
     public void test2() {
         log.info("now: {}", LocalDateTime.now()
-                .format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+                                         .format(DateTimeFormatter.ofPattern("HH:mm:ss")));
     }
 }

@@ -1,8 +1,7 @@
 package com.samin.redis.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 @Data
 public class HolidayStatsVo implements Serializable {

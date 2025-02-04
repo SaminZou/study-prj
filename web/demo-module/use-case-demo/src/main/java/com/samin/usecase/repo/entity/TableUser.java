@@ -8,11 +8,11 @@ import lombok.Data;
 @Table(name = "table_user")
 public class TableUser {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-  private String userName;
+    private String userName;
 
-  private String userDesc;
+    private String userDesc;
 }

@@ -2,7 +2,6 @@ package com.samin.minio.model.dto;
 
 
 import com.samin.minio.enums.ResultEnum;
-
 import java.io.Serializable;
 
 public class Result<T> implements Serializable {

@@ -16,7 +16,7 @@ public class WorkerReceiver {
     @RabbitListener(queues = SystemConstant.WORKER_QUEUE_NAME)
     public void onMessage(String message) throws InterruptedException {
         System.out.println("线程名 " + Thread.currentThread()
-                .getName() + " : Message < " + message + " > ");
+                                             .getName() + " : Message < " + message + " > ");
         Thread.sleep(3000L);
     }
 }

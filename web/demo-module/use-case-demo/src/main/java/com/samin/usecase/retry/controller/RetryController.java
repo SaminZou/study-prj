@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class RetryController {
 
-  private final RetryService retryService;
+    private final RetryService retryService;
 
-  @GetMapping("/retry/{code}")
-  public String retry(
-      @PathVariable(value = "code") int code, @RequestParam(value = "isRetry") int isRetry)
-      throws Exception {
-    int test = retryService.retry(code, isRetry);
-    System.out.println("返回结果：" + test);
-    return "success";
-  }
+    @GetMapping("/retry/{code}")
+    public String retry(@PathVariable(value = "code") int code, @RequestParam(value = "isRetry") int isRetry)
+            throws Exception {
+        int test = retryService.retry(code, isRetry);
+        System.out.println("返回结果：" + test);
+        return "success";
+    }
 }

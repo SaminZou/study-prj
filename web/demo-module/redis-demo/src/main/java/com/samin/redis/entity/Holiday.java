@@ -1,13 +1,17 @@
 package com.samin.redis.entity;
 
 import com.vladmihalcea.hibernate.type.array.StringArrayType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
-
-import javax.persistence.*;
 
 @Data
 @Entity

@@ -5,7 +5,16 @@ import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.StrUtil;
 import com.amazonaws.HttpMethod;
 import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.CompleteMultipartUploadRequest;
+import com.amazonaws.services.s3.model.CompleteMultipartUploadResult;
+import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadRequest;
+import com.amazonaws.services.s3.model.InitiateMultipartUploadResult;
+import com.amazonaws.services.s3.model.ListPartsRequest;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PartETag;
+import com.amazonaws.services.s3.model.PartListing;
+import com.amazonaws.services.s3.model.PartSummary;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.samin.minio.constant.MinioConstant;
@@ -16,16 +25,15 @@ import com.samin.minio.model.entity.MultiFileUpload;
 import com.samin.minio.model.param.InitTaskParam;
 import com.samin.minio.properties.MinioProperties;
 import com.samin.minio.service.MultiFileUploadService;
-import org.springframework.http.MediaType;
-import org.springframework.http.MediaTypeFactory;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import javax.annotation.Resource;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeFactory;
+import org.springframework.stereotype.Service;
 
 /**
  * 分片上传-分片任务记录（MultiFileUpload）表服务实现类
@@ -33,7 +41,8 @@ import java.util.stream.Collectors;
  * @since 2022-08-22 17:47:31
  */
 @Service("mutiFileUploadServiceService")
-public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMapper, MultiFileUpload> implements MultiFileUploadService {
+public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMapper, MultiFileUpload> implements
+        MultiFileUploadService {
 
     @Resource
     private AmazonS3 amazonS3;
@@ -47,7 +56,8 @@ public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMappe
     @Override
     public MultiFileUpload getByIdentifier(String identifier) {
         return sysUploadTaskMapper.selectOne(new QueryWrapper<MultiFileUpload>().lambda()
-                .eq(MultiFileUpload::getFileIdentifier, identifier));
+                                                                                .eq(MultiFileUpload::getFileIdentifier,
+                                                                                    identifier));
     }
 
 
@@ -60,27 +70,28 @@ public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMappe
         String suffix = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
         String key = StrUtil.format("{}/{}.{}", DateUtil.format(currentDate, "YYYY-MM-dd"), IdUtil.randomUUID(), suffix);
         String contentType = MediaTypeFactory.getMediaType(key)
-                .orElse(MediaType.APPLICATION_OCTET_STREAM)
-                .toString();
+                                             .orElse(MediaType.APPLICATION_OCTET_STREAM)
+                                             .toString();
         ObjectMetadata objectMetadata = new ObjectMetadata();
         objectMetadata.setContentType(contentType);
-        InitiateMultipartUploadResult initiateMultipartUploadResult = amazonS3.initiateMultipartUpload(new InitiateMultipartUploadRequest(bucketName, key).withObjectMetadata(objectMetadata));
+        InitiateMultipartUploadResult initiateMultipartUploadResult = amazonS3.initiateMultipartUpload(
+                new InitiateMultipartUploadRequest(bucketName, key).withObjectMetadata(objectMetadata));
         String uploadId = initiateMultipartUploadResult.getUploadId();
 
         MultiFileUpload task = new MultiFileUpload();
         int chunkNum = (int) Math.ceil(param.getTotalSize() * 1.0 / param.getChunkSize());
         task.setBucketName(minioProperties.getBucket())
-                .setChunkNum(chunkNum)
-                .setChunkSize(param.getChunkSize())
-                .setTotalSize(param.getTotalSize())
-                .setFileIdentifier(param.getIdentifier())
-                .setFileName(fileName)
-                .setObjectKey(key)
-                .setUploadId(uploadId);
+            .setChunkNum(chunkNum)
+            .setChunkSize(param.getChunkSize())
+            .setTotalSize(param.getTotalSize())
+            .setFileIdentifier(param.getIdentifier())
+            .setFileName(fileName)
+            .setObjectKey(key)
+            .setUploadId(uploadId);
         sysUploadTaskMapper.insert(task);
         return new TaskInfoDTO().setFinished(false)
-                .setTaskRecord(RecordDTO.convertFromEntity(task))
-                .setPath(getPath(bucketName, key));
+                                .setTaskRecord(RecordDTO.convertFromEntity(task))
+                                .setPath(getPath(bucketName, key));
     }
 
     @Override
@@ -95,17 +106,18 @@ public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMappe
             return null;
         }
         TaskInfoDTO result = new TaskInfoDTO().setFinished(true)
-                .setTaskRecord(RecordDTO.convertFromEntity(task))
-                .setPath(getPath(task.getBucketName(), task.getObjectKey()));
+                                              .setTaskRecord(RecordDTO.convertFromEntity(task))
+                                              .setPath(getPath(task.getBucketName(), task.getObjectKey()));
 
         boolean doesObjectExist = amazonS3.doesObjectExist(task.getBucketName(), task.getObjectKey());
         if (!doesObjectExist) {
             // 未上传完，返回已上传的分片
-            ListPartsRequest listPartsRequest = new ListPartsRequest(task.getBucketName(), task.getObjectKey(), task.getUploadId());
+            ListPartsRequest listPartsRequest = new ListPartsRequest(task.getBucketName(), task.getObjectKey(),
+                                                                     task.getUploadId());
             PartListing partListing = amazonS3.listParts(listPartsRequest);
             result.setFinished(false)
-                    .getTaskRecord()
-                    .setExitPartList(partListing.getParts());
+                  .getTaskRecord()
+                  .setExitPartList(partListing.getParts());
         }
         return result;
     }
@@ -115,7 +127,7 @@ public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMappe
         Date currentDate = new Date();
         Date expireDate = DateUtil.offsetMillisecond(currentDate, MinioConstant.PRE_SIGN_URL_EXPIRE.intValue());
         GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(bucket, objectKey).withExpiration(expireDate)
-                .withMethod(HttpMethod.PUT);
+                                                                                                .withMethod(HttpMethod.PUT);
         if (params != null) {
             params.forEach((key, val) -> request.addRequestParameter(key, val));
         }
@@ -130,20 +142,28 @@ public class MultiFileUploadServiceImpl extends ServiceImpl<MultiFileUploadMappe
             throw new RuntimeException("分片任务不存");
         }
 
-        ListPartsRequest listPartsRequest = new ListPartsRequest(task.getBucketName(), task.getObjectKey(), task.getUploadId());
+        ListPartsRequest listPartsRequest = new ListPartsRequest(task.getBucketName(), task.getObjectKey(),
+                                                                 task.getUploadId());
         PartListing partListing = amazonS3.listParts(listPartsRequest);
         List<PartSummary> parts = partListing.getParts();
         if (!task.getChunkNum()
-                .equals(parts.size())) {
+                 .equals(parts.size())) {
             // 已上传分块数量与记录中的数量不对应，不能合并分块
             throw new RuntimeException("分片缺失，请重新上传");
         }
-        CompleteMultipartUploadRequest completeMultipartUploadRequest = new CompleteMultipartUploadRequest().withUploadId(task.getUploadId())
-                .withKey(task.getObjectKey())
-                .withBucketName(task.getBucketName())
-                .withPartETags(parts.stream()
-                        .map(partSummary -> new PartETag(partSummary.getPartNumber(), partSummary.getETag()))
-                        .collect(Collectors.toList()));
+        CompleteMultipartUploadRequest completeMultipartUploadRequest = new CompleteMultipartUploadRequest().withUploadId(
+                                                                                                                    task.getUploadId())
+                                                                                                            .withKey(
+                                                                                                                    task.getObjectKey())
+                                                                                                            .withBucketName(
+                                                                                                                    task.getBucketName())
+                                                                                                            .withPartETags(
+                                                                                                                    parts.stream()
+                                                                                                                         .map(partSummary -> new PartETag(
+                                                                                                                                 partSummary.getPartNumber(),
+                                                                                                                                 partSummary.getETag()))
+                                                                                                                         .collect(
+                                                                                                                                 Collectors.toList()));
         CompleteMultipartUploadResult result = amazonS3.completeMultipartUpload(completeMultipartUploadRequest);
     }
 }

@@ -40,7 +40,7 @@ public class RequestKeyGenerator {
             }
             //如果属性是 RequestKeyParam 注解，则拼接 连接符 "& + RequestKeyParam"
             sb.append(requestLock.delimiter())
-                    .append(args[i]);
+              .append(args[i]);
         }
         //如果方法上没有加RequestKeyParam注解
         if (StringUtils.isEmpty(sb.toString())) {
@@ -51,7 +51,7 @@ public class RequestKeyGenerator {
                 final Object object = args[i];
                 //获取注解类中所有的属性字段
                 final Field[] fields = object.getClass()
-                        .getDeclaredFields();
+                                             .getDeclaredFields();
                 for (Field field : fields) {
                     //判断字段上是否有RequestKeyParam注解
                     final RequestKeyParam annotation = field.getAnnotation(RequestKeyParam.class);
@@ -63,7 +63,7 @@ public class RequestKeyGenerator {
                     field.setAccessible(true);
                     //如果属性是 RequestKeyParam 注解，则拼接 连接符 " & + RequestKeyParam "
                     sb.append(requestLock.delimiter())
-                            .append(ReflectionUtils.getField(field, object));
+                      .append(ReflectionUtils.getField(field, object));
                 }
             }
         }

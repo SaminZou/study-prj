@@ -3,27 +3,27 @@
     <div>
       <el-container class="editMain">
         <el-form
-          :model="videoInfo"
-          :rules="rules"
-          ref="videoInfo"
-          label-width="80px"
-          size="mini"
+            :model="videoInfo"
+            :rules="rules"
+            ref="videoInfo"
+            label-width="80px"
+            size="mini"
         >
           <el-form-item label="视频地址(HLS)" prop="videoUrl">
             <el-input
-              v-model="videoInfo.videoUrl"
-              :rules="rules.videoUrl"
-              placeholder="视频地址"
+                v-model="videoInfo.videoUrl"
+                :rules="rules.videoUrl"
+                placeholder="视频地址"
             ></el-input>
           </el-form-item>
           <el-form-item>
             <el-button
-              size="mini"
-              type="primary"
-              icon="el-icon-edit"
-              style="margin-left: 1vw"
-              @click="onPlay"
-              >播放
+                size="mini"
+                type="primary"
+                icon="el-icon-edit"
+                style="margin-left: 1vw"
+                @click="onPlay"
+            >播放
             </el-button>
           </el-form-item>
         </el-form>
@@ -58,8 +58,8 @@ export default {
   methods: {
     async onPlay() {
       if (
-        this.videoInfo.videoUrl === undefined ||
-        this.videoInfo.videoUrl === ""
+          this.videoInfo.videoUrl === undefined ||
+          this.videoInfo.videoUrl === ""
       ) {
         return;
       }
@@ -75,7 +75,8 @@ export default {
       });
     },
   },
-  mounted() {},
+  mounted() {
+  },
 };
 </script>
 

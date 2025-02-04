@@ -6,13 +6,17 @@ import com.samin.minio.model.dto.TaskInfoDTO;
 import com.samin.minio.model.entity.MultiFileUpload;
 import com.samin.minio.model.param.InitTaskParam;
 import com.samin.minio.service.MultiFileUploadService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 /**
@@ -54,7 +58,7 @@ public class MinioUploadTaskController {
     public Result<TaskInfoDTO> initTask(@Valid @RequestBody InitTaskParam param, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return Result.error(bindingResult.getFieldError()
-                    .getDefaultMessage());
+                                             .getDefaultMessage());
         }
         return Result.ok(multiFileUploadService.initTask(param));
     }
@@ -67,7 +71,8 @@ public class MinioUploadTaskController {
      * @return
      */
     @GetMapping("/{identifier}/{partNumber}")
-    public Result preSignUploadUrl(@PathVariable("identifier") String identifier, @PathVariable("partNumber") Integer partNumber) {
+    public Result preSignUploadUrl(@PathVariable("identifier") String identifier,
+                                   @PathVariable("partNumber") Integer partNumber) {
         MultiFileUpload task = multiFileUploadService.getByIdentifier(identifier);
         if (task == null) {
             return Result.error("分片任务不存在");

@@ -25,14 +25,12 @@ public class SnowflakeIdService {
     private final static int SEQUENCE_BITS = 10;
 
     /**
-     * 最大的 worker id，8091
-     * -1 的补码（二进制全 1）右移 13 位，然后取反
+     * 最大的 worker id，8091 -1 的补码（二进制全 1）右移 13 位，然后取反
      */
     private final static long MAX_WORKER_ID = ~(-1L << WORKER_ID_BITS);
 
     /**
-     * 最大的序列号，1023
-     * -1 的补码（二进制全 1）右移 10 位，然后取反
+     * 最大的序列号，1023 -1 的补码（二进制全 1）右移 10 位，然后取反
      */
     private final static long MAX_SEQUENCE = ~(-1L << SEQUENCE_BITS);
 

@@ -1,11 +1,10 @@
 package com.samin.minio.model.param;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Data
 @ToString

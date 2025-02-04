@@ -10,25 +10,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SpringUtilsServiceTest {
 
-  @Autowired private SpringUtilsService springUtilsService;
+    @Autowired
+    private SpringUtilsService springUtilsService;
 
-  @Test
-  void assertUseCase() {
-    springUtilsService.assertUseCase();
-  }
+    @Test
+    void assertUseCase() {
+        springUtilsService.assertUseCase();
+    }
 
-  @Test
-  void objectUtilsUseCase() {
-    springUtilsService.objectUtilsUseCase();
-  }
+    @Test
+    void objectUtilsUseCase() {
+        springUtilsService.objectUtilsUseCase();
+    }
 
-  @Test
-  void stringUtilsUseCase() {
-    springUtilsService.stringUtilsUseCase();
-  }
+    @Test
+    void stringUtilsUseCase() {
+        springUtilsService.stringUtilsUseCase();
+    }
 
-  @Test
-  void resourceUtils() {
-    springUtilsService.resourceUtils();
-  }
+    @Test
+    void resourceUtils() {
+        springUtilsService.resourceUtils();
+    }
 }

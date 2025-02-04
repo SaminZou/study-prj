@@ -3,11 +3,10 @@ package com.samin.minio.model.dto;
 import cn.hutool.core.bean.BeanUtil;
 import com.amazonaws.services.s3.model.PartSummary;
 import com.samin.minio.model.entity.MultiFileUpload;
+import java.util.List;
 import lombok.Data;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-
-import java.util.List;
 
 @Data
 @ToString

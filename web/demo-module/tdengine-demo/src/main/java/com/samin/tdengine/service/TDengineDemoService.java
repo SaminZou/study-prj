@@ -67,7 +67,7 @@ public class TDengineDemoService {
     public List<IotDevice> findSuperTableData2Object() {
         // 查找数据返回实体类列表
         List<IotDevice> iotDevices = jdbcTemplate.query("select * from iot_original",
-                new BeanPropertyRowMapper<>(IotDevice.class));
+                                                        new BeanPropertyRowMapper<>(IotDevice.class));
         log.info("{}", iotDevices);
         return iotDevices;
     }

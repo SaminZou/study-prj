@@ -6,5 +6,4 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-public @interface RequestKeyParam {
-}
+public @interface RequestKeyParam {}

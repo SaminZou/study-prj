@@ -1,11 +1,10 @@
 package com.samin.redis.service;
 
+import java.util.concurrent.TimeUnit;
 import lombok.RequiredArgsConstructor;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Redisson 实现分布式锁

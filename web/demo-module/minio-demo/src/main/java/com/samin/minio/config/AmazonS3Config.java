@@ -29,16 +29,18 @@ public class AmazonS3Config {
         // 设置网络访问超时时间
         config.setConnectionTimeout(5000);
         config.setUseExpectContinue(true);
-        AWSCredentials credentials = new BasicAWSCredentials(minioProperties.getAccessKey(), minioProperties.getAccessSecret());
+        AWSCredentials credentials = new BasicAWSCredentials(minioProperties.getAccessKey(),
+                                                             minioProperties.getAccessSecret());
         // 设置 Endpoint
-        AwsClientBuilder.EndpointConfiguration end_point = new AwsClientBuilder.EndpointConfiguration(minioProperties.getEndpoint(), Regions.US_EAST_1.name());
+        AwsClientBuilder.EndpointConfiguration end_point = new AwsClientBuilder.EndpointConfiguration(
+                minioProperties.getEndpoint(), Regions.US_EAST_1.name());
 
         return AmazonS3ClientBuilder.standard()
-                                               .withClientConfiguration(config)
-                                               .withCredentials(new AWSStaticCredentialsProvider(credentials))
-                                               .withEndpointConfiguration(end_point)
-                                               .withPathStyleAccessEnabled(true)
-                                               .build();
+                                    .withClientConfiguration(config)
+                                    .withCredentials(new AWSStaticCredentialsProvider(credentials))
+                                    .withEndpointConfiguration(end_point)
+                                    .withPathStyleAccessEnabled(true)
+                                    .build();
     }
 
 }

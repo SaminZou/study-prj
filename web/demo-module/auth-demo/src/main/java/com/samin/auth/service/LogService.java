@@ -34,7 +34,7 @@ public class LogService {
      */
     public PageResp<LogResp> page(PageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
-                .descending());
+                                                                             .descending());
 
         PageResp<SystemLog> logs = PageResp.success(systemLogRepository.findAll(pageable));
 

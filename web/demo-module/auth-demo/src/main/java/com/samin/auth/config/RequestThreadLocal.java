@@ -1,9 +1,8 @@
 package com.samin.auth.config;
 
-import lombok.Data;
-
 import java.time.LocalDateTime;
 import java.util.Objects;
+import lombok.Data;
 
 public class RequestThreadLocal {
 

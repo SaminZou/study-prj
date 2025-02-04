@@ -1,10 +1,9 @@
 package com.samin.aop.config;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.HandlerInterceptor;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 /**
  * 实践证明一个请求接口，同时配置了 HandlerInterceptor 和 Aspect 的情况下，会优先被 HandlerInterceptor 拦截

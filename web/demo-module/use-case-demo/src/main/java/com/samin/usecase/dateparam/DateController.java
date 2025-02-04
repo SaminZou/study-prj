@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DateController {
 
-  @PostMapping("/date/req")
-  public void dateReq(@RequestBody DateReq req) {
-    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    log.info("时间段： {} ~ {}", req.getStartTime().format(dtf), req.getEndTime().format(dtf));
-  }
+    @PostMapping("/date/req")
+    public void dateReq(@RequestBody DateReq req) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        log.info("时间段： {} ~ {}", req.getStartTime()
+                                       .format(dtf), req.getEndTime()
+                                                        .format(dtf));
+    }
 }

@@ -17,24 +17,26 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "custom")
 public class SystemProperties {
 
-  /** 可以适配 pg_host / pg-host / pgHost */
-  private String pgHost;
+    /**
+     * 可以适配 pg_host / pg-host / pgHost
+     */
+    private String pgHost;
 
-  private String pgPort;
+    private String pgPort;
 
-  private String pgDatabase;
+    private String pgDatabase;
 
-  private String pgUsername;
+    private String pgUsername;
 
-  private String pgPassword;
+    private String pgPassword;
 
-  private String pgSchema;
+    private String pgSchema;
 
-  private String redisHost;
+    private String redisHost;
 
-  private String redisPort;
+    private String redisPort;
 
-  private String redisPassword;
+    private String redisPassword;
 
-  private String redisDatabase;
+    private String redisDatabase;
 }

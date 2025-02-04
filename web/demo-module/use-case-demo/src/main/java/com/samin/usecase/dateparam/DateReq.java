@@ -9,11 +9,11 @@ import lombok.Data;
 @Data
 public class DateReq {
 
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-  @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-  private LocalDateTime startTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime startTime;
 
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-  @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-  private LocalDateTime endTime;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    private LocalDateTime endTime;
 }

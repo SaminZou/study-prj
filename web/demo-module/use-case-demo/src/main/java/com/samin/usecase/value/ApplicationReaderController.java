@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApplicationReaderController {
 
-  @Value(value = "${custom.order_test}")
-  private String orderTest;
+    @Value(value = "${custom.order_test}")
+    private String orderTest;
 
-  @GetMapping("/orderTest")
-  public String orderTest() {
-    return orderTest;
-  }
+    @GetMapping("/orderTest")
+    public String orderTest() {
+        return orderTest;
+    }
 }

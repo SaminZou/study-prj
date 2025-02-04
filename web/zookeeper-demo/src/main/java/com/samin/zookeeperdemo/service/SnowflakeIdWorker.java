@@ -24,9 +24,9 @@ public class SnowflakeIdWorker {
         // 节点的 payload 为当前 worker 实例
         byte[] payload = pathPrefix.getBytes();
         pathRegistered = curatorFramework.create()
-                .creatingParentsIfNeeded()
-                .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
-                .forPath(pathPrefix, payload);
+                                         .creatingParentsIfNeeded()
+                                         .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
+                                         .forPath(pathPrefix, payload);
     }
 
     public long getId() {

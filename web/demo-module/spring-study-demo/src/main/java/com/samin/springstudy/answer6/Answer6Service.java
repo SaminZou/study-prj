@@ -9,6 +9,6 @@ public class Answer6Service extends BaseService {
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("answer6: "+getBizService());
+        System.out.println("answer6: " + getBizService());
     }
 }

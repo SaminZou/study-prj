@@ -17,11 +17,11 @@ public class ConfigNodeCache {
         NodeCache nodeCache = new NodeCache(curatorFramework, "/samin-config");
         nodeCache.start();
         nodeCache.getListenable()
-                .addListener(() -> {
-                    log.info("{} path nodeChanged", "/samin-config");
-                    byte[] newData = nodeCache.getCurrentData()
-                            .getData();
-                    log.info("{} path new value: {}", "/samin-config", new String(newData));
-                });
+                 .addListener(() -> {
+                     log.info("{} path nodeChanged", "/samin-config");
+                     byte[] newData = nodeCache.getCurrentData()
+                                               .getData();
+                     log.info("{} path new value: {}", "/samin-config", new String(newData));
+                 });
     }
 }

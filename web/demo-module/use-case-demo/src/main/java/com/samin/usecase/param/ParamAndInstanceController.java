@@ -19,41 +19,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ParamAndInstanceController {
 
-  /**
-   * {"roleIds": null} 接收为: null
-   *
-   * <p>{"roleIds": []} 接收为: []
-   *
-   * <p>{} 接收为: null
-   *
-   * @param req
-   */
-  @PostMapping("/updateRoleIds")
-  public void updateRoleIds(@RequestBody ParamAndInstanceObject.ParamObj1 req) {
-    log.info("updateRoleIds: {}", req);
-  }
+    /**
+     * {"roleIds": null} 接收为: null
+     *
+     * <p>{"roleIds": []} 接收为: []
+     *
+     * <p>{} 接收为: null
+     *
+     * @param req
+     */
+    @PostMapping("/updateRoleIds")
+    public void updateRoleIds(@RequestBody ParamAndInstanceObject.ParamObj1 req) {
+        log.info("updateRoleIds: {}", req);
+    }
 
-  /**
-   * {"roleIds": null} 接收为: null
-   *
-   * <p>{"roleIds": []} 接收为: []
-   *
-   * <p>{} 接收为: []
-   *
-   * @param req
-   */
-  @PostMapping("/updateRoleIds2")
-  public void updateRoleIds2(@RequestBody ParamAndInstanceObject.ParamObj2 req) {
-    log.info("updateRoleIds: {}", req);
-  }
+    /**
+     * {"roleIds": null} 接收为: null
+     *
+     * <p>{"roleIds": []} 接收为: []
+     *
+     * <p>{} 接收为: []
+     *
+     * @param req
+     */
+    @PostMapping("/updateRoleIds2")
+    public void updateRoleIds2(@RequestBody ParamAndInstanceObject.ParamObj2 req) {
+        log.info("updateRoleIds: {}", req);
+    }
 
-  /**
-   * 入参为 parkCode=test&parkCode=test2&parkCode=test3 打印结果为 test,test2,test3
-   *
-   * @param parkCode
-   */
-  @GetMapping("/multipleSameParams")
-  public void multipleSameParams(String parkCode) {
-    log.info("parkCode: {}", parkCode);
-  }
+    /**
+     * 入参为 parkCode=test&parkCode=test2&parkCode=test3 打印结果为 test,test2,test3
+     *
+     * @param parkCode
+     */
+    @GetMapping("/multipleSameParams")
+    public void multipleSameParams(String parkCode) {
+        log.info("parkCode: {}", parkCode);
+    }
 }

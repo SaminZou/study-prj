@@ -17,14 +17,14 @@ public class ZookeeperConfig {
     @Bean
     public CuratorFramework curatorFramework() {
         return CuratorFrameworkFactory.builder()
-                .connectString(host)
-                // 会话超时时间
-                .sessionTimeoutMs(5000)
-                // 连接超时时间
-                .connectionTimeoutMs(5000)
-                .retryPolicy(new ExponentialBackoffRetry(1000, 3))
-                // .namespace("demo-app")
-                .build();
+                                      .connectString(host)
+                                      // 会话超时时间
+                                      .sessionTimeoutMs(5000)
+                                      // 连接超时时间
+                                      .connectionTimeoutMs(5000)
+                                      .retryPolicy(new ExponentialBackoffRetry(1000, 3))
+                                      // .namespace("demo-app")
+                                      .build();
     }
 
     /**

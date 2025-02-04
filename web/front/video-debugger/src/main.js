@@ -8,5 +8,5 @@ import './assets/main.css'
 Vue.use(ElementUI);
 
 new Vue({
-  render: (h) => h(App)
+    render: (h) => h(App)
 }).$mount('#app')

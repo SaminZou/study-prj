@@ -42,8 +42,8 @@ public class RabbitmqConfig {
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
         return BindingBuilder.bind(queue)
-                .to(exchange)
-                .with("foo.bar.#");
+                             .to(exchange)
+                             .with("foo.bar.#");
     }
 
     /**
@@ -65,8 +65,8 @@ public class RabbitmqConfig {
     @Bean
     Binding msgBinding(TopicExchange exchange) {
         return BindingBuilder.bind(msgQueue())
-                .to(exchange)
-                .with("msg.#");
+                             .to(exchange)
+                             .with("msg.#");
     }
 
     /**
@@ -98,7 +98,7 @@ public class RabbitmqConfig {
     @Bean
     Binding workerBinding(TopicExchange exchange) {
         return BindingBuilder.bind(workerQueue())
-                .to(exchange)
-                .with("work.#");
+                             .to(exchange)
+                             .with("work.#");
     }
 }

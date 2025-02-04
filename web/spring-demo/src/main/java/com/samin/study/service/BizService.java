@@ -5,5 +5,4 @@ import com.samin.spring.Scope;
 
 @Component("bizService")
 @Scope
-public class BizService {
-}
+public class BizService {}

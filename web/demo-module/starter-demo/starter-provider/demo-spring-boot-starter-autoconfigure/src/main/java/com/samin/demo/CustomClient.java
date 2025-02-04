@@ -15,10 +15,10 @@ public class CustomClient {
 
     public String showKey() {
         log.info("custom.part1.custom-key: {}", customProperties.getPart1()
-                .getCustomKey());
+                                                                .getCustomKey());
         log.info("custom.part2.key: {}", customProperties.getPart2()
-                .getKey());
+                                                         .getKey());
         return customProperties.getPart1()
-                .getCustomKey();
+                               .getCustomKey();
     }
 }
