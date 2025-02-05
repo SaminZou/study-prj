@@ -10,7 +10,8 @@ Share knowledge stack, provide some inspiration for developers.
 >
 > Date **2019-11-12**
 >
-> Leave something to the world.
+> Leave something to the world.  
+> Feel free to open an issue if you have any related questions.
 
 # 1 blog
 
