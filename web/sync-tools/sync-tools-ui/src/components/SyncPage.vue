@@ -9,14 +9,18 @@
     </div>
 
     <!-- Body -->
-    <div class="body" :class="{ active: isConnected }">
-      <div v-if="websocketMessage">
-        <pre>{{ websocketMessage }}</pre>
-      </div>
+    <div class="body">
+      <textarea
+          v-model="websocketMessage"
+          placeholder="输入消息"
+          @input="sendMessage"
+          :disabled="!isConnected"
+          class="message-input"
+      ></textarea>
     </div>
 
     <!-- Foot -->
-    <div class="foot">
+    <div class="foot" :class="{ active: isConnected }">
       <p>{{ connectionStatus }}</p>
     </div>
   </div>
@@ -26,17 +30,24 @@
 export default {
   data() {
     return {
-      ipAddress: '', // 用户输入的 IP 地址
-      isConnected: false, // 是否已连接
-      connectionStatus: '等待连接...', // 连接状态信息
-      websocketMessage: '', // WebSocket 接收的消息
-      websocket: null, // WebSocket 实例
-      retryCount: 0, // 重试次数
-      maxRetries: 3, // 最大重试次数
+      // 用户输入的 IP 地址
+      ipAddress: '',
+      // 是否已连接
+      isConnected: false,
+      // 连接状态信息
+      connectionStatus: '等待连接...',
+      // 消息内容
+      websocketMessage: '',
+      // WebSocket 实例
+      websocket: null,
+      // 重试次数
+      retryCount: 0,
+      // 最大重试次数
+      maxRetries: 3,
     };
   },
   methods: {
-    // 处理连接/关闭操作
+    // 处理连接、关闭操作
     handleConnection() {
       if (this.isConnected) {
         this.closeConnection();
@@ -89,6 +100,13 @@ export default {
       };
     },
 
+    // 发送消息
+    sendMessage() {
+      if (this.isConnected && this.websocketMessage.trim() !== '') {
+        this.websocket.send(this.websocketMessage);
+      }
+    },
+
     // 重试连接
     retryConnection() {
       if (this.retryCount < this.maxRetries) {
@@ -112,6 +130,7 @@ export default {
       this.retryCount = 0; // 重置重试次数
     },
   },
+
   beforeDestroy() {
     // 组件销毁时关闭 WebSocket 连接
     if (this.websocket) {
@@ -161,15 +180,19 @@ body, html {
   overflow-x: hidden;
 }
 
-.body pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  margin: 0;
+.message-input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  /* 禁止调整大小 */
+  resize: none;
 }
 
-.body.active {
+.foot.active {
   background-color: #e0f7fa;
 }
 

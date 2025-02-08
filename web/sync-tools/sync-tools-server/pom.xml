@@ -34,11 +34,5 @@
             <optional>true</optional>
             <version>1.18.24</version>
         </dependency>
-        <dependency>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
-            <version>2.4.8</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 </project>

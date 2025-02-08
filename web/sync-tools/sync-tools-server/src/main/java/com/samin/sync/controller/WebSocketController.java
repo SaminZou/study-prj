@@ -36,7 +36,7 @@ public class WebSocketController implements WebSocketHandler {
         log.info("收到客户端消息: sessionId={}，消息={}", session.getId(), payload);
 
         // 将消息广播给所有在线用户
-        broadcastMessage("Broadcast from server: " + payload);
+        broadcastMessage(payload);
     }
 
     @Override
