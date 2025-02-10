@@ -1,29 +1,38 @@
 <template>
-  <div class="container">
+  <el-container class="container">
     <!-- Head -->
-    <div class="head">
-      <input v-model="ipAddress" placeholder="输入 IP 地址" :disabled="isConnected"/>
-      <button @click="handleConnection">
-        {{ isConnected ? '关闭' : '连接' }}
-      </button>
-    </div>
+    <el-header class="head">
+      <el-input
+        v-model="ipAddress"
+        placeholder="输入 IP 地址"
+        :disabled="isConnected"
+      ></el-input>
+      <el-button
+        @click="handleConnection"
+        :type="isConnected ? 'danger' : 'primary'"
+      >
+        {{ isConnected ? "关闭" : "连接" }}
+      </el-button>
+    </el-header>
 
     <!-- Body -->
-    <div class="body">
-      <textarea
-          v-model="websocketMessage"
-          placeholder="输入消息"
-          @input="sendMessage"
-          :disabled="!isConnected"
-          class="message-input"
-      ></textarea>
-    </div>
+    <el-main class="body">
+      <el-input
+        type="textarea"
+        :rows="20"
+        v-model="websocketMessage"
+        placeholder="输入消息"
+        @input="sendMessage"
+        :disabled="!isConnected"
+        class="message-input"
+      ></el-input>
+    </el-main>
 
     <!-- Foot -->
-    <div class="foot" :class="{ active: isConnected }">
+    <el-footer class="foot" :class="{ active: isConnected }">
       <p>{{ connectionStatus }}</p>
-    </div>
-  </div>
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -31,13 +40,13 @@ export default {
   data() {
     return {
       // 用户输入的 IP 地址
-      ipAddress: '',
+      ipAddress: "",
       // 是否已连接
       isConnected: false,
       // 连接状态信息
-      connectionStatus: '等待连接...',
+      connectionStatus: "等待连接...",
       // 消息内容
-      websocketMessage: '',
+      websocketMessage: "",
       // WebSocket 实例
       websocket: null,
       // 重试次数
@@ -59,18 +68,19 @@ export default {
     // 连接服务器
     connectToServer() {
       if (!this.ipAddress) {
-        this.connectionStatus = '请输入 IP 地址';
+        this.connectionStatus = "请输入 IP 地址";
         return;
       }
 
       // 校验 IP 地址格式
-      const ipv4WithPortRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:[0-9]{1,5})?$/;
+      const ipv4WithPortRegex =
+        /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:[0-9]{1,5})?$/;
       if (!ipv4WithPortRegex.test(this.ipAddress)) {
-        this.connectionStatus = '请输入有效的 IPv4 地址（可选端口号）';
+        this.connectionStatus = "请输入有效的 IPv4 地址（可选端口号）";
         return;
       }
 
-      this.connectionStatus = '正在连接服务器...';
+      this.connectionStatus = "正在连接服务器...";
       this.connectWebSocket();
     },
 
@@ -80,7 +90,7 @@ export default {
 
       this.websocket.onopen = () => {
         this.isConnected = true;
-        this.connectionStatus = 'WebSocket 连接成功';
+        this.connectionStatus = "WebSocket 连接成功";
       };
 
       this.websocket.onmessage = (event) => {
@@ -93,7 +103,7 @@ export default {
       };
 
       this.websocket.onclose = () => {
-        this.connectionStatus = 'WebSocket 连接已关闭';
+        this.connectionStatus = "WebSocket 连接已关闭";
         this.isConnected = false;
         this.websocket = null;
         this.retryConnection();
@@ -102,7 +112,7 @@ export default {
 
     // 发送消息
     sendMessage() {
-      if (this.isConnected && this.websocketMessage.trim() !== '') {
+      if (this.isConnected) {
         this.websocket.send(this.websocketMessage);
       }
     },
@@ -116,7 +126,7 @@ export default {
           this.connectToServer();
         }, 2000); // 2 秒后重试
       } else {
-        this.connectionStatus = '连接失败，已超过最大重试次数';
+        this.connectionStatus = "连接失败，已超过最大重试次数";
       }
     },
 
@@ -126,7 +136,7 @@ export default {
         this.websocket.close();
       }
       this.isConnected = false;
-      this.connectionStatus = '连接已关闭';
+      this.connectionStatus = "连接已关闭";
       this.retryCount = 0; // 重置重试次数
     },
   },
@@ -140,63 +150,47 @@ export default {
 };
 </script>
 
-<style>
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
+<style scoped>
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
   overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
 
-.head, .foot {
-  width: 100%;
+.head {
+  display: flex;
+  align-items: center;
   padding: 10px;
-  box-sizing: border-box;
+  background-color: #f5f7fa;
 }
 
-.head input, .head button {
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 8px;
+.head .el-input {
+  margin-right: 10px;
 }
 
 .body {
   flex: 1;
   padding: 10px;
-  box-sizing: border-box;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .message-input {
   width: 100%;
   height: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  /* 禁止调整大小 */
-  resize: none;
 }
 
-.foot.active {
-  background-color: #e0f7fa;
+.message-input .el-textarea__inner {
+  height: 100%;
 }
 
 .foot {
   text-align: center;
+  padding: 10px;
+  background-color: #f5f7fa;
+}
+
+.foot.active {
+  background-color: #e0f7fa;
 }
 </style>
