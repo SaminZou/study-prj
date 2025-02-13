@@ -42,9 +42,4 @@ public class CountTarget {
 
         return count;
     }
-
-    // TODO
-    public int[] searchRange(int[] nums, int target) {
-        return null;
-    }
 }

@@ -74,8 +74,8 @@ public class CompletableFutureUseCase {
                                                                         && async7.join());
         System.out.println("注册结果: " + allFuture.join());
 
-        // TODO whenComplete 没有返回值，可以向后续任务传递异常信息
-        // TODO handle 有返回值，且返回的 CompletableFuture 为回调结果
-        // TODO 链式处理：thenRun 没入参也没返回值；thenAccept 可以入参没有返回值；thenApply 可以入参并返回结果
+        // whenComplete 没有返回值，可以向后续任务传递异常信息
+        // handle 有返回值，且返回的 CompletableFuture 为回调结果
+        // 链式处理：thenRun 没入参也没返回值；thenAccept 可以入参没有返回值；thenApply 可以入参并返回结果
     }
 }
