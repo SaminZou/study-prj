@@ -20,10 +20,14 @@ public class DateTimeUseCase {
     public static void main(String[] args) throws InterruptedException {
         // 上两个整点的开始和结束时间
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime startOfLastHour = now.truncatedTo(ChronoUnit.HOURS).minusHours(2);
-        LocalDateTime endOfLastHour = startOfLastHour.plusHours(1).minusNanos(1);
-        LocalDateTime startOfCurrentHour = now.truncatedTo(ChronoUnit.HOURS).minusHours(1);
-        LocalDateTime endOfCurrentHour = startOfCurrentHour.plusHours(1).minusNanos(1);
+        LocalDateTime startOfLastHour = now.truncatedTo(ChronoUnit.HOURS)
+                                           .minusHours(2);
+        LocalDateTime endOfLastHour = startOfLastHour.plusHours(1)
+                                                     .minusNanos(1);
+        LocalDateTime startOfCurrentHour = now.truncatedTo(ChronoUnit.HOURS)
+                                              .minusHours(1);
+        LocalDateTime endOfCurrentHour = startOfCurrentHour.plusHours(1)
+                                                           .minusNanos(1);
         System.out.println("上两个整点的开始和结束时间：");
         System.out.println(startOfLastHour + " ~ " + endOfLastHour);
         System.out.println(startOfCurrentHour + " ~ " + endOfCurrentHour);
@@ -48,7 +52,8 @@ public class DateTimeUseCase {
         System.out.println("今天的午夜时间：" + dateTime);
 
         System.out.println(":-----------------------");
-        DateTimeUseCase.checkCycleTime();
+        // 指定时间为 2021-5-12
+        DateTimeUseCase.checkCycleTime(2021, 5, 12);
 
         System.out.println(":-----------------------");
         // 修改时间
@@ -81,9 +86,9 @@ public class DateTimeUseCase {
     /**
      * 周期性时间的处理类 MonthDay
      */
-    public static void checkCycleTime() {
-        // 指定时间为 2021-5-12
-        LocalDate date = LocalDate.of(2021, 5, 12);
+    public static void checkCycleTime(int year, int mouth, int day) {
+        LocalDate date = LocalDate.of(year, mouth, day);
+
         // 获取指定时间的月日
         MonthDay monthAndDay = MonthDay.from(date);
         System.out.println(monthAndDay.format(DateTimeFormatter.ofPattern("MM-dd")));
@@ -108,7 +113,7 @@ public class DateTimeUseCase {
         return time1.startDate.isBefore(time2.endDate) && time1.endDate.isAfter(time2.startDate);
     }
 
-    static class DateTimeBo {
+    public static class DateTimeBo {
 
         public LocalDate startDate;
         public LocalDate endDate;
