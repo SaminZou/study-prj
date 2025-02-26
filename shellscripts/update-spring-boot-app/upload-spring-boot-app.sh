@@ -11,6 +11,9 @@ START_UP_SCRIPT=/mnt/start-spring-boot-app.sh
 CURRENT_COMMIT=$(git rev-parse HEAD)
 echo "当前 commitid: $CURRENT_COMMIT"
 
+CURRENT_MVN_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+echo "当前 pom_version: $CURRENT_MVN_VERSION"
+
 # 2. 拉取最新代码
 git pull
 
