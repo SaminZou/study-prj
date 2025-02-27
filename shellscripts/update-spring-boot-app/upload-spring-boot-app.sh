@@ -18,13 +18,13 @@ echo "当前 pom_version: $CURRENT_MVN_VERSION"
 git pull
 
 # 3. 判断是否有更新
-#LATEST_COMMIT=$(git rev-parse HEAD)
-#if [ "$CURRENT_COMMIT" == "$LATEST_COMMIT" ]; then
-#  echo "代码没有更新，退出脚本"
-#  exit 0
-#else
-#  echo "代码有更新，继续执行后续操作"
-#fi
+LATEST_COMMIT=$(git rev-parse HEAD)
+if [ "$CURRENT_COMMIT" == "$LATEST_COMMIT" ]; then
+  echo "代码没有更新，退出脚本"
+  exit 0
+else
+  echo "代码有更新，继续执行后续操作"
+fi
 
 # 4. 编译项目
 mvn clean package -DskipTest=true
