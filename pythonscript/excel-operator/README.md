@@ -1,6 +1,14 @@
+# 安装依赖 
+
 pip install pandas openpyxl
 
-如果使用的是 ubuntu 22 环境，默认是 python3 环境，使用以下方式可以添加依赖包使用
+# 线上运行
+
+如果使用的是 ubuntu22 以上环境，默认是 python3 环境，使用以下方式可以添加依赖包使用
+
+> 可能出现错误：
+> error: externally-managed-environment 
+> 是因为系统默认将 Python 视为“外部管理的环境”，这是 Debian/Ubuntu 的新特性，旨在防止用户意外修改系统自带的 Python 环境
 
 ```shell
 # 注意执行结果，有时候提示安装依赖
