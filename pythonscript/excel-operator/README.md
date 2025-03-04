@@ -18,6 +18,8 @@ source myenv/bin/activate
 # 运行相关指令  
 pip install mypackage somelibrary  
 python myscript.py
+# 退出虚拟环境
+deactivate
 ```
 
 ```bash
@@ -28,4 +30,7 @@ source /mnt/myenv/bin/activate
   
 # 调用执行
 python /mnt/excel-operator.py
+
+# 退出虚拟环境
+deactivate
 ```
