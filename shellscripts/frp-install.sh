@@ -21,7 +21,7 @@ if [ "$1" = "server" ];then
   systemctl start frps.service
   systemctl enable frps.service
 else
-  # 安装服务端
+  # 安装客户端端
   cp frpc.ini /etc/frp/
   cp frpc /usr/bin
   cp systemd/frpc.service /etc/systemd/system
