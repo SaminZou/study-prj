@@ -19,7 +19,7 @@ public class LambdaInfImpl {
 
     public static void main(String[] args) {
         // Lambda 规定接口中只能有一个需要被实现的方法，不是规定接口中只能有一个方法，
-        // 但是default修饰的方法不影响
+        // 但是 default 修饰的方法不影响
         LambdaInf lambdaInf = (param) -> System.out.println(param);
         // LambdaInf lambdaInf = System.out::println; // 更简单的表达式
 
@@ -31,8 +31,10 @@ public class LambdaInfImpl {
         LambdaInf2 lambdaInf2 = (x, y) -> {
             return Integer.sum(x, y);
         };
-        // LambdaInf2 lambdaInf2 = (x, y) -> Integer.sum(x, y); // 简单的表达式
-        // LambdaInf2 lambdaInf2 = Integer::sum; // 更简单的表达式
+        // 简单的表达式
+        // LambdaInf2 lambdaInf2 = (x, y) -> Integer.sum(x, y);
+        // 更简单的表达式
+        // LambdaInf2 lambdaInf2 = Integer::sum;
         System.out.println(lambdaInf2.sum(10, 20));
         System.out.println("-----------------------------");
 
@@ -42,7 +44,7 @@ public class LambdaInfImpl {
         lambdaInf3.method("使用lambda表达式实现方法");
         System.out.println("-----------------------------");
 
-        // Consumer接口是JDK为我们提供给的一个函数式接口
+        // Consumer 接口是 JDK 为我们提供给的一个函数式接口
         ArrayList<String> list = new ArrayList<>();
         list.add("3e");
         list.add("4b");
@@ -56,7 +58,8 @@ public class LambdaInfImpl {
         });
         // 排序
         list.sort(Comparator.comparingInt(e -> e.charAt(0)));
-        //        list.sort(Comparator.comparingInt(e -> e.charAt(0))); // 更简便的写法
+        // 更简便的写法
+        // list.sort(Comparator.comparingInt(e -> e.charAt(0)));
         // 遍历操作
         list.forEach(System.out::println);
     }
