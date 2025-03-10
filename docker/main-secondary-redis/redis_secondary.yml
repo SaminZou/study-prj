@@ -13,7 +13,7 @@ services:
         command: /opt/bitnami/scripts/redis/run.sh --appendonly yes
         environment:
             - "REDIS_REPLICATION_MODE=slave"
-            - "REDIS_MASTER_HOST=192.168.10.10"
+            - "REDIS_MASTER_HOST=samin.dev"
             - "REDIS_MASTER_PORT_NUMBER=6379"
             - "REDIS_MASTER_PASSWORD=master_scp_pwd"
             - "REDIS_PASSWORD=samin"

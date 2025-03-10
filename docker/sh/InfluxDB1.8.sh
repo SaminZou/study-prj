@@ -1,4 +1,5 @@
 #!/bin/bash
+
 docker run --name=influxdb-dev -itd --restart always \
 -p 8083:8083 \
 -p 8086:8086 \
