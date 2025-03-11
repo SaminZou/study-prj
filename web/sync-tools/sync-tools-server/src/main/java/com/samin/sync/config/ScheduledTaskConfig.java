@@ -2,6 +2,7 @@ package com.samin.sync.config;
 
 import com.samin.sync.controller.WebSocketController;
 import java.util.Set;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -10,13 +11,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Slf4j
 @EnableScheduling
 @Configuration
-public class Task {
+@RequiredArgsConstructor
+public class ScheduledTaskConfig {
 
     private final WebSocketController webSocket;
-
-    public Task(WebSocketController webSocketController) {
-        this.webSocket = webSocketController;
-    }
 
     // 每分钟执行一次
     @Scheduled(fixedRate = 60000)
