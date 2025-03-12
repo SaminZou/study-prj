@@ -1,10 +1,13 @@
 package com.samin.sync.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.samin.sync.entity.SyncVo;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
@@ -15,10 +18,13 @@ import org.springframework.web.socket.WebSocketSession;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class WebSocketController implements WebSocketHandler {
 
     // 维护一个连接池，存储所有的 WebSocketSession
     private static final Map<String, WebSocketSession> SESSION_POOL = new ConcurrentHashMap<>();
+
+    private final ObjectMapper objectMapper;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -35,8 +41,12 @@ public class WebSocketController implements WebSocketHandler {
                                 .toString(); // 获取客户端发送的消息
         log.info("收到客户端消息: sessionId={}，消息={}", session.getId(), payload);
 
+        SyncVo syncVo = new SyncVo();
+        syncVo.setPayload(payload);
+        syncVo.setOnlineCount(getOnlineCount());
+
         // 将消息广播给所有在线用户
-        broadcastMessage(payload);
+        broadcastMessage(objectMapper.writeValueAsString(syncVo));
     }
 
     @Override

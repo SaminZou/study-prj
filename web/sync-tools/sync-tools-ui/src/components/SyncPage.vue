@@ -2,30 +2,16 @@
   <el-container class="container">
     <!-- Head -->
     <el-header class="head">
-      <el-input
-        v-model="ipAddress"
-        placeholder="输入 IP 地址"
-        :disabled="isConnected"
-      ></el-input>
-      <el-button
-        @click="handleConnection"
-        :type="isConnected ? 'danger' : 'primary'"
-      >
+      <el-input v-model="ipAddress" placeholder="输入 IP 地址" :disabled="isConnected"></el-input>
+      <el-button @click="handleConnection" :type="isConnected ? 'danger' : 'primary'">
         {{ isConnected ? "关闭" : "连接" }}
       </el-button>
     </el-header>
 
     <!-- Body -->
     <el-main class="body">
-      <el-input
-        type="textarea"
-        :rows="20"
-        v-model="websocketMessage"
-        placeholder="输入消息"
-        @input="sendMessage"
-        :disabled="!isConnected"
-        class="message-input"
-      ></el-input>
+      <el-input type="textarea" :rows="20" v-model="websocketMessage" placeholder="输入消息" @input="sendMessage"
+        :disabled="!isConnected" class="message-input"></el-input>
     </el-main>
 
     <!-- Foot -->
@@ -40,7 +26,7 @@ export default {
   data() {
     return {
       // 用户输入的 IP 地址
-      ipAddress: "",
+      ipAddress: "samindev:8080",
       // 是否已连接
       isConnected: false,
       // 连接状态信息
@@ -72,11 +58,12 @@ export default {
         return;
       }
 
-      // 校验 IP 地址格式
-      const ipv4WithPortRegex =
-        /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(:[0-9]{1,5})?$/;
-      if (!ipv4WithPortRegex.test(this.ipAddress)) {
-        this.connectionStatus = "请输入有效的 IPv4 地址（可选端口号）";
+      // 校验 IP 地址或主机名格式
+      const ipv4OrHostnameWithPortRegex =
+        /^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+)(:[0-9]{1,5})?$/;
+
+      if (!ipv4OrHostnameWithPortRegex.test(this.ipAddress)) {
+        this.connectionStatus = "请输入有效的 IPv4 地址或主机名（可选端口号）";
         return;
       }
 
@@ -94,7 +81,9 @@ export default {
       };
 
       this.websocket.onmessage = (event) => {
-        this.websocketMessage = event.data;
+        let response = JSON.parse(event.data)
+        this.websocketMessage = response.payload;
+        this.connectionStatus =  " 在线人数：" + response.onlineCount;
       };
 
       this.websocket.onerror = (error) => {
