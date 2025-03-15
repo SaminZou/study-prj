@@ -95,4 +95,10 @@ public class WebSocketController implements WebSocketHandler {
                                                   .getHostAddress())
                            .collect(Collectors.toSet());
     }
+
+    // 清理失效的 session
+    public void cleanExpiredSessions() {
+        SESSION_POOL.values()
+                    .removeIf(session -> !session.isOpen());
+    }
 }

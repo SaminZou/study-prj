@@ -23,4 +23,10 @@ public class ScheduledTaskConfig {
         Set<String> onlineIps = webSocket.getOnlineIps();
         log.info("当前在线人数: {}，在线 IP: {}", onlineCount, onlineIps);
     }
+
+    // 每 10 秒执行一次，清理失效的 session
+    @Scheduled(fixedRate = 10000)
+    public void cleanExpiredSessions() {
+        webSocket.cleanExpiredSessions();
+    }
 }
