@@ -16,7 +16,9 @@ public class ScheduledTaskConfig {
 
     private final WebSocketController webSocket;
 
-    // 每分钟执行一次
+    /**
+     * 每分钟执行一次
+     */
     @Scheduled(fixedRate = 60000)
     public void printOnlineStats() {
         int onlineCount = webSocket.getOnlineCount();
@@ -24,7 +26,9 @@ public class ScheduledTaskConfig {
         log.info("当前在线人数: {}，在线 IP: {}", onlineCount, onlineIps);
     }
 
-    // 每 10 秒执行一次，清理失效的 session
+    /**
+     * 每 10 秒执行一次，清理失效的 session
+     */
     @Scheduled(fixedRate = 10000)
     public void cleanExpiredSessions() {
         webSocket.cleanExpiredSessions();
