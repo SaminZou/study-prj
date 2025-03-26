@@ -6,9 +6,12 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://samin.dev:3306/minio?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://samintest:13306/minio?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 minio:
   endpoint: http://samin.dev:9000
@@ -36,4 +39,4 @@ mybatis-plus:
 
 logging:
   level:
-    root: debug
+    root: info

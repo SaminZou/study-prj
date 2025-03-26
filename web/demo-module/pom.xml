@@ -21,7 +21,6 @@
         <module>maven-demo</module>
         <module>spring-study-demo</module>
         <module>pdf-generate-demo</module>
-        <module>minio-demo</module>
         <module>api-idempotent-demo</module>
     </modules>
 

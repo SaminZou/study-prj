@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Data
+/**
+ * 生成链式的 setter 方法
+ */
 @Accessors(chain = true)
 @TableName("multi_file_upload")
 public class MultiFileUpload implements Serializable {
