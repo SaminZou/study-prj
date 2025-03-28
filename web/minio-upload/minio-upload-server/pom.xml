@@ -8,7 +8,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>minio-demo</artifactId>
+    <artifactId>minio-upload-server</artifactId>
     <name>minio-demo</name>
     <description>minio-demo</description>
 

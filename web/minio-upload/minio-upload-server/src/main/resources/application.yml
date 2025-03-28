@@ -14,7 +14,7 @@ spring:
       ddl-auto: update
 
 minio:
-  endpoint: http://samin.dev:9000
+  endpoint: http://samintest:9000
   access-key: AKIAIOSFODNN7EXAMPLE
   access-secret: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
   bucket: minio-demo
