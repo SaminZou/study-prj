@@ -16,4 +16,15 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - '/mnt/data/mysql/data:/var/lib/mysql'
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+    # 指定卷的驱动类型
+    driver: local
+    driver_opts:
+      # 使用本地文件系统
+      type: none
+      o: bind
+      # 指定本地路径
+      device: /mnt/data/mysql/data
