@@ -1,0 +1,52 @@
+services:
+  emqx:
+    # 使用具体版本
+    image: emqx/emqx:5.7.0
+    container_name: emqx
+    environment:
+      # 节点名称
+      - EMQX_NAME=emqx
+      # 监听所有接口
+      - EMQX_HOST=0.0.0.0
+      # MQTT TCP 端口
+      - EMQX_LISTENER__TCP__EXTERNAL=1883
+      # 加载插件
+      - EMQX_LOADED_PLUGINS="emqx_management,emqx_recon,emqx_auth"
+      # 设置时区
+      - TZ=Asia/Shanghai
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+    ports:
+      # MQTT TCP
+      - "1883:1883"
+      # HTTP API
+      - "8083:8083"
+      # WebSocket
+      - "8084:8084"
+      # Dashboard
+      - "18083:18083"
+    volumes:
+      # 数据持久化
+      - /mnt/emqx/emqx-data:/opt/emqx/data
+      # 日志持久化
+      - /mnt/emqx/emqx-log:/opt/emqx/log
+    restart: always
+
+# 1. 确认端口无占用
+
+# $ netstat -tuln | grep -E '1883|8083|8084|18083'
+
+# 2. 启动 EMQX
+
+# $ docker-compose up -d
+
+# 3. 验证
+
+# 访问 http://host:18083
+
+# 4. 使用 admin / public 登录后修改默认密码
+
+# 5. 有问题直接执行 docker-compose up 实时运行可以查看日至
