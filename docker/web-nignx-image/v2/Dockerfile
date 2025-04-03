@@ -7,7 +7,7 @@ LABEL maintainer="822085977@qq.com"
 
 # 复制本地文件到镜像指定目录中
 ADD nginx.conf /etc/nginx/nginx.conf
-ADD default.conf /etc/nginx/conf.d
+ADD conf.d /etc/nginx/conf.d
 
 # 指定挂载路径
 VOLUME /usr/share/nginx/html
