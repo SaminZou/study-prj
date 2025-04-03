@@ -18,4 +18,8 @@ $ docker build --no-cache -t 127.0.0.1:5000/web:master .
 
 $ docker-compose up -d
 
+使用 sudo 的时候， $PWD 实效处理方案：
+
+$ sudo PWD=$PWD docker-compose up -d
+
 3. 更改宿主机中的 html 文件夹可以镜像静态资源更新操作
