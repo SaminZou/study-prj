@@ -12,5 +12,6 @@ services:
         max-file: 2
     volumes:
       - $PWD/html:/usr/share/nginx/html
+      - $PWD/conf.d:/etc/nginx/conf.d
     ports:
       - 80:80
