@@ -6,13 +6,13 @@ custom:
   config:
     # 可以不写，默认为 true
     enabled: false
-  pg_host: samin.dev
+  pg_host: samindev
   pg_port: 5432
   pg_database: study
   pg_username: postgres
   pg_password: postgres123456
   pg_schema: public
-  redis_host: samin.dev
+  redis_host: samindev
   redis_port: 6379
   redis_username:
   redis_password: 123456
