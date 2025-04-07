@@ -9,6 +9,10 @@ set -o nounset
 # 在默认情况下，遇到执行出错，会跳过并继续执行，而这往往不符合预期，加入该选项，可以避免恶果扩大，终止脚本的执行
 set -o errexit
 # 以上两个选项都符合 fail-fast 设计理念
+# echo "hello" | grep "notexist" | wc -l
+# echo $? （用于显示上一个命令的退出状态码）
+# grep "notexist" 语句会执行失败，没配置 set -o pipefail 的话，脚本会继续执行，并且返回 0，配置后返回 1
+set -o pipefail
 
 # 封装常用脚本
 log() {
