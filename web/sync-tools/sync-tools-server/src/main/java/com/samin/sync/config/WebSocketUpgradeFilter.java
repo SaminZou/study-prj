@@ -1,15 +1,14 @@
 package com.samin.sync.config;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.stereotype.Component;
-
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import org.springframework.stereotype.Component;
 
 @Component
 public class WebSocketUpgradeFilter implements Filter {
@@ -28,7 +27,8 @@ public class WebSocketUpgradeFilter implements Filter {
         } else {
             // 如果是普通 HTTP 请求，返回 400 或引导客户端改用 WebSocket
             httpResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            httpResponse.getWriter().write("This endpoint only supports WebSocket connections.");
+            httpResponse.getWriter()
+                        .write("This endpoint only supports WebSocket connections.");
         }
     }
 }
