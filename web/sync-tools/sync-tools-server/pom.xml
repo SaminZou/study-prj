@@ -45,6 +45,8 @@
     </dependencies>
 
     <build>
+        <finalName>sync-tools-server</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
