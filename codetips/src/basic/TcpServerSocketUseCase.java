@@ -71,7 +71,7 @@ public class TcpServerSocketUseCase {
 
     private void readData(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
-        // 假设最大接收1KB的数据
+        // 假设最大接收 1KB 的数据
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         int numRead;
 
@@ -79,11 +79,11 @@ public class TcpServerSocketUseCase {
             // 准备读取数据
             buffer.flip();
             byte[] data = new byte[numRead];
-            // 从buffer中获取数据
+            // 从 buffer 中获取数据
             buffer.get(data);
             String message = new String(data, StandardCharsets.UTF_8);
             System.out.println("接收到的消息: " + message);
-            // 清空buffer以备下次读取
+            // 清空 buffer 以备下次读取
             buffer.clear();
         }
 
