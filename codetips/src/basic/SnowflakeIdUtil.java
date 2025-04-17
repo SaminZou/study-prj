@@ -1,7 +1,7 @@
 package basic;
 
 /**
- * 雪花算法 id 生成
+ * 雪花算法生成唯一 ID
  *
  * @author samin
  * @date 2022-01-04
@@ -27,8 +27,8 @@ public class SnowflakeIdUtil {
         System.out.println(idWorkerUtil.nextId());
     }
 
-    private long workerId;
-    private long datacenterId;
+    private final long workerId;
+    private final long datacenterId;
     private long sequence;
 
     public SnowflakeIdUtil(long workerId, long datacenterId, long sequence) {
@@ -59,18 +59,6 @@ public class SnowflakeIdUtil {
     private final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
 
     private long lastTimestamp = -1L;
-
-    public long getWorkerId() {
-        return workerId;
-    }
-
-    public long getDatacenterId() {
-        return datacenterId;
-    }
-
-    public long getTimestamp() {
-        return System.currentTimeMillis();
-    }
 
     public synchronized long nextId() {
         long timestamp = timeGen();
