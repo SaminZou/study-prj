@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class Req {
 
-    @NotNull(message = "param1 不能为空")
+    @NotNull(message = "数组不能为空")
     @Size(min = 1, message = "最小为 1")
     private List<String> param1;
 
