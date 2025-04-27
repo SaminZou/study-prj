@@ -24,7 +24,7 @@ public class AsyncConfig implements AsyncConfigurer {
 
     @Override
     public Executor getAsyncExecutor() {
-        // 此类由Spring提供，org.springframework.scheduling.concurrent包下，是线程池的封装类
+        // 此类由 Spring 提供，org.springframework.scheduling.concurrent 包下，是线程池的封装类
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         // 线程池中线程的名字前缀
         taskExecutor.setThreadNamePrefix("taskThreadPool-async-");
@@ -37,10 +37,10 @@ public class AsyncConfig implements AsyncConfigurer {
         // 线程池拒绝策略
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());
         // 线程池任务队容量，如果不设置则默认 Integer.MAX_VALUE，
-        // 队列默认使用LinkedBlockingQueue 若queueCapacity的值 <= 0,则使用SynchronousQueue
+        // 队列默认使用 LinkedBlockingQueue 若 queueCapacity 的值 <= 0,则使用 SynchronousQueue
         taskExecutor.setQueueCapacity(1000);
 
-        // 线程池中核心线程是否允许超时，默认为false
+        // 线程池中核心线程是否允许超时，默认为 false
         taskExecutor.setAllowCoreThreadTimeOut(true);
 
         // 线程池中的超时处理时间，单位秒，有一个对应方法为毫秒，默认为不超时
@@ -59,12 +59,9 @@ public class AsyncConfig implements AsyncConfigurer {
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         // 异常处理器函数接口类
-        return new AsyncUncaughtExceptionHandler() {
-            @Override
-            public void handleUncaughtException(Throwable throwable, Method method, Object... objects) {
-                log.error("============ " + throwable.getMessage() + " ===========", throwable);
-                log.error("============ " + method.getName() + " ===========", objects);
-            }
+        return (throwable, method, objects) -> {
+            log.error("============ " + throwable.getMessage() + " ===========", throwable);
+            log.error("============ " + method.getName() + " ===========", objects);
         };
     }
 }
