@@ -1,8 +1,8 @@
-package com.samin.idempotent.config;
+package com.samin.idempotence.config;
 
-import com.samin.idempotent.exception.BusException;
-import com.samin.idempotent.itf.RequestLock;
-import com.samin.idempotent.service.RequestKeyGenerator;
+import com.samin.idempotence.exception.BusException;
+import com.samin.idempotence.itf.RequestLock;
+import com.samin.idempotence.service.RequestKeyGenerator;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -31,7 +31,7 @@ public class RedissonRequestLockAspect {
 
     private final RedissonClient redissonClient;
 
-    @Around("execution(public * * (..)) && @annotation(com.samin.idempotent.itf.RequestLock)")
+    @Around("execution(public * * (..)) && @annotation(com.samin.idempotence.itf.RequestLock)")
     public Object interceptor(ProceedingJoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();

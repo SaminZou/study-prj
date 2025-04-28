@@ -1,4 +1,4 @@
-package com.samin.idempotent;
+package com.samin.idempotence;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +15,9 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 @EnableCaching
 @SpringBootApplication
-public class ApiIdempotentApplication {
+public class ApiIdempotenceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiIdempotentApplication.class, args);
+        SpringApplication.run(ApiIdempotenceApplication.class, args);
     }
 }

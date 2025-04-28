@@ -1,6 +1,6 @@
-package com.samin.idempotent.vo;
+package com.samin.idempotence.vo;
 
-import com.samin.idempotent.itf.RequestKeyParam;
+import com.samin.idempotence.itf.RequestKeyParam;
 import lombok.Data;
 
 import java.util.List;

@@ -9,10 +9,10 @@ spring:
       # 是否缓存空值，防止缓存穿透
       cache-null-values: true
   redis:
-    host: samin.dev
+    host: samindev
     port: 6379
     username:
-    password: dev_plat@123
+    password: 123456
     database: 0
     lettuce:
       pool:

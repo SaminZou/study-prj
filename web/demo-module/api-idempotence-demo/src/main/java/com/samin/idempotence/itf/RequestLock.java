@@ -1,4 +1,4 @@
-package com.samin.idempotent.itf;
+package com.samin.idempotence.itf;
 
 import java.lang.annotation.*;
 import java.util.concurrent.TimeUnit;

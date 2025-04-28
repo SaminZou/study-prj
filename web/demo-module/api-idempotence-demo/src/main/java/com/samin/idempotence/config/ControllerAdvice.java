@@ -1,7 +1,7 @@
-package com.samin.idempotent.config;
+package com.samin.idempotence.config;
 
-import com.samin.idempotent.exception.BusException;
-import com.samin.idempotent.vo.BaseResp;
+import com.samin.idempotence.exception.BusException;
+import com.samin.idempotence.vo.BaseResp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

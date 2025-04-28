@@ -1,4 +1,4 @@
-package com.samin.idempotent.vo;
+package com.samin.idempotence.vo;
 
 import lombok.Data;
 

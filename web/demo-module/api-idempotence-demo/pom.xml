@@ -8,9 +8,9 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>api-idempotent-demo</artifactId>
-    <name>api-idempotent-demo</name>
-    <description>api-idempotent-demo</description>
+    <artifactId>api-idempotence-demo</artifactId>
+    <name>api-idempotence-demo</name>
+    <description>api-idempotence-demo</description>
 
     <dependencies>
         <dependency>

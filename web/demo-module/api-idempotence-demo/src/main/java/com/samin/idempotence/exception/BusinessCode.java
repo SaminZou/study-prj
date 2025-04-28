@@ -1,4 +1,4 @@
-package com.samin.idempotent.exception;
+package com.samin.idempotence.exception;
 
 public interface BusinessCode {
 
