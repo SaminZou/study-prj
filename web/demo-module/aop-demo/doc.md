@@ -70,3 +70,9 @@ finally{
 && 与操作符
 || 或操作符
 ! 非操作符
+
+# 附加知识点： Filter、Interceptor、AOP 优先级
+
+HTTP Request -> Tomcat 
+-> Filter Chain -> DispatcherServlet-> Interceptor Chain -> Controller -> AOP Proxies 
+-> Service

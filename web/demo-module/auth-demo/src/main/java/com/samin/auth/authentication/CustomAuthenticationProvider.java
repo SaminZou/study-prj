@@ -19,10 +19,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private final CustomUserDetailsService customUserDetailsService;
+    private final CustomUserDetailsChecker customUserDetailsChecker;
 
     @Bean
     public CustomAuthenticationProvider dmpAuthenticationProvider() {
-        return new CustomAuthenticationProvider(customUserDetailsService);
+        return new CustomAuthenticationProvider(customUserDetailsService, customUserDetailsChecker);
     }
 
     /**
@@ -37,6 +38,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         CustomAuthenticationToken request = (CustomAuthenticationToken) authentication;
 
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(request.getUsername());
+
+        // 前置认证
+        customUserDetailsChecker.check(userDetails);
 
         // 密码加密后比较是否匹配
         if (!bCryptPasswordEncoder().matches(request.getPassword(), userDetails.getPassword())) {
