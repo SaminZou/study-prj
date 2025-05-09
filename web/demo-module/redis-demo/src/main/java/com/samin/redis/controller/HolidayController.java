@@ -2,8 +2,8 @@ package com.samin.redis.controller;
 
 
 import com.samin.redis.entity.Holiday;
-import com.samin.redis.entity.HolidayDeleteReq;
-import com.samin.redis.entity.HolidayStatsVo;
+import com.samin.redis.vo.HolidayDeleteReq;
+import com.samin.redis.vo.HolidayStatsVo;
 import com.samin.redis.service.HolidayService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

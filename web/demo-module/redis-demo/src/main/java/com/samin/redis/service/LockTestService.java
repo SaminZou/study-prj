@@ -21,7 +21,7 @@ public class LockTestService {
     public void testRedissonLock() throws InterruptedException {
         // 获取锁
         RLock lock = redissonClient.getLock("lock");
-        // 获取锁 参数：获取锁的最大等待时间(期间会重试)，锁自动释放时间，时间单位
+        // 获取锁参数：获取锁的最大等待时间(期间会重试)，锁自动释放时间，时间单位
         boolean isLock = lock.tryLock(1, 10, TimeUnit.SECONDS);
         if (isLock) {
             try {

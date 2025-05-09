@@ -1,4 +1,4 @@
-package com.samin.redis.entity;
+package com.samin.redis.vo;
 
 import java.io.Serializable;
 import lombok.Data;

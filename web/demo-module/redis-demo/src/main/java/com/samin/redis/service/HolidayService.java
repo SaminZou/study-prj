@@ -1,8 +1,8 @@
 package com.samin.redis.service;
 
 import com.samin.redis.entity.Holiday;
-import com.samin.redis.entity.HolidayDeleteReq;
-import com.samin.redis.entity.HolidayStatsVo;
+import com.samin.redis.vo.HolidayDeleteReq;
+import com.samin.redis.vo.HolidayStatsVo;
 import com.samin.redis.repository.HolidayRepository;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
