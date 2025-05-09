@@ -32,7 +32,6 @@ public class TestScheduler {
                                                         .format(DateTimeFormatter.ofPattern("HH:mm:ss")));
     }
 
-
     /**
      * 每分钟的 05 秒运行一次
      */
