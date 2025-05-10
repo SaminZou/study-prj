@@ -1,5 +1,9 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+set -o pipefail
+
 # 检测 git 仓库是否有变动
 check_git_changes() {
     cd "$1" || exit
