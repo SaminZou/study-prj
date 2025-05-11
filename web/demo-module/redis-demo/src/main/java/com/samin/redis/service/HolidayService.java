@@ -1,9 +1,9 @@
 package com.samin.redis.service;
 
 import com.samin.redis.entity.Holiday;
+import com.samin.redis.repository.HolidayRepository;
 import com.samin.redis.vo.HolidayDeleteReq;
 import com.samin.redis.vo.HolidayStatsVo;
-import com.samin.redis.repository.HolidayRepository;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -85,7 +85,7 @@ public class HolidayService {
         // 校验入参假期和补班否重复
         if (Objects.nonNull(param.getHolidays()) && Objects.nonNull(param.getWorkdays()) && param.getHolidays().length > 0
                 && param.getWorkdays().length > 0) {
-            if (isIntersect(Arrays.asList(param.getHolidays()), param.getWorkdays())) {
+            if (isIntersect(List.of(param.getHolidays()), param.getWorkdays())) {
                 throw new Exception("入参配置不能重复");
             }
         }
@@ -94,8 +94,8 @@ public class HolidayService {
         // 已存在假期和补班
         List<String> specDays = new ArrayList<>();
         for (Holiday item : all) {
-            specDays.addAll(Arrays.asList(item.getHolidays()));
-            specDays.addAll(Arrays.asList(item.getWorkdays()));
+            specDays.addAll(List.of(item.getHolidays()));
+            specDays.addAll(List.of(item.getWorkdays()));
         }
         // 更新操作，去掉当前记录历史配置
         if (Objects.nonNull(param.getId())) {
