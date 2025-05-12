@@ -2,20 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.samin</groupId>
-        <artifactId>demo-module</artifactId>
-        <version>1.0.0</version>
-    </parent>
-
+    <groupId>com.samin</groupId>
     <artifactId>minio-upload-server</artifactId>
+    <version>1.0.0</version>
     <name>minio-demo</name>
     <description>minio-demo</description>
 
     <properties>
         <aws-java-sdk-s3.version>1.12.263</aws-java-sdk-s3.version>
         <mybatis-plus-starter.version>3.5.1</mybatis-plus-starter.version>
-        <hutool-all.version>5.8.3</hutool-all.version>
+        <hutool.version>5.8.3</hutool.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
 
     <dependencies>
@@ -36,6 +33,13 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-s3</artifactId>
             <version>${aws-java-sdk-s3.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Mybatis Plus -->
