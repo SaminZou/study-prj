@@ -11,7 +11,7 @@
     <properties>
         <aws-java-sdk-s3.version>1.12.263</aws-java-sdk-s3.version>
         <mybatis-plus-starter.version>3.5.1</mybatis-plus-starter.version>
-        <hutool.version>5.8.3</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <lombok.version>1.18.24</lombok.version>
     </properties>
 
