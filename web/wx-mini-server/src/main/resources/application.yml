@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: wx-mini-server
+
+wx:
+  miniapp:
+    appid: 0
+    secret: 0
+
+logging:
+  level:
+    root: info
