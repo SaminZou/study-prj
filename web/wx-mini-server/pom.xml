@@ -10,7 +10,7 @@
 
     <properties>
         <spring-boot.version>2.7.5</spring-boot.version>
-        <hutool.version>5.8.3</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <lombok.version>1.18.24</lombok.version>
         <wxjava.version>4.7.0</wxjava.version>
     </properties>
