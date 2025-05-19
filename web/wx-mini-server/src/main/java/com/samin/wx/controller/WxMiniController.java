@@ -46,11 +46,9 @@ public class WxMiniController {
             WxMaPhoneNumberInfo phoneNumberInfo = wxMaService.getUserService()
                                                              .getPhoneNoInfo(req.getCode());
 
-            log.info("{}", phoneNumberInfo);
-            // 打印手机号
+            log.info("响应：{}", phoneNumberInfo);
             log.info("用户手机号：{}", phoneNumberInfo.getPhoneNumber());
         } catch (WxErrorException e) {
-            e.printStackTrace();
             throw new RuntimeException("获取手机号失败：" + e.getMessage());
         }
     }
