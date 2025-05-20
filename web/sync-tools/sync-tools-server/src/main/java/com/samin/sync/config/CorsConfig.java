@@ -16,8 +16,8 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
 
-        // 设置允许的跨域请求来源
-        config.setAllowedOriginPatterns(Collections.singletonList("*")); // 允许所有域名
+        // 设置允许的跨域请求来源；允许所有域名
+        config.setAllowedOriginPatterns(Collections.singletonList("*"));
 
         // 设置允许的 HTTP 方法
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
