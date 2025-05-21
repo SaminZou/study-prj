@@ -11,7 +11,7 @@ public class RequestTimingEventListener implements ApplicationListener<ServletRe
 
     @Override
     public void onApplicationEvent(ServletRequestHandledEvent event) {
-        // 获取请求失败的原因（ event.getFailureCause() ）
+        // 获取请求失败的原因 event.getFailureCause()
         Throwable failureCause = event.getFailureCause();
         String failureMessage = (failureCause == null) ? "" : failureCause.getMessage();
 
