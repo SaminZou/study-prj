@@ -3,16 +3,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.samin</groupId>
-    <artifactId>wx-mini-server</artifactId>
+    <artifactId>dify-conn-server</artifactId>
     <version>1.0.0</version>
-    <name>wx-mini-server</name>
-    <description>wx-mini-server</description>
+    <name>dify-conn-server</name>
+    <description>dify-conn-server</description>
 
     <properties>
         <spring-boot.version>2.7.5</spring-boot.version>
-        <hutool.version>5.8.21</hutool.version>
         <lombok.version>1.18.24</lombok.version>
-        <wxjava.version>4.7.0</wxjava.version>
     </properties>
 
     <dependencies>
@@ -27,18 +25,6 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-miniapp</artifactId>
-            <version>${wxjava.version}</version>
         </dependency>
     </dependencies>
 </project>

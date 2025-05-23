@@ -1,0 +1,13 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: dify-conn-server
+
+dify:
+  api-key: 0
+  api-url: 0
+
+logging:
+  level:
+    root: info
