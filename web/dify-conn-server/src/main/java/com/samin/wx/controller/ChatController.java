@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * ai 应用
+ * AI 应用控制器
  * <p>
  * Created By: Samin
  * <p>
@@ -26,6 +26,12 @@ public class ChatController {
 
     private final DifyService difyService;
 
+    /**
+     * 聊天接口
+     *
+     * @param req
+     * @return
+     */
     @GetMapping("/chat")
     public String login(@RequestBody MsgReq req) {
         return difyService.sendMessageToDify(req.getContent());
