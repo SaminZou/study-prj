@@ -1,10 +1,10 @@
-package com.samin.wx.controller;
+package com.samin.dify.controller;
 
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
-import com.samin.wx.model.GetPhoneNumberReq;
+import com.samin.dify.model.GetPhoneNumberReq;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;

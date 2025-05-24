@@ -1,4 +1,4 @@
-package com.samin.wx.config;
+package com.samin.dify.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

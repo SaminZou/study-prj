@@ -1,4 +1,4 @@
-package com.samin.wx.model;
+package com.samin.dify.model;
 
 import lombok.Data;
 

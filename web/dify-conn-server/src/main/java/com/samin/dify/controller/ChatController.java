@@ -1,8 +1,8 @@
-package com.samin.wx.controller;
+package com.samin.dify.controller;
 
 
-import com.samin.wx.model.MsgReq;
-import com.samin.wx.service.DifyService;
+import com.samin.dify.model.MsgReq;
+import com.samin.dify.service.DifyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.samin.wx.service;
+package com.samin.dify.service;
 
-import com.samin.wx.config.DifyApiConfig;
+import com.samin.dify.config.DifyApiConfig;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

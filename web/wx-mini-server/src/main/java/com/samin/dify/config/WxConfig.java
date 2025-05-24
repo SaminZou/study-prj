@@ -1,4 +1,4 @@
-package com.samin.wx.config;
+package com.samin.dify.config;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;
