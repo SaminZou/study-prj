@@ -1,4 +1,4 @@
-package com.samin.usecase.value;
+package com.samin.usecase.yaml;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
