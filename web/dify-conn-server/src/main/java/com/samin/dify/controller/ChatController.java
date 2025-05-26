@@ -33,7 +33,7 @@ public class ChatController {
      * @return
      */
     @GetMapping("/chat")
-    public String login(@RequestBody MsgReq req) {
+    public String chat(@RequestBody MsgReq req) {
         return difyService.sendMessageToDify(req.getContent());
     }
 }
