@@ -1,4 +1,4 @@
-package com.samin.dify;
+package com.samin.wx;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
