@@ -4,8 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.bean.copier.CopyOptions;
 import com.samin.auth.entity.Menu;
 import com.samin.auth.repo.MenuRepository;
+import com.samin.auth.vo.req.MenuPageReq;
 import com.samin.auth.vo.req.MenuSaveReq;
-import com.samin.auth.vo.req.PageReq;
 import com.samin.auth.vo.resp.MenuResp;
 import com.samin.auth.vo.resp.PageResp;
 import java.util.List;
@@ -39,11 +39,11 @@ public class MenuService {
      * @param req 请求入参
      * @return 分页数据
      */
-    public PageResp<MenuResp> page(PageReq req) {
+    public PageResp<MenuResp> page(MenuPageReq req) {
         Pageable pageable = PageRequest.of(req.getPage(), req.getSize(), Sort.by("createTime")
                                                                              .descending());
 
-        PageResp<Menu> menus = PageResp.success(menuRepository.findAll(pageable));
+        PageResp<Menu> menus = PageResp.success(menuRepository.findAllByNameLike(pageable, req.getName()));
 
         return menus.map(MenuResp::getInstance);
     }

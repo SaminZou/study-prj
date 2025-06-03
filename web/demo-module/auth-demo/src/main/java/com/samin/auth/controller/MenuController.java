@@ -2,6 +2,7 @@ package com.samin.auth.controller;
 
 import com.samin.auth.service.MenuService;
 import com.samin.auth.vo.base.BaseResp;
+import com.samin.auth.vo.req.MenuPageReq;
 import com.samin.auth.vo.req.MenuSaveReq;
 import com.samin.auth.vo.req.PageReq;
 import com.samin.auth.vo.resp.MenuResp;
@@ -31,7 +32,7 @@ public class MenuController {
     private final MenuService menuService;
 
     @PostMapping("/page")
-    public PageResp<MenuResp> page(@RequestBody PageReq req) {
+    public PageResp<MenuResp> page(@RequestBody MenuPageReq req) {
         return menuService.page(req);
     }
 
