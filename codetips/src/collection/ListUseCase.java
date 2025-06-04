@@ -19,5 +19,9 @@ public class ListUseCase {
                           .collect(Collectors.toList()));
 
         System.out.println(list2);
+
+        // 会报错
+        list2.addAll(null);
+        System.out.println(list2);
     }
 }
