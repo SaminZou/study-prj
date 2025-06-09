@@ -28,6 +28,7 @@ $ docker push myrepo/myimage:2.0
 
 \# 调试技巧！可以进入镜像内部调试，运行结束 docker 实例也会删除
 $ docker run -it --rm <image-name> bash
+$ docker-compose run --rm <service-name> bash
 
 $ docker run --name web -p 5000:80 alpine:3.9
 
