@@ -17,6 +17,14 @@ public class StringUseCase {
     private static final String ABC = "123";
 
     public static void main(String[] args) {
+        // 去空格
+        String str = " Hello \n World \t ! ";
+        // 只能去掉空格
+        System.out.println(str.replace(" ", ""));
+        // 去掉字符串中的所有空格和换行符（包括空格 ' '、换行 \n、制表符 \t 等所有空白字符）
+        System.out.println(str.replaceAll("\\s+", ""));
+        System.out.println("------------------------");
+
         // ------------------- StringBuilder
         StringBuilder sb = new StringBuilder();
         sb.append("hello ");
