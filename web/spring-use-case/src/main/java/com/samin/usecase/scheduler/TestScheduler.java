@@ -22,7 +22,7 @@ public class TestScheduler {
     }
 
     /**
-     * 方法 2：每隔 15 秒运行一次
+     * 方法 2：每隔 15 秒运行一次（系统启动后会立即执行一次任务，然后每隔 15 秒执行一次）
      */
     @Scheduled(fixedRate = 15 * 1000)
     public void test1() {
