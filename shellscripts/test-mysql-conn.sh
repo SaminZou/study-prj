@@ -1,6 +1,9 @@
-#/bin/bash
+#!/bin/bash
 
-# 密码不能有空格，如果密码存在特殊字符，使用 \ 转移
+set -o nounset
+set -o errexit
+
+# 如果密码存在特殊字符，使用 \ 转移
 # $ mysql -h samin.dev -u root -psamin\@123 -e "SELECT 1" study
 
 #!/bin/bash
@@ -9,7 +12,7 @@
 DB_HOST="samin.dev"
 DB_USER="root"
 DB_PORT="3306"
-DB_PASSWORD="samin@123"
+DB_PASSWORD="123456"
 DB_NAME="study"
 
 # 尝试连接数据库并执行简单查询
