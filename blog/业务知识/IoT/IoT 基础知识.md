@@ -87,7 +87,20 @@ QoS 是Quality of Service（服务质量）的简称
 
 ![MQTT主题通配符](https://raw.githubusercontent.com/SaminZou/pic-repo/master/IoT/MQTT主题通配符.png)
 
-主题通配符：“#” 和 “+”
+主题通配符：# 和 +
+
+如有以下主题：
+```
+/<PID>/<deviceID>/thing/beacon/post
+/<PID>/<deviceID>/thing/sensor/post
+/<PID>/<deviceID>/thing/network/post
+/<PID>/<deviceID>/thing/consumption/post
+
+/# 可以订阅所有的主题
+
+/+/+/thing/+/post 也可以订阅所有的主题
+
+```
 
 ![retain](https://raw.githubusercontent.com/SaminZou/pic-repo/master/IoT/retain.png)
 
