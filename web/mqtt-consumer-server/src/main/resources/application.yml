@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mqtt-consumer-server
+
+logging:
+  level:
+    root: info
+
+mqtt:
+  url: samin.dev
+  username: samin
+  password: samin123
