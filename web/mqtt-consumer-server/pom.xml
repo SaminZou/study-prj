@@ -10,10 +10,9 @@
     <description>mqtt-consumer-server</description>
 
     <properties>
-        <spring-boot.version>2.7.5</spring-boot.version>
+        <spring-boot.version>3.0.2</spring-boot.version>
         <hutool.version>5.8.21</hutool.version>
         <lombok.version>1.18.24</lombok.version>
-        <wxjava.version>4.7.0</wxjava.version>
         <mqtt.version>6.0.2</mqtt.version>
     </properties>
 
@@ -52,7 +51,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.samin.wx.WxMiniApplication</mainClass>
+                    <mainClass>com.samin.mqtt.MqttConsumerApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

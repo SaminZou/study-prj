@@ -9,6 +9,10 @@ logging:
     root: info
 
 mqtt:
-  url: samin.dev
+  url: tcp://samindev:1883
   username: samin
   password: samin123
+  client-id-prefix: consumer-
+
+biz:
+  consumer-topic: /sys/+/+/thing/event/+/post
