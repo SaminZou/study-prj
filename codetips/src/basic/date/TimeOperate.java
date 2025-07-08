@@ -25,7 +25,7 @@ public class TimeOperate {
         int day = date.getDayOfMonth();
         int dayOfWeek = date.getDayOfWeek()
                             .getValue();
-        System.out.format("Year : %d  Month : %d  day : %d %d %n", year, month, day, dayOfWeek);
+        System.out.format("Year : %d  Month : %d  day : %d dayOfWeek : %d %n", year, month, day, dayOfWeek);
 
         System.out.println(":-----------------------");
         // 增加小时数
