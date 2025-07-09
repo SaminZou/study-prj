@@ -1,5 +1,6 @@
 package com.samin.mqtt.config;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -10,10 +11,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Slf4j
 @EnableScheduling
 @Configuration
+@RequiredArgsConstructor
 public class TaskConfig {
 
-    @Autowired
-    private MessageProducerSupport adapter;
+    private final MessageProducerSupport adapter;
 
     /**
      * 每分钟检测 MQTT 是否正常
