@@ -32,10 +32,10 @@ public class MqttInboundConfig {
 
     @Bean
     public MessageProducerSupport mqttInbound(MqttPahoClientFactory mqttClientFactory) {
-        // MqttPahoMessageDrivenChannelAdapter 用于订阅
         final DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
         converter.setPayloadAsBytes(true);
 
+        // MqttPahoMessageDrivenChannelAdapter 用于订阅
         MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(clientId + Instant.now()
                                                                                                                 .toEpochMilli(),
                                                                                               mqttClientFactory,
