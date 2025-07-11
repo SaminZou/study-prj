@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: mqtt-producer-server
+
+logging:
+  level:
+    root: info
+
+mqtt:
+  url: tcp://samindev:1883
+  username: samin
+  password: samin123
+  client-id-prefix: producer-
