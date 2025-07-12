@@ -39,9 +39,9 @@ public class MqttConfig {
         }
         // 设置代理端的 URL 地址，可以是多个
         options.setServerURIs(new String[]{hostUrl});
-        // 设置超时时间 单位为秒
+        // 设置超时时间，单位为秒
         options.setConnectionTimeout(10);
-        // 设置会话心跳时间 单位为秒 服务器会每隔 1.5*20 秒的时间向客户端发送心跳判断客户端是否在线，但这个方法并没有重连的机制
+        // 设置会话心跳时间，单位为秒，服务器会每隔 1.5*20 秒的时间向客户端发送心跳判断客户端是否在线，但这个方法并没有重连的机制
         options.setKeepAliveInterval(20);
         options.setCleanSession(true);
         options.setAutomaticReconnect(true);
