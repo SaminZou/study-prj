@@ -4,6 +4,20 @@ author: samin
 date: 2021-10-29
 ```
 
+\# 安装 kubectl
+
+下载：
+
+$ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+安装：
+
+$ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+验证
+
+$ kubectl version --client
+
 \# 根据 yaml 文件创建 K8s 资源
 
 $ kubectl apply -f nodeport.yaml
