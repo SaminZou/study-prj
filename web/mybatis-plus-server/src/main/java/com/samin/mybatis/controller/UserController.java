@@ -19,4 +19,9 @@ public class UserController {
     public List<UserVO> list() {
         return userService.findAll();
     }
+
+    @PostMapping("/user/custom/list")
+    public List<UserVO> customList() {
+        return userService.customList();
+    }
 }

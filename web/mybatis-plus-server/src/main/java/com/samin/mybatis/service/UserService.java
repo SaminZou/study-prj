@@ -1,5 +1,6 @@
 package com.samin.mybatis.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.samin.mybatis.mapper.UserMapper;
 import com.samin.mybatis.model.UserVO;
 import com.samin.mybatis.po.UserPO;
@@ -18,6 +19,21 @@ public class UserService {
     public List<UserVO> findAll() {
         List<UserVO> result = new ArrayList<>();
         List<UserPO> users = userMapper.selectList(null);
+
+        users.forEach(e -> {
+            UserVO model = new UserVO();
+            BeanUtils.copyProperties(e, model);
+            result.add(model);
+        });
+
+        return result;
+    }
+
+    public List<UserVO> customList() {
+        QueryWrapper<UserPO> qw = new QueryWrapper<>();
+        qw.eq("sex", 1);
+        List<UserVO> result = new ArrayList<>();
+        List<UserPO> users = userMapper.selectList(qw);
 
         users.forEach(e -> {
             UserVO model = new UserVO();
