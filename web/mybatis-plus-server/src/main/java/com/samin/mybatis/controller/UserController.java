@@ -20,6 +20,11 @@ public class UserController {
         return userService.findAll();
     }
 
+    @PostMapping("/user/direct/list")
+    public List<UserVO> directList() {
+        return userService.directList();
+    }
+
     @PostMapping("/user/custom/list")
     public List<UserVO> customList() {
         return userService.customList();

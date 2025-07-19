@@ -16,6 +16,10 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    public List<UserVO> directList() {
+        return userMapper.selectUserVO();
+    }
+
     public List<UserVO> findAll() {
         List<UserVO> result = new ArrayList<>();
         List<UserPO> users = userMapper.selectList(null);
