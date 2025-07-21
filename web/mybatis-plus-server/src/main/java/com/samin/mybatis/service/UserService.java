@@ -2,6 +2,7 @@ package com.samin.mybatis.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.samin.mybatis.mapper.UserMapper;
+import com.samin.mybatis.model.UserQueryVO;
 import com.samin.mybatis.model.UserVO;
 import com.samin.mybatis.po.UserPO;
 import java.util.ArrayList;
@@ -16,10 +17,6 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    public List<UserVO> directList() {
-        return userMapper.selectUserVO();
-    }
-
     public List<UserVO> findAll() {
         List<UserVO> result = new ArrayList<>();
         List<UserPO> users = userMapper.selectList(null);
@@ -31,6 +28,14 @@ public class UserService {
         });
 
         return result;
+    }
+
+    public List<UserVO> queryList(UserQueryVO req) {
+        return userMapper.queryList(req);
+    }
+
+    public List<UserVO> directList() {
+        return userMapper.selectUserVO();
     }
 
     public List<UserVO> customList() {
