@@ -30,6 +30,10 @@ public class UserService {
         return result;
     }
 
+    public List<UserVO> queryByName(String name) {
+        return userMapper.queryByName(name);
+    }
+
     public List<UserVO> queryList(UserQueryVO req) {
         return userMapper.queryList(req);
     }

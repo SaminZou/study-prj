@@ -19,4 +19,14 @@
             </if>
         </where>
     </select>
+
+    <select id="queryByName" resultType="com.samin.mybatis.model.UserVO">
+        select *
+        from user
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

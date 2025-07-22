@@ -9,6 +9,8 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper extends BaseMapper<UserPO> {
 
+    List<UserVO> queryByName(@Param("name") String name);
+
     List<UserVO> queryList(@Param("req") UserQueryVO req);
 
     List<UserVO> selectUserVO();
