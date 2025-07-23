@@ -1,13 +1,13 @@
 custom:
-  pg_host: samin.dev
+  pg_host: samindev
   pg_port: 5432
-  pg_database: dev
+  pg_database: study
   pg_username: postgres
   pg_password: postgres123456
   # pg_schema: public
-  redis_host: samin.local
+  redis_host: samindev
   redis_port: 6379
-  redis_password: dev_plat@123
+  redis_password: 123456
   redis_database: 1
 
 spring:
@@ -30,6 +30,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         # INFO 级别时候配置可以输出 SQL，DEBUG 级别下，配置形同虚设
         show_sql: false
         format_sql: true
