@@ -1,6 +1,7 @@
 package com.samin.mybatis.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.samin.mybatis.mapper.UserMapper;
 import com.samin.mybatis.model.UserQueryVO;
 import com.samin.mybatis.model.UserVO;
@@ -16,6 +17,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserMapper userMapper;
+
+    public Page<UserVO> page(UserQueryVO req) {
+        // TODO
+        return null;
+    }
 
     public List<UserVO> findAll() {
         List<UserVO> result = new ArrayList<>();
