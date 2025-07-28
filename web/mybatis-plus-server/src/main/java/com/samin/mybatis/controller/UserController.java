@@ -1,7 +1,10 @@
 package com.samin.mybatis.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.samin.mybatis.model.PageReq;
 import com.samin.mybatis.model.UserQueryVO;
 import com.samin.mybatis.model.UserVO;
+import com.samin.mybatis.po.UserPO;
 import com.samin.mybatis.service.UserService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserService userService;
+
+    @PostMapping("/user/page")
+    public Page<UserPO> page(@RequestBody PageReq req) {
+        return userService.page(req);
+    }
 
     @PostMapping("/user/list")
     public List<UserVO> list() {

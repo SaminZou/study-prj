@@ -3,6 +3,7 @@ package com.samin.mybatis.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.samin.mybatis.mapper.UserMapper;
+import com.samin.mybatis.model.PageReq;
 import com.samin.mybatis.model.UserQueryVO;
 import com.samin.mybatis.model.UserVO;
 import com.samin.mybatis.po.UserPO;
@@ -11,6 +12,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -18,9 +20,12 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    public Page<UserVO> page(UserQueryVO req) {
-        // TODO
-        return null;
+    public Page<UserPO> page(PageReq req) {
+        QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
+        if (StringUtils.hasLength(req.getName())) {
+            wrapper.like("name", req.getName());
+        }
+        return userMapper.selectPage(new Page<>(req.getPage(), req.getSize()), wrapper);
     }
 
     public List<UserVO> findAll() {
