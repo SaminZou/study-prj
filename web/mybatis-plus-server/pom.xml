@@ -33,6 +33,13 @@
             <version>3.5.12</version>
         </dependency>
 
+        <!-- 3.5.9 以后需要分页引入 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-jsqlparser</artifactId>
+            <version>3.5.12</version>
+        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

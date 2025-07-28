@@ -20,6 +20,11 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    public Page<UserVO> pageBySql(PageReq req) {
+        // TODO
+        return null;
+    }
+
     public Page<UserPO> page(PageReq req) {
         QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
         if (StringUtils.hasLength(req.getName())) {
