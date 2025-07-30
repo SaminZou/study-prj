@@ -7,6 +7,19 @@
         from user
     </select>
 
+    <select id="pageBySql" resultType="com.samin.mybatis.model.UserVO">
+        select *
+        from user
+        <where>
+            <if test="req.name != null and req.name != ''">
+                and name like concat('%', #{req.name}, '%')
+            </if>
+            <if test="req.sex != null">
+                and sex = #{req.sex}
+            </if>
+        </where>
+    </select>
+
     <select id="queryList" resultType="com.samin.mybatis.model.UserVO">
         select *
         from user

@@ -21,6 +21,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/user/page/sql")
+    public Page<UserVO> pageBySql(@RequestBody PageReq req) {
+        return userService.pageBySql(req);
+    }
+
     @PostMapping("/user/page")
     public Page<UserPO> page(@RequestBody PageReq req) {
         return userService.page(req);

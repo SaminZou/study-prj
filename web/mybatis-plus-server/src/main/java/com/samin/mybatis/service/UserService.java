@@ -21,8 +21,7 @@ public class UserService {
     private final UserMapper userMapper;
 
     public Page<UserVO> pageBySql(PageReq req) {
-        // TODO
-        return null;
+        return userMapper.pageBySql(new Page<>(req.getPage(), req.getSize()), req);
     }
 
     public Page<UserPO> page(PageReq req) {
