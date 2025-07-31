@@ -9,6 +9,7 @@ import com.samin.mybatis.model.UserVO;
 import com.samin.mybatis.po.UserPO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,19 @@ import org.springframework.util.StringUtils;
 public class UserService {
 
     private final UserMapper userMapper;
+
+    public Page<UserPO> pageByLambda(PageReq req) {
+        QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
+        if (StringUtils.hasText(req.getName())) {
+            // 需要增加 %
+            wrapper.like("name", "%" + req.getName() + "%");
+        }
+        if (Objects.nonNull(req.getSex())) {
+            wrapper.eq("sex", req.getSex());
+        }
+        wrapper.orderByDesc("id");
+        return userMapper.selectPage(new Page<>(req.getPage(), req.getSize()), wrapper);
+    }
 
     public Page<UserVO> pageBySql(PageReq req) {
         return userMapper.pageBySql(new Page<>(req.getPage(), req.getSize()), req);
