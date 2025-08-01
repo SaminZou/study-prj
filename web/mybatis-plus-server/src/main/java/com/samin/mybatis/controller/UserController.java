@@ -21,6 +21,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @PostMapping("/user/count")
+    public Integer count(@RequestBody UserQueryVO req) {
+        return userService.count(req);
+    }
+
     @PostMapping("/user/page/lambda")
     public Page<UserPO> pageByLambda(@RequestBody PageReq req) {
         return userService.pageByLambda(req);

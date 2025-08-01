@@ -21,6 +21,19 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    public Integer count(UserQueryVO req) {
+        QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
+        if (StringUtils.hasText(req.getName())) {
+            // 需要增加 %
+            wrapper.like("name", "%" + req.getName() + "%");
+        }
+        if (Objects.nonNull(req.getSex())) {
+            wrapper.eq("sex", req.getSex());
+        }
+        return userMapper.selectCount(wrapper)
+                         .intValue();
+    }
+
     public Page<UserPO> pageByLambda(PageReq req) {
         QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
         if (StringUtils.hasText(req.getName())) {
