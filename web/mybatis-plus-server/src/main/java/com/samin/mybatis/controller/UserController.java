@@ -21,9 +21,15 @@ public class UserController {
 
     private final UserService userService;
 
-    // TODO /user/insert
+    @PostMapping("/user/insert")
+    public UserPO insert(@RequestBody UserVO req) {
+        return userService.insert(req);
+    }
 
-    // TODO /user/update
+    @PostMapping("/user/update")
+    public UserPO update(@RequestBody UserVO req) {
+        return userService.update(req);
+    }
 
     @PostMapping("/user/count")
     public Integer count(@RequestBody UserQueryVO req) {

@@ -29,7 +29,7 @@ public class UserPO {
     @TableField(exist = false)
     private String other;
 
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime createTime;
 
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)

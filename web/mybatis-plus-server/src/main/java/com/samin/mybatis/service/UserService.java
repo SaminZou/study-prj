@@ -21,6 +21,23 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    public UserPO insert(UserVO req) {
+        // UserVO to UserPO
+        UserPO po = new UserPO();
+        BeanUtils.copyProperties(req, po);
+        userMapper.insert(po);
+        return po;
+    }
+
+    public UserPO update(UserVO req) {
+        UserPO po = userMapper.selectById(req.getId());
+        po.setName(req.getName());
+        po.setSex(req.getSex());
+        po.setMobile(req.getMobile());
+        userMapper.updateById(po);
+        return po;
+    }
+
     public Integer count(UserQueryVO req) {
         QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
         if (StringUtils.hasText(req.getName())) {
