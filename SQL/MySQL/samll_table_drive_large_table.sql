@@ -10,7 +10,7 @@ create table `t1` (
 create table t2 like t1;
 
 ‐‐ 插入一些示例数据
-‐‐ 往t1表插入1万行记录
+‐‐ 往 t1 表插入 1 万行记录
 drop procedure if exists insert_t1;
 create procedure insert_t1()
 begin
@@ -24,7 +24,7 @@ end;;
 
 call insert_t1();
 
-‐‐ 往t2表插入100行记录
+‐‐ 往 t2 表插入 100 行记录
 drop procedure if exists insert_t2;
 
 create procedure insert_t2()
