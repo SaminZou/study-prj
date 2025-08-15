@@ -1,6 +1,7 @@
 package com.samin.mybatis.po;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -15,6 +16,10 @@ public class UserPO {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 新增、更新要求值不能为空字符串或者为空
+     */
+    @TableField(value = "name", insertStrategy = FieldStrategy.NOT_EMPTY, updateStrategy = FieldStrategy.NOT_EMPTY)
     private String name;
 
     @TableField("sex")
