@@ -1,5 +1,3 @@
-version: "3.3"
-
 services:
   minio:
     container_name: minio
@@ -8,8 +6,8 @@ services:
     # 指定控制台地址
     command: server /data --console-address ":9001"
     environment:
-      - "MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE"
-      - "MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+      - "MINIO_ROOT_USER=minioadmin"
+      - "MINIO_ROOT_PASSWORD=minioadmin"
     logging:
       driver: "json-file"
       options:
