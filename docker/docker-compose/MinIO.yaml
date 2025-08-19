@@ -18,3 +18,16 @@ services:
     ports:
       - 9000:9000
       - 9001:9001
+
+
+# 最新版本 MinIO 把 WebUI 对于桶的配置移除，解耦操作，原操作由 mc 指令执行
+
+# 配置实例
+# mc alias list
+# mc alias set local <URL> <APP_KEY> <APP_SECRET>
+
+# 创建桶
+# mc mb local/biz-bucket
+
+# 配置桶策略
+# mc anonymous set public local/biz-bucket
