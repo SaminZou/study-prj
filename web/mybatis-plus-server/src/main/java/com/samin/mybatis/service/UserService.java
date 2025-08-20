@@ -21,6 +21,10 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    public void delete(Integer id) {
+        userMapper.deleteById(id);
+    }
+
     public UserPO insert(UserVO req) {
         // UserVO to UserPO
         UserPO po = new UserPO();

@@ -13,6 +13,7 @@ public class UpdateRelatedFieldsMetaHandler implements MetaObjectHandler {
         LocalDateTime now = LocalDateTime.now();
         this.strictInsertFill(metaObject, "createTime", LocalDateTime.class, now);
         this.strictInsertFill(metaObject, "updateTime", LocalDateTime.class, now);
+        this.strictInsertFill(metaObject, "deleted", Integer.class, 0);
     }
 
     @Override
