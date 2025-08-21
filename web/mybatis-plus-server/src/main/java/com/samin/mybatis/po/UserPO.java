@@ -44,7 +44,10 @@ public class UserPO {
     @TableField(exist = false)
     private String other;
 
-    @TableField(value = "create_time", fill = FieldFill.INSERT_UPDATE)
+    /**
+     * 新增填充字段内容；从不更新字段
+     */
+    @TableField(value = "create_time", fill = FieldFill.INSERT, updateStrategy = FieldStrategy.NEVER)
     private LocalDateTime createTime;
 
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
