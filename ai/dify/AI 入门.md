@@ -22,6 +22,35 @@ date: 2025-08-04
 
 3、工具（调用外部能力）：遇到自己解决不了的问题，比如查天气、算数据，它会自动调用对应的工具（比如天气 API、计算器），就像人干活时随手拿扳手、螺丝刀，借外力把事办好。
 
+## 模式
+
+- ReAct
+- CodeAct
+- Self-Reflection
+- Planner-style
+
+## 任务调度
+
+多任务同时处理的时候，涉及任务拆分、冲突协调、上下文隔离、失败回滚
+
+## 记忆（Memory Controller）
+
+- Scratchpad
+- Semantic Memory（Embedding + Search）
+- Agentic Memory（具备写入、更新、清理能力的长期记忆系统）
+
+## 工具调用
+
+- 工具注入：工具是动态注册和发现的，不是静态写死的
+- 参数对齐：不靠 Prompt 拼接，而是通过 Structured Output（结构化输出），让 LLM 生成与工具接口 Schema 完全对齐的 JSON，实现自动调用
+- 工具路由（Tool Router）：在众多工具中，需要一个独立的“工具选择器”或者一个更小的模型，来决定当前步骤最应该调用哪个工具，而不是让主 LLM 去猜
+- 容错与回退（Fallback）：工具调用失败，不能直接放弃。系统必须有重试、使用备用工具、或者向用户澄清问题的 Fallback 策略。
+
+## 调优
+
+- 性能问题，增加 Tracing 跟踪是 Token 太大、检索太慢、工具链太长等问题
+- 安全问题：Prompt注入、数据越权、Token滥用
+
 # AI 模型组成
 
 - 神经网络架构：如 Transformer 架构
