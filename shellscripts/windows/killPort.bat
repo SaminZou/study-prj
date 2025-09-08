@@ -1,18 +1,26 @@
 @echo off
 setlocal enabledelayedexpansion
 
-rem 输入一个需要检查的接口号
-set /p appport="Input port to check: "
+:: ==============================
+:: Port to Process Killer Script
+:: ==============================
 
-rem 打印标题
+:: 提示用户输入端口号
+set /p "appport=Input port to check: "
+if "%appport%"=="" (
+    echo [ERROR] Port cannot be empty.
+    exit /b 1
+)
+
+:: 打印表头
 echo Protocol    Local Address          Foreign Address        State           PID
 echo ============================================================================
 
-rem 初始化变量
+:: 初始化变量
 set "pidToKill="
 
-rem 检查端口号对应的进程号
-for /f "tokens=1,2,3,4,5" %%a in ('netstat -ano ^| findstr !appport!') do (
+:: 使用 netstat 查找端口对应的进程
+for /f "tokens=1,2,3,4,5" %%a in ('netstat -ano ^| findstr /r /c:":%appport%[ ]"') do (
     set "protocol=%%a"
     set "local=%%b"
     set "remote=%%c"
@@ -22,24 +30,27 @@ for /f "tokens=1,2,3,4,5" %%a in ('netstat -ano ^| findstr !appport!') do (
     set "pidToKill=!pid!"
 )
 
-rem 如果没有找到进程，退出脚本
+:: 如果没有找到进程，退出
 if not defined pidToKill (
-    echo No process found using port !appport!
-    exit /b
+    echo [INFO] No process found using port %appport%.
+    exit /b 0
 )
 
-rem 确认是否要结束进程
-set /p choice="Do you want to kill process with PID !pidToKill!? (Y/N): "
-if /i "!choice!" neq "Y" (
-    echo Operation cancelled by user.
-    exit /b
+:: 询问是否结束进程
+set /p "choice=Do you want to kill process with PID %pidToKill%? (Y/N): "
+if /i not "%choice%"=="Y" (
+    echo [INFO] Operation cancelled by user.
+    exit /b 0
 )
 
-rem 结束对应的进程
-taskkill /f /pid !pidToKill!
+:: 结束进程
+taskkill /f /pid %pidToKill% >nul 2>&1
 if errorlevel 1 (
-    echo Failed to kill process with PID !pidToKill!
+    echo [ERROR] Failed to kill process with PID %pidToKill%.
+    exit /b 1
 ) else (
-    echo Successfully killed process with PID !pidToKill!
+    echo [SUCCESS] Successfully killed process with PID %pidToKill%.
 )
+
 endlocal
+exit /b 0
