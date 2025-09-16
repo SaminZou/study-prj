@@ -67,6 +67,11 @@ public class UserController {
         return userService.queryByName(name);
     }
 
+    @PostMapping("/user/query/names")
+    public List<String> names() {
+        return userService.names();
+    }
+
     @PostMapping("/user/query/list")
     public List<UserVO> queryList(@RequestBody UserQueryVO req) {
         return userService.queryList(req);

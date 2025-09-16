@@ -10,6 +10,7 @@ import com.samin.mybatis.po.UserPO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -95,6 +96,13 @@ public class UserService {
 
     public List<UserVO> queryByName(String name) {
         return userMapper.queryByName(name);
+    }
+
+    public List<String> names() {
+        return userMapper.selectObjs(new QueryWrapper<UserPO>().select("name"))
+                         .stream()
+                         .map(Object::toString)
+                         .collect(Collectors.toList());
     }
 
     public List<UserVO> queryList(UserQueryVO req) {
