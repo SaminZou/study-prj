@@ -22,10 +22,21 @@ public class UserService {
 
     private final UserMapper userMapper;
 
+    /**
+     * 根据 ID 删除用户
+     *
+     * @param id 用户 ID
+     */
     public void delete(Integer id) {
         userMapper.deleteById(id);
     }
 
+    /**
+     * 新增用户
+     *
+     * @param req 用户新增请求体
+     * @return 用户实体
+     */
     public UserPO insert(UserVO req) {
         // UserVO to UserPO
         UserPO po = new UserPO();
@@ -34,6 +45,12 @@ public class UserService {
         return po;
     }
 
+    /**
+     * 更新用户
+     *
+     * @param req 用户更新请求体
+     * @return 用户实体
+     */
     public UserPO update(UserVO req) {
         UserPO po = userMapper.selectById(req.getId());
         po.setName(req.getName());
@@ -43,6 +60,12 @@ public class UserService {
         return po;
     }
 
+    /**
+     * 用户查询计数
+     *
+     * @param req 用户查询请求体
+     * @return 用户计数
+     */
     public Integer count(UserQueryVO req) {
         QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
         if (StringUtils.hasText(req.getName())) {
@@ -56,6 +79,12 @@ public class UserService {
                          .intValue();
     }
 
+    /**
+     * Lambda 表达式使用
+     *
+     * @param req 分页查询请求体
+     * @return 用户分页结果
+     */
     public Page<UserPO> pageByLambda(PageReq req) {
         QueryWrapper<UserPO> wrapper = new QueryWrapper<>();
         if (StringUtils.hasText(req.getName())) {
