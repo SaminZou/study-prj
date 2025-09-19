@@ -25,6 +25,10 @@ date: 2025-08-04
 ## 模式
 
 - ReAct
+  - 推理（用户目标、任务流程）
+  - 行动（调用工具）
+  - 观察
+  - 迭代
 - CodeAct
 - Self-Reflection
 - Planner-style
