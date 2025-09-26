@@ -4,6 +4,24 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接池
+    hikari:
+      # 根据并发量和 DB 承受能力调优
+      maximum-pool-size: 50
+      minimum-idle: 5
+      # 5秒，避免线程长时间卡死
+      connection-timeout: 5000
+      # 3秒，校验连接是否有效
+      validation-timeout: 3000
+      connection-test-query: SELECT 1
+      # 10分钟，空闲连接最大存活时间（超过则被回收）
+      idle-timeout: 600000
+      # 30分钟，小于 MySQL wait_timeout 8 小时
+      max-lifetime: 1800000
+      # 5分钟，定期心跳，防止连接被MySQL杀掉
+      keepalive-time: 300000
+      # 20秒，为释放报警
+      leak-detection-threshold: 20000
   jpa:
     hibernate:
       ddl-auto: update
