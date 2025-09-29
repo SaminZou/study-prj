@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@EnableScheduling
 public class TestScheduler {
 
     private final ScheduledExecutorService retryScheduler = Executors.newSingleThreadScheduledExecutor();
