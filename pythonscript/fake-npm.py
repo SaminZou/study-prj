@@ -151,8 +151,7 @@ def run_one_build(attempt=1, allow_failure=True):
             log("INFO", f"Total time: {random.randint(5, 40)} s", "⏱️")
             log("INFO", f"Finished at: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", "📅")
             print()
-            # 退出
-            # return False
+            return False
 
     log("INFO", "-" * min(72, term_width()))
     log("INFO", "BUILD SUCCESS", "✅")
