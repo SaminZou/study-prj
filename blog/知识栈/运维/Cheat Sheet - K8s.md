@@ -68,9 +68,21 @@ $ sudo kubectl get deployments -n <namespaces>
 
 $ sudo kubectl get sts -n <namespaces>
 
-\# 强制删除 pods
+\# 强制删除僵尸 pods
 
 $ sudo kubectl delete pod <pod-name> -n <namespace-name> --force --grace-period=0
+
+\# 暂停 CronJob
+kubectl patch cronjob <name> -n <namespace> -p '{"spec":{"suspend":true}}'
+
+\# 恢复 CronJob
+kubectl patch cronjob <name> -n <namespace> -p '{"spec":{"suspend":false}}'
+
+\# 删除 active Job（停止当前运行的任务）
+kubectl delete job -n <namespace> -l job-name=<name> --ignore-not-found
+
+\# 启动 active Job（手动运行一次 CronJob）
+kubectl create job --from=cronjob/<name> <name>-manual-$(date +%s) -n <namespace>
 
 \# 查看 deployment
 
