@@ -162,7 +162,7 @@ $ kubectl get pvc hello-pvc-demo -n ns -o yaml
 
 $ kubectl get pv hello-pv-demo -n ns -o yaml
 
-\# 找密码配置的方式
+\# 找密码配置案例（rabbitmq 为例）
 
 $ kubectl get sts -n infra
 
