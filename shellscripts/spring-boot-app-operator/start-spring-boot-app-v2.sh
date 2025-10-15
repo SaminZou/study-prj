@@ -34,11 +34,14 @@ fi
 
 # 启动 Java 应用
 echo "正在启动 Java 应用..."
-nohup java -jar "$JAR_PATH" -Xms4g -Xmx6g -XX:NewRatio=3 \
+nohup java -jar "$JAR_PATH" -Dspring.profiles.active=prod \
+-Xms4g -Xmx6g \
+-XX:MaxDirectMemorySize=256m \
 -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m \
--XX:+UseG1GC -XX:ParallelGCThreads=4 -XX:ConcGCThreads=2 \
--XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/mnt/ips-alarm/heapdump.hprof \
--Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8 \
+-XX:+UseG1GC \
+-XX:ParallelGCThreads=4 -XX:MaxGCPauseMillis=200 -XX:ConcGCThreads=2 \
+-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/mnt/err-dump/heapdump.hprof \
+-Djava.security.egd=file:/dev/./urandom -Dfile.encoding=UTF-8 -XX:NewRatio=3\
 > "$LOG_FILE" 2>&1 &
 PID=$!
 echo "Java应用已启动，PID为：$PID"
