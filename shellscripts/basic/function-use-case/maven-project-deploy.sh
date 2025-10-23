@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 搜索项目中的 "Nexus3.yaml" 安装 Nexus
+# 安装 Nexus（参考 /study-prj/docker/docker-compose/Nexus3.yaml）
 
 # $1 项目路径 $2 过滤需要指定模块
 mavenProjectDeploy(){
