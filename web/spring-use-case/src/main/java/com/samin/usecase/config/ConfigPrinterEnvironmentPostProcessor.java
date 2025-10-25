@@ -15,6 +15,7 @@ import org.springframework.core.env.PropertySource;
 @Order(Ordered.LOWEST_PRECEDENCE)
 public class ConfigPrinterEnvironmentPostProcessor implements EnvironmentPostProcessor {
 
+    // 无法使用，实例还未初始化
     private static final Logger log = LoggerFactory.getLogger(ConfigPrinterEnvironmentPostProcessor.class);
 
     @Override
