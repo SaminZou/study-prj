@@ -1,3 +1,7 @@
+# Spring Boot VS Spring Cloud Alibaba
+
+Spring Cloud Alibaba 基于 Spring boot 封装了微服务治理的逻辑，开箱配置即用，可以让开发者专注业务逻辑开发。
+
 # OpenFeign vs RestTemplate
 
 ## OpenFeign
