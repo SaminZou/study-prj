@@ -1,57 +1,58 @@
 package com.samin.mqtt.config;
 
-import java.time.Instant;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
-import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
-import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.integration.mqtt.support.MqttHeaders;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.handler.annotation.Header;
 
+@Slf4j
 @Configuration
 public class MqttOutboundConfig {
 
-    @Value("${mqtt.client-id-prefix}")
-    private String clientId;
     @Autowired
-    private MqttPahoClientFactory mqttClientFactory;
+    private MqttOutboundPoolConfig mqttOutboundPoolConfig;
 
     @Bean
     public MessageChannel mqttOutboundChannel() {
-        DirectChannel directChannel = new DirectChannel();
-        directChannel.subscribe(mqttOutboundMessageHandler());
-        return directChannel;
+        return new DirectChannel();
     }
 
     @Bean
     @ServiceActivator(inputChannel = "mqttOutboundChannel")
     public MessageHandler mqttOutboundMessageHandler() {
         return message -> {
-            // MqttPahoMessageHandler 用于发布
-            MqttPahoMessageHandler handler = new MqttPahoMessageHandler(clientId + Instant.now()
-                                                                                          .toEpochMilli(),
-                                                                        mqttClientFactory);
-
-            handler.setAsync(true);
-            handler.setDefaultQos(0);
-            handler.setConverter(new DefaultPahoMessageConverter());
-            handler.setDefaultRetained(false);
-
             String topic = (String) message.getHeaders()
                                            .get(MqttHeaders.TOPIC);
-            String payload = (String) message.getPayload();
-            handler.handleMessage(MessageBuilder.withPayload(payload)
-                                                .setHeader(MqttHeaders.TOPIC, topic)
-                                                .build());
+            Object payload = message.getPayload();
+
+            MqttPahoMessageHandler handler = mqttOutboundPoolConfig.getHandler();
+
+            try {
+                handler.handleMessage(MessageBuilder.withPayload(payload)
+                                                    .setHeader(MqttHeaders.TOPIC, topic)
+                                                    .build());
+            } catch (Exception e) {
+                log.error("MQTT 发布失败，尝试重连: {}", e.getMessage());
+                // 尝试重启 handler
+                try {
+                    handler.stop();
+                    handler.start();
+                    handler.handleMessage(MessageBuilder.withPayload(payload)
+                                                        .setHeader(MqttHeaders.TOPIC, topic)
+                                                        .build());
+                } catch (Exception retryEx) {
+                    log.error("MQTT 重新发布仍失败: {}", retryEx.getMessage(), retryEx);
+                }
+            }
         };
     }
 
