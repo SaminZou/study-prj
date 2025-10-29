@@ -54,7 +54,7 @@ public class MqttOutboundPoolConfig {
 
     /**
      * 获取一个 handler（轮询方式）
-     **/
+     */
     public MqttPahoMessageHandler getHandler() {
         int index = Math.abs(counter.getAndIncrement() % handlerPool.size());
         return handlerPool.get(index);
