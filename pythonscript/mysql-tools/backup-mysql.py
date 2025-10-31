@@ -29,26 +29,34 @@ DB_CONFIG = {
     "port": 3306
 }
 
-# 哪些表需要导出数据（留空表示只导出结构）
-TABLES_WITH_DATA = [
-    "users",
-    "orders",
-    "products"
+
+# 哪些表不需要导出数据（这些表只导出结构）
+TABLES_WITHOUT_DATA = [
+    "cdn_iot_energy_day",
+    "cdn_iot_energy_hour",
+    "cdn_iot_energy_origin",
+    "cdn_iot_energy_unique",
+    "pai_deploy_schema_history",
+    "cdn_iot_error",
+    "cdn_iot_timer_log"
 ]
 
 # 备份目录
-BACKUP_DIR = "/opt/db_backups"
+BACKUP_DIR = "."
 
 # =========================
 # 执行逻辑
 # =========================
 
+
 def ensure_dir(path):
     if not os.path.exists(path):
         os.makedirs(path, exist_ok=True)
 
+
 def get_timestamp():
     return datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+
 
 def run_cmd(cmd):
     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
@@ -56,6 +64,7 @@ def run_cmd(cmd):
         print("❌ 运行失败：", result.stderr)
         raise RuntimeError(f"命令执行失败: {cmd}")
     return result.stdout
+
 
 def backup_database():
     ensure_dir(BACKUP_DIR)
@@ -72,7 +81,7 @@ host={DB_CONFIG['host']}
 port={DB_CONFIG['port']}
 """)
 
-    print(f"🧩 备份数据库结构：{DB_CONFIG['database']}")
+    print(f"备份数据库结构：{DB_CONFIG['database']}")
     cmd_structure = (
         f"mysqldump --defaults-extra-file={cnf_path} "
         f"--no-data --routines --events --triggers "
@@ -80,8 +89,18 @@ port={DB_CONFIG['port']}
     )
     run_cmd(cmd_structure)
 
-    for table in TABLES_WITH_DATA:
-        print(f"📦 导出表数据：{table}")
+    # 查询数据库所有表
+    show_tables_cmd = (
+        f"mysql --defaults-extra-file={cnf_path} "
+        f"-N -e 'SHOW TABLES FROM {DB_CONFIG['database']};'"
+    )
+    all_tables = run_cmd(show_tables_cmd).splitlines()
+
+    # 过滤掉不需要导出数据的表
+    tables_to_dump = [t for t in all_tables if t not in TABLES_WITHOUT_DATA]
+
+    for table in tables_to_dump:
+        print(f"导出表数据：{table}")
         cmd_data = (
             f"mysqldump --defaults-extra-file={cnf_path} "
             f"--no-create-info {DB_CONFIG['database']} {table} >> {backup_path}"
@@ -91,5 +110,7 @@ port={DB_CONFIG['port']}
     os.remove(cnf_path)
     print(f"✅ 备份完成：{backup_path}")
 
+
 if __name__ == "__main__":
     backup_database()
+
