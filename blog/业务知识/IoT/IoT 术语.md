@@ -117,8 +117,6 @@ Narrow Band Internet of Things 窄带物联网
 
 机器对机器
 
-- 数据编排
-
 - IT 
 
 Information Technology信息技术
@@ -156,3 +154,8 @@ Half-duplex 半双工
 Advanced Message Queuing Protocol（高级消息队列协议） 
 
 实现不同供应商可以互操作
+
+- 低码平台主要内容
+  - 数据编排
+  - 逻辑编排
+  - 表单绘制
