@@ -40,13 +40,10 @@ public class AsyncConfig implements AsyncConfigurer {
         //线程池任务队容量，如果不设置则默认 Integer.MAX_VALUE，
         // 队列默认使用 LinkedBlockingQueue 若 queueCapacity 的值 <= 0,则使用 SynchronousQueue
         taskExecutor.setQueueCapacity(1000);
-
         //线程池中核心线程是否允许超时，默认为false
         taskExecutor.setAllowCoreThreadTimeOut(true);
-
         //线程池中的超时处理时间，单位秒，有一个对应方法为毫秒，默认为不超时
         taskExecutor.setAwaitTerminationSeconds(60);
-
         //初始化线程池，不可以少，否者会抛出 线程池没有初始化
         taskExecutor.initialize();
         return taskExecutor;
