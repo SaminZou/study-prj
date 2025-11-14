@@ -269,4 +269,10 @@ RestartSec=5
 | **性能**   | cgroup-driver、镜像加速、禁用无用组件              |
 | **可运维性** | registry 配置、kubelet 调优、systemd restart |
 
+为了防止上述入参不可用，可以使用以下命令查询 server 和 agent 所有支持入参
+
+$ k3s server --help
+
+$ k3s agent --help
+
 ---
