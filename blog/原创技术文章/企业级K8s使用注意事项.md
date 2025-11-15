@@ -21,7 +21,7 @@ date: 2025-11-14
 * 单机 / 小 cluster → sqlite
 * 企业生产 → 一定要用 **外部 etcd** 或 MySQL/PostgreSQL
 
-### 推荐（外部 etcd）：
+### 推荐（外部 etcd）
 
 ```bash
 --datastore-endpoint="etcd:https://etcd-1:2379,https://etcd-2:2379,https://etcd-3:2379"
@@ -127,7 +127,7 @@ K3s 默认包含很多内置组件（traefik、local-storage）。
 
 # 7️⃣ **TLS、API Server 安全配置（企业合规重点）**
 
-### 限制可访问 API server 的 IP：
+### 限制可访问 API server 的 IP
 
 ```bash
 --tls-san <LB-IP>
@@ -193,7 +193,7 @@ RestartSec=5
 
 # 📌 补充：K3s 关键配置全集（生产常用）
 
-### 主节点常用参数：
+### 主节点常用参数
 
 ```
 --cluster-init
@@ -206,7 +206,7 @@ RestartSec=5
 --kube-controller-manager-arg=
 ```
 
-### Worker/Agent 常用参数：
+### Worker/Agent 常用参数
 
 ```
 --server=https://master-ip:6443
