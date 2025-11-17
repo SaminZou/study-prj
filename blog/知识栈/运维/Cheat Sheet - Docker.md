@@ -26,7 +26,7 @@ $ docker push myrepo/myimage:2.0
 
 # Run
 
-\# 调试技巧！可以进入镜像内部调试，运行结束 docker 实例也会删除
+\# 调试技巧！可以进入镜像内部调试，运行结束 docker 实例也会删除（bash 不一定生效，取决于基础镜像的实际情况）
 $ docker run -it --rm <image-name> bash
 $ docker-compose run --rm <service-name> bash
 
