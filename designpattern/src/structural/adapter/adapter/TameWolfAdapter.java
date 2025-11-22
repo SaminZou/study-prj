@@ -3,7 +3,7 @@ package structural.adapter.adapter;
 import structural.adapter.Wolf;
 
 /**
- * 驯服狼的适配器
+ * 驯服狼的适配器（模仿狗的行为动作）
  * <p>
  * Description: 让狼也能随时按照下达指令来行动
  * <p>
