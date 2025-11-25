@@ -28,11 +28,11 @@ public class SystemCallUseCase {
         arr3[arr3.length - 1] = 6;
         System.out.println(Arrays.toString(arr3));
 
+        String foo = "foo";
         // identityHashCode() 获取对象的系统和内部地址相关的 hashCode()
         // 可用于判断是否是同一个实例对象
         // 同时可以验证 hashCode() 方法是否重写过
         // String 类的 hashCode() 是重写过的，所以两者的结果自然不一样
-        String foo = "foo";
         int fooHashCode = System.identityHashCode(foo);
         System.out.println(fooHashCode);
         System.out.println(foo.hashCode());
