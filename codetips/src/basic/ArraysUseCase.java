@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Arrays.asList()将数组转换为集合后，底层其实还是数组，无法使用add/remove/clear方法
+ * Arrays.asList() 将数组转换为集合后，底层其实还是数组，无法使用 add/remove/clear 方法
  *
  * <p>体现的是适配器模式，只是转换接口，后台的数据仍是数组
  *
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class ArraysUseCase {
 
     public static void main(String[] args) {
-        // Arrays.asList()是泛型方法，传入的对象必须是对象数组，基础类型返回的不是 list
+        // Arrays.asList() 是泛型方法，传入的对象必须是对象数组，基础类型返回的不是 List
         int[] myArray = {1, 2, 3};
         List myList = Arrays.asList(myArray);
         // 报错，因为只是被转换成一个二维数组
@@ -33,7 +33,7 @@ public class ArraysUseCase {
         // 1. 最简便的方法
         List<Integer> myList3 = new ArrayList(Arrays.asList(1, 2, 3));
         myList3.add(4);
-        // 2. java8的stream
+        // 2. Java8 的 stream
         Integer[] myArrays3 = {1, 2, 3};
         List myList4 = Arrays.stream(myArrays3)
                              .collect(Collectors.toList());
