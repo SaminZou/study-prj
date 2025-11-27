@@ -6,12 +6,12 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * CountDownLatch是JDK提供的一个同步工具， 它可以让一个或多个线程等待，一直等到其他线程中执行完成一组操作
+ * CountDownLatch 是 JDK 提供的一个同步工具， 它可以让一个或多个线程等待，一直等到其他线程中执行完成一组操作
  *
  * <p>常用方法：countDown()：当调用 countDown() 方法时，计数器会被减 1
- * Await：当调用Await方法时，如果计数器大于0时，线程会被阻塞，一直到计数器被 countDown() 方法减到 0 时，线程才会继续执行
+ * await：当调用 await方法时，如果计数器大于 0 时，线程会被阻塞，一直到计数器被 countDown() 方法减到 0 时，线程才会继续执行
  *
- * <p>调用 countDown() 的线程可以继续执行，不需要等待计数器被减到 0 调用 Await 方法的线程需要等待
+ * <p>调用 countDown() 的线程可以继续执行，不需要等待计数器被减到 0 调用 await 方法的线程需要等待
  *
  * <p>以下用例模拟场景，等客人齐了上菜
  *
