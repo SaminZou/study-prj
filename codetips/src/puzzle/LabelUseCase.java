@@ -1,7 +1,7 @@
 package puzzle;
 
 /**
- * Q：标签，跳出多重循环
+ * 标签，跳出多重循环
  *
  * @author samin
  * @date 2021-01-10
