@@ -8,7 +8,9 @@ package template;
  */
 public class BatchProcess {
 
-    // 批次处理频率
+    /**
+     * 批次处理频率
+     */
     private final static int BATCH_NUM = 50;
 
     public static void main(String[] args) {
