@@ -35,7 +35,7 @@ public class SnowflakeIdService {
     private final static long MAX_SEQUENCE = ~(-1L << SEQUENCE_BITS);
 
     /**
-     * worker 节点编号的移位
+     * Worker 节点编号的移位
      */
     private final static long WORKER_ID_SHIFT = SEQUENCE_BITS;
 
@@ -45,7 +45,7 @@ public class SnowflakeIdService {
     private final static long TIMESTAMP_LEFT_SHIFT = WORKER_ID_BITS + SEQUENCE_BITS;
 
     /**
-     * 该项目的 worker 节点 id
+     * 该项目的 Worker 节点 ID
      */
     private long workerId;
 
@@ -61,7 +61,7 @@ public class SnowflakeIdService {
 
     public void init(long workerId) {
         if (workerId > MAX_WORKER_ID) {
-            // zk分配的workerId过大
+            // zk 分配的 workerId 过大
             throw new IllegalArgumentException("worker Id wrong: " + workerId);
         }
         this.workerId = workerId;
@@ -80,7 +80,7 @@ public class SnowflakeIdService {
         }
 
         if (current == lastTimestamp) {
-            // 如果当前生成 id 的时间还是上次的时间，那么对序列号 +1
+            // 如果当前生成 ID 的时间还是上次的时间，那么对序列号 +1
             sequence = (sequence + 1) & MAX_SEQUENCE;
 
             if (sequence == MAX_SEQUENCE) {
@@ -92,10 +92,10 @@ public class SnowflakeIdService {
             sequence = 0L;
         }
 
-        // 更新上次生成 id 的时间戳
+        // 更新上次生成 ID 的时间戳
         lastTimestamp = current;
 
-        // 进行移位操作生成 int64 的唯一ID
+        // 进行移位操作生成 int64 的唯一 ID
         // 时间戳右移 23 位
         long time = (current - START_TIME) << TIMESTAMP_LEFT_SHIFT;
 
