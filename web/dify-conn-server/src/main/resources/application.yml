@@ -5,9 +5,11 @@ spring:
     name: dify-conn-server
 
 dify:
-  api-key: 0
-  api-url: 0
+  api-key: ${DIFY_API_KEY:0}
+  api-url: ${DIFY_API_URL:0}
+  user-id: ${DIFY_USER_ID:server-001}
 
 logging:
   level:
     root: info
+    com.samin.dify: debug
