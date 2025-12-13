@@ -7,12 +7,17 @@ spring:
 logging:
   level:
     root: info
+    com.samin.mqtt: debug
 
 mqtt:
-  url: tcp://samindev:1883
-  username: samin
-  password: samin123
-  client-id-prefix: consumer-
+  url: ${MQTT_URL:tcp://samindev:1883}
+  username: ${MQTT_USERNAME:samin}
+  password: ${MQTT_PASSWORD:samin123}
+  client-id-prefix: ${MQTT_CLIENT_ID_PREFIX:consumer-}
+  qos: ${MQTT_QOS:0}
+  keep-alive: ${MQTT_KEEP_ALIVE:20}
+  connection-timeout: ${MQTT_CONN_TIMEOUT:10}
+  clean-session: ${MQTT_CLEAN_SESSION:true}
 
 biz:
-  consumer-topic: /sys/+/+/thing/event/+/post
+  consumer-topic: ${MQTT_CONSUMER_TOPIC:/sys/+/+/thing/event/+/post}

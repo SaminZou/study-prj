@@ -1,49 +1,44 @@
 package com.samin.mqtt.config;
 
 import jakarta.annotation.PostConstruct;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.integration.mqtt.support.DefaultPahoMessageConverter;
 import org.springframework.scheduling.annotation.Scheduled;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Slf4j
 @Configuration
+@RequiredArgsConstructor
 public class MqttOutboundPoolConfig {
 
-    @Value("${mqtt.client-id-prefix}")
-    private String clientIdPrefix;
-    @Autowired
-    private MqttPahoClientFactory mqttClientFactory;
-
-    /**
-     * 建议与异步线程池核心数相同或略大
-     */
-    private static final int MQTT_CLIENT_POOL_SIZE = 12;
+    private final MqttProperties mqttProperties;
+    private final MqttPahoClientFactory mqttClientFactory;
 
     private final List<MqttPahoMessageHandler> handlerPool = new CopyOnWriteArrayList<>();
     private final AtomicInteger counter = new AtomicInteger(0);
 
     @PostConstruct
     public void init() {
-        log.info("初始化 MQTT 客户端池，大小: {}", MQTT_CLIENT_POOL_SIZE);
-        for (int i = 0; i < MQTT_CLIENT_POOL_SIZE; i++) {
+        int poolSize = Math.max(1, mqttProperties.getPoolSize());
+        log.info("初始化 MQTT 客户端池，大小: {}", poolSize);
+        for (int i = 0; i < poolSize; i++) {
             handlerPool.add(createNewHandler(i));
         }
         log.info("MQTT 客户端池初始化完成，共 {} 个连接", handlerPool.size());
     }
 
     private MqttPahoMessageHandler createNewHandler(int index) {
-        String clientId = clientIdPrefix + "-pub-" + index;
+        String clientId = mqttProperties.getClientIdPrefix() + "-pub-" + index;
         MqttPahoMessageHandler handler = new MqttPahoMessageHandler(clientId, mqttClientFactory);
         handler.setAsync(true);
-        handler.setDefaultQos(0);
+        handler.setDefaultQos(mqttProperties.getQos());
         handler.setDefaultTopic("default");
         handler.setDefaultRetained(false);
         handler.setConverter(new DefaultPahoMessageConverter());
@@ -56,7 +51,8 @@ public class MqttOutboundPoolConfig {
      * 获取一个 handler（轮询方式）
      */
     public MqttPahoMessageHandler getHandler() {
-        int index = Math.abs(counter.getAndIncrement() % handlerPool.size());
+        int size = handlerPool.size();
+        int index = Math.abs(counter.getAndIncrement() % size);
         return handlerPool.get(index);
     }
 

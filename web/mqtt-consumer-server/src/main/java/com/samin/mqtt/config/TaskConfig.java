@@ -22,7 +22,16 @@ public class TaskConfig {
     @Scheduled(fixedRate = 60000)
     public void checkMqttHealth() {
         if (adapter.isRunning()) {
-            log.info("[MQTT] 连接正常");
+            log.debug("[MQTT] 连接正常");
+            return;
+        }
+        log.warn("[MQTT] 连接已停止，尝试重启");
+        try {
+            adapter.stop();
+            adapter.start();
+            log.info("[MQTT] 重启完成，当前状态：{}", adapter.isRunning());
+        } catch (Exception e) {
+            log.error("[MQTT] 重启失败", e);
         }
     }
 }

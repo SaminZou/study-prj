@@ -13,12 +13,17 @@ public class MqttInboundMessageHandler implements MessageHandler {
 
     @Override
     public void handleMessage(Message<?> message) {
-        String topic = (String) message.getHeaders()
-                                       .get(MqttHeaders.RECEIVED_TOPIC);
-        String[] topics = topic.split("/");
-        String type = topics[6];
-        String payload = new String((byte[]) message.getPayload(), StandardCharsets.UTF_8);
-
-        log.info("topic:{}, payload:{}", topic, payload);
+        try {
+            String topic = (String) message.getHeaders().get(MqttHeaders.RECEIVED_TOPIC);
+            if (topic == null) {
+                log.warn("收到 MQTT 消息但缺少 topic，header: {}", message.getHeaders());
+                return;
+            }
+            byte[] payloadBytes = (byte[]) message.getPayload();
+            String payload = new String(payloadBytes, StandardCharsets.UTF_8);
+            log.info("topic: {}, payload: {}", topic, payload);
+        } catch (Exception e) {
+            log.error("处理 MQTT 消息异常，消息内容: {}", message, e);
+        }
     }
 }
