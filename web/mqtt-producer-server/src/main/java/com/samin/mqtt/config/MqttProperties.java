@@ -40,5 +40,3 @@ public class MqttProperties {
     @Positive
     private int poolSize = 4;
 }
-
-

@@ -19,5 +19,3 @@ public class BizProperties {
     @NotBlank(message = "biz.consumer-topic 不能为空")
     private String consumerTopic;
 }
-
-

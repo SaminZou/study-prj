@@ -58,5 +58,3 @@ public class MqttProperties {
      */
     private boolean cleanSession = true;
 }
-
-
