@@ -1,6 +1,8 @@
 package com.samin.minio.controller;
 
 
+import com.samin.minio.enums.ResultEnum;
+import com.samin.minio.exception.BusinessException;
 import com.samin.minio.model.dto.Result;
 import com.samin.minio.model.dto.TaskInfoDTO;
 import com.samin.minio.model.entity.MultiFileUpload;
@@ -9,14 +11,13 @@ import com.samin.minio.service.MultiFileUploadService;
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
 
 
 /**
@@ -30,13 +31,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/v1/minio/tasks")
+@RequiredArgsConstructor
 public class MinioUploadTaskController {
 
     /**
      * 服务对象
      */
-    @Autowired
-    private MultiFileUploadService multiFileUploadService;
+    private final MultiFileUploadService multiFileUploadService;
 
     /**
      * 获取上传进度
@@ -55,11 +56,7 @@ public class MinioUploadTaskController {
      * @return
      */
     @PostMapping
-    public Result<TaskInfoDTO> initTask(@Valid @RequestBody InitTaskParam param, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return Result.error(bindingResult.getFieldError()
-                                             .getDefaultMessage());
-        }
+    public Result<TaskInfoDTO> initTask(@Valid @RequestBody InitTaskParam param) {
         return Result.ok(multiFileUploadService.initTask(param));
     }
 
@@ -75,7 +72,7 @@ public class MinioUploadTaskController {
                                    @PathVariable("partNumber") Integer partNumber) {
         MultiFileUpload task = multiFileUploadService.getByIdentifier(identifier);
         if (task == null) {
-            return Result.error("分片任务不存在");
+            throw new BusinessException(ResultEnum.ERROR_400, "分片任务不存在");
         }
         Map<String, String> params = new HashMap<>();
         params.put("partNumber", partNumber.toString());
