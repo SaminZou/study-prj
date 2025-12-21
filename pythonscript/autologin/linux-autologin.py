@@ -2,7 +2,7 @@ import pexpect
 
 # pip install pexpect
 
-# 配置账号和密码（⚠️ 明文写在脚本里不安全，仅演示用，建议配置成环境变量）
+# 配置账号和密码（⚠️明文写在脚本里不安全，仅演示用，建议配置成环境变量）
 username = "samin"
 password = "test123456"
 

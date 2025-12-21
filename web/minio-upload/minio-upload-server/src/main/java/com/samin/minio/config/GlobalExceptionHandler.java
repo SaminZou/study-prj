@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     }
 
     /**
-     * 处理404异常
+     * 处理 404 异常
      */
     @ExceptionHandler(NoHandlerFoundException.class)
     public Result handleNotFoundException(NoHandlerFoundException e, HttpServletRequest request) {
