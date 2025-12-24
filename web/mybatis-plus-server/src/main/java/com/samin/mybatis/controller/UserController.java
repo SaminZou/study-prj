@@ -4,86 +4,88 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.samin.mybatis.model.PageReq;
 import com.samin.mybatis.model.UserQueryVO;
 import com.samin.mybatis.model.UserVO;
+import com.samin.mybatis.model.dto.Result;
 import com.samin.mybatis.po.UserPO;
 import com.samin.mybatis.service.UserService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import javax.validation.Valid;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api/users")
 public class UserController {
 
     private final UserService userService;
 
-    @PostMapping("/user/delete/{id}")
-    public void insert(@PathVariable Integer id) {
+    @DeleteMapping("/{id}")
+    public Result<Void> delete(@PathVariable Integer id) {
         userService.delete(id);
+        return Result.success();
     }
 
-    @PostMapping("/user/insert")
-    public UserPO insert(@RequestBody UserVO req) {
-        return userService.insert(req);
+    @PostMapping
+    public Result<UserPO> create(@RequestBody @Valid UserVO req) {
+        return Result.success(userService.insert(req));
     }
 
-    @PostMapping("/user/update")
-    public UserPO update(@RequestBody UserVO req) {
-        return userService.update(req);
+    @PutMapping
+    public Result<UserPO> update(@RequestBody @Valid UserVO req) {
+        return Result.success(userService.update(req));
     }
 
-    @PostMapping("/user/count")
-    public Integer count(@RequestBody UserQueryVO req) {
-        return userService.count(req);
+    @GetMapping("/count")
+    public Result<Integer> count(@RequestBody UserQueryVO req) {
+        return Result.success(userService.count(req));
     }
 
-    @PostMapping("/user/page/lambda")
-    public Page<UserPO> pageByLambda(@RequestBody PageReq req) {
-        return userService.pageByLambda(req);
+    @GetMapping("/page/lambda")
+    public Result<Page<UserPO>> pageByLambda(@RequestBody @Valid PageReq req) {
+        return Result.success(userService.pageByLambda(req));
     }
 
-    @PostMapping("/user/page/sql")
-    public Page<UserVO> pageBySql(@RequestBody PageReq req) {
-        return userService.pageBySql(req);
+    @GetMapping("/page/sql")
+    public Result<Page<UserVO>> pageBySql(@RequestBody @Valid PageReq req) {
+        return Result.success(userService.pageBySql(req));
     }
 
-    @PostMapping("/user/page")
-    public Page<UserPO> page(@RequestBody PageReq req) {
-        return userService.page(req);
+    @GetMapping("/page")
+    public Result<Page<UserPO>> page(@RequestBody @Valid PageReq req) {
+        return Result.success(userService.page(req));
     }
 
-    @PostMapping("/user/list")
-    public List<UserVO> list() {
-        return userService.findAll();
+    
+
+    @GetMapping("/queryByName")
+    public Result<List<UserVO>> queryByName(@RequestParam String name) {
+        return Result.success(userService.queryByName(name));
     }
 
-    @PostMapping("/user/queryByName")
-    public List<UserVO> queryByName(@RequestParam String name) {
-        return userService.queryByName(name);
+    @GetMapping("/names")
+    public Result<List<String>> names() {
+        return Result.success(userService.names());
     }
 
-    @PostMapping("/user/query/names")
-    public List<String> names() {
-        return userService.names();
+    
+
+    @GetMapping("/direct")
+    public Result<List<UserVO>> directList() {
+        return Result.success(userService.directList());
     }
 
-    @PostMapping("/user/query/list")
-    public List<UserVO> queryList(@RequestBody UserQueryVO req) {
-        return userService.queryList(req);
-    }
-
-    @PostMapping("/user/direct/list")
-    public List<UserVO> directList() {
-        return userService.directList();
-    }
-
-    @PostMapping("/user/custom/list")
-    public List<UserVO> customList() {
-        return userService.customList();
+    @GetMapping("/custom")
+    public Result<List<UserVO>> customList() {
+        return Result.success(userService.customList());
     }
 }
