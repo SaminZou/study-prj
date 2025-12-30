@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class Result<T> {
+
     /**
      * 响应码
      */
