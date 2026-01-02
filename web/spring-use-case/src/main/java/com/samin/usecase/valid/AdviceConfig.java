@@ -14,38 +14,76 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class AdviceConfig {
 
-    @ExceptionHandler({ConstraintViolationException.class, MethodArgumentNotValidException.class})
-    public String validationExceptionHandler(Exception e) {
+    //    @ExceptionHandler({ConstraintViolationException.class, MethodArgumentNotValidException.class})
+    //    public String validationExceptionHandler(Exception e) {
+    //        // 使用 Set 去重错误信息
+    //        Set<String> errorMessages = new LinkedHashSet<>();
+    //
+    //        // 处理 ConstraintViolationException
+    //        if (e instanceof ConstraintViolationException) {
+    //            ConstraintViolationException constraintViolationException = (ConstraintViolationException) e;
+    //            errorMessages.addAll(constraintViolationException.getConstraintViolations()
+    //                                                             .stream()
+    //                                                             .map(violation -> String.format(
+    //                                                                     "字段名：%s，报错信息：%s，默认值：%s",
+    //                                                                     violation.getPropertyPath()
+    //                                                                              .toString(), violation.getMessage(),
+    //                                                                     violation.getInvalidValue() != null
+    //                                                                     ? violation.getInvalidValue() : "null"))
+    //                                                             .collect(Collectors.toSet()));
+    //        }
+    //
+    //        // 处理 MethodArgumentNotValidException
+    //        if (e instanceof MethodArgumentNotValidException) {
+    //            MethodArgumentNotValidException methodArgumentNotValidException = (MethodArgumentNotValidException) e;
+    //            errorMessages.addAll(methodArgumentNotValidException.getBindingResult()
+    //                                                                .getFieldErrors()
+    //                                                                .stream()
+    //                                                                .map(error -> String.format(
+    //                                                                        "字段名：%s，报错信息：%s，默认值：%s", error.getField(),
+    //                                                                        error.getDefaultMessage(),
+    //                                                                        error.getRejectedValue() != null
+    //                                                                        ? error.getRejectedValue() : "null"))
+    //                                                                .collect(Collectors.toSet()));
+    //        }
+    //
+    //        return String.join("; ", errorMessages);
+    //    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public String constraintViolationExceptionHandler(ConstraintViolationException constraintViolationException) {
         // 使用 Set 去重错误信息
-        Set<String> errorMessages = new LinkedHashSet<>();
+        Set<String> errorMessages = new LinkedHashSet<>(constraintViolationException.getConstraintViolations()
+                                                                                    .stream()
+                                                                                    .map(violation -> String.format(
+                                                                                            "字段名：%s，报错信息：%s，默认值：%s",
+                                                                                            violation.getPropertyPath()
+                                                                                                     .toString(),
+                                                                                            violation.getMessage(),
+                                                                                            violation.getInvalidValue()
+                                                                                                    != null
+                                                                                            ? violation.getInvalidValue()
+                                                                                            : "null"))
+                                                                                    .collect(Collectors.toSet()));
 
-        // 处理 ConstraintViolationException
-        if (e instanceof ConstraintViolationException) {
-            ConstraintViolationException constraintViolationException = (ConstraintViolationException) e;
-            errorMessages.addAll(constraintViolationException.getConstraintViolations()
-                                                             .stream()
-                                                             .map(violation -> String.format(
-                                                                     "字段名：%s，报错信息：%s，默认值：%s",
-                                                                     violation.getPropertyPath()
-                                                                              .toString(), violation.getMessage(),
-                                                                     violation.getInvalidValue() != null
-                                                                     ? violation.getInvalidValue() : "null"))
-                                                             .collect(Collectors.toSet()));
-        }
+        return String.join("; ", errorMessages);
+    }
 
-        // 处理 MethodArgumentNotValidException
-        if (e instanceof MethodArgumentNotValidException) {
-            MethodArgumentNotValidException methodArgumentNotValidException = (MethodArgumentNotValidException) e;
-            errorMessages.addAll(methodArgumentNotValidException.getBindingResult()
-                                                                .getFieldErrors()
-                                                                .stream()
-                                                                .map(error -> String.format(
-                                                                        "字段名：%s，报错信息：%s，默认值：%s", error.getField(),
-                                                                        error.getDefaultMessage(),
-                                                                        error.getRejectedValue() != null
-                                                                        ? error.getRejectedValue() : "null"))
-                                                                .collect(Collectors.toSet()));
-        }
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public String methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException) {
+        // 使用 Set 去重错误信息
+        Set<String> errorMessages = new LinkedHashSet<>(methodArgumentNotValidException.getBindingResult()
+                                                                                       .getFieldErrors()
+                                                                                       .stream()
+                                                                                       .map(error -> String.format(
+                                                                                               "字段名：%s，报错信息：%s，默认值：%s",
+                                                                                               error.getField(),
+                                                                                               error.getDefaultMessage(),
+                                                                                               error.getRejectedValue()
+                                                                                                       != null
+                                                                                               ? error.getRejectedValue()
+                                                                                               : "null"))
+                                                                                       .collect(Collectors.toSet()));
 
         return String.join("; ", errorMessages);
     }
