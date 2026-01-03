@@ -53,18 +53,15 @@ public class AdviceConfig {
     @ExceptionHandler(ConstraintViolationException.class)
     public String constraintViolationExceptionHandler(ConstraintViolationException constraintViolationException) {
         // 使用 Set 去重错误信息
-        Set<String> errorMessages = new LinkedHashSet<>(constraintViolationException.getConstraintViolations()
-                                                                                    .stream()
-                                                                                    .map(violation -> String.format(
-                                                                                            "字段名：%s，报错信息：%s，默认值：%s",
-                                                                                            violation.getPropertyPath()
-                                                                                                     .toString(),
-                                                                                            violation.getMessage(),
-                                                                                            violation.getInvalidValue()
-                                                                                                    != null
-                                                                                            ? violation.getInvalidValue()
-                                                                                            : "null"))
-                                                                                    .collect(Collectors.toSet()));
+        Set<String> errorMessages = constraintViolationException.getConstraintViolations()
+                                                                .stream()
+                                                                .map(violation -> String.format(
+                                                                        "字段名：%s，报错信息：%s，默认值：%s",
+                                                                        violation.getPropertyPath()
+                                                                                 .toString(), violation.getMessage(),
+                                                                        violation.getInvalidValue() != null
+                                                                        ? violation.getInvalidValue() : "null"))
+                                                                .collect(Collectors.toCollection(LinkedHashSet::new));
 
         return String.join("; ", errorMessages);
     }
@@ -72,18 +69,15 @@ public class AdviceConfig {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException methodArgumentNotValidException) {
         // 使用 Set 去重错误信息
-        Set<String> errorMessages = new LinkedHashSet<>(methodArgumentNotValidException.getBindingResult()
-                                                                                       .getFieldErrors()
-                                                                                       .stream()
-                                                                                       .map(error -> String.format(
-                                                                                               "字段名：%s，报错信息：%s，默认值：%s",
-                                                                                               error.getField(),
-                                                                                               error.getDefaultMessage(),
-                                                                                               error.getRejectedValue()
-                                                                                                       != null
-                                                                                               ? error.getRejectedValue()
-                                                                                               : "null"))
-                                                                                       .collect(Collectors.toSet()));
+        Set<String> errorMessages = methodArgumentNotValidException.getBindingResult()
+                                                                   .getFieldErrors()
+                                                                   .stream()
+                                                                   .map(error -> String.format(
+                                                                           "字段名：%s，报错信息：%s，默认值：%s",
+                                                                           error.getField(), error.getDefaultMessage(),
+                                                                           error.getRejectedValue() != null
+                                                                           ? error.getRejectedValue() : "null"))
+                                                                   .collect(Collectors.toCollection(LinkedHashSet::new));
 
         return String.join("; ", errorMessages);
     }
