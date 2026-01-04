@@ -6,7 +6,8 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-NAMESPACE="$1"  # 使用脚本的第一个参数作为 namespace
+# 使用脚本的第一个参数作为 namespace
+NAMESPACE="$1"
 
 # 获取指定 namespace 下的所有 Deployments
 deployments=$(kubectl get deployments -n "$NAMESPACE" -o jsonpath='{.items[*].metadata.name}')
