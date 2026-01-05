@@ -14,6 +14,13 @@ import java.util.LinkedList;
  */
 public class CycleMethodUseCase {
 
+    /*
+     * 结论：
+     * 1. 列表的循环速度，index 循环【优于】迭代器循环【优于】增强型循环
+     * 2. 链表的循环速度，迭代器循环【优于】增强型循环【优于】index 循环
+     * 3. 链表的 index 循环速度非常糟糕
+     * 4. 统一结论为，建议使用迭代器进行循环遍历，不管速度和数据安全性都比较高
+     */
     public static void main(String[] args) {
         int listTestElementNum = 100000000;
         int linkListTestElementNum = 100000;
@@ -73,13 +80,5 @@ public class CycleMethodUseCase {
             Integer temp = integerIterator2.next();
         }
         System.out.println("linklist 3 iterator time:" + (System.currentTimeMillis() - start));
-
-        /*
-        结论：
-        1. 列表的循环速度，index 循环【优于】迭代器循环【优于】增强型循环
-        2. 链表的循环速度，迭代器循环【优于】增强型循环【优于】index 循环
-        3. 链表的 index 循环速度非常糟糕
-        4. 统一结论为，建议使用迭代器进行循环遍历，不管速度和数据安全性都比较高
-         */
     }
 }
