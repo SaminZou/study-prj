@@ -25,4 +25,7 @@ services:
       - '3306:3306'
     volumes:
       - '/mnt/data/mysql/data:/var/lib/mysql'
+      # 修改时区
+      - '/etc/localtime:/etc/localtime'
+      - '/etc/timezone:/etc/timezone'
       #- '/mnt/data/mysql/conf.d:/etc/mysql/conf.d'
