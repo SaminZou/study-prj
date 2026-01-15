@@ -1,5 +1,3 @@
-version: "3.3"
-
 services:
   web:
     container_name: web
@@ -10,6 +8,14 @@ services:
       options:
         max-size: "500m"
         max-file: 2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
       - $PWD/html:/usr/share/nginx/html
       - $PWD/conf.d:/etc/nginx/conf.d
