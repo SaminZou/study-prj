@@ -23,3 +23,7 @@ $ docker-compose up -d
 $ sudo PWD=$PWD docker-compose up -d
 
 3. 更改宿主机中的 html 文件夹可以镜像静态资源更新操作
+
+# V3
+
+旨在编写一份生产环境可用的配置文件
