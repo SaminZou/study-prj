@@ -25,7 +25,8 @@ public class ArrayStreamUseCase {
 
         // 方法2: Stream.of() - 将整个数组作为一个元素或解包
         System.out.println("\n=== 方法2: Stream.of() ===");
-        Stream<String> stream2 = Stream.of(strs);  // 解包数组为多个元素
+        // 解包数组为多个元素
+        Stream<String> stream2 = Stream.of(strs);
         stream2.forEach(System.out::println);
 
         // 数组合并示例：Stream.concat
