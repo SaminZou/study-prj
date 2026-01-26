@@ -6,6 +6,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
 
 /**
  * 客户端
@@ -21,29 +23,72 @@ import java.net.Socket;
  */
 public class ChatClientSocketUseCase {
 
-    public static void main(String[] args) throws Exception {
-        ChatClientSocketUseCase.clientRun();
+    private static final String SERVER_HOST = "127.0.0.1";
+    private static final int SERVER_PORT = 8081;
+    private static final int SOCKET_TIMEOUT = 30000; // 30 seconds
+    private static final String STOP_COMMAND = "stop";
+
+    public static void main(String[] args) {
+        try {
+            clientRun();
+        } catch (Exception e) {
+            System.err.println("客户端运行出错: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     /**
      * 简单双工聊天，开启后客户端先发送信息
      */
     public static void clientRun() throws IOException {
-        Socket s = new Socket("127.0.0.1", 8081);
-        DataInputStream din = new DataInputStream(s.getInputStream());
-        DataOutputStream dout = new DataOutputStream(s.getOutputStream());
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try (Socket socket = new Socket(SERVER_HOST, SERVER_PORT);
+             DataInputStream din = new DataInputStream(socket.getInputStream());
+             DataOutputStream dout = new DataOutputStream(socket.getOutputStream());
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            
+            socket.setSoTimeout(SOCKET_TIMEOUT);
+            System.out.println("已连接到服务器 " + SERVER_HOST + ":" + SERVER_PORT);
+            System.out.println("输入消息开始聊天，输入 '" + STOP_COMMAND + "' 结束对话");
 
-        String str = "", str2;
-        while (!"stop".equals(str)) {
-            str = br.readLine();
-            dout.writeUTF(str);
-            dout.flush();
-            str2 = din.readUTF();
-            System.out.println("Server says: " + str2);
+            String userInput;
+            String serverResponse;
+
+            while (true) {
+                System.out.print("Client: ");
+                userInput = br.readLine();
+
+                if (userInput == null || userInput.trim().isEmpty()) {
+                    System.out.println("输入不能为空，请重新输入");
+                    continue;
+                }
+
+                if (STOP_COMMAND.equalsIgnoreCase(userInput.trim())) {
+                    dout.writeUTF(userInput);
+                    dout.flush();
+                    System.out.println("正在结束对话...");
+                    break;
+                }
+
+                try {
+                    dout.writeUTF(userInput);
+                    dout.flush();
+                    
+                    serverResponse = din.readUTF();
+                    System.out.println("Server says: " + serverResponse);
+                } catch (SocketTimeoutException e) {
+                    System.err.println("等待服务器响应超时");
+                    break;
+                } catch (IOException e) {
+                    System.err.println("与服务器通信时出错: " + e.getMessage());
+                    break;
+                }
+            }
+        } catch (ConnectException e) {
+            System.err.println("无法连接到服务器 " + SERVER_HOST + ":" + SERVER_PORT);
+            System.err.println("请确保服务器已启动并正在监听该端口");
+        } catch (IOException e) {
+            System.err.println("客户端连接错误: " + e.getMessage());
+            throw e;
         }
-
-        dout.close();
-        s.close();
     }
 }
