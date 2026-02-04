@@ -29,6 +29,11 @@ public class RandomFunction {
         demonstrateRandomWithSeed();
         demonstrateMathRandom();
         demonstrateThreadLocalRandom();
+        demonstrateRandomRange();
+        demonstrateRandomBoolean();
+        demonstrateRandomFloat();
+        demonstrateRandomChar();
+        demonstrateRandomString();
     }
 
     /**
@@ -52,7 +57,7 @@ public class RandomFunction {
         System.out.println("=== Random 类有参构造（固定种子，伪随机） ===");
         Random random = new Random(SEED_VALUE);
         for (int i = 0; i < RANDOM_COUNT; i++) {
-            System.out.printf("随机数 [%d]: %d", i, random.nextInt(RANDOM_BOUND));
+            System.out.printf("随机数 [%d]: %d%n", i, random.nextInt(RANDOM_BOUND));
         }
     }
 
@@ -64,7 +69,7 @@ public class RandomFunction {
         System.out.println("=== Math.random() 方法 ===");
         for (int i = 0; i < MATH_RANDOM_COUNT; i++) {
             int randomValue = (int) (Math.random() * MATH_RANDOM_MULTIPLIER);
-            System.out.printf("随机数 [%d]: %d", i, randomValue);
+            System.out.printf("随机数 [%d]: %d%n", i, randomValue);
         }
     }
 
@@ -78,7 +83,7 @@ public class RandomFunction {
         for (int i = 0; i < RANDOM_COUNT; i++) {
             int randomValue = ThreadLocalRandom.current()
                                                .nextInt(RANDOM_BOUND);
-            System.out.printf("随机数 [%d]: %d", i, randomValue);
+            System.out.printf("随机数 [%d]: %d%n", i, randomValue);
         }
     }
 
@@ -92,4 +97,103 @@ public class RandomFunction {
      * (char)('a' + Math.random() * ('z' - 'a' + 1)) 随机生成 a~z 之间的字符
      * (char)(cha1 + Math.random() * (cha2 - cha1 + 1)) 随机生成 cha1~cha2 的字符
      */
+
+    /**
+     * 演示生成指定范围的随机整数 [min, max]
+     */
+    private static void demonstrateRandomRange() {
+        System.out.println("=== 指定范围随机数 [min, max] ===");
+        Random random = new Random();
+        int min = 10;
+        int max = 20;
+        for (int i = 0; i < 5; i++) {
+            int randomValue = random.nextInt(max - min + 1) + min;
+            System.out.printf("范围 [%d-%d] 随机数: %d%n", min, max, randomValue);
+        }
+    }
+
+    /**
+     * 演示生成随机布尔值
+     */
+    private static void demonstrateRandomBoolean() {
+        System.out.println("=== 随机布尔值 ===");
+        Random random = new Random();
+        int trueCount = 0;
+        int falseCount = 0;
+        for (int i = 0; i < 10; i++) {
+            boolean randomBool = random.nextBoolean();
+            if (randomBool) {
+                trueCount++;
+            } else {
+                falseCount++;
+            }
+            System.out.printf("随机布尔值 [%d]: %b%n", i, randomBool);
+        }
+        System.out.printf("统计: true=%d, false=%d%n", trueCount, falseCount);
+    }
+
+    /**
+     * 演示生成随机浮点数
+     */
+    private static void demonstrateRandomFloat() {
+        System.out.println("=== 随机浮点数 ===");
+        Random random = new Random();
+
+        // [0.0, 1.0) 之间的浮点数
+        System.out.printf("[0.0, 1.0): %.4f%n", random.nextFloat());
+
+        // [0.0, 1.0) 之间的双精度浮点数
+        System.out.printf("[0.0, 1.0) double: %.6f%n", random.nextDouble());
+
+        // 高斯分布（正态分布）随机数，均值为 0，标准差为 1
+        System.out.printf("高斯分布: %.4f%n", random.nextGaussian());
+    }
+
+    /**
+     * 演示生成随机字符
+     */
+    private static void demonstrateRandomChar() {
+        System.out.println("=== 随机字符 ===");
+        Random random = new Random();
+
+        // 小写字母 a-z
+        char lowercase = (char) (random.nextInt(26) + 'a');
+        System.out.printf("小写字母: %c%n", lowercase);
+
+        // 大写字母 A-Z
+        char uppercase = (char) (random.nextInt(26) + 'A');
+        System.out.printf("大写字母: %c%n", uppercase);
+
+        // 数字 0-9
+        char digit = (char) (random.nextInt(10) + '0');
+        System.out.printf("数字字符: %c%n", digit);
+
+        // 任意可打印 ASCII 字符 (32-126)
+        char ascii = (char) (random.nextInt(95) + 32);
+        System.out.printf("ASCII 字符: %c%n", ascii);
+    }
+
+    /**
+     * 演示生成随机字符串（如随机密码）
+     */
+    private static void demonstrateRandomString() {
+        System.out.println("=== 随机字符串 ===");
+        Random random = new Random();
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
+
+        // 生成 8 位随机密码
+        StringBuilder password = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            password.append(characters.charAt(random.nextInt(characters.length())));
+        }
+        System.out.printf("8 位随机密码: %s%n", password.toString());
+
+        // 生成 16 位随机字符串（十六进制）
+        StringBuilder hexString = new StringBuilder();
+        String hexChars = "0123456789abcdef";
+        for (int i = 0; i < 16; i++) {
+            hexString.append(hexChars.charAt(random.nextInt(hexChars.length())));
+        }
+        System.out.printf("16 位十六进制字符串: %s%n", hexString.toString());
+    }
 }
