@@ -36,44 +36,42 @@ public class ArrayStreamUseCase {
 
         // 方式1: 使用 Stream.concat
         String[] merged = Stream.concat(Arrays.stream(arr1), Arrays.stream(arr2))
-                .toArray(String[]::new);
+                                .toArray(String[]::new);
         System.out.println("合并后: " + Arrays.toString(merged));
 
         // 方式2: 使用 Stream.of 扁平化合并
         String[] merged2 = Stream.of(arr1, arr2)
-                .flatMap(Arrays::stream)
-                .toArray(String[]::new);
+                                 .flatMap(Arrays::stream)
+                                 .toArray(String[]::new);
         System.out.println("合并后(扁平化): " + Arrays.toString(merged2));
 
         // 追加元素示例
         System.out.println("\n=== 追加元素 ===");
         String[] baseArray = new String[]{"a", "b"};
-        String[] withExtra = Stream.concat(
-                Arrays.stream(baseArray),
-                Stream.of("c", "d", "e")
-        ).toArray(String[]::new);
+        String[] withExtra = Stream.concat(Arrays.stream(baseArray), Stream.of("c", "d", "e"))
+                                   .toArray(String[]::new);
         System.out.println("原数组: " + Arrays.toString(baseArray));
         System.out.println("追加后: " + Arrays.toString(withExtra));
 
         // 数组过滤
         System.out.println("\n=== 数组过滤 ===");
         String[] filtered = Arrays.stream(strs)
-                .filter(s -> !s.equals("c"))
-                .toArray(String[]::new);
+                                  .filter(s -> !s.equals("c"))
+                                  .toArray(String[]::new);
         System.out.println("过滤后(不含c): " + Arrays.toString(filtered));
 
         // 数组映射转换
         System.out.println("\n=== 数组映射转换 ===");
         String[] upperCase = Arrays.stream(strs)
-                .map(String::toUpperCase)
-                .toArray(String[]::new);
+                                   .map(String::toUpperCase)
+                                   .toArray(String[]::new);
         System.out.println("大写转换: " + Arrays.toString(upperCase));
 
         // Stream 转数组
         System.out.println("\n=== Stream 转数组 ===");
         List<String> list = Arrays.asList("x", "y", "z");
         String[] fromList = list.stream()
-                .toArray(String[]::new);
+                                .toArray(String[]::new);
         System.out.println("List转数组: " + Arrays.toString(fromList));
     }
 }
