@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 反馈引用传递的问题
+ * 引用传递的问题
  */
 public class StreamBadTaste {
 
@@ -27,10 +27,8 @@ public class StreamBadTaste {
         }));
 
         // 预期是： t1: 1 , t2: 1 , t3: 1
-        // 实际是： t1:3 , t2: 3 , t3: 1
+        // 实际是： t1:3 , t2: 3 , t3: 1 （map2 操作导致 map1 数据异常，引用传递导致的问题）
         System.out.println(map1);
-        // t1:3 , t2: 3 , t3: 1
-        System.out.println(map2);
     }
 
     static class Foo {
