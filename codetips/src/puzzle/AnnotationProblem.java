@@ -7,16 +7,33 @@ package puzzle;
  *
  * <p>编译器会解析 Unicode 字符，可能导致代码会在编译时报错
  *
- * <p>以下内容放在 main 方法里面会编译报错 // \u000d 运行编译报错
+ * <p>以下内容放在main方法里面会编译报错 // \u000d 运行编译报错
  *
  * @author samin
  * @date 2021-01-10
+ * @version 1.1
  */
 public class AnnotationProblem {
 
     public static void main(String[] args) {
-        // 编写注释的时候，尽量避免 Unicode字符，以免编译出错
+        // Demonstrate Unicode escape characters behavior in comments
+        demonstrateUnicodeInComments();
+    }
 
-        // PS："\u03C0"字符可以编译为圆周率派字符
+    /**
+     * Demonstrate Unicode escape characters behavior during compilation
+     */
+    private static void demonstrateUnicodeInComments() {
+        // Warning: The following comment contains Unicode escape characters
+        // During compilation, \\u000d is parsed as newline, making code execute
+
+        // Safe comment example - using regular characters
+        System.out.println("Normal executing code");
+
+        // Unicode character example: pi symbol
+        System.out.println("Unicode character example: \u03C0 = " + Math.PI);
+
+        // Best practice reminder
+        System.out.println("Tip: Avoid Unicode escape characters in comments");
     }
 }
