@@ -3,69 +3,115 @@ package behavioural.command.invoker;
 import behavioural.command.command.Command;
 
 /**
- * Invoker
+ * Invoker - Command Pattern Role
  * <p>
- * Description: Invoker
+ * The Invoker asks the command to carry out the request.
+ * It knows how to execute a command but knows nothing about the concrete command.
+ * <p>
+ * Educational Note: The Invoker is decoupled from the Receiver -
+ * it only works with Command objects, making the system more flexible.
  * <p>
  * Created By: Samin
  * <p>
  * Created Date: 2020-09-19
+ * <p>
+ * Optimized For Educational Clarity: 2025-03-10
  */
 public class ControllerInvoker {
 
     /**
-     * 当前频道
+     * Current channel - tracks the TV's current channel
      */
-    public int nowChannel = 0;
-    /**
-     * 前一个频道，用于执行返回操作
-     */
-    public int priorChannel;
-    private final Command openTVCommand;
-    private final Command closeTVCommand;
-    private final Command changeChannelCommand;
+    private int currentChannel = 0;
 
-    public ControllerInvoker(Command openTvCommand, Command closeTvCommand, Command changeChannelCommand) {
-        this.openTVCommand = openTvCommand;
-        this.closeTVCommand = closeTvCommand;
+    /**
+     * Previous channel - used for undo functionality
+     */
+    private int previousChannel = 0;
+
+    // Commands held by the invoker
+    private final Command openTvCommand;
+    private final Command closeTvCommand;
+    private final behavioural.command.command.ChangeChannelCommand changeChannelCommand;
+
+    /**
+     * Constructor - initializes the invoker with commands.
+     * @param openTvCommand Command to open the TV
+     * @param closeTvCommand Command to close the TV
+     * @param changeChannelCommand Command to change channels
+     */
+    public ControllerInvoker(Command openTvCommand, Command closeTvCommand, 
+                             behavioural.command.command.ChangeChannelCommand changeChannelCommand) {
+        this.openTvCommand = openTvCommand;
+        this.closeTvCommand = closeTvCommand;
         this.changeChannelCommand = changeChannelCommand;
     }
 
     /**
-     * 打开电视剧
+     * Opens the television.
+     * Educational Note: The invoker simply calls execute() on the command object.
+     * It doesn't need to know how the TV is opened.
      */
     public void open() {
-        openTVCommand.execute(0);
+        openTvCommand.execute();
     }
 
     /**
-     * 关闭电视机
+     * Closes the television.
+     * Educational Note: Same command interface used for different operations.
      */
     public void close() {
-        closeTVCommand.execute(0);
+        closeTvCommand.execute();
     }
 
     /**
-     * 换频道：只在当前频道递增
+     * Changes to the next channel.
+     * Educational Note: This demonstrates state management in the invoker.
+     * The invoker tracks channel state and updates the command before execution.
      */
     public void change() {
-        // 换频道前记录当前频道
-        priorChannel = nowChannel;
-        // 频道+1
-        nowChannel++;
-        changeChannelCommand.execute(nowChannel);
+        // Save current channel for potential undo
+        previousChannel = currentChannel;
+        
+        // Move to next channel
+        currentChannel++;
+        
+        // Update and execute the change channel command
+        changeChannelCommand.setChannel(currentChannel);
+        changeChannelCommand.execute();
     }
 
     /**
-     * 频道返回
+     * Undoes the last channel change.
+     * Educational Note: This shows how the Command Pattern supports undo functionality.
+     * By keeping track of state, we can revert to previous states.
      */
     public void channelUndo() {
-        // 将以前的频道传入
-        changeChannelCommand.execute(priorChannel);
-        // 当前频道与前一个频道进行互换
-        int tempChannel;
-        tempChannel = priorChannel;
-        priorChannel = nowChannel;
-        nowChannel = tempChannel;
+        // Swap current and previous channels
+        int temp = currentChannel;
+        currentChannel = previousChannel;
+        previousChannel = temp;
+        
+        // Execute with the previous channel
+        changeChannelCommand.setChannel(currentChannel);
+        changeChannelCommand.execute();
+        
+        System.out.println("Undo performed. Now on channel: " + currentChannel);
+    }
+
+    /**
+     * Gets the current channel.
+     * @return The current channel number
+     */
+    public int getCurrentChannel() {
+        return currentChannel;
+    }
+
+    /**
+     * Gets the previous channel.
+     * @return The previous channel number
+     */
+    public int getPreviousChannel() {
+        return previousChannel;
     }
 }
