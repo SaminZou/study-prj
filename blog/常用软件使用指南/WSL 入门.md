@@ -20,106 +20,6 @@ https://docs.microsoft.com/zh-cn/windows/wsl/install-win10
 
 现在也已经被微软商店收录了，直接下载使用，直接会把安装好的 Linux 发行版集成进去。
 
-### 配置结构
-
-![](https://github.com/SaminZou/pic-repo/raw/master/BlogPicture/terminal%E9%85%8D%E7%BD%AE.png)
-
-### 优化配置
-
-```json
-{
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-  "copyOnSelect": false,
-  "copyFormatting": false,
-  "profiles": {
-    "defaults": {
-      "launchMode": "fullscreen"
-    },
-    "list": [
-      {
-        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-        "hidden": false,
-        "name": "ubuntu-20.4",
-        "source": "Windows.Terminal.Wsl",
-        "closeOnExit": true,
-        "fontSize": 18,
-        // please attention here, the second part maybe Ubuntu/Ubuntu18/Ubuntu-20.4, or other ... 
-        "startingDirectory": "\\\\wsl$\\Ubuntu\\home\\samin",
-        "colorScheme": "self-made-wsl2",
-        "fontFace": "DejaVu Sans Mono for Powerline"
-      },
-      {
-        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-        "name": "Windows PowerShell",
-        "commandline": "powershell.exe",
-        "hidden": false
-      },
-      {
-        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-        "name": "命令提示符",
-        "commandline": "cmd.exe",
-        "hidden": false
-      },
-      {
-        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-        "hidden": false,
-        "name": "Azure Cloud Shell",
-        "source": "Windows.Terminal.Azure"
-      }
-    ]
-  },
-  "schemes": [
-    {
-      "name": "self-made-wsl2",
-      "black": "#1e1e1e",
-      "red": "#be0f17",
-      "green": "#868715",
-      "yellow": "#cc881a",
-      "blue": "#377375",
-      "purple": "#a04b73",
-      "cyan": "#578e57",
-      "white": "#978771",
-      "brightBlack": "#7f7061",
-      "brightRed": "#f73028",
-      "brightGreen": "#aab01e",
-      "brightYellow": "#f7b125",
-      "brightBlue": "#719586",
-      "brightPurple": "#c77089",
-      "brightCyan": "#7db669",
-      "brightWhite": "#e6d4a3",
-      "background": "#1e1e1e",
-      "foreground": "#e6d4a3"
-    }
-  ],
-  "keybindings": [
-    {
-      "command": {
-        "action": "copy",
-        "singleLine": false
-      },
-      "keys": "ctrl+c"
-    },
-    {
-      "command": "paste",
-      "keys": "ctrl+v"
-    },
-    {
-      "command": "find",
-      "keys": "ctrl+shift+f"
-    },
-    {
-      "command": {
-        "action": "splitPane",
-        "split": "auto",
-        "splitMode": "duplicate"
-      },
-      "keys": "alt+shift+d"
-    }
-  ]
-}
-```
-
 ## vim
 
 \# 修改 vim ，添加一些通用配置
@@ -132,27 +32,7 @@ $ source ~/.vimrc
 
 ## ZSH
 
-~~### 字体优化( Windows 环境)~~
-
-~~\# 安装字体集合，`注意这几行是在 powershell 里面执行`~~
-
-~~$ git clone https://github.com/powerline/fonts.git~~
-
-~~$ cd fonts~~
-
-~~\# 打开可以执行 `.ps1` 的权限，选择 `y`~~
-
-~~$ set-executionpolicy remotesigned~~
-
-~~$ .\install.ps1~~
-
 ### 安装 zsh + oh-my-zsh
-
-> Linux 环境安装 zsh
-> 
-> $ sudo apt update
->
-> $ sudo apt install git zsh -y
 
 > Windows 环境安装 zsh
 >

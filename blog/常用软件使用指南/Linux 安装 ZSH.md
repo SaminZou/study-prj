@@ -1,7 +1,8 @@
 ```yaml
-title: ZSH 入门
+title: Linux 安装 ZSH
 author: samin
-date: 2021-10-01
+create date: 2021-10-01
+last update date: 2026-03-14
 ```
 
 # 安装 zsh + oh-my-zsh
