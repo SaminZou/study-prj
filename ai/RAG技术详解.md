@@ -1,5 +1,5 @@
 ```yaml
-title: RAG 调优
+title: RAG技术详解
 author: samin
 date: 2025-09-02
 ```
