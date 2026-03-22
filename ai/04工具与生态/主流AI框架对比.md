@@ -1,5 +1,5 @@
 ```yaml
-title: AI 训练入门
+title: 主流AI框架对比
 author: samin
 date: 2026-03-13
 ```

@@ -1,5 +1,5 @@
 ```yaml
-title: Langchain 入门
+title: LangChain 框架
 author: samin
 date: 2025-09-24
 ```

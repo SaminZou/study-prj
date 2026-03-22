@@ -1,5 +1,5 @@
 ```yaml
-title: MCP 协议
+title: MCP 协议详解
 author: samin
 date: 2025-09-19
 ```
