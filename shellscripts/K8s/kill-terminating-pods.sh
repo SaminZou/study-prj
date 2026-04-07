@@ -6,7 +6,8 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-NAMESPACE="$1"  # 使用脚本的第一个参数作为 namespace
+# 使用脚本的第一个参数作为 namespace
+NAMESPACE="$1"
 
 # 获取指定 namespace 下的所有 pods
 pods=$(kubectl get pods -n "$NAMESPACE" | grep Terminating | awk '{print $1}')

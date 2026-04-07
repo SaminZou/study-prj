@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "=== Checking for Terminating Pods ==="
 pods=$(kubectl get pods -A --no-headers | awk '$4=="Terminating"{print $1":"$2}')
 if [ -z "$pods" ]; then
