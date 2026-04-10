@@ -27,11 +27,11 @@ public class TaskConfig {
         dto.setUuid("DEVICE001");
         dto.setParams("");
 
-        send(dto);
+        String topic = "/sys/type001/device001/thing/event/beacon/post";
+        send(topic, dto);
     }
 
-    private void send(IoTDTO dto) throws JsonProcessingException {
-        String topic = "/sys/type001/device001/thing/event/beacon/post";
+    private void send(String topic, IoTDTO dto) throws JsonProcessingException {
         mqttGateway.send(topic, objectMapper.writeValueAsString(dto));
         log.debug("定时发送 MQTT 消息，topic={}, payload={}", topic, dto);
     }
