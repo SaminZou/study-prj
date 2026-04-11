@@ -8,10 +8,9 @@ import com.samin.mybatis.model.dto.Result;
 import com.samin.mybatis.po.UserPO;
 import com.samin.mybatis.service.UserService;
 import java.util.List;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import javax.validation.Valid;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +28,7 @@ public class UserController {
 
     private final UserService userService;
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public Result<Void> delete(@PathVariable Integer id) {
         userService.delete(id);
         return Result.success();
@@ -40,34 +39,33 @@ public class UserController {
         return Result.success(userService.insert(req));
     }
 
-    @PutMapping
+    @PostMapping
     public Result<UserPO> update(@RequestBody @Valid UserVO req) {
         return Result.success(userService.update(req));
     }
 
-    @GetMapping("/count")
+    @PostMapping("/count")
     public Result<Integer> count(@RequestBody UserQueryVO req) {
         return Result.success(userService.count(req));
     }
 
-    @GetMapping("/page/lambda")
+    @PostMapping("/page/lambda")
     public Result<Page<UserPO>> pageByLambda(@RequestBody @Valid PageReq req) {
         return Result.success(userService.pageByLambda(req));
     }
 
-    @GetMapping("/page/sql")
+    @PostMapping("/page/sql")
     public Result<Page<UserVO>> pageBySql(@RequestBody @Valid PageReq req) {
         return Result.success(userService.pageBySql(req));
     }
 
-    @GetMapping("/page")
+    @PostMapping("/page")
     public Result<Page<UserPO>> page(@RequestBody @Valid PageReq req) {
         return Result.success(userService.page(req));
     }
 
-    
 
-    @GetMapping("/queryByName")
+    @PostMapping("/queryByName")
     public Result<List<UserVO>> queryByName(@RequestParam String name) {
         return Result.success(userService.queryByName(name));
     }
@@ -77,7 +75,6 @@ public class UserController {
         return Result.success(userService.names());
     }
 
-    
 
     @GetMapping("/direct")
     public Result<List<UserVO>> directList() {
