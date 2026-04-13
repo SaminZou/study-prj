@@ -4,6 +4,7 @@ package com.samin.mybatis.exception;
  * 业务异常类
  */
 public class BusinessException extends RuntimeException {
+
     private Integer code;
 
     public BusinessException(Integer code, String message) {
