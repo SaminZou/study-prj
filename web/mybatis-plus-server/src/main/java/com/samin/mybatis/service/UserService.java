@@ -65,7 +65,8 @@ public class UserService {
         }
         // Update fields using MapStruct
         UserPO updatedPO = userMapperStruct.toUserPO(req);
-        updatedPO.setId(po.getId()); // Preserve original ID
+        // Preserve original ID
+        updatedPO.setId(po.getId());
         userMapper.updateById(updatedPO);
         log.info("更新用户成功，用户ID：{}", updatedPO.getId());
         return updatedPO;
